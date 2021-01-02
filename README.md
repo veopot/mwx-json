@@ -1,5 +1,6 @@
 # mwx-json
 Парсеры для андроид приложения MangaWatcherX и инструкция к ним 
+
 https://github.com/veopot/mwx-json/wiki
 
 программа используют файлы json 
@@ -20,10 +21,17 @@ https://github.com/veopot/mwx-json/wiki
 --------------------------
 
 Полезные ссылки
+
 https://regex101.com удобный сервис чтоб проверить и протестироват регулярные выражения
+
 https://jsonlint.com сервис для проверки вашего json
+
 https://4pda.ru/forum/index.php?showtopic=192861 мы на 4пда
+
 https://vk.com/mangawatcher мы в вк
+
 --------------------------
+
 Багрепорты по Android MangaWatcherX принимаются либо на почту admin@mw.lomikxp.ru либо
+
 https://bitbucket.org/Lomik_XP/mangawatcherx/issues
