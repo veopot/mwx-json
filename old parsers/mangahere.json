@@ -1,0 +1,130 @@
+{
+	"id": 12288,
+	"version": 9, 
+	"time_invalidate": 0,
+	"title": "MangaHere",
+	"host": "http://www.mangahere.co/",
+	"public_link": "http://www.mangahere.co/directory/",
+	"folder": "mangahere",
+	"name" : ["mh", "mhere"],
+	"chapters_order": false,
+	"language": "en",
+    "catalog_link": "http://fant.my1.ru/mwparser/mangahere.p",
+	"self_link": "http://fant.my1.ru/mwparser/parsers/mangahere.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangahere.png",
+	"manga_list_complete": {
+
+		"iterator": "http://www.mangahere.co/mangalist/",
+
+		"add_manga": { 
+		    "start" : "<ul id=\"tag_#\"",
+			"end" : "<div class=\"mb20\"",
+			"next": "href=\"http://www.mangahere.co/manga/",
+			"link":  {"skip": "class=\"manga_info\"",  "token1": "href=\"", "token2": "\"" }, 
+			"uniq":  { "skip": "class=\"manga_info\"", "token1": "href=\"http://www.mangahere.co/manga/", "token2": "/\">" },
+			"title": { "skip": "class=\"manga_info\"", "token1": "\"><span></span>", "token2": "</a" }
+		}
+	},
+	"manga_complete": {
+	      "title": {
+                "skip": "<h1 class=\"title\"",
+                "token1": "span>",
+                "token2": "</h1"
+            },
+            "uniq": {
+               "skip": "<h1 class=\"title\"",
+                "token1": "span>",
+                "token2": "</h1"
+            },
+		"author":      { "after": "Author(s):", "token1":"\">", "token2": "</a>" },
+		"summary":     { "skip": "<p id=\"show\"", "token1": ">", "token2": "<a href"},
+		"status":      {
+		"complete": ">Completed</li>",
+		"licensed": "has been licensed, it is not available in MangaHere.",
+		"ongoing": ">Ongoing"
+		},
+		"read_dir":    { "right_to_left": "Manga</h1>", "left_to_right": "Manhwa</h1>" },
+		"rating" :     { "skip" : "id=\"current_rating\"", "token1" : ">(", "token2" : "votes" },
+		"cover":       { "after": "class=\"manga_detail\"", "token1": "src=\"", "token2": "\"" },
+		"add_genres":  { "after": "Genre(s):", "token1": ">", "token2": "</", "split": "," },
+		"add_chapter": {
+			"start": "class=\"detail_list\"", 
+			"end" : "class=\"tab_comment clearfix\"",
+			"next":  "href=\"http://www.mangahere.co/manga/", 
+			"link":  { "token1": "href=\"", "token2": "\""   }, 
+			"title": { "token1": ">",       "token2": "</a>" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "change_page(this)", 
+			"token1": "<option value=\"", 
+			"token2": "\"", 
+			"end": "</select>"
+		}
+	},
+	"page_complete": {
+		"image": { "after": "id=\"viewer\"", "token1": "<img src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ 
+						"title" : "The Breaker", 
+						"link" : "http://www.mangahere.co/manga/the_breaker/",
+						"uniq" : "the_breaker"
+					},
+					{ "title" : "Beelzebub",   "link" : "http://www.mangahere.co/manga/beelzebub/" }
+				],
+				"mangas_count" : ">13200"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			
+			"link" : "http://www.mangahere.co/manga/the_breaker/", 
+			"title" : "The Breaker", 
+			"assert" : {
+				"author" : "Jeon Geuk-jin",
+				"cover" : "@^http://\\w*.mhcdn.net/store/manga/\\d*/cover.jpg",
+				"summary" : "@(The new English teacher)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"rating" : ">=1247",
+				"genres_count" : ">=6",
+				"chapters_count" : ">=69",
+				"chapters" : [
+					{ "title" : "The Breaker 1",  "link" : "http://www.mangahere.co/manga/the_breaker/v01/c001/" },
+					{ 
+						"title" : "The Breaker 72", 
+						"link" : "http://www.mangahere.co/manga/the_breaker/v10/c072/", 
+						"folder" : "c072/"
+					}
+				]
+			}
+		},
+	
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.mangahere.co/manga/the_breaker/v10/c072/", 
+			"title" : "The Breaker 72", 
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://www.mangahere.co/manga/the_breaker/v10/c072/6.html" },
+					{ "link" : "http://www.mangahere.co/manga/the_breaker/v10/c072/34.html" }
+				],
+				"pages_count": "34"
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangahere.co/manga/the_breaker/v10/c072/34.html",
+			"assert" : {
+				"image" : "@^http://\\w*\\.mhcdn\\.net/store/manga/\\d*/[\\d*,\\-,\\.]*/compressed/[a-z,\\d*,\\.]*(jpg|png)"
+			}
+		}
+	]
+}

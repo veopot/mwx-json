@@ -1,0 +1,121 @@
+{
+	"id": 20992,
+	"version": 13, 
+	"time_invalidate": 0,
+	"title": "MangaTube",
+	"host": "https://manga-tube.me/",
+	"public_link": "https://manga-tube.me/series",
+	"folder": "manga-tube",
+	"name" : ["mt", "tube"],
+	"chapters_order": false,
+	"language": "de",
+	
+	"self_link": "http://fant.my1.ru/mwparser/parsers/manga-tube.json",
+	"catalog_link": "http://fant.my1.ru/mwparser/manga-tube.p",
+	"icon_link": "https://manga-tube.me/assets/img/favicon.ico",
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "https://manga-tube.me/series/?filter=popularity&page=",
+			"append_nums": { "from": 1, "to": 100 }
+		},
+
+		"add_manga": { 
+			"next": "<div class=\"series-header\">",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "50000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+	     "title": {
+                "after": "<h1 class=\"series-title\"",
+                "token1": ">",
+                "token2": "</"
+            },
+            "uniq": {
+                 "after": "<h1 class=\"series-title\"",
+                "token1": ">",
+                "token2": "</"
+            },
+		"add_genre": {
+                "after": "?genre=",
+                "token1": "\">",
+                "token2": "</"
+            },
+		"author":      { "after": "<b>Autor", "token1":"\">", "token2": "</" },
+		"summary":     { "after": "<meta property=\"og:description\"", "token1": "content=\"", "token2": "\"" },
+		"cover":       { "after": "<meta property=\"og:image\"", "token1": "content=\"", "token2": "\"", "replace": { "match": "thumb_", "text": "" } },
+		"status":      { "complete": "> abgeschlossen</", "ongoing": "> laufend</" },
+		
+		
+		"add_chapter": { 
+		    "start": "\">Kapitel</",
+			"next":  "<i class=\"glyphicon glyphicon-download-alt\"", 
+			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
+			"uniq": { "token1": "<b>","token2": "</b" },
+			"title": { "token1": "<b>","token2": "</b" }
+		}
+	},
+	"chapter_complete": {
+		"images": true,
+        "add_pages": { 
+            "start": "pages: [{",
+            "token1": "file_name\":\"",
+            "token2": "\",",
+            "end": "}],",
+             },
+			 "prefix": { "after": "img_path:", "token1": "'", "token2": "',"}
+			 
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Sayonara Piano Sonata",    "link" : "https://manga-tube.me/series/sayonara_piano_sonata",
+						"uniq" : "sayonara_piano_sonata" },
+					{ "title" : "Crepuscule", "link" : "https://manga-tube.me/series/crepuscule" }
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manga-tube.me/series/bleach", 
+			"title" : "Bleach", 
+			"assert" : {
+				"cover" : "https://a.mtcdn.org/c/max_4cd550b357ddbc6ae9291387b6ba002936337df1.jpg",
+				"summary" : "@^(Ichigo Kurosaki, ein)",
+				"author" : "Kubo, Tite",
+				"genres" : "@drama",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=55",
+				"chapters" : [
+					{ "title" : "Kapitel 520.5", 
+						"link" : "https://manga-tube.me/series/bleach/read/7533/1", 
+						"folder" : "Kapitel 520.5/" }
+				]
+			}
+		},
+		
+		{
+            "proc": "chapter_complete",
+            "title": "Kapitel 520.5",
+            "link": "https://manga-tube.me/series/bleach/read/7533/1",
+            "assert": {
+                "pages": [
+        {"image": "https://a.mtcdn.org/m/2-bleach/7533/page_001_57a39c2175780.png"},
+        {"image": "https://a.mtcdn.org/m/2-bleach/7533/page_002_57a39c21758e6.png"},
+        {"image": "https://a.mtcdn.org/m/2-bleach/7533/page_003_57a39c2175a1d.png"}
+    ]
+            }
+        }
+	]
+}

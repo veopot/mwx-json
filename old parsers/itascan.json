@@ -1,0 +1,125 @@
+{
+	"id": 16640,
+	"version": 6, 
+	"title" : "ItaScan",
+	"host" : "http://itascan.info/",
+	"public_link" : "http://itascan.info/directory/",
+	"language" : "it",
+	"folder" : "itascan",
+	"name" : "ita",
+	 
+	 "catalog_link":"http://fant.my1.ru/mwparser/itascan.p", 
+	 "self_link": "http://fant.my1.ru/mwparser/parsers/itascan.json",
+	 "icon_link": "http://itascan.info/images/favicon.ico",
+	
+
+	"chapters_order": false,
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://itascan.info/directory/?startWith=",
+			"append_array": ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+		},
+
+		"add_manga": { 
+			"start" : "list_result",
+			"end" : "<div class=\"row\">",
+			"next": " href=\"/manga",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": ">", "token2": "</" },
+			"uniq" : { "skip": "href=\"", "token1": "manga/", "token2": "/" }
+		}
+	},
+
+	"manga_complete": {
+	     "title": {
+                "after": "<h2 class=\"h2\">",
+                "token1": "class=\"h2\">",
+                "token2": "<a"
+            },
+            "uniq": {
+                "after": "<h2 class=\"h2\">",
+                "token1": "class=\"h2\">",
+                "token2": "<a"
+            },
+			
+		"author":      { "skip": ">Autore<", "token1":">", "token2": "</a>" },
+		"summary":     { "skip": "<div style=\"height:", "token1": ">", "token2": "<" },
+		"status":      { "complete": ">Concluso<", "ongoing": ">In Corso<" },
+		"read_dir1":   { "right_to_left": "href=\"/type/Манга\"", "left_to_right": "href=\"/type/Манхва\"" },
+		"cover":       { "skip": "<main", "token1": "src=\"", "token2": "\"" },
+		"add_genres":  { "after": ">Genere<", "token1": "\">", "token2": "</", "split" : "," },
+		"add_chapter": { 
+			"start" : "sopra20",
+			"end" : "\"row\"",
+			"next":  "spazio10", 
+			"link":  { "token1": "href=\"", "token2": "\""   }, 
+			"title": { "skip" : "href=\"", "token1": ">",  "token2": "<" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "name=\"task\"", 
+			"token1": "value=\"", 
+			"token2": "\"", 
+			"end": "</select>"
+		},
+		"prefix" : "http://itascan.info/"
+	},
+	"page_complete": {
+		"image": { "skip": "id=\"image\"", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Beelzebub",   "link" : "http://itascan.info/manga/Beelzebub/215/",
+						"uniq" : "Beelzebub" },
+					{ "title" : "The Breaker", "link" : "http://itascan.info/manga/The-Breaker/292/" }
+				],
+				"mangas_count" : ">1200"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://itascan.info/manga/The-Breaker/292/",
+			"title" : "The Breaker",
+			"assert" : {
+				"author" : "Jeon Keuk-jin",
+				"cover" : "http://itascan.info/summary/t/292.jpg",
+				"summary" : "@^(Il nuovo insegnante di inglese)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=72",
+				"chapters" : [
+					{ "title" : "The Breaker: Ch.72", "link" : "http://itascan.info/view/The-Breaker/72/10729/",
+						"folder" : "10729/" },
+					{ "title" : "The Breaker: For My Buddy Ch.1", "link" : "http://itascan.info/view/The-Breaker/1/7201/" }
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://itascan.info/view/Bleach/596/19004/",
+			"title" : "Bleach: Rubb-Dolls 3 Ch.596", 
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://itascan.info/view/Bleach/596/19004/p6/" },
+					{ "link" : "http://itascan.info/view/Bleach/596/19004/p18/" },
+					{ "link" : "http://itascan.info/view/Bleach/596/19004/p23/" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://itascan.info/view/Bleach/596/19004/p18/",
+			"assert" : {
+				"image" : "http://images.itascan.info/7/19004/resize_19.jpg"
+			}
+		}
+	]
+}

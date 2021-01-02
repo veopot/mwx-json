@@ -1,0 +1,164 @@
+{
+	"version": 10,
+	"title": "ReadMangaToday",
+	"host": "http://www.readmanga.today/",
+	"language": "en",
+	"public_link": "http://www.readmanga.today/manga-list/",
+	"id": 65702,
+	"name": "u65702",
+	"folder": "u65702",
+	
+	"catalog_link": "http://fant.my1.ru/mwparser/u65702.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/u65702.json",
+	"icon_link": "http://www.readmanga.today/assets/img/favicon.ico",
+	
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "http://www.readmanga.today/manga-list/",
+			"append_array": ["#", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+		},
+		"add_manga": {
+			"start": "style-list",
+			"end": "class=\"style-thumbnail",
+			"next": "span> <a href=\"",
+			"link": {
+				"after": "<a href=\"",
+				"token1": "href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"token1": "\">",
+				"token2": "</"
+			}
+		}
+	},
+	
+	"manga_complete": {
+"uniq":{ "skip": "class=\"panel-heading clearfix\"","token1": "h1>","token2": "</h1"
+},
+	
+"title":{ "skip": "class=\"panel-heading clearfix\"","token1": "h1>","token2": "</h1" 
+},
+		
+
+		
+		"author": {
+			"before": ">Author<",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"rating": {
+		    "start": "class=\"pull-right rm_rating\"",
+			"end": ">Status:</",
+			"skip": "class=\"pull-right rm_rating\"",
+			"token1": "class=\"icon-smiley-2\"></span>",
+			"token2": "</li>"
+		},
+		"summary": {
+			"after": "<li class=\"list-group-item movie-detail\"",
+			"token1": ">",
+			"token2": "</li>"
+		},
+		"status": {
+			"complete": "<dd>Completed</dd>",
+			"ongoing": "<dd>Ongoing</dd>"
+		},
+		"cover": {
+			"skip": "class=\"row movie-meta\"",
+			"token1": "<img src=\"",
+			"token2": "\""
+		},
+		"is_mature": {
+			"start": "<dt>Categories:</dt>",
+			"end": "<dt>Type :</dt>",
+			"values": ["Doujinshi", "Ecchi"]
+		},
+		"add_genre": {
+			"start": "<dt>Categories:</dt>",
+			"end": "<li class=\"director\"",
+			"after": "href=\"http://www.readmanga.today/category/",
+			"token1": ">",
+			"token2": "</a>"
+		},
+		"add_chapter": {
+			"start": "class=\"chp_lst\"",
+			"end": "</ul>",
+			"next": "<li>",
+			"link": {
+				"token1": "<a href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"token1": "icon-arrow-2\"></span>",
+				"token2": "</span>"
+			}
+		}
+	},
+	"chapter_complete": {
+		"add_pages": {
+			"start": "<ul class=\"list-switcher-2\">",
+			"end": "</select>",
+			"token1": "<option value=\"",
+			"token2": "\""
+		}
+	},
+	"page_complete": {
+		"image": {
+			"before": "class=\"img-responsive-2\"",
+			"token1": "<img src=\"",
+			"token2": "\""
+		}
+	},
+	"test": [{
+		"proc": "manga_list_complete",
+		"assert": {
+			"mangas": [{
+				"title": "The Breaker",
+				"link": "http://www.readmanga.today/the-breaker",
+				"uniq": "the-breaker"
+			}, {
+				"title": "Naruto",
+				"link": "http://www.readmanga.today/naruto"
+			}],
+			"mangas_count": ">13700"
+		}
+	}, {
+		"proc": "manga_complete",
+		"title": "The Breaker",
+		"link": "http://www.readmanga.today/the-breaker",
+		"assert": {
+			"author": "JEON Geuk jin",
+			"cover": "http://www.readmanga.today/uploads/posters/the-breaker.jpg",
+			"summary": "@^(The new English teacher).*(10)$",
+			"genres": "@comedy",
+			"status": "complete",
+			"genres_count": ">3",
+			"chapters_count": "72",
+			"chapters": [{
+				"title": "The Breaker - 1",
+				"link": "http://www.readmanga.today/the-breaker/1",
+				"folder": "1/"
+			}, {
+				"title": "The Breaker - 28",
+				"link": "http://www.readmanga.today/the-breaker/28"
+			}]
+		}
+	}, {
+		"proc": "chapter_complete",
+		"title": "The Breaker - 1",
+		"link": "http://www.readmanga.today/the-breaker/1",
+		"assert": {
+			"pages": [{
+				"link": "http://www.readmanga.today/the-breaker/1/1"
+			}, {
+				"link": "http://www.readmanga.today/the-breaker/1/7"
+			}]
+		}
+	}, {
+		"proc": "page_complete",
+		"link": "http://www.readmanga.today/the-breaker/1",
+		"assert": {
+			"image": "http://funmanga.com/uploads/chapters/7210/0/p_00001.jpg"
+		}
+	}]
+}

@@ -1,0 +1,158 @@
+{
+	"id": 40134,
+	"version": 8,
+	"time_invalidate": 0,
+	"title": "MangaHub by Veopot",
+	"host": "https://mangahub.ru/",
+	"public_link": "https://mangahub.ru/explore",
+	"folder": "mangahub",
+	"name" : "mangahub",
+	"chapters_order": false,
+	"language": "ru",
+	"catalog_link": "http://fant.my1.ru/mwparser/mangahub.p",
+	"self_link": "http://fant.my1.ru/mwparser/parsers/mangahub.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangahub.jpg",
+    "encoding": "utf-8",
+	
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "https://mangahub.ru/explore?page=",
+			"append_nums": { "from": 1, "to": 50 }
+		},
+
+		"add_manga": {
+			"next": "<div class=\"b-catalog-el__name\"",
+			
+			"link":  { "token1": "href=\"", "token2": "\"" , "replace": {"prefix": "https://mangahub.ru" } },
+
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" }
+			
+		},
+	
+			
+		"rating_auto_inc": { "start": "10000","inc": -1 }
+	},
+
+	
+	
+	"manga_complete": {
+
+        "title":      { "after": "itemprop=\"name\">", "token1":"\">", "token2": "</" },
+		"uniq":       { "after": "itemprop=\"name\">", "token1":"\">", "token2": "</" },
+		
+		"summary":     { "after": "<meta property=\"og:description\"", "token1": "content=\"", "token2": "\"" },
+		"cover":       { "after": "<div class=\"b-group-head__share\"", "token1": "data-img=\"", "token2": "\"" },
+		"author": {
+			"after": "href=\"/author/",
+			"token1": "\">",
+			"token2": "</"
+		},
+		
+		
+		"is_mature":    "\">Эротика<",
+		
+		"status": { 
+		
+"complete": { "values" : ["завершен", "Переведена"]},
+"ongoing": { "value" : "продолжается"},
+"single" : "Сингл",
+"default" : "unknown",
+"empty" : "\">Нет глав</"
+
+        },
+		"add_genres":   {
+		"token1": "\">",
+		"token2": "</",
+		"start": "<div class=\"b-dtl-desc__labels\"",
+		"end": "<div class=\"b-dtl-desc__titles\""
+		
+		
+		},
+		
+		
+		
+		"add_chapter": {
+		    "start": "<div itemprop=\"description\"",
+			"next":  "<div class=\"b-ovf-table__elem\"",
+			"end": "<span class=\"icon icon-m-show-more\"",
+			
+			"link":  { "token1": "href=\"", "token2": "\"","replace" : {"prefix" : "https://mangahub.ru" }},
+			
+			"title": { "skip": "<a href=\"", "token1": "\">", "token2": "</" ,
+			"replace" : { "match" : "&amp;", "text" : "" }  },
+			
+			"uniq": { "after": "<a href=\"", "token1": "/read/", "token2": "/1/\">" ,
+			 "replace" : { "match" : "/", "text" : "" } }
+			}
+    },
+	
+	
+	"chapter_complete": {
+	           "images": true,
+		       "add_pages": {
+                   "start": "data-js-scans=\"",
+                   "token1": "\/uploads",
+			       "token2": "&quot;,",
+		           "end": "]\"",
+			       "replace": { "match": "\\\\", "text" :"" }
+				
+				},
+		 "prefix": "https://mangahub.ru/uploads"
+              		 },
+                          
+						  
+						  
+						  
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{   
+					  "link" : "https://mangahub.ru/onepunchman",
+					  "uniq" : "onepunchman" 
+					},
+					{"link" : "https://mangahub.ru/total_nyi_ghariem" }
+				],
+				"mangas_count" : ">48"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangahub.ru/onepunchman",
+			"title" : "Ванпанчмен",
+			"assert" : {
+				"author": "@Мурата Юсукэ,",
+"cover" : "https://mangahub.ru/uploads/media/manga_cover/0006/69/thumb_568282_manga_cover_big.jpeg",
+				"summary" : "@^(История про парня у которого есть супер сила)",
+				"genres" : "@comedy",
+			    "genres_count" : ">=5",
+				"chapters_count" : ">=100",
+				"chapters" : [
+					{ 
+						"link" : "https://mangahub.ru/onepunchman/read/mangahub/vol1/100/1/",
+						"folder" : "mangahubvol1100/"
+					},
+					{ 
+					"link" : "https://mangahub.ru/onepunchman/read/mangahub/vol1/98/1/" }
+				        ]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://mangahub.ru/onepunchman/read/mangahub/vol1/100/1/",
+			"title" : "100",
+			"assert" : {
+				"pages" : [
+{"image": "https://mangahub.ru/uploads/media/scan/0006/91/acba626329b836fa1deae204084506e96dd097ed.jpeg"},
+{"image": "https://mangahub.ru/uploads/media/scan/0006/91/9d640e7f0537beb948acb99d5e6278bdca0064cc.png"},
+{"image": "https://mangahub.ru/uploads/media/scan/0006/91/e4c5a0f5f550f9b2eecbfad7482d94459b5d2df3.png"}
+				],
+				"pages_count": "13"
+			}
+		}
+	]
+}

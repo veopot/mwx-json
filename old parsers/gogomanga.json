@@ -1,0 +1,147 @@
+{
+	"version": 2,
+	"title": "gogomanga by Veopot",
+	"host": "http://gogomanga.co/",
+	"language": "en",
+	"public_link": "http://gogomanga.co/list.html",
+	"id": 40114,
+	"name": "gogomanga",
+	"folder": "gogomanga",
+	"encoding": "utf-8",
+	"author": {
+		"name": "veopot2014",
+		"email": "veopot2014@yandex.ru"
+	},
+	"self_link": "http://fant.my1.ru/mwparser/parsers/gogomanga.json",
+	"catalog_link": "http://fant.my1.ru/mwparser/gogomanga.p",
+	"icon_link": "http://fant.my1.ru/mwparser/img/gogomanga.png",
+	
+	
+	"manga_list_complete": { 
+	
+	"iterator": "http://gogomanga.co/list.html",
+
+
+         "add_manga": {
+		 
+		    "start" : "class=\"box-content list\"",
+		    "end": "<button class=\"back-to-top\"",
+			"next": "<li><a href='",
+			"link": {
+				"token1": "<li><a href='",
+				"token2": "'",
+				"replace" : { "prefix" : "http://gogomanga.co" }
+			},
+			"title": {
+			    "skip" : "<li><a href='",
+				"token1": "\">",
+				"token2": "</a"
+			}
+		}
+		
+	},
+	"manga_complete": {
+		"title": {
+			"skip": "class=\"content info\"",
+			"token1": "class=\"title\">",
+			"token2": "</"
+		},
+		"uniq": {
+			"skip": "class=\"content info\"",
+			"token1": "class=\"title\">",
+			"token2": "</"
+		},
+		
+		
+		
+		"summary": {
+			"skip": "<p>Summary",
+			"token1": ":",
+			"token2": "</"
+		},
+		"status": {
+			"complete": "Completed<",
+			"single": "Singl<",
+			"ongoing": "Ongoing<"
+		},
+		"cover": {
+			"skip": "class=\"img\"",
+			"token1": "src=\"",
+			"token2": "\""
+		},
+		"add_genres": {
+		    "start": "<li>Genres:",
+			"end" : "<p>Status:",
+			"skip": "href='/genre/",
+			"token1": "'>",
+			"token2": "</"
+		},
+		"add_chapter": {
+		    "start": "class=\"list-chapter mCustomScrollbar\"",
+		    "end" : "class='comment'",
+			"next": "<li title=\"",
+			"link": {
+				"token1": "href='",
+				"token2": "'"
+			},
+			"title": {
+				"skip": "href='",
+				"token1": "'>",
+				"token2": "</a"
+			}
+		}
+	},
+	
+	
+	"chapter_complete": {
+		"add_images": {
+			"start": "<ul class=\"list-image\"",
+			"token1": "this.src='",
+			"token2": "'",
+			"end": "<div class='comment'"
+		}
+	},
+	"test": [
+	{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "1111 Animals", "link" : "http://gogomanga.co/manga/1111-animals.html",
+						"uniq" : "1111-animals.html" }
+				],
+				"mangas_count" : ">10"
+			}
+		},
+		
+		{
+		"proc": "manga_complete",
+		"link": "http://gogomanga.co/manga/rengoku-deadroll.html",
+		"title": "Rengoku Deadroll",
+		"assert": {
+			"cover": "https://2.bp.blogspot.com/-yUacUj5-Shg/V2f9uwxvdaI/AAAAAAATogk/sVf9pHwq7KQ/s0/rengoku-deadroll.jpg",
+			"summary": "@^(From Kirei Cake)",
+			"genres": "@action",
+			"status": "ongoing",
+			"genres_count": ">=6",
+			"chapters_count": ">=3",
+			"chapters": [{
+				"link": "http://gogomanga.co/rengoku-deadroll/rengoku-deadroll-1.html"
+			}, {
+				"link": "http://gogomanga.co/rengoku-deadroll/rengoku-deadroll-2.html",
+				"folder": "rengoku-deadroll-2.html/"
+			}]
+		}
+	}, {
+		"proc": "chapter_complete",
+		"title": "rengoku-deadroll-1.html",
+		"link": "http://gogomanga.co/rengoku-deadroll/rengoku-deadroll-1.html",
+		"assert": {
+			"pages": [{
+"image": "http://images.gogomanga.me/rengoku-deadroll/rengoku-deadroll-1/rengoku-deadroll-1-pic-1.jpg"
+			}, {
+"image": "http://images.gogomanga.me/rengoku-deadroll/rengoku-deadroll-1/rengoku-deadroll-1-pic-2.jpg"
+			}],
+			"pages_count": "59"
+		}
+	}]
+}

@@ -1,0 +1,122 @@
+{
+	"id": 40122,
+	"version": 2,
+	"time_invalidate": 0,
+	"title": "UnionMangas by Veopot",
+	"host": "http://unionmangas.net/",
+	"public_link": "http://unionmangas.net/mangas",
+	"folder": "unionmangas",
+	"name" : "unionmangas",
+	"chapters_order": true,
+	"language": "pt",
+    "catalog_link": "http://fant.my1.ru/mwparser/unionmangas.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/unionmangas.json",
+	"icon_link": "http://unionmangas.net/images/logo-peq5.png",
+		
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://unionmangas.net/mangas/a-z/",
+			"append_nums": { "from": 1, "to": 140 ,"sufix":"/*" }
+		},
+
+		"add_manga": {
+			"next": "class=\"capa_",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "10000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":      { "skip": " <div class=\"col-md-8 tamanho-bloco-perfil\"", "token1":"h2>", "token2": "</h2" },
+		"uniq":       { "skip": " <div class=\"col-md-8 tamanho-bloco-perfil\"", "token1":"h2>", "token2": "</h2" },
+		
+		"author":      { "skip": "\">Autor:</", "token1":">", "token2": "</" },
+		
+		"add_genres":   { 
+		"start": "<div class=\"rw-ui-container\"", 
+		"end": "</h4>",
+		"after": "href='",
+		"token1": "'>", 
+		"token2": "</" },
+		
+        "summary":     { "skip": "<div class=\"panel-body\"", "token1": ">", "token2": "<" },
+		
+		"status":      { "complete": "Completo<" , "ongoing": "Ativo<" },
+"cover":{ "skip": "<div class=\"col-md-4 col-xs-12 text-center col-md-perfil\"", "token1": "src=\"", "token2": "\"" },
+
+		"add_chapter": {
+			"next":  "<div class=\"col-xs-6 col-md-6\"",
+			"link":  { "token1": "href=\"", "token2": "\""   },
+			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</" }
+			}
+	},
+	
+	
+	"chapter_complete": {
+	"remove_first": true,
+	"remove_last": true,
+		 "add_images": { 
+		 	"start": "id=\"image\"", 
+			"token1": "data-lazy=\"",
+			"token2": "\"",
+			"end": "<h2",
+			
+			"replace" : {"match" : " ","text" : "%20"}
+	        }
+			
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "360 Material",      "link" : "http://unionmangas.net/manga/360-material",
+						"uniq" : "360-material" },
+					{ "title" : "16 Life", "link" : "http://unionmangas.net/manga/16-life" }
+				],
+				"mangas_count" : ">100"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://unionmangas.net/manga/666-satan",
+			"title" : "666 satan",
+			"assert" : {
+				"author" : "@Seishi Kishimoto",
+				"cover" : "http://unionmangas.com.br/assets/uploads/mangas/fc59af02.jpg",
+				"summary" : "@^(A história gira em torno de um garoto)",
+				"genres" : "@action",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=70",
+				"chapters" : [
+					{ "title" : "Cap. 01",
+						"link" : "http://unionmangas.net/leitor/666_satan/01",
+						"folder" : "01/"
+					},
+					{ "title" : "Cap. 02", "link" : "http://unionmangas.net/leitor/666_satan/02" }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://unionmangas.net/leitor/666_satan/03",
+			"title" : "Cap. 01",
+			"assert" : {
+				"pages" : [
+{ "image" : "@^http://unionmangas.net/leitor/mangas/666%20satan/03/01.jpg" },
+{ "image" : "@^http://unionmangas.net/leitor/mangas/666%20satan/03/02.jpg" }
+				],
+				"pages_count": "53"
+			}
+		}
+	]
+}

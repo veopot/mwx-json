@@ -1,0 +1,170 @@
+{
+	"id": 40220,
+	"version": 10,
+	"title": "LHScan -(Raw)",
+	"host": "https://lhscan.net",
+	"public_link": "https://lhscan.net/manga-list.html",
+	"folder": "lhscan",
+	"name" : "lhscan",
+	"chapters_order": false,
+    "language": "jp",
+	"content_type": "manga",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/lhscan.jpg",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/lhscan.json",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/lhscan.p",
+	
+	
+"manga_list_complete": {
+		"iterator":  { 
+"base_url":"https://lhscan.net/manga-list.html?listType=pagination&artist=&author=&group=&m_status=&name=&genre=&ungenre=&sort=views&sort_type=DESC&page=",
+"append_nums": { "from": 1, "to": 125, "step": 1}
+},
+		
+		"add_manga": {
+			"next": "<div class=\"media\"",
+			"link":  { "token1": "href=\"", "token2": "\"" ,
+			"replace": {"prefix": "https://lhscan.net/"}},
+			"uniq": { "after": "<h3 class=\"media-heading\"", "token1": ")\">", "token2": "</" },
+		
+		
+			"title": { "after": "<h3 class=\"media-heading\"", "token1": "\">", "token2": "</",
+		"replace": { "match": "- Raw", "text": "-(Raw)" } }
+		             
+					 
+	 }},	
+	
+	
+"manga_search_complete": {		
+ "search_link":"https://lhscan.net/app/manga/controllers/search.single.php?q=$query$",
+		"query_type": "GET",
+		"add_manga": {
+		    "start": "\"data\"",
+		    "next": "{",
+			
+			"link": { "skip": "\"onclick\"",
+			    "token1": "='",
+				"token2": "'",
+			    "replace":[
+				{"prefix": "https://lhscan.net"},
+				{ "match": "\\\\/", "text": "/" } ]
+			},
+			"cover":{
+			    "before": "\"onclick\"",
+			    "token1": "image\":\"",
+				"token2": "\"",
+			    "replace": { "match": "\\\\/", "text": "/" } 
+			},
+            "title":{
+			    "before": "\"onclick\"",
+			    "token1": "\"primary\":\"",
+				"token2": "\"",
+				"replace": { "match": "- Raw", "text": "" }
+			},
+			"uniq": {
+				"before": "\"onclick\"",
+			    "token1": "\"primary\":\"",
+				"token2": "\"",
+				"replace": { "match": "- Raw", "text": "" }
+			}
+		 }
+		},	
+	"manga_complete": {
+		"title":       { "skip": "class=\"manga-info\">", "token1":"h1>", "token2": "</",
+		"replace": { "match": "Raw", "text": "(Raw)" } },
+		
+		"uniq":        { "skip": "class=\"manga-info\">", "token1":"h1>", "token2": "</",
+		"replace": { "match": "- Raw", "text": "" } },
+		
+		"additional_title": { "after": "</i> Other Name",
+		"token1":"</b>:", "token2": "</" },
+		"author":      { "skip": "> Author</", "token1": "'>", "token2": "</" },
+		"add_genres":{
+        "start": "> Genre(s)</",
+		"end": "> Status</",
+		"token1": "'>",
+		"token2": "</" 
+		},
+		"status":{ 
+		"complete": ">Completed</", 
+		"ongoing": ">On Going</"
+		},
+		"is_mature": {
+			 "start": "> Genre(s)</",
+		     "end": "> Status</",
+			"values": [">Adult<", ">Mature<", ">Seinen<", ">Yuri<", ">Yaoi<"]
+        },
+		"summary":{ "skip": "Description</h3>", "token1": ">", "token2": "</" },
+		"cover": { "after": "<img itemprop=\"image\"", "token1": "src=\"", "token2": "\"" },
+		
+		"content_type": { "default": "manga" },
+		"add_chapter": {
+		    "start": ">Chapters</",
+			"end": ">Comment</",
+			"next":  "<td><a",
+			
+			"link":  { "token1": "href='", "token2": "'",
+			          "replace": {"prefix": "https://lhscan.net/"} },
+			"title": { "skip" : "href='", "token1": "title=\"", "token2": "\""
+			}
+		}
+	},
+	
+	
+	
+	"chapter_complete": {
+		"add_images": {
+			"start": "<body>",
+			"token1": "data-original='",
+			"token2": "'",
+			"end": "class=\"chapter-before\">"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Isekai Nonbiri Nouka -(Raw)", 
+					 "link" : "https://lhscan.net/manga-isekai-nonbiri-nouka-raw.html" }
+				],
+				"mangas_count" : ">=20"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://lhscan.net/manga-minamoto-kun-monogatari-raw.html",
+			"title" : "MINAMOTO-KUN MONOGATARI - (RAW)",
+			"assert" : {
+				"author" : "INABA Minori",
+				"cover" : "https://farm1.staticflickr.com/824/27704770788_7a0df456cd_o.jpg",
+				"summary" : "@Minamoto-kun has a face pretty enough to make people think hes a girl",
+				"genres" : "@adult",
+				"status" : "ongoing",
+				"genres_count" : ">=6",
+				"chapters_count" : ">=60",
+				"chapters" : [
+					{   "title" : "Minamoto-kun Monogatari - Raw Chapter 260",
+						"link" : "https://lhscan.net/read-minamoto-kun-monogatari-raw-chapter-260.html",
+						"folder" : "read-minamoto-kun-monogatari-raw-chapter-260.html/"
+					},
+					{ "title" : "Minamoto-kun Monogatari - Raw Chapter 262",
+					"link" : "https://lhscan.net/read-minamoto-kun-monogatari-raw-chapter-262.html" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://lhscan.net/read-minamoto-kun-monogatari-raw-chapter-260.html",
+			"assert" : {
+				"pages" : [
+{"image": "http://farm1.staticflickr.com/871/41574193941_9d30910e83_o.jpg"},
+{"image": "http://farm1.staticflickr.com/829/39766293980_2b0a666c9a_o.jpg"},
+{"image": "http://farm1.staticflickr.com/854/40681707675_1399b28052_o.jpg"}
+				],
+				"pages_count": "8"
+			}
+		}
+	]
+}

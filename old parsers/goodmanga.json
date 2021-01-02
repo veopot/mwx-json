@@ -1,0 +1,123 @@
+{
+	"id": 5120,
+	"version": 3,
+	"title": "GOOD MANGA",
+	"host": "http://www.goodmanga.net/",
+	"public_link": "http://www.goodmanga.net/manga-list",
+	"folder": "goodmanga",
+	"name" : "gm",
+	"chapters_order": false,
+	"language": "en",
+    "catalog_link":"http://fant.my1.ru/mwparser/goodmanga.p", 
+	"self_link": "http://fant.my1.ru/mwparser/parsers/goodmanga.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/goodmanga.png",
+	
+	"manga_list_complete": {
+
+		"iterator": "http://www.goodmanga.net/manga-list",
+
+		"add_manga": { 
+			"start": "class=\"series_index\"",
+			"end":   "</div>",
+			"next": "<td>",
+			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
+			"title": { "after" : "href=\"", "token1": ">", "token2": "</" }
+		}
+	},
+
+	"manga_complete": {
+	     "title": {
+                "skip": "<div id=\"series_info\">",
+                "token1": "<h1>",
+                "token2": "</h1>"
+            },
+            "uniq": {
+                "skip": "<div id=\"series_info\">",
+                "token1": "<h1>",
+                "token2": "</h1>"
+            },
+	    
+		"author":      { "skip": "<span>Authors:", "token1":">", "token2": "</" },
+		"summary":     { "token1": "<span id=\"full_notes\">", "token2": "<a"},
+		"status":      { "complete": "Completed", "ongoing": "Ongoing" },
+		"read_dir":    { "right_to_left": "Manga</h1>", "left_to_right": "Manhwa</h1>" },
+		"cover":       { "after": "id=\"series_info\"", "token1": "src=\"", "token2": "\"" },
+		"rating" : { "after" : "id=\"votes\">", "token1" : ">", "token2" : "</" },
+		"add_genre":   { "after": "<a href=\"http://www.goodmanga.net/manga-genre/", "token1": ">", "token2": "</" },
+		"add_chapter": { 
+			"start": "class=\"chapter_select\"><",
+			"end":   "</select>",
+			"next":  "<option", 
+			"link":  { "token1": "value=\"", "token2": "\""   }, 
+			"title": { "token1": ">",        "token2": "</option>" }
+		},
+		"chapters_from_page": { "after": "<div id=\"chapters\">", "token1":"<a href=\"", "token2": "\"" }
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "class=\"page_select\"><", 
+			"token1": "value=\"", 
+			"token2": "\"", 
+			"end": "</select>"
+		}
+	},
+	"page_complete": {
+		"image": { "after": "<div id=\"manga_viewer\">", "token1": "<img src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+
+			"assert" : {
+				"mangas" : [
+					{ "title" : "The Breaker", "link" : "http://www.goodmanga.net/48/the_breaker",
+						"uniq" : "the_breaker"
+					},
+					{ "title" : "Naruto",      "link" : "http://www.goodmanga.net/3/naruto" }
+				],
+				"mangas_count" : ">6600"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.goodmanga.net/48/the_breaker",
+			"title" : "The Breaker", 
+			"assert" : {
+				"author" : "@Park Jin-hwan",
+				"cover" : "@http://\\w+\\.goodmanga\\.net/images/series/large/48\\.jpg",
+				"summary" : "@^(The new English teacher)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"rating" : ">100",
+				"genres_count" : ">6",
+				"chapters_count" : "72",
+				"chapters" : [
+					{ "title" : "The Breaker Chapter 34",   "link" : "http://www.goodmanga.net/the_breaker/chapter/34", 
+						"folder" : "34/"
+					},
+					{ "title" : "The Breaker Chapter 1", "link" : "http://www.goodmanga.net/the_breaker/chapter/1" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.goodmanga.net/the_breaker/chapter/34",
+			"title" : "The Breaker Chapter 34",
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://www.goodmanga.net/the_breaker/chapter/34/2" },
+					{ "link" : "http://www.goodmanga.net/the_breaker/chapter/34/7" },
+					{ "link" : "http://www.goodmanga.net/the_breaker/chapter/34/27" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.goodmanga.net/the_breaker/chapter/34/7",
+			"assert" : {
+				"image" : "@^http://\\w*\\.goodmanga\\.net/images/manga/the_breaker/\\d*/\\d*\\.(jpg|png)"
+			}
+		}
+	]
+}

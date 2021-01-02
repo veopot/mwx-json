@@ -1,0 +1,198 @@
+{
+	"id": 532,
+	"version": 9,
+	"title": "MangaPark",
+	"host": "http://mangapark.me/",
+	"public_link": "http://mangapark.me/genre",
+	"folder": "mangapark",
+	"name" : [ "mpark", "park" ],
+	"language": "en",
+	"catalog_link": "http://fant.my1.ru/mwparser/mangapark.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/mangapark.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangapark.gif",
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url" : "http://mangapark.me/genre/",
+			"append_nums": { "from": 1, "to": 400 }
+		},
+
+		"add_manga": { 
+			"next": "\"item",
+			"link":  { "tag": "<a ", "token1": "href=\"",  "token2": "\"" }, 
+			"title": { "tag": "<a ", "token1": "title=\"", "token2": "\"" }
+		},
+		"link_corrector" : [
+			{ "match" : "\\.com/", "text": "\\.me/" }
+		]
+	},
+
+	"manga_complete": {
+	     "title": {
+                "skip": "<div class=\"cover\"",
+                "token1": "title=\"",
+                "token2": "\"/>"
+            },
+            "uniq": {
+                "skip": "<div class=\"cover\"",
+                "token1": "title=\"",
+                "token2": "\"/>"
+            },
+
+	   
+		"author":      { "after": ">Author(", "token1":"<td>", "token2": "</td>" },
+		"summary":     { "after" : "class=\"summary\"", "token1": ">", "token2": "</"},
+		"status":      { 
+			"complete":  { "start": ">Status<", "end" : "</tr>", "value" : "Completed" },
+			"ongoing":   { "start": ">Status<", "end" : "</tr>", "value" : "Ongoing" }
+		},
+		"cover":       { "after": "class=\"cover\"", "token1": "src=\"", "token2": "\"" },
+		"rating":      { "after": ">Rating<", "token1":"of", "token2": "total" },
+		"add_genre":   { "after": "href=\"/genre/", "token1": ">", "token2": "</" },
+		"add_chapter": { 
+			"start": "id=\"stream_",
+			"end" : ["id=\"stream_", "</section>"],
+			"next":  "class=\"ch", 
+			"link":  { "token1": "href=\"", "token2": "\"", "replace" : { "prefix" : "http://mangapark.me"} }, 
+			"title": { "token1": "\">",     "token2": "</span>", "replace" : { "match" : "</a>", "text" : "" } },
+			"uniq" : { "token1" : "href=\"", "token2": "\"", "replace" : { "match" : "/manga/[\\w-]*/\\w*/", "text" : "" } }
+		},
+		"link_corrector" : [
+			{ "match" : "\\.com/", "text": "\\.me/" }
+		]
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": ">Pages", 
+			"token1": "<a href=\"", 
+			"token2": "\"", 
+			"end": "</div>",
+			"replace" : { "prefix" : "http://mangapark.me" }
+		}
+	},
+	"page_complete": {
+		"image": { "tag": "class=\"img\"", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+
+			"assert" : {
+				"mangas" : [
+					{ 
+						"title" : "Prince of Tennis", 
+						"link" : "http://mangapark.me/manga/prince-of-tennis",
+						"uniq" : "prince-of-tennis"
+					},
+					{ "title" : "Kyoukai no Nai Sekai", "link" : "http://mangapark.me/manga/kyoukai-no-nai-sekai" }
+				],
+				"mangas_count" : ">=8000"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"title" : "Prince of Tennis", 
+			"link" : "http://mangapark.me/manga/prince-of-tennis",
+			"assert" : {
+				"author" : "Konomi Takeshi",
+				"rating": ">=1194",
+				"cover" : "@http://\\w+\\.\\w+\\.mpcdn\\.net/\\w+/\\w+/\\w+\\.jpg",
+				"summary" : "@^(Ryoma Echizen)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : "<420",
+				"chapters" : [
+					{ 
+						"title" : "vol.1 ch.1 : Echizen Ryoma", 
+						"link" : "http://mangapark.me/manga/prince-of-tennis/s1/v1/c1/1", 
+						"folder" : "v1/c1/1/"
+					}
+				]
+			}
+		},
+
+		{
+			"proc" : "manga_complete",
+			"title" : "Go for It!!", 
+			"link" : "http://mangapark.me/manga/go-for-it-narazaki-souta",
+			"assert" : {
+				"author" : "Narazaki Souta",
+				"cover" : "@http://\\w+\\.\\w+\\.mpcdn\\.net/\\w+/\\w+/\\w+\\.jpg",
+				"summary" : "@^(From BL-League)",
+				"genres" : "@sport",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=1",
+				"chapters" : [
+					{ 
+						"title" : "vol.1 ch.1", 
+						"link" : "http://mangapark.me/manga/go-for-it-narazaki-souta/s1/v1/c1/1", 
+						"folder" : "v1/c1/1/"
+					}
+				]
+			}
+		},
+
+		{
+			"proc" : "manga_complete",
+			"title" : "Hitoribocchi no OO Seikatsu", 
+			"link" : "http://mangapark.me/manga/hitoribocchi-no-oo-seikatsu",
+			"assert" : {
+				"author" : "Katsuwo",
+				"genres" : "@seinen",
+				"status" : "ongoing",
+				"genres_count" : ">=1",
+				"chapters_count" : ">=11",
+				"chapters" : [
+					{ 
+						"title" : "vol.1 ch.1", 
+						"link" : "http://mangapark.me/manga/hitoribocchi-no-oo-seikatsu/s1/v1/c1/1", 
+						"folder" : "v1/c1/1/"
+					}
+				]
+			}
+		},
+		
+		{
+			"proc" : "manga_complete",
+			"title" : "Kuroshitsuji", 
+			"link" : "http://mangapark.me/manga/kuroshitsuji",
+			"assert" : {
+				"author" : "Toboso Yana",
+				"genres" : "@drama",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">101",
+				"chapters" : [
+					{ 
+						"title" : "vol.1 ch.1 : That Butler, Is Talented", 
+						"link" : "http://mangapark.me/manga/kuroshitsuji/s1/v1/c1/1", 
+						"folder" : "v1/c1/1/"
+					}
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"title" : "ch.1 : Echizen Ryoma", 
+			"link" : "http://mangapark.me/manga/prince-of-tennis/s3/c1/1", 
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://mangapark.me/manga/prince-of-tennis/s3/c1/2" },
+					{ "link" : "http://mangapark.me/manga/prince-of-tennis/s3/c1/53" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://mangapark.me/manga/prince-of-tennis/s3/c1/45",
+			"assert" : {
+				"image" : "http://2.bp.blogspot.com/-W_Qvg6d9hkk/WB4pdVhd78I/AAAAAAEyXv0/kO2nLmbkktw/w1900/MR-20783-343727-45.jpg"
+			}
+		}
+	]
+}

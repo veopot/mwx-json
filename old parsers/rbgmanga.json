@@ -1,0 +1,226 @@
+{
+	"id": 40155,
+	"version": 37,
+	"title": "Re-Manga!",
+	"host": "https://remanga.org",
+	"public_link": "https://remanga.org/manga",
+	"folder": "rbgmanga",
+	"name" : "rbgmanga",
+	"chapters_order": true,
+	"language": "ru",
+	"encoding": "utf-8",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/rbgmanga.png",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/rbgmanga.json",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/rbgmanga.p",
+    "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+
+
+   
+
+	"manga_list_complete": {
+
+	  "iterator": {
+		"base_url": "https://remanga.org/manga?ordering=-rating&page=",
+		"append_nums": { "from": 1, "to": 300 }
+		},
+		"add_manga": {
+           "start": "catalog\"",
+			"end": "chapter\"",
+            "next": "en_name\"",
+			
+			"link":  { 
+			"token1": "dir\":\"", "token2": "\"",
+			"replace": {"prefix": "https://remanga.org/manga/"} },
+			
+			
+			
+			"title": { "before": "rus_name",
+			"token1": "en_name\":\"", "token2": "\""},
+			
+			"uniq": { "before": "rus_name",
+			"token1": "en_name\":\"", "token2": "\""},
+			
+			"additional_title": {
+			"token1": "rus_name\":\"", "token2": "\""}
+        }
+		
+	},
+
+	
+	
+	"manga_complete": {
+	    "headers": { "Referer": "https://remanga.org" },
+
+	    "title":{ 
+		"start": "content",
+        "end": "similarManga",
+		"token1":"en_name\":\"", "token2": "\","},
+		
+		
+		"additional_title":{ 
+		"start": "content",
+        "end": "similarManga",
+		"token1":"rus_name\":\"", "token2": "\","},
+		
+		"uniq":{ 
+		"start": "content",
+        "end": "similarManga",
+		"token1":"en_name\":\"", "token2": "\","},
+		
+		"cover":{ 
+		"start": "content",
+        "end": "similarManga",
+		
+		"token1": "dir\":\"", "token2": "\"",
+			"replace": [{"prefix": "https://remanga.org/media/titles/"},
+                        {"sufix": "/l_head.png"} ]},
+		
+		
+		
+		"summary":{ 
+		"start": "content",
+        "end": "similarManga",
+		"token1":"description\":\"", "token2": "\","},
+		
+		
+		"status": { 
+		  	"complete": { 
+			 "start": "content",
+             "end": "similarManga",
+			   "values": [ "Закончен", "Переведена", "Сингл"] },
+			
+            "ongoing": { 
+			 "start": "content",
+             "end": "similarManga",
+                
+				"value": "Продолжается" },
+			 },
+		
+		"add_genres":   {
+        "start": "genres\":",
+		"end": "],",
+		"token1": "name\":\"",
+		"token2": "\""
+		},
+		
+		
+		"is_mature":   { "values": [">Сэйнэн<", ">Эротика<", ">Юри<", ">Яой<"] },
+		
+		
+		"chapters_from_page":{ 
+		  "after": "branches\"", "token1": "id\":", "token2": ",",
+		  "replace" : { "prefix" : "https://remanga.org/api/titles/chapters/?branch_id=" }
+		},
+		
+		
+		"add_chapter": {
+            "start": "content\"",
+            "end": "],",
+            "next": "{\"",
+			
+            "link": {
+                "token1": "id\":",
+                "token2": ",",
+                "replace": {
+                        "prefix": "https://remanga.org/api/titles/chapters/"
+                }
+            },
+			"uniq": {
+                "token1": "chapter\":\"",
+                "token2": "\","
+            },
+            "date": {
+                "token1": "upload_date\":\"",
+                "token2": "T"
+            },
+            "title": {
+                "token1": "chapter\":\"",
+                "token2": "\",",
+                "sufix": {
+                    "token1": "is_paid\":",
+                    "token2": ",",
+                    "replace":[
+					{ "match" : "true", "text" : "_Платная глава" },
+					{ "match" : "false", "text" : "" }
+					]
+                },
+                "prefix": {
+                    
+                    "token1": "tome\":",
+                    "token2": ",",
+                    "replace": [
+                        {
+                            "prefix": "Том: "
+                        },
+                        {
+                            "sufix": " Глава: "
+                        }
+                    ],
+                    "sufix": " "
+                }
+            }
+        }
+	},
+	"chapter_complete": {
+	    "add_numeration": true,
+	    "headers": { "Referer": "https://remanga.org" },
+	"add_images": {
+			"start": "content",
+			"token1": "link\":\"",
+			"token2": "\"",
+			 "end": "]"
+		}
+	},
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			   "assert" : {
+				"mangas" : [
+					{ "title" : "Да здравствует призыв!",
+					 "link" : "https://remanga.org/manga/long_live_summons/",
+					  "uniq" : "long_live_summons" }
+				],
+				"mangas_count" : ">=20"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://remanga.org/manga/switch_girl",
+			"title" : "Switch Girl",
+			"additional_title": "Изменчивая девчонка!",
+			"assert" : {
+				"cover" : "https://remanga.org/media/titles/switch_girl/l_head.png",
+				"summary" : "@Тамия Ника",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=40",
+				"chapters" : [
+			{
+            "folder": "1-1/",
+            "link": "https://remanga.org/manga/switch_girl/vol1/1",
+            "title": "Том 1 Глава 1"
+        },
+        {
+            "folder": "1-2/",
+            "link": "https://remanga.org/manga/switch_girl/vol1/2",
+            "title": "Том 1 Глава 2"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://remanga.org/api/titles/chapters/259605",
+			"title" : "Том 1 Глава 1",
+			"assert" : {
+				"pages" : [
+{"image": "https://img.remanga.org/images/switch_girl/1-1/bg.jpg"},
+{"image": "https://img.remanga.org/images/switch_girl/1-1/_____________________.jpg"},
+{"image": "https://img.remanga.org/images/switch_girl/1-1/photo-1223836-xl.jpg"}
+				],
+				"pages_count": "35"
+			}
+		}
+	]
+}

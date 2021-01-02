@@ -1,0 +1,186 @@
+{
+	"id": 2048,
+	"version": 14,
+	"time_invalidate": 0,
+	"title": "MangaFox",
+	"host": "http://mangafox.me/",
+	"public_link": "http://mangafox.me/directory/",
+	"folder": "mangafox",
+	"name": "mf",
+	"chapters_order": false,
+	"language": "en",
+	"catalog_link": "http://fant.my1.ru/mwparser/mangafox.p",
+	"self_link": "http://fant.my1.ru/mwparser/parsers/mangafox.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangafox.png",
+
+
+	"manga_list_complete": {
+
+		"iterator": "http://mangafox.me/manga/",
+
+		"add_manga": {
+			"start": "class=\"manga_list\"",
+			"next": "<li><a href=\"http://mangafox.me/manga/",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"token1": "\">",
+				"token2": "</"
+			}
+		}
+	},
+
+
+
+
+
+
+
+
+
+	"manga_complete": {
+		"title": {
+			"after": "<meta property=\"og:title\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"uniq": {
+			"after": "<meta property=\"og:title\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+
+		"author": {
+			"after": "<a href=\"/search/author/",
+			"token1": ">",
+			"token2": "</a>"
+		},
+		"summary": {
+			"token1": "<p class=\"summary\">",
+			"token2": "</p>"
+		},
+		"rating": {
+			"after": ">Rating:<",
+			"token1": "out of",
+			"token2": "total vot"
+		},
+		"status": {
+			"complete": "Completed",
+			"ongoing": "Ongoing",
+			"licensed": "has been licensed, it is not available in Manga Fox"
+		},
+		"read_dir": {
+			"right_to_left": "Manga</h1>",
+			"left_to_right": "Manhwa</h1>"
+		},
+		"cover": {
+			"after": "<div class=\"cover\">",
+			"token1": "src=\"",
+			"token2": "\"",
+			"replace": {
+				"match": "a.mfcdn.net",
+				"text": "c.mfcdn.net"
+			}
+		},
+		"add_genre": {
+			"after": "<a href=\"http://mangafox.me/search/genres/",
+			"token1": ">",
+			"token2": "</"
+		},
+		"add_chapter": {
+			"start": "id=\"chapters\"",
+			"end": "id=\"discussion\"",
+			"next": "<a href=\"http://mangafox.me/manga/",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {
+					"match": "/1.html$",
+					"text": "/"
+				}
+			},
+			"title": {
+				"token1": ">",
+				"token2": "</a>"
+			}
+		},
+		"link_corrector": [{
+			"match": "/1.html$",
+			"text": "/"
+		}, {
+			"match": "/$",
+			"text": "/1.html"
+		}]
+	},
+	"chapter_complete": {
+		"add_pages": {
+			"start": "select onchange=\"change_page",
+			"token1": "<option value=\"",
+			"token2": "\"",
+			"end": "<option value=\"0"
+		},
+		"sufix": ".html"
+	},
+	"page_complete": {
+		"image": {
+			"skip": "<div class=\"read_img\"",
+			"token1": "src=\"",
+			"token2": "\""
+		}
+	},
+
+	"test": [{
+		"proc": "manga_list_complete",
+
+		"assert": {
+			"mangas": [{
+				"title": "Beelzebub",
+				"link": "http://mangafox.me/manga/beelzebub/",
+				"uniq": "beelzebub"
+			}, {
+				"title": "Naruto",
+				"link": "http://mangafox.me/manga/naruto/"
+			}],
+			"mangas_count": ">13200"
+		}
+	}, {
+		"proc": "manga_complete",
+		"details": true,
+		"link": "http://mangafox.me/manga/beelzebub/",
+		"title": "Beelzebub",
+		"assert": {
+			"cover": "@^http://\\w*\\.mfcdn\\.net/store/manga/10543/cover\\.jpg",
+			"summary": "@^(The story).*(\\.)$",
+			"genres": "@comedy",
+			"status": "complete",
+			"genres_count": ">5",
+			"rating": ">=1012",
+			"chapters_count": ">=250",
+			"chapters": [{
+				"title": "Beelzebub 216",
+				"link": "@^http://mangafox\\.me/manga/beelzebub/v25/c216/",
+				"folder": "c216/"
+			}]
+		}
+	}, {
+		"proc": "chapter_complete",
+		"title": "Beelzebub 216",
+		"link": "http://mangafox.me/manga/beelzebub/v25/c216/",
+		"assert": {
+
+			"pages": [{
+				"link": "http://mangafox.me/manga/beelzebub/v25/c216/1.html"
+			}, {
+				"link": "http://mangafox.me/manga/beelzebub/v25/c216/6.html"
+			}]
+		}
+	}, {
+		"proc": "page_complete",
+		"link": "http://mangafox.me/manga/beelzebub/v25/c216/1.html",
+		"assert": {
+			"image": "http://h.mfcdn.net/store/manga/10543/25-216.0/compressed/i001.jpg?token=2c1f5ee52cb3fb77a21e7efe28e9d604&ttl=1483538400"
+		}
+	}]
+}

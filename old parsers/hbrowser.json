@@ -1,0 +1,127 @@
+{
+	"id": 10496,
+	"version": 7, 
+	"title": "Hbrowser",
+	"host": "http://www.hbrowse.com/",
+	"public_link": "http://www.hbrowse.com/browse/title",
+	"folder": "hbrowse",
+	"name" : ["hbrow", "hb"],
+	"language": "en",
+	"is_mature": true,
+	"catalog_link": "http://fant.my1.ru/mwparser/hbrowser.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/hbrowser.json",
+	
+	
+	"icon_link": "http://fant.my1.ru/mwparser/img/hbrowse.png",
+	
+	
+	
+	"chapters_order": false,
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://www.hbrowse.com/browse/title/rank/DESC/",
+			"append_nums": { "from": 1, "to": 500 }
+		},
+
+		"add_manga": { 
+			"next": "<div class=\"thumbDiv\"",
+			"link":  { "token1": "<a href=\"", "token2": "\"" ,"replace": {"match": "/c00001","text": "/"}}, 
+			"title": { "after":  "<td class=\"thumbTitleTd\"", "token1": "\">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "10000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+	       "title": {
+                "after": ">Title<",
+                "token1": "<td class=\"listLong\">",
+                "token2": "</td"
+            },
+            "uniq": {
+                "after": ">Title<",
+                "token1": "<td class=\"listLong\">",
+                "token2": "</td"
+            },
+		
+		"author":      { "after": "href=\"http://www.hbrowse.com/browse/artist/", "token1":">", "token2": "</" },
+		"cover":       { 
+			"skip": "class=\"listLink\"", "token1": "href=\"http://www.hbrowse.com/", "token2": "/" ,
+			"replace" : {
+				"prefix" : "http://www.hbrowse.com/thumbnails/",
+				"sufix" : "_1.jpg"
+			}
+		},
+		"add_genre":   { "after": "href=\"http://www.hbrowse.com/browse/genre/", "token1": ">", "token2": "</" },
+		"add_chapter": { 
+			"next":  "\">Chapter", 
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": ">",       "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "PAGE LIST", 
+			"token1": "href=\"", 
+			"token2": "\"", 
+			"end": "</td>"
+		}
+	},
+	"page_complete": {
+		"image": { "after": "class=\"pageImage\"", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Shake Hip",    
+					  "link" : "http://www.hbrowse.com/15856/",
+						"uniq" : "15856"
+					},
+					{ "title" : "Boys' Empire", "link" : "http://www.hbrowse.com/11413/" }
+				],
+				"mangas_count" : ">7000"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			
+			"link" : "http://www.hbrowse.com/15856/", 
+			"title" : "Shake Hip", 
+			"assert" : {
+				"author" : "Abe Morioka",
+				"cover" : "http://www.hbrowse.com/thumbnails/15856_1.jpg",
+				"chapters_count" : ">=1",
+				"chapters" : [
+					{ "title" : "Chapter 001", 
+					  "link" : "http://www.hbrowse.com/15856/c00001", 
+						"folder" : "c00001/"}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.hbrowse.com/15856/c00001", 
+			"title" : "Chapter 001", 
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://www.hbrowse.com/15856/c00001/00007" },
+					{ "link" : "http://www.hbrowse.com/15856/c00001/00018" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.hbrowse.com/15856/c00001/00007",
+			"assert" : {
+				"image" : "http://www.hbrowse.com/data/15856/c00001/07.jpg"
+			}
+		}
+	]
+}

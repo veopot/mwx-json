@@ -1,0 +1,192 @@
+{
+	"id": 40118,
+	"version": 4,
+	"time_invalidate": 0,
+	"title": "MangaBB by Veopot",
+	"host": "http://www.mangabb.co/",
+	"public_link": "http://www.mangabb.co/manga-list",
+	"folder": "mangabb",
+	"name" : "mangabb",
+	"chapters_order": false,
+	"language": "en",
+    "catalog_link": "http://fant.my1.ru/mwparser/mangabb.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/mangabb.json",
+	"icon_link": "http://www.mangabb.co/favicon.ico",
+	
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://www.mangabb.co/popular-manga/",
+			"append_nums": { "from": 1, "to": 500 }
+		},
+
+		"add_manga": {
+			"next": "<div class=\"right_col\"",
+			"link":  { "token1": "href=\"", "token2": "\""},
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" }
+		}
+		
+	},
+
+	"manga_complete": [
+	
+	{"condition": " Next",
+	
+		"title":      { "skip": "<div class=\"right_col\"", "token1":"h1>", "token2": "</h1" ,
+				        "replace" : { "match" : "&nbsp;", "text" : "" } },
+		"uniq":       { "skip": "<div class=\"right_col\"", "token1":"h1>", "token2": "</h1" ,
+				        "replace" : { "match" : "&nbsp;", "text" : "" } },
+		"cover":       { "skip": "<div class=\"left_col\"", "token1": "src=\"", "token2": "\"" },
+		"author": "MangaBB",
+	    "status": { 
+                     "complete": { 
+                      "start": "<span>Status:</", 
+		              "end": "</div>",
+                      "values" : [ "Single", "Completed" ]
+                                 },
+                     "ongoing": {
+                      "start": "<span>Status:</", 
+		              "end": "</div>",
+                      "value" : "Ongoing"
+                                },
+                     "default" : "unknown"
+                 },
+		"summary":     { "skip": "span>Description:</", "token1": "id=\"full_notes\">", "token2": "<" },
+		"add_genres":   { 
+		"start": "<span>Genres:</", 
+		"end": "<p class=\"sc_ad\"",
+		"after": "href=\"",
+		"token1": "\">", 
+		"token2": "</" },
+		
+		"chapters_from_pages": { 
+		"start": "<ul class=\"pagination\"",
+		"end": "<div id=\"comments\"",
+		"token1": "class=\"button-content\">",
+		"token2": "</",
+		"replace": {
+				"prefix": "%%url%%/"
+			}
+		},
+		
+		"add_chapter": {
+		     "start": "<div id=\"chapters\"", 
+		     "end": "class=\"pagination\"",
+			   "next":  "<a",
+			   "link":  { "token1": "href=\"", "token2": "\""},
+			   "title": { "skip" : "href=\"", "token1": "\">", "token2": "</"}
+		}
+	},
+	{"condition": "",
+	"title":      { "skip": "<div class=\"right_col\"", "token1":"h1>", "token2": "</h1" ,
+				        "replace" : { "match" : "&nbsp;", "text" : "" } },
+		"uniq":       { "skip": "<div class=\"right_col\"", "token1":"h1>", "token2": "</h1" ,
+				        "replace" : { "match" : "&nbsp;", "text" : "" } },
+		"cover":       { "skip": "<div class=\"left_col\"", "token1": "src=\"", "token2": "\"" },
+		"author": "MangaBB",
+	    "status": { 
+                     "complete": { 
+                      "start": "<span>Status:</", 
+		              "end": "</div>",
+                      "values" : [ "Single", "Completed" ]
+                                 },
+                     "ongoing": {
+                      "start": "<span>Status:</", 
+		              "end": "</div>",
+                      "value" : "Ongoing"
+                                },
+                     "default" : "unknown"
+                 },
+		"summary":     { "skip": "span>Description:</", "token1": "id=\"full_notes\">", "token2": "<" },
+		"add_genres":   { 
+		"start": "<span>Genres:</", 
+		"end": "<p class=\"sc_ad\"",
+		"after": "href=\"",
+		"token1": "\">", 
+		"token2": "</" },
+		
+		
+		
+		"add_chapter": {
+		     "start": "<div id=\"chapters\"", 
+		     "end": "id=\"comments\"",
+			   "next":  "<a",
+			   "link":  { "token1": "href=\"", "token2": "\""},
+			   "title": { "skip" : "href=\"", "token1": "\">", "token2": "</"}
+		}
+	}],
+	
+	
+	
+	
+	"chapter_complete": {
+		"add_pages": {
+			"start": "<div id=\"asset_2\"",
+			"token1": "value=\"",
+			"token2": "\"",
+			"end": "</div>"
+			
+		}
+	},
+	"page_complete": {
+		"image": { "skip": "<div id=\"manga_viewer\"", "token1":"<img src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Fairy Tail",     
+					"link" : "http://www.mangabb.co/manga/fairy-tail",
+					"uniq" : "fairy-tail" },
+					{ "title" : "Dragon Ball", "link" : "http://www.mangabb.co/manga/dragon-ball" }
+				],
+				"mangas_count" : ">9400"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.mangabb.co/manga/chobits",
+			"title" : "Chobits",
+			"assert" : {
+				"cover" : "http://www.mangabb.co/images/series/large/380.jpg",
+				"summary" : "@^(Hideki's just like every other)",
+				
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=80",
+				"chapters" : [
+					{ 
+"title" : "Chobits Chapter 1",
+"link" : "http://www.mangabb.co/chobits/chapter-1",
+						"folder" : "chapter-1/"
+					},
+					{ "title" : "Chobits Chapter 2",
+"link" : "http://www.mangabb.co/chobits/chapter-2" }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.mangabb.co/fairy-tail/chapter-293",
+			"title" : "Fairy Tail Chapter 293",
+			"assert" : {
+				"pages" : [
+        {"link": "http://www.mangabb.co/fairy-tail/chapter-293"},
+        {"link": "http://www.mangabb.co/fairy-tail/chapter-293/2"},
+        {"link": "http://www.mangabb.co/fairy-tail/chapter-293/3"}
+				],
+				"pages_count": "18"
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangabb.co/fairy-tail/chapter-293",
+			"assert" : {
+				"image" : "http://www.mangabb.co/images/manga/fairy_tail/293/1.jpg"
+			}
+		}
+	]
+}

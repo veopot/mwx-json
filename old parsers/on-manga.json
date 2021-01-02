@@ -1,0 +1,190 @@
+{
+	"id": 40145, 
+	"version": 12,
+	"title": "On-Manga_com",
+	"host": "https://www.on-manga.com/",
+	"public_link": "https://www.on-manga.com/manga-list",
+    "author": {
+		"name": "Veopot",
+		"email": "fant-net@ya.ru"
+	},
+	"folder": "on-manga",
+	"name": "on-manga",
+	"chapters_order": true,
+	"language": "ar",
+	"encoding": "utf-8",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/on-manga.p",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/on-manga.json",
+	"icon_link": "http://www.on-manga.com/favicon.png",
+
+
+
+
+
+	"manga_list_complete": {
+
+"iterator":{ "base_url": "https://www.on-manga.com/manga-list?page=","append_nums": {"from": 1,"to": 20} },
+
+		"add_manga": {
+			"next": "<h5 class=\"media-heading\"",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"" },
+			"title": {
+				"skip": "href=\"",
+				"token1": "strong>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "strong>",
+				"token2": "</"
+			}
+		}
+	},
+
+	"manga_complete": {
+		"title": {
+			"after": "<div class=\"panel-heading\"",
+			"token1": ">",
+			"token2": "</"
+		},
+		"uniq": {
+			"after": "<div class=\"panel-heading\"",
+			"token1": ">",
+			"token2": "</"
+		},
+		"summary": {
+			"skip": "strong>نبذة عن المانجا</strong",
+			"token1": "</h5>",
+			"token2": "</",
+			"replace": { "match": "<.*?>", "text": " " }
+		},
+		
+
+		
+		
+"status":      {
+ 
+ "complete": "متوقفة", 
+ "ongoing": [ "\">مكتملة</span","\">مستمرة</span"]
+  },
+		
+		
+		"add_genre": {
+			"after": "href=\"https://www.on-manga.com/manga-list/category/",
+			"token1": "category/",
+			"token2": "\">"
+		},
+
+		"author": {
+			"skip": "href=\"https://www.on-manga.com/manga-list/author",
+			"token1": "\">",
+			"token2": "</"
+		},
+		
+
+"rating": { 
+"after": "meta itemprop=\"votes\"",
+"token1": "content = \"",
+"token2": "\"" },
+
+		"cover": {
+			"skip": "class=\"img-responsive\"",
+			"token1": "src='",
+			"token2": "'"
+		},
+
+		"add_chapter": {
+			"start": "class=\"chapters\"",
+			"end": "class=\"manga-footer\"",
+			"next": "<h5 class=\"chapter-title-rtl\"",
+			
+			"link": {
+				
+				"token1": "href=\"",
+				"token2": "\""
+			},
+
+			"uniq": { "skip" : "href=\"", "token1": "\">", "token2": "</"},
+			
+			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</"}
+		}
+		
+	},
+
+	
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "<div class=\"viewer-cnt\"",
+			"token1": "data-src='",
+			"token2": "'",
+			"end": "<div id=\"ppp\""
+		}
+		
+	},
+	
+	
+	
+	
+
+
+
+	"test": [{
+			"proc": "manga_list_complete",
+			
+			"assert": {
+				"mangas": [{
+        "title": "Can't See Can't Hear But Love",			
+        "link": "https://www.on-manga.com/manga/cant-see-cant-hear-but-love"
+				}, {
+					
+        "link": "https://www.on-manga.com/manga/cheonsaeng-yeonbun"
+				}],
+				"mangas_count": ">20"
+			}
+		},
+
+		{
+			"proc": "manga_complete",
+			"link": "https://www.on-manga.com/manga/fairy-tail",
+			"title": "Fairy Tail",
+			"assert": {
+				"cover": "https://www.on-manga.me/uploads/manga/fairy-tail/cover/cover_250x350.jpg",
+				"author": "ماشيما هيرو",
+				"status": "ongoing",
+				"genres" : "@comedy",
+				"chapters_count": ">=2",
+				"rating": ">=110",
+				
+
+				"chapters": [
+        {
+            "link": "https://www.on-manga.com/manga/fairy-tail/464"
+        },
+        {
+           "link": "https://www.on-manga.com/manga/fairy-tail/465"
+        }
+				            ]
+			}
+		},
+		
+		
+		
+
+		{
+			"proc": "chapter_complete",
+			"link": "https://www.on-manga.com/manga/fairy-tail/464/",
+			"assert" : {
+				"pages" : [
+		{"image": "https://www.on-manga.me/uploads/manga/fairy-tail/chapters/464/01.jpg"},
+        {"image": "https://www.on-manga.me/uploads/manga/fairy-tail/chapters/464/02.jpg"},
+        {"image": "https://www.on-manga.me/uploads/manga/fairy-tail/chapters/464/03.jpg"}
+			],
+				"pages_count": "19"
+			}
+
+		}
+	]
+}

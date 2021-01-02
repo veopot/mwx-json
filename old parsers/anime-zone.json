@@ -1,0 +1,107 @@
+{
+	"id": 66347,
+	"version": 2,
+	"time_invalidate": 0,
+	"title": "Anime-Zone by Veopot",
+	"host": "http://www.anime-zone.ru/",
+	"public_link": "http://www.anime-zone.ru/manga/top",
+	"folder": "anime-zone",
+	"name" : "anime-zone",
+	"chapters_order": false,
+	"language": "ru",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/anime-zone.json",
+	"icon_link": "http://www.anime-zone.ru/inc/favicon.ico",
+	"catalog_link": "http://fant.my1.ru/mwparser/anime-zone.p",
+	"encoding": "Windows-1251",
+
+	"manga_list_complete": {
+
+		"iterator":"http://www.anime-zone.ru/manga/top",
+		
+
+		"add_manga": {
+		    "start": "href=\"/manga/top/29\"",
+			"end": "<td class=\"right-modul-td\">",
+			"next": "<span",
+			"link":  { "token1": "href=\"", "token2": "\"" ,"replace" : {"prefix" : "http://www.anime-zone.ru" }},
+			"title": { "skip": "href=\"" , "token1": "\">", "token2": "</a>" }
+		}
+},
+
+	"manga_complete": {
+		"title":      { "skip": "<span style=\"float: left;\"", "token1":"(", "token2": ")" },
+		"uniq":       { "skip": "<span style=\"float: left;\"", "token1":"(", "token2": ")" },
+		"cover":       { "after": "src=\"/inc/manga/", "token1": "src=\"", "token2": "\"" ,
+		"replace" :    {"prefix" : "http://www.anime-zone.ru" }},
+		
+		"author":      { "skip": ">Люди:</", "token1": ">", "token2": "</" },
+		"summary":     { "skip": ">Описание манги:</", "token1": ">", "token2": "<p>" },
+	    "add_genre":   { "skip": "href='/manga/bystyle/", "token1": "'>", "token2": ",<" },
+		"status":      { "complete": [ "сингл", "больше не выпускается" ], "ongoing": "перевод продолжается<" },
+	
+		
+		
+		"add_chapter": {
+			"next":  "href=\"/manga/chapter/",
+			"link":  { "token1": "href=\"/manga/chapter/", "token2": "\"",
+			"replace" : {"prefix" : "http://www.anime-zone.ru/manga/chapter/" }},
+			"title": { "skip" : "href=\"/manga/chapter/", "token1": "<b>", "token2": "</b>"}
+		}
+	},
+	"chapter_complete": {
+	    "images": true,
+		"add_pages": {
+			"start": "<td style=\"width:750px;\"",
+			"end": "</td>",
+			"token1": "href=\"/inc/manga/",
+			"token2": "\"",
+			"replace" : {"prefix" : "http://www.anime-zone.ru/inc/manga/" }
+		          }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Модель",      "link" : "http://www.anime-zone.ru/manga/byid/model",
+						"uniq" : "model" },
+					{ "title" : "Тетрадь Смерти", "link" : "http://www.anime-zone.ru/manga/byid/death_note" }
+				],
+				"mangas_count" : ">50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.anime-zone.ru/manga/byid/skip_beat_",
+			"title" : "Не сдавайся!",
+			"assert" : {
+				"author" : "@Накамура Ёсики",
+				"cover" : "http://www.anime-zone.ru/inc/manga/skip_beat/cover.jpg",
+				"summary" : "@^(Порой сильные чувства человека)",
+				"genres" : "@drama",
+				"status" : "unknown",
+				"genres_count" : ">=1",
+				"chapters_count" : ">=93",
+				"chapters" : [
+{ "title" : "Том 01. Глава 001.","link" : "http://www.anime-zone.ru/manga/chapter/skip_beat_/01/001",
+"folder" : "001/" },
+{ "title" : "Том 01. Глава 002." ,"link" : "http://www.anime-zone.ru/manga/chapter/skip_beat_/01/002" }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.anime-zone.ru/manga/chapter/naruto/01/001",
+			"title" : "Том 01. Глава 001.",
+			"assert" : {
+				"pages" : [
+					{ "image" : "@^http://www.anime-zone.ru/inc/manga/naruto/01/001/Naruto_Vol01_Ch001_001-002.jpg" },
+					{ "image" : "@^http://www.anime-zone.ru/inc/manga/naruto/01/001/Naruto_Vol01_Ch001_003.PNG" }
+				],
+				"pages_count": "58"
+			}
+		}
+	]
+}

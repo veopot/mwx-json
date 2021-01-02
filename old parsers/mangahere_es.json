@@ -1,0 +1,192 @@
+{
+	"id": 12289,
+	"version": 9,
+	"title": "MangaHere Espanol",
+	"host": "http://es.mangahere.co/",
+	"public_link": "http://es.mangahere.co/directory/",
+	"folder": "mangahere_es",
+	"name": ["es-mhere", "mhere-es", "mh-es", "es-mh"],
+	"chapters_order": false,
+	"language": "es",
+	"catalog_link": "http://fant.my1.ru/mwparser/mangahere_es.p",
+	"self_link": "http://fant.my1.ru/mwparser/parsers/mangahere_es.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangahere_es.png",
+	"encoding": "utf-8",
+    
+
+	"manga_list_complete": {
+
+		"iterator": "http://es.mangahere.co/mangalist/",
+
+		"add_manga": {
+			"start": "<div class=\"sort_list\"",
+			"end": "<footer>",
+
+
+			"next": "<li><a",
+			"link": {
+				"skip": "<a class=\"manga_info\"",
+				"token1": "href=\"",
+				"token2": "/\">"
+			},
+			"title": {
+				"skip": "href=\"",
+				"token1": "<span></span>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "<span></span>",
+				"token2": "</"
+			}
+		}
+	},
+	"manga_complete": {
+
+		"title": {
+			"skip": "<span class=\"title_icon\">",
+			"token1": "</span>",
+			"token2": "</h1>"
+		},
+		"uniq": {
+			"skip": "<span class=\"title_icon\">",
+			"token1": "</span>",
+			"token2": "</h1>"
+		},
+		"author": {
+			"after": "Autor(s):",
+			"token1": "\">",
+			"token2": "</a>"
+		},
+		"summary": {
+			"skip": "<p id=\"show\"",
+			"token1": "\">",
+			"token2": "<"
+		},
+		"status": {
+			"complete": ">Terminado</li>",
+			"ongoing": ">En desarrollo"
+		},
+
+		"rating": {
+			"skip": "id=\"current_rating\"",
+			"token1": ">(",
+			"token2": "votos",
+			"replace": {
+				"match": "Necesita",
+				"text": ""
+			}
+		},
+		"cover": {
+			"after": "class=\"manga_detail\"",
+			"token1": "src=\"",
+			"token2": "\""
+		},
+		"add_genre": {
+			"start": "<label>Genero(s):",
+			"after": "class=\"color_0077\"",
+			"token1": "\">",
+			"token2": "</a",
+			"end": "<label>Autor(s):"
+		},
+		"add_chapter": {
+			"start": "class=\"detail_list\"",
+			"next": "<span class=\"left\"",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"token1": ">",
+				"token2": "</a>"
+			}
+		}
+	},
+	"chapter_complete": {
+
+		"add_pages": {
+			"start": "change_page(this)",
+			"token1": "<option value=\"",
+			"token2": "\"",
+			"end": "</select>"
+		}
+	},
+
+
+	"page_complete": {
+
+		"image": {
+			"skip": "id=\"viewer\">",
+			"token1": "src=\"",
+			"token2": "\""
+		},
+		"link_corrector" : [
+			{ "match" : "http://mangahere.co", "text": "http://es.mangahere.co" }
+		]
+	},
+
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+					"title": "The Breaker",
+					"link": "http://es.mangahere.co/manga/the_breaker",
+					"uniq": "The Breaker"
+				}, {
+					"title": "Beelzebub",
+					"link": "http://es.mangahere.co/manga/beelzebub"
+				}],
+				"mangas_count": ">2900"
+			}
+		},
+
+
+		{
+			"proc": "manga_complete",
+			"link": "http://es.mangahere.co/manga/arata_kangatari/",
+			"title": "ARATA KANGATARI",
+			"assert": {
+				"author": "Watase Yuu",
+				"cover": "http://es.mangahere.co/store/manga/12822/cover.jpg?v=1394065323",
+				"genres": "@comedy",
+				"status": "ongoing",
+				"rating": ">=5",
+				"genres_count": ">=6",
+				"chapters_count": ">=100",
+				"chapters": [{
+					"title": "Arata Kangatari 1",
+					"link": "http://es.mangahere.co/manga/arata_kangatari/c1/",
+					"folder": "c1/"
+				}, {
+					"title": "Arata Kangatari 2",
+					"link": "http://es.mangahere.co/manga/arata_kangatari/c2/"
+				}]
+			}
+		},
+
+
+		{
+			"proc": "chapter_complete",
+			"link": "http://es.mangahere.co/manga/arata_kangatari/c1/",
+			"assert": {
+				"pages": [{
+					"link": "http://es.mangahere.co/manga/arata_kangatari/c1/"
+				}, {
+					"link": "http://es.mangahere.co/manga/arata_kangatari/c1/2.html"
+				}],
+				"pages_count": "48"
+			}
+		}, 
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangahere.co/manga/the_breaker/v10/c072/34.html",
+			"assert" : {
+				"image" : "http://www.mangahere.co/media/images/loading.gif"
+			}
+		}
+		
+		
+
+	]
+
+}

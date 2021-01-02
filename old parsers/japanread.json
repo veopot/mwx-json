@@ -1,0 +1,137 @@
+{
+	"id": 40132,
+	"version": 3,
+	"time_invalidate": 0,
+	"title": "JapanRead",
+	"host": "http://www.japanread.net/",
+	"public_link": "http://www.japanread.net/manga-list/",
+	"catalog_link": "http://fant.my1.ru/mwparser/japanread.p",
+	"self_link": "http://fant.my1.ru/mwparser/parsers/japanread.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/japanread.png",
+	"folder": "japanread",
+	"name" : "japanread",
+	"chapters_order": false,
+	"language": "fr",
+
+
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://www.japanread.net/manga-list/all/any/most-popular/",
+			"append_nums": { "from": 0, "to": 51, "sufix ": "/" }
+		},
+
+		"add_manga": {
+			"next": "<h4 class=\"media-heading\" id=\"tables\"",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "10000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":      { "after": "<h1 id=\"tables\"", "token1":"\">", "token2": "</" },
+		"uniq":       { "after": "<h1 id=\"tables\"", "token1":"\">", "token2": "</" },
+		"author":      { "after": ">Genres</", "token1":"id=\"ath\">", "token2": "</" },
+		"summary":     { "skip": "<h3>Synopsis</h3", "token1": "<p>", "token2": "</p" },
+		"status":      { "complete": "/status/Completed/" , "ongoing": "/status/Ongoing/" },
+		"cover":       { "after": "<img class=\"thumbnail manga-cover\"", "token1": "src=\"", "token2": "\"",
+		"replace" : { "match" : " ", "text" : "%20" } },
+		"add_genre":   { "after": "href=\"http://www.japanread.net/manga-list/category/", "token1": "\">", "token2": "</" },
+		
+		"chapters_from_page": 
+		
+		{ 
+		"after": "rel=\"canonical\"", "token1": "href=\"", "token2": "\"",
+		"replace" : { "sufix" : "1" }
+		},
+		
+		
+		"add_chapter": {
+			"start": "<ul class=\"reader-button\"",
+			"end": "<ul class=\"nav_pag\"",
+			"next": "<option",
+			"link": {
+				"token1": "value=\"",
+				"token2": "\""
+			},
+			"title": {
+				"after": "value=\"",
+				"token1": ">",
+				"token2": "</"
+			}
+		}
+	},
+
+	
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "nav_pag",
+			"token1": "value=\"", 
+			"token2": "\"", 
+			"end": "/select>",
+			"replace": { "prefix": "%%url%%/" }
+		}
+	},
+	
+	"page_complete": {"image": { "after": "class=\"prw\"", "token1": "<img src=\"", "token2": "\"" }},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Tsubaki Love",      "link" : "http://www.japanread.net/manga/kyou-koi-wo-hajimemasu/",
+						"uniq" : "kyou-koi-wo-hajimemasu" },
+					{ "title" : "Shokugeki no Sōma", "link" : "http://www.japanread.net/manga/food-wars/" }
+				],
+				"mangas_count" : ">60"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.japanread.net/manga/7th-garden/",
+			"title" : "7th Garden (2014)",
+			"assert" : {
+				"author" : "Izumi Mitsu",
+				"cover" : "http://www.japanread.net/wp-content/manga/cover/tbn/154271l_290x0.jpg",
+				"summary" : "@^(Comme un jardinier ayant)",
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=5",
+				"chapters" : [
+					{ "title" : "Chapitre 1",
+						"link" : "http://www.japanread.net/manga/7th-garden/1",
+						"folder" : "1/"
+					},
+					{ "title" : "Chapitre 3", "link" : "http://www.japanread.net/manga/7th-garden/3" }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.japanread.net/manga/7th-garden/1",
+			"title" : "Chapitre 1",
+			"assert" : {
+				"pages" : [
+					{"link": "http://www.japanread.net/manga/7th-garden/1/1"},
+                    {"link": "http://www.japanread.net/manga/7th-garden/1/2"},
+                    {"link": "http://www.japanread.net/manga/7th-garden/1/3"}
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.japanread.net/manga/7th-garden/1/2",
+			"assert" : {
+				"image": "http://www.japanread.net/wp-content/manga/1129/2i4s3uet5zyqbj87/7thGarden-01.jpg"
+			}
+		}
+	]
+}

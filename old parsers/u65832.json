@@ -1,0 +1,180 @@
+{
+	"version": 38,
+	"title": "Emanga (Сайт воюет с нами !)",
+	"host": "https://emanga.su/",
+	
+	"language": "ru",
+	"public_link": "https://emanga.su/manga-list",
+	"id": 65832,
+	"name": "u65832",
+	"folder": "u65832",
+	"encoding": "utf-8",
+	"author": {
+		 "name":  "veopot2014",
+		"email": "Не уберу так как девушки пользуются !"
+	},
+	"self_link": "http://fant.my1.ru/mwparser/parsers/u65832.json",
+	"catalog_link": "http://fant.my1.ru/mwparser/u65832.p",
+	"icon_link": "http://fant.my1.ru/mwparser/emanga-logo.png",
+	
+	
+	"manga_list_complete": {
+	 "iterator": {        
+			"base_url": "https://emanga.su/manga-list/tag/manga?page=",
+			"append_nums": { "from": 1, "to": 100 }
+		},
+
+
+         "add_manga": {
+			"next": "<div class=\"manga-item2\"",
+			"link": {
+				"token1": "class=\"ttl\" href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"token1": "<h2 class=\"ttl\">",
+				"token2": "<small",
+				"replace": {
+					"match": "Манга",
+					"text": ""
+				}
+			},
+			"uniq": {
+			    "skip": "class=\"ttl\"",
+				"token1": "/manga/",
+				"token2": "\""
+				
+			}
+		}
+		
+	},
+	"manga_complete": {
+		"title": {
+			"after": "itemprop=\"itemreviewed\">",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"uniq": {
+			"after": "itemprop=\"itemreviewed\">",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"author": {
+			"skip": "<a href=\"https://emanga.su/manga-list/author/",
+			"token1": ">",
+			"token2": "</a>"
+		},
+		
+		"summary": {
+			"skip": "<i class=\"fa fa-file-text-o\"",
+			"token1": "class=\"panel-body\">",
+			"token2": "</div"
+		},
+		
+		"status": { 
+"complete": { 
+        "start": ">Статус</",
+		"end": "</li>",
+        "values" : ["завершен", "Переведена"]
+    },
+"ongoing": {
+        "start": ">Статус</",
+		"end": "</li>",
+        "value" : "продолжается"
+    },
+
+"default" : "unknown"
+},
+		"cover": {
+			"skip": "class=\"img-responsive\"",
+			"token1": "src=\"",
+			"token2": "\""
+		},
+		"add_genre": {
+			"after": "<a href=\"https://emanga.su/manga-list/category/",
+			"token1": "\">",
+			"token2": "<"
+		},
+		
+		"add_chapter": {
+		    "start": "class=\"vol_lst\"",
+			"next": "href=\"https://emanga.su/manga/",
+			"end": "<i class=\"fa fa-comments-o\"",
+			
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+				
+			},
+			"title": {
+				"skip": "href=\"",
+				"token1": "\">",
+				"token2": "</"
+			}
+		}
+	},
+	
+	
+	
+	"chapter_complete": {
+	"images": true,
+    "add_pages": { 
+	
+                  "start": "[{\"",
+                  "token1": "{",
+                  "token2": "}",
+                  "end": "];",
+				  "replace": { "match": "(.*?)\":\"(.*?)\",\"(.*?)\":\"(.*?)\"", "text": "/$4" }
+
+                  },
+	"prefix": { "after": "jQuery('.scan-page').attr", "token1": "('src', '", "token2": "'" }
+	
+		       },
+			   
+	"test": [
+	{
+		"proc": "manga_list_complete",
+		"assert": {
+			"mangas" : [
+{ "link": "https://emanga.su/manga/absolute-duo"},
+{ "link" : "https://emanga.su/manga/666_satan"}
+				],
+				"mangas_count" : ">50"
+		
+		}}, {
+		"proc": "manga_complete",
+		"link": "https://emanga.su/manga/bleach",
+		"title": "Bleach",
+		"assert": {
+			"author": "KUBO Tite",
+			"cover": "https://emanga.su/uploads/manga/bleach/cover/cover_250x350.jpg",
+			"summary": "@^(Ичиго Куросаки всегда)",
+			"genres": "@comedy",
+			"status": "complete",
+			"genres_count": ">=5",
+			"chapters_count": ">=100",
+			"chapters": [{
+				"link": "https://emanga.su/manga/bleach/v1/c1"
+			}, {
+				"link": "https://emanga.su/manga/bleach/v1/c2",
+				"folder": "c2/"
+			}]
+		}
+	}, {
+		"proc": "chapter_complete",
+		"title": "Блич - 1 Смерть и клубника",
+		"link": "https://emanga.su/manga/bleach/v1/c1",
+		"assert": {
+			"pages": [
+			 {"image": "https://emanga.su/uploads/manga/bleach/chapters/1/01.png"},
+             {"image": "https://emanga.su/uploads/manga/bleach/chapters/1/02.jpg"},
+             {"image": "https://emanga.su/uploads/manga/bleach/chapters/1/03.jpg"}
+            
+			],
+			"pages_count": "55"
+		}
+	}
+	
+	
+	]
+}

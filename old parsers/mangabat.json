@@ -1,0 +1,197 @@
+{
+"id": 40223,
+"version": 2,
+"title": "MangaBat",
+"host": "https://mangabat.com",
+"public_link": "https://mangabat.com/manga_list",
+"folder": "mangabat",
+"name" : "mangabat",
+"chapters_order": false,
+"language": "en",
+ "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/mangabat.png",
+"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/mangabat.json",
+"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/mangabat.p",
+	
+	
+"manga_list_complete": {
+
+        "iterator": {
+			"base_url": "https://mangabat.com/manga_list?type=topview&category=all&state=all&page=",
+			"append_nums": { "from": 1, "to": 1124 }
+		},
+
+		"add_manga": {
+			"next": "<div class=\"update_item list_category\"",
+			"link": {
+			    "after": "<a",
+				"token1": "href=\"",
+				"token2": "\""
+				     },
+			"title": {
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"uniq": {
+			    "token1": "title=\"",
+				"token2": "\""
+			}
+		             }
+	},	
+	
+	
+	
+"manga_search_complete": {		
+ "search_link":"$scheme$//$hostname$/search_manga/$query$?page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+		     "start": "Search : ", 
+			 "end": "class=\"fb-comments\"",
+             "next": "<div class=\"update_item list_category\"",
+			"link": {
+			    "after": "<a",
+				"token1": "href=\"",
+				"token2": "\""
+				     },
+					 
+			"cover": {
+			    "skip": "href=\"",
+				"token1": "src=\"",
+				"token2": "\""
+				     },		 
+			"title": {
+				
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			
+			"uniq": {
+			
+				"token1": "title=\"",
+				"token2": "\""
+			}
+		 }
+		},	
+
+	"manga_complete": {
+		"title":{ 
+		    "after": ">»</", 
+		    "token1":"\">", 
+			"token2": "</",
+		    "replace": [
+			{ "match": "Mangabat.com", "text": "" },
+			{ "match": "|", "text": "" }
+			]
+			    },
+		"additional_title":{ 
+		    "token1":">Alternative :", 
+			"token2": "</"
+			    },
+		"uniq":{ 
+		    "after": ">»</", 
+		    "token1":"\">", 
+			"token2": "</"
+			    },
+		"author":      { "skip": ">Author(s): <", "token1": "'>", "token2": "</" },
+		"summary":{"skip": "<h2><p style=\"color: red;\">",
+		           "token1": "</p></h2>", 
+				   "token2": "<div class=\"contentm_custom\">", 
+				   "replace": {"match": "<.*>", "text": " "}
+				   },
+		
+		"status":      { 
+		"complete": ">Completed</a></li>",
+		"ongoing": ">Ongoing</a></li>"
+		  },
+		"cover": { "after": "<img class=\"info_image_manga\"",
+		"token1": "src=\"", "token2": "\"" },
+		
+		"add_genres":   {
+        "start": ">Genres : ",
+		"end": "</li>",
+		"token1": "'>",
+		"token2": "</" 
+		},
+		
+		"is_mature": {
+			"start": ">Genres : ",
+		    "end": "</li>",
+			"values": ["Adult","Yuri","Yaoi","Seinen" ]
+            },
+		"add_chapter":  {
+		    "start": "class=\"chapter-list\">",
+			"end": "class=\"comment-fk\">",
+			"next":  "span><a",
+			
+			"link":  { "token1": "href=\"", "token2": "\""},
+			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</",
+			 "replace" : { "match" : "&nbsp;", "text" : "" }
+			}
+		}
+	},
+	"chapter_complete": {
+	    "add_images": {
+			"start": "class=\"options-chapter\"",
+			"token1": "<img src=\"",
+			"token2": "\" alt=\"",
+			"end": "style=\"max-height:",
+			"replace": [
+{"match": "<iframe src=\"\/ads\/.*\">","text": ""},
+{"match": "https://mangabat.com/ads/adtrue_desktop_728x90.html", "text": "" }
+			]
+			}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{ "title": "River God Seeks Adoption",
+					  "uniq": "River God Seeks Adoption", 
+					  "link" : "https://mangabat.com/manga/serie-1088913280" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangabat.com/manga/serie-1088887707",
+			"title" : "Komi-san wa Komyushou Desu",
+			"assert" : {
+				"author" : "Oda Tomohito",
+				"cover" : "https://avt.mkklcdnv3.com/avatar_225/1917-komisan_wa_komyushou_desu.jpg",
+				"summary" : "@Komi-san is the beautiful and admirable girl",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=200",
+				"chapters" : [
+		{
+            "folder": "chap_192/",
+            "link": "https://mangabat.com/chapter-serie/1088887707/chap_192",
+            "title": "Chapter 192: The Book Search Club By The River"
+        },
+        {
+            "folder": "chap_191/",
+            "link": "https://mangabat.com/chapter-serie/1088887707/chap_191",
+            "title": "Chapter 191: Mosquito"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://mangabat.com/chapter-serie/1088887707/chap_192",
+			"assert" : {
+				"pages" : [
+{"image": "https://s8.mkklcdnv8.com/mangakakalot/k2/komisan_wa_komyushou_desu/chapter_192_the_book_search_club_by_the_river/1.jpg"},
+{"image": "https://s8.mkklcdnv8.com/mangakakalot/k2/komisan_wa_komyushou_desu/chapter_192_the_book_search_club_by_the_river/2.jpg"},
+{"image": "https://s8.mkklcdnv8.com/mangakakalot/k2/komisan_wa_komyushou_desu/chapter_192_the_book_search_club_by_the_river/3.jpg"}
+				],
+				"pages_count": "9"
+			}
+		}
+	]
+}

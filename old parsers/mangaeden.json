@@ -1,0 +1,162 @@
+{
+	"id": 9472,
+	"version": 5, 
+	"title": "MangaEden English",
+	"host": "http://www.mangaeden.com/eng/",
+	"public_link": "http://www.mangaeden.com/en/en-directory/",
+	"folder": "mangaedenEn",
+	"name" : ["maEn", "me", "med"],
+	"chapters_order": false,
+	"language": "en",
+	"catalog_link": "http://fant.my1.ru/mwparser/mangaeden.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/mangaeden.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangaeden.png",
+	
+	
+	
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://www.mangaeden.com/en/en-directory/?order=1&page=",
+			"append_nums": { "from": 1, "to": 250 }
+		},
+
+		"add_manga": { 
+			"next": "<td><a href=\"/en/en-manga",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": "\">",     "token2": "</a>" }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+	"manga_complete": {
+	
+        "title": {
+                "after": "<span class=\"manga-title\"",
+                "token1": "\">",
+                "token2": "</span>"
+            },
+            "uniq": {
+                "after": "<span class=\"manga-title\"",
+                "token1": "\">",
+                "token2": "</span>"
+            },
+
+		"author":      { "after": "?artist=", "token1":"\">", "token2": "</a>" },
+		"summary":     { "skip": "id=\"mangaDescription\"", "token1":">", "token2": "</h2>"},
+		"status":      { "complete": "Completed", "ongoing": "Ongoing" },
+		"read_dir":    { "right_to_left": "Japanese Manga", "left_to_right": "Korean Manhwa" },
+		"cover":       { "after": "class=\"mangaImage2\"", "token1": "src=\"", "token2": "\"" },
+		"add_genre":   { "after": "?categoriesInc=", "token1": "\">", "token2": "</a>" },
+		"add_chapter": { 
+			"next":  "<a href=\"/en/en-manga/", 
+			"start": "\"chapterBlocks\"",
+			"end" : "</tbody>",
+			"link":  { "token1": "<a href=\"", "token2": "\""   }, 
+			"title": { "token1": ">",       "token2": "</a>" },
+			"uniq" : { "token1": "href=\"", "token2": "/1/\"", "replace" : { "match" : "/en/en-manga/[\\w,\\-]*/", "text" : "" } }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": {
+			"start": "</select>",
+			"token1": "value=\"", 
+			"token2": "\"", 
+			"end": "</div>"
+		}
+	},
+	"page_complete": {
+		"image": { "after": "id=\"mainImg\"", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Gantz", 
+						"link" : "http://www.mangaeden.com/en/en-manga/gantz/",
+						"uniq" : "gantz"
+					},
+					{ "title" : "Chokujou Lovers", "link" : "http://www.mangaeden.com/en/en-manga/chokujou-lovers/" }
+				],
+				"mangas_count" : ">13800"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.mangaeden.com/en/en-manga/chokujou-lovers/",
+			"title" : "Chokujou Lovers",
+			"assert" : {
+				"author" : "SHIMADA Hisami",
+				"cover" : "@^http://cdn\\.mangaeden\\.com/mangasimg/\\w+/\\w+/\\w+\\.(jpg|png)$",
+				"summary" : "@^(From Fantasyshrine)",
+				"genres" : "@yaoi",
+				"status" : "complete",
+				"genres_count" : ">=2",
+				"chapters_count" : ">=14",
+				"chapters" : [
+					{ 
+						"title" : "Chokujou Lovers Chapter 1: Guileless Lovers", 
+						"link" : "http://www.mangaeden.com/en/en-manga/chokujou-lovers/1/1/",
+						"folder" : "1/"
+					},
+					{ 
+						"title" : "Chokujou Lovers Chapter 12",  
+						"link" : "http://www.mangaeden.com/en/en-manga/chokujou-lovers/12/1/", 
+						"folder" : "12/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.mangaeden.com/en/en-manga/gantz/",
+			"title" : "Gantz", 
+			"assert" : {
+				"author" : "OKU Hiroya",
+				"cover" : "@^http://cdn\\.mangaeden\\.com/mangasimg/\\w+/\\w+/\\w+\\.(jpg|png)$",
+				"summary" : "@^(Somewhere in Tokyo).*(\\.)$",
+				"genres" : "@scifi",
+				"status" : "complete",
+				"genres_count" : ">=6",
+				"chapters_count" : ">=383",
+				"chapters" : [
+					{ "title" : "Gantz Chapter 1", "link" : "http://www.mangaeden.com/en/en-manga/gantz/1/1/" },
+					{ "title" : "Gantz Chapter 270", "link" : "http://www.mangaeden.com/en/en-manga/gantz/270/1/" },
+					{ "title" : "Gantz Chapter 383", "link" : "http://www.mangaeden.com/en/en-manga/gantz/383/1/" }
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"title" : "Gantz 334", 
+			"link" : "http://www.mangaeden.com/en/en-manga/gantz/334/1/",
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://www.mangaeden.com/en/en-manga/gantz/334/1/" },
+					{ "link" : "http://www.mangaeden.com/en/en-manga/gantz/334/12/" },
+					{ "link" : "http://www.mangaeden.com/en/en-manga/gantz/334/24/" }
+				]
+			}
+		},
+
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangaeden.com/en/en-manga/gantz/334/1/",
+			"assert" : {
+				"image" : "http://cdn.mangaeden.com/mangasimg/ca/cac9015b7febe78efcf860fd7023dfe2a769d4afddc7a77f17d05f3f.jpg"
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangaeden.com/en/en-manga/gantz/334/16/",
+			"assert" : {
+				"image" : "http://cdn.mangaeden.com/mangasimg/3d/3d9a620f28c3718236670c549e1e509084ab738ec30b9ec49757e15c.png"
+			}
+		}
+	]
+}

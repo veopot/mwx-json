@@ -1,0 +1,107 @@
+{
+	"id": 28688,
+	"version": 7, 
+	"time_invalidate": 0,
+	"title": "Central de Mangás",
+	"host": "http://centraldemangas.org/",
+	"public_link": "http://centraldemangas.org/mangas",
+	"folder": "centraldemangas",
+	"name" : ["demangas", "central", "cdm"],
+	"chapters_order": true,
+	"language": "pt",
+    "catalog_link":"http://fant.my1.ru/mwparser/centraldemangas.p", 
+	"self_link": "http://fant.my1.ru/mwparser/parsers/centraldemangas.json",
+	"icon_link": "http://centraldemangas.org/img/cdm.jpg",
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://centraldemangas.org/mangas/list/*/",
+			"append_nums": { "from": 1, "to": 300 }
+		},
+
+		"add_manga": { 
+			"start": "<table ",
+			"end":   "</table>",
+			"next": "<td><a href=\"/mangas/",
+			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
+			"title": { "skip" : "href=\"", "token1": ">",          "token2": "</" }
+		}
+	},
+
+	"manga_complete": {
+	        "title": {
+                "skip": "<div class=\"page-header\">",
+                "token1": "<h1>",
+                "token2": "<div"
+            },
+            "uniq": {
+                "skip": "<div class=\"page-header\">",
+                "token1": "<h1>",
+                "token2": "<div"
+            },
+		"author":      { "skip": ">Autor</", "token1":">", "token2": "</a>" },
+		"summary":     { "skip": ">Sinopse</", "token1": "<p>", "token2": "</p>"},
+		"status":      { "complete": ">Completo<", "ongoing": [">Em publicação<", ">Em tradução<"] },
+		"read_dir":    { "right_to_left": [">Mangá<", ">Manhuas<"], "left_to_right": ">Manhwas<" },
+		"cover":       { "after": "class=\"img-thumbnail\"", "token1": "src=\"", "token2": "\"" },
+		"add_genres":  { "start": ">Gênero<", "token1": "btn-primary\">", "token2": "</a>", "end": "<h4>" },
+		"add_chapter": { 
+			"next":  "<a href=\"/online/", 
+			"link":  { "token1": "<a href=\"", "token2": "\""   }, 
+			"title": { "skip" : "href=\"", "token1": ">",          "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"after": "var pages", 
+			"token1": "[\"", 
+			"token2": "\"];", 
+			"split": "\",\"",
+			"replace": { "match": "\\\\", "text": "" }
+		},
+		"images": true
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Beelzebub", "link" : "http://centraldemangas.org/mangas/info/beelzebub",
+						"uniq" : "beelzebub" }
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			
+			"link" : "http://centraldemangas.org/mangas/info/d-gray--man",
+			"title" : "D Gray-man", 
+			"assert" : {
+				"author" : "Katsura Hoshino",
+				"cover" : "http://capas.centraldemangas.com.br/150x200/d-gray--man.jpg",
+				"summary" : "@(A história, que acontece num final imaginário do século 19,)",
+				"genres" : "@drama",
+				"status" : "ongoing",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=222",
+				"chapters" : [
+					{ "title" : "220",  "link" : "http://centraldemangas.org/online/d-gray--man/220", 
+						"folder" : "220/"
+					},
+					{ "title" : "151", "link" : "http://centraldemangas.org/online/d-gray--man/151" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"title" : "220", 
+			"link" : "http://centraldemangas.org/online/d-gray--man/220", 
+			"assert" : {
+				"pages" : [
+					{ "image" : "http://mangas2016.centraldemangas.com.br/d_gray-man/d_gray-man220-01.jpg" }
+				]
+			}
+		}
+	]
+}

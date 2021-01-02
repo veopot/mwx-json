@@ -1,0 +1,151 @@
+{
+	"id": 40219,
+	"version": 5,
+	"title": "MangaBook",
+	"host": "http://mangabook.ru",
+	"public_link": "https://mangabook.ru/manga-list",
+	"folder": "mangabook",
+	"name" : "mangabook",
+	"language": "ru",
+	"encoding": "utf-8",
+    "chapters_order": false,
+	
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/mangabook.json",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/mangabook.p",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/mangabook.jpg",
+    
+    "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+	
+
+	
+	"manga_search_complete": {		
+		"search_link": "https://mangabook.ru/dosearch?do=search&subaction=search&query=$query$",
+		"query_type": "GET",
+		"add_manga": {
+		    "start": ">Результаты поиска:<",
+		    "end": "</article>",
+		    "next":   "<li>",
+			
+			"link":   {"token1": "href=\"", "token2": "\"" },
+			"cover":  {"token1": "src='", "token2": "'" },
+			"title":  { 
+			"token1": "alt='", "token2": "'" }
+		}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+"base_url": "https://mangabook.ru/manga-list?page=",
+"append_nums": { "from": 0, "to": 200, "step": 1}
+
+},
+		"add_manga": {
+			"next": "<article class=\"short clearfix\"",
+			
+			"title": { "skip": "href=\"",
+			"token1": "title=\"", "token2": "\""},
+			
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			
+			"cover": { "token1": "src='", "token2": "'" },
+			
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "skip": "id=\"fmain\">", "token1":"h1>", "token2": "</h1"},
+		
+	    "uniq":        { "skip": "id=\"fmain\">", "token1":"h1>", "token2": "</h1",
+		"replace": { "match": "/.*", "text": "" } },
+		
+		"cover":       { "after": "class=\"img-responsive\"", "token1": "src='", "token2": "'" },
+		
+		"author":      { "after": "/manga-list/author/", "token1":"\">", "token2": "</" },
+		
+		"summary":     { "skip": ">Сюжет:</div>", "token1": ">", "token2": "</div>",
+		 "replace": { "match": "<.*?>", "text": "" } },
+        
+		
+		"add_genres":   {
+         "start": ">Категории:</",
+		 "end": "</li>",
+		 "token1": "\">",
+		 "token2": "</"
+		},
+        
+		
+
+		"is_mature":   { "values": ["Эта Manga может содержать сцены насилия не допустимые для людей младше 18 лет", ">эротика<", ">юри<", ">яой<"] },
+		
+		
+		"add_chapter": {
+		    "start": ">Список глав</",
+		    "end": "КОММЕНТАРИИ</",
+			"next":  "<h5>",
+			"link":  { "token1": "href=\"", "token2": "\""   },
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</",
+				"replace" : { "match" : "&nbsp;", "text" : "" }
+			}
+		}
+	},
+	"chapter_complete": {
+		"add_images": {
+			"start": "class=\"img-responsive\"",
+			"token1": "data-src='",
+			"token2": "'",
+			"end": "<div id=\"ppp\""
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Boku Girl / Я девушка!",
+					"link" : "https://mangabook.ru/manga/boku-girl",
+					"uniq" : "boku-girl" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangabook.ru/manga/bleach",
+			"title" : "Bleach / Блич",
+			"assert" : {
+				"author" : "@Kubo Taito",
+				"cover" : "@http://mangabook.ru/uploads/manga/bleach/cover/cover_250x350.jpg",
+				"summary" : "@^(Жил-был парень по имени Ичиго Куросаки)",
+				"genres" : "@scifi",
+				"status" : "unknown",
+				"genres_count" : ">=2",
+				"chapters_count" : ">=700",
+				"chapters" : [
+					{
+                    "folder": "Vol.1-Ch.1/",
+                    "link": "https://mangabook.ru/manga/bleach/Vol.1-Ch.1",
+                    "title": "Глава №1"
+                    },
+                    {
+                    "link": "https://mangabook.ru/manga/bleach/Vol.1-Ch.2",
+                    "title": "Глава №2"
+                    }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://mangabook.ru/manga/bleach/Vol.1-Ch.1",
+			"title" : "Глава №1",
+			"assert" : {
+				"pages" : [
+{"image": "http://mangabook.ru/uploads/manga/bleach/chapters/Vol.1-Ch.1/01.png"},
+{"image": "http://mangabook.ru/uploads/manga/bleach/chapters/Vol.1-Ch.1/02.jpg"},
+{"image": "http://mangabook.ru/uploads/manga/bleach/chapters/Vol.1-Ch.1/03.jpg"}				
+				],
+				"pages_count": "55"
+			}
+		}
+	]
+}

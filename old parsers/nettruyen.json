@@ -1,0 +1,167 @@
+{
+	"id": 40164,
+	"version": 9,
+	"title": "NetTruyen",
+	"host": "http://www.nettruyen.com",
+	"public_link": "http://www.nettruyen.com/hot",
+	"folder": "nettruyen",
+	"name" : "nettruyen",
+	"chapters_order": false,
+    "language": "vi",
+	"content_type": "manga",
+    "file_type": "sqlite",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/nettruyen.png",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/nettruyen.json",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/zip/nettruyen.zip",
+	
+
+
+	
+"manga_list_complete": {
+		"iterator": {
+			"base_url":"http://www.nettruyen.com/tim-truyen?status=-1&sort=15&page=",
+				"append_nums": { "from": 1, "to": 450, "step": 1}
+			},
+		
+		"add_manga": {
+			"next": "<figure class=\"clearfix\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"cover": { 
+			"after": "<img",
+            "token1": "data-original=\"", 
+			"token2": "\""
+			},
+			"additional_title": {
+			"after": ">Tên khác:",
+			"token1": ">", 
+			"token2": "</" },
+			"uniq":{ "token1": "title=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" }
+		             }
+		
+	},	
+	
+	
+"manga_search_complete": {		
+ "search_link":"http://www.nettruyen.com/tim-truyen?keyword=$query$&page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<figure class=\"clearfix\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"cover": { 
+			"after": "<img",
+           "token1": "data-original=\"", 
+			"token2": "\""
+			},
+			"additional_title": { "after": ">Tên khác:",
+			"token1": ">", "token2": "</" },
+			"uniq":{ "token1": "title=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" }
+		             }
+		},	
+
+	"manga_complete": {
+		"title":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+		"uniq":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+		"additional_title": { "after": "<h2 class=\"other-name", "token1":"\">", "token2": "</" },
+		"author":      { "skip": "> Tác giả", "token1": "\">", "token2": "</" },
+		"summary":     { "skip": "> Nội dung", "token1": "<p>", "token2": "</p>" },
+		"status": { 
+				"complete": { "start": "> Tình trạng", 
+				  "values": ["Hoàn thành", ">Переведена"],
+				  "end": "> Thể loại" },
+				"ongoing":   { "start": "> Tình trạng", 
+				  "values" : ["Đang tiến hành",">Ожидание", ">Перерыв"],
+				  "end": "> Thể loại" },
+			"default": "unknown"
+			},
+		"is_mature": {
+			"start": "> Thể loại",
+			"end": "> Lượt xem",
+			"values": ["Adult", "Mature","Yuri","Yaoi", "Seinen"]
+            },
+		"add_genres":   {
+        "start": "> Thể loại",
+		"end": "> Lượt xem",
+		"token1": "'>",
+		"token2": "</" 
+		},
+		"cover": { "skip": "property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		"content_type": { "default": "manga" },
+		
+		"add_chapter": {
+		    "start": "class=\"list-chapter\"",
+			"end": "</article>",
+		    "next":  "<li class=\"row",
+			"link":  { "token1": "href=\"", "token2": "\""},
+			"uniq": { "skip" : "href=\"", "token1": "\">", "token2": "</" },
+			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</",
+			 "replace" : { "match" : "&nbsp;", "text" : "" }
+			}
+		}
+	},
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "class=\"reading-detail",
+			"end": "class=\"top bottom\"",
+			"after": "<img",
+			"token1": "data-original='",
+			"token2": "'"
+			
+		}
+	},
+	
+	
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Truyện tranh Sủng Hôn Lai Tập", 
+					 "link" : "http://www.nettruyen.com/truyen-tranh/sung-hon-lai-tap" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat",
+			"title" : "Thuần Tình Nha Đầu Hoả Lạt Lạt",
+			"assert" : {
+				"author" : "Đang cập nhật",
+"cover":"https://3.bp.blogspot.com/-SUTG9GHSVKs/W1YV-HHRdPI/AAAAAAAAXoM/BB9K74zSCts5ojMyD9EVeqRkQCxrXKONgCHMYCw/thuan-tinh-nha-dau-hoa-lat-lat",
+				"summary" : "@tình tiết rất ly kỳ hấp dẫn,",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=2",
+				"chapters_count" : ">=410",
+				"chapters" : [
+{
+"folder": "Chapter 1/",
+"link": "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
+"title": "Chapter 1"
+},
+{
+"link": "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-2/179470",
+"title": "Chapter 2"
+}
+]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.nettruyen.com/truyen-tranh/cau-chuyen-tinh-khong-hoi-ket/chap-1/514439",
+			"assert" : {
+				"pages" : [
+{"image": "https://3.bp.blogspot.com/-4LaJWvNX4w4/WsyKCKFseHI/AAAAAAALzl0/z_26D1yenKIvKBvaJ4v2Kk2vYZAbVNy1wCHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-1.jpg"},
+{"image": "https://3.bp.blogspot.com/-W3xY8K-AGXs/WsyKDcbeRyI/AAAAAAALzl4/PLqz472bdmIyRM73tsi-z1oozfqwspbQQCHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-2.jpg"},
+{"image": "https://3.bp.blogspot.com/-jNLXG6VRH7g/WsyKEuCuW4I/AAAAAAALzl8/Ks-O6y5bl-Qwy69LNvHknfXiEnmvRuESACHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-3.jpg"}
+],
+"pages_count": "8"
+}}
+
+]
+}

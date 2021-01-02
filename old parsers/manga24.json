@@ -1,0 +1,114 @@
+{
+	"id": 256,
+	"version": 3, 
+	"time_invalidate": 0,
+	"title": "Manga24.ru",
+	"host": "http://manga24.ru/",
+	"public_link": "http://manga24.ru/all/",
+	"folder": "manga24",
+	"name" : "m24",
+	"chapters_order": false,
+	"language": "ru",
+    "catalog_link":"http://fant.my1.ru/mwparser/manga24.p", 
+	 "self_link": "http://fant.my1.ru/mwparser/parsers/manga24.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/manga24.png",
+	
+	"manga_list_complete": {
+
+		"iterator" : {
+			"base_url" : "http://manga24.ru/catalog/?order_by=popularity&offset=",
+			"append_nums": { "from": 0, "to": 700, "step" : 20 }
+		},
+
+		"add_manga": { 
+			"start": "class=\"manga-catalog\"",
+			"end":   "</main>",
+			"next":  "class=\"manga\"",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "skip" : "href=\"", "token1": ">",       "token2": "</" }
+		}
+	},
+
+	"manga_complete": {
+	     "title": {
+                "skip": "<aside id=\"extra-navigation\"",
+                "token1": "<h2>",
+                "token2": "</h2>"
+            },
+            "uniq": {
+                "skip": "<aside id=\"extra-navigation\"",
+                "token1": "<h2>",
+                "token2": "</h2>"
+            },
+		"author":      { "token1": "Автор: ", "token2": "<" },
+		"summary":     { "skip" : "class=\"manga-description\"", "token1": "<p>", "token2": "</p>"},
+		"status":      { "complete": "Перевод манги завершен", "default" : "complete" },
+		"cover":       { "skip": "class=\"manga-cover-block\"", "token1": "src=\"", "token2": "\"" },
+		"add_genre":   { "after": "/catalog/?genres=", "token1": ">", "token2": "</" },
+		"add_chapter": { 
+			"start": "chapters-full",
+			"end":   "id=\"popular-manga\"",
+			"next":  "class=\"chapter-info\"", 
+			"link":  { "token1": "href=\"", "token2": "\""  }, 
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "images:", 
+			"token1": "[\"", 
+			"token2": "\"", 
+			"end": "]]"
+		},
+		"prefix": { "skip": "dir:", "token1": "\"", "token2": "\"", "replace": { "match": "\\\\", "text" : "" } },
+		"images": true
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Naruto",   "link" : "http://manga24.ru/naruto/",
+						"uniq" : "naruto" },
+					{ "title" : "Noblesse", "link" : "http://manga24.ru/noblesse/" }
+				],
+				"mangas_count" : ">460"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://manga24.ru/gantz/",
+			"title" : "Gantz",
+			"assert" : {
+				"author" : "OKU Hiroya",
+				"cover" : "http://manga24.ru/media/manga_cover/gantz.jpg",
+				"summary" : "@^(В столице Японии)",
+				"genres" : "@scifi",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=383",
+				"chapters" : [
+					{ "title" : "Глава 383",
+					  "link" : "http://manga24.ru/gantz/383/",
+						"folder" : "383/"
+					},
+					{ "title" : "Глава 001 - Инцидент", "link" : "http://manga24.ru/gantz/001/" }
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://manga24.ru/gantz/383/",
+			"title" : "Глава 383", 
+			"assert" : {
+				"pages" : [
+					{ "image" : "@^http://\\w*\\.manga24\\.ru/manga/gantz/\\d*/\\d*\\.(png|jpg|jpeg)$" },
+					{ "image" : "@^http://\\w*\\.manga24\\.ru/manga/gantz/\\d*/\\d*\\.(png|jpg|jpeg)$" },
+					{ "image" : "@^http://\\w*\\.manga24\\.ru/manga/gantz/\\d*/\\d*\\.(png|jpg|jpeg)$" }
+				]
+			}
+		}
+	]
+}

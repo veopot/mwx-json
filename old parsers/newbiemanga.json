@@ -1,0 +1,219 @@
+{
+	"id": 40172,
+	"version": 1,
+	"title": "NewBie Manga",
+	"host": "https://newbie-manga.ru",
+	"public_link": "https://newbie-manga.ru/manga/",
+	"folder": "newbiemanga",
+	"name": "newbiemanga",
+	"chapters_order": false,
+	"language": "ru",
+	"encoding": "utf-8",
+	"content_type": "manga",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/newbiemanga.p",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/newbiemanga.json",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/newbiemanga.png",
+
+	
+	
+	"manga_list_complete": {
+		"iterator": {
+		    
+			"base_url": "https://newbie-manga.ru/manga/page/",
+			"append_nums": {
+					"from": 1,
+					"to": 10,
+					"step": 1
+				}
+			},
+		"add_manga": {
+			"next": "<div id=\"manga-item",
+
+			"title": {
+				"skip": "href=\"",
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+			}
+
+		}
+	},
+
+	"manga_complete": {
+		"title": {
+			"skip": "<head>",
+			"token1": "<title>",
+			"token2": "</title>",
+			"replace": {
+				"match": "&#8212; Newbie-manga.ru",
+				"text": ""
+			}
+		},
+
+		"uniq": {
+			"skip": "<head>",
+			"token1": "<title>",
+			"token2": "</title>",
+			"replace": {
+				"match": "&#8212; Newbie-manga.ru",
+				"text": ""
+			}
+		},
+
+		"additional_title": {
+			"skip": "Другие названия",
+			"token1": "class=\"summary-content\">",
+			"token2": "</",
+			"replace": [{
+					"match": "/",
+					"text": "|"
+				},
+				{
+					"match": "В процессе добавления",
+					"text": ""
+				}
+			]
+		},
+
+		"author": {
+			"skip": "Автор(ы)",
+			"token1": "author-content\">",
+			"token2": "</div",
+			"replace": [{
+					"match": "<.*?>",
+					"text": ""
+				},
+				{
+					"match": "В процессе добавления",
+					"text": "Не известно"
+				}
+			]
+		},
+
+		"summary": {
+			"skip": "class=\"description-summary\">",
+			"token1": "div>",
+			"token2": "</div",
+			"replace": {
+				"match": "В процессе добавления",
+				"text": "Не известно"
+			}
+		},
+
+
+		"cover": {
+			"skip": "class=\"summary_image\">",
+			"token1": "data-src=\"",
+			"token2": "\""
+		},
+
+		
+		"is_mature": {
+			"start": "class=\"post-title\">",
+			"values": [">18+<", ">эротика<", ">юри<", ">яой<"],
+			"end": "</h3"
+		},
+
+
+		"add_genre": {
+			"after": "href=\"https://newbie-manga.ru/archives/manga-genre/",
+			"token1": "\">",
+			"token2": "</"
+		},
+
+		"add_chapter": {
+			"next": "class=\"wp-manga-chapter\">",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+			},
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "\">",
+				"token2": "</",
+				"replace": {
+					"match": "&nbsp;",
+					"text": ""
+				}
+			},
+			"title": {
+				"skip": "href=\"",
+				"token1": "\">",
+				"token2": "</",
+				"replace": {
+					"match": "&nbsp;",
+					"text": ""
+				}
+			}
+		}
+	},
+
+	"chapter_complete": {
+		"add_images": {
+
+			"start": "class=\"reading-content\"",
+			"token1": "src=\"",
+			"token2": "\"",
+			"end": "class=\"manga-discussion wrapper\""
+		}
+	},
+
+
+
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+"title": "Маг на полную ставку",
+"link": "https://newbie-manga.ru/manga/%D0%BC%D0%B0%D0%B3-%D0%BD%D0%B0-%D0%BF%D0%BE%D0%BB%D0%BD%D1%83%D1%8E-%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D1%83",
+"uniq": "Маг на полную ставку"
+				}],
+				"mangas_count": ">=11"
+			}
+		},
+		{
+			"proc": "manga_complete",
+			"link": "https://newbie-manga.ru/manga/маг-на-полную-ставку",
+			"title": "Маг на полную ставку",
+			"assert": {
+				"author": "Луань,Юэ Вэнь Маньхуа",
+				"cover": "https://newbie-manga.ru/wp-content/uploads/2018/10/Versatile-Mage-193x278.jpg",
+				"summary": "@^(Он проснулся в знакомом мире)",
+				"genres": "@comedy",
+				"genres_count": ">=4",
+				"chapters_count": ">=15",
+
+				"chapters": [{
+						"folder": "1/",
+"link": "https://newbie-manga.ru/manga/%D0%BC%D0%B0%D0%B3-%D0%BD%D0%B0-%D0%BF%D0%BE%D0%BB%D0%BD%D1%83%D1%8E-%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D1%83/1?style=list",
+						"title": "1"
+					},
+					{
+"link": "https://newbie-manga.ru/manga/%D0%BC%D0%B0%D0%B3-%D0%BD%D0%B0-%D0%BF%D0%BE%D0%BB%D0%BD%D1%83%D1%8E-%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D1%83/2?style=list",
+					"title": "2"
+					}
+				]
+			}
+		},
+		
+		{
+			"proc": "chapter_complete",
+"link": "https://newbie-manga.ru/manga/маг-на-полную-ставку/16?style=list",
+			"assert": {
+				"pages": [
+{"image": "https://newbie-manga.ru/wp-content/uploads/WP-manga/data/manga_5bca763981416/19837c210921cd988571ef52aedfee14/02.png"},
+{"image": "https://newbie-manga.ru/wp-content/uploads/WP-manga/data/manga_5bca763981416/19837c210921cd988571ef52aedfee14/03.png"}
+				],
+				"pages_count": "11"
+			}
+		}
+	]
+}

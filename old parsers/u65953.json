@@ -1,0 +1,236 @@
+{   "id": 1280,
+    "version": 8,
+	"name": "u65953",
+	"folder": "u65953",
+	"author": {"name": "veopot2014","email": "veopot2014@yandex.ru"},
+	"self_link": "http://fant.my1.ru/mwparser/parsers/u65953.json",
+	"icon_link": "http://fant.my1.ru/mwparser/readmanga.png",
+	"catalog_link": "http://fant.my1.ru/mwparser/readmanga.p",
+    "title": "Readmanga (New 2016)",
+	"host": "http://readmanga.me/",
+	"language": "ru",
+	"public_link": "http://readmanga.me/list/",
+	
+
+
+    "authorization_complete": {
+        "registration": "http://grouple.ru/internal/auth/register",
+        "logo": "http://www.userlogos.org/files/logos/Aleksandr009/ReadManga.png",
+        "expires": 1728000000,
+        "values": {
+            "remember_me": "on",
+            "j_username": {
+                "label": "Login",
+                "hint": "Please enter your login from ReadManga",
+                "kind": "text"
+            },
+            "j_password": {
+                "label": "Password",
+                "hint": "Please enter your password from ReadManga",
+                "kind": "password"
+            }
+        },
+        "request": {
+            "method": "post",
+            "url": "http://grouple.ru/j_spring_security_check"
+        },
+        "response_check": {
+            "headers": {
+                "Location": "http://grouple.ru/"
+            }
+        }
+    },
+        
+
+        
+    "manga_list_complete": {
+	
+        "iterator": {
+            "base_url": "http://readmanga.me/list?offset=",
+            "append_nums": {
+                "from": 0,
+                "to": 15000,
+                "step": 60
+            }
+        },
+        "add_manga": {
+            "start": "\"tiles",
+            "next": "<h3>",
+            "link": {
+                "after": "<a href=\"",
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "title": {
+                "after": "<a href=\"",
+                "token1": ">",
+                "token2": "</"
+            }
+        },
+        "rating_auto_inc": {
+            "start": 10000,
+            "inc": -1
+        }
+    },
+    "manga_complete": {
+
+
+        "title": {
+                "skip": "<span class='eng-name'",
+                "token1": "\">",
+                "token2": "</span>"
+            },
+            "uniq": {
+                "skip": "<span class='eng-name'",
+                "token1": "\">",
+                "token2": "</span>"
+            },
+
+
+        
+        "author": {
+            "skip": "<span class=\"elem_author \"",
+            "token1": "class=\"person-link\">",
+            "token2": "</"
+        },
+
+        "summary": {
+            "after": "<meta name=\"description\"",
+            "token1": ": ",
+            "token2": "\""
+        },
+        "status": {
+            "complete": {
+                "start": "<b>Перевод:</b>",
+                "end": "</p>",
+                "values": [ "завершен", "Переведена","Сингл"]
+            },
+            "ongoing": {
+                "start": "<b>Перевод:</b>",
+                "end": "</p>",
+                "value": "продолжается"
+                       },
+            "single": "<b>Сингл</b>",
+		"licensed" : "Главы удалены",
+		"unknown" : "нет ни одной главы"
+        },
+        "cover": {
+            "after": "subject-cower",
+            "token1": "src=\"",
+            "token2": "\""
+        },
+        "add_genre": {
+            "token1": "/genre/",
+            "token2": "\""
+        },
+        "is_mature": "<a href=\"?mature=1\">",
+		
+        "add_chapter": {
+            "start": "</thead>",
+            "end": "</table>",
+            "next": "<a href=\"",
+            "link": {
+                "token1": "<a href=\"",
+                "token2": "\"",
+                "replace": {"prefix": "http://readmanga.me"}
+			},
+            "title": {
+                "after": "<a href=\"",
+                "token1": ">",
+                "token2": "</"
+            },
+			"uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
+        }
+    },
+    	"chapter_complete": {
+        "images": true,
+        "add_pages": { 
+            "start": "rm_h.init( [[",
+            "token1": "['",
+            "token2": "],",
+            "end": "]],",
+            "replace" : { 
+                "match" : "(.*?)','(.*?)',\"(.*?)\".*", 
+                "text" : "$2$1$3"
+            }
+        },
+        "postfix" : "?mature=1"
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Beelzebub",
+                        "link": "http://readmanga.me/beelzebub",
+                        "uniq": "beelzebub"
+                    },
+                    {
+                        "title": "Naruto",
+                        "link": "http://readmanga.me/naruto"
+                    }
+                ],
+                "mangas_count": ">7900"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "details": false,
+            "link": "http://readmanga.me/beelzebub",
+            "title": "Beelzebub",
+            "assert": {
+                "author": "Тамура Рюхэй",
+                "cover": "http://d.readmanga.ru/uploads/pics/00/07/866.jpg",
+                "summary": "@^(Сильнейший хулиган).*(\\!)$",
+                "genres": "@comedy",
+                "status": "complete",
+                "genres_count": ">5",
+                "chapters_count": ">=240",
+                "chapters": [
+                    {
+                        "title": "Вельзевул 1 - 1 Я подобрал принца тьмы",
+                        "link": "http://readmanga.me/beelzebub/vol1/1",
+                        "folder": "1/1/"
+                    }
+                ]
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "http://readmanga.me/love_attack__seino_shizuru",
+            "title": "Love Attack (SEINO Shizuru)",
+            "assert": {
+                "author": "Сэино Сидзуру",
+                "cover": "http://d.readmanga.ru/uploads/pics/00/05/049.jpg",
+                "summary": "@^(Личное дело Чиеми Юсы далеко от совершенства.)",
+                "genres": "@romance",
+                "status": "complete",
+                "genres_count": ">=5",
+                "chapters_count": "50",
+                "chapters": [
+                    {
+                        "title": "Любовная атака 1 - 3",
+                        "link": "http://readmanga.me/love_attack__seino_shizuru/vol1/3",
+                        "folder": "1/3/"
+                    }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "title": "Вельзевул 8 - 63 Волейбол или умри",
+            "link": "http://readmanga.me/beelzebub/vol8/63/",
+            "assert": {
+                "pages": [
+                    {
+                        "image": "@^http://\\w*\\.\\w*\\.\\w*/auto/01/96/87/Beelzebub_c063_-_p00_2_Utopia_\\.jpg_res\\.jpg"
+                    },
+                    {
+                        "image": "@^http://\\w*\\.\\w*\\.\\w*/auto/01/96/87/Beelzebub_c063_-_p06_Utopia_\\.png"
+                    }
+                ]
+            }
+        }
+    ]
+}

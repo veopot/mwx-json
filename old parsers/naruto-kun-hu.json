@@ -1,0 +1,119 @@
+{
+	"id": 20480,
+	"version": 5, 
+	"title": "Naruto-Kun.Hu",
+	"host": "http://naruto-kun.hu/manga/",
+	"public_link": "http://naruto-kun.hu/manga/",
+	"folder": "naruto-kun-hu",
+	"name" : ["kun-hu", "nkun", "nkh"],
+	"chapters_order": false,
+	"language": "hu",
+	"catalog_link":"http://fant.my1.ru/mwparser/naruto-kun-hu.p", 
+	"self_link": "http://fant.my1.ru/mwparser/parsers/naruto-kun-hu.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/naruto-kun-hu.png",
+	
+	"manga_list_complete": {
+
+		"iterator": "http://naruto-kun.hu/manga",
+
+		"add_manga": { 
+			"start": "<select name=\"manga\"",
+			"end":   "</select>",
+			"next": "<option value=\"",
+			"link":  { "token1": "value=\"", "token2": "\"", "replace" : { "prefix" : "http://naruto-kun.hu/manga/" } }, 
+			"title": { "token1": ">",       "token2": "</" }
+		}
+	},
+
+	"manga_complete": {
+	"title": {
+                "after": "onchange=\"change_page('",
+                 "token1": "('",
+                "token2": "',"
+            },
+            "uniq": {
+                 "after": "onchange=\"change_page('",
+                 "token1": "('",
+                "token2": "',"
+            },
+	    
+		
+		"add_chapter": { 
+			"start": "<select name=\"chapter\"",
+			"end":   "</select>",
+			"next":  "value=\"", 
+			"link":  { "token1": "value=\"", "token2": "\"", "replace" : { "prefix" : "%%url%%/" } }, 
+			"title": { "token1": ">",        "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "<select name=\"page\"", 
+			"token1": "value=\"", 
+			"token2": "\"", 
+			"end": "</select>", 
+			"replace" : { "prefix" : "%%url%%/" } 
+		}
+	},
+	"page_complete": {
+		"image": { 
+		    "start": "<div class=\"ads\"", 
+			"end": "<div class=\"ads\"",  
+			"token1": "<img src=\"mangas/", "token2": "\"",
+			"replace" : {"prefix" : "http://naruto-kun.hu/manga/mangas/"}
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ 
+						"title" : "Naruto", 
+						"link" : "http://naruto-kun.hu/manga/Naruto",
+						"uniq" : "Naruto"
+					},
+					{ "title" : "Beelzebub", "link" : "http://naruto-kun.hu/manga/Beelzebub" }
+				],
+				"mangas_count" : ">25"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			
+			"link" : "http://naruto-kun.hu/manga/Beelzebub",
+			"title" : "Beelzebub", 
+			"assert" : {
+				"chapters_count" : ">=240",
+				"chapters" : [
+					{ "title" : "001", "link" : "http://naruto-kun.hu/manga/Beelzebub/001" },
+					{ 
+						"title" : "100", 
+						"link" : "http://naruto-kun.hu/manga/Beelzebub/100", 
+						"folder" : "100/"
+					},
+					{ "title" : "240", "link" : "http://naruto-kun.hu/manga/Beelzebub/240" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://naruto-kun.hu/manga/Beelzebub/100",
+			"title" : "100", 
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://naruto-kun.hu/manga/Beelzebub/100/1" },
+					{ "link" : "http://naruto-kun.hu/manga/Beelzebub/100/10" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://naruto-kun.hu/manga/Beelzebub/100/10",
+			"assert" : {
+				"image" : "http://naruto-kun.hu/manga/mangas/Beelzebub/100/Beelzebub_100_10.png"
+			}
+		}
+	]
+}

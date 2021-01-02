@@ -1,52 +1,46 @@
 {
 	"id": 65884,
-	"version": 2, 
-	"title": "MintManga (AdultManga)",
+	"version": 23, 
+	"title": "MintManga",
 	"host": "http://mintmanga.com/",
 	"public_link": "http://mintmanga.com/",
 	"folder": "mintmanga",
 	"name":"mntmanga",
 	"language": "ru",
 	"is_mature": true,
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link":"http://images.mangawatcherx.com/parser/icon/mintmanga.png",
+	"self_link": "http://account.mangawatcherx.com/api/v1/repo/parsers/mintmanga",
+	"catalog_link": "http://catalogs.mangawatcherx.com/zip/mintmanga.zip",
+    "file_type": "sqlite",
 
-	"authorization_complete": {
-		"registration": "http://grouple.ru/internal/auth/register",
-		"logo": "https://dl.dropboxusercontent.com/u/18815046/MWRepo/logo/mintmanga_logo.png",
-		"expires": 1728000000,
-		"values": {
-			"remember_me": "on",
-			"j_username": {
-				"label": "Login",
-				"hint": "Please enter your login from MintManga",
-				"kind": "text"
-			},
-			"j_password": {
-				"label": "Password",
-				"hint": "Please enter your password from MintManga",
-				"kind": "password"
-			}
-		},
-		"request": {
-				"method": "post",
-				"url": "http://grouple.ru/j_spring_security_check"
-		},
-		"response_check": {
-				"headers": { "Location": "http://grouple.ru/" }
-		}
-	},
+    "manga_search_complete": {      
+        "search_link": "http://mintmanga.com/search/advanced?q=$query$&offset=$page$",
+        "query_type": "GET",
+        "!page_multiply_by": 50,
+        "page_addition_by": -1,
+        "add_manga": {
+            "start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+            "title": { "after": "<h4 title=\"", "token1": ">", "token2": "</" },
+            "cover": { "token1": "data-original='", "token2": "'" }
+        }
+    },
 
 	"manga_list_complete": {
-
 		"iterator": {
-			"base_url": "http://mintmanga.com/list?type=&sortType=votes&max=70&offset=",
-			"append_nums": { "from": 0, "to": 8500, "step": 70 }
+			"base_url": "http://mintmanga.com/list?type=&sortType=rate&max=70&offset=",
+			"append_nums": { "from": 0, "to": 11690, "step": 70, "last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
 		},
-
 		"add_manga": { 
-			"start": "\"tiles",
-			"next": "<h3>",
-			"link":  { "after": "<a href=\"", "token1": "href=\"", "token2": "\"" }, 
-			"title": { "after": "<a href=\"", "token1": ">",       "token2": "</" }
+			 "start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+            "title": { "after": "<h4 title=\"", "token1": ">", "token2": "</" },
+            "additional_title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
+            "cover": { "token1": "data-original='", "token2": "'" }
 		},
 		"rating_auto_inc": {
 			"start": 10000,
@@ -60,7 +54,7 @@
 		"author":       { "after": "elem_author", "skip": "person-link", "token1":"\">", "token2": "</a>" },
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		"status":       { 
-			"complete": ["заверше", "Переведена"],
+			"complete": ["Перевод:</b>\n    заверше", "Переведена"],
 			"ongoing":  "продолжается",
 			"single":   "Сингл",
 			"licensed": "Главы удалены",
@@ -69,21 +63,29 @@
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
 		"cover":        { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
 		"add_genre":    { "token1": "/genre/", "token2": "\"" },
+		"content_type": { "default": "manga" },
 		"is_mature":    "mature-message",
 		"add_chapter":  { 
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<tr",
-			"next2": 	"<td class=\" \">",
 			"link":  	{ "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "http://mintmanga.com"}},
-			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "</", "replace": { "match": "(.*)\r\n                  \r\n                  ", "text": "" } },
+			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
 			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
-			"postfix":	"?mature=1"
+			"!postfix":	"?mtr=1&mature=1"
 		}
 	},
 
 	"chapter_complete": {
-        "images": true,
+		"no_404": true,
+		"images": true,
+		"add_servers": { 
+			"start": "var servers", 
+			"token1": "['", 
+			"token2": "']",
+			"split": "','",
+			"end": ";"
+		},
         "add_pages": { 
             "start": "rm_h.init( [[",
             "token1": "['",
@@ -104,8 +106,8 @@
 			"assert": {
 				"mangas": [
 					{ "title": "Tokyo Ghoul", "link": "http://mintmanga.com/tokyo_ghoul" },
-					{ "title": "GANGSTA (Kosuke)", "link": "http://mintmanga.com/gangsta__kosuke", 
-						"uniq": "gangsta__kosuke" }
+					{ "title": "Crimson Spell", "link": "http://mintmanga.com/crimson_spell", 
+						"uniq": "crimson_spell" }
 				],
 				"mangas_count": ">300"
 			}
@@ -116,8 +118,8 @@
 			"title": "Gantz",
 			"assert": {
 				"author": "Оку Хироя",
-				"cover": "@^http://\\w*\\.adultmanga\\.ru/uploads/pics/\\d*/\\d*/[\\w-]*\\.(jpg|png)$",
-				"summary": "@^(Где-то в Токио).*(прежде\\?)$",
+				"cover": "https://static.mintmanga.com/uploads/pics/00/52/859.jpg",
+				"summary": "@^(Где-то в Токио)",
 				"genres": "@scifi",
 				"status": "complete",
 				"genres_count": ">=6",
@@ -131,35 +133,14 @@
 			}
 		},
 		{
-			"proc": "manga_complete",
-			"link": "http://mintmanga.com/sundome/",
-			"title": "Sundome",
-			"assert": {
-				"author": "OKADA Kazuto",
-				"cover": "@^http://\\w*\\.adultmanga\\.ru/uploads/pics/\\d*/\\d*/[\\w-]*\\.(jpg|png)$",
-				"summary": "@^(Хидео Аиба - новый президент)",
-				"genres": "@adult",
-				"status": "complete",
-				"genres_count": ">=5",
-				"chapters_count": ">=75",
-				"chapters": [
-					{ "title": "1 - 2", 
-						"link": "http://mintmanga.com/sundome/vol1/2",
-						"folder": "1/2/" 
-					},
-					{ "title": "8 - 76", "link": "http://mintmanga.com/sundome/vol8/76" }
-				]
-			}
-		},
-		{
 			"proc": "chapter_complete",
 			"title": "34 - 361 Боевой клич", 
 			"link": "http://mintmanga.com/gantz/vol34/361",
 			"assert": {
 				"pages": [
-					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_01__OJS-team_\\.png" },
-					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_10-11__OJS-team_\\.png_res\\.jpg" },
-					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_25__OJS-team_\\.png_res\\.jpg" }
+					{ "image": "@^http://\\w*\\.mints\\.\\w*/auto/03/32/49/Gantz_ch361_01__OJS-team_\\.png" },
+					{ "image": "@^http://\\w*\\.mints\\.\\w*/auto/03/32/49/Gantz_ch361_10-11__OJS-team_\\.png_res\\.jpg" },
+					{ "image": "@^http://\\w*\\.mints\\.\\w*/auto/03/32/49/Gantz_ch361_25__OJS-team_\\.png_res\\.jpg" }
 				],
 				"pages_count": "22"
 			}

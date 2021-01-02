@@ -1,0 +1,124 @@
+{
+	"id": 40168,
+	"version": 10,
+	"title": "Buka-cn",
+	"host": "http://buka.cn/",
+	"public_link": "http://buka.cn/category.html",
+	"folder": "buka",
+	"name" : "buka",
+	"language": "cn",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/buka.p",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/buka.json",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/buka.png",
+	"author": {"name": "Veopot","email": "fant-net@ya.ru"},
+
+
+	
+
+	"manga_search_complete": {		
+		"search_link": "http://buka.cn/search?word=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<div class=\"manga-names\"",
+			"link":  { "token1": "href=\"/detail/", "token2": "\"",
+			"replace": {"prefix": "http://buka.cn/detail/"} },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"cover": { "before": "href=\"/detail/", "token1": "src=\"", "token2": "\"" },
+			"uniq":  { "token1": "href=\"/detail/", "token2": "\"" }
+		}
+	},
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://www.buka.cn/all/",
+		 "append_nums": {
+                "from": 0,
+                "to": 3100,
+                "step": 28
+            }	
+		},
+
+		"add_manga": {
+			"next": "<div class=\"manga-names\">",
+			"link":  { "token1": "href=\"/detail/", "token2": "\"",
+			"replace": {"prefix": "http://buka.cn/detail/"} },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"uniq":  { "token1": "href=\"/detail/", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "10000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+"title":       { "skip": "<h1 class=\"title-font\"", "token1":">", "token2": "</" },
+"uniq":        { "skip": "<span class=\"icon global\"", "token1":"var mid =", "token2": ";" },
+"author":      { "after": "class=\"manga-author\">", "token1":">", "token2": "</" },
+"summary":     { "after": "class=\"manga-desc-font\"", "token1": ">", "token2": "</" },
+"cover":       { "skip": "<div class=\"manga-img boxshadow\"", "token1": "src=\"", "token2": "\"" },
+"add_chapter": {
+			 "start": "class=\"manga-episodes_text\">连载(话):</",
+		     "end": "<div class=\"pageing\"",
+             "next":  "<a",
+
+             "link":  { "after": "class=\"epsbox-eplink \"", "token1": "href=\"", "token2": "\""   },
+             "title": { "after": "class=\"epsbox-eplink \"", "token1": ">", "token2": "</a"}
+                }
+	},
+
+
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "<div class=\"manga-imgs\"",
+			"before" : "/pics/",
+			"token1": "=\"http://i-r7.ibuka.cn/pics/",
+			"token2": "\"",
+			"replace": { "prefix": "http://i-r7.ibuka.cn/pics/"},
+			"end": "<div class=\"manga-work-btn\""
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "orange",
+					"link": "http://buka.cn/detail/7891.html",
+					 "uniq" : "7891.html" }
+				],
+				"mangas_count" : ">=28"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.buka.cn/detail/102437.html",
+			"title" : "战姬天下角色设定画集",
+			"assert" : {
+				"author" : "@乐元素",
+				"cover" : "http://i-r7.ibuka.cn/logo/logo5/102437/201511181701/32x.jpg",
+				"summary" : "@高清！无码！《战姬天下》角色设定画集，带给你一场视觉盛宴！",
+			    "chapters_count" : ">=4",
+				"chapters" : [
+					{"link" : "http://www.buka.cn/view/102437/65539.html"},
+					{ "link" : "http://www.buka.cn/view/102437/65538.html" }
+				             ]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.buka.cn/view/102437/65537.html",
+			"assert" : {
+				"pages" : [
+		{"image": "http://i-r7.ibuka.cn/pics/102437/65537/t3971835_0001.jpg"},
+        {"image": "http://i-r7.ibuka.cn/pics/102437/65537/t3971835_0002.jpg"},
+        {"image": "http://i-r7.ibuka.cn/pics/102437/65537/t3971835_0003.jpg"}
+				],
+				"pages_count": "12"
+			}
+		}
+	]
+}

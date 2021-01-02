@@ -1,0 +1,229 @@
+{
+	"id": 65412,
+	"version": 3,
+	"time_invalidate": 0,
+	"title": "Animult by Veopot",
+	"host": "http://animult.net/",
+	"public_link": "http://animult.net/mangas",
+	"folder": "animult",
+	"name": "animult",
+	"chapters_order": true,
+	"language": "ru",
+	"self_link": "http://fant.my1.ru/mwparser/parsers/animult.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/animult.png",
+	"catalog_link": "http://fant.my1.ru/mwparser/animult.p",
+    "encoding": "utf-8",
+
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "http://animult.net/mangas?page=",
+			"append_nums": {
+				"from": 1,
+				"to": 300
+			}
+		},
+
+		"add_manga": {
+			"end": "<div id=\"sidebar\"",
+			"next": "<strong class=\"title\"",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {
+					"prefix": "http://animult.net"
+				}
+			},
+			"title": {
+				"token1": "\">",
+				"token2": "</"
+			}
+		},
+		"rating_auto_inc": {
+			"start": "1000",
+			"inc": -1
+		}
+
+	},
+
+	"manga_complete": [
+
+	{"condition": "вперед",
+		"title": {
+			"after": "<h1 class=\"title\"",
+			"token1": "\">",
+			"token2": "</h1"
+		},
+		"uniq": {
+			"after": "<h1 class=\"title\"",
+			"token1": "\">",
+			"token2": "</h1"
+		},
+		"author": {
+			"skip": "<div class=\"author\"",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"summary": {
+			"skip": " <div class=\"block\"",
+			"token1": "p>",
+			"token2": "</p"
+		},
+		"status": {
+			"complete": ["(сингл)", "(закончена)"],
+			"ongoing": "(продолжается)"
+		},
+		"cover": {
+			"skip": "<div class=\"visual\"",
+			"token1": "src=\"",
+			"token2": "\""
+		},
+		"add_genre": {
+			"after": "href=\"/mangas?genre=",
+			"token1": "\">",
+			"token2": "</"
+		},
+
+		"chapters_from_pages": {
+			"start": "<div class=\"pagination\"",
+			"token1": "\">",
+			"token2": "</",
+			"end": "<div id=\"reviews_tab\"",
+			"replace": {
+				"prefix": "%%url%%/?page="
+			}
+		},
+
+
+		"add_chapter": {
+			"start": "<div id=\"chapters_tab\"",
+			"end": "<div class=\"pagination\"",
+			"next": "<li id=\"manga_chapter",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"after": "href=\"",
+				"token1": "\">",
+				"token2": "</"
+			}
+		}
+	},
+        
+    {"condition": "",
+    	"title": {
+			"after": "<h1 class=\"title\"",
+			"token1": "\">",
+			"token2": "</h1"
+		},
+		"uniq": {
+			"after": "<h1 class=\"title\"",
+			"token1": "\">",
+			"token2": "</h1"
+		},
+		"author": {
+			"skip": "<div class=\"author\"",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"summary": {
+			"skip": " <div class=\"block\"",
+			"token1": "p>",
+			"token2": "</p"
+		},
+		"status": {
+			"complete": ["(сингл)", "(закончена)"],
+			"ongoing": "(продолжается)"
+		},
+		"cover": {
+			"skip": "<div class=\"visual\"",
+			"token1": "src=\"",
+			"token2": "\""
+		},
+		"add_genre": {
+			"after": "href=\"/mangas?genre=",
+			"token1": "\">",
+			"token2": "</"
+		},
+
+		"add_chapter": {
+			"start": "<div id=\"chapters_tab\"",
+			"end": "<div id=\"reviews_tab\">",
+			"next": "<a href",
+			"link": {
+				"token1": "=\"",
+				"token2": "\""
+			},
+			"title": {
+				"after": ">",
+				"token1": ">",
+				"token2": "</a>"
+			}
+		}
+
+	}
+	],
+
+	"chapter_complete": {
+		"add_images": {
+			"start": "<ul class=\"gallery-markup\"",
+			"next": "<a href=\"",
+			"token1": ";/manga/",
+			"token2": "&#",
+			"end": "<span id=\"comments\"",
+			"replace": {
+				"prefix": "http://animult.net/manga/"
+			}
+		}
+	},
+
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+					"link": "http://animult.net/mangas/naruto",
+					"uniq": "naruto"
+				}, {
+					"link": "http://animult.net/mangas/bride-sama-is-16-years-old"
+				}],
+				"mangas_count": ">25"
+			}
+		}, {
+			"proc": "manga_complete",
+			"link": "http://animult.net/mangas/naruto",
+			"assert": {
+				"author": "@Кисимото Масаси",
+				"cover": "http://animult.net/manga_covers/1/original_naruto-anime-manga-poster-leaf-village-group_2.jpg?1422704327",
+				"summary": "@^(За 12 лет до реальных событий,)",
+				"genres": "@shounen",
+				"status": "complete",
+				"genres_count": ">=4",
+				"chapters_count": ">=568",
+				"chapters": [{
+					
+					"link": "http://animult.net/mangas/naruto/60",
+					"folder": "60/"
+				}, {
+					
+					"link": "http://animult.net/mangas/naruto/58"
+				}]
+			}
+		},
+
+		{
+			"proc": "chapter_complete",
+			"link": "http://animult.net/mangas/naruto/60",
+			
+			"assert": {
+				"pages": [{
+					"image": "http://animult.net/manga/1/60/original_1.png?1301854111"
+				}, {
+					"image": "http://animult.net/manga/1/60/original_2.png?1301854122"
+				}],
+				"pages_count": "18"
+			}
+		}
+	]
+}

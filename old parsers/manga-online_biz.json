@@ -1,0 +1,115 @@
+{
+	"id": 40136,
+	"version": 4,
+	"time_invalidate": 0,
+	"title": "Manga-Online.biz",
+	"host": "https://manga-online.biz/",
+	"public_link": "https://manga-online.biz/genre/all",
+	"catalog_link":"http://fant.my1.ru/mwparser/manga-online_biz.p", 
+	"self_link": "http://fant.my1.ru/mwparser/parsers/manga-online_biz.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/manga-online_biz.png",
+	"folder": "manga-online_biz",
+	"name" : "manga-online_biz",
+	"chapters_order": false,
+	"language": "ru",
+    "encoding": "utf-8",
+		
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "https://manga-online.biz/genre/all/page/",
+			"append_nums": { "from": 1, "to": 60 }
+		},
+
+		"add_manga": {
+		    "start" : "<div class=\"genres\"",
+			"end" : "<div class=\"row\"",
+			"next": "<a href=\"",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"uniq":  { "token1": "href=\"/", "token2": "\"", "replace" : { "match": ".html", "text" : ""} },
+			"title": { "skip": "href=\"", "token1": "class=\"header\">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":      { "after": "<h1", "token1":"class=\"header\">", "token2": "</" },
+		"uniq":       { "after": "<meta itemprop=\"name\"", "token1":"content=\"", "token2": "\"" },
+		"author": "Manga-Online.biz",
+		"summary":     { "after": "id=\"description\"", "token1": ">", "token2": "</div" },
+		
+		"cover":       { "after": "<meta property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		
+		"add_genre":   { "after": "onclick=\"App.Analytics.track('Genre", "token1": "\">", "token2": "</" },
+		
+		"add_chapter": {
+			"next":  "<div class=\"right floated content\"",
+			"link":  { "token1": "href=\"", "token2": "\""   },
+			"uniq":  {  "skip": "rel=\"nofollow\"", "token1": "href=\"/","token2": "\"" ,
+			"replace" : { "match": "/", "text" : ""}},
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"images": true,
+        "add_pages": { 
+			"start": "'pages':",
+			"token1": "\"src\":\"",
+			"token2": "\"",
+			"end": "Backbone.history.start",
+		 
+			"replace" : { "match" : "\\\\", "text" : "" }
+		},
+		"prefix": "https://cdn.manga-online.biz"
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{"link" : "https://manga-online.biz/horimiya.html","uniq" : "horimiya" },
+					{ "title" : "Башня Бога / Tower of God", "link" : "https://manga-online.biz/tower_of_god.html" }
+				],
+				"mangas_count" : ">40"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manga-online.biz/noragami.html",
+			"title" : "Бездомный Бог / Noragami",
+			"assert" : {
+				
+			    "cover" : "https://manga-online.biz/manga/46/logo-large.jpg",
+				"summary" : "@^(Каждый человек знает)",
+				"genres" : "@drama",
+				"genres_count" : ">=8",
+				"chapters_count" : ">=70",
+				"chapters" : [
+					{ 
+					"link" : "https://manga-online.biz/noragami/1/1/1/",
+						"folder" : "noragami111/"
+					},
+					{ "title" : "Бездомный Бог 1 - 2 Домашняя кошка, Норагами и хвост",
+					  "link" : "https://manga-online.biz/noragami/1/2/1/" }
+				]
+			}
+		},
+
+		   {
+		 	 "proc" : "chapter_complete",
+			 "link" : "https://manga-online.biz/noragami/1/1/1/",
+			 "title" : "Бездомный Бог 1 - 1 Люди, которые носят спортивную форму",
+			 "assert" : {
+				"pages" : [
+                           {"image": "https://cdn.manga-online.biz/manga/46/2845/d0a1be4b.jpg"},
+                           {"image": "https://cdn.manga-online.biz/manga/46/2845/42f37c25.jpg"},
+                           {"image": "https://cdn.manga-online.biz/manga/46/2845/988c0813.jpg"}
+                          ]}
+		   }
+	]
+}

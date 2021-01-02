@@ -1,0 +1,128 @@
+{
+	"id": 512,
+	"version": 4, 
+	"title": "MangaReader.net",
+	"host": "http://www.mangareader.net/",
+	"public_link": "http://www.mangareader.net/popular/",
+	"folder": "mangareader",
+	"name" : "mr",
+	"language": "en",
+	"catalog_link": "http://fant.my1.ru/mwparser/mangareader.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/mangareader.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangareader.png",
+	"manga_list_complete": {
+
+		"iterator": "http://www.mangareader.net/alphabetical",
+
+		"add_manga": { 
+			"start" : "series_col",
+			"end" : "<tbody",
+			"next": "<li><a href=\"",
+			"link":  { "after": "<a href=\"", "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": "\">",       "token2": "</" }
+		},
+		"link_corrector" : [
+			{ "match" : "(([0-9]+\\/)|(\\.html$))", "text": "" }
+		]
+	},
+
+	"manga_complete": {
+	   "title": {
+                "after": "<h2 class=\"aname\"",
+                "token1": "\">",
+                "token2": "<"
+            },
+            "uniq": {
+                "after": "<h2 class=\"aname\"",
+                "token1": "\">",
+                "token2": "<"
+            },
+
+			
+		"author":      { "after": "Author:", "token1":"<td>", "token2": "</td>" },
+		"summary":     { "after" : "id=\"readmangasum\"", "token1": "<p>", "token2": "</p>"},
+		"status":      { "complete": "<td>Completed</td>", "ongoing": "<td>Ongoing</td>" },
+		"read_dir":    { "right_to_left": "<td>Right to Left</td>", "left_to_right": "<td>Left to Right</td>" },
+		"cover":       { "after": "mangaimg", "token1": "src=\"", "token2": "\"" },
+		"add_genre":   { "after": "class=\"genretags\">", "token1": ">", "token2": "</" },
+		"add_chapter": { 
+			"start": "id=\"readmangasum\"",
+			"next":  "chico_manga", 
+			"link":  { "token1": "<a href=\"", "token2": "\""   }, 
+			"title": { "token1": "\">",        "token2": "</td>" },
+			"sufix": "http://www.mangareader.net"
+		},
+		"link_corrector" : [
+			{ "match" : "(([0-9,-]+\\/)|(chapter-)|(\\.html$))", "text": "" }
+		]
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "selectpage", 
+			"token1": "<option value=\"", 
+			"token2": "\"", 
+			"end": "</select>"
+		}
+	},
+	"page_complete": {
+		"image": { "after": "imgholder", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+
+			"assert" : {
+				"mangas" : [
+					{ 
+						"title" : "The Breaker", 
+						"link" : "http://www.mangareader.net/the-breaker",
+						"uniq" : "the-breaker"
+					},
+					{ "title" : "Naruto", "link" : "http://www.mangareader.net/naruto" }
+				],
+				"mangas_count" : ">3700"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"title" : "The Breaker", 
+			"link" : "http://www.mangareader.net/the-breaker",
+			"assert" : {
+				"author" : "Park, Jin-Hwan (Story & Art)",
+				"cover" : "http://s1.mangareader.net/cover/the-breaker/the-breaker-l0.jpg",
+				"summary" : "@^(A new HR teacher).*(\\!)$",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">3",
+				"chapters_count" : "72",
+				"chapters" : [
+					{ 
+						"title" : "@^(The Breaker 1)", 
+						"link" : "http://www.mangareader.net/the-breaker/1", 
+						"folder" : "1/"
+					},
+					{ "title" : "@^(The Breaker 28)", "link" : "http://www.mangareader.net/the-breaker/28" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"title" : "The Breaker 1", 
+			"link" : "http://www.mangareader.net/the-breaker/1",
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://www.mangareader.net/the-breaker/1" },
+					{ "link" : "http://www.mangareader.net/the-breaker/1" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangareader.net/the-breaker/1",
+			"assert" : {
+				"image" : "http://i3.mangareader.net/the-breaker/1/the-breaker-728063.jpg"
+			}
+		}
+	]
+}

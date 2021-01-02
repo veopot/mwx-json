@@ -1,0 +1,131 @@
+{
+"id": 4864,
+"version": 7,
+"title": "Mymanga.io ( Anime-Story.com)",
+"host": "http://www.mymanga.io/",
+"public_link": "http://www.mymanga.io/mangas/hitogatana/",
+"folder": "animestory",
+"name" : "as",
+"language": "fr",
+"catalog_link":"http://fant.my1.ru/mwparser/animestory.p", 
+"self_link": "http://fant.my1.ru/mwparser/parsers/animestory.json",
+"icon_link": "http://www.mymanga.io/favicon.ico",
+
+"chapters_order": false,
+
+"manga_list_complete": {
+
+"iterator": "http://www.mymanga.io/mangas/",
+
+"add_manga": { 
+"start" : "<section id=mangalist",
+"next": "<a href=\"mangas/",
+"link":  { "token1": "href=\"", "token2": "\"", "replace" : { "prefix" : "http://www.mymanga.io/" } }, 
+"title": {  "skip" : "<a href=\"", "token1": "\">",     "token2": "</a>" }
+}
+},
+
+"manga_complete": {
+"title": {
+"after": "<h2 class=text-border>",
+"token1": ">",
+"token2": "</h2>"
+},
+"uniq": {
+"after": "<h2 class=text-border>",
+"token1": ">",
+"token2": "</h2>"
+}, 
+"cover":       { "after": "<div id=picture class=sep>", "token1": "src=\"", "token2": "\"",
+"replace" : { "prefix" : "http://www.mymanga.io/" }},
+
+"author":      { "skip": "Auteur : ", "token1":"\">", "token2": "</a>" },
+"summary":     { "skip": "Synopsis<", "token1" : "/>", "token2": "</p>"},
+"status":      { "complete": ["one shot</a>", "terminé</a>"], "ongoing": "en cours</a>", "licensed": "<b>plus disponible</b>" },
+"read_dir":    { "right_to_left": "manga</a>", "left_to_right": "manhwa</a>" },
+"rating":      { "after": "id=mangaRating", "token1":"_like>", "token2": "</" },
+"add_genre":   { "after": "search?genre", "token1": "\">", "token2": "</a>" },
+
+"add_chapter": { 
+"next":  "class=\"ddl follow\"", 
+"link":  { "token1": "href=\"", "token2": "\""   }, 
+"title": { "after": "<span class=chapter>", "token1": ">", "token2": "</" }
+},
+"link_corrector" : [
+{ "match" : "www.mymanga.io", "text": "www.hitmanga.eu" }
+]
+},
+"chapter_complete": {
+"add_pages": { 
+"start": "<span id=page>", 
+"token1": "<option value=\"", 
+"token2": "\"", 
+"end": "</select>",
+"replace" : { "prefix" : "http://www.hitmanga.eu/" }
+},
+"link_corrector" : [
+{ "match" : "www.mymanga.io", "text": "www.hitmanga.eu" }
+]
+},
+"page_complete": {
+"image": { "after": "<img src=\"http://lel.mymanga.io/", "token1": "<img src=\"", "token2": "\"" }
+},
+
+"test": [
+{
+"proc" : "manga_list_complete",
+"assert" : {
+"mangas" : [
+{ "title" : "24 Jikan Renaichuu", "link" : "http://www.mymanga.io/mangas/24jikanrenaichuu/",
+"uniq" : "24jikanrenaichuu" }
+],
+"mangas_count" : ">920"
+}
+},
+
+
+{
+"proc" : "manga_complete",
+"link" : "http://www.mymanga.io/mangas/baroqueknight/",
+"title" : "Baroque Knight",
+"assert" : {
+"author" : "HAMURA Tetsu",
+"cover" : "http://www.mymanga.io/images/mangas/baroqueknight.jpg.pagespeed.ce.pkj4wD4U1y.jpg",
+"summary" : "@^(Le lycéen solitaire Moribe)",
+"genres" : "@seinen",
+"status" : "complete",
+"rating" : ">=20",
+"chapters_count" : ">=12",
+"chapters" : [
+{ "title" : "Chapitre 00", "link" : "http://www.mymanga.io/baroqueknight/chapitre-00/", 
+"folder" : "chapitre-00/" },
+{ "title" : "Chapitre 02", "link" : "http://www.mymanga.io/baroqueknight/chapitre-02/" }
+]
+}
+},
+
+
+{
+"proc" : "chapter_complete",
+
+"link" : "http://www.hitmanga.eu/baroqueknight/chapitre-09/", 
+"title" : "Chapitre 9", 
+"assert" : {
+"pages" : [
+{ "link" : "http://www.hitmanga.eu/baroqueknight/chapitre-09/18" },
+{ "link" : "http://www.hitmanga.eu/baroqueknight/chapitre-09/5" }
+]
+}
+},
+
+{
+"proc" : "page_complete",
+"link" : "http://www.hitmanga.eu/baroqueknight/chapitre-09/1",
+"assert" : {
+"image" : "http://lel.mymanga.io/baroqueknight/09/BKN_09%2000a.jpg"
+}}
+
+
+
+]
+}

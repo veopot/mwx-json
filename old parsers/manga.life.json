@@ -1,0 +1,135 @@
+{
+	"id": 40108,
+	"version": 4,
+	"time_invalidate": 0,
+	"title": "MangaLife.org by Veopot",
+	"host": "http://mangalife.org",
+	"public_link": "http://mangalife.org/directory/",
+	"folder": "manga.life",
+	"name" : "manga.life",
+	"chapters_order": false,
+	"language": "en",
+    "catalog_link": "http://fant.my1.ru/mwparser/manga.life.p",
+    "self_link": "http://fant.my1.ru/mwparser/parsers/manga.life.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/mangalife.png",
+	
+	"manga_list_complete": {
+
+		"iterator":  "http://mangalife.org/directory/",
+
+		"add_manga": {
+			"next": "class=\"ttip\"",
+			"link":  { "token1": "href=\"", "token2": "\"" ,"replace" : {"prefix" : "http://mangalife.org" } },
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" }
+		}
+		
+	},
+
+	"manga_complete": {
+		"title":      { "after": "<h1 class=\"SeriesName\"", "token1":"\">", "token2": "</" },
+		"uniq":       { "after": "<h1 class=\"SeriesName\"", "token1":"\">", "token2": "</" },
+		"cover":       { "skip": "<div class=\"well mainWell\"", "token1": "src=\"", "token2": "\"" },
+		"author":      { "after": "<b>Author(s):", "token1":"'>", "token2": "</" },
+		"status": { 
+    "complete": { 
+         "start": "<b>Status:", 
+		 "end": "</div>",
+        "value" : "status=Complete"
+    },
+    "ongoing": {
+        "start": "<b>Status:", 
+		 "end": "</div>",
+        "value" : "status=Ongoing"
+                },
+    
+	"default" : "unknown"
+},
+		"summary":     { "skip": "<strong>Description:", "token1": "\">", "token2": "<" },
+		"add_genre":   { "after": "href='/search/?genre=", "token1": "'>", "token2": "</" },
+		
+		"add_chapter": {
+		     "start": "<div class=\"list chapter-list\"", 
+		     "end": "<div class=\"comment-container\"",
+			"next":  "<a",
+			"link":  { "token1": "href=\"", "token2": "\"","replace" :{ "match" : "/page-1", "text" : "" }},
+			"uniq": { "skip" : "href=\"", "token1": "chapterLabel\">", "token2": "</"},
+			"title": { "skip" : "href=\"", "token1": "chapterLabel\">", "token2": "</"}
+		}
+	},
+	
+	"chapter_complete": {
+		"add_pages": {
+			"start": "<select class=\"input-xs hidden-xs PageSelect\"",
+			"token1": "value='",
+			"token2": "'",
+			
+			"end": "<button class=\"btn btn-xs btn-default prevBtn\""
+			
+		},
+		"sufix": ".html",
+		"prefix": { "after": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "1.html" }
+		
+	},
+
+	"page_complete": {
+		"image": { "after": "<img class=\"CurImage\"", "token1": "src=\"", "token2": "\"" }
+	},
+	
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Angel Heart",      "link" : "http://mangalife.org/manga/Angel-Heart",
+						"uniq" : "Angel-Heart" },
+					{ "title" : "Annarasumanara", "link" : "http://mangalife.org/manga/Annarasumanara" }
+				],
+				"mangas_count" : ">3539"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://mangalife.org/manga/Annarasumanara",
+			"title" : "Annarasumanara",
+			"assert" : {
+				"author" : "@HA Il-Kwon",
+				"cover" : "http://static.mangaboss.net/cover/Annarasumanara.jpg",
+				           
+				"summary" : "@^(A rumor goes around)",
+				"genres" : "@drama",
+				"status" : "complete",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=26",
+				"chapters" : [
+					{ "title" : "Episode 1",
+"link" : "http://mangalife.org/read-online/Annarasumanara-chapter-1-page-1.html",
+						"folder" : "Episode 1/"
+					},
+					{ "title" : "Episode 2",
+"link" : "http://mangalife.org/read-online/Annarasumanara-chapter-2-page-1.html" }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"title" : "Episode 1", 
+			"link" : "http://mangalife.org/read-online/Annarasumanara-chapter-1-page-1.html",
+			"assert" : {
+				
+				"pages" : [
+		{"link": "http://mangalife.org/read-online/Annarasumanara-chapter-1-page-1.html"},
+        {"link": "http://mangalife.org/read-online/Annarasumanara-chapter-1-page-2.html"},
+        {"link": "http://mangalife.org/read-online/Annarasumanara-chapter-1-page-3.html"}
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://mangalife.org/read-online/Annarasumanara-chapter-1-page-2.html",
+			"assert" : {
+				"image" : "http://2.bp.blogspot.com/-tJNTZbEVzTo/Vj6OR28qmZI/AAAAAAAFsHY/EKnm49Wy9h4/s16000/0001-002.jpg"
+			}
+		}
+	]
+}

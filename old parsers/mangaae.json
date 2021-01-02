@@ -1,0 +1,122 @@
+{
+	"id": 8194,
+	"version": 4, 
+	"time_invalidate": 0,
+	"title": "Manga.ae",
+	"host": "http://www.manga.ae",
+	"public_link": "http://www.manga.ae/manga",
+	"folder": "mangaae",
+	"name" : ["ae", "mae"],
+	"chapters_order": false,
+	"language": "ar",
+    "catalog_link":"http://fant.my1.ru/mwparser/mangaae.p", 
+	"self_link": "http://fant.my1.ru/mwparser/parsers/mangaae.json",
+	"icon_link": "http://www.manga.ae/favicon.ico",
+	
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url" : "http://www.manga.ae/manga/page:",
+			"append_nums" : { "from" : 1, "to" : 53 }
+		},
+
+		"add_manga": { 
+			"start" : "id=\"mangadirectory\"",
+			"end" : "class=\"pagination\"",
+			"next": "<div class=\"mangacontainer\"",
+			"link":  { "skip" : "<div class=\"mangacontainer\"", "token1": "href=\"", "token2": "\"" }, 
+			"title": { "tag" : "class=\"manga\"", "token1": ">", "token2": "</" }
+		}
+	},
+
+	"manga_complete": {
+	    "title": {
+                "after": "<h1 class=\"EnglishName\"",
+                "token1": "(",
+                "token2": ")"
+            },
+            "uniq": {
+               "after": "<h1 class=\"EnglishName\"",
+                "token1": "(",
+                "token2": ")"
+            },
+		"author" :     { "after" : ">اسم المؤلف بالأنجليزية<", "token1" : "<h4>", "token2" : "</h4>" },
+		"summary":     { "after": ">نبذة عن المانجا<", "token1": "<h4>", "token2": "</h4>"},
+		"status":      { "complete": "مكتملة <", "ongoing": "مستمرة <" },
+		"cover":       { "tag": "\"manga-cover\"", "token1": "src=\"", "token2": "\"" },
+		"add_genre":  { 
+			"after": "<a href=\"http://www.manga.ae/manga/tag:",
+			"token1": "\">", 
+			"token2": "</"
+		},
+		"add_chapter": { 
+			"start" : "class=\"new-manga-chapters\"",
+			"end" : "</ul>",
+			"next":  "class=\"chapter\"", 
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</a>" },
+			"uniq":  { "token1": "href=\"http://www.manga.ae", "token2": "\"", "replace" : { "match" : "^\\/[\\w,-]*\\/", "text" : "" } }
+		}
+	},
+	"chapter_complete": {
+		"add_pages" : {
+			"start" : "class=\"chapter\"",
+			"end" : "</div>",
+			"token1" : "href=\"",
+			"token2" : "\""
+		}
+	},
+	"page_complete": {
+		"image": { "skip": "showchaptercontainer", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Hibi Chouchou",    "link" : "http://www.manga.ae/hibi-chouchou/", "uniq" : "hibi-chouchou" },
+					{ "title" : "Tokyo Ghoul", "link" : "http://www.manga.ae/tokyo-ghoul/" }
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link": "http://www.manga.ae/beelzebub",
+			"title": "Beelzebub",
+			"assert" : {
+				"cover" : "http://www.manga.ae/images/manga/beelzebub.jpg",
+				"summary" : "@(رجل يطفو)",
+				"genres" : "@schoollife",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=238",
+				"chapters" : [
+					{ "title" : "240 : بابو الاخير, بابو الجيد, ثانوية إيشياما", 
+					  "link" : "http://www.manga.ae/beelzebub/240/1/",
+						"folder" : "240/1/" },
+					{ "title" : "1 : طفل كبير الشياطين", "link" : "http://www.manga.ae/beelzebub/1/1/" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"title" : "240 : بابو الاخير, بابو الجيد, ثانوية إيشياما", 
+			"link" : "http://www.manga.ae/beelzebub/240/1/",
+			"assert" : {
+				"pages" : [
+					{ "link" : "http://www.manga.ae/beelzebub/240/2" },
+					{ "link" : "http://www.manga.ae/beelzebub/240/3" },
+					{ "link" : "http://www.manga.ae/beelzebub/240/4" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.manga.ae/beelzebub/240/4",
+			"assert" : {
+				"image" : "http://www.manga.ae/cdn/26/0240/4.jpg"
+			}
+		}
+	]
+}

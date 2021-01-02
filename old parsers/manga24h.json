@@ -1,0 +1,128 @@
+{
+	"id": 16896,
+	"version": 10,
+	"title": "Manga24h",
+	"host": "http://manga24h.me/",
+	"public_link": "http://manga24h.me/danhsach/",
+	"folder": "manga24h",
+	"name" : "m24h",
+	"chapters_order": false,
+	"language": "vi",
+	"encoding": "utf-8",
+	 "catalog_link":"http://fant.my1.ru/mwparser/manga24h.p", 
+	 "self_link": "http://fant.my1.ru/mwparser/parsers/manga24h.json",
+	"icon_link": "http://fant.my1.ru/mwparser/img/manga24h.png",
+
+	"manga_list_complete": {
+
+		"iterator1": {
+			"base_url": "http://manga24h.me/status/hot.html/",
+			"append_nums": { "from": 1, "to": 200 }
+		},
+
+		"iterator": {
+			"base_url": "http://manga24h.me/danhsach/",
+			"append_nums": { "from": 1, "to": 100 }
+		},
+
+		"add_manga": { 
+			"next": "class=\"manga_name_update\"",
+			"link":  { "token1": "href=\"",  "token2": "\"", "replace" : { "prefix" : "http://manga24h.me/"} }, 
+			"title": { 
+				"skip": "href=\"", 
+				"token1": ">", "token2": "</", 
+				"replace": { "match" : "\"\\s*$", "text" : "" }
+			}
+		}
+	},
+
+	"manga_complete": {
+	     "title": {
+                "after": "<h1 property=\"v:itemreviewed\">",
+                "token1": "\">",
+                "token2": "</h1>"
+            },
+            "uniq": {
+            "after": "<h1 property=\"v:itemreviewed\">",
+                "token1": "\">",
+                "token2": "</h1>"
+            },
+		"author":      { "after": "id=\"detail-info-author\"", "token1":"\">", "token2": "</" },
+		"summary":     { "after": "<small>", "token1": ">", "token2": "</"},
+		"status":      { "complete": ">Full</a>", "ongoing": ">Ongoing</a>" },
+		"cover":       { "after": "og:image",  "token1": "content=\"", "token2": "\"" },
+		"rating" : { "skip" : ">Lượt xem :</td>", "token1" : "class=\"detail-info-content\">", "token2" : "</" },
+		"add_genres":  { 
+			"start" : "\"detail-info-category\"",
+			"after": "href='", "token1": "'>", "token2": "</a>" ,
+			"end": "</tr>"
+		},
+		"add_chapter": { 
+			"start" : "<div class=\"wrap-chapt-chosen\"",
+			"next":  "<option ", 
+			"link":  { "token1": "value=\"", "token2": "\"","replace": { "prefix":"http://manga24h.me/" } }, 
+			"title": { "token1": ">",      "token2": "</" },
+			"end" : "</select>"
+		}
+	},
+
+	"chapter_complete": {
+		"add_images": { 
+			"start": "id=\"chapcontent\"",
+			"token1" : "src='",
+			"token2" : "'",
+			
+			"end" : ";"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "12 Beast", 
+						"link" : "http://manga24h.me/12-Beast.htm"
+					},
+					{ 
+						"title" : "12 nights", 
+						"link" : "http://manga24h.me/12-nights.htm" 
+					}
+				],
+				"mangas_count" : ">2850"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://manga24h.me/The-Gamer.htm",
+			"title" : "The Gamer", 
+			"assert" : {
+				"author" : "Sung Sang Young - Sang Ah",
+"cover" : "http://3.bp.blogspot.com/-abjzbnt8jJM/VpfBcMDsLDI/AAAAAAAFr2M/j3afXP2IRWY/s0/UEjzR.jpg",
+				"genres" : "@action",
+				"rating" : ">5922170",
+				"status" : "ongoing",
+				"genres_count" : ">4",
+				"chapters_count" : ">121",
+				"chapters" : [
+					{ "title" : "Chap 1", 
+					  "link" : "http://manga24h.me/The-Gamer/Chapter-1/", 
+					  "folder" : "Chapter-1/" },
+					{ "title" : "Chap 3",
+					  "link" : "http://manga24h.me/The-Gamer/Chapter-3/" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://manga24h.me/The-Gamer/Chapter-1/",
+			"title" : "Chap 1", 
+			"assert" : {
+				"pages" : [
+{ "image":"http://2.bp.blogspot.com/-xfOLqkBS41M/UsUr86BDqiI/AAAAAAAAQm0/XHBOsZ1_gYg/s0/The-Gamer-Chapter-1-trang-0-Manga24h.jpg" },
+{"image":"http://4.bp.blogspot.com/-CnxpNE1lx70/UsUr9hXaqqI/AAAAAAAAQnA/QYOim6mAqok/s0/The-Gamer-Chapter-1-trang-1-Manga24h.jpg" }
+				]
+			}
+		}
+	]
+}
