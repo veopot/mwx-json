@@ -1,0 +1,166 @@
+{
+    "id": 1280,
+    "version": 27,
+    "title": "ReadManga",
+    "host": "http://readmanga.me/",
+    "public_link": "http://readmanga.me/list/",
+    "folder": "readmanga",
+    "name": "rm",
+    "language": "ru",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "http://images.mangawatcherx.com/parser/icon/readmanga.png",
+	"self_link": "http://account.mangawatcherx.com/api/v1/repo/parsers/readmanga",
+	"catalog_link": "http://catalogs.mangawatcherx.com/zip/readmanga.zip",
+    "file_type": "sqlite",
+
+    "manga_search_complete": {      
+        "search_link": "http://readmanga.me/search/advanced?q=$query$&offset=$page$",
+        "query_type": "GET",
+        "!page_multiply_by": 50,
+        "page_addition_by": -1,
+        "add_manga": {
+            "start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+            "title": { "after": "<h4 title=\"", "token1": ">", "token2": "</" },
+            "cover": { "token1": "data-original='", "token2": "'" }
+        }
+    },
+        
+    "manga_list_complete": {
+        "iterator": {
+            "category": { "tag": "main", "name": "Последние" },
+            "base_url": "http://readmanga.me/list?offset=",
+            "append_nums": { "from": 0, "to": 16660, "step": 70, "last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
+        },
+        "add_manga": {
+            "start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+            "title": { "after": "<h4 title=\"", "token1": ">", "token2": "</" },
+            "additional_title": { "after": "img class", "token1": "title='", "token2": "'" },
+            "cover": { "token1": "data-original='", "token2": "'" }
+        },
+        "rating_auto_inc": {
+            "start": 10000,
+            "inc": -1
+        }
+    },
+	
+    "manga_complete": [
+        { 
+            "condition": ">Сценарист:<",
+            "title": { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+            "additional_title": { "after": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
+            "uniq":  { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+            "author": { "skip": "<span class=\"elem_screenwriter \"", "token1": "class=\"person-link\">", "token2": "</" },
+            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+            "status": { 
+		  	"complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
+                "ongoing": { "start": "<b>Перевод:</b>", "end": "</p>", "value": "продолжается" },
+                "single": "<b>Сингл</b>",
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" },
+            "cover": { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
+            "add_genre": { "token1": "/genre/", "token2": "\"" },
+            "content_type": { "default": "manga" },
+            "is_mature": "<a href=\"?mature=1\">",
+            "add_chapter": {
+                "start": "</thead>",
+                "end": "</table>",
+                "next": "<a href=\"",
+                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "http://readmanga.me"} },
+                "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
+		  	"uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
+            }
+        },
+        { 
+            "condition": "",
+            "title": { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+            "additional_title": { "after": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
+            "uniq":  { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+            "author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
+            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+            "status": { 
+            "complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
+                "ongoing": { "start": "<b>Перевод:</b>", "end": "</p>", "value": "продолжается" },
+                "single": "<b>Сингл</b>",
+            "licensed" : "Главы удалены",
+            "unknown" : "нет ни одной главы" },
+            "cover": { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
+            "add_genre": { "token1": "/genre/", "token2": "\"" },
+            "content_type": { "default": "manga" },
+            "is_mature": "<a href=\"?mature=1\">",
+            "add_chapter": {
+                "start": "</thead>",
+                "end": "</table>",
+                "next": "<a href=\"",
+                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "http://readmanga.me"} },
+                "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
+            "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
+            }
+        }
+    ],
+    "chapter_complete": {
+    	"no_404": true,
+        "images": true,
+        "add_servers": { 
+			"start": "var servers", 
+			"token1": "['", 
+			"token2": "']",
+			"split": "','",
+			"end": ";"
+		},
+        "add_pages": { 
+            "start": "rm_h.init(",
+            "token1": "['",
+            "token2": "],",
+            "end": "]],",
+            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$2$1$3" }
+        },
+        "postfix" : "?mtr=1&mature=1"
+    },
+	
+    "test": [
+        {
+            "proc": "manga_list_complete",
+			"testpages": "5",
+            "assert": {
+                "mangas": [
+                    { "title": "Noblesse", "link": "http://readmanga.me/noblesse", "uniq": "noblesse" },
+                    { "title": "Naruto", "link": "http://readmanga.me/naruto" }
+                ],
+                "mangas_count": ">300"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "http://readmanga.me/tower_of_god",
+            "title": "Tower of God",
+            "assert": {
+                "author": "@Siu",
+                "cover": "http://static.readmanga.me/uploads/pics/00/99/917.jpg",
+                "summary": "@^(Башня)",
+                "genres": "@comedy",
+                "status": "ongoing",
+                "genres_count": ">=5",
+                "chapters_count": ">=300",
+                "chapters": [
+                    { "title": "@(1 - 1)", "link": "http://readmanga.me/tower_of_god/vol1/1", "folder": "1/1/" }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "title": "2 - 266 ??F Адский Экспресс. Скрытый Этаж (03)",
+            "link": "http://readmanga.me/tower_of_god/vol2/266",
+            "assert": {
+                "pages": [
+                    { "image": "@^http://.*.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini\\.jpg_res\\.jpg" },
+                    { "image": "@^http://.*.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p02_SIU_Gemini\\.jpg_res\\.jpg" }
+                ]
+            }
+        }
+    ]
+}

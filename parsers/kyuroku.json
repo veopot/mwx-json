@@ -1,0 +1,193 @@
+{
+"id": 40213,
+"version": 8,
+"title": "Kyuroku",
+"host": "https://kyuroku.com",
+"public_link": "https://kyuroku.com/manga-list/",
+"folder": "kyuroku",
+"name" : "kyuroku",
+"chapters_order": false,
+"language": "id",
+"content_type": "manga",
+"author": {"name": "Veopot","email": "fant-net@ya.ru"},
+"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/kyuroku.p",
+"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/kyuroku.json",
+"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/kyuroku.png",	
+	
+
+
+	
+"manga_list_complete": {
+		"iterator": { "base_url": "https://kyuroku.com/manga/page/",
+				"append_nums": { "from": 1, "to": 50, "step": 1,  "sufix": "/?order=popular"}
+			
+			},
+		
+		"add_manga": {
+			"next": "<div class=\"box_trending\"",
+			"link": {
+			    "after": "<a",
+				"token1": "href=\"",
+				"token2": "/\""
+				     },
+					 
+				 
+			"title": {
+				"skip": "href=\"",
+				"token1": "class=\"_2dU-m vlQGQ\">",
+				"token2": "</"
+			},
+			
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "class=\"_2dU-m vlQGQ\">",
+				"token2": "</"
+			}
+		             }
+		
+	},	
+	
+	
+"manga_search_complete": {		
+ "search_link":"https://kyuroku.com/page/$page$/?s=$query$",
+		"query_type": "GET",
+		"add_manga": {
+		     "start": "id=\"content\"", 
+             "next": "<div class=\"box_trending\"",
+			
+			"link": {
+			    "after": "<a",
+				"token1": "href=\"",
+				"token2": "/\""
+				     },
+					 
+			"cover": {
+			    "skip": "href=\"",
+				"token1": "src=\"",
+				"token2": "\""
+				     },		 
+			"title": {
+				"skip": "href=\"",
+				"token1": "class=\"_2dU-m vlQGQ\">",
+				"token2": "</"
+			},
+			
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "class=\"_2dU-m vlQGQ\">",
+				"token2": "</"
+			}
+		 }
+		},	
+	"manga_complete": {
+		"title": { 
+		    "skip": "property=\"og:title\"", 
+		    "token1":"content=\"", "token2": "\"",
+			"replace" : { "match" : "Bahasa Indonesia - Kyuroku", "text" : "" } },
+		
+		"additional_title":{ "token1":" class=\"alter\">", "token2": "</" },
+		
+		"uniq": { 
+		    "skip": "property=\"og:title\"", 
+		    "token1":"content=\"", "token2": "\"",
+			"replace" : { "match" : "Bahasa Indonesia - Kyuroku", "text" : "" } },
+			
+		"author":      { "skip": ">Author:", "token1": ">", "token2": "</" },
+		
+		"production_year":  { "skip": ">Released:", "token1": "b>", "token2": "</span" },	
+		
+		"summary":     {  "token1": "<div itemprop=\"articleBody\">", "token2": "</div" },
+		
+		"status":      { 
+		"complete": "Completed<",
+		"ongoing": "Ongoing<"
+		  },
+		  
+		"is_mature": {
+			"start": "class=\"genrex\">",
+		    "end": "</div>",
+			"values": ["mature", "seinen"]
+            },
+			
+		"cover": { "after": "property=\"og:image\"",
+		"token1": "content=\"", "token2": "\"" },
+		
+		"add_genres":   {
+        "start": "class=\"genrex\">",
+		"end": "</div>",
+		"token1": "\">",
+		"token2": "</" 
+		},
+		
+		"content_type": { "default": "manga" },
+		
+		"add_chapter":  {
+		    "start": "h3>Chapter",
+			"end": ">Comment<",
+		    "next":  "class=\"lchx\"",
+			"link":  { "token1": "href=\"", "token2": "\""},
+			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</",
+			 "replace" : { "match" : "&nbsp;", "text" : "" }
+			}
+		}
+	},
+	"chapter_complete": {
+		"add_images": {
+			"start": "<div id=\"readerarea\"",
+			"token1": "src=\"",
+			"token2": "\"",
+			"end": "</p>"
+			}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Kirei ni shite moraemasu ka", 
+					 "link" : "https://kyuroku.com/manga/kirei-ni-shite-moraemasu-ka" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://kyuroku.com/manga/very-pure",
+			"title" : "Very Pure",
+			"assert" : {
+				"author" : "You Lu Wen Hua",
+				"cover" : "https://i2.wp.com/kyuroku.com/wp-content/uploads/2018/07/Very-Pure-Bahasa-Indonesia.jpeg",
+				"summary" : "@Yang Ming adalah lambang dari kejahatan",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=5",
+				"chapters" : [
+		{
+        "folder": "pure-chapter-1-bahasa-indonesia/",
+        "link": "https://kyuroku.com/pure-chapter-1-bahasa-indonesia/",
+        "title": "Chapter 1"
+        },
+        {
+        "link": "https://kyuroku.com/pure-chapter-2-bahasa-indonesia/",
+        "title": "Chapter 2"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://kyuroku.com/pure-chapter-1-bahasa-indonesia/",
+			"assert" : {
+				"pages" : [
+{"image": "https://i3.wp.com/lh3.googleusercontent.com/-TjWqhnY6KF0/W0nATnYasAI/AAAAAAAAvmo/GVdGcD1SxmUrr1Z2sVMmaotEJzx12SgOQCLcBGAs/s1600/00creds.jpg"},
+{"image": "https://i3.wp.com/lh3.googleusercontent.com/-JbJKgvTQbrU/W0nATgwMK_I/AAAAAAAAvms/FtHYZcLFjqMa3N507JkV4IRUtJGmrtCTwCLcBGAs/s1600/1.jpg"},
+{"image": "https://i3.wp.com/lh3.googleusercontent.com/-7kw2Vh-GXqA/W0nATq0VK9I/AAAAAAAAvmk/FPiZNJgU8dM7re8ymymyRTdKvnJxpWEYwCLcBGAs/s1600/2.jpg"}
+				],
+				"pages_count": "10"
+			}
+		}
+	]
+}

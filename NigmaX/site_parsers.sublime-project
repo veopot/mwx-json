@@ -1,0 +1,93 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"java", "-jar", "nigma.jar", "$file", "-details"
+			],
+			"name": "Start tests"
+		},
+		{
+			"cmd":
+			[
+				"java", "-jar", "nigma.jar", "$file", "[manga_list_complete]"
+			],
+			"name": "manga_list_complete"
+		},
+		{
+			"cmd":
+			[
+				"java", "-jar", "nigma.jar", "$file", "[manga_complete]"
+			],
+			"name": "manga_complete"
+		},
+		{
+			"cmd":
+			[
+				"java", "-jar", "nigma.jar", "$file", "[chapter_complete]"
+			],
+			"name": "chapter_complete"
+		},
+		{
+			"cmd":
+			[
+				"java", "-jar", "nigma.jar", "$file", "[page_complete]"
+			],
+			"name": "page_complete"
+		},
+		{
+			"cmd":
+			[
+			"java", "-jar", "nigma.jar", "--all"
+			],
+			"name": "Start tests for all files from folder"
+		}
+	], 
+	"folders":
+	[
+		{
+			"folder_include_patterns": [ "*.json" ],
+			"name": "RELEASE",
+			"path": "../open_parsers"
+		},
+		{
+			"folder_include_patterns": [ "*.log" ],
+			"name": "LOGS",
+			"path": "logs"
+		},
+		{
+			"folder_include_patterns":
+			[
+				"*.java"
+			],
+			"name": "INBOX",
+			"path": "inbox"
+		},
+		{
+			"name": "BROKEN",
+			"path": "broken"
+		},
+		{
+			"folder_include_patterns":
+			[
+				"*.json"
+			],
+			"name": "UNCHECKED",
+			"path": "unchecked"
+		},
+		{
+			"folder_include_patterns":
+			[
+				"*.log"
+			],
+			"name": "LOGS",
+			"path": "."
+		},
+	],
+	"settings":
+	{
+		"tab_size": 2,
+		"translate_tabs_to_spaces": false
+	}
+} 

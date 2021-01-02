@@ -1,0 +1,139 @@
+{
+	"id": 66348,
+	"version": 22,
+	"title": "Desu",
+	"host": "http://desu.me/",
+	"public_link": "http://desu.me/manga/",
+	"folder": "desu",
+	"name" : "desu",
+	"language": "ru",
+	"encoding": "utf-8",
+	"chapters_order": true,
+	"skip_catalog_test": false,
+	"icon_link":"http://images.mangawatcherx.com/parser/icon/desu.png",
+	"self_link": "http://account.mangawatcherx.com/api/v1/repo/parsers/desu",
+	"catalog_link": "http://catalogs.mangawatcherx.com/zip/desu.zip",
+    "file_type": "sqlite",
+		
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "http://desu.me/manga/api/?limit=30&order=popular&page=",
+			"append_nums": { "from": 1, "to": 80 }
+		},
+		"add_manga": {
+			"next": "\"id\"",
+			"link":  { "after": "\"url\"", "token1": ":\"", "token2": "\",",
+			"replace" : { "match" : "desu.me/manga/", "text" : "desu.me/manga/api/" }},
+			"uniq": { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
+			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
+		},	 
+		"rating_auto_inc": {
+			"start": "1000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": [
+		{"condition": "response",
+			"title":   { "after": "\"name\"", "token1": ":\"", "token2": "\",\"im", "replace": { "match": "\",\"russian\":\"", "text": " / " } },
+			"uniq":    { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
+			"status":  { "complete": [ "\"status\":\"singl\"", "\"status\":\"released\"" ], "ongoing": "\"status\":\"ongoing\"", "empty": "\"status\":\"anons\"" },
+			"summary": { "skip": "\"description\"", "token1": ":\"", "token2": "\"," },
+			"read_dir":{ "right_to_left": "\"right-to-left\"","left_to_right": "\"left-to-right\"" },
+			"cover":   { "skip": "\"original\"", "token1": ":\"", "token2": "\"" },
+			"is_mature": "\"adult\":1,",
+			"add_genre": { 
+				"!start": "\"genres\":[",
+				"!end": "],",
+				"token1": "\"text\":\"",
+				"token2": "\"" },
+			"add_chapter": {
+				"start": "\"list\":[",
+				"next":  "\"id\"",
+				"end": "}}}",
+				"link":  { "token1": "\"id\":", "token2": ",", "replace": {"prefix" : "%%url%%chapter/" } },
+				"title": { "token1": "\"vol\":", "token2": "\"date\"", "replace": [{ "match" : ",\"ch\":", "text": " - " }, { "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" } ] },
+				"uniq":  { "token1": "\"ch\":", "token2": "\"date\"", "replace": [{ "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" }, { "match" : "\\\\", "text": "" }, { "match" : "\\?", "text": "" }, { "match" : "!", "text": "" }] }
+			}
+		},
+		{"condition": "",
+			"title":      { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
+			"uniq":       { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
+			"status":      { "complete": [ "Сингл", "вышло" ], "ongoing": "выходит" },
+			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "</div>" },
+			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
+			"cover":       { "skip": "<div class=\"c-poster\"", "token1": "src=\"", "token2": "\"" },
+			"add_genre":   { 
+				"!start": "<ul class=\"tagList\"",
+				"!end": "</ul>",
+				"token1": "href=\"manga/?genres=",
+				"token2": "\"" 
+			},
+			"chapters_from_page": { "skip": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "\"",
+			"replace" : { "match" : "desu.me/manga/", "text" : "desu.me/manga/api/" }},
+			"add_chapter": {
+				"start": "\"list\":[",
+				"next":  "\"id\"",
+				"end": "user_list",
+				"link":  { "token1": "\"id\":", "token2": ",", "replace": {"prefix" : "%%url%%chapter/" } },
+				"title": { "token1": "\"vol\":", "token2": "\"date\"", "replace": [{ "match" : ",\"ch\":", "text": " - " }, { "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" } ] },
+				"uniq":  { "token1": "\"ch\":", "token2": "\"date\"", "replace": [{ "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" }, { "match" : "\\\\", "text": "" }, { "match" : "\\?", "text": "" }, { "match" : "!", "text": "" } ] }
+			}
+		}
+	],
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "\"pages\"",
+			"token1": "\"img\":\"",
+			"token2": "\"",
+			"end": "}]"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ "link" : "http://desu.me/manga/api/z-shokugeki-no-soma.142/", "uniq" : "Shokugeki no Soma" },
+					{ "link" : "http://desu.me/manga/api/z-onepunch-man.48/" }
+				],
+				"mangas_count" : ">25"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://desu.me/manga/api/z-fairy-tail.10/",
+			"title" : "Фейри Тейл",
+			"assert" : {
+				"cover" : "http://desu.me/data/manga/covers/original/10.jpg",
+				"summary" : "@^(Фейри Тейл – знаменитая на весь мир)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">=2",
+				"chapters_count" : ">=511",
+				"chapters" : [
+					{ "title" : "1 - 1 - Фейри Тейл",
+						"link" : "http://desu.me/manga/api/z-fairy-tail.10/chapter/37975",
+						"folder" : "1 - Фейри Тейл/"
+					}, 
+					{ "title" : "@(2 - Появление)", "link" : "http://desu.me/manga/api/z-fairy-tail.10/chapter/37976" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://desu.me/manga/api/z-fairy-tail.10/chapter/37975",
+			"title" : "1 - Фейри Тейл",
+			"assert" : {
+				"pages" : [
+					{ "image" : "@^http://img\\d.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg" },
+					{ "image" : "@^http://img\\d.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p002.jpg" }
+				],
+				"pages_count": "77"
+			}
+		}
+	]
+}
