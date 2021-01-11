@@ -1,69 +1,66 @@
 {
 "id": 40239, 
-"version": 4,
+"version": 5,
 "title": "MangaNi",
 "host": "https://mangani.ru",
 "public_link": "https://mangani.ru/search/?cat=2",
-"author": {"name": "Veopot","email": "fant-net@ya.ru"},
+
 "folder": "mangani",
 "hash_tag" : "mangani",
 "name": "mangani",
 "chapters_order": true,
-"content_type": "manga",
 "language": "ru",
 "encoding": "utf-8",
-"user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+"author": {"name": "Veopot","email": "fant-net@ya.ru"},
+
 "icon_link": "https://mangani.ru/i/favicon.ico",
 "self_link": "https://fant.my1.ru/mwparser/mwx/json/mangani.json",
+"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangani.json",
 "catalog_link": "https://fant.my1.ru/mwparser/mwx/catalog/mangani.p",
 	
 
-
-
-
-
-
-	"authorization_complete": {
+"authorization_complete": {
 		"logo": "https://mangani.ru/i/favicon.ico",
 		"registration": "https://mangani.ru/register",
-		"expires":31536000,
-		          
-		 
+		"expires": 31536000,
+		"is_redirect": true,
+
 		"values": {
-		    
+
 			"login[login]": {
 				"label": "Логин",
-				"hint": "Введите свой логин с сайта Mangani!",
+				"hint": "Введите свой логин с сайта Rulate!",
 				"kind": "text"
 			},
-			
+
 			"login[pass]": {
 				"label": "Пароль",
-				"hint": "Введите свой пароль с сайта Mangani!",
+				"hint": "Введите свой пароль с сайта Rulate!",
 				"kind": "password"
 			},
-			"mature":{
-			"forward":"cookie",
-			"value":"c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
-			}       
+      "headers": {
+			"Accept": "*/*" },
+
+			"mature": {
+				"forward": "cookie",
+				"value": "c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+			}
 		},
-		
-        
-"request": {
-		    "method": "post",
+
+		"request": {
+			"method": "post",
 			"url": "https://mangani.ru/"
-		    },
-       "response_check": { 
+		},
+		"response_check": {
 			"headers": {
-			"Set-Cookie": "@%22login",
-			"Accept": "*/*",
-			"Referer": "https://mangani.ru/",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"Location": "https://mangani.ru/",
-			"Origin": "https://mangani.ru/"
+	    	"Set-Cookie": "@%22login"
+		
 			}
 		}
-},                                  
+	},
+
+
+                          
 
 
 "manga_search_complete": {		
@@ -212,10 +209,16 @@
     }
 	},		 
 	"add_genre": {
-			"after": "href=\"/search?genres",
+			"after": "href=\"/search?genres%5B0%5D=",
 			"token1": "\">",
 			"token2": "</"
-		    },
+		},
+		
+		"add_tag": {
+			"after": "href=\"/tag/?search=",
+			"token1": "\">",
+			"token2": "</"
+		},
 			
     "is_mature": {
 			"start": ">Тэги:<",
