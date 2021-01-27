@@ -1,6 +1,6 @@
 {
 "id": 40239, 
-"version": 5,
+"version": 7,
 "title": "MangaNi",
 "host": "https://mangani.ru",
 "public_link": "https://mangani.ru/search/?cat=2",
@@ -15,7 +15,7 @@
 
 "icon_link": "https://mangani.ru/i/favicon.ico",
 "self_link": "https://fant.my1.ru/mwparser/mwx/json/mangani.json",
-"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangani.json",
+
 "catalog_link": "https://fant.my1.ru/mwparser/mwx/catalog/mangani.p",
 	
 
@@ -29,13 +29,13 @@
 
 			"login[login]": {
 				"label": "Логин",
-				"hint": "Введите свой логин с сайта Rulate!",
+				"hint": "Введите свой логин с сайта MangaNi!",
 				"kind": "text"
 			},
 
 			"login[pass]": {
 				"label": "Пароль",
-				"hint": "Введите свой пароль с сайта Rulate!",
+				"hint": "Введите свой пароль с сайта MangaNi!",
 				"kind": "password"
 			},
       "headers": {
@@ -166,11 +166,8 @@
 "manga_complete": {
 
     "headers": {
-			"Accept": "*/*",
-			"Referer": "https://mangani.ru/",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"Set-Cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
-			},
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+		},
 	
 	"title": {
 			"skip": "<li class=\"active",
@@ -236,7 +233,7 @@
 	"add_chapter": {
             
 			"start": "<tbody>",
-			"end": "<div class=\"form-actions\"",
+			"end": ">Обсуждение:</",
 			"next": "<td class=",
 			"link": {
 				"before": "title='Получить",
@@ -265,7 +262,9 @@
 
 
 "chapter_complete": {
-	"headers": { "Set-Cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"},
+	"headers": {
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+		},
     "add_numeration": true,     
     	
 		"add_images": {

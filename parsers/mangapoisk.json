@@ -1,0 +1,241 @@
+{
+   "id":40228,
+   "version":2,
+   "title":"MangaPoisk",
+   "host":"https://mangapoisk.ru",
+   "public_link":"https://mangapoisk.ru/manga-list",
+   "folder":"mangapoisk",
+   "name":"mangapoisk",
+   "language":"ru",
+   "encoding":"utf-8",
+   "chapters_order":false,
+   "icon_link":"https://fant.my1.ru/mwparser/mwx/img/mangapoisk.png",
+   "self_link":"https://fant.my1.ru/mwparser/mwx/json/mangapoisk.json",
+   "catalog_link":"https://fant.my1.ru/mwparser/mwx/catalog/mangapoisk.p",
+   "author":{
+      "name":"Veopot",
+      "email":"fant-net@ya.ru"
+   },
+   "manga_list_complete":{
+      "iterator":{
+         "base_url":"https://mangapoisk.ru/manga?sortBy=popular&page=",
+         "append_nums":{
+            "from":0,
+            "to":131,
+            "step":1
+         }
+      },
+      "add_manga":{
+         "next":"class=\"post-description\">",
+         "title":{
+            "skip":"href=\"",
+            "token1":"\">",
+            "token2":"</"
+         },
+         "link":{
+            "token1":"href=\"",
+            "token2":"\""
+         },
+         "cover":{
+		    "before":"href=\"",
+            "token1":"data-src=\"",
+            "token2":"\""
+         }
+      },
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+   },
+   
+   
+   "manga_search_complete": {		
+ "search_link":"https://mangapoisk.ru/search?q=$query$&page=$page$",
+		"query_type": "GET",
+		 "add_manga":{
+         "next":"class=\"post-description\">",
+         "title":{
+            "skip":"href=\"",
+            "token1":"\">",
+            "token2":"</"
+         },
+         "link":{
+            "token1":"href=\"",
+            "token2":"\""
+         },
+         "cover":{
+		    "before":"href=\"",
+            "token1":"data-src=\"",
+            "token2":"\""
+         }
+      }
+		},	
+		
+		
+   
+   "manga_complete":{
+      "title":{
+         "skip":"<head>",
+         "token1":"<title>",
+         "token2":"</title>",
+              "replace": [
+                { "match" : "читать мангу","text":"/" },
+				{ "match" : "онлайн","text":""}
+				]},
+      
+      "uniq":{
+         "skip":"class=\"card-body\">",
+         "token1":"class=\"post-name\">",
+         "token2":"</"
+      },
+	  
+	  
+      "cover":{
+        "skip":"class=\"card-body\">",
+         "token1":"src=\"",
+         "token2":"\""
+      },
+      
+	  "status": { 
+		  	"complete": { 
+			 "start": ">Статус:<",
+             "end": ">Жанр:<",
+			   "values": [ "Завершена", "Переведена", "Сингл"] },
+			
+            "ongoing": { 
+			"start": ">Статус:<",
+             "end": ">Жанр:<",
+                "value": "Выпускается" }
+			 },
+			 
+			 
+      "summary":{
+         "skip":">Описание:<",
+         "token1":"class=\"manga-description entry\">",
+         "token2":"</div>",
+         "replace":{
+            "match":"<.*?>",
+            "text":""
+         }
+      },
+      "add_genres":{
+         "start":">Жанр:<",
+         "end":">Год:<",
+         "token1":"\">",
+         "token2":"</"
+      },
+      "is_mature":{
+         "values":[
+            "эротика",
+            "сэйнэн",
+            "юри",
+			"этти",
+            "яой"
+         ]
+      },
+	  
+	  "chapters_from_page":{ 
+		"after": "data-name=\"chaptersList\"", "token1": "data-src=\"", "token2": "\"",
+		"replace" : { "prefix" : "https://mangapoisk.ru" }
+		},
+		
+		"add_chapter":{
+         "start":"<ul",
+         "end":"</ul>",
+         "next":"class=\"list-group",
+         "link":{
+            "token1":"href=\"",
+            "token2":"\"",
+			"replace": {"prefix" : "https://mangapoisk.ru"}
+         },
+		 "uniq":{
+            "skip":"href=\"",
+            "token1":"/chapter/",
+            "token2":"\""
+         },
+         "title":{
+            "skip":"href=\"",
+            "token1":"class=\"chapter-title\">",
+            "token2":"</a>",
+				"replace": [
+{ "match": "</span>",	"text": ""},
+{ "match": "<span class=\"chapter-extra\">",	"text": ""}
+
+
+]
+         }
+      }
+   },
+   
+   
+   "chapter_complete":{
+    "add_numeration": true,
+        "headers": {
+			"Accept": "*/*",
+			"Referer": "https://mangapoisk.ru/",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+     
+      "images":true,
+      "add_pages":{
+         "start":"class=\"text-center\">",
+         "token1":"\"https://static2.mangapoisk.ru/",
+         "token2":"\"",
+         "end":">Конец главы</",
+         "replace":{
+            "prefix":"https://static2.mangapoisk.ru/"
+         }
+      }
+   },
+   "test":[
+      {
+         "proc":"manga_list_complete",
+         "assert":{
+            "mangas":[
+               {
+                  "title":"Ванпанчмен",
+                  "link":"https://mangapoisk.ru/manga/vanpanchmen",
+                  "uniq":"vanpanchmen"
+               }
+            ],
+            "mangas_count":">=14"
+         }
+      },
+      {
+         "proc":"manga_complete",
+         "link":"https://mangapoisk.ru/manga/solo-leveling-abs3reO",
+         "title":"Поднятие уровня в одиночку / Solo Leveling",
+         "assert":{
+          
+            "cover":"@https://static2.mangapoisk.ru/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
+		    "summary":"@^(Десять лет назад распахнулись)",
+            "genres":"@fantasy",
+            "status":"ongoing",
+            "genres_count":">=2",
+            "chapters_count":">=130",
+            "chapters":[
+               {
+                "link":"https://mangapoisk.ru/manga/solo-leveling-abs3reO/chapter/1-2",
+                "title":"Том 1 Глава 2"
+               },
+               {
+                  "link":"https://mangapoisk.ru/manga/solo-leveling-abs3reO/chapter/1-1",
+                  "title":"Том 1 Глава 1"
+               }
+            ]
+         }
+      },
+      {
+         "proc":"chapter_complete",
+         "link":"https://mangapoisk.ru/manga/solo-leveling-abs3reO/chapter/1-1",
+         "assert":{
+            "pages":[
+        {"image": "https://static2.mangapoisk.ru/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangapoisk.ru/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangapoisk.ru/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+            ],
+            "pages_count":"14"
+         }
+      }
+   ]
+}
