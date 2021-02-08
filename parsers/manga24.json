@@ -1,0 +1,149 @@
+{
+	"id": 30004,
+	"version": 30,
+	
+	"old_ids": [256],
+    "old_sites": ["manga24.ru"],
+	
+	"title": "Manga24",
+	"host": "https://manga24.ru",
+	"public_link": "https://manga24.ru",
+	"folder": "manga24",
+	"name" : "manga24",
+	"language": "ru",
+	"content_type": "manga",
+	"chapters_order": false,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manga24.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manga24.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/manga24.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manga24.zip",
+    "file_type": "sqlite",
+
+    "manga_search_complete": {
+		"search_link": "https://manga24.ru/manga/search",
+		"query_type": "POST",
+		"form_data": {
+			"text": "$query$"
+		},
+		"add_manga": {
+			"start": "[",
+			"next":  "{",
+			"link":  { "token1": "slug\":\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru/" } },
+			"title": { "token1": "manga_name\":\"", "token2": "\"" },
+			"additional_title": { "token1": "manga_alt_name\":\"", "token2": "\"" },
+			"cover": { "token1": "url\":\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru/Content/" } },
+			"uniq":  { "token1": "slug\":\"", "token2": "\"" },
+			"end":   "]"
+		}
+	},
+	
+	"manga_list_complete": {
+		"iterator" : {
+			"base_url" : "https://manga24.ru/catalog?order_by=popularity&page=",
+			"append_nums": { "from": 1, "to": 55, "step" : 1 }
+		},
+		"add_manga": { 
+			"start": "catalog__body",
+			"end":   "class=\"pagination",
+			"next":  "catalog__manga-block",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "skip": "catalog__manga-name", "token1": ">", "token2": "</" },
+			"additional_title": { "skip": "catalog__manga-desc", "token1": ">", "token2": "</" },
+			"cover": { "token1": "src=\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru" } },
+			
+		}
+	},
+
+	"manga_complete": {
+	    "title":       { "skip": "manga-data__subtitle", "token1": ">", "token2": "</" },
+	    "additional_title": { "skip": "manga-data__title", "token1": ">", "token2": "</" },
+        "uniq":        { "skip": "manga-data__title", "token1": ">", "token2": "</" },
+        "cover":       { "skip": "manga-bg-info", "token1": "src=\"", "token2": "\"" },
+		"author":      { "skip": ">Автор:", "token1": ">", "token2": "<" },
+		"summary":     { "skip" : "manga-data__description", "token1": "<span>", "token2": "</span>"},
+		"status":      { "complete": ">Завершено<", "ongoing": ">В процессе перевода<" },
+		"translation_status": { "complete": ">Завершено<", "ongoing": ">В процессе перевода<" },
+		"content_type": { "default": "manga" },
+		"!content_type": {
+			"manga":  ">Манга<",
+			"manhwa": ">Манхва<",
+			"manhua": ">Маньхуа<",
+			"comics": ">Комикс<",
+			"light_novel": ">Новелла<",
+			"default": "unknown"
+		},
+		"add_genres":   {
+			"start": "manga-data__genre",
+			"next": "<a href=",
+			"token1": "\">",
+			"token2": "</",
+			"end": "</div>"
+		},
+		"add_chapter": { 
+			"start": "chapters-table",
+			"end":   "</table>",
+			"next":  "<tr", 
+			"link":  { "token1": "href=\"", "token2": "\""  }, 
+			"title": { "token1": "<span class=\"chapter-num\">", "token2": "<" }
+		}
+	},
+	"chapter_complete": {
+		"images": true,
+		"add_pages": { 
+			"start": "images:", 
+			"token1": "[\"", 
+			"token2": "\"", 
+			"end": ",],"
+		},
+		"prefix": { "skip": "dir:", "token1": "\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru/" } }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Naruto",   "link" : "https://manga24.ru/naruto",
+						"uniq" : "naruto" },
+					{ "title" : "Noblesse", "link" : "https://manga24.ru/noblesse" }
+				],
+				"mangas_count" : ">30"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manga24.ru/fairytail",
+			"title" : "Fairy Tail",
+			"assert" : {
+				 "author" : "MASHIMA Hiro",
+				"cover" : "https://manga24.ru/Content/manga_cover/airgear.jpg",
+				"summary" : "@^(Мир, представленный в манге)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">=7",
+				"chapters_count" : ">=540",
+				"chapters" : [
+					{ "folder": "001/",
+                      "link": "https://manga24.ru/fairytail/001",
+                      "title": "Глава #001"
+					},
+					{ "title" : "Глава #003", "link" : "https://manga24.ru/fairytail/003" }
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://manga24.ru/fairytail/001",
+			"assert" : {
+				"pages" : [
+					{"image": "https://manga24.ru/Content/pages/fairytail/001/001.jpeg"},
+                    {"image": "https://manga24.ru/Content/pages/fairytail/001/002.png"},
+                    {"image": "https://manga24.ru/Content/pages/fairytail/001/003.png"}
+				]
+			}
+		}
+	]
+}

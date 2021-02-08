@@ -1,0 +1,183 @@
+{
+	"id": 40157, 
+	"version": 8,
+	"title": "Manga.Alphantom",
+	"host": "http://manga.alphantom.com/",
+	"public_link": "http://manga.alphantom.com/manga-list",
+    "author": {
+		"name": "Veopot",
+		"email": "fant-net@ya.ru"
+	},
+	"folder": "manga.alphantom",
+	"name": "manga.alphantom",
+	"chapters_order": true,
+	"language": "ar",
+	"encoding": "utf-8",
+	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/manga.alphantom.p",
+	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/manga.alphantom.json",
+	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/manga.alphantom.png",
+
+
+
+
+
+	"manga_list_complete": {
+
+"iterator":{ "base_url": "http://manga.alphantom.com/manga-list?page=","append_nums": {"from": 1,"to": 20} },
+
+		"add_manga": {
+			"next": "<div class=\"media\"",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"" },
+			"title": {
+				"skip": "href=\"",
+				"token1": "class=\"chart-title\"><strong>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href=\"",
+				"token1": "class=\"chart-title\"><strong>",
+				"token2": "</"
+			}
+		}
+	},
+
+"manga_complete": {
+	"title": {
+			"skip": "href=\"http://manga.alphantom.com/random",
+			"token1": "widget-title\">",
+			"token2": "</"
+		},
+	"uniq": {
+			"after": "<h1 id=\"tables\"",
+			"token1": ">",
+			"token2": "</"
+		},
+	"summary": {
+			"skip": ">ملخص</",
+			"token1": ">",
+			"token2": "</",
+			"replace": { "match": "<.*?>", "text": " " }
+		},
+	"author":      { "skip": ">المؤلف</", "token1": "\">", "token2": "</" },	
+	"status":      {  "complete": "\">Complete</","ongoing":  "\">Ongoing</" },
+		
+		
+		"add_genre": {
+			"after": "href=\"http://manga.alphantom.com/manga-list/category/",
+			"token1": "category/",
+			"token2": "\">"
+		},
+
+		
+		
+
+"rating": { 
+"after": "<div id=\"item-rating\"",
+"token1": "data-item=\"",
+"token2": "\"" },
+
+		"cover": {
+			"skip": "<img class=\"img-responsive\"",
+			"token1": "src='",
+			"token2": "'"
+		},
+
+		"add_chapter": {
+			"start": "<ul class=\"chapters\"",
+			"end": "<img class=\"thumbnail\"",
+			"next": "<h3 class=\"chapter-title-rtl\"",
+			
+			"link": { "token1": "href=\"", "token2": "\""
+			},
+
+			"uniq": { "skip" : "href=\"", "token1": "\">", "token2": "</"},
+			
+			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</"}
+		}
+		
+	},
+
+	
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "<div class=\"viewer-cnt\"",
+			"token1": "data-src='",
+			"token2": "'",
+			"end": "<div id=\"ppp\""
+		}
+		
+	},
+	
+	
+	
+	
+
+
+
+	"test": [{
+			"proc": "manga_list_complete",
+			
+			"assert": {
+				"mangas": [{
+
+					"uniq": "14R",
+		"title": "14R",			
+        "link": "http://manga.alphantom.com/manga/14r"
+				}, {
+					
+        "link": "http://manga.alphantom.com/manga/17-o-clocks"
+				}],
+				"mangas_count": ">15"
+			}
+		},
+
+		{
+			"proc": "manga_complete",
+			"link": "http://manga.alphantom.com/manga/hunter-x-hunter",
+			"title": "They SHunter X Hunter  (1998)",
+			"assert": {
+			    "summary" : "@^(القصة تبدأ مع فتى يدعى جون فريكس، ظن )",
+				"cover": "http://manga.alphantom.com/uploads/manga/hunter-x-hunter/cover/cover_250x350.jpg",
+				"author" : "Yoshihiro Togashi",
+				"status": "ongoing",
+				"genres" : "@comedy",
+				"chapters_count": ">=2",
+				"rating": ">=250",
+				
+
+				"chapters": [
+        {
+            "folder": "Hunter X Hunter 1/",
+            "link": "http://manga.alphantom.com/manga/hunter-x-hunter/1",
+            "title": "Hunter X Hunter 1"
+        },
+        {
+            "folder": "Hunter X Hunter 2/",
+            "link": "http://manga.alphantom.com/manga/hunter-x-hunter/2",
+            "title": "Hunter X Hunter 2"
+        }
+				            ]
+			}
+		},
+		
+		
+		
+
+		{
+			"proc": "chapter_complete",
+			"link": "http://manga.alphantom.com/manga/hunter-x-hunter/1",
+			"assert" : {
+				"pages" : [
+		{"image": "http://manga.alphantom.com/uploads/manga/hunter-x-hunter/chapters/1/01.jpg"},
+        {"image": "http://manga.alphantom.com/uploads/manga/hunter-x-hunter/chapters/1/02.jpg"},
+        {"image": "http://manga.alphantom.com/uploads/manga/hunter-x-hunter/chapters/1/03.jpg"}
+			],
+				"pages_count": "33"
+			}
+
+		}
+	]
+}

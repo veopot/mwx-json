@@ -1,6 +1,10 @@
 {
-	"id": 66348,
-	"version": 22,
+	"id": 30003,
+	"version": 30,
+	
+	"old_ids": [66348],
+    "old_sites": ["desu.me"],
+	
 	"title": "Desu",
 	"host": "http://desu.me/",
 	"public_link": "http://desu.me/manga/",
@@ -10,9 +14,10 @@
 	"encoding": "utf-8",
 	"chapters_order": true,
 	"skip_catalog_test": false,
-	"icon_link":"http://images.mangawatcherx.com/parser/icon/desu.png",
-	"self_link": "http://account.mangawatcherx.com/api/v1/repo/parsers/desu",
-	"catalog_link": "http://catalogs.mangawatcherx.com/zip/desu.zip",
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/desu.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/desu.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/desu.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/desu.zip",
     "file_type": "sqlite",
 		
 	"manga_list_complete": {

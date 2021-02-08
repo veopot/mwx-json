@@ -1,0 +1,162 @@
+{
+	"id": 30007,
+	"version": 50, 
+    "old_ids": [65884],
+    "old_sites": ["mintmanga.live"],
+	
+	
+	"title": "MintManga",
+	"host": "https://mintmanga.live",
+	"public_link": "https://mintmanga.live",
+	"hash_tag": "mintmanga",
+	"folder": "mintmanga",
+	"name":"mintmanga",
+	"language": "ru",
+	"content_type": "manga",
+	"age_rating": "mature",
+	"is_paid": true,
+	"chapters_order": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mintmanga.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mintmanga.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mintmanga.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mintmanga.zip",
+    "file_type": "sqlite",
+
+	"custom_settings": {
+    	"updates_check_delay": 5000
+    },
+
+    "manga_search_complete": {      
+        "search_link": "https://mintmanga.live/search/advanced?q=$query$&offset=$page$",
+        "query_type": "GET",
+        "!page_multiply_by": 50,
+        "page_addition_by": -1,
+        "add_manga": {
+            "start": "\"tiles",
+            "next":  "class=\"img\"",
+            "link":  { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+            "title": { "before": "tile-info", "after": "href=\"", "token1": "<h4 title=\"", "token2": "\"" },
+            "cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.", "text": "." } },
+            "is_mature": { "start": "tile-info", "values": [">ужасы<", ">эротика<"], "end": "</div>" },
+            "is_adult":  { "start": "tile-info", "values": [">юри<", ">яой<"], "end": "</div>" }
+        }
+    },
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://mintmanga.live/list?sortType=created&max=70&offset=",
+			"append_nums": { "from": 0, "to": 13370, "step": 70, "last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
+		},
+		"add_manga": { 
+			"start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+            "title": { "before": "tile-info", "after": "href=\"", "token1": "<h4 title=\"", "token2": "\"" },
+            "additional_title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
+            "cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.", "text": "." } },
+            "is_mature": { "start": "tile-info", "values": [">ужасы<", ">эротика<"], "end": "</div>" },
+            "is_adult":  { "start": "tile-info", "values": [">юри<", ">яой<"], "end": "</div>" }
+		}
+	},
+
+	"manga_complete": {
+	    "title": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+	    "additional_title": { "skip": "itemprop=\"name\"", "token1": "=\"", "token2": "\"" },
+        "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		"author":       { "after": "elem_author", "skip": "person-link", "token1":"\">", "token2": "</a>" },
+		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
+		"status":       { 
+			"complete": ["Перевод:</b>\n    заверше", "Переведена"],
+			"ongoing":  "продолжается",
+			"single":   "Сингл",
+			"licensed": "Главы удалены",
+			"unknown":  "нет ни одной главы"
+		},
+		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
+		"cover":        { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
+		"add_genre":    { "token1": "/genre/", "token2": "\"" },
+		"content_type": { "default": "manga" },
+		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
+        "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
+		"add_chapter":  { 
+			"start": 	"<table class=\"table table-hover\"",
+			"end": 		"</table>",
+			"next":  	"<tr",
+			"link":  	{ "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://mintmanga.live"}},
+			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
+			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
+			"!postfix":	"?mtr=1&mature=1"
+		}
+	},
+
+	"chapter_complete": {
+		"no_404": true,
+		"images": true,
+		"add_servers": { 
+			"start": "var servers", 
+			"token1": "['", 
+			"token2": "']",
+			"split": "','",
+			"end": ";"
+		},
+        "add_pages": { 
+            "start": "rm_h.init( [[",
+            "token1": "['",
+            "token2": "],",
+            "end": "]],",
+            "replace": { 
+                "match": "(.*?)','(.*?)',\"(.*?)\".*", 
+                "text": "$1$3"
+            } 
+        },
+        "postfix": "?mature=1"
+    },
+
+	"test": [
+		{
+			"proc": "manga_list_complete",
+			"testpages": "5",
+			"assert": {
+				"mangas": [
+					{ "title": "Tokyo Ghoul", "link": "https://mintmanga.live/tokyo_ghoul" },
+					{ "title": "Crimson Spell", "link": "https://mintmanga.live/crimson_spell", 
+						"uniq": "crimson_spell" }
+				],
+				"mangas_count": ">300"
+			}
+		},
+		{
+			"proc": "manga_complete",
+			"link": "https://mintmanga.live/gantz",
+			"title": "Gantz",
+			"assert": {
+				"author": "Оку Хироя",
+				"cover": "http://static.mintmanga.live/uploads/pics/00/52/859.jpg",
+				"summary": "@^(Где-то в Токио)",
+				"genres": "@scifi",
+				"status": "complete",
+				"genres_count": ">=6",
+				"chapters_count": ">=383",
+				"chapters": [
+					{ "title": "34 - 361 Боевой клич", "link": "https://mintmanga.live/gantz/vol34/361",
+						"folder": "34/361/" 
+					},
+					{ "title": "1 - 1 Инцидент",       "link": "https://mintmanga.live/gantz/vol1/1" }
+				]
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"title": "34 - 361 Боевой клич", 
+			"link": "https://mintmanga.live/gantz/vol34/361",
+			"assert": {
+				"pages": [
+					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_01__OJS-team_\\.png" },
+					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_10-11__OJS-team_\\.png_res\\.jpg" },
+					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_25__OJS-team_\\.png_res\\.jpg" }
+				],
+				"pages_count": "22"
+			}
+		}
+	]
+}

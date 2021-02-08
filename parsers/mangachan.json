@@ -1,0 +1,159 @@
+{
+	"id": 30005,
+	"version": 30,
+	
+	"old_ids": [28673],
+    "old_sites": ["manga-chan.me"],
+	
+	"title": "Манга-тян!",
+	"host": "https://manga-chan.me/",
+	"public_link": "https://manga-chan.me/",
+	"folder": "mangachan",
+	"name" : ["chan", "mchan"],
+	"language": "ru",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangachan.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangachan.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangachan.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangachan.zip",
+    "file_type": "sqlite",
+	"author": {"name":"Veopot/CrazyXacker","email":"fant-net@ya.ru"},
+
+	"authorization_complete": {
+		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangachan_logo.png",
+		"registration": "https://manga-chan.me/index.php?do=register",
+		"expires": 31449600000,
+
+		"values": {
+			"login": "submit",
+			"login_name": { "label": "Login", "hint": "Введите свой логин с сайта Манга-чан!", "kind": "text" },
+			"login_password": { "label": "Password", "hint": "Введите свой пароль с сайта Манга-чан!", "kind": "password" }
+		},
+
+		"request": {
+			"method": "post",
+			"url": "https://manga-chan.me/index.php"
+		},
+
+		"response_check": {
+			"cookies": { "dle_user_id": "@\\d+" },
+			"headers": { "Set-Cookie": "@dle_user_id=\\d+" }
+		}
+	},
+
+	"manga_search_complete": {		
+		"search_link": "https://manga-chan.me/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<div class=\"content_row\"",
+			"link":  { "after": "<h2>", "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"cover": { "token1": "src=\"", "token2": "\"" },
+			"uniq":  { "token1": "title=\"", "token2": "\"" }
+		}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://manga-chan.me/mostfavorites?offset=",
+			"append_nums": { "from": 0, "to": 18460, "step": 20, "last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
+		},
+		"add_manga": {
+			"next": "<div class=\"content_row\"",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"cover": { "token1": "img src=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
+		"uniq":        { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
+		"author":      { "skip": ">Автор</", "token1":">", "token2": "</a>" },
+		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
+		"status":      { 
+		"single": "Сингл<", 
+		"complete": "перевод завершен<",
+		"ongoing": "перевод продолжается<",
+		"empty": "Нет глав<" },
+		"read_dir":    { 
+		"right_to_left": "href=\"/type/Манга\"",
+		"left_to_right": "href=\"/type/Манхва\""
+		},
+		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
+		"add_genre":   { "after": "href=\"https://manga-chan.me/tags/", "token1": "\">", "token2": "</" },
+		
+		"add_chapter": {
+			"next":  "<div class='manga2'><a href='",
+			"link":  { "token1": "<a href='", "token2": "'"   },
+			"title": { "skip" : "href='", "token1": ">", "token2": "</",
+				"replace" : [
+                { "match" : "Глава &nbsp;&nbsp;v","text":"Том " },
+				{ "match" : "&nbsp;&nbsp;","text":" " },
+				{ "match" : "-","text":"Глава "}
+				]
+			}
+		}   
+	},
+	"chapter_complete": {
+		"add_images": {
+			"start": "fullimg",
+			"token1": "[\"",
+			"token2": "\",]",
+			"split" : "\",\"",
+			"end": "]",
+			"replace": { "match": "http:", "text": "https:" }
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "The Breaker: New waves", "link" : "https://manga-chan.me/manga/5335-the-breaker-new-waves.html", "uniq" : "5335-the-breaker-new-waves.html" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manga-chan.me/manga/9125-gantz.html",
+			"title" : "Gantz",
+			"assert" : {
+				"author" : "@Oku Hiroya",
+				"cover" : "@https://imgcover.manga-chan.me/showfull_retina/uploads/posts/2011-10/thumbs/1318827066_gantz.jpg",
+				"summary" : "@^(Где\\-то в Токио)",
+				"genres" : "@scifi",
+				"status" : "complete",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=383",
+				"chapters" : [
+					{ "title" : "Том 37 Глава 383 КОНЕЦ",
+						"link" : "https://manga-chan.me/online/148650-gantz_v37_ch383.html",
+						"folder" : "148650-gantz_v37_ch383.html/"
+					},
+					{ "title" : "Том 37 Глава 381",
+ 					  "link" : "https://manga-chan.me/online/145147-gantz_v37_ch381.html" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://manga-chan.me/online/148650-gantz_v37_ch383.html",
+			"assert" : {
+				"pages" : [
+					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p01.jpg" },
+					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p02.jpg" }
+				],
+				"pages_count": "30"
+			}
+		}
+	]
+}

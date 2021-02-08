@@ -1,21 +1,28 @@
 {
-    "id": 1280,
-    "version": 27,
-    "title": "ReadManga",
-    "host": "http://readmanga.me/",
-    "public_link": "http://readmanga.me/list/",
+    "id": 30006,
+    "version": 40,
+	
+	"old_ids": [1280],
+    "old_sites": ["readmanga.live"],
+	
+	"title": "ReadManga",
+    "host": "https://readmanga.live/",
+    "public_link": "https://readmanga.live/list/",
     "folder": "readmanga",
     "name": "rm",
     "language": "ru",
 	"is_paid": true,
 	"skip_catalog_test": false,
-	"icon_link": "http://images.mangawatcherx.com/parser/icon/readmanga.png",
-	"self_link": "http://account.mangawatcherx.com/api/v1/repo/parsers/readmanga",
-	"catalog_link": "http://catalogs.mangawatcherx.com/zip/readmanga.zip",
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/readmanga.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/readmanga.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/readmanga.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/readmanga.zip",
     "file_type": "sqlite",
+	
 
     "manga_search_complete": {      
-        "search_link": "http://readmanga.me/search/advanced?q=$query$&offset=$page$",
+        "search_link": "https://readmanga.live/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         "!page_multiply_by": 50,
         "page_addition_by": -1,
@@ -31,7 +38,7 @@
     "manga_list_complete": {
         "iterator": {
             "category": { "tag": "main", "name": "Последние" },
-            "base_url": "http://readmanga.me/list?offset=",
+            "base_url": "https://readmanga.live/list?offset=",
             "append_nums": { "from": 0, "to": 16660, "step": 70, "last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
         "add_manga": {
@@ -70,7 +77,7 @@
                 "start": "</thead>",
                 "end": "</table>",
                 "next": "<a href=\"",
-                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "http://readmanga.me"} },
+                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://readmanga.live"} },
                 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
 		  	"uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
             }
@@ -96,13 +103,13 @@
                 "start": "</thead>",
                 "end": "</table>",
                 "next": "<a href=\"",
-                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "http://readmanga.me"} },
+                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://readmanga.live"} },
                 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
             "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
             }
         }
     ],
-    "chapter_complete": {
+   "chapter_complete": {
     	"no_404": true,
         "images": true,
         "add_servers": { 
@@ -117,7 +124,7 @@
             "token1": "['",
             "token2": "],",
             "end": "]],",
-            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$2$1$3" }
+            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
         },
         "postfix" : "?mtr=1&mature=1"
     },
@@ -128,15 +135,15 @@
 			"testpages": "5",
             "assert": {
                 "mangas": [
-                    { "title": "Noblesse", "link": "http://readmanga.me/noblesse", "uniq": "noblesse" },
-                    { "title": "Naruto", "link": "http://readmanga.me/naruto" }
+                    { "title": "Noblesse", "link": "https://readmanga.live/noblesse", "uniq": "noblesse" },
+                    { "title": "Naruto", "link": "https://readmanga.live/naruto" }
                 ],
                 "mangas_count": ">300"
             }
         },
         {
             "proc": "manga_complete",
-            "link": "http://readmanga.me/tower_of_god",
+            "link": "https://readmanga.live/bashnia_boga",
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
@@ -147,14 +154,14 @@
                 "genres_count": ">=5",
                 "chapters_count": ">=300",
                 "chapters": [
-                    { "title": "@(1 - 1)", "link": "http://readmanga.me/tower_of_god/vol1/1", "folder": "1/1/" }
+                    { "title": "@(1 - 1)", "link": "https://readmanga.live/tower_of_god/vol1/1", "folder": "1/1/" }
                 ]
             }
         },
         {
             "proc": "chapter_complete",
             "title": "2 - 266 ??F Адский Экспресс. Скрытый Этаж (03)",
-            "link": "http://readmanga.me/tower_of_god/vol2/266",
+            "link": "https://readmanga.live/bashnia_boga/vol2/266",
             "assert": {
                 "pages": [
                     { "image": "@^http://.*.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini\\.jpg_res\\.jpg" },

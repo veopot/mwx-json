@@ -1,0 +1,157 @@
+{
+	"id": 30002,
+	"version": 30,
+	"title": "allhen (All Hentai)",
+	
+    "old_ids": [1616],
+    "old_sites": ["allhentai.ru"],
+	
+	"host": "http://wwv.allhen.me",
+	"public_link": "http://wwv.allhen.me/list/presentation",
+	"hash_tag": "allhentai",
+	"folder": "allhentai",
+	"name" : "allhentai",
+	"language": "ru",
+	"is_mature": true,
+	"is_paid": true,
+	"chapters_order": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/allhentai.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/allhentai.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/allhentai.zip",
+    "file_type": "sqlite",
+	
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "http://wwv.allhen.me/list?sortType=votes&offset=",
+			"append_nums": { "from": 0, "to": 13160, "step": 70}
+		},
+		"add_manga": {
+            "start": "tiles row",
+            "next":  "class=\"img",
+            "link":  { "token1": "href=\"", "token2": "\"" },
+            "title": { "after": "<h4 title", "token1": "=\"", "token2": "\"" },
+            "additional_title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
+			"cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.jpg", "text": ".jpg" } },
+			"add_genres":  {
+				"start": "class=\"tile-info",
+				"next": "/list/genre",
+				"token1": ">",
+				"token2": "</",
+				"end": "</div>"
+			},
+			"is_mature": "hentai"
+        }
+	},
+	
+	"manga_complete": {
+		"title":       { "skip": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
+		"additional_title": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+		"author":      { "after": "<a href=\"/list/author/", "token1":"\">", "token2": "</a>" },
+		"summary":     { "after": "manga-description", "token1": ">", "token2": "<"},
+		"volumes":     { "skip": ">Томов:<", "token1": ">", "token2": "<", "replace": { "match": ",.*", "text": "" }},
+		"status":      {
+			"ongoing":  { 
+				"start" : "<b>Томов:</b>",
+				"end" : "</p>",
+				"values" : ["продолжается"]
+			},
+			"complete": { 
+				"start" : "<b>Перевод:</b>",
+				"end" : "</p>",
+				"values" : ["завершен", "Переведена", "Сингл"]
+			},
+			"single":  "<b>Сингл</b>"
+		},
+		"translation_status": {
+			"complete": { 
+				"start" : "<b>Перевод:</b>",
+				"end" : "</p>",
+				"values" : ["завершен", "Переведена", "Сингл"]
+			},
+			"ongoing":  { 
+				"start" : "<b>Перевод:</b>",
+				"end" : "</p>",
+				"values" : ["продолжается"]
+			}
+		},
+		"cover":       { "after": "picture-fotorama", "token1": "src=\"", "token2": "\"" },
+		"is_mature":   "hentai",
+		"content_type": { "default": "hentai_manga" },
+		"add_genre":   { "after": "href=\"/list/genre/", "token1":"\">", "token2": "</" },
+		"add_chapter": { 
+			"start" : "<div class=\"expandable",
+			"end" : "</table>",
+			"next":  "<td class",
+			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
+			"title": { "after": "<a href=\"", "token1": ">", "token2": "<" },
+			"uniq": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "\n          \n          ", "text": " " } }
+		}
+	},
+
+	"chapter_complete": {
+		"images": true,
+        "add_servers": { 
+			"start": "var servers", 
+			"token1": "['", 
+			"token2": "']",
+			"split": "','",
+			"end": ";"
+		},
+        "add_pages": { 
+            "start": "rm_h.init(",
+            "token1": "['",
+            "token2": "],",
+            "end": "]],",
+            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
+        },
+        "postfix": "?mature=1"
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "5",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Darjeeling to no Renai Moyou", "link" : "http://wwv.allhen.me/trudnosti_otnoshenii_s_darjeling",
+						"uniq" : "trudnosti_otnoshenii_s_darjeling" }
+				],
+				"mangas_count" : ">100"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://wwv.allhen.me/a_peephole",
+			"title" : "Nozoki ana (A peephole)",
+			"assert" : {
+				"cover" : "http://static.allhentai.ru/uploads/pics/00/02/230.jpg",
+				"summary" : "@^(Парень)",
+				"genres" : "@drama",
+				"status" : "complete",
+				"genres_count" : ">=2",
+				"chapters_count" : ">=115",
+				"chapters" : [
+					{ 
+						"title" : "Nozoki ana 1 - 1", 
+						"link" : "http://wwv.allhen.me/a_peephole/vol1/1",
+						"folder" : "Nozoki ana 1 - 1/"
+					}
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://wwv.allhen.me/a_peephole/vol1/1",
+			"title" : "Nozoki ana 1 - 1", 
+			"assert" : {
+				"pages" : [
+					{"image": "@http://\\w.allhentai.ru/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=.*"},
+					{"image": "@http://\\w.allhentai.ru/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=.*"},
+					{"image": "@http://\\w.allhentai.ru/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=.*"}
+				]
+			}
+		}
+	]
+}
