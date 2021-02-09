@@ -114,10 +114,12 @@
 	"test": [
 		{
 			"proc" : "manga_list_complete",
-			"testpages": "3",
+			
 			"assert" : {
 				"mangas" : [
-					{ "title" : "The Breaker: New waves", "link" : "https://manga-chan.me/manga/5335-the-breaker-new-waves.html", "uniq" : "5335-the-breaker-new-waves.html" }
+            { "title" : "The Breaker: New waves", 
+            "link" : "https://manga-chan.me/manga/5335-the-breaker-new-waves.html",
+			"uniq" : "5335-the-breaker-new-waves.html" }
 				],
 				"mangas_count" : ">=50"
 			}

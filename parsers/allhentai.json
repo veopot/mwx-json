@@ -48,7 +48,9 @@
 		"title":       { "skip": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
 		"additional_title": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
 		"author":      { "after": "<a href=\"/list/author/", "token1":"\">", "token2": "</a>" },
-		"summary":     { "after": "manga-description", "token1": ">", "token2": "<"},
+		"summary":     { "after": "manga-description", "token1": ">", "token2": "</div", 
+		"replace": { "match": "<.*?>", "text": "" }},
+		
 		"volumes":     { "skip": ">Томов:<", "token1": ">", "token2": "<", "replace": { "match": ",.*", "text": "" }},
 		"status":      {
 			"ongoing":  { 
@@ -111,11 +113,10 @@
 	"test": [
 		{
 			"proc" : "manga_list_complete",
-			"testpages": "5",
+			
 			"assert" : {
 				"mangas" : [
-					{ "title" : "Darjeeling to no Renai Moyou", "link" : "http://wwv.allhen.me/trudnosti_otnoshenii_s_darjeling",
-						"uniq" : "trudnosti_otnoshenii_s_darjeling" }
+					{ "title" : "Lucky Guy", "link" : "http://wwv.allhen.me/schastlivyi_paren" }
 				],
 				"mangas_count" : ">100"
 			}
@@ -125,17 +126,17 @@
 			"link" : "http://wwv.allhen.me/a_peephole",
 			"title" : "Nozoki ana (A peephole)",
 			"assert" : {
-				"cover" : "http://static.allhentai.ru/uploads/pics/00/02/230.jpg",
-				"summary" : "@^(Парень)",
+				"cover" : "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
+				"summary" : "@^(Кидо Тацухико переехал в Токио)",
 				"genres" : "@drama",
 				"status" : "complete",
 				"genres_count" : ">=2",
 				"chapters_count" : ">=115",
 				"chapters" : [
 					{ 
-						"title" : "Nozoki ana 1 - 1", 
+						"title" : "Дыра 1 - 1", 
 						"link" : "http://wwv.allhen.me/a_peephole/vol1/1",
-						"folder" : "Nozoki ana 1 - 1/"
+						"folder" : "Дыра 1 - 1/"
 					}
 				]
 			}
@@ -144,12 +145,11 @@
 		{
 			"proc" : "chapter_complete",
 			"link" : "http://wwv.allhen.me/a_peephole/vol1/1",
-			"title" : "Nozoki ana 1 - 1", 
-			"assert" : {
+		     "assert" : {
 				"pages" : [
-					{"image": "@http://\\w.allhentai.ru/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=.*"},
-					{"image": "@http://\\w.allhentai.ru/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=.*"},
-					{"image": "@http://\\w.allhentai.ru/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=.*"}
+{"image": "http://a.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1612896946&u=0&h=UuexafYi1wS8gfJQH8Wpxg"},
+{"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1612896946&u=0&h=vz76628SXnKBy_uqsAKEvw"},
+{"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1612896946&u=0&h=8BIHGLLrzoZT7OYTF_cm8A"}
 				]
 			}
 		}

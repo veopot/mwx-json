@@ -135,8 +135,8 @@
 			"testpages": "5",
             "assert": {
                 "mangas": [
-                    { "title": "Noblesse", "link": "https://readmanga.live/noblesse", "uniq": "noblesse" },
-                    { "title": "Naruto", "link": "https://readmanga.live/naruto" }
+                    
+                    { "title": "Маги: Лабиринт волшебства", "link": "https://readmanga.live/magi__labirint_volshebstva" }
                 ],
                 "mangas_count": ">300"
             }
@@ -147,25 +147,30 @@
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
-                "cover": "http://static.readmanga.me/uploads/pics/00/99/917.jpg",
+                "cover": "https://static.readmanga.live/uploads/pics/00/99/917.jpg",
                 "summary": "@^(Башня)",
                 "genres": "@comedy",
                 "status": "ongoing",
                 "genres_count": ">=5",
                 "chapters_count": ">=300",
                 "chapters": [
-                    { "title": "@(1 - 1)", "link": "https://readmanga.live/tower_of_god/vol1/1", "folder": "1/1/" }
-                ]
+                  { "folder" : "3/67/",
+                   "link" : "https://readmanga.live/bashnia_boga/vol3/67",
+                   "title" : "3 - 67 52F Вторая защитная стена (01)"
+				   }
+				   ]
+                    
+                
             }
         },
         {
             "proc": "chapter_complete",
-            "title": "2 - 266 ??F Адский Экспресс. Скрытый Этаж (03)",
             "link": "https://readmanga.live/bashnia_boga/vol2/266",
             "assert": {
                 "pages": [
-                    { "image": "@^http://.*.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini\\.jpg_res\\.jpg" },
-                    { "image": "@^http://.*.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p02_SIU_Gemini\\.jpg_res\\.jpg" }
+{"image": "https://h37.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini.jpg_res.jpg?t=1612902665&u=0&h=x4ugHg59HL7Lu5Zn2tiWoQ"},
+{"image": "https://h38.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p02_SIU_Gemini.jpg_res.jpg?t=1612902665&u=0&h=NSqvU_-zKP6tD05hgpeUbw"},
+{"image": "https://h42.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p03_SIU_Gemini.jpg_res.jpg?t=1612902665&u=0&h=X50renJ1lW7_Hz6prD002g"}
                 ]
             }
         }
