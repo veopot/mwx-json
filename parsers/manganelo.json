@@ -1,0 +1,180 @@
+{
+	"id": 40161,
+	"old_ids": [21859],
+    "old_sites": ["manganelo.com"],
+	
+	
+	"version": 15,
+	"title": "MangaNelo",
+	"host": "https://manganelo.com",
+	"public_link": "https://manganelo.com/home",
+	"folder": "manganelo",
+	"name" : "manganelo",
+	"language": "en",
+	
+	 
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manganelo.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manganelo.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/manganelo.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manganelo.zip",
+    "file_type": "sqlite",
+	
+	
+	"manga_search_complete": {		
+ "search_link":"https://manganelo.com/search/story/$query$?page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+		     "start": "class=\"panel-search-story\">", 
+             "next": "class=\"search-story-item\">",
+			
+			"link": {
+			    "skip": "<a",
+				"token1": "href=\"",
+				"token2": "\""
+				     },
+			"title": {
+				"after": "href=\"",
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"cover":{
+		        "skip": "href=\"",
+                "token1":"src=\"",
+                "token2":"\""
+         },
+		 
+			"uniq": {
+				"after": "href=\"",
+				"token1": "title=\"",
+				"token2": "\""
+			}
+		 }
+		},	
+
+
+
+
+    "manga_list_complete": {
+
+		"iterator": {
+			"base_url": "https://manganelo.com/genre-all/",
+			"append_nums": { "from": 1, "to": 1202,  
+			"last_page": {"before": "Last(", "token1": "href=\"", "token2": "\""} }
+		},
+
+		"add_manga": {
+			"next": "class=\"content-genres-item\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"uniq":  { "token1": "title=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" }
+		}
+	},
+	
+
+	"manga_complete": {
+		"title": { "skip": "class=\"story-info-right\">", "token1":"h1>", "token2": "</" },
+		"uniq":  { "skip": "class=\"story-info-right\">", "token1":"h1>", "token2": "</" },
+		"author":      { "skip": ">Author", "token1": "'>", "token2": "</" },
+		"summary":     { "skip": ">Description", "token1": ">", "token2": "</div",
+         "replace":{
+            "match":"<.*?>",
+            "text":""
+         } },
+		"status":      {
+		"complete": "class=\"table-value\">Completed<", 
+		"ongoing": "class=\"table-value\">Ongoing<"
+		},
+		 "is_mature": {
+			"start": ">Genres",
+			"end": "</tr>",
+			"values": ["+18", "18+", "Adult"]
+            },
+			
+		 "cover":{ 
+           "after":"property=\"og:image\"",
+             "token1":"content=\"",
+             "token2":"\""},
+		
+		"add_genres":   {
+        "start": ">Genres",
+		"end": "</tr>",
+		"token1": "'>",
+		"token2": "</" 
+		},
+		
+		"add_chapter": {
+		    "start": "class=\"panel-story-chapter-list\">",
+			"end": ">Facebook Comments<",
+		    "next":  "<a",
+			"link":  { "token1": "href=\"", "token2": "\""},
+			"uniq":{ "skip" : "href=\"", "token1": "\">", "token2": "</",
+			        "replace" : { "match" : "&nbsp;", "text" : "" }
+			},
+	        "title": { "skip" : "href=\"", "token1": "\">", "token2": "</",
+			        "replace" : { "match" : "&nbsp;", "text" : "" }
+			}
+		}
+	},
+	"chapter_complete": {
+	 "headers": {
+			"Accept": "*/*",
+			"Referer": "https://manganelo.com/",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	    "add_images": {
+			"start": "class=\"container-chapter-reader\">",
+			"token1": "<img src=\"https://",
+			"token2": "\"",
+			"end": "<div style=\"max-height: 310px;",
+			"replace" : { "prefix" : "https://" }
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Miniamaru Kareshi", 
+					 "link" : "https://manganelo.com/manga/tg917675" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manganelo.com/manga/read_naruto_manga_online_free3",
+			"title" : "Naruto",
+			"assert" : {
+				"author" : "Kishimoto Masashi",
+				"cover" : "https://avt.mkklcdnv6.com/48/g/1-1583465604.jpg",
+				"summary" : "@Read Naruto Manga Online",
+				"genres" : "@action",
+				"status" : "complete",
+				"genres_count" : ">=8",
+				"chapters_count" : ">=740",
+				"chapters" : [
+					{
+            "folder": "Vol.72 Chapter 700 : Uzumaki Naruto!!/",
+            "link": "https://manganelo.com/chapter/read_naruto_manga_online_free3/chapter_700",
+            "title": "Vol.72 Chapter 700 : Uzumaki Naruto!!"
+        
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://manganelo.com/chapter/read_naruto_manga_online_free3/chapter_700",
+			"assert" : {
+				"pages" : [
+{"image": "https://s3.mkklcdnv3.com/mangakakalot/s2/star_martial_god_technique/chapter_165/3.jpg"},
+{"image": "https://s3.mkklcdnv3.com/mangakakalot/s2/star_martial_god_technique/chapter_165/4.jpg"},
+{"image": "https://s3.mkklcdnv3.com/mangakakalot/s2/star_martial_god_technique/chapter_165/5.jpg"}
+				],
+				"pages_count": "10"
+			}
+		}
+	]
+}

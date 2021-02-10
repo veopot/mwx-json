@@ -1,0 +1,276 @@
+{
+	"id": 40155,
+	"version": 58,
+	"title": "Re-Manga!",
+	"host": "https://remanga.org",
+	"public_link": "https://remanga.org/manga",
+	"folder": "rbgmanga",
+	"name" : "rbgmanga",
+	"chapters_order": true,
+	"language": "ru",
+	"encoding": "utf-8",
+	
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/rbgmanga.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rbgmanga.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/rbgmanga.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/rbgmanga.zip",
+    "file_type": "sqlite",
+    "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+
+   
+
+ "manga_search_complete": {
+	    "headers": {
+			"Accept": "*/*",
+			"Referer": "https://remanga.org/",
+			
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		"search_link": "https://api.remanga.org/api/search/?count=10&page=$page$&query=$query$",
+		"query_type": "GET",
+		
+		
+		"add_manga":  {
+		    "start": "content\"",
+			"end": "props\"",
+            "next": "bookmark_type\"",
+			
+			"link":  { "before": "bookmark_type\"",
+			"token1": "dir\":\"", "token2": "\",",
+			"replace":{"prefix": "https://remanga.org/manga/"} },
+			
+			"cover":  { "skip": "bookmark_type\"",
+			"token1": "mid\":\"", "token2": "\"",
+			"replace": {"prefix": "https://api.remanga.org"}},
+            
+			"title": { "before": "bookmark_type\"",
+			"token1": "en_name\":\"", "token2": "\",\"dir",
+			"replace": { "match" : "\",\"rus_name\":\"",  "text" : ", " }},
+			
+			"uniq": { "before": "bookmark_type\"",
+			"token1": "en_name\":\"", "token2": "\""}
+			
+			}
+		
+		},
+
+	"manga_list_complete": {
+	    "headers": {
+			
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+			"Accept-Language": "ru-RU,ru;q=0.9"
+		},
+
+	  "iterator": {
+		"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&count=30&page=",
+		"append_nums": { "from": 1, "to": 509 }
+		},
+		"add_manga": {
+		    "start": "content",
+			"end": "props\"",
+            "next": "bookmark_type\"",
+			
+			"link":  { "before": "bookmark_type\"",
+			"token1": "dir\":\"", "token2": "\",",
+			"replace":{"prefix": "https://remanga.org/manga/"} },
+			
+			"cover":  { "before": "bookmark_type\"",
+			"token1": "cover_mid\":\"", "token2": "\"",
+			"replace": {"prefix": "https://api.remanga.org/media/"}},
+            
+			"title": { "before": "bookmark_type\"",
+			"token1": "en_name\":\"", "token2": "\",\"dir",
+			"replace": { "match" : "\",\"rus_name\":\"",  "text" : ", " }},
+			
+			"uniq": { "before": "bookmark_type\"",
+			"token1": "en_name\":\"", "token2": "\""}
+			
+			},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+		
+	},
+   
+	
+	
+	
+	"manga_complete": {
+	    "headers": {
+			"Accept": "*/*",
+			"Referer": "https://remanga.org/",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+"link_corrector" : [ 			
+{ "match" : "https://remanga.org/manga/", 
+"text" : "https://api.remanga.org/api/titles/" } 		],
+
+
+	    "title":{ 
+           "after":"property=\"og:title\"",
+             "token1":"content=\"",
+             "token2":"\"",
+              "replace": [
+                { "match" : "Читать мангу","text":"" },
+				{ "match" : "онлайн","text":""}
+				]},
+		
+		"uniq":{ 
+		    "token1":"en_name\":\"",
+			"token2": "\","},
+		
+	    "cover":{
+           "after":"property=\"og:image\"",
+           "token1":"content=\"",
+           "token2":"\""
+        },
+		
+		
+		
+		
+		"summary":{ 
+		
+		"token1":"description\":\"", "token2": "\",",
+"replace": [
+ { "match" : "u003Cp",  "text" : "" },
+{ "match" : "u003E",  "text" : "" },
+{ "match" : "u003C",  "text" : "" },
+{ "match" : "u002Fp",  "text" : "" }
+						]
+},
+		
+		"status": { 
+		  	"complete": { 
+			 "start": "content",
+             "end": "similarManga",
+			   "values": [ "Закончен", "Переведена", "Сингл"] },
+			
+            "ongoing": { 
+			 "start": "content",
+             "end": "similarManga",
+                "value": "Продолжается" }
+			 },
+		
+		"chapters":{ 
+		"start": "content",
+        "end": "similarManga",
+		"token1":"total_chapters\":", "token2":","},
+		
+		
+		"add_genres":   {
+        "start": "genres\":",
+		"end": "],",
+		"token1": "name\":\"",
+		"token2": "\""
+		},
+		
+		
+		"is_mature":   { "values": [">Сэйнэн<", ">Эротика<", ">Юри<", ">Яой<"] },
+		
+		
+		"chapters_from_page": 
+		
+		{ 
+		"after": "branches\"", "token1": "id\":", "token2": ",",
+		"replace" : { "prefix" : "https://api.remanga.org/api/titles/chapters/?branch_id=" }
+		},
+		
+		
+		"add_chapter": {
+            "start": "content\"",
+            "end": "props",
+            "next": "\"is_paid\":false,",
+			
+            "link": {
+			 "before": "\"is_paid\":false,",
+			 "token1": "id\":",
+                "token2": ",",
+                "replace": {
+                        "prefix": "https://api.remanga.org/api/titles/chapters/"
+                }                  
+            },
+			"uniq": {
+                 "before": "\"is_paid\":false,",
+			    "token1": ",\"to",
+                "token2": "\",\"name\"",
+				"replace": [
+                        { "match" : "me\":",  "text" : "Том_" },
+						{ "match" : ",\"chapter\":\"",  "text" : "_Глава_" }
+						]
+            },
+            
+            "title": {
+			     "before": "\"is_paid\":false,",
+                "token1": ",\"to",
+                "token2": "\",\"name\"",
+				"replace": [
+                        { "match" : "me\":",  "text" : "Том " },
+						{ "match" : ",\"chapter\":\"",  "text" : " Глава " }
+						
+						]
+            }
+        }
+	 
+},
+
+
+	"chapter_complete": {
+	    "add_numeration": true,
+	    "headers": {
+			"Accept": "*/*",
+			"Referer": "https://remanga.org/",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		"add_images": {
+			"start": "content",
+			"token1": "link\":\"",
+			"token2": "\"",
+			 "end": "props"
+		}
+	},
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			   "assert" : {
+				"mangas" : [
+					{ "title" : "Another Emperor Reborn, Возрождение иного императора",
+					 "link" : "https://remanga.org/manga/another-emperor-reborn",
+					  "uniq" : "Another Emperor Reborn" }
+				],
+				"mangas_count" : ">=20"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://remanga.org/manga/solo-leveling",
+			"title" : "Поднятие уровня в одиночку / Solo Leveling",
+			"assert" : {
+				"cover" : "https://api.remanga.org/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
+				
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=130",
+				"chapters" : [
+			        {
+            "folder": "Том_2_Глава_136/",
+            "link": "https://api.remanga.org/api/titles/chapters/462182",
+            "title": "Том 2 Глава 136"
+                   }
+		 		]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://api.remanga.org/api/titles/chapters/462182",
+			"assert" : {
+				"pages" : [
+{"image": "https://img.remanga.org/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/32094b422c3366fb581ef2cdade49229.jpeg"},
+{"image": "https://img.remanga.org/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/7bf3f403e4687c63dcee6712f5bcc979.jpeg"},
+{"image": "https://img.remanga.org/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/229bf517a7e4c00eb10a634fabfba3a7.jpeg"}
+				]
+			}
+		}
+	]
+}
