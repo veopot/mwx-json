@@ -1,0 +1,183 @@
+{
+	"id": 2048,
+	"version": 30,
+	"title": "Manga Fox",
+	"host": "http://fanfox.net/",
+	"public_link": "http://fanfox.net/directory/",
+	"folder": "mangafox",
+	"name" : "mf",
+	"language": "en",
+	"chapters_order": false,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangafox.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangafox.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangafox.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangafox.zip",
+    "file_type": "sqlite",
+	
+
+	"engine_settings": {
+		"skip_chapter_parsing_on_update": true
+	},
+	
+	
+	 "manga_search_complete": {		
+ "search_link":"http://fanfox.net/search?page=$page$&title=$query$#searchlt",
+		"query_type": "GET",
+		 "add_manga":{
+         "next":"<li> <a",
+         "title":{
+            "skip":"href=\"",
+            "token1":"title=\"",
+            "token2":"\""
+         },
+         "link":{
+            "token1":"href=\"",
+            "token2":"\""
+         },
+         "cover":{
+		    "before":"href=\"",
+            "token1":"src=\"",
+            "token2":"\""
+         }
+      }
+		},	
+		
+	
+	
+	"manga_list_complete": {
+		"iterator": {    
+			"base_url": "http://fanfox.net/directory/",
+			"append_nums": { "from": 1, "to": 325, "step": 1, "sufix": ".html" }
+		},
+		"add_manga": { 
+			"start": "manga-list-1-list",
+			"next":  "<li>",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"cover": { "token1": "src=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "30000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+	
+	
+	    "headers": { "Set-Cookie": "isAdult=1"},
+	
+		
+	    "title":       { "after": "detail-info-right-title-font", "token1": ">", "token2": "<" },
+        "uniq":        { "after": "detail-info-right-title-font", "token1": ">", "token2": "<" },
+		"author":      { "after": ">Author:", "token1": "title=\"", "token2": "\"" },
+		"summary":     { "token1": "detail-info-right-content\">", "token2": "<p class"},
+		"status":      { "complete": ">Completed<", "ongoing": ">Ongoing<", "licensed": "has been licensed, it is not available" },
+		"read_dir":    { "right_to_left": "Manga</h1>", "left_to_right": "Manhwa</h1>" },
+		"cover":       { "after": "detail-info-cover-img", "token1": "src=\"", "token2": "\"" },
+		"add_genres":  {
+			"start":  "detail-info-right-tag-list",
+			"after":  "href=\"/directory/",
+			"token1": ">",
+			"token2": "</",
+			"end":    "</p>"
+		},
+		
+		
+		"chapters_from_page": 
+		
+		{ 
+		"after": "class=\"detail-info-right-read\"", "token1": "href=\"", "token2": "\"",
+		"replace" : { "prefix" : "http://fanfox.net" }
+		},
+		
+		
+		"add_chapter": { 
+			"start": "class=\"reader-header-title-list\"",
+			"end":   "</div>",
+			"next":  "<a", 
+			
+			"link":  { "token1": "href=\"/manga/",
+ 			            "token2": "\"",
+				        "replace": { "prefix": "http://m.fanfox.net/manga/"} }, 
+			
+			"uniq": { "after": "href=\"/manga/", "token1": ">", "token2": "</" },
+			"title": { "after": "href=\"/manga/", "token1": ">", "token2": "</" }
+		}
+	},
+	
+	"chapter_complete": {
+		"headers": { "Set-Cookie": "isAdult=1" },
+		 
+		"add_pages": { 
+			"start": "<select class=\"mangaread-page\"", 
+			"token1": "value=\"//", 
+			"token2": "\"", 
+			"end": "</select>"
+		},
+		"prefix": "http://"
+	},
+	
+	"page_complete": {
+		"image": { "skip": "class=\"mangaread-img\"",
+		"token1": "src=\"//", "token2": "\"",
+		"replace" : { "prefix" : "http://" }
+ 
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Tales of Demons and Gods", "link" : "http://fanfox.net/manga/tales_of_demons_and_gods/",
+						"uniq" : "tales_of_demons_and_gods" },
+					{ "title" : "Goblin Slayer", "link" : "http://fanfox.net/manga/goblin_slayer/" }
+				],
+				"mangas_count" : ">13200"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://fanfox.net/manga/fairy_tail/",
+			"title" : "Beelzebub",
+			"assert" : {
+				"cover" : "@http://\\w.fanfox.net/store/manga/10543/cover.jpg?\\.*",
+				"summary" : "@^(The story).*(\\.)$",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">5",
+				"rating" : ">=1012",
+				"chapters_count" : ">=250",
+				"chapters" : [
+					{ 
+						"title" : "Beelzebub 240", 
+						"link" : "http://m.fanfox.net/manga/beelzebub/v27/c240/1.html", 
+						"folder" : "Beelzebub 240/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"title" : "Beelzebub 02", 
+			"link" : "http://m.fanfox.net/manga/beelzebub/v01/c002/1.html",
+			"assert" : {
+				"pages" : [
+		{"link": "http://m.fanfox.net/manga/beelzebub/v01/c002/1.html"},
+        {"link": "http://m.fanfox.net/manga/beelzebub/v01/c002/2.html"},
+        {"link": "http://m.fanfox.net/manga/beelzebub/v01/c002/3.html"}
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://m.fanfox.net/manga/beelzebub/v01/c002/2.html",
+			"assert" : {
+				"image": "@http://zjcdn.mangafox.me/store/manga/10543/01-002.0/compressed/beezlebub_ch_2.02.jpg?\\.*"
+			}
+		}
+	]
+}
