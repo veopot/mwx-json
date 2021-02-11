@@ -1,0 +1,207 @@
+{
+"id": 40223,
+"version": 5,
+"title": "MangaBat",
+"host": "https://mangabat.com",
+"public_link": "https://mangabat.com/manga-list-all",
+"folder": "mangabat",
+"name" : "mangabat",
+"chapters_order": false,
+"language": "en",
+ "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+ 
+"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangabat.png",
+"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangabat.json",
+"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangabat.json",
+"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangabat.zip",
+"file_type": "sqlite",
+
+
+"manga_list_complete": {
+
+        "iterator": {
+			"base_url": "https://m.mangabat.com/manga-list-all/",
+			"append_nums": { "from": 1, "to": 1202 }
+		},
+
+		"add_manga": {
+			"next": "class=\"list-story-item\">",
+			"link": {
+			    "after": "<a",
+				"token1": "href=\"",
+				"token2": "\""
+				     },
+			"title": {
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"cover": { "token1": "src=\"", "token2": "\"" },
+			"uniq": {
+			    "token1": "title=\"",
+				"token2": "\""
+			}
+		             }
+	},	
+	
+	
+	
+"manga_search_complete": {		
+ "search_link":"https://m.mangabat.com/search/manga/$query$?page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "class=\"list-story-item\">",
+			"link": {
+			    "after": "<a",
+				"token1": "href=\"",
+				"token2": "\""
+				     },
+			"title": {
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"cover": { "token1": "src=\"", "token2": "\"" },
+			"uniq": {
+			    "token1": "title=\"",
+				"token2": "\""
+			}
+		             }
+		},	
+
+	"manga_complete": {
+		"title":{ 
+		    "skip": "class=\"story-info-right\">", 
+		    "token1":"h1>", 
+			"token2": "</"
+			    },
+		"uniq":{ 
+		    "skip": "class=\"story-info-right\">", 
+		    "token1":"h1>", 
+			"token2": "</"
+			    },
+		"author": { 
+		"after": "href='https://m.mangabat.com/search/author/",
+		"token1": "'>", "token2": "</"
+		          },
+		
+		
+		"summary":{"after": "class=\"panel-story-info-description\"",
+		           "token1": "\">", 
+				   "token2": "</div>", 
+				   "replace": {"match": "<.*>", "text": " "}
+				   },
+		
+		"status": { 
+		  	"complete": { 
+			 "start": "class=\"info-status\"",
+             "end": "class=\"info-genres\"",
+			   "values": [ "Completed", "Переведена", "Сингл"] },
+			
+            "ongoing": { 
+			"start": "class=\"info-status\"",
+             "end": "class=\"info-genres\"",
+                "value": "Ongoing" }
+			 },
+	
+		"cover": { 
+		"after": "property=\"og:image\"",
+		"token1": "content=\"",
+		"token2": "\""
+           		},
+		
+		"add_genres":   {
+        "start": "class=\"info-genres\"",
+		"end": "<div",
+		"token1": "'>",
+		"token2": "</" 
+		},
+		
+		"is_mature": {
+			"start": "class=\"info-genres\"",
+		    "end": "<div",
+			"values": ["Adult","Yuri","Yaoi","Seinen" ]
+            },
+			
+			
+		"add_chapter":  {
+		    "start": "chapter-list\">",
+			"end": ">Facebook Comments<",
+			"next":  "<a",
+			
+			"uniq":  { "skip" : "href=\"https://read.mangabat.com", "token1": "\">", "token2": "</",
+			 "replace" : { "match" : "&nbsp;", "text" : "" }},
+			 
+			"link":  { "token1": "href=\"https://read.mangabat.com", "token2": "\"",
+		       "replace" : { "prefix" : "https://read.mangabat.com" }},
+		
+			"title": { "skip" : "href=\"https://read.mangabat.com", "token1": "\">", "token2": "</",
+			 "replace" : { "match" : "&nbsp;", "text" : "" }
+			}
+		}
+	},
+	"chapter_complete": {
+	    "add_images": {
+			"start": "class=\"container-chapter-reader",
+			"token1": "<img src=\"",
+			"token2": "\"",
+			"end": "</span>",
+			"replace": [
+{"match": "<iframe src=\"\/ads\/.*\">","text": ""},
+{"match": "https://mangabat.com/ads/adtrue_desktop_728x90.html", "text": "" }
+			]
+			}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{ "title": "Anyone Can Become a Villainess",
+					  "uniq": "Anyone Can Become a Villainess", 
+					  "link" : "https://read.mangabat.com/read-sp50186" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangabat.com/manga/serie-1088887707",
+			"title" : "Komi-san wa Komyushou Desu",
+			"assert" : {
+				"author" : "Oda Tomohito",
+				"cover" : "https://avt.mkklcdnv6.com/25/s/2-1583466695.jpg",
+				"summary" : "@Komi-san is the beautiful and admirable girl",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=200",
+				"chapters" : [
+		{
+           
+            "folder": "Vol.1 Chapter 0: One Shot/",
+            "link": "https://read.mangabat.com/read-di15731-chap-0",
+            "title": "Vol.1 Chapter 0: One Shot"
+        },
+        {
+            "folder": "Vol.1 Chapter 1: A Normal Person/",
+            "link": "https://read.mangabat.com/read-di15731-chap-1",
+            "title": "Vol.1 Chapter 1: A Normal Person"
+        },
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://read.mangabat.com/read-di15731-chap-1",
+			"assert" : {
+				"pages" : [
+{"image": "https://s31.mkklcdnv31.com/mangakakalot/k2/komisan_wa_komyushou_desu/vol1_chapter_1_a_normal_person/1.jpg"},
+{"image": "https://s31.mkklcdnv31.com/mangakakalot/k2/komisan_wa_komyushou_desu/vol1_chapter_1_a_normal_person/2.jpg"},
+{"image": "https://s31.mkklcdnv31.com/mangakakalot/k2/komisan_wa_komyushou_desu/vol1_chapter_1_a_normal_person/3.jpg"}
+],
+				"pages_count": "14"
+			}
+		}
+	]
+}
