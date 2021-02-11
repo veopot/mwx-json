@@ -1,6 +1,9 @@
 {
-	"id": 2048,
+	"id": 30008,
 	"version": 30,
+	"old_ids": [2048],
+	"old_sites": ["fanfox.net"],
+	
 	"title": "Manga Fox",
 	"host": "http://fanfox.net/",
 	"public_link": "http://fanfox.net/directory/",
@@ -142,41 +145,46 @@
 		{
 			"proc" : "manga_complete",
 			"link" : "http://fanfox.net/manga/fairy_tail/",
-			"title" : "Beelzebub",
+			"title" : "Fairy Tail",
 			"assert" : {
-				"cover" : "@http://\\w.fanfox.net/store/manga/10543/cover.jpg?\\.*",
-				"summary" : "@^(The story).*(\\.)$",
+				"cover" : "@http://fmcdn.mfcdn.net/store/manga/246/cover.jpg?\\.*",
+				"summary" : "@^(A young celestial mage)",
+				"author": "MASHIMA Hiro",
 				"genres" : "@comedy",
 				"status" : "complete",
 				"genres_count" : ">5",
-				"rating" : ">=1012",
-				"chapters_count" : ">=250",
+				"chapters_count" : ">=300",
 				"chapters" : [
-					{ 
-						"title" : "Beelzebub 240", 
-						"link" : "http://m.fanfox.net/manga/beelzebub/v27/c240/1.html", 
-						"folder" : "Beelzebub 240/"
-					}
+					{
+                      "folder": "Vol.62 Ch.544 You're the King/",
+                      "link": "http://m.fanfox.net/manga/fairy_tail/v62/c544/1.html",
+                      "title": "Vol.62 Ch.544 You're the King"
+                    },
+                    {
+                     "folder": "Vol.62 Ch.543 Hearts As One/",
+                     "link": "http://m.fanfox.net/manga/fairy_tail/v62/c543/1.html",
+                    "title": "Vol.62 Ch.543 Hearts As One"
+                   }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"title" : "Beelzebub 02", 
-			"link" : "http://m.fanfox.net/manga/beelzebub/v01/c002/1.html",
+			"link" : "http://m.fanfox.net/manga/fairy_tail/v62/c544/1.html",
 			"assert" : {
 				"pages" : [
-		{"link": "http://m.fanfox.net/manga/beelzebub/v01/c002/1.html"},
-        {"link": "http://m.fanfox.net/manga/beelzebub/v01/c002/2.html"},
-        {"link": "http://m.fanfox.net/manga/beelzebub/v01/c002/3.html"}
+		{"link": "http://m.fanfox.net/manga/fairy_tail/v62/c544/1.html"},
+        {"link": "http://m.fanfox.net/manga/fairy_tail/v62/c544/2.html"},
+        {"link": "http://m.fanfox.net/manga/fairy_tail/v62/c544/3.html"},
+        {"link": "http://m.fanfox.net/manga/fairy_tail/v62/c544/4.html"}
 				]
 			}
 		},
 		{
 			"proc" : "page_complete",
-			"link" : "http://m.fanfox.net/manga/beelzebub/v01/c002/2.html",
+			"link" : "http://m.fanfox.net/manga/fairy_tail/v62/c544/4.html",
 			"assert" : {
-				"image": "@http://zjcdn.mangafox.me/store/manga/10543/01-002.0/compressed/beezlebub_ch_2.02.jpg?\\.*"
+				"image": "@http://zjcdn.mangafox.me/store/manga/246/62-544.0/compressed/ifairy-tail-9527437.jpg?\\.*"
 			}
 		}
 	]
