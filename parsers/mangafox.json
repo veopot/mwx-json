@@ -25,10 +25,13 @@
 	
 	
 	 "manga_search_complete": {		
- "search_link":"http://fanfox.net/search?page=$page$&title=$query$#searchlt",
+ "search_link":"http://fanfox.net/search?page=$page$&title=$query$&genres&nogenres&sort&stype=1&name&type=0&author_method=cw&author&artist_method=cw&artist&rating_method=eq&rating&released_method=eq&released&st=0#searchlt",
 		"query_type": "GET",
 		 "add_manga":{
-         "next":"<li> <a",
+		 "start": "class=\"line-list\">",
+		 "end":   "</div>",
+			
+         "next":"class=\"manga-list-4-item-title\">",
          "title":{
             "skip":"href=\"",
             "token1":"title=\"",
@@ -38,6 +41,12 @@
             "token1":"href=\"",
             "token2":"\""
          },
+		 "summary":{
+            "skip":"href=\"/manga/",
+            "token1":"title=\"",
+            "token2":"\""
+         },
+		 
          "cover":{
 		    "before":"href=\"",
             "token1":"src=\"",
