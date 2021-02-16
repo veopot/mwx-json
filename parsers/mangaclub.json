@@ -1,6 +1,8 @@
 {
-	"id": 29000,
-	"version": 18,
+	"id": 29001,
+	"version": 19,
+	"old_ids": [29000],
+	
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
