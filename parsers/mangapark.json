@@ -1,6 +1,6 @@
 {
 	"id": 30410,
-	"version": 20,
+	"version": 21,
 	"old_ids": [532],
 
 	
@@ -65,16 +65,16 @@
 			"cookie": "set=theme=1&h=1&img_load=1&img_zoom=1&img_tool=1&twin_m=0&twin_c=0&manga_a_warn=1&history=1&timezone=14"
 		},
 		"iterator": {
-			"base_url" : "https://bato.to/browse?sort=views_a.za&page=",
+			"base_url" : "https://mangapark.net/genre/",
 			"append_nums": { "from": 1, "to": 1370 }
 		},
 		"add_manga": { 
-			"next": "class=\"item-title\"",
-			"link":  { "before": "</a>", "token1": "/",  "token2": "\">",
-			"replace": { "prefix": "https://mangapark.net/manga/" } 
+			"next": "<a class=\"cover\"",
+			"link":  {  "token1": "href=\"",  "token2": "\"",
+			"replace": { "prefix": "https://mangapark.net" } 
 			}, 
-			"uniq":  { "before": "</a>", "token1": "/",  "token2": "\">"}, 
-			"title": { "after": "href=\"", "token1": "\">", "token2": "</" }
+			"uniq":  { "after": "href=\"", "token1": "title=\"", "token2": "\"" }, 
+			"title": { "after": "href=\"", "token1": "title=\"", "token2": "\"" }
 		}
 	},
 
