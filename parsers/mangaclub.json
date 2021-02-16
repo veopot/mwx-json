@@ -1,20 +1,19 @@
 {
 	"id": 29000,
-	"version": 16,
+	"version": 17,
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
 	"folder": "mangaclub",
 	"name" : "mangclub",
 	"language": "ru",
-	"is_paid": true,
 	"skip_catalog_test": false,
 	"icon_link": "https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
-	"self_link": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
-	"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaclub.json",
-	"catalog_link": "http://catalogs.mangawatcherx.com/zip/mangaclub.zip",
-    "file_type": "sqlite",
-	"author": {"name":"CrazyXacker","email":"crazyxacker@gmail.com"},
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaclub.json",
+	"self_link2": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangaclub.zip",
+    	"file_type": "sqlite",
+	"author": {"name":"Veopot & Lomik_XP","email":"admin@mw.lomikxp.ru"},
 
 	"manga_list_complete": {
 		"iterator": {
