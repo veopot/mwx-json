@@ -1,6 +1,6 @@
 {
 	"id": 29000,
-	"version": 17,
+	"version": 18,
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
@@ -40,7 +40,7 @@
 		"title":        { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
 		"uniq":         { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
 		"author":       { "skip": "Автор(ы)", "token1": "\">", "token2": "<" },
-		"summary":      { "skip": "description_manga", "token1": ">", "token2": "</" },
+		"summary":      { "skip": "class=\"description\"", "token1": ">", "token2": "</" },
 		"status":       { 
 			"complete": "Завершен<",
 			"ongoing": "Продолжается<"
@@ -93,10 +93,10 @@
 			"title" : "Isekai Maou to Shoukan Shoujo Dorei Majutsu / Повелитель тьмы. Другая история: магия порабощения",
 			"assert" : {
 				"author" : "@Murasaki Yukiya",
-				"cover" : "https://mangaclub.ru/uploads/posts/2016-10/medium/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
+				"cover" : "https://mangaclub.ru/uploads/posts/2016-10/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
 				"summary" : "@^(В MMORPG)",
 				"genres" : "@adult",
-				"status" : "ongoing",
+				"status" : "UNKNOWN",
 				"genres_count" : ">=8",
 				"chapters_count" : ">=32",
 				"chapters" : [
@@ -114,8 +114,7 @@
 			"title" : "Глава 3",
 			"assert" : {
 				"pages" : [
-					{ "image" : "http://img.mangaclub.ru/896//v1_c1_p01-u1-896-1477850157017.jpg" },
-					{ "image" : "http://img.mangaclub.ru/896//v1_c1_p02-u1-896-14778501572405.jpg" }
+					{"image": "https://img.mangaclub.ru/896//v1_c1_p01-u1-896-1477850157017.jpg"}
 				],
 				"pages_count": "40"
 			}
