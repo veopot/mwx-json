@@ -1,0 +1,355 @@
+{
+	"id": 40117,
+	"version": 75,
+	"title": "Rulate",
+	"host": "https://tl.rulate.ru",
+	"public_link": "https://tl.rulate.ru/search/?cat=2",
+	"folder": "rulate",
+	"name": "rulate",
+	"chapters_order": true,
+	"language": "ru",
+	"encoding": "utf-8",
+	
+	
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/rulate.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rulate.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/rulate.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/rulate.zip",
+    "file_type": "sqlite",
+	
+    "author": {
+		"name": "Veopot",
+		"email": "fant-net@ya.ru"
+	},
+
+	"authorization_complete": {
+		"logo": "https://tl.rulate.ru/i/favicon.ico",
+		"registration": "https://tl.rulate.ru/register",
+		"expires": 31536000,
+		"is_redirect": true,
+
+		"values": {
+
+			"login[login]": {
+				"label": "Логин",
+				"hint": "Введите свой логин с сайта Rulate!",
+				"kind": "text"
+			},
+
+			"login[pass]": {
+				"label": "Пароль",
+				"hint": "Введите свой пароль с сайта Rulate!",
+				"kind": "password"
+			},
+      "headers": {
+			"Accept": "*/*" },
+
+			"mature": {
+				"forward": "cookie",
+				"value": "c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+			}
+		},
+
+		"request": {
+			"method": "post",
+			"url": "https://tl.rulate.ru"
+		},
+		"response_check": {
+			"headers": {
+	    	"Set-Cookie": "@%22login"
+		
+			}
+		}
+	},
+	
+	"manga_search_complete": {
+		"search_link": "https://tl.rulate.ru/search/index/t/$query$/cat/0/s_lang/0/t_lang/0/sort/4/n_chapters//Book_page/$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"start": "<ul class='search-results'>",
+			"next": "<a href='/book/",
+
+			"link": {
+				"skip": "<a",
+				"token1": "href='/book/",
+				"token2": "'>",
+				"replace": {
+					"prefix": "https://tl.rulate.ru/book/"
+				}
+			},
+			"title": {
+				"skip": "href='",
+				"token1": "'>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href='",
+				"token1": "book/",
+				"token2": "'>"
+			},
+			"cover": {
+				"before": "href='",
+				"token1": "src='",
+				"token2": "'",
+				"replace": {
+					"prefix": "https://tl.rulate.ru/"
+				}
+			}
+		}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://tl.rulate.ru/search/index/t//cat/2/s_lang/0/t_lang/0/adult/0/type/0/gen/1/sort/5/genres_cond/0/tags_cond/0/n_chapters//Book_page/",
+			"append_nums": {
+				"from": 1,
+				"to": 959,
+				"sufix": "/"
+			}
+		},
+
+
+		"add_manga": {
+			"start": "</h1>",
+			"end": "</h5>",
+			"next": "<p class='book-tooltip'",
+
+			"link": {
+				"token1": "href='/book/",
+				"token2": "'>",
+				"replace": {
+					"prefix": "https://tl.rulate.ru/book/"
+				}
+			},
+			"title": {
+				"skip": "href='/book/",
+				"token1": "'>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href='",
+				"token1": "book/",
+				"token2": "'>"
+			}
+		}
+
+	},
+
+	"manga_complete": {
+		"headers": {
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+		},
+		
+		"title": {
+			"skip": "class=\"nav nav-tabs book-header\"",
+			"token1": "h1>",
+			"token2": "</"
+		},
+		"uniq": {
+			"skip": "var Book = new CBook",
+			"token1": "id:",
+			"token2": ","
+		},
+		"summary": {
+			"after": "name=\"description\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"author": {
+			"skip": ">Автор:</",
+			"token1": "'>",
+			"token2": "</a"
+		},
+
+		"status": {
+			"empty": {
+				"start": "<div class='alert alert-info'",
+				"end": "id=\"Chapters\">",
+				"value": "В этом переводе ещё не создано ни одной главы."
+			},
+			"complete": {
+				"start": "dt>Состояние перевода:</dt",
+				"end": "dt>Перевод:</dt",
+				"values": [">Завершён", ">Переведена"]
+			},
+			"ongoing": {
+				"start": "dt>Состояние перевода:</dt",
+				"end": "dt>Перевод:</dt",
+				"values": [">В работе", ">Ожидание", ">Перерыв"]
+			},
+			"default": "unknown"
+		},
+
+		
+
+		"add_genre": {
+			"after": "href=\"/search?genres%5B0%5D=",
+			"token1": "\">",
+			"token2": "</"
+		},
+		
+		"add_tag": {
+			"after": "href=\"/tag/?search=",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"is_mature": {
+			"start": ">Тэги:<",
+			"end": ">Ваш статус:<",
+			"values": ["+18", "18+", "эротика"]
+		},
+		"cover": {
+			"skip": "<div id='Info'",
+			"token1": "src=\"/i/book",
+			"token2": "\"",
+			"replace": {
+				"prefix": "https://tl.rulate.ru/i/book"
+			}
+		},
+		
+		"content_type": {
+			"default": "light_novels"
+		},
+
+
+		"add_chapter": {
+			"start": "<tbody>",
+			"end": ">Обсуждение:</",
+			"next": "<td class=",
+			"link": {
+				"before": "title='Получить",
+				"token1": "href='",
+				"token2": "'"
+			},
+			"uniq": {
+				"before": "title='Получить",
+				"token1": "'t'>",
+				"token2": "</a",
+				"replace": {
+					"match": "<.*>",
+					"text": ""
+				}
+			},
+			"title": {
+				"before": "title='Получить",
+				"token1": "'t'>",
+				"token2": "</a",
+				"replace": [
+{ "match": "<.*>",	"text": ""},
+{ "match": "Главы",	"text": "Глава"}
+
+
+]
+			}
+		}
+
+	},
+
+
+	"chapter_complete": {
+		"headers": {
+   "cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B",
+   "cookie2": "mwatcher_d=sldotndjssf"
+  },
+
+		"images": true,
+		"add_pages": {
+			"start": ">Настройки</",
+			"token1": "action=\"/book/",
+			"token2": "/ready",
+			"end": "</html>"
+		},
+		"prefix": "https://tl.rulate.ru/book/",
+		"sufix": "/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2",
+		"link_corrector": [{
+			"match": "http://tl.rulate.ru/",
+			"text": "https://tl.rulate.ru/"
+		}]
+	},
+
+
+	"test": [{
+			"proc": "manga_list_complete",
+
+			"assert": {
+				"mangas": [{
+
+					"link": "https://tl.rulate.ru/book/27",
+					"uniq": "27"
+				}, {
+					"link": "https://tl.rulate.ru/book/333"
+				}],
+				"mangas_count": ">60"
+			}
+		},
+
+		{
+			"proc": "manga_complete",
+			"link": "https://tl.rulate.ru/book/22",
+			"title": "Xian Ni / Renegade Immortal / Противостояние святого",
+			"assert": {
+				"cover": "https://tl.rulate.ru/i/book/20/2/14216.jpg",
+				"summary": "@^(Чертовски правдивая история о том)",
+				"genres": "@fantasy",
+				"status": "ongoing",
+				"chapters_count": ">=300",
+				"genres_count": ">=2",
+
+
+				"chapters": [{
+						"folder": "Глава 603/",
+						"link": "https://tl.rulate.ru/book/22/76933/ready",
+						"title": "Глава 603"
+					},
+					{
+						"link": "https://tl.rulate.ru/book/22/36737/ready",
+						"title": "Глава 442"
+					}
+				]
+			}
+		},
+
+		{
+			"proc": "manga_complete",
+			"link": "https://tl.rulate.ru/book/1689",
+			"title": "Pure Love x Insult Complex / Чистая любовь и Жажда Мести 18+",
+			"assert": {
+
+				"genres": "@action",
+				"status": "ongoing",
+				"chapters_count": ">=70",
+				"genres_count": ">=7",
+				"rating": ">=1830",
+
+				"chapters": [{
+						"folder": "Главы 1-3/",
+						"link": "https://tl.rulate.ru/book/1689/250048/ready",
+						"title": "Главы 1-3"
+					},
+					{
+						"link": "https://tl.rulate.ru/book/1689/250049/ready",
+						"title": "Главы 4 - 5"
+					}
+				]
+			}
+		},
+
+		{
+			"proc": "chapter_complete",
+			"link": "https://tl.rulate.ru/book/1689/250072/ready",
+			"assert": {
+				"image": "https://tl.rulate.ru/book/1689/250072/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2"
+			}
+
+		},
+
+		{
+			"proc": "chapter_complete",
+			"link": "https://tl.rulate.ru/book/22/76933/ready",
+			"assert": {
+				"image": "https://tl.rulate.ru/book/22/76933/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2"
+			}
+
+		}
+	]
+}
