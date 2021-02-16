@@ -1,8 +1,6 @@
 {
-	"id": 29001,
-	"version": 19,
-	"old_ids": [29000],
-	
+	"id": 29000,
+	"version": 20,
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
@@ -44,8 +42,8 @@
 		"author":       { "skip": "Автор(ы)", "token1": "\">", "token2": "<" },
 		"summary":      { "skip": "class=\"description\"", "token1": ">", "token2": "</" },
 		"status":       { 
-			"complete": "Завершен<",
-			"ongoing": "Продолжается<"
+			"complete": "Завершен/",
+			"ongoing": "Продолжается/"
 		},
 		"content_type": { 
 			"manga": "link-category\">Манга<",
@@ -98,7 +96,7 @@
 				"cover" : "https://mangaclub.ru/uploads/posts/2016-10/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
 				"summary" : "@^(В MMORPG)",
 				"genres" : "@adult",
-				"status" : "UNKNOWN",
+				"status" : "ONGOING",
 				"genres_count" : ">=8",
 				"chapters_count" : ">=32",
 				"chapters" : [
