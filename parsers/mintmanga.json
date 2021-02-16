@@ -1,8 +1,8 @@
 {
 	"id": 30007,
-	"version": 50, 
+	"version": 51, 
     "old_ids": [65884],
-    "old_sites": ["mintmanga.com"],
+    "old_sites": ["mintmanga.me"],
 	
 	
 	"title": "MintManga",
@@ -118,9 +118,9 @@
 			"testpages": "5",
 			"assert": {
 				"mangas": [
-					{ "title": "Tokyo Ghoul", "link": "https://mintmanga.live/tokyo_ghoul" },
-					{ "title": "Crimson Spell", "link": "https://mintmanga.live/crimson_spell", 
-						"uniq": "crimson_spell" }
+					{ "title": "Kigi wa Haru", "link": "https://mintmanga.live/the_trees_in_spring" },
+					{ "title": "The conditions of the wicked", "link": "https://mintmanga.live/obstoiatelstva_nechestivyh", 
+						"uniq": "obstoiatelstva_nechestivyh" }
 				],
 				"mangas_count": ">300"
 			}
@@ -131,7 +131,7 @@
 			"title": "Gantz",
 			"assert": {
 				"author": "Оку Хироя",
-				"cover": "http://static.mintmanga.live/uploads/pics/00/52/859.jpg",
+				"cover": "https://static.mintmanga.live/uploads/pics/00/52/859.jpg",
 				"summary": "@^(Где-то в Токио)",
 				"genres": "@scifi",
 				"status": "complete",
@@ -151,9 +151,9 @@
 			"link": "https://mintmanga.live/gantz/vol34/361",
 			"assert": {
 				"pages": [
-					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_01__OJS-team_\\.png" },
-					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_10-11__OJS-team_\\.png_res\\.jpg" },
-					{ "image": "@^http://\\w*\\.adultmanga\\.\\w*/auto/03/32/49/Gantz_ch361_25__OJS-team_\\.png_res\\.jpg" }
+		{"image": "https://h30.mints.rocks/auto/03/32/49/Gantz_ch361_01__OJS-team_.png?t=1613519222&u=0&h=d4n5zwcpSgoGQmpUj5RqYQ"},
+        {"image": "https://h25.mints.rocks/auto/03/32/49/Gantz_ch361_02-03__OJS-team_.png_res.jpg?t=1613519222&u=0&h=E8RiEH9Mn7tWcw7YStVa_w"},
+        {"image": "https://h23.mints.rocks/auto/03/32/49/Gantz_ch361_04__OJS-team_.png?t=1613519222&u=0&h=Bq91I0FvZEqGtMzioo-SPQ"}
 				],
 				"pages_count": "22"
 			}
