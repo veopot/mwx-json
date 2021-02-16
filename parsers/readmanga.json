@@ -1,9 +1,9 @@
 {
     "id": 30006,
-    "version": 40,
+    "version": 41,
 	
 	"old_ids": [1280],
-    "old_sites": ["readmanga.me"],
+    "old_sites": ["readmanga.me", "readmanga.ru"],
 	
 	"title": "ReadManga",
     "host": "https://readmanga.live/",
