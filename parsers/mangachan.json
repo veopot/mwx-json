@@ -1,9 +1,9 @@
 {
 	"id": 30005,
-	"version": 30,
+	"version": 31,
 	
 	"old_ids": [28673],
-    "old_sites": ["mangachan.ru"],
+    "old_sites": ["manga-chan.me"],
 	
 	"title": "Манга-тян!",
 	"host": "https://manga-chan.me/",
@@ -94,8 +94,8 @@
 			"title": { "skip" : "href='", "token1": ">", "token2": "</",
 				"replace" : [
                 { "match" : "Глава &nbsp;&nbsp;v","text":"Том " },
-				{ "match" : "&nbsp;&nbsp;","text":" " },
-				{ "match" : "-","text":"Глава "}
+				{ "match" : "&nbsp;&nbsp;","text":" " }
+				
 				]
 			}
 		}   
