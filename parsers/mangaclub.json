@@ -1,6 +1,6 @@
 {
 	"id": 29000,
-	"version": 13,
+	"version": 14,
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
@@ -11,6 +11,7 @@
 	"skip_catalog_test": false,
 	"icon_link": "https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
 	"self_link": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
+	"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaclub.json",
 	"catalog_link": "http://catalogs.mangawatcherx.com/zip/mangaclub.zip",
     "file_type": "sqlite",
 	"author": {"name":"CrazyXacker","email":"crazyxacker@gmail.com"},
