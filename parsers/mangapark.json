@@ -1,6 +1,6 @@
 {
 	"id": 30410,
-	"version": 21,
+	"version": 22,
 	"old_ids": [532],
 
 	
@@ -99,8 +99,11 @@
 		},
 	    "cover":       { "after": "cover\"", "token1": "src=\"", "token2": "\"" },
 		"rating":      { "after": ">Rating<", "token1":"of", "token2": "total" },
-		"add_genre":   { "after": "href=\"/genre/", "token1": ">", "token2": "</" },
+		"add_genre":   { "after": "href=\"/genre/", "token1": ">", "token2": "</" , "replace": { "match": "<.*?>", "text": "" }},
 		"add_chapter": { 
+		    "start": ">Version Duck<",
+ 			"end" : "<div id=",
+		
 			"next":  "py-1 item", 
 			"link":  { "token1": "href=\"", "token2": "\"" }, 
 			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
