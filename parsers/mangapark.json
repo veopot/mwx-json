@@ -1,0 +1,186 @@
+{
+	"id": 30410,
+	"version": 20,
+	"old_ids": [532],
+
+	
+	"title": "MangaPark",
+	"host": "https://mangapark.net/",
+	"public_link": "https://mangapark.net/latest",
+	"folder": "mangapark",
+	"name" : [ "mpark", "park" ],
+	"language": "en",
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangapark.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangapark.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangapark.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangapark.zip",
+    "file_type": "sqlite",
+
+	"engine_settings": {
+		"skip_chapter_parsing_on_update": true
+	},
+	
+	
+	"manga_search_complete": {
+	"headers": {
+			"cookie": "set=theme=1&h=1&img_load=1&img_zoom=1&img_tool=1&twin_m=0&twin_c=0&manga_a_warn=1&history=1&timezone=14"
+		},
+		
+		"search_link": "https://mangapark.net/search?q=$query$&page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"start": "class=\"item first hot\">",
+			"end": "class=\"paging-bar\">",
+			"next": "class=\"item",
+
+			"link": {
+				"after": "<a",
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {
+					"prefix": "https://mangapark.net"
+				}
+			},
+			"title": {
+				"after": "href=\"",
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"uniq": {
+				"after": "href=\"",
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"cover": {
+				"before": "href=\"",
+				"token1": "src=\"",
+				"token2": "\""
+		    }
+		}
+	},
+	
+	"manga_list_complete": {
+	"headers": {
+			"cookie": "set=theme=1&h=1&img_load=1&img_zoom=1&img_tool=1&twin_m=0&twin_c=0&manga_a_warn=1&history=1&timezone=14"
+		},
+		"iterator": {
+			"base_url" : "https://bato.to/browse?sort=views_a.za&page=",
+			"append_nums": { "from": 1, "to": 1370 }
+		},
+		"add_manga": { 
+			"next": "class=\"item-title\"",
+			"link":  { "before": "</a>", "token1": "/",  "token2": "\">",
+			"replace": { "prefix": "https://mangapark.net/manga/" } 
+			}, 
+			"uniq":  { "before": "</a>", "token1": "/",  "token2": "\">"}, 
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" }
+		}
+	},
+
+	"manga_complete": {
+	"headers": {
+			"cookie": "set=theme=1&h=1&img_load=1&img_zoom=1&img_tool=1&twin_m=0&twin_c=0&manga_a_warn=1&history=1&timezone=14"
+		},
+		
+	    "title":       { "skip": "og:title", "token1": "content=\"", "token2": "\"", "replace": { "match": " Manga$", "text": "" } },
+	    "uniq":        { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
+		"author":      { "after": ">Author(", "token1":"<td>", "token2": "</td>" },
+		"summary":     { "after" : "class=\"summary\"", "token1": ">", "token2": "</"},
+		
+		"status":      {
+		"complete":  { "start": ">Status<", "end" : "</tr>", "value" : "Completed" },
+		"ongoing": { "start": ">Status<", "end" : "</tr>", "value" : "Ongoing" },
+		"single": { "start": "<th>Genre", "end" : "</tr>", "value" : "One shot" } 
+		},
+		"is_mature": {
+			"start": "<th>Genre", "end" : "</tr>",
+			"values": ["Hentai", "Adult","Seinen", "Mature,"]
+		},
+	    "cover":       { "after": "cover\"", "token1": "src=\"", "token2": "\"" },
+		"rating":      { "after": ">Rating<", "token1":"of", "token2": "total" },
+		"add_genre":   { "after": "href=\"/genre/", "token1": ">", "token2": "</" },
+		"add_chapter": { 
+			"next":  "py-1 item", 
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
+			"uniq" : { "after": "href=\"", "token1": "\">", "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+	"headers": {
+			"cookie": "set=theme=1&h=1&img_load=1&img_zoom=1&img_tool=1&twin_m=0&twin_c=0&manga_a_warn=1&history=1&timezone=14"
+		},
+		"add_pages": { 
+			"start": ">Pages", 
+			"token1": "<a href=\"", 
+			"token2": "\"", 
+			"end": "</div>",
+			"replace" : { "prefix" : "https://mangapark.net" }
+		}
+	},
+	"page_complete": {
+	"headers": {
+			"cookie": "set=theme=1&h=1&img_load=1&img_zoom=1&img_tool=1&twin_m=0&twin_c=0&manga_a_warn=1&history=1&timezone=14"
+		},
+		
+		"image": { "after": "_load_pages", "token1": "\"u\":\"", "token2": "\"", "replace": { "match": "\\\\", "text": "" } }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ 
+					"uniq": "canvas-2-nijiiro-no-sketch",
+                    "link": "https://mangapark.net/manga/canvas-2-nijiiro-no-sketch",
+                    "title": "Canvas 2 - Nijiiro no Sketch"
+					}
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"title" : "Prince of Tennis", 
+			"link" : "https://mangapark.net/manga/prince-of-tennis",
+			"assert" : {
+				"author" : "Konomi Takeshi",
+				"rating": ">=1194",
+				"cover" : "@https://.*jpg",
+				"summary" : "@^(Ryoma Echizen just joined)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">381",
+				"chapters" : [
+					{ 
+						"title" : "ch.1", 
+						"link" : "https://mangapark.net/manga/prince-of-tennis/i343727/c1/1", 
+						"folder" : "ch.1/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"title" : "ch.1 : Echizen Ryoma", 
+			"link" : "https://mangapark.net/manga/prince-of-tennis/i1335536/v41/c367/1", 
+			"assert" : {
+				"pages" : [
+					{ "link" : "https://mangapark.net/manga/prince-of-tennis/i1335536/1" },
+					{ "link" : "https://mangapark.net/manga/prince-of-tennis/i1335536/2" }
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "https://mangapark.net/manga/prince-of-tennis/i1335536/v41/c367/9",
+			"assert" : {
+				"image" : "@https://.*jpeg"
+			}
+		}
+	]
+}
