@@ -1,6 +1,6 @@
 {
 	"id": 29000,
-	"version": 15,
+	"version": 16,
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
@@ -19,12 +19,16 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://mangaclub.ru/page/",
-			"append_nums": { "from": 1, "to": 455, "step": 1, "last_page": {"before": "page/2/\"><i class=\"glyphicon", "token1": "\">", "token2": "<"} }
+			"append_nums": { "from": 1, "to": 625, "step": 1, "last_page": {"before": "page/2/\"><i class=\"glyphicon", "token1": "\">", "token2": "<"} }
 		},
 		"add_manga": {
-			"next": "short-story",
-			"link":  { "token1": "</span><a href=\"", "token2": "\"" },
-			"title": { "after": "</span><a href=\"", "token1": "\"> ", "token2": "</" },
+		 "start": "class=\"content\">",
+			"end": "<div class=\"pagination\">",
+		
+			"next": "class=\"title\">",
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
+			"uniq":  { "after": "href=\"", "token1": "\">", "token2": "</" },
 			"skipmanga": { "skipmatch": ["Псс, сайт работает!"] }
 		},
 		"rating_auto_inc": {
