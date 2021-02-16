@@ -1,0 +1,120 @@
+{
+	"id": 29000,
+	"version": 13,
+	"title": "MangaClub",
+	"host": "https://mangaclub.ru/",
+	"public_link": "https://mangaclub.ru/",
+	"folder": "mangaclub",
+	"name" : "mangclub",
+	"language": "ru",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
+	"self_link": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
+	"catalog_link": "http://catalogs.mangawatcherx.com/zip/mangaclub.zip",
+    "file_type": "sqlite",
+	"author": {"name":"CrazyXacker","email":"crazyxacker@gmail.com"},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://mangaclub.ru/page/",
+			"append_nums": { "from": 1, "to": 455, "step": 1, "last_page": {"before": "page/2/\"><i class=\"glyphicon", "token1": "\">", "token2": "<"} }
+		},
+		"add_manga": {
+			"next": "short-story",
+			"link":  { "token1": "</span><a href=\"", "token2": "\"" },
+			"title": { "after": "</span><a href=\"", "token1": "\"> ", "token2": "</" },
+			"skipmanga": { "skipmatch": ["Псс, сайт работает!"] }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":        { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
+		"uniq":         { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
+		"author":       { "skip": "Автор(ы)", "token1": "\">", "token2": "<" },
+		"summary":      { "skip": "description_manga", "token1": ">", "token2": "</" },
+		"status":       { 
+			"complete": "Завершен<",
+			"ongoing": "Продолжается<"
+		},
+		"content_type": { 
+			"manga": "link-category\">Манга<",
+			"manhwa": "link-category\">Манхва<",
+			"manhua": "link-category\">Маньхуа<",
+			"webcomics": "link-category\">Веб-манхва<",
+			"light_novels": "ranobe/\">Ранобэ/Новелла<"
+		},
+		"read_dir":     { "right_to_left": "link-category\">Манга<", "left_to_right": "link-category\">Манхва<" },
+		"cover":        { "after": "og:image", "token1": "content=\"", "token2": "\"" },
+		"is_mature":    "title-adult-rank",
+		"add_genres":   { "after": "\"news_keywords\"", "token1": "content=\"", "token2": "\"", "split": "," },
+		"add_tag":      { "after": "link-category", "token1": ">", "token2": "</" },
+		"add_chapter":  {
+			"start": "\"chapter-item\"",
+			"next":  "<a href=\"htt",
+			"link":  { "token1": "=\"", "token2": "\"" },
+			"title": { "token1": "> ", "token2": "<" },
+			"uniq": { "token1": "> ", "token2": "<" },
+			"end": "\"content-footer\">"
+		}
+	},
+	"chapter_complete": {
+		"remove_first_del": true,
+		"add_images": {
+			"start": "<a href=\"#",
+			"token1": "data-i=\"",
+			"token2": "\"",
+			"end": "div>"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "5",
+			"assert" : {
+				"mangas" : [
+					{ "title": "@^(\\w)", "link": "@https:" }
+				],
+				"mangas_count" : ">=45"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangaclub.ru/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya.html",
+			"title" : "Isekai Maou to Shoukan Shoujo Dorei Majutsu / Повелитель тьмы. Другая история: магия порабощения",
+			"assert" : {
+				"author" : "@Murasaki Yukiya",
+				"cover" : "https://mangaclub.ru/uploads/posts/2016-10/medium/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
+				"summary" : "@^(В MMORPG)",
+				"genres" : "@adult",
+				"status" : "ongoing",
+				"genres_count" : ">=8",
+				"chapters_count" : ">=32",
+				"chapters" : [
+					{ "title" : "Том 1. Глава 3",
+						"link" : "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c3.html#01",
+						"folder" : "Том 1. Глава 3/"
+					},
+					{ "title" : "Том 1. Глава 2", "link" : "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c2.html#01" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v-c3.html#01",
+			"title" : "Глава 3",
+			"assert" : {
+				"pages" : [
+					{ "image" : "http://img.mangaclub.ru/896//v1_c1_p01-u1-896-1477850157017.jpg" },
+					{ "image" : "http://img.mangaclub.ru/896//v1_c1_p02-u1-896-14778501572405.jpg" }
+				],
+				"pages_count": "40"
+			}
+		}
+	]
+}
