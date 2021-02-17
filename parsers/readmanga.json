@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 41,
+    "version": 42,
 	
 	"old_ids": [1280],
     "old_sites": ["readmanga.me", "readmanga.ru"],
@@ -57,7 +57,14 @@
 	
     "manga_complete": [
         { 
+		
             "condition": ">Сценарист:<",
+			"headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://readmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	
             "title": { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
             "additional_title": { "after": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
             "uniq":  { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
@@ -84,6 +91,12 @@
         },
         { 
             "condition": "",
+			"headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://readmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	
             "title": { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
             "additional_title": { "after": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
             "uniq":  { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
@@ -110,6 +123,12 @@
         }
     ],
    "chapter_complete": {
+   "headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://readmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	
     	"no_404": true,
         "images": true,
         "add_servers": { 

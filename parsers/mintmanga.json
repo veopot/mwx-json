@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 51, 
+	"version": 52, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me"],
 	
@@ -60,6 +60,11 @@
 	},
 
 	"manga_complete": {
+	"headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://mintmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
 	    "title": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 	    "additional_title": { "skip": "itemprop=\"name\"", "token1": "=\"", "token2": "\"" },
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
@@ -90,6 +95,11 @@
 	},
 
 	"chapter_complete": {
+	"headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://mintmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
 		"no_404": true,
 		"images": true,
 		"add_servers": { 
