@@ -1,0 +1,185 @@
+{
+	"id":30412 ,
+    "old_ids": [65583],
+    "old_sites": ["yaoichan.ru"],
+    
+	"version": 20, 
+	"title": "Yaoi-chan!",
+	"host": "https://yaoi-chan.me/",
+	"public_link": "https://yaoi-chan.me/catalog",
+	"encoding" : "utf-8",
+	"folder": "yaoichan",
+	"name" : ["ychan", "yaoichan"],
+	"language": "ru",
+	"is_mature": true,
+	"is_paid": true,
+	"skip_catalog_test": false,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoichan.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/yaoichan.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/yaoichan.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/yaoichan.zip",
+    "file_type": "sqlite",
+	
+
+	"engine_settings": {
+		"is_auth_required": true
+	},
+
+	"authorization_complete": {
+		"logo":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoichan.png",
+		"registration": "https://yaoi-chan.me/index.php?do=register",
+		"expires": 31449600000,
+	
+		"values": {
+			"login": "submit",
+			"login_name": { "label": "Логин", "hint": "Введите свой логин с сайта Яой-тян!", "kind": "text" },
+			"login_password": { "label": "Пароль", "hint": "Введите свой пароль с сайта Яой-тян!", "kind": "password" }
+		},
+	
+		"request": {
+			"method": "post",
+			"url": "https://yaoi-chan.me/index.php"
+		},
+	
+		"response_check": {
+			"cookies": { "dle_user_id": "@\\d+" },
+			"headers": { "Set-Cookie": "@dle_user_id=\\d+" }
+		}
+	},
+
+
+	"manga_search_complete": {		
+ "search_link":"https://yaoi-chan.me/index.php?do=search&subaction=search&search_start=$page$&story=$query$&need_sort_date=false",
+		"query_type": "GET",
+		"add_manga": {
+		   
+            "next": "<div class=\"content_row\"",
+			
+			"link":  { "token1": "<h2><a href=\"", "token2": "\"" }, 
+			
+			"title": { "token1": "title=\"", "token2": "\"" },
+			
+		    "summary": { "skip": "<div class=\"tags\"", "token1": ">", "token2": "</div>",
+		    "replace":{"match":"<.*?>","text":""} },
+			
+			"cover":{"token1":"src=\"", "token2":"\"" },
+		 
+			"uniq":  { "token1": "title=\"", "token2": "\"" }
+		 }
+		},	
+
+
+
+
+
+	"manga_list_complete": {
+		"iterator": {    
+			"base_url": "https://yaoi-chan.me/mostfavorites?offset=",
+			"append_nums": { "from": 0, "to": 14240, "step": 20,
+			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
+		},
+		"add_manga": { 
+			"next": "<div class=\"content_row\"",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": "title=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":      { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
+		"uniq":      { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
+		"author":      { "skip": ">Автор</", "token1":">", "token2": "</a>" },
+		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
+		"status":      { 
+		"single": "Сингл",
+		"complete": "перевод завершен",
+		"ongoing": "перевод продолжается",
+		"empty": "Нет глав" },
+		
+		"read_dir":    { "right_to_left": "href=\"/type/Манга\"", "left_to_right": "href=\"/type/Манхва\"" },
+		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
+		"add_genre":   { "after": "href=\"https://yaoi-chan.me/tags/", "token1": "\">", "token2": "</" },
+		"is_mature":    "яой",
+		"add_chapter": { 
+			"next":  "<div class='manga'><a href='",
+			"link":  { "token1": "<a href='", "token2": "'"   },
+			"title": { "skip" : "href='", "token1": "&nbsp;", "token2": "</",
+				"replace" : [
+                { "match" : "&nbsp;v","text":"Том " },
+				{ "match" : "&nbsp;&nbsp;","text":" " }
+				
+				]
+			}
+		}
+	},
+	"chapter_complete": {
+		"add_images": { 
+			"start": "\"fullimg\":[", 
+			"token1": "[\"", 
+			"token2": "]", 
+			"split" : "\",\"",
+			"end": "]",
+			"replace": { "match": "\",", "text": "" }
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			 "assert" : {
+				"mangas" : [
+					{ 
+        "uniq": "8158-starfighter.html",
+        "link": "https://yaoi-chan.me/manga/8158-starfighter.html",
+        "title": "Starfighter"
+		}
+				],
+				"mangas_count" : ">=100"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://yaoi-chan.me/manga/35716-one-day.html",
+			"title" : "One Day (Однажды)",
+			"assert" : {
+				"author" : "@﻿Oldxian",
+				"cover" : "https://imgcover.manga-chan.me/showfull_retina/uploads/posts/2018-09/thumbs/1538253927_one-day.jpg",
+				"summary" : "@^(Сюжет новой популярной манги)",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=300",
+				"chapters" : [
+		{
+        "folder": "674579-one-day_v1_ch312.html/",
+        "link": "https://yaoi-chan.me/online/674579-one-day_v1_ch312.html",
+        "title": "Том 1 - 312 Спецвыпуск ко Дню святого Валентина. С праздником."
+        },
+        {
+        "link": "https://yaoi-chan.me/online/674578-one-day_v1_ch311.html",
+        "title": "Том 1 - 311 История, произошедшая в городишке Суяб."
+        }
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://yaoi-chan.me/online/674578-one-day_v1_ch311.html", 
+			"assert" : {
+				"pages" : [
+					
+        {"image": "https://img2.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_02.png"},
+        {"image": "https://img.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_03.png"},
+        {"image": "https://img2.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_04.jpg"}
+				],
+				"pages_count": "4"
+			}
+		}
+	]
+}
