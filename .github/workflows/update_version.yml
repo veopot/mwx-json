@@ -27,13 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo $GITHUB_WORKSPACE
+        run: echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA
       # echo
-      - name: Run a one-line script
-        run: echo $GITHUB_REF
-      # echo
-      - name: Run a one-line script
-        run: echo $GITHUB_SHA
-      # echo
-      - name: Run a one-line script
-        run: echo "${{ github.event.commits[0].modified[0] }}"
+      - name: Hello
+        run: echo "${{ github.event.commits[modified] }}"
