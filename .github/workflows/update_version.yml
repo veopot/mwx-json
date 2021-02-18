@@ -34,3 +34,6 @@ jobs:
       # echo
       - name: Run a one-line script
         run: echo $GITHUB_SHA
+      # echo
+      - name: Run a one-line script
+        run: echo "${{ github.event.push.ref }}"        
