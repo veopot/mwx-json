@@ -27,7 +27,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cat $GITHUB_WORKSPACE
+        run: echo $GITHUB_WORKSPACE
       # echo
       - name: Run a one-line script
         run: echo $GITHUB_REF
+      # echo
+      - name: Run a one-line script
+        run: echo $GITHUB_SHA
