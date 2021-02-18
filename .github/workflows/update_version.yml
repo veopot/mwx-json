@@ -36,7 +36,4 @@ jobs:
         run: echo $GITHUB_SHA
       # echo
       - name: Run a one-line script
-        run: echo "${{ github.event.push.ref }}"   
-      # echo
-      - name: Run a one-line script
-        run: echo "${{ github.event.commits[0].message }}"
+        run: echo "${{ github.event.commits[0].modified }}"
