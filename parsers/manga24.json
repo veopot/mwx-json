@@ -1,10 +1,9 @@
 {
 	"id": 30004,
-	"version": 30,
+	"version": 31,
 	
 	"old_ids": [256],
    
-	
 	"title": "Manga24",
 	"host": "https://manga24.ru",
 	"public_link": "https://manga24.ru",
@@ -56,9 +55,15 @@
 	},
 
 	"manga_complete": {
-	    "title":       { "skip": "manga-data__subtitle", "token1": ">", "token2": "</" },
-	    "additional_title": { "skip": "manga-data__title", "token1": ">", "token2": "</" },
-        "uniq":        { "skip": "manga-data__title", "token1": ">", "token2": "</" },
+	    "title":       { "after": "class=\"manga-bg-info-titles\"",
+		"token1": ">", "token2": "</h2",
+			"replace": [
+{"match": "<h1 class=\"manga-data__title\">","text": ""},
+{"match": "<h2 class=\"manga-data__subtitle\">","text": ""},
+{"match": "</h1>", "text": " / " }
+			] },
+		
+		"uniq":        { "skip": "manga-data__title", "token1": ">", "token2": "</" },
         "cover":       { "skip": "manga-bg-info", "token1": "src=\"", "token2": "\"" },
 		"author":      { "skip": ">Автор:", "token1": ">", "token2": "<" },
 		"summary":     { "skip" : "manga-data__description", "token1": "<span>", "token2": "</span>"},
@@ -115,7 +120,7 @@
 		{
 			"proc" : "manga_complete",
 			"link" : "https://manga24.ru/fairytail",
-			"title" : "Fairy Tail",
+			"title" : "Хвост Феи / Fairy Tail",
 			"assert" : {
 				 "author" : "MASHIMA Hiro",
 				"cover" : "https://manga24.ru/Content/manga_cover/fairytail/fairytail-01.jpg",
