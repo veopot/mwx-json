@@ -38,5 +38,5 @@ jobs:
           cat test.json
       - name: Show changes
         run: |
-          git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
+          git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
 
