@@ -1,0 +1,195 @@
+{
+	"id": 30414,
+	"old_ids": [19001],
+	
+	"version": 41,
+	"title": "MangaHub",
+	"host": "https://mangahub.ru",
+	"public_link": "https://mangahub.ru/explore",
+	"hash_tag": "mangahub",
+	"folder": "mangahub",
+	"name" : "mangahub",
+	"language": "ru",
+	"content_type": "manga",
+	"is_paid": true,
+	"chapters_order": false,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangahub.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangahub.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangahub.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangahub.zip",
+    "file_type": "sqlite",
+
+	"manga_search_complete": {		
+		"search_link": "https://mangahub.ru/search/manga?query=$query$&page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "class=\"comic-grid-name",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
+            "uniq":  { "skip": "href=\"", "token1": "\">", "token2": "</" },
+			"cover": { "before": "href=\"", "token1": "image=\"", "token2": "\"" }
+		}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			
+			"base_url": "https://mangahub.ru/explore?filter%5Bsort%5D=rating&filter%5Btypes%5D%5Bexcludes%5D=&filter%5Bgenres%5D%5Bexcludes%5D=&filter%5Bstatus%5D%5Bexcludes%5D=&filter%5Bcountry%5D%5Bexcludes%5D=&page=",
+			
+			"append_nums": { "from": 1, "to": 380, "step": 1 }
+		},
+		"add_manga": {
+			"next": "class=\"comic-grid-name",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
+            "uniq":  { "skip": "href=\"", "token1": "\">", "token2": "</" },
+			"cover": { "before": "href=\"", "token1": "image=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title": { "skip": "class=\"page-head\">", 
+		"token1": "<h1 class=\"text-white\">", "token2": "</h1>",
+		"replace":{ "match": "<.*?>", "text": "" } },
+		
+		"uniq": { "skip": "class=\"page-head\">", 
+		"token1": "<h1 class=\"text-white\">", "token2": "</h1>",
+		"replace":{ "match": "<.*?>", "text": "" } },
+		
+		"cover": { "after": "class=\"cover cover-detail\"", "token1": "src=\"", "token2": "\"" },
+		
+		"author":      { "skip": "Авторы:", "token1":"\">", "token2": "</" },
+		
+		"summary":     { "skip": "class=\"markdown-style\">", "token1": "<p>", "token2": "</div>",
+		"replace":{ "match": "<.*?>", "text": "" } },
+		
+		 
+		"status": { 
+			"single":   { 
+			    "start": "class=\"cover cover-detail\"",
+			    "end": "href=\"/pulls/",
+			    "value": "Сингл<" },
+			
+			"complete": { 
+			    "start": "class=\"cover cover-detail\"",
+			    "end": "href=\"/pulls/",
+			        "values": ["Выпуск завершен<", "Переведена<"] },
+			
+			"ongoing":  { 
+			    "start": "class=\"cover cover-detail\"",
+				"end": "href=\"/pulls/",
+			        "value": ">Обновлено</" },
+			
+			"empty":    { 
+			    "start": "class=\"cover cover-detail\"",
+				"end": "href=\"/pulls/",
+			        "value": "Без глав<" }
+		},
+		
+		
+		"add_genres":  { 
+		 "start": "просмотров",
+		 "end": "<div class=\"d-flex flex-column my-3\">", 
+
+		"after": "class=\"tag font-weight-medium\"", "token1": "\">", "token2": "<"},
+		 
+		"is_mature":   { 
+         "start": "просмотров",
+		 "end": "<div class=\"d-flex flex-column my-3\">", 
+		 "values": [">Эротика<", ">Юри<", ">Яой<"] },
+		
+		
+		"add_chapter": {
+			"start": ">Содержание<",
+			"end": "class=\"card-title\">Похожая манга<",
+			
+			"next":  "<a class=\"ml-2 text-truncate",
+		
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</",
+				"replace" : { "match" : "\\W+Том ", "text" : "Том " }
+			},
+			"uniq": { "skip" : "href=\"", "token1": ">", "token2": "</",
+				"replace" : [{ "match" : "\n", "text" : "" }, { "match" : " ", "text" : "" }]
+			}
+		}
+	},
+
+	"chapter_complete": {
+	    "headers": {
+			"Accept": "*/*",
+			"Referer": "https://mangahub.ru",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		"add_numeration": true,
+		"add_images": {
+			"start": "class=\"fast-view-wrapper\">",
+			"end": "<div class=\"reader",
+			"token1": "src&quot;:&quot;",
+			"token2": "&quot",
+			"replace" : [{ "prefix" : "https:" },{ "match" : "\\\\", "text" : "" }]
+		}
+		
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+					{
+                       "link": "https://mangahub.ru/cover_up",
+                       "title": "Перекрыть"
+                    },
+                    {
+                    "link": "https://mangahub.ru/incorrigible"
+                    }
+				],
+				"mangas_count" : ">=40"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangahub.ru/their_story",
+			"title" : "Их история",
+			"assert" : {
+				"author" : "@Тань Цзю",
+				"cover" : "https://static.mangahub.ru/uploads/media/manga_cover/thumbnail/big/0006/69/568363.jpeg",
+				"summary" : "@^(Забавная романтическая история о том)",
+				"genres" : "@comedy",
+				"status" : "unknown",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=100",
+				"chapters" : [
+					{  
+					"title": "Том 1. Глава 1 - Трудности знакомства",
+					"link": "https://mangahub.ru/their_story/read/sayonara_melody/vol1/1/1/",
+					"folder": "Том1.Глава1-Трудностизнакомства/"
+					},
+					{ 
+					"title": "Том 1. Глава 3 - Потом",
+ 					"link": "https://mangahub.ru/their_story/read/oldxian/vol1/3/1/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://mangahub.ru/their_story/read/sayonara_melody/vol1/1/1/",
+			"assert" : {
+				"pages" : [
+		{"image": "https://2hubst.life/uploads/media/scan/0004/16/20a3a7492cf954a77979710b7812e85bc3bdfaa7.jpeg"},
+        {"image": "https://1hubst.life/uploads/media/scan/0004/16/3d635ec44c5d867e7e5d5d998ded74ceb75aeb19.jpeg"},
+        {"image": "https://2hubst.life/uploads/media/scan/0004/16/4e73872d14cc0a7bc42fec147edb60a701aa5d6b.jpeg"}
+				]
+			}
+		}
+	]
+}
