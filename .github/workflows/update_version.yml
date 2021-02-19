@@ -31,7 +31,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Global
         run: |
-          echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.push.before }} ${{ github.event.push.after }}
+          echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
       #- name: List
       #  run: |
       #    cd $GITHUB_WORKSPACE
@@ -42,4 +42,4 @@ jobs:
           cat test.json
       - name: Show changes
         run: |
-          git log -1 --oneline --name-only
+          git diff-tree -r --no-commit-id --name-only ${{ github.event.before }} ${{ github.event.after
