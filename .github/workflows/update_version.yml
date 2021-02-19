@@ -38,4 +38,5 @@ jobs:
           cat test.json
       - name: Show changes
         run: |
-          git show --name-only --oneline $GITHUB_SHA | grep -E 'parsers/.+\.json'
+          git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
+
