@@ -33,9 +33,6 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/parsers
           cat test.json
-      - name: Sha
+      - name: Show changes
         run: |
-          git diff --name-only HEAD~1 $GITHUB_SHA
-      # Commits
-      - name: Hello
-        run: echo "${{ github.event.commits[0] }}"
+          git show --name-only --oneline $GITHUB_SHA | grep -E 'parsers/.+\.json'
