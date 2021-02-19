@@ -30,4 +30,4 @@ jobs:
         run: echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA
       # echo
       - name: Hello
-        run: echo "${{ github.event.commits[modified] }}"
+        run: echo "${{ github.event.commits.modified }}"
