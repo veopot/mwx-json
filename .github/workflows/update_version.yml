@@ -31,6 +31,10 @@ jobs:
       - name: Global
         run: |
           echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA
+      - name: List
+        run: |
+          cd $GITHUB_WORKSPACE
+          ls -R
       - name: Other
         run: |
           cd $GITHUB_WORKSPACE/parsers
