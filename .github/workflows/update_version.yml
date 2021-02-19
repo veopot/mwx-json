@@ -33,6 +33,9 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/parsers
           cat test.json
-      # echo
+      - name: Sha
+        run: |
+          git show $GITHUB_SHA
+      # Commits
       - name: Hello
-        run: echo "${{ github.event.commits.modified }}"
+        run: echo "${{ github.event.commits[0] }}"
