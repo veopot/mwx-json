@@ -32,14 +32,9 @@ jobs:
       - name: Global
         run: |
           echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
-      #- name: List
-      #  run: |
-      #    cd $GITHUB_WORKSPACE
-      #    ls -R
-      - name: Other
-        run: |
-          cd $GITHUB_WORKSPACE/parsers
-          cat test.json
-      - name: Show changes
-        run: |
-           git log -p -1 --no-merges ${{ github.event.after }}
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
