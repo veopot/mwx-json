@@ -42,6 +42,4 @@ jobs:
           cat test.json
       - name: Show changes
         run: |
-          git diff-tree --no-commit-id --name-only -r ${{ github.event.before }}
-          git diff-tree --no-commit-id --name-only -r ${{ github.event.after }}
-
+          git log -1 --oneline --name-only
