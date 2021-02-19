@@ -24,17 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.push.after }}
-
       # Runs a single command using the runners shell
       - name: Global
         run: |
-          echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA
-      - name: List
-        run: |
-          cd $GITHUB_WORKSPACE
-          ls -R
+          echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.push.before }} ${{ github.event.push.after }}
+      #- name: List
+      #  run: |
+      #    cd $GITHUB_WORKSPACE
+      #    ls -R
       - name: Other
         run: |
           cd $GITHUB_WORKSPACE/parsers
