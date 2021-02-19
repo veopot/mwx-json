@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          ref: $GITHUB_REF
+          ref: $GITHUB_SHA
 
       # Runs a single command using the runners shell
       - name: Global
