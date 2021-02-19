@@ -24,10 +24,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - name : GITHUB CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA
-      # echo
-      - name: Hello
-        run: echo "${{ github.event.commits[modified] }}"
+      - name: Global
+        run: |
+          echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
