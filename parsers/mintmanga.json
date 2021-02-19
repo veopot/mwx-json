@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 52, 
+	"version": 53, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me"],
 	
@@ -59,7 +59,42 @@
 		}
 	},
 
-	"manga_complete": {
+	"manga_complete": [
+	{ "condition": ">Сценарист:<",
+	"headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://mintmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	    "title": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+	    "additional_title": { "skip": "itemprop=\"name\"", "token1": "=\"", "token2": "\"" },
+        "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		"author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
+		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
+		"status":       { 
+			"complete": ["Перевод:</b>\n    заверше", "Переведена"],
+			"ongoing":  "продолжается",
+			"single":   "Сингл",
+			"licensed": "Главы удалены",
+			"unknown":  "нет ни одной главы"
+		},
+		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
+		"cover":        { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
+		"add_genre":    { "token1": "/genre/", "token2": "\"" },
+		"content_type": { "default": "manga" },
+		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
+        "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
+		"add_chapter":  { 
+			"start": 	"<table class=\"table table-hover\"",
+			"end": 		"</table>",
+			"next":  	"<tr",
+			"link":  	{ "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://mintmanga.live"}},
+			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
+			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
+			"!postfix":	"?mtr=1&mature=1"
+		}
+	},
+	{ "condition": "",
 	"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://mintmanga.live/",
@@ -92,7 +127,8 @@
 			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
 			"!postfix":	"?mtr=1&mature=1"
 		}
-	},
+	}
+	],
 
 	"chapter_complete": {
 	"headers": {

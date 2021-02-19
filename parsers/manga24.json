@@ -1,6 +1,7 @@
 {
 	"id": 30004,
-	"version": 31,
+	"version": 32,
+	
 	"old_ids": [256],
    
 	"title": "Manga24",
@@ -48,7 +49,7 @@
 			"link":  { "token1": "href=\"", "token2": "\"" }, 
 			"title": { "skip": "catalog__manga-name", "token1": ">", "token2": "</" },
 			"additional_title": { "skip": "catalog__manga-desc", "token1": ">", "token2": "</" },
-			"cover": { "token1": "src=\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru" } },
+			"cover": { "token1": "src=\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru" } }
 			
 		}
 	},
@@ -89,7 +90,13 @@
 			"end":   "</table>",
 			"next":  "<tr", 
 			"link":  { "token1": "href=\"", "token2": "\""  }, 
-			"title": { "token1": "<span class=\"chapter-num\">", "token2": "<" }
+			"uniq": { "token1": "<span class=\"chapter-num\">", "token2": "<" },
+			"title": { "token1": "<span class=\"chapter-num\">", "token2": "</a>",
+			"replace": [
+                {"match": "</span>","text": ""},
+                {"match": "<span class=\"chapter-name\">","text": "  "}
+			] 
+			}
 		}
 	},
 	"chapter_complete": {
