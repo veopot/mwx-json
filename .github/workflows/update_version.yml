@@ -36,5 +36,8 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
+            var_id=$(cat ${changed_file} | grep -E '\"id\"\:\s*' | sed -r 's/\s*"id"\s*:\s*([0-9]+),?/\1/g')
+            var_version=$(cat ${changed_file} | grep -E '\"version\"\:\s*' | sed -r 's/\s*"version"\s*:\s*([0-9]+),?/\1/g')
+            var_d=$(date +%u)
+            curl -s "https://mw.lomikxp.ru/api/v1/repo/versions?set="$var_id"&v="$var_version"&k=${{ secrets.SECRET_KEY }}"$var_d
           done
