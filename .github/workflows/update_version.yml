@@ -1,4 +1,4 @@
-name: Update_parsers_version
+name: Update parsers version
 on:
   push:
     branches: [ main ]
@@ -17,8 +17,8 @@ jobs:
       #- name: Global
       #  run: |
       #    echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
-      - name: Upload version to server
       - id: files
+      - name: Upload version to server
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
