@@ -21,7 +21,7 @@ jobs:
         name: Upload version to server
         uses: jitterbit/get-changed-files@v1
       - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
             var_id=$(cat $GITHUB_WORKSPACE/$changed_file | grep -E '\"id\"\:\s*' | sed -r 's/\s*"id"\s*:\s*([0-9]+)\s*,?\s*/\1/g')
             var_version=$(cat $GITHUB_WORKSPACE/$changed_file | grep -E '\"version\"\:\s*' | sed -r 's/\s*"version"\s*:\s*([0-9]+)\s*,?\s*/\1/g')
             var_d=$(date +%u)
