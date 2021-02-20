@@ -1,37 +1,23 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. 
+name: Update_parsers_version
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
     paths:
     - 'parsers/**.json'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name : GITHUB CONTEXT
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      # Runs a single command using the runners shell
-      - name: Global
-        run: |
-          echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
+      #- name : GITHUB CONTEXT
+      #  env:
+      #    GITHUB_CONTEXT: ${{ toJson(github) }}
+      #  run: echo "$GITHUB_CONTEXT"
+      #- name: Global
+      #  run: |
+      #    echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
+      - name: Upload version to server
       - id: files
         uses: jitterbit/get-changed-files@v1
       - run: |
@@ -39,5 +25,5 @@ jobs:
             var_id=$(cat $GITHUB_WORKSPACE/$changed_file | grep -E '\"id\"\:\s*' | sed -r 's/\s*"id"\s*:\s*([0-9]+)\s*,?\s*/\1/g')
             var_version=$(cat $GITHUB_WORKSPACE/$changed_file | grep -E '\"version\"\:\s*' | sed -r 's/\s*"version"\s*:\s*([0-9]+)\s*,?\s*/\1/g')
             var_d=$(date +%u)
-            curl -s -v "https://mw.lomikxp.ru/api/v1/repo/versions?set=$var_id&v=$var_version&k=${{ secrets.VERS_KEY }}$var_d"
+            curl -s "https://mw.lomikxp.ru/api/v1/repo/versions?set=$var_id&v=$var_version&k=${{ secrets.VERS_KEY }}$var_d"
           done
