@@ -18,7 +18,7 @@ jobs:
       #  run: |
       #    echo $GITHUB_WORKSPACE $GITHUB_REF $GITHUB_SHA ${{ github.event.before }} ${{ github.event.after }}
       - id: files
-      - name: Upload version to server
+        name: Upload version to server
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
