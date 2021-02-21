@@ -1,8 +1,8 @@
 {
 	"id": 30414,
-	"old_ids": [19001],
+	"old_ids": [19001,40134],
 	
-	"version": 41,
+	"version": 42,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
