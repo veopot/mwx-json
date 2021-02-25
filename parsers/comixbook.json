@@ -4,7 +4,7 @@
 	"old_ids": [47000],
 	
 
-	"version": 11, 
+	"version": 12, 
 	"title": "ComixBook",
 	"host": "https://comixbook.ru/",
 	"public_link": "https://comixbook.ru/comix/",
@@ -39,7 +39,8 @@
 		}
 	},
 
-	"manga_complete": {
+	"manga_complete": [
+	{"condition" : "Последняя",
 			"title":     { "after": "<h1 itemprop=\"name\"", "token1":">", "token2": "</"},
 			"uniq":      { "after": "<h1 itemprop=\"name\"", "token1":">", "token2": "</"},
 			"author":      	{ "skip": "active\"><a href=\"comix/", "token1":"\" >", "token2": "</a></li>" },
@@ -54,21 +55,17 @@
        	
 		"is_mature":   { "values": ["18+", ">Юри<", ">Яой<"] },
 		
-		"chapters_from_page": {
-            "after": "property=\"og:url\"",
-            "token1": "content=\"",
+		
+		"chapters_from_pages": { 
+		"start": "<ul class=\"pagination\">",
+            "token1": "href=\"comix",
             "token2": "\"",
-			
-            "next": {
-			 "after": "class=\"page-link",
-			"token1": "href=\"comix",
-			"token2": "\"",
-			"replace": {
-				"prefix": "https://comixbook.ru/comix"
-			}
-		}
-        },
-
+            "end": "Последняя</a>",
+            "replace": {
+                "prefix": "https://comixbook.ru/comix"
+                }
+		},
+		
 		
 			
 			"add_chapter": { 
@@ -83,6 +80,39 @@
 			    "title": { "skip": "href=\"", "token1": "name\">", "token2": "</" }
 			   }
 		},
+		{"condition" : "",
+			"title":     { "after": "<h1 itemprop=\"name\"", "token1":">", "token2": "</"},
+			"uniq":      { "after": "<h1 itemprop=\"name\"", "token1":">", "token2": "</"},
+			"author":      	{ "skip": "active\"><a href=\"comix/", "token1":"\" >", "token2": "</a></li>" },
+			"summary":     	{ "skip": "<div class=\"title\">", "token1": "div>", "token2": "</div>"},
+			"status":      	{ "unknown": "Комиксы" },
+			"cover":       { 
+				"after": "<img itemprop=\"image\" class=\"img-responsive\"", 
+				"token1": "src=\"", 
+				"token2": "\""
+			},
+		"add_genre":      	{ "skip": "active\"><a href=\"comix/", "token1":"\" >", "token2": "</a></li>" },
+       	
+		"is_mature":   { "values": ["18+", ">Юри<", ">Яой<"] },
+		
+		
+		"add_chapter": { 
+			"start": "<div class=\"rows\">",
+			"end":   "<div class=\"clearfix\">",
+			 
+				"next":  "<div class=\"comix-category-item img-rounded\"", 
+				
+				"link":  { "after": "<a", "token1": "href=\"", "token2": "\"",
+				        "replace": { "prefix": "https://comixbook.ru/"} }, 
+				
+			    "title": { "skip": "href=\"", "token1": "name\">", "token2": "</" }
+			   }
+		}
+		],
+
+
+
+
 
 	"chapter_complete": {
 		"add_images": { 
