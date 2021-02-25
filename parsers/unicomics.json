@@ -1,0 +1,146 @@
+{   
+    "id": 30431,
+	"version": 10,
+	"old_ids": [15619],
+   
+	"title": "UniComics",
+	"host": "http://unicomics.ru/",
+	"public_link": "http://unicomics.ru/comics/online",
+	"folder": "unicomics",
+	"name" : "unicomics",
+	"language": "ru",
+	"is_paid": true,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/unicomics.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/unicomics.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/unicomics.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/unicomics.zip",
+    "file_type": "sqlite",
+
+	
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "http://unicomics.ru/comics/online/page/",
+			"append_nums": { "from": 1, "to": 101 }
+		},
+		"add_manga": { 
+			"next": "class=\"left_comics\">",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			
+			"uniq":  { "token1": "href=\"/comics/series/", "token2": "\"" }, 
+			
+			"title": { "after": "class=\"list_title\"",
+			"token1": "\">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "10000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "skip": "<head>", 
+		"token1": "<title>", "token2": "</title>",
+				"replace" : [
+                { "match" : "Серии комиксов","text":""},
+				{ "match" : "UniComics","text":""},
+				{ "match" : "-","text":""},
+				{ "match" : "|","text":""},
+				{ "match" : "&nbsp;","text":""}
+				
+				] },
+		
+		"uniq": { "skip": "<div class=\"info\">", "token1": "<h2>", "token2": "</" },
+		"summary": { "skip": ">Описание", "token1": "</b>", "token2": "</div>", 
+				    "replace": { "match" : "<.*?>", "text" : "" } },
+		"author": { "skip": ">Издательство:<", "token1": "\">", "token2": "</" },
+		
+		"status":      { "default": "ongoing" },
+		"cover":       { 
+			"after": "image center", 
+			"token1": "<img src=\"", 
+			"token2": "\""
+		},
+		"add_genre": "Комиксы/Comics",
+		"chapters_from_page": {
+			"before": "Читать онлайн",
+			"token1": "<a href=\"",
+			"token2": "\""
+		},
+		"add_chapter": {
+			"start": "scroll-pane-arrows",
+			"next":  "<a href", 
+			"link":  { "token1": "=\"", "token2": "\"", "replace": { "prefix": "http://unicomics.ru/"} }, 
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"end": "Закрыть"
+		}
+	},
+	"chapter_complete": {
+		"add_pages": { 
+			"start": "new Paginator", 
+			"token1": "\"/", 
+			"token2": "\")", 
+			"end": "script>",
+			"scans_count": { "token1": "\"paginator1\", ", "token2": "," },
+			"replace" : { "prefix" : "http://unicomics.ru/" }
+		}
+	},
+	"page_complete": {
+		"image": { "after": "id=\"image\"", "token1": "src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas": [
+					{ 
+						"title": "Её Собственный Дар",
+						"link": "http://unicomics.ru/comics/series/a-gift-of-her-own",
+						 "uniq": "a-gift-of-her-own"
+					}
+				],
+				"mangas_count" : ">22"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://unicomics.ru/comics/series/age-of-apocalypse-2015",
+			"title" : "Эра Апокалипсиса (Age of Apocalypse)",
+			"assert" : {
+				"author" : "@Marvel",
+				"cover" : "http://unicomics.ru/img/comics/01/age-of-apocalypse-2015-1_big.jpg",
+			    "status" : "ongoing",
+				"chapters_count" : ">=3",
+				"chapters" : [
+					{   
+					"title": "Age of Apocalypse #1",
+					"link" : "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1",
+					"folder": "age-of-apocalypse-2015-1/"
+					},
+					{ "link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-3" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1",
+			 "assert" : {
+				"pages" : [
+		{"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/1"},
+        {"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/2"},
+        {"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/3"},
+        {"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/4"}
+				]
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/4",
+			"assert" : {
+				"image" : "https://img1.unicomics.com/comics/age-of-apocalypse-2015/age-of-apocalypse-2015-1/04.jpg"
+			}
+		}
+	]
+}
