@@ -4,7 +4,7 @@
 	"old_ids": [47000],
 	
 
-	"version": 10, 
+	"version": 11, 
 	"title": "ComixBook",
 	"host": "https://comixbook.ru/",
 	"public_link": "https://comixbook.ru/comix/",
@@ -60,10 +60,9 @@
             "token2": "\"",
 			
             "next": {
-			"start": "<ul class=\"pagination\">",
+			 "after": "class=\"page-link",
 			"token1": "href=\"comix",
 			"token2": "\"",
-			"end": "</div>",
 			"replace": {
 				"prefix": "https://comixbook.ru/comix"
 			}
