@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 31,
+	"version": 32,
 	
 	"old_ids": [66348],
 
@@ -55,11 +55,12 @@
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
-				"end": "}}}",
+				"end": "]}",
 				"link":  { "token1": "\"id\":", "token2": ",", "replace": {"prefix" : "%%url%%chapter/" } },
 				"title": { "token1": "\"vol\":", "token2": "\"date\"", "replace": [{ "match" : ",\"ch\":", "text": " - " }, { "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" } ] },
-				"uniq":  { "token1": "\"ch\":", "token2": "\"date\"", "replace": [{ "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" }, { "match" : "\\\\", "text": "" }, { "match" : "\\?", "text": "" }, { "match" : "!", "text": "" }] }
-			}
+				"uniq":  { "token1": "\"vol\":", "token2": ",\"title",
+				"replace": { "match" : ",\"ch\":", "text": "-" }}
+		     }
 		},
 		{"condition": "",
 			"title":      { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
@@ -79,10 +80,11 @@
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
-				"end": "user_list",
-				"link":  { "token1": "\"id\":", "token2": ",", "replace": {"prefix" : "%%url%%chapter/" } },
+				"end": "]}",
+				"link":  { "token1": "\"id\":", "token2": ",","replace": {"prefix" : "%%url%%chapter/" } },
 				"title": { "token1": "\"vol\":", "token2": "\"date\"", "replace": [{ "match" : ",\"ch\":", "text": " - " }, { "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" } ] },
-				"uniq":  { "token1": "\"ch\":", "token2": "\"date\"", "replace": [{ "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" }, { "match" : "\\\\", "text": "" }, { "match" : "\\?", "text": "" }, { "match" : "!", "text": "" } ] }
+				"uniq":  { "token1": "\"vol\":", "token2": ",\"title",
+				"replace": { "match" : ",\"ch\":", "text": "-" } }
 			}
 		}
 	],
@@ -122,7 +124,7 @@
 				"chapters" : [
 					{ "title" : "1 - 1 - Фейри Тейл",
 						"link" : "https://desu.me/manga/api/z-fairy-tail.10/chapter/37975",
-						"folder" : "1 - Фейри Тейл/"
+						"folder" : "1-1/"
 					}, 
 					{ "title" : "@(2 - Появление)", "link" : "https://desu.me/manga/api/z-fairy-tail.10/chapter/37976" }
 				]
