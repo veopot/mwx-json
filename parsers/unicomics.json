@@ -1,6 +1,6 @@
 {   
     "id": 30431,
-	"version": 10,
+	"version": 11,
 	"old_ids": [15619],
    
 	"title": "UniComics",
@@ -40,8 +40,8 @@
 	},
 
 	"manga_complete": {
-		"title":       { "skip": "<head>", 
-		"token1": "<title>", "token2": "</title>",
+		"title":       { "skip": "class=\"info\">", 
+		"token1": "h1>", "token2": "</",
 				"replace" : [
                 { "match" : "Серии комиксов","text":""},
 				{ "match" : "UniComics","text":""},
@@ -52,17 +52,18 @@
 				] },
 		
 		"uniq": { "skip": "<div class=\"info\">", "token1": "<h2>", "token2": "</" },
-		"summary": { "skip": ">Описание", "token1": "</b>", "token2": "</div>", 
+		"summary": { "skip": ">Описание серии комиксов:<", "token1": "</b>", "token2": "</div>", 
 				    "replace": { "match" : "<.*?>", "text" : "" } },
+					
 		"author": { "skip": ">Издательство:<", "token1": "\">", "token2": "</" },
 		
-		"status":      { "default": "ongoing" },
+		
 		"cover":       { 
 			"after": "image center", 
 			"token1": "<img src=\"", 
 			"token2": "\""
 		},
-		"add_genre": "Комиксы/Comics",
+		"add_genre": { "skip": ">Издательство:<", "token1": "\">", "token2": "</" },
 		"chapters_from_page": {
 			"before": "Читать онлайн",
 			"token1": "<a href=\"",
@@ -107,7 +108,7 @@
 		{
 			"proc" : "manga_complete",
 			"link" : "http://unicomics.ru/comics/series/age-of-apocalypse-2015",
-			"title" : "Эра Апокалипсиса (Age of Apocalypse)",
+			"title" : "Эра Апокалипсиса",
 			"assert" : {
 				"author" : "@Marvel",
 				"cover" : "http://unicomics.ru/img/comics/01/age-of-apocalypse-2015-1_big.jpg",
