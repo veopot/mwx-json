@@ -1,6 +1,6 @@
 {   
     "id": 30431,
-	"version": 11,
+	"version": 12,
 	"old_ids": [15619],
    
 	"title": "UniComics",
@@ -41,21 +41,15 @@
 
 	"manga_complete": {
 		"title":       { "skip": "class=\"info\">", 
-		"token1": "h1>", "token2": "</",
-				"replace" : [
-                { "match" : "Серии комиксов","text":""},
-				{ "match" : "UniComics","text":""},
-				{ "match" : "-","text":""},
-				{ "match" : "|","text":""},
-				{ "match" : "&nbsp;","text":""}
-				
-				] },
+		"token1": "h1>", "token2": "</" },
 		
 		"uniq": { "skip": "<div class=\"info\">", "token1": "<h2>", "token2": "</" },
-		"summary": { "skip": ">Описание серии комиксов:<", "token1": "</b>", "token2": "</div>", 
+		"summary": { "skip": "<b>Описание серии комиксов:", "token1": "</b>", "token2": "</div>",
+		
 				    "replace": { "match" : "<.*?>", "text" : "" } },
 					
-		"author": { "skip": ">Издательство:<", "token1": "\">", "token2": "</" },
+		"author": { "skip": ">Издательство:<", "token1": "\">", "token2": "</",
+			"replace" : { "match" : "<.*?>", "text" : "" } },
 		
 		
 		"cover":       { 
@@ -63,7 +57,13 @@
 			"token1": "<img src=\"", 
 			"token2": "\""
 		},
-		"add_genre": { "skip": ">Издательство:<", "token1": "\">", "token2": "</" },
+		"add_genres": { 
+		"start": ">Жанр:</td>",
+	    "end": "</td></tr>",
+		"token1": "\">", "token2": "</",
+			"replace" : { "match" : "<.*?>", "text" : "" } 
+			},
+		
 		"chapters_from_page": {
 			"before": "Читать онлайн",
 			"token1": "<a href=\"",
@@ -107,18 +107,19 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://unicomics.ru/comics/series/age-of-apocalypse-2015",
-			"title" : "Эра Апокалипсиса",
+			"link" : "http://unicomics.ru/comics/series/100-bullets",
+			"title" : "100 Пуль",
 			"assert" : {
-				"author" : "@Marvel",
-				"cover" : "http://unicomics.ru/img/comics/01/age-of-apocalypse-2015-1_big.jpg",
+				"author" : "@Vertigo",
+				"cover" : "http://unicomics.ru/img/comics/p/100-bullets/100-bullets-001_big.jpg",
 			    "status" : "ongoing",
-				"chapters_count" : ">=3",
+				"genres": "@action",
+				"chapters_count" : ">=50",
 				"chapters" : [
 					{   
-					"title": "Age of Apocalypse #1",
-					"link" : "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1",
-					"folder": "age-of-apocalypse-2015-1/"
+					"title": "100 Bullets #1",
+					"link" : "http://unicomics.ru/comics/online/100-bullets-001",
+					"folder": "00-bullets-001/"
 					},
 					{ "link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-3" }
 				]
