@@ -1,0 +1,139 @@
+{   
+    "id": 30422,
+	"version": 21,
+	"old_ids": [50003],
+    
+	"title": "Funmanga",
+	"host": "https://www.funmanga.com/",
+	"public_link": "https://www.funmanga.com/popular-manga/",
+	"name": "funmanga",
+	"folder": "funmanga",
+	"language": "en",
+	"skip_catalog_test": false,
+	
+	
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/funmanga.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/funmanga.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/funmanga.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/funmanga.zip",
+    "file_type": "sqlite",
+	
+	
+	"manga_list_complete": {
+	    "headers": {
+			"Referer": "https://www.funmanga.com/"
+			},
+		"iterator": {
+			"base_url": "https://www.funmanga.com/manga-list/",
+			"append_array": ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+		},
+		"add_manga": {
+			"start": "class=\"content\">",
+			"end": "class=\"footer-copy\">",
+			"next": "<li><a",
+			
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" }
+		}
+	},
+	
+	"manga_complete": {
+		"title":     { "skip": "class=\"content-inner inner-page\">",
+		"token1": "\">","token2": "</" },
+		
+		"uniq":     { "skip": "class=\"content-inner inner-page\">",
+		"token1": "\">","token2": "</" },
+		
+		"summary":   { "after": "class=\"note note-default",
+		            "token1": ">", "token2": "</div>" },
+		
+		"author":    { "skip": ">Author:<", "token1": "\">", "token2": "</" },
+		
+		"status":    { "complete": "<dd>Completed</dd>", "ongoing": "<dd>Ongoing</dd>" },
+		
+		"cover":     { "skip": "class=\"content\">", 
+		"token1": "<img src=\"//", "token2": "\"", "replace": { "prefix": "https://"} },
+		
+		"is_mature": { 
+		     "start": "<dt>Categories:</dt>",
+		    "end": "class=\"post-footer\">",
+		        "values": ["Doujinshi", "Ecchi", "Seinen", "Mature", "Yaoi", "Yuri"] },
+		
+		"add_genre": {
+			"start": "<dt>Categories:</dt>",
+			"end": "class=\"post-footer\">",
+			"after": "href=\"https://www.funmanga.com/category/",
+			"token1": ">",
+			"token2": "</a>"
+		},
+		
+		"add_chapter": {
+			"start": "class=\"chapter-list\">",
+			"end": "</ul>",
+			"next": "<li>",
+			"link": { "token1": "<a href=\"", "token2": "\"" },
+			"title": { "token1": "\">", "token2": "</span>",
+			"replace" : { "match" : "<.*?>", "text" : "" }  }
+		}
+	},
+	
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "var images",
+			"token1": "\"url\":\"",
+			"token2": "\"",
+			"end": "];",
+			"replace" : { "match" : "\\\\", "text" : "" }
+		}
+	},
+	
+	
+	"test": [{
+		"proc": "manga_list_complete",
+            "assert": {
+			    "mangas": [{
+				   "title": "+Tic Neesan",
+				    "link": "https://www.funmanga.com/Tic-Neesan"
+				   
+			}],
+			"mangas_count": ">22"
+		}
+	}, {
+		"proc": "manga_complete",
+		"title": "Tales of Demons and Gods",
+		"link": "https://www.funmanga.com/Tales-of-Demons-and-Gods",
+		"assert": {
+			"author": "@Mad Snail",
+			"cover": "https://funmanga.com/uploads/chapter_files/cover/tbn/1_151_198x0.jpg",
+			"summary": "@^(Nie Li, the strongest Demon)",
+			"genres": "@action",
+			"status": "unknown",
+			"genres_count": ">5",
+			"chapters_count": ">550",
+			"chapters": [
+		{
+        "folder": "315/",
+        "link": "https://www.funmanga.com/Tales-of-Demons-and-Gods/315",
+        "title": "Tales of Demons and Gods - 315"
+        },
+        {
+        "link": "https://www.funmanga.com/Tales-of-Demons-and-Gods/314.5",
+        "title": "Tales of Demons and Gods - 314.5"
+        }
+			]
+		}
+	}, {
+		"proc": "chapter_complete",
+		"link": "https://www.funmanga.com/Tales-of-Demons-and-Gods/315",
+		"assert" : {
+				"pages" : [
+		{"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/1.jpg?u=603abebb9f7c8"},
+        {"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/2.jpg?u=603abebb9f80b"},
+        {"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/3.jpg?u=603abebb9f853"}
+				],
+				"pages_count": "9"
+			}
+	}
+	]
+}
