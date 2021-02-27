@@ -1,0 +1,133 @@
+{   
+    "id": 30419,
+	"version": 22,
+	
+	"old_ids": [65702],
+    "old_sites": ["readmanga.today"],
+
+	"title": "Readmng",
+	"host": "https://www.readmng.com/",
+	"public_link": "https://www.readmng.com/manga-list/",
+	"name": "readmangatoday",
+	"folder": "readmangatoday",
+	"language": "en",
+	"skip_catalog_test": false,
+	
+	
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/readmangatoday.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/readmangatoday.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/readmangatoday.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/readmangatoday.zip",
+    "file_type": "sqlite",
+	
+	
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://www.readmng.com/hot-manga/",
+			"append_nums": { "from": 1, "to": 850, "step": 1 }
+			},
+		"add_manga": {
+			"start": "class=\"content\">",
+			"end": " class=\"clearfix\">",
+			"next": "class=\"box\">",
+			
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
+			"skipmanga": { "skipmatch": [ "Monster Musume no Iru Nichijou"] }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+	
+	"manga_complete": {
+		"title":     { "skip": "class=\"panel-heading clearfix\"","token1": "h1>","token2": "</h1" },
+		
+		"uniq":      { "skip": "class=\"panel-heading clearfix\"","token1": "h1>","token2": "</h1",
+				"replace" : [
+                { "match" : "%", "text":"" },
+				{ "match" : ";", "text":" " },
+				{ "match" : ":", "text":" " },
+				{ "match" : "&nbsp;", "text":" "} ]},
+		
+		"author":    { "before": ">Author<", "token1": "\">", "token2": "</" },
+		"summary":   { "after": "<li class=\"list-group-item movie-detail\"", "token1": ">", "token2": "</li>" },
+		"status":    { "complete": "<dd>Completed</dd>", "ongoing": "<dd>Ongoing</dd>" },
+		"cover":     { "skip": "class=\"row movie-meta\"", "token1": "<img src=\"", "token2": "\"" },
+		"is_mature": { "start": "<dt>Categories:</dt>", "end": "<dt>Type :</dt>",
+		"values": ["Doujinshi", "Ecchi", "Seinen", "Mature", "Yaoi", "Yuri"] },
+		
+		"add_genre": {
+			"!start": "<dt>Categories:</dt>",
+			"!end": "<li class=\"director\"",
+			"after": "href=\"https://www.readmng.com/category/",
+			"token1": ">",
+			"token2": "</a>"
+		},
+		"add_chapter": {
+			"start": "class=\"chp_lst\"",
+			"end": "</ul>",
+			"next": "<li>",
+			"link": { "token1": "<a href=\"", "token2": "\"" },
+			"title": { "token1": "icon-arrow-2\"></span>", "token2": "</span>" }
+		}
+	},
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "var images",
+			"token1": "\"url\":\"",
+			"token2": "\"",
+			"end": "];",
+			"replace" : { "match" : "\\\\", "text" : "" }
+		}
+	},
+	
+	
+	"test": [{
+		"proc": "manga_list_complete",
+            "assert": {
+			    "mangas": [{
+				   "title": "Shen Yin Wang Zuo",
+				      "link": "https://www.readmng.com/shen_yin_wang_zuo"
+				   
+			}],
+			"mangas_count": ">22"
+		}
+	}, {
+		"proc": "manga_complete",
+		"title": "Martial Peak",
+		"link": "https://www.readmng.com/martial-peak",
+		"assert": {
+			"author": "@Momo (II)",
+			"cover": "https://www.readmng.com/uploads/posters/1525258495.jpg",
+			"summary": "@^(The journey to the martial peak)",
+			"genres": "@action",
+			"status": "ongoing",
+			"genres_count": ">3",
+			"chapters_count": "900",
+			"chapters": [{
+				    "folder": "992/",
+                    "link": "https://www.readmng.com/martial-peak/992",
+                    "title": "Chapter - 992"
+			    },
+				{
+				"link": "https://www.readmng.com/martial-peak/990",
+                "title": "Chapter - 990"
+			}]
+		}
+	}, {
+		"proc": "chapter_complete",
+		"link": "https://www.readmng.com/martial-peak/990",
+		"assert" : {
+				"pages" : [
+		    {"image": "https://www.funmanga.com/uploads/chapter_files/16086/997/1.jpg"},
+            {"image": "https://www.funmanga.com/uploads/chapter_files/16086/997/2.jpg"},
+            {"image": "https://www.funmanga.com/uploads/chapter_files/16086/997/3.jpg"}
+				],
+				"pages_count": "15"
+			}
+	}
+	]
+}
