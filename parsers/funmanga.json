@@ -1,6 +1,6 @@
 {   
     "id": 30422,
-	"version": 21,
+	"version": 22,
 	"old_ids": [50003],
     
 	"title": "Funmanga",
@@ -60,6 +60,13 @@
 		        "values": ["Doujinshi", "Ecchi", "Seinen", "Mature", "Yaoi", "Yuri"] },
 		
 		"add_genre": {
+			"start": "<dt>Categories:</dt>",
+			"end": "class=\"post-footer\">",
+			"after": "href=\"https://www.funmanga.com/category/",
+			"token1": ">",
+			"token2": "</a>"
+		},
+		"add_tags": {
 			"start": "<dt>Categories:</dt>",
 			"end": "class=\"post-footer\">",
 			"after": "href=\"https://www.funmanga.com/category/",
