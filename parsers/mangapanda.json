@@ -1,0 +1,164 @@
+{   
+    "id": 30426,
+	"version": 21,
+	"title": "MangaPanda",
+	
+    "old_ids": [528],
+    "old_sites": ["mangapanda.com"],
+ 
+	"host": "http://manga-panda.today",
+	"public_link": "http://manga-panda.today/popular-manga",
+	"folder": "mangapanda",
+	"name" : ["mp","panda"],
+	"language": "en",
+	
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangapanda.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangapanda.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangapanda.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangapanda.zip",
+	"file_type": "sqlite",
+
+
+	
+		
+   "manga_list_complete":{
+      "iterator":{
+         "base_url":"http://manga-panda.today/popular-manga?page=",
+         "append_nums":{
+            "from":0,
+            "to":1581,
+            "step":1
+         }
+      },
+      "add_manga":{
+         "next":"class=\"list-truyen-item-wrap\">",
+         "title":{
+            "skip":"href=\"",
+            "token1":"title=\"",
+            "token2":"\""
+         },
+         "link":{
+            "token1":"href=\"",
+            "token2":"\""
+         },
+         "uniq": {  "skip":"href=\"", "token1":"title=\"", "token2":"\"",
+			"replace" : { "match" : "[^A-Za-z0-9]", "text" : " " } }
+      },
+		"rating_auto_inc": {
+			"start": "60000",
+			"inc": -1
+		}
+   },
+
+    "manga_complete": {
+	    "title":        { "skip": "class=\"manga-info-top\">", "token1": "<h1>", "token2": "<" },
+	    "uniq":         { "skip": "class=\"manga-info-top\">", "token1": "<h1>", "token2": "<",
+			            "replace" : { "match" : "[^A-Za-z0-9]", "text" : " " } },
+	    "author":      { "after": "<li>Author", "token1":":", "token2": "</",
+         "replace":{ "match" : "[^A-Za-z0-9]", "text" : " " } },
+		
+		"summary":     { "skip" : "<div id=\"noidungm\"", "token1": ">", "token2": "</div>",
+         "replace":{ "match":"<.*?>", "text":"" }   },
+		
+		"status": { 
+			"complete": { 
+			    "start": "<li>Status",
+			    "end": "</li>",
+			        "values": ["Completed", "completed"] },
+			"ongoing":  { 
+			    "start": "<li>Status",
+			    "end": "</li>",
+			        "values": ["Ongoing", "ongoing"] }
+		},
+		
+		"cover":       { "skip": "class=\"manga-info-top\">", "token1": "src=\"", "token2": "\"" },
+		
+		
+		"is_mature":   {  
+		    "start": "<li>Genre",
+			"end": "</li>",
+		    "values": ["Mature", "18", "Adult"]
+		},
+		
+		
+		"add_genres":   {  
+		    "start": "<li>Genre",
+			"end": "</li>",
+		    "token1": "\">",
+			"token2": "</", 
+		    "replace":{ "match":"<.*?>", "text":"" }
+		},
+		
+	
+		"add_chapter": { 
+			"start" : "class=\"chapter-list\"",
+			"next":  "class=\"row\">", 
+			"link":  { "token1": "href=\"", "token2": "\""   }, 
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" }
+			
+		}
+	},
+	"chapter_complete":{
+        "headers": {
+			"Accept": "*/*",
+			"Referer": "http://manga-panda.today/",
+			
+		},
+     
+      "images":true,
+      "add_pages":{
+         "start":"<p id=arraydata",
+         "token1":">",
+         "token2":"<",
+		 "split" : ",",
+         "end":"/p>"
+      }
+   },
+	
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ 
+					 "link": "http://manga-panda.today/manga/my-stepmom",
+                     "title": "My Stepmom"
+					}
+				],
+				"mangas_count" : ">100"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"title" : "My Stepmom", 
+			"link" : "http://manga-panda.today/manga/my-stepmom",
+			"assert" : {
+				"author" : "Andromeda11",
+				"cover" : "https://xcdn-000.animemark.com/acg_covers/W300/01/c6/01c63ec0a1e4edd1cd21fb1f4e3b4e5aea7836fa_42059_270_400.jpeg",
+				"summary" : "@^(My Stepmom)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">2",
+				"chapters_count" : ">50",
+				"chapters" : [
+					{ 
+					"folder": "my-stepmom-chapter-50/",
+                    "link": "http://manga-panda.today/my-stepmom-chapter-50",
+                    "title": "My Stepmom Chapter 50"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+		    "link" : "http://manga-panda.today/my-stepmom-chapter-50",
+			"assert" : {
+				"pages" : [
+{"image": "https://xcdn-207.bato.to/10211/f9/82/5c9cc8801257515f3421289f/001_13455_720_500.jpeg?acc=H3BVWig7UJKiqb9KYLYfWA&exp=1614661054"},
+{"image": "https://xcdn-207.bato.to/10211/f9/82/5c9cc8801257515f3421289f/002_45656_720_500.jpeg?acc=m1YpW2ZOKi1yPVnCRU3wXg&exp=1614661054"},
+{"image": "https://xcdn-207.bato.to/10211/f9/82/5c9cc8801257515f3421289f/003_34733_720_500.jpeg?acc=NhJaPKRdBfsWgftxEgrxFA&exp=1614661054"}		
+		]
+			}
+		}
+	]
+}
