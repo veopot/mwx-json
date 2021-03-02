@@ -3,7 +3,7 @@
     "title": "Yagami",
     "old_ids": [40001],
     
-	"version": 20, 
+	"version": 21, 
 	"host": "https://read.yagami.me/",
 	"public_link": "https://read.yagami.me/list-new",
 	"folder": "yagami",
@@ -75,13 +75,7 @@
 		 "split" : ","
         },
 		
-		"add_tags":{
-         "start":"<b>Жанры</b>",
-         "end":"li>",
-         "token1":":",
-         "token2":"</",
-		 "split" : ","
-        },
+		
 		
 		"is_mature":   {  
 		     "start":"<b>Жанры</b>",
