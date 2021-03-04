@@ -1,6 +1,6 @@
 {
 	"id": 30432,
-	"version": 52,
+	"version": 55,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
@@ -68,7 +68,14 @@
 
 	"manga_complete": [
 		{"condition" : "Похожая манга",
-			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
+		
+		  "headers": {
+			"accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
+		    "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
+		    "referer": "https://hentai-chan.pro/"
+	    },
+		
+		"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
 			
 			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</" },
 			
@@ -98,6 +105,11 @@
 		
 		{
 		"condition" : "",
+		    "headers": {
+			  "accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
+		      "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
+		      "referer": "https://hentai-chan.pro/"
+	      },
 		
 			
 			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</a>",
@@ -127,8 +139,14 @@
 			
 			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", "replace" : { "match" : "_", "text" : " " } },
 			
-			"chapters_from_page": { "after" : "<div id=\"manga_images\"", "token1" : "<a href=\"", "token2" : "\" title",
-			"replace" : { "prefix" : "https://hentai-chan.pro", "sufix": "?development_access=true" } },
+			"chapters_from_page": { "after" : "id=\"manga_images\"", 
+			"token1" : "<a href=\"", "token2" : "\" title",
+			"replace" : [{ "match": ".html", "text": ".html?development_access=true" },
+			              {"prefix": "https://hentai-chan.pro"},
+						  { "match": "https://hentai-chan.prohttp://exhentai-dono.me", "text": "http://exhentai-dono.me" },
+						  
+                         { "match": ".html", "text": ".html?development_access=true" }
+			] },
 			
 			
 			"add_chapter": { 
