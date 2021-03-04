@@ -1,6 +1,6 @@
 {
 	"id": 30432,
-	"version": 51,
+	"version": 52,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
@@ -96,66 +96,27 @@
 			}
 		},
 		
-		{"condition" : "Все главы",
+		{
+		"condition" : "",
 		
-			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
+			
+			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</a>",
+			"replace" : { "match" : " - (.*)", "text" : "" } },
+			                          
+			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</a>",
 			"replace" : { "match" : " - (.*)", "text" : "" } },
 			
-			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
-			"replace" : { "match" : " - (.*)", "text" : "" } },
 			
-			
-			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "/a>", 
+			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "</a>", 
 			"replace" : { "match" : "<.*?>", "text" : "" } },
 			
 			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
 			"replace" : { "match" : "<.*?>", "text" : "" } },
 			
-			"status":     	{ 
-			"ongoing": [ "Все главы", "Все части" ], 
+			"status": { 
+			"ongoing": [ "Все главы", "Все части" ],
 			"single": "Похожая манга"
 			},
-			
-			
-			"cover":       	{ 
-				"after": 	"id=\"cover\"", 
-				"token1": 	"src=\"", 
-				"token2": 	"\""
-			},
-			
-			"add_genre":   	{ "after": "<li class='sidetag'>", "token1": "tags/-", "token2": "' rel=" },
-			
-			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", 
-			"replace" : { "match" : "_", "text" : " " } },
-			
-			"chapters_from_page": { "after" : "<div id=\"manga_images\"", "token1" : "<a href=\"", "token2" : "\" title",
-			"replace" : { "prefix" : "https://hentai-chan.pro", "sufix": "?development_access=true" } },
-			
-			"add_chapter": { 
-				"start":    "id=\"related\"",
-				"next":  	"<option", 
-				"link":  	{ "token1": "value=", "token2": ">", "replace": [ {"match": "'", "text": ""}, {"match": "\"", "text": ""}] },
-				"title": 	{ "skip": " ", "token1":">", "token2": "</option>" },
-				"end":      "id=\"wrap\""
-			}
-		},
-		
-		{"condition" : "Все части",
-			
-			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
-			"replace" : { "match" : " - (.*)", "text" : "" } },
-			
-			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
-			"replace" : { "match" : " - (.*)", "text" : "" } },
-			
-			
-			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "/a>", 
-			"replace" : { "match" : "<.*?>", "text" : "" } },
-			
-			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
-			"replace" : { "match" : "<.*?>", "text" : "" } },
-			
-			"status":      	{ "ongoing": [ "Все главы", "Все части" ], "single": "Похожая манга" },
 			
 			"cover":       	{ 
 				"after": 	"id=\"cover\"", 
