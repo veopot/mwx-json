@@ -1,0 +1,278 @@
+{
+	"id": 30432,
+	"version": 51,
+	
+	"old_ids": [30333],
+    "old_sites": ["henchan.pro"],
+	
+	
+	"title": "HentaiChan (test)",
+	"host": "https://hentai-chan.pro/",
+	"public_link": "https://hentai-chan.pro/",
+	"folder": "hentaichan",
+	"name": "hentaichan",
+	"language": "ru",
+	"is_mature": true,
+	
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/hentaichan.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/hentaichan.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/hentaichan.zip",
+    "file_type": "sqlite",
+
+	
+
+	"authorization_complete": {
+		"logo": 		"https://hentai-chan.pro/templates/hentaichan_v2/img/header5.avif",
+		"registration": "https://hentai-chan.pro/index.php?do=register",
+		"expires": 		31449600000,
+	
+		"values": {
+			"login": "submit",
+			"image": "Вход",
+			"login_name": 		{ "label": "Login", "hint": "Введите свой логин с сайта Хентай-тян!", "kind": "text" },
+			"login_password": 	{ "label": "Password", "hint": "Введите свой пароль с сайта Хентай-тян!", "kind": "password" }
+		},
+		"request": {
+			"method": 	"post",
+			"url": 		"https://hentai-chan.pro/index.php"
+    	},
+    	"response_check": {
+    	  	"cookies": { "dle_user_id": "@\\d+" },
+    	  	"headers": {  "Set-Cookie":	 "@dle_user_id=\\d+"}                 
+    	}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": 	"https://hentai-chan.pro/manga/new&n=favdesc?offset=",
+			"append_nums": 	{ "from": 0, "to": 21500, "step": 20 }
+		},
+		"add_manga": {
+			"next": 		"<div class=\"content_row\"",
+			"link":  { "token1": "href=\"", "token2":"\""},
+			
+			"uniq": {"skip": "href=\"",  "token1":"class=\"title_link\">", "token2":"</",
+			"replace" : { "match" : " - (.*)", "text" : "" }},
+			
+			"title": {"skip": "href=\"",  "token1":"class=\"title_link\">", "token2":"</",
+			"replace" : { "match" : " - (.*)", "text" : "" }}
+			
+		},
+		"rating_auto_inc": {
+			"start": "50000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": [
+		{"condition" : "Похожая манга",
+			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
+			
+			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</" },
+			
+			
+			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "/a>", 
+			"replace" : { "match" : "<.*?>", "text" : "" } },
+			
+			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
+			"replace" : { "match" : "<.*?>", "text" : "" } },
+			
+			"status":     	{ "ongoing": [ "Все главы", "Все части" ], "single": "Похожая манга" },
+			
+			"cover":       	{ 
+				"after": 	"id=\"cover\"", 
+				"token1": 	"src=\"", 
+				"token2": 	"\""
+			},
+			"add_genre":   	{ "after": "<li class='sidetag'>", "token1": "tags/-", "token2": "' rel=" },
+			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", "replace" : { "match" : "_", "text" : " " } },
+			
+			"add_chapter": 	{ 
+				"next":  	"id=\"manga_images\"", 
+				"link":  	{ "token1": "<a href=\"", "token2": "\"" }, 
+				"title": 	{ "after": "<a href=\"", "token1":"title=\"", "token2": " читать онлайн с" }
+			}
+		},
+		
+		{"condition" : "Все главы",
+		
+			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
+			"replace" : { "match" : " - (.*)", "text" : "" } },
+			
+			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
+			"replace" : { "match" : " - (.*)", "text" : "" } },
+			
+			
+			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "/a>", 
+			"replace" : { "match" : "<.*?>", "text" : "" } },
+			
+			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
+			"replace" : { "match" : "<.*?>", "text" : "" } },
+			
+			"status":     	{ 
+			"ongoing": [ "Все главы", "Все части" ], 
+			"single": "Похожая манга"
+			},
+			
+			
+			"cover":       	{ 
+				"after": 	"id=\"cover\"", 
+				"token1": 	"src=\"", 
+				"token2": 	"\""
+			},
+			
+			"add_genre":   	{ "after": "<li class='sidetag'>", "token1": "tags/-", "token2": "' rel=" },
+			
+			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", 
+			"replace" : { "match" : "_", "text" : " " } },
+			
+			"chapters_from_page": { "after" : "<div id=\"manga_images\"", "token1" : "<a href=\"", "token2" : "\" title",
+			"replace" : { "prefix" : "https://hentai-chan.pro", "sufix": "?development_access=true" } },
+			
+			"add_chapter": { 
+				"start":    "id=\"related\"",
+				"next":  	"<option", 
+				"link":  	{ "token1": "value=", "token2": ">", "replace": [ {"match": "'", "text": ""}, {"match": "\"", "text": ""}] },
+				"title": 	{ "skip": " ", "token1":">", "token2": "</option>" },
+				"end":      "id=\"wrap\""
+			}
+		},
+		
+		{"condition" : "Все части",
+			
+			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
+			"replace" : { "match" : " - (.*)", "text" : "" } },
+			
+			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</",
+			"replace" : { "match" : " - (.*)", "text" : "" } },
+			
+			
+			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "/a>", 
+			"replace" : { "match" : "<.*?>", "text" : "" } },
+			
+			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
+			"replace" : { "match" : "<.*?>", "text" : "" } },
+			
+			"status":      	{ "ongoing": [ "Все главы", "Все части" ], "single": "Похожая манга" },
+			
+			"cover":       	{ 
+				"after": 	"id=\"cover\"", 
+				"token1": 	"src=\"", 
+				"token2": 	"\""
+			},
+			"add_genre":   	{ "after": "<li class='sidetag'>", "token1": "tags/-", "token2": "' rel=" },
+			
+			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", "replace" : { "match" : "_", "text" : " " } },
+			
+			"chapters_from_page": { "after" : "<div id=\"manga_images\"", "token1" : "<a href=\"", "token2" : "\" title",
+			"replace" : { "prefix" : "https://hentai-chan.pro", "sufix": "?development_access=true" } },
+			
+			
+			"add_chapter": { 
+				"start":    "id=\"related\"",
+				"next":  	"<option", 
+				"link":  	{ "token1": "value=", "token2": ">", "replace": [ {"match": "'", "text": ""}, {"match": "\"", "text": ""}] },
+				"title": 	{ "skip": " ", "token1":">", "token2": "</option>" },
+				"end":      "id=\"wrap\""
+			}
+		}
+	],
+	
+	"chapter_complete": {
+		"add_images": { 
+			"start": 	"\"fullimg\":", 
+			"token1": 	"[", 
+			"token2": 	"]", 
+			"split" : 	",",
+			"end": 		"]",
+			"replace": 	[ { "match" : "'", "text" : "" }, { "match" : "\"", "text" : "" }, { "match" : "\\.\\w*\\.ru/", "text" : ".hentai-chan.pro/" } ]
+		},
+		"postfix": "?development_access=true"
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "@Pandemonium", "link" : "https://hentai-chan.pro/manga/17531-pandemonium-chast-1.html",
+						"uniq" : "17531-pandemonium-chast-1.html" }
+				],
+				"mangas_count" : ">=3"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://hentai-chan.pro/manga/23093-moya-gruppovaya-akademiya.html",
+			"title" : "МОЯ ГРУППОВАЯ АКАДЕМИЯ (MY GANGBANG ACADEMIA)",
+			"assert" : {
+				"author" : "@Shinnihon Pepsitou",
+				"cover" : "https://imgcover.hentai-chan.pro/showfull_retina/manga/s/1505627648_shinnihon-pepsitou-st.germain-sal-my-gangbang-academia-boku-no-hero-academia-russian-ilion/scan_01.jpg",
+				"summary" : "@^()",
+				"status" : "single",
+				"genres_count" : ">=0",
+				"chapters_count" : ">=1",
+				"chapters" : [
+					{ "title" : "@МОЯ ГРУППОВАЯ АКАДЕМИЯ",
+						"link" : "https://hentai-chan.pro/online/23093-moya-gruppovaya-akademiya.html",
+						"folder" : "23093-moya-gruppovaya-akademiya.html/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://hentai-chan.pro/manga/9179-kyoushi-to-seito-to-glava-1.html",
+			"title" : "Kyoushi to Seito to - глава 1",
+			"assert" : {
+				"author" : "@Fuuga",
+				"cover" : "https://imgcover.hentai-chan.pro/showfull_retina/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_004.jpg",
+				"summary" : "@^()",
+				"genres" : "@romance",
+				"status" : "ongoing",
+				"genres_count" : ">=0",
+				"chapters_count" : ">=1",
+				"chapters" : [
+					{ "title" : "@Kyoushi to Seito to",
+						"link" : "https://hentai-chan.pro/online/9179-kyoushi-to-seito-to-glava-1.html",
+						"folder" : "9179-kyoushi-to-seito-to-glava-1.html/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://hentai-chan.pro/manga/23009-ayanami-rey-chast-4.html",
+			"title" : "Аянами Рей - часть 4 (Моя девушка - Ayanami 4 Boku no Kanojohen)",
+			"assert" : {
+				"author" : "@Nakayohi Mogudan",
+				"cover" : "https://imgcover.hentai-chan.pro/showfull_retina/manga/n/1504416738_nakayohi-mogudan-mogudan-ayanami-4-boku-no-kanojohen-neon-genesis-evangelion-russianiliondecensored/001.jpg",
+				"summary" : "@^()",
+				"status" : "ongoing",
+				"genres_count" : ">=0",
+				"chapters_count" : ">=3",
+				"chapters" : [
+					{ "title" : "@Аянами",
+						"link" : "https://hentai-chan.pro/online/22678-ayanami-rey-chast-3.html",
+						"folder" : "22678-ayanami-rey-chast-3.html/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://hentai-chan.pro/online/9179-kyoushi-to-seito-to-glava-1.html", 
+			"title" : "Kyoushi to Seito to - глава 1", 
+			"assert" : {
+				"pages" : [
+					{ "image" : "@hentai-chan.pro/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_010.png" },
+					{ "image" : "@hentai-chan.pro/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_026.png" }
+				],
+				"pages_count": "37"
+			}
+		}
+	]
+}
