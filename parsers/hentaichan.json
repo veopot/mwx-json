@@ -1,18 +1,19 @@
 {
 	"id": 30432,
-	"version": 58,
+	"version": 60,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
 	
 	
-	"title": "HentaiChan (test)",
+	"title": "Хентай-тян",
 	"host": "https://hentai-chan.pro/",
-	"public_link": "https://hentai-chan.pro/",
+	"public_link": "https://hentai-chan.pro/mostfavorites",
 	"folder": "hentaichan",
 	"name": "hentaichan",
 	"language": "ru",
 	"is_mature": true,
+	
 	"author": {"name":"Veopot & Lomik_XP","email":"fant-net@ya.ru"},
 	"skip_catalog_test": false,
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
