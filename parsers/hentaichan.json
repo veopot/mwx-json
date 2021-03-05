@@ -1,6 +1,6 @@
 {
 	"id": 30432,
-	"version": 56,
+	"version": 58,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
@@ -86,7 +86,20 @@
 			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
 			"replace" : { "match" : "<.*?>", "text" : "" } },
 			
-			"status":     	{ "ongoing": [ "Все главы", "Все части" ], "single": "Похожая манга" },
+			"status": { 
+		  	"single": { 
+			 "start": "id=\"right\">",
+             "end": "id=\"info_wrap\">",
+			   "values": [ "Похожая манга", "похожая манга", "Сингл"] },
+			
+			"default" : "single",
+			
+            "ongoing": { 
+			 "start": "id=\"right\">",
+             "end": "id=\"info_wrap\">",
+                "values": [ "Все главы", "Все части" ] }
+			 },
+			 
 			
 			"cover":       	{ 
 				"after": 	"id=\"cover\"", 
@@ -94,16 +107,16 @@
 				"token2": 	"\""
 			},
 			"add_genre":   	{ "after": "<li class='sidetag'>", "token1": "tags/-", "token2": "' rel=" },
-			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", "replace" : { "match" : "_", "text" : " " } },
+			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='",
+			"replace" : { "match" : "_", "text" : " " } },
 			
 			"add_chapter": 	{ 
 				"next":  	"id=\"manga_images\"", 
-				"link":  	{ "token1": "<a href=\"", "token2": "\"",
-"                      replace": [
-                           {"match": ".html","text": ".html?development_access=true"},
-                           {"prefix": "https://hentai-chan.pro"},
-                           {"match": "https://hentai-chan.prohttp://exhentai-dono.me","text": "http://exhentai-dono.me"}
-                                 ] }, 
+				"link":  	{ "token1": "/online/", "token2": "\"",
+                   "replace": [
+                           {"prefix": "http://exhentai-dono.me/online/"},
+                           {"match": ".html", "text": ".html?development_access=true"}
+						   ] }, 
 				"title": 	{ "after": "<a href=\"", "token1":"title=\"", "token2": " читать онлайн с" }
 			}
 		},
@@ -130,11 +143,22 @@
 			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
 			"replace" : { "match" : "<.*?>", "text" : "" } },
 			
-			"status": { 
-			"ongoing": [ "Все главы", "Все части" ],
-			"single": "Похожая манга"
-			},
 			
+			"status": { 
+		  	"single": { 
+			 "start": "id=\"right\">",
+             "end": "id=\"info_wrap\">",
+			   "values": [ "Похожая манга", "похожая манга", "Сингл"] },
+			
+			"default" : "single",
+			
+            "ongoing": { 
+			 "start": "id=\"right\">",
+             "end": "id=\"info_wrap\">",
+                "values": [ "Все главы", "Все части" ] }
+			 },
+			 
+			 
 			"cover":       	{ 
 				"after": 	"id=\"cover\"", 
 				"token1": 	"src=\"", 
@@ -148,34 +172,34 @@
 			
 			"chapters_from_page": {
             "skip": "id=\"right\">",
-            "token1": "href=\"/related/",
-            "token2": "\"",
-			"replace": {
-                "prefix": "https://hentai-chan.pro/related/"
-            },
-         
-								 
+            "token1": "href=\"/related", 
+			"token2": "?", 
+			"replace" : {"prefix": "https://hentai-chan.pro/related" },
+			
             "next": {
-                "before": ">Вперед",
+                "before": ">Вперед</a>",
                 "token1": "href='",
-                "token2": "'>",
-                "stop": "</a>"
-            }
-        },
+                "token2": "'", 
+			    "replace" : {"prefix": "%%url%%" }
+                }
+            },
 			
 			
 			
 			
 			"add_chapter": 	{ 
-			    
-			    "next":  	"class=\"related\">",
+			    "start": "id=\"right\">",
+			    "end": "</html>",
+			
+			
+			    "next":  "class=\"related\">",
 				
-				"link":  	{  "token1": "href=\"/manga", "token2": "\"",
+				"link":  	{  "token1": "href=\"/manga/", "token2": "\"",
                     "replace": [
-                           {"prefix": "http://exhentai-dono.me/online"},
-                           {"match": ".html","text": ".html?development_access=true"}
+                           {"prefix": "http://exhentai-dono.me/online/"},
+                           {"match": ".html", "text": ".html?development_access=true"}
 						   ] }, 
-				"title": 	{ "after": "href=\"", "token1":"title=\"", "token2": "\"" }
+				"title": 	{ "after": "href=\"", "token1": "title=\"", "token2": "\"" }
 			}
 		}
 	],
