@@ -1,6 +1,6 @@
 {
 	"id": 30432,
-	"version": 55,
+	"version": 56,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
@@ -98,7 +98,12 @@
 			
 			"add_chapter": 	{ 
 				"next":  	"id=\"manga_images\"", 
-				"link":  	{ "token1": "<a href=\"", "token2": "\"" }, 
+				"link":  	{ "token1": "<a href=\"", "token2": "\"",
+"                      replace": [
+                           {"match": ".html","text": ".html?development_access=true"},
+                           {"prefix": "https://hentai-chan.pro"},
+                           {"match": "https://hentai-chan.prohttp://exhentai-dono.me","text": "http://exhentai-dono.me"}
+                                 ] }, 
 				"title": 	{ "after": "<a href=\"", "token1":"title=\"", "token2": " читать онлайн с" }
 			}
 		},
@@ -137,24 +142,40 @@
 			},
 			"add_genre":   	{ "after": "<li class='sidetag'>", "token1": "tags/-", "token2": "' rel=" },
 			
-			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", "replace" : { "match" : "_", "text" : " " } },
-			
-			"chapters_from_page": { "after" : "id=\"manga_images\"", 
-			"token1" : "<a href=\"", "token2" : "\" title",
-			"replace" : [{ "match": ".html", "text": ".html?development_access=true" },
-			              {"prefix": "https://hentai-chan.pro"},
-						  { "match": "https://hentai-chan.prohttp://exhentai-dono.me", "text": "http://exhentai-dono.me" },
-						  
-                         { "match": ".html", "text": ".html?development_access=true" }
-			] },
+			"add_tag": 		{ "after": "<a href='/tags/-", "token1": "-", "token2": "' rel='nofollow' title='", 
+			"replace" : { "match" : "_", "text" : " " } },
 			
 			
-			"add_chapter": { 
-				"start":    "id=\"related\"",
-				"next":  	"<option", 
-				"link":  	{ "token1": "value=", "token2": ">", "replace": [ {"match": "'", "text": ""}, {"match": "\"", "text": ""}] },
-				"title": 	{ "skip": " ", "token1":">", "token2": "</option>" },
-				"end":      "id=\"wrap\""
+			"chapters_from_page": {
+            "skip": "id=\"right\">",
+            "token1": "href=\"/related/",
+            "token2": "\"",
+			"replace": {
+                "prefix": "https://hentai-chan.pro/related/"
+            },
+         
+								 
+            "next": {
+                "before": ">Вперед",
+                "token1": "href='",
+                "token2": "'>",
+                "stop": "</a>"
+            }
+        },
+			
+			
+			
+			
+			"add_chapter": 	{ 
+			    
+			    "next":  	"class=\"related\">",
+				
+				"link":  	{  "token1": "href=\"/manga", "token2": "\"",
+                    "replace": [
+                           {"prefix": "http://exhentai-dono.me/online"},
+                           {"match": ".html","text": ".html?development_access=true"}
+						   ] }, 
+				"title": 	{ "after": "href=\"", "token1":"title=\"", "token2": "\"" }
 			}
 		}
 	],
