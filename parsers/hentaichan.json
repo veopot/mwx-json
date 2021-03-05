@@ -1,6 +1,6 @@
 {
 	"id": 30432,
-	"version": 60,
+	"version": 61,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
@@ -13,7 +13,7 @@
 	"name": "hentaichan",
 	"language": "ru",
 	"is_mature": true,
-	
+	"chapters_order": false, 
 	"author": {"name":"Veopot & Lomik_XP","email":"fant-net@ya.ru"},
 	"skip_catalog_test": false,
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
@@ -25,7 +25,7 @@
 	
 
 	"authorization_complete": {
-		"logo": 		"https://hentai-chan.pro/templates/hentaichan_v2/img/header5.avif",
+		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
 		"registration": "https://hentai-chan.pro/index.php?do=register",
 		"expires": 		31449600000,
 	
