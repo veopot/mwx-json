@@ -13,7 +13,7 @@
 	"name": "hentaichan",
 	"language": "ru",
 	"is_mature": true,
-	
+	"author": {"name":"Veopot & Lomik_XP","email":"fant-net@ya.ru"},
 	"skip_catalog_test": false,
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/hentaichan.json",
@@ -180,7 +180,7 @@
                 "before": ">Вперед</a>",
                 "token1": "href='",
                 "token2": "'", 
-			    "replace" : {"prefix": "%%url%%" }
+			    "replace" : {"prefix": "%%host%%/%%path%%" }
                 }
             },
 			
