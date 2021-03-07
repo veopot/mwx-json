@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 21,
+	"version": 22,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -14,8 +14,29 @@
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaclub.json",
 	"self_link2": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangaclub.zip",
-    	"file_type": "sqlite",
+	"file_type": "sqlite",
 	"author": {"name":"Veopot & Lomik_XP","email":"admin@mw.lomikxp.ru"},
+	
+	"authorization_complete": {
+		"logo": 		"https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
+		"registration": "https://mangaclub.ru/index.php?do=register",
+		"expires": 		31449600000,
+	
+		"values": {
+			"login": "submit",
+			"image": "Вход",
+			"login_name": 		{ "label": "Login", "hint": "Введите свой логин", "kind": "text" },
+			"login_password": 	{ "label": "Password", "hint": "Введите свой пароль", "kind": "password" }
+		},
+		"request": {
+			"method": 	"post",
+			"url": 		"https://mangaclub.ru/"
+    	},
+    	"response_check": {
+    	  	"cookies": { "dle_user_id": "@\\d+" },
+    	  	"headers": {  "Set-Cookie":	 "@dle_user_id=\\d+"}                 
+    	}
+	},
 
 	"manga_list_complete": {
 		"iterator": {
