@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 32,
+	"version": 33,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -51,35 +51,26 @@
 		"summary":     { "after": "manga-description", "token1": ">", "token2": "</div", 
 		"replace": { "match": "<.*?>", "text": "" }},
 		
-		"volumes":     { "skip": ">Томов:<", "token1": ">", "token2": "<", "replace": { "match": ",.*", "text": "" }},
+		
 		"status":      {
 			"ongoing":  { 
 				"start" : "<b>Томов:</b>",
-				"end" : "</p>",
+				"end" : "</div>",
+
 				"values" : ["продолжается"]
 			},
 			"complete": { 
 				"start" : "<b>Перевод:</b>",
-				"end" : "</p>",
+				"end" : "</div>",
 				"values" : ["завершен", "Переведена", "Сингл"]
 			},
 			"single":  "<b>Сингл</b>"
 		},
-		"translation_status": {
-			"complete": { 
-				"start" : "<b>Перевод:</b>",
-				"end" : "</p>",
-				"values" : ["завершен", "Переведена", "Сингл"]
-			},
-			"ongoing":  { 
-				"start" : "<b>Перевод:</b>",
-				"end" : "</p>",
-				"values" : ["продолжается"]
-			}
-		},
+		
+		
 		"cover":       { "after": "picture-fotorama", "token1": "src=\"", "token2": "\"" },
 		"is_mature":   "hentai",
-		"content_type": { "default": "hentai_manga" },
+		
 		"add_genre":   { "after": "href=\"/list/genre/", "token1":"\">", "token2": "</" },
 		"add_chapter": { 
 			"start" : "<div class=\"expandable",
