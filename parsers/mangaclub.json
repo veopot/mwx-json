@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 23,
+	"version": 24,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -82,12 +82,12 @@
 		"add_genres":   { "after": "\"news_keywords\"", "token1": "content=\"", "token2": "\"", "split": ","},
 		"add_tag":      { "after": "link-category", "token1": ">", "token2": "</" },
 		"add_chapter":  {
-			"start": "\"chapter-item\"",
-			"next":  "<a href=\"htt",
-			"link":  { "token1": "=\"", "token2": "\"" },
+			"start": "\"chapters\"",
+			"next":  "\"chapter-item\"",
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
 			"title": { "token1": "> ", "token2": "<" },
 			"uniq": { "token1": "> ", "token2": "<" },
-			"end": "\"statistics\">"
+			"end": "\"content-footer\">"
 		},
 		"need_auth_genres": ["сэйнэн", "сёдзё для взрослых"]
 	},
