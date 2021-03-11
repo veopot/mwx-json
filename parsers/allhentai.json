@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 34,
+	"version": 35,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -14,6 +14,7 @@
 	"language": "ru",
 	"is_mature": true,
 	"chapters_order": false,
+	
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/allhentai.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/allhentai.json",
@@ -29,7 +30,7 @@
             "start": "tiles row",
             "next":  "class=\"img",
             "link":  { "token1": "href=\"", "token2": "\"" },
-            "title": { "after": "<img", "token1": "title='", "token2": "'" },
+            "title": { "skip": "href=\"", "token1": "title='", "token2": "'" },
             
 			"cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.jpg", "text": ".jpg" } }
 			
@@ -39,7 +40,12 @@
 	
 	"manga_complete": {
 		"title":       { "after": "<h1", "token1": "class=\"names\">", "token2": "</h1>", 
-		"replace":[ { "match": "<.*?>", "text": "" },{ "match": "Хентай манга", "text": "" }]},
+		"replace":[ 
+		{ "match": "<.*?>", "text": "" },
+		{ "match": "Порно комикс", "text": "" },
+		{ "match": "Хентай манга", "text": "" },
+		{ "match": "\n", "text": "" }
+		]},
 		
 		"uniq": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
 		
@@ -69,13 +75,21 @@
 		"is_mature":   "hentai",
 		
 		"add_genre":   { "after": "href=\"/list/genre/", "token1":"\">", "token2": "</" },
+		
 		"add_chapter": { 
 			"start" : "<div class=\"expandable",
 			"end" : "</table>",
 			"next":  "<td class",
-			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
-			"title": { "after": "<a href=\"", "token1": ">", "token2": "<" },
-			"uniq": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "\n          \n          ", "text": " " } }
+			"link":  { "token1": "<a href=\"", "token2": "\"" , 
+		              "replace": { "match": "Сингл", "text": "" }}, 
+		
+			"title": { "after": "<a href=\"", "token1": ">", "token2": "<" , 
+		              "replace": { "match": "Сингл", "text": "" }},
+		
+			"uniq": { "after": "<a href=\"", "token1": ">", "token2": "<", 
+			"replace": [ 
+			{ "match": "Сингл", "text": "" },
+			{ "match": "\n          \n          ", "text": " " }] }
 		}
 	},
 
