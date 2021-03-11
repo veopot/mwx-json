@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 33,
+	"version": 34,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -13,7 +13,6 @@
 	"name" : "allhentai",
 	"language": "ru",
 	"is_mature": true,
-	"is_paid": true,
 	"chapters_order": false,
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/allhentai.json",
@@ -24,30 +23,28 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "http://wwv.allhen.me/list?sortType=votes&offset=",
-			"append_nums": { "from": 0, "to": 13160, "step": 70}
+			"append_nums": { "from": 0, "to": 13370, "step": 70}
 		},
 		"add_manga": {
             "start": "tiles row",
             "next":  "class=\"img",
             "link":  { "token1": "href=\"", "token2": "\"" },
-            "title": { "after": "<h4 title", "token1": "=\"", "token2": "\"" },
-            "additional_title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
-			"cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.jpg", "text": ".jpg" } },
-			"add_genres":  {
-				"start": "class=\"tile-info",
-				"next": "/list/genre",
-				"token1": ">",
-				"token2": "</",
-				"end": "</div>"
-			},
-			"is_mature": "hentai"
+            "title": { "after": "<img", "token1": "title='", "token2": "'" },
+            
+			"cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.jpg", "text": ".jpg" } }
+			
+		
         }
 	},
 	
 	"manga_complete": {
-		"title":       { "skip": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
-		"additional_title": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+		"title":       { "after": "<h1", "token1": "class=\"names\">", "token2": "</h1>", 
+		"replace":[ { "match": "<.*?>", "text": "" },{ "match": "Хентай манга", "text": "" }]},
+		
+		"uniq": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+		
 		"author":      { "after": "<a href=\"/list/author/", "token1":"\">", "token2": "</a>" },
+		
 		"summary":     { "after": "manga-description", "token1": ">", "token2": "</div", 
 		"replace": { "match": "<.*?>", "text": "" }},
 		
@@ -60,7 +57,7 @@
 				"values" : ["продолжается"]
 			},
 			"complete": { 
-				"start" : "<b>Перевод:</b>",
+				"start" : "<b>Томов:</b>",
 				"end" : "</div>",
 				"values" : ["завершен", "Переведена", "Сингл"]
 			},
