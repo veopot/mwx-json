@@ -1,13 +1,13 @@
 {
 	"id": 30435,
-	"version": 1,
+	"version": 2,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
 	"folder": "mangadex",
 	"name" : "mangadex",
 	"language": "en",
-	
+	"chapters_order": false,
 	"skip_catalog_test": false,
 	
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
@@ -24,18 +24,26 @@
 			"append_nums": { "from": 1, "to": 1075, "step": 1 }
 		},
 		"add_manga": {
-			"next": "col-lg-6",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "after": "manga_title", "token1": "title=\"", "token2": "\"" }
+			"next": "<a href=\"/title/",
+			
+			"title": { "skip": "</span></div>", "token1": "\">", "token2": "</" },
+			
+			"uniq": { "skip": "</span></div>", "token1": "\">", "token2": "</" },
+			
+			"link":  { "token1": "href=\"", "token2": "\"",
+			"replace": {"prefix": "https://mangadex.org"} }
+			
+			
 		}
 	},
 
 	"manga_complete": {
 			"title":       { "skip": "<h6", "token1":"class=\"mx-1\">", "token2": "</" },
 			
+			"uniq":       { "skip": "<h6", "token1":"class=\"mx-1\">", "token2": "</" },
 			
 			"additional_title": { "skip": ">Alt name(s):<", "token1": "'>", "token2": "</ul" },
-			"uniq":        { "skip": "card-header", "token1":"span>", "token2": "<" },
+			
 			"author":      { "skip": ">Author:<", "token1": "\">", "token2": "</" },
 			"summary":     { "after": "Description:<", "token1": "\">", "token2": "</" },
 			
@@ -69,8 +77,8 @@
 				"title": { "token1": "\"chap", "token2": "\",\"groups" ,
 				"replace": [
 				        { "match" : "ter\":\"",  "text" : "Chapter " },
-						{ "match" : "\",\"title\":\"",  "text" : " " },
-						{ "match" : "\",\"language\":\"",  "text" : " Language " }
+						{ "match" : "\",\"title\":\"(.*?)\",",  "text" : " " },
+						{ "match" : "\"language\":\"",  "text" : " Language " }
 						]
 				},
 				"end":   "],\"groups\""
