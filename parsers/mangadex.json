@@ -1,0 +1,172 @@
+{
+	"id": 30435,
+	"version": 1,
+	"title": "MangaDex (test)",
+	"host": "https://mangadex.org/",
+	"public_link": "https://mangadex.org/",
+	"folder": "mangadex",
+	"name" : "mangadex",
+	"language": "en",
+	
+	"skip_catalog_test": false,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangadex.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangadex.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangadex.zip",
+    "file_type": "sqlite",
+    "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+
+	"manga_list_complete": {
+		"iterator": {   
+		
+			"base_url": "https://mangadex.org/titles/7/",
+			"append_nums": { "from": 1, "to": 1075, "step": 1 }
+		},
+		"add_manga": {
+			"next": "col-lg-6",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "after": "manga_title", "token1": "title=\"", "token2": "\"" }
+		}
+	},
+
+	"manga_complete": {
+			"title":       { "skip": "<h6", "token1":"class=\"mx-1\">", "token2": "</" },
+			
+			
+			"additional_title": { "skip": ">Alt name(s):<", "token1": "'>", "token2": "</ul" },
+			"uniq":        { "skip": "card-header", "token1":"span>", "token2": "<" },
+			"author":      { "skip": ">Author:<", "token1": "\">", "token2": "</" },
+			"summary":     { "after": "Description:<", "token1": "\">", "token2": "</" },
+			
+			"status":      { 
+			"complete": ">Completed<",
+			"ongoing": ">Ongoing<" 
+			},
+			"cover":       { "after": "card-header", "token1": "src=\"", "token2": "\"" },
+			"add_genres":  { 
+			"start": ">Genre", 
+			"token1": "'>", "token2": "</a>", 
+			"end": "</div></div>" },
+			
+			
+			"chapters_from_page": { 
+			"skip": ">Title ID:</div>",
+			 "token1": "' ></span>", "token2": "</",
+				"replace": [
+				        { "match" : " ",  "text" : "" },
+                        { "prefix" : "https://api.mangadex.org/v2/manga/" },
+						{ "sufix" : "/chapters" }
+						]
+			},
+		
+			"add_chapter": {
+				"start": "\"chapters\":[",
+				"next":  "{\"",
+				"link":  { "token1": "id\":", "token2": ",",
+				"replace": { "prefix" : "https://api.mangadex.org/v2/chapter/" }},
+				
+				"title": { "token1": "\"chap", "token2": "\",\"groups" ,
+				"replace": [
+				        { "match" : "ter\":\"",  "text" : "Chapter " },
+						{ "match" : "\",\"title\":\"",  "text" : " " },
+						{ "match" : "\",\"language\":\"",  "text" : " Language " }
+						]
+				},
+				"end":   "],\"groups\""
+			}
+		},
+		
+	"chapter_complete": {
+	    "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
+            "Accept": "*/*",
+            "Origin": "https://mangadex.org",
+            "Referer": "https://mangadex.org/",
+            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		
+		"images": true,
+        "add_servers": { 
+			"start": "server\":", 
+			"token1": "\"", 
+			"token2": "\",",
+			"end": "serverFallback"
+		},
+        "add_pages": { 
+            "start": "\"pages\":",
+            "token1": "[\"",
+            "token2": "\"],",
+			"split" : "\",\"",
+            "end": "server"
+        }
+	},
+	
+	
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ "title": "@^(\\w+)", "link": "@https:" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangadex.org/manga/39/one-piece",
+			"title" : "One Piece",
+			"assert" : {
+				"additional_title": "Đảo Hải Tặc Wan Pīsu Ван Пис ون بيس ワンピース",
+				"author" : "@Oda Eiichiro",
+				"cover" : "@https://mangadex.org/images/manga/39.jpg?\\.*",
+				"summary" : "@^(Gol D. Roger)",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=300",
+				"chapters" : [
+					{ "title" : "Ch. 893 - La 36TA Hija de la familia Charlotte - Flampe",
+						"link" : "https://mangadex.org/chapter/281236",
+						"folder" : "281236/"
+					},
+					{ "title" : "Ch. 893 - La 36° Hija De La Familia Charlotte - Flampe", "link" : "https://mangadex.org/chapter/399008" }
+				]
+			}
+		},
+				{
+			"proc" : "manga_complete",
+			"link" : "https://mangadex.org/manga/11199/killing-bites",
+			"title" : "Killing Bites",
+			"assert" : {
+				"additional_title": "キリングバイツ",
+				"author" : "@Murata Shinya",
+				"cover" : "@https://mangadex.org/images/manga/11199.jpg?\\.*",
+				"summary" : "@^(People have been)",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=8",
+				"chapters_count" : ">=20",
+				"chapters" : [
+					{ "title" : "Chapter 57 Language mx",
+						"link" : "https://api.mangadex.org/v2/chapter/615666",
+						"folder" : "615666/"
+					},
+					{ "title" : "Vol. 1 Ch. 1 - You're better off not looking behind the curtain", "link" : "https://mangadex.org/chapter/134380" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://api.mangadex.org/v2/chapter/615666",
+			"assert" : {
+				"pages" : [
+					{ "link" : "https://mangadex.org/chapter/277233/2" },
+					{ "link" : "https://mangadex.org/chapter/277233/6" }
+				]
+			}
+		}
+	]
+}
