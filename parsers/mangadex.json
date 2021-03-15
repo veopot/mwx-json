@@ -1,6 +1,6 @@
 {
 	"id": 30435,
-	"version": 2,
+	"version": 3,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -95,11 +95,21 @@
 		},
 		
 		"images": true,
-        "add_servers": { 
-			"start": "server\":", 
-			"token1": "\"", 
-			"token2": "\",",
-			"end": "serverFallback"
+		"use_servers_only": true,
+		"prefix" : {
+			"after": "\"hash\"",
+			"token1": ":\"",
+			"token2": "\"",
+			"stop": ",",
+			"replace": {"sufix":"/"}
+		},
+		"add_servers": { 
+			"start": "\"server",
+			"token1": ":\"",
+			"token2": "\"",
+			"next":"\"server",
+			"end": "}",
+			"replace": {"match": "\\\\", "text":""}
 		},
         "add_pages": { 
             "start": "\"pages\":",
