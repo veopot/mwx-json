@@ -1,6 +1,6 @@
 {
 	"id": 30435,
-	"version": 4,
+	"version": 5,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -108,13 +108,7 @@
 		},
 		
 	"chapter_complete": {
-	    "headers": {
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
-            "Accept": "*/*",
-            "Origin": "https://mangadex.org",
-            "Referer": "https://mangadex.org/",
-            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-		},
+	    
 		
 		"images": true,
 		"use_servers_only": true,
