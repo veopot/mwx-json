@@ -1,6 +1,6 @@
 {
 	"id": 30435,
-	"version": 3,
+	"version": 4,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -15,7 +15,29 @@
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangadex.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangadex.zip",
     "file_type": "sqlite",
-    "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+    "author": {"name": "Veopot & Lomik_XP","email": "fant-net@ya.ru"},
+	
+	"authorization_complete": {
+		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
+		"registration": "https://mangadex.org/signup",
+		"expires": 		31449600000,
+
+		"values": {
+			"two_factor": "",
+			"remember_me": "1",
+			"login_username": 		{ "label": "Login", "kind": "login" },
+			"login_password": 	{ "label": "Password", "kind": "password" }
+		},
+		"request": {
+			"method": 	"post",
+			"url": 		"https://mangadex.org/ajax/actions.ajax.php?function=login",
+			"headers": {"x-requested-with": "XMLHttpRequest"}
+    	},
+    	"response_check": {
+    	  	"cookies": { "mangadex_rememberme_token": "@\\w+", "mangadex_session": "@\\w+" },
+    	  	"headers": { "Set-Cookie": "@mangadex_rememberme_token=\\w+"}
+    	}
+	},
 
 	"manga_list_complete": {
 		"iterator": {   
