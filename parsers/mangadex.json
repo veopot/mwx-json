@@ -1,204 +1,359 @@
 {
 	"id": 30435,
-	"version": 5,
+	"version": 6,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
 	"folder": "mangadex",
-	"name" : "mangadex",
+	"name": "mangadex",
 	"language": "en",
 	"chapters_order": false,
 	"skip_catalog_test": false,
-	
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangadex.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangadex.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangadex.zip",
-    "file_type": "sqlite",
-    "author": {"name": "Veopot & Lomik_XP","email": "fant-net@ya.ru"},
-	
+	"file_type": "sqlite",
+	"author": {
+		"name": "Veopot & Lomik_XP",
+		"email": "fant-net@ya.ru"
+	},
 	"authorization_complete": {
-		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
+		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
 		"registration": "https://mangadex.org/signup",
-		"expires": 		31449600000,
-
+		"expires": 31449600000,
 		"values": {
 			"two_factor": "",
 			"remember_me": "1",
-			"login_username": 		{ "label": "Login", "kind": "login" },
-			"login_password": 	{ "label": "Password", "kind": "password" }
+			"login_username": {
+				"label": "Login",
+				"kind": "login"
+			},
+			"login_password": {
+				"label": "Password",
+				"kind": "password"
+			}
 		},
 		"request": {
-			"method": 	"post",
-			"url": 		"https://mangadex.org/ajax/actions.ajax.php?function=login",
-			"headers": {"x-requested-with": "XMLHttpRequest"}
-    	},
-    	"response_check": {
-    	  	"cookies": { "mangadex_rememberme_token": "@\\w+", "mangadex_session": "@\\w+" },
-    	  	"headers": { "Set-Cookie": "@mangadex_rememberme_token=\\w+"}
-    	}
+			"method": "post",
+			"url": "https://mangadex.org/ajax/actions.ajax.php?function=login",
+			"headers": {
+				"x-requested-with": "XMLHttpRequest"
+			}
+		},
+		"response_check": {
+			"cookies": {
+				"mangadex_rememberme_token": "@\\w+",
+				"mangadex_session": "@\\w+"
+			},
+			"headers": {
+				"Set-Cookie": "@mangadex_rememberme_token=\\w+"
+			}
+		}
 	},
-
 	"manga_list_complete": {
-		"iterator": {   
-		
+		"iterator": {
 			"base_url": "https://mangadex.org/titles/7/",
-			"append_nums": { "from": 1, "to": 1075, "step": 1 }
+			"append_nums": {
+				"from": 1,
+				"to": 1075,
+				"step": 1
+			}
 		},
 		"add_manga": {
 			"next": "<a href=\"/title/",
-			
-			"title": { "skip": "</span></div>", "token1": "\">", "token2": "</" },
-			
-			"uniq": { "skip": "</span></div>", "token1": "\">", "token2": "</" },
-			
-			"link":  { "token1": "href=\"", "token2": "\"",
-			"replace": {"prefix": "https://mangadex.org"} }
-			
-			
+			"title": {
+				"skip": "</span></div>",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "</span></div>",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {
+					"prefix": "https://mangadex.org"
+				}
+			}
 		}
 	},
-
 	"manga_complete": {
-			"title":       { "skip": "<h6", "token1":"class=\"mx-1\">", "token2": "</" },
-			
-			"uniq":       { "skip": "<h6", "token1":"class=\"mx-1\">", "token2": "</" },
-			
-			"additional_title": { "skip": ">Alt name(s):<", "token1": "'>", "token2": "</ul" },
-			
-			"author":      { "skip": ">Author:<", "token1": "\">", "token2": "</" },
-			"summary":     { "after": "Description:<", "token1": "\">", "token2": "</" },
-			
-			"status":      { 
+		"title": {
+			"skip": "<h6",
+			"token1": "class=\"mx-1\">",
+			"token2": "</"
+		},
+		"uniq": {
+			"skip": "<h6",
+			"token1": "class=\"mx-1\">",
+			"token2": "</"
+		},
+		"additional_title": {
+			"skip": ">Alt name(s):<",
+			"token1": "'>",
+			"token2": "</ul"
+		},
+		"author": {
+			"skip": ">Author:<",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"summary": {
+			"after": "Description:<",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"status": {
 			"complete": ">Completed<",
-			"ongoing": ">Ongoing<" 
-			},
-			"cover":       { "after": "card-header", "token1": "src=\"", "token2": "\"" },
-			"add_genres":  { 
-			"start": ">Genre", 
-			"token1": "'>", "token2": "</a>", 
-			"end": "</div></div>" },
-			
-			
-			"chapters_from_page": { 
-			"skip": ">Title ID:</div>",
-			 "token1": "' ></span>", "token2": "</",
-				"replace": [
-				        { "match" : " ",  "text" : "" },
-                        { "prefix" : "https://api.mangadex.org/v2/manga/" },
-						{ "sufix" : "/chapters" }
-						]
-			},
-		
-			"add_chapter": {
-				"start": "\"chapters\":[",
-				"next":  "{\"",
-				"link":  { "token1": "id\":", "token2": ",",
-				"replace": { "prefix" : "https://api.mangadex.org/v2/chapter/" }},
-				
-				"title": { "token1": "\"chap", "token2": "\",\"groups" ,
-				"replace": [
-				        { "match" : "ter\":\"",  "text" : "Chapter " },
-						{ "match" : "\",\"title\":\"(.*?)\",",  "text" : " " },
-						{ "match" : "\"language\":\"",  "text" : " Language " }
-						]
-				},
-				"end":   "],\"groups\""
-			}
+			"ongoing": ">Ongoing<"
+		},
+		"cover": {
+			"after": "card-header",
+			"token1": "src=\"",
+			"token2": "\""
 		},
 		
-	"chapter_complete": {
-	    
+		"is_mature": "<span class='badge badge-danger ml-1'>H</span>",
 		
+		
+		
+		"add_genre": {
+			
+			"after": "href='/genre/",
+			"token1": "'>",
+			"token2": "</a>",
+			
+			"replace": { "match": "<.*?>",	"text": ""}
+		},
+		
+		
+		"add_tag": {
+			
+			"after": "href='/genre/",
+			"token1": "'>",
+			"token2": "</a>",
+			
+			"replace": { "match": "<.*?>",	"text": ""}
+		},
+		
+		
+		
+		
+		"chapters_from_page": {
+			"skip": ">Title ID:</div>",
+			"token1": "' ></span>",
+			"token2": "</",
+			"replace": [{
+					"match": " ",
+					"text": ""
+				},
+				{
+					"prefix": "https://api.mangadex.org/v2/manga/"
+				},
+				{
+					"sufix": "/chapters"
+				}
+			]
+		},
+		"add_chapter": {
+			"start": "\"chapters\":[",
+			"next": "{\"",
+			"link": {
+				"token1": "id\":",
+				"token2": ",",
+				"replace": {
+					"prefix": "https://api.mangadex.org/v2/chapter/"
+				}
+			},
+			"title": {
+				"token1":  "\"volume\":\"",
+				"token2": "\",\"groups",
+				"replace": [
+				    { "match": "\",\"chapter\":\"", "text": " " },
+                    { "match": "\",\"title\":\"(.*?)\",", "text": " " },
+					{ "match": "\"language", "text": " " },
+					
+					
+{  "match": "\":\"en", "text": "Language  English"  },
+{  "match": "\":\"en", "text": "Language  English"  },
+{  "match": "\":\"gb", "text": "Language  English"  },
+{  "match": "\":\"ja", "text": "Language  Japanese"  },
+{  "match": "\":\"jp", "text": "Language  Japanese"  },
+{  "match": "\":\"pl", "text": "Language   Polish"  },
+{  "match": "\":\"sh", "text": "Language  SerboCroatian"  },
+{  "match": "\":\"rs", "text": "Language  SerboCroatian"  },
+{  "match": "\":\"nl", "text": "Language  Dutch"  },
+{  "match": "\":\"it", "text": "Language  Italian"  },
+{  "match": "\":\"ru", "text": "Language  Russian"  },
+{  "match": "\":\"de", "text": "Language  German"  },
+{  "match": "\":\"hu", "text": "Language  Hungarian"  },
+{  "match": "\":\"fr", "text": "Language  French"  },
+{  "match": "\":\"fi", "text": "Language  Finnish"  },
+{  "match": "\":\"vi", "text": "Language  Vietnamese"  },
+{  "match": "\":\"vn", "text": "Language  Vietnamese"  },
+{  "match": "\":\"el", "text": "Language  Greek"  },
+{  "match": "\":\"gr", "text": "Language  Greek"  },
+{  "match": "\":\"bg", "text": "Language  Bulgarian"  },
+{  "match": "\":\"es", "text": "Language  SpanishSpain"  },
+{  "match": "\":\"pt-BR",  "text": "Language  PortugueseBrazil"  },
+{  "match": "\":\"br", "text": "Language  PortugueseBrazil"  },
+{  "match": "\":\"pt", "text": "Language  PortuguesePortugal"  },
+{  "match": "\":\"sv", "text": "Language  Swedish"  },
+{  "match": "\":\"se", "text": "Language  Swedish"  },
+{  "match": "\":\"ar", "text": "Language  Arabic"  },
+{  "match": "\":\"sa", "text": "Language  Arabic"  },
+{  "match": "\":\"da", "text": "Language  Danish"  },
+{  "match": "\":\"dk", "text": "Language  Danish"  },
+{  "match": "\":\"zh-Hans", "text": "Language  ChineseSimp"  },
+{  "match": "\":\"cn", "text": "Language  ChineseSimp"  },
+{  "match": "\":\"bn", "text": "Language  Bengali"  },
+{  "match": "\":\"bd", "text": "Language  Bengali"  },
+{  "match": "\":\"ro", "text": "Language  Romanian"  },
+{  "match": "\":\"cs", "text": "Language  Czech"  },
+{  "match": "\":\"cz", "text": "Language  Czech"  },
+{  "match": "\":\"mn", "text": "Language  Mongolian"  },
+{  "match": "\":\"tr", "text": "Language  Turkish"  },
+{  "match": "\":\"id", "text": "Language  Indonesian"  },
+{  "match": "\":\"ko", "text": "Language  Korean"  },
+{  "match": "\":\"kr", "text": "Language  Korean"  },
+{  "match": "\":\"es-419", "text": "Language  SpanishLTAM"  },
+{  "match": "\":\"mx", "text": "Language  SpanishLTAM"  },
+{  "match": "\":\"fa", "text": "Language  Persian"  },
+{  "match": "\":\"ir", "text": "Language  Persian"  },
+{  "match": "\":\"ms", "text": "Language  Malay"  },
+{  "match": "\":\"my", "text": "Language  Malay"  },
+{  "match": "\":\"th", "text": "Language  Thai"  },
+{  "match": "\":\"ca", "text": "Language  Catalan"  },
+{  "match": "\":\"ct", "text": "Language  Catalan"  },
+{  "match": "\":\"fil", "text": "Language  Filipino"  },
+{  "match": "\":\"ph",  "text": "Language  Language  Filipino"  },
+{  "match": "\":\"zh-Hant", "text": "Language  ChineseTrad"  },
+{  "match": "\":\"hk", "text": "Language  ChineseTrad"  },
+{ "match": "\":\"uk", "text": "Language  Ukrainian"  },
+{ "match": "\":\"ua", "text": "Language  Ukrainian"  },
+{  "match": "\":\"my", "text": "Language  Burmese"  },
+{  "match": "\":\"mm", "text": "Language  Burmese"  },
+{  "match": "\":\"lt", "text": "Language  Lithuanian"  },
+{  "match": "\":\"il", "text": "Language  Lithuanian"  },
+{  "match": "\":\"he", "text": "Language  Hebrew"  },
+{  "match": "\":\"il", "text": "Language  Hebrew"  },
+{  "match": "\":\"hi", "text": "Language  Hindi"  },
+{  "match": "\":\"in", "text": "Language  Hindi"  },
+{  "match": "\":\"no", "text": "Language  Norwegian"  }
+
+
+
+				]
+			},
+			"end": "],\"groups\""
+		}
+	},
+	"chapter_complete": {
 		"images": true,
 		"use_servers_only": true,
-		"prefix" : {
+		"prefix": {
 			"after": "\"hash\"",
 			"token1": ":\"",
 			"token2": "\"",
 			"stop": ",",
-			"replace": {"sufix":"/"}
+			"replace": {
+				"sufix": "/"
+			}
 		},
-		"add_servers": { 
+		"add_servers": {
 			"start": "\"server",
 			"token1": ":\"",
 			"token2": "\"",
-			"next":"\"server",
+			"next": "\"server",
 			"end": "}",
-			"replace": {"match": "\\\\", "text":""}
+			"replace": {
+				"match": "\\\\",
+				"text": ""
+			}
 		},
-        "add_pages": { 
-            "start": "\"pages\":",
-            "token1": "[\"",
-            "token2": "\"],",
-			"split" : "\",\"",
-            "end": "server"
-        }
+		"add_pages": {
+			"start": "\"pages\":",
+			"token1": "[\"",
+			"token2": "\"],",
+			"split": "\",\"",
+			"end": "server"
+		}
 	},
-	
-	
-	"test": [
-		{
-			"proc" : "manga_list_complete",
+	"test": [{
+			"proc": "manga_list_complete",
 			"testpages": "3",
-			"assert" : {
-				"mangas" : [
-					{ "title": "@^(\\w+)", "link": "@https:" }
-				],
-				"mangas_count" : ">=50"
+			"assert": {
+				"mangas": [{
+					"title": "@^(\\w+)",
+					"link": "@https:"
+				}],
+				"mangas_count": ">=50"
 			}
 		},
 		{
-			"proc" : "manga_complete",
-			"link" : "https://mangadex.org/manga/39/one-piece",
-			"title" : "One Piece",
-			"assert" : {
+			"proc": "manga_complete",
+			"link": "https://mangadex.org/manga/39/one-piece",
+			"title": "One Piece",
+			"assert": {
 				"additional_title": "Đảo Hải Tặc Wan Pīsu Ван Пис ون بيس ワンピース",
-				"author" : "@Oda Eiichiro",
-				"cover" : "@https://mangadex.org/images/manga/39.jpg?\\.*",
-				"summary" : "@^(Gol D. Roger)",
-				"genres" : "@comedy",
-				"status" : "ongoing",
-				"genres_count" : ">=5",
-				"chapters_count" : ">=300",
-				"chapters" : [
-					{ "title" : "Ch. 893 - La 36TA Hija de la familia Charlotte - Flampe",
-						"link" : "https://mangadex.org/chapter/281236",
-						"folder" : "281236/"
+				"author": "@Oda Eiichiro",
+				"cover": "@https://mangadex.org/images/manga/39.jpg?\\.*",
+				"summary": "@^(Gol D. Roger)",
+				"genres": "@comedy",
+				"status": "ongoing",
+				"genres_count": ">=5",
+				"chapters_count": ">=300",
+				"chapters": [{
+						"title": "Ch. 893 - La 36TA Hija de la familia Charlotte - Flampe",
+						"link": "https://mangadex.org/chapter/281236",
+						"folder": "281236/"
 					},
-					{ "title" : "Ch. 893 - La 36° Hija De La Familia Charlotte - Flampe", "link" : "https://mangadex.org/chapter/399008" }
-				]
-			}
-		},
-				{
-			"proc" : "manga_complete",
-			"link" : "https://mangadex.org/manga/11199/killing-bites",
-			"title" : "Killing Bites",
-			"assert" : {
-				"additional_title": "キリングバイツ",
-				"author" : "@Murata Shinya",
-				"cover" : "@https://mangadex.org/images/manga/11199.jpg?\\.*",
-				"summary" : "@^(People have been)",
-				"genres" : "@comedy",
-				"status" : "ongoing",
-				"genres_count" : ">=8",
-				"chapters_count" : ">=20",
-				"chapters" : [
-					{ "title" : "Chapter 57 Language mx",
-						"link" : "https://api.mangadex.org/v2/chapter/615666",
-						"folder" : "615666/"
-					},
-					{ "title" : "Vol. 1 Ch. 1 - You're better off not looking behind the curtain", "link" : "https://mangadex.org/chapter/134380" }
+					{
+						"title": "Ch. 893 - La 36° Hija De La Familia Charlotte - Flampe",
+						"link": "https://mangadex.org/chapter/399008"
+					}
 				]
 			}
 		},
 		{
-			"proc" : "chapter_complete",
-			"link" : "https://api.mangadex.org/v2/chapter/615666",
-			"assert" : {
-				"pages" : [
-					{ "link" : "https://mangadex.org/chapter/277233/2" },
-					{ "link" : "https://mangadex.org/chapter/277233/6" }
+			"proc": "manga_complete",
+			"link": "https://mangadex.org/manga/11199/killing-bites",
+			"title": "Killing Bites",
+			"assert": {
+				"additional_title": "キリングバイツ",
+				"author": "@Murata Shinya",
+				"cover": "@https://mangadex.org/images/manga/11199.jpg?\\.*",
+				"summary": "@^(People have been)",
+				"genres": "@comedy",
+				"status": "ongoing",
+				"genres_count": ">=8",
+				"chapters_count": ">=20",
+				"chapters": [{
+						"title": "Chapter 57 Language mx",
+						"link": "https://api.mangadex.org/v2/chapter/615666",
+						"folder": "615666/"
+					},
+					{
+						"title": "Vol. 1 Ch. 1 - You're better off not looking behind the curtain",
+						"link": "https://mangadex.org/chapter/134380"
+					}
+				]
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "https://api.mangadex.org/v2/chapter/615666",
+			"assert": {
+				"pages": [{
+						"link": "https://mangadex.org/chapter/277233/2"
+					},
+					{
+						"link": "https://mangadex.org/chapter/277233/6"
+					}
 				]
 			}
 		}
