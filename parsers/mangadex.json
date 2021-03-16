@@ -1,6 +1,6 @@
 {
 	"id": 30435,
-	"version": 6,
+	"version": 7,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -32,7 +32,13 @@
 			"login_password": {
 				"label": "Password",
 				"kind": "password"
+			},
+			
+			"mangadex_h_toggle": {
+				"forward": "cookie",
+				"value": "1"
 			}
+			
 		},
 		"request": {
 			"method": "post",
@@ -52,6 +58,10 @@
 		}
 	},
 	"manga_list_complete": {
+	"headers": {
+			"cookie": "mangadex_h_toggle=1"
+		},
+		
 		"iterator": {
 			"base_url": "https://mangadex.org/titles/7/",
 			"append_nums": {
@@ -82,6 +92,10 @@
 		}
 	},
 	"manga_complete": {
+	"headers": {
+			"cookie": "mangadex_h_toggle=1"
+		},
+		
 		"title": {
 			"skip": "<h6",
 			"token1": "class=\"mx-1\">",
@@ -169,11 +183,14 @@
 					"prefix": "https://api.mangadex.org/v2/chapter/"
 				}
 			},
+			
+			
 			"title": {
 				"token1":  "\"volume\":\"",
 				"token2": "\",\"groups",
+				"prefix": "Chapter ",
 				"replace": [
-				    { "match": "\",\"chapter\":\"", "text": " " },
+				    { "match": "\",\"chapter\":\"", "text": "-" },
                     { "match": "\",\"title\":\"(.*?)\",", "text": " " },
 					{ "match": "\"language", "text": " " },
 					
