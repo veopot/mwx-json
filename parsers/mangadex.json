@@ -1,6 +1,6 @@
 {
 	"id": 30435,
-	"version": 7,
+	"version": 8,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -188,13 +188,12 @@
 			"title": {
 				"token1":  "\"volume\":\"",
 				"token2": "\",\"groups",
-				"prefix": "Chapter ",
 				"replace": [
-				    { "match": "\",\"chapter\":\"", "text": "-" },
+				    { "match": "\",\"chapter\":\"", "text": " - " },
                     { "match": "\",\"title\":\"(.*?)\",", "text": " " },
 					{ "match": "\"language", "text": " " },
-					
-					
+					{ "prefix": "Chapter " },
+				
 {  "match": "\":\"en", "text": "Language  English"  },
 {  "match": "\":\"en", "text": "Language  English"  },
 {  "match": "\":\"gb", "text": "Language  English"  },
