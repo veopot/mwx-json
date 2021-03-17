@@ -1,0 +1,166 @@
+{
+	"id": 30438,
+	
+	"old_ids": [50030],
+	
+	"version": 20,
+	"title": "AComics",
+	"host": "https://acomics.ru/",
+	"public_link": "https://acomics.ru/",
+	"folder": "acomics",
+	"name" : "acomics",
+	"language": "ru",
+	"skip_catalog_test": false,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/acomics.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/acomics.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/acomics.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/acomics.zip",
+    "file_type": "sqlite",
+   "author": {
+		"name": "Veopot & Lomik_XP",
+		"email": "fant-net@ya.ru"
+	},
+
+
+	"authorization_complete": {
+		"logo": 		"https://acomics.ru/design/common/pic/logo.png",
+		"registration": "https://acomics.ru/auth/reg",
+		"expires": 31449600000,
+
+		"values": {
+			"submit": "login",
+			"check": 1,
+			"username": { "label": "Login", "hint": "Введите свой логин с сайта AComics!", "kind": "text" },
+			"password": { "label": "Password", "hint": "Введите свой пароль с сайта AComics!", "kind": "password" }
+		},
+
+		"request": {
+			"method": "post",
+			"url": "https://acomics.ru/action/authLogin"
+		},
+
+		"response_check": {
+			"cookies": { "username": "@.+" },
+			"headers": { "Set-Cookie": "@username=.+" }
+		}
+	},
+
+
+"manga_search_complete": {		
+		"search_link": "https://acomics.ru/search?keyword=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<td class=\"catdata1\">",
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			
+			"cover": { "after": "<img", "token1": "src=\"", "token2": "\"", 
+			"replace": { "prefix": "https://acomics.ru" } },
+			
+			"summary":     {  "token1": "<div class=\"about\">", "token2": "</div>" },
+			
+			"title": { "skip": "<div class=\"title\">", "token1": "\">", "token2": "</" },
+			"uniq":  { "skip": "<div class=\"title\">", "token1": "\">", "token2": "</" }
+		} 
+	},
+
+
+
+
+
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://acomics.ru/comics?categories=&ratings%5B%5D=1&ratings%5B%5D=2&ratings%5B%5D=3&ratings%5B%5D=4&ratings%5B%5D=5&ratings%5B%5D=6&type=0&updatable=0&issue_count=2&sort=last_update&skip=",
+			"append_nums": { "from": 0, "to": 4800, "step": 10 }
+		},
+		"add_manga": {
+			"next": "<td class=\"catdata1\">",
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			"title": { "skip": "<div class=\"title\">", "token1": "\">", "token2": "</" },
+			"uniq":  { "skip": "<div class=\"title\">", "token1": "\">", "token2": "</" }
+		} 
+	},
+
+	"manga_complete": {
+		"title":       { "skip": "alternate", "token1": "title='", "token2": "'" },
+		"uniq":        { "skip": "alternate", "token1": "title='", "token2": "'" },
+		"author":      { "skip": "<b>Автор", "token1": ">", "token2": "</" },
+		"summary":     { "skip": "og:description", "token1": "content=\"", "token2": "\"" },
+		"status":      { "ongoing": "Авторский Комикс" },
+		"cover":       { "after": "id=\"mainImage\"", "token1": "src=\"", "token2": "\"", "replace": { "match": "http://", "text": "https://" } },
+		"add_genre":   "Авторский Комикс",
+		
+		
+		
+		"add_chapter": {
+			"next":  "jumpTo",
+			"link":  { "token1": "('", "token2": "'", "replace": { "match": "http://", "text": "https://" } },
+			
+			"title": { "token1": "class=\"issueNumber\">", "token2": "/",
+                "replace": { "prefix": "Страница" }   },
+				
+				
+			"chapters_count": { "start": "jumpTo", "token1": ",", "token2": ");"    
+			}
+		}
+	},
+	
+	
+	"chapter_complete": {
+		"add_images": {
+			"start": "id=\"mainImage\"",
+			"token1": "src=\"",
+			"token2": "\"",
+			"end": "alt",
+			"replace": { "prefix": "https://acomics.ru" }
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Алиса в Стране Грехов", "link" : "https://acomics.ru/~alice-in-a-sinland", "uniq" : "Алиса в Стране Грехов" }
+				],
+				"mangas_count" : ">=11"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://acomics.ru/~alice-in-a-sinland",
+			"title" : "Алиса в Стране Грехов",
+			"assert" : {
+				"author" : "@KakeruFuidjo",
+				"cover" : "https://acomics.ru/upload/!c/KakeruFuidjo/alice-in-a-sinland/000002-1zfv0nqsay.jpg",
+				"summary" : "@^(Девушка попадает через свои сны)",
+				"status" : "ongoing",
+				"chapters_count" : ">=70",
+				"chapters" : [
+					{ "title" : "2",
+						"link" : "https://acomics.ru/~alice-in-a-sinland/2",
+						"folder" : "2/"
+					},
+					{ 
+				    "title" : "3",
+					"link" : "https://acomics.ru/~alice-in-a-sinland/3",
+						
+					}
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://acomics.ru/~alice-in-a-sinland/3",
+			"assert" : {
+				"pages" : [
+					{ "image" : "https://acomics.ru/upload/!c/KakeruFuidjo/alice-in-a-sinland/000003-eqyujmro9o.jpg" }
+				],
+				"pages_count": "1"
+			}
+		}
+	]
+}
