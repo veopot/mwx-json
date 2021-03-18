@@ -3,7 +3,7 @@
 	
 	"old_ids": [50030],
 	
-	"version": 21,
+	"version": 22,
 	"title": "AComics",
 	"host": "https://acomics.ru/",
 	"public_link": "https://acomics.ru/",
@@ -96,13 +96,7 @@
 		"add_chapter": {
 			"next":  "jumpTo",
 			"link":  { "token1": "('", "token2": "'", "replace": { "match": "http://", "text": "https://" } },
-			
-			"title": { "token1": "class=\"issueNumber\">", "token2": "/",
-                "replace": { "prefix": "Страница" }   },
-				
-				
-			"chapters_count": { "start": "jumpTo", "token1": ",", "token2": ");"    
-			}
+			"chapters_count": { "token1": ",", "token2": ");", "replace": { "prefix": "Страница " }}
 		}
 	},
 	
