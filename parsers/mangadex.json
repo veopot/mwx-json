@@ -1,6 +1,7 @@
 {
 	"id": 30435,
-	"version": 8,
+	"old_ids": [20569],
+	"version": 9,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
