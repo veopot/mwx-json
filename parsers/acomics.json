@@ -3,7 +3,7 @@
 	
 	"old_ids": [50030],
 	
-	"version": 20,
+	"version": 21,
 	"title": "AComics",
 	"host": "https://acomics.ru/",
 	"public_link": "https://acomics.ru/",
@@ -51,7 +51,7 @@
 		"search_link": "https://acomics.ru/search?keyword=$query$",
 		"query_type": "GET",
 		"add_manga": {
-			"next": "<td class=\"catdata1\">",
+			"next": "list-loadable\">",
 			"link":  { "token1": "<a href=\"", "token2": "\"" },
 			
 			"cover": { "after": "<img", "token1": "src=\"", "token2": "\"", 
