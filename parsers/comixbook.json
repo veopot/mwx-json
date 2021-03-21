@@ -4,7 +4,7 @@
 	"old_ids": [47000],
 	
 
-	"version": 12, 
+	"version": 13, 
 	"title": "ComixBook",
 	"host": "https://comixbook.ru/",
 	"public_link": "https://comixbook.ru/comix/",
@@ -20,6 +20,33 @@
     "file_type": "sqlite",
 	
 	
+
+
+    "manga_search_complete": {		
+		"search_link": "https://comixbook.ru/comix/?query=$query$&page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+		
+			"next": "badge count-childrens",
+			 "end": "class=\"bg-section\">",
+			
+			
+			"link":  { "token1": "<a href=\"comix", "token2": "\"",
+			"replace" : {
+				"prefix": "https://comixbook.ru/comix"
+			} }, 
+			
+			
+			"cover": { "after": "<img", "token1": "src=\"", "token2": "\"", 
+			"replace": { "prefix": "https://comixbook.ru" } },
+			
+			
+			
+			"title": { "token1": "itemprop=\"name\">", "token2": "</" },
+			"uniq":  { "token1": "itemprop=\"name\">", "token2": "</" }
+		} 
+	},
+
 
 
 	"manga_list_complete": {
