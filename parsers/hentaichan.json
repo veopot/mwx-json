@@ -1,6 +1,6 @@
 {
 	"id": 30432,
-	"version": 61,
+	"version": 62,
 	
 	"old_ids": [30333],
     "old_sites": ["henchan.pro"],
@@ -44,6 +44,26 @@
     	  	"headers": {  "Set-Cookie":	 "@dle_user_id=\\d+"}                 
     	}
 	},
+    
+	
+	"manga_search_complete": {		
+		"search_link": "https://hentai-chan.pro/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<div class=\"content_row\"",
+			
+			"link":  { "after": "<h2>", "token1": "href=\"", "token2": "\"" },
+			
+			"title": { "token1": "title=\"", "token2": "\"" },
+			
+			"cover": { "token1": "src=\"", "token2": "\"",
+			"replace" : { "match" : "https://hentai-chan.prohttps://hentai-chan.pro", "text" : "https://hentai-chan.pro" } },
+			
+			"uniq":  { "token1": "title=\"", "token2": "\"" }
+		}
+	},
+
+
 
 	"manga_list_complete": {
 		"iterator": {

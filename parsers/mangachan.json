@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 32,
+	"version": 33,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -48,6 +48,11 @@
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
 			"link":  { "after": "<h2>", "token1": "href=\"", "token2": "\"" },
+			 
+			"summary": { "token1": "<div class=\"tags\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":""} },
+			
+			
 			"title": { "token1": "title=\"", "token2": "\"" },
 			"cover": { "token1": "src=\"", "token2": "\"" },
 			"uniq":  { "token1": "title=\"", "token2": "\"" }
