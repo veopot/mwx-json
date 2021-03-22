@@ -1,6 +1,6 @@
 {
 "id": 40239, 
-"version": 9,
+"version": 10,
 "title": "MangaNi",
 "host": "https://mangani.ru",
 "public_link": "https://mangani.ru/search/?cat=2",
@@ -100,13 +100,12 @@
 				"values": ["+18", "18+", "эротика"],
 				"end": "</p" },
 			 
-			"add_genres":{ 
-			"start": ">жанры:", 
-			"next": "href=\"/genre/",
-			"token1": "\">",
-			"token2": "</",
-			"end": ">тэги:"
-			},
+			 
+			"summary": { "token1": "<div class='tooltip_templates'>", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":""} },
+			 
+			
+			
 			"cover": {
 			    "after": "<img",
 				"token1": "src='",

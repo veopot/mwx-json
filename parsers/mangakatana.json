@@ -1,6 +1,6 @@
 {
    "id":40226,
-   "version":5,
+   "version":6,
    "title":"MangaKatana",
    "host":"https://mangakatana.com",
    "public_link":"https://mangakatana.com/manga-list",
@@ -72,6 +72,11 @@
             "token1":"href=\"",
             "token2":"\""
          },
+		  
+		"summary": { "after": "<div class=\"summary",  "token1": "\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":""} },
+				
+				
          "cover":{
 		    
             "token1":"src=\"",
