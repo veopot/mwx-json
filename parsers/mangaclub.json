@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 25,
+	"version": 26,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -38,6 +38,32 @@
     	  	"headers": { "Set-Cookie": "@dle_user_id=\\d+"}
     	}
 	},
+
+
+	"manga_search_complete": {		
+		"search_link": "https://mangaclub.ru/index.php?do=search&subaction=search&search_start=$page$&full_search=0&result_from=1&story=$query$",
+		
+		"query_type": "GET",
+		
+		"add_manga": {
+			"start": ">Поиск по сайту<",
+			"next": "<h4 class=\"title\">",
+			
+			
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			
+			"cover": { "skip": "<a href=\"", "token1": "<img src=\"", "token2": "\"", 
+			"replace": { "prefix": "https://mangaclub.ru" } },
+			 
+			"summary": { "token1": "class=\"description\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":""} },
+				
+			"title": { "after": "<a href=\"", "token1": "\">", "token2": "</" },
+			"uniq":  { "after": "<a href=\"", "token1": "\">", "token2": "</" }
+		} 
+	},
+
+
 
 	"manga_list_complete": {
 		"iterator": {

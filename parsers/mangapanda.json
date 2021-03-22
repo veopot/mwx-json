@@ -1,6 +1,6 @@
 {   
     "id": 30426,
-	"version": 21,
+	"version": 22,
 	"title": "MangaPanda",
 	
     "old_ids": [528],
@@ -18,7 +18,25 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangapanda.zip",
 	"file_type": "sqlite",
 
-
+    "manga_search_complete": {		
+		"search_link": "http://manga-panda.today/search?q=$query$&page=$page$",
+		"query_type": "GET",
+		
+		"add_manga": {
+			"next": "class=\"list-truyen-item-wrap\">",
+			
+			"title":{ "skip":"href=\"",  "token1":"title=\"", "token2":"\"" },
+            "link":{ "token1":"href=\"", "token2":"\"" },
+            
+			"uniq": {  "skip":"href=\"", "token1":"title=\"", "token2":"\"",
+			    "replace" : { "match" : "[^A-Za-z0-9]", "text" : " " } },
+			
+			"cover": { "token1": "<img src=\"", "token2": "\"" },
+			
+			"summary": {"skip":"href=\"", "token1": "<p>", "token2": "</p>",
+                "replace":{"match":"<.*?>", "text":""} }
+		}
+	},
 	
 		
    "manga_list_complete":{
@@ -101,7 +119,7 @@
 	"chapter_complete":{
         "headers": {
 			"Accept": "*/*",
-			"Referer": "http://manga-panda.today/",
+			"Referer": "http://manga-panda.today/"
 			
 		},
      
