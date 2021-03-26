@@ -1,9 +1,9 @@
 {
     "id": 30006,
-    "version": 42,
+    "version": 43,
 	
 	"old_ids": [1280],
-    "old_sites": ["readmanga.me", "readmanga.ru"],
+    "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com"],
 	
 	"title": "ReadManga",
     "host": "https://readmanga.live/",
@@ -24,22 +24,24 @@
     "manga_search_complete": {      
         "search_link": "https://readmanga.live/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
-        "!page_multiply_by": 50,
-        "page_addition_by": -1,
+        
         "add_manga": {
             "start": "\"tiles",
             "next": "class=\"img\"",
             "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
             "title": { "after": "<h4 title=\"", "token1": ">", "token2": "</" },
-            "cover": { "token1": "data-original='", "token2": "'" }
+            "cover": { "token1": "data-original='", "token2": "'" },
+			
+			"summary": { "skip": "href=\"", "token1": "class=\"hidden long-description-holder\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":" "} }
         }
     },
         
     "manga_list_complete": {
         "iterator": {
-            "category": { "tag": "main", "name": "Последние" },
             "base_url": "https://readmanga.live/list?offset=",
-            "append_nums": { "from": 0, "to": 16660, "step": 70, "last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
+            "append_nums": { "from": 0, "to": 16660, "step": 70,
+			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
         "add_manga": {
             "start": "\"tiles",
