@@ -1,6 +1,6 @@
 {
 	"id": 30442,
-	"version": 1,
+	"version": 2,
 	
 	"title": "Manga-Online.biz",
 	"host": "https://manga-online.biz/",
@@ -153,11 +153,10 @@
 			
 			"assert" : {
 				"mangas" : [
-            { "title" : "The Breaker: New waves", 
-            "link" : "https://manga-online.biz/manga/5335-the-breaker-new-waves.html",
-			"uniq" : "5335-the-breaker-new-waves.html" }
+            { "title" : "Перерождение игрока / Player Reborn", 
+            "link" : "https://manga-online.biz/player_reborn.html" }
 				],
-				"mangas_count" : ">=50"
+				"mangas_count" : ">=10"
 			}
 		},
 		{
@@ -172,14 +171,14 @@
 				"genres_count" : ">=7",
 				"chapters_count" : ">=700",
 				"chapters" : [
-					{
+		{
                     "folder": "72 - 700 Узумаки Наруто/",
                     "link": "https://manga-online.biz/naruto_6/72/700/1/",
-                    "title": "72 - 700 Узумаки Наруто"
+                    "title": "Том 72 Глава 700 Узумаки Наруто"
         },
         {
             "link": "https://manga-online.biz/naruto_6/72/699/1/",
-            "title": "72 - 699 Печать примирения"
+            "title": "Том 72 Глава 699 Печать примирения"
         }
 				]
 			}
@@ -189,10 +188,11 @@
 			"link" : "https://manga-online.biz/naruto_6/72/700/1/",
 			"assert" : {
 				"pages" : [
-					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p01.jpg" },
-					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p02.jpg" }
+		{"image": "@https://.*.manga-online.biz/manga/141/17913/9e11eee4.jpg"},
+        {"image": "@https://.*.manga-online.biz/manga/141/17913/5224a38e.jpg"},
+        {"image": "@https://.*.manga-online.biz/manga/141/17913/3a7bd6b7.jpg"}
 				],
-				"pages_count": "30"
+				"pages_count": "23"
 			}
 		}
 	]
