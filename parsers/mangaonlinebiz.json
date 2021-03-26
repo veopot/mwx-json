@@ -1,0 +1,199 @@
+{
+	"id": 30442,
+	"version": 1,
+	
+	"title": "Manga-Online.biz",
+	"host": "https://manga-online.biz/",
+	"public_link": "https://manga-online.biz/",
+	"folder": "mangaonlinebiz",
+	"name" : "mangaonlinebiz",
+	"language": "ru",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangaonlinebiz.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaonlinebiz.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangaonlinebiz.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangaonlinebiz.zip",
+    "file_type": "sqlite",
+	
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+
+	
+
+	"manga_search_complete": {		
+		"search_link": "https://manga-online.biz/search-ajax/?query=$query$",
+		"query_type": "GET",
+		
+		"add_manga": {
+		    "start": "results\":[",
+			"next": "{\"t",
+			
+			"link":  { "token1": "url\":\"", "token2": "\"", 
+			"replace": [ 
+			{ "prefix": "https://manga-online.biz" },
+            { "match": "\\\\", "text": "" }			
+			
+			]},
+			"cover": { "token1": "image\":\"", "token2": "\"", 
+			"replace": { "match": "\\\\", "text": "" } },
+			
+			"title": { "token1": "itle\":\"", "token2": "\"" },
+			"uniq":  { "token1": "itle\":\"", "token2": "\"" }
+		}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://manga-online.biz/genre/all/page/",
+			"append_nums": { "from": 1, "to": 235, "step": 1 }
+		},
+		"add_manga": {
+			"next": "class=\"genre\">",
+			
+			"link":  { "before": "<a",  "token1": "href=\"", "token2": "\"", 
+			"replace": { "prefix": "https://manga-online.biz" } },
+			
+			"title": { "token1": "class=\"header\">", "token2": "</" },
+			"cover": { "token1": "src=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "40000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		
+	"title": { "token1": "<h1 class=\"header\">", "token2": "</" },
+	
+	"uniq": { "token1": "<h1 class=\"header\">", "token2": "</",
+			"replace": [
+			{ "match": "/", "text": "_" },
+			{ "match": " ", "text": "" }
+               ] },
+		
+		
+	"summary":     {  "token1": "id=\"description\">", "token2": "</div>" },
+		
+	"status": { 
+	    "complete": {
+            "start" : ">Перевод",
+            "end" : "</div>",
+            "value" : "закончен"
+        },
+	    "ongoing": {
+             "start" : ">Перевод",
+            "end" : "</div>",
+            "value" : "продолжается"
+        }
+	},	
+		
+	"cover":       { "after": "property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		
+	"add_genre":   { "after": " onclick=\"App.Analytics.track('Genre',", "token1": "\">", "token2": "</" },
+	
+    "chapters_from_page": { 
+		"after": "'First Chapter'", "token1": "href=\"", "token2": "\"",
+		"replace" : { "prefix" : "https://manga-online.biz" }
+		},
+		
+		
+		"add_chapter": {
+			"start": "class=\"chapter-chooser\">",
+			"end": "class=\"page-chooser\">",
+			
+			"next":  "<option", 
+			 
+			"link":  { "token1": "data-url=\"", "token2": "\"",
+		        "replace" : { "prefix" : "https://manga-online.biz" }   },
+			
+			"uniq": { "after" : "data-url=\"", "token1": "\">", "token2": "</",
+				"replace" : { "match" : "&nbsp;","text":" " }
+				},
+				
+			"title": { "after" : "data-url=\"", "token1": "\">", "token2": "</",
+				"replace" :[ 
+				{ "match" : "-","text":" Глава " },
+				{ "prefix" : "Том " }
+				]
+				}
+		} 
+	},
+	"chapter_complete": {
+	    "images": true,
+		"use_servers_only": true,
+		
+		"add_servers": {
+			"start": "pages",
+			"end": "</script>",
+			"token1": "'",
+			"token2": "',",
+			
+			"next": "'srcBaseUrl':"
+		},
+		
+		"add_pages": {
+			"start": "pages",
+			"token1": "src\":\"",
+			"token2": "\"",
+			
+			"end": "currentPage",
+			
+			"replace": {
+				"match": "\\\\",
+				"text": ""
+			}
+		}
+	},
+	     
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+            { "title" : "The Breaker: New waves", 
+            "link" : "https://manga-online.biz/manga/5335-the-breaker-new-waves.html",
+			"uniq" : "5335-the-breaker-new-waves.html" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manga-online.biz/naruto_6.html",
+			"title" : "Наруто / Naruto",
+			"assert" : {
+				"cover" : "@https://manga-online.biz/manga/141/logo-large.jpg",
+				"summary" : "@^(Главный герой серии)",
+				"genres" : "@drama",
+				"status" : "complete",
+				"genres_count" : ">=7",
+				"chapters_count" : ">=700",
+				"chapters" : [
+					{
+                    "folder": "72 - 700 Узумаки Наруто/",
+                    "link": "https://manga-online.biz/naruto_6/72/700/1/",
+                    "title": "72 - 700 Узумаки Наруто"
+        },
+        {
+            "link": "https://manga-online.biz/naruto_6/72/699/1/",
+            "title": "72 - 699 Печать примирения"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://manga-online.biz/naruto_6/72/700/1/",
+			"assert" : {
+				"pages" : [
+					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p01.jpg" },
+					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p02.jpg" }
+				],
+				"pages_count": "30"
+			}
+		}
+	]
+}
