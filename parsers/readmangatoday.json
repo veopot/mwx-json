@@ -1,6 +1,6 @@
 {   
     "id": 30419,
-	"version": 22,
+	"version": 23,
 	
 	"old_ids": [65702],
     "old_sites": ["readmanga.today"],
@@ -21,6 +21,31 @@
     "file_type": "sqlite",
 	
 	
+	"manga_search_complete": {		
+    "search_link":"https://www.readmng.com/search",
+		"query_type": "POST",
+		"form_data": { "query": "$query$" },
+		
+		"add_manga": {
+		     "start": "class=\"content\">",
+			 "end": "class=\"clearfix\">",
+             "next": "class=\"box\">",
+			
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
+			
+			"uniq": { "after": "href=\"", "token1": "\">", "token2": "</" },
+			
+			"summary": { "skip": "href=\"", "token1": "class=\"summary\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":""} },
+			 
+			"cover": { "after": "<img", "token1": "src=\"", "token2": "\"" }
+		}
+},
+
+
+	
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://www.readmng.com/hot-manga/",
@@ -28,7 +53,7 @@
 			},
 		"add_manga": {
 			"start": "class=\"content\">",
-			"end": " class=\"clearfix\">",
+			"end": "class=\"clearfix\">",
 			"next": "class=\"box\">",
 			
 			"link":  { "token1": "href=\"", "token2": "\"" },
