@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 75,
+	"version": 76,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -87,6 +87,10 @@
 				"token1": "book/",
 				"token2": "'>"
 			},
+			
+			"summary": { "after": "<div id='book",  "token1": "'>", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":""} },
+				
 			"cover": {
 				"before": "href='",
 				"token1": "src='",
