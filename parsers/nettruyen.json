@@ -1,6 +1,6 @@
 {
 	"id": 40164,
-	"version": 15,
+	"version": 16,
 	"title": "NetTruyen",
 	"host": "http://www.nettruyen.com",
 	"public_link": "http://www.nettruyen.com/hot",
@@ -16,7 +16,7 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/nettruyen.zip",
     "file_type": "sqlite",
    
-"manga_list_complete": {
+    "manga_list_complete": {
 		"iterator": {
 			"base_url":"http://www.nettruyen.com/tim-truyen?status=-1&sort=15&page=",
 				"append_nums": { "from": 1, "to": 528, "step": 1}
@@ -41,10 +41,11 @@
 	},	
 	
 	
-"manga_search_complete": {		
- "search_link":"http://www.nettruyen.com/tim-truyen?keyword=$query$&page=$page$",
-		"query_type": "GET",
-		"add_manga": {
+    "manga_search_complete": {		
+        "search_link":"http://www.nettruyen.com/tim-truyen?keyword=$query$&page=$page$",
+		    "query_type": "GET",
+		    "add_manga": {
+			
 			"next": "<figure class=\"clearfix\">",
 			"link":  { "token1": "href=\"", "token2": "\"" },
 			
@@ -54,6 +55,10 @@
 			"token2": "\"", 
 			"replace": {"prefix": "http://"}
 			},
+			
+			"summary": { "skip": "href=\"",
+  			    "token1": "class=\"box_text\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":" " } },
 			
 			"uniq":{ "token1": "title=\"", "token2": "\"",
 			"replace": { "match": "Truyện tranh", "text": ""} },
