@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 9,
+	"version": 10,
 	"title": "MangaDex (test)",
 	"host": "https://mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -93,10 +93,9 @@
 		}
 	},
 	"manga_complete": {
-	"headers": {
+		"headers": {
 			"cookie": "mangadex_h_toggle=1"
 		},
-		
 		"title": {
 			"skip": "<h6",
 			"token1": "class=\"mx-1\">",
@@ -131,11 +130,7 @@
 			"token1": "src=\"",
 			"token2": "\""
 		},
-		
 		"is_mature": "<span class='badge badge-danger ml-1'>H</span>",
-		
-		
-		
 		"add_genre": {
 			
 			"after": "href='/genre/",
@@ -144,8 +139,6 @@
 			
 			"replace": { "match": "<.*?>",	"text": ""}
 		},
-		
-		
 		"add_tag": {
 			
 			"after": "href='/genre/",
@@ -154,25 +147,16 @@
 			
 			"replace": { "match": "<.*?>",	"text": ""}
 		},
-		
-		
-		
-		
 		"chapters_from_page": {
 			"skip": ">Title ID:</div>",
 			"token1": "' ></span>",
 			"token2": "</",
-			"replace": [{
-					"match": " ",
-					"text": ""
-				},
-				{
-					"prefix": "https://api.mangadex.org/v2/manga/"
-				},
-				{
-					"sufix": "/chapters"
-				}
-			]
+			"replace": {
+				"match": " ",
+				"text": "",
+				"prefix": "https://api.mangadex.org/v2/manga/",
+				"sufix": "/chapters"
+			}
 		},
 		"add_chapter": {
 			"start": "\"chapters\":[",
@@ -184,86 +168,59 @@
 					"prefix": "https://api.mangadex.org/v2/chapter/"
 				}
 			},
-			
-			
+			"lang": {"token1": "\"language\":\"", "token2": "\"", "replace": [
+				{ "match": "\\b(en|gb)\\b", "text": "English" },
+				{ "match": "\\b(ja|jp)\\b", "text": "Japanese" },
+				{ "match": "\\bpl\\b", "text": "Polish" },
+				{ "match": "\\b(sh|rs)\\b", "text": "SerboCroatian" },
+				{ "match": "\\bnl\\b", "text": "Dutch" },
+				{ "match": "\\bit\\b", "text": "Italian" },
+				{ "match": "\\bru\\b", "text": "Russian" },
+				{ "match": "\\bde\\b", "text": "German" },
+				{ "match": "\\bhu\\b", "text": "Hungarian" },
+				{ "match": "\\bfr\\b", "text": "French" },
+				{ "match": "\\bfi\\b", "text": "Finnish" },
+				{ "match": "\\b(vi|vn)\\b", "text": "Vietnamese" },
+				{ "match": "\\b(el|gr)\\b", "text": "Greek" },
+				{ "match": "\\bbg\\b", "text": "Bulgarian" },
+				{ "match": "\\bes\\b", "text": "SpanishSpain" },
+				{ "match": "\\b(pt-BR|br)\\b",  "text": "PortugueseBrazil" },
+				{ "match": "\\bpt\\b", "text": "PortuguesePortugal" },
+				{ "match": "\\b(sv|se)\\b", "text": "Swedish" },
+				{ "match": "\\b(ar|sa)\\b", "text": "Arabic" },
+				{ "match": "\\b(da|dk)\\b", "text": "Danish" },
+				{ "match": "\\b(zh-Hans|cn)\\b", "text": "ChineseSimp" },
+				{ "match": "\\b(bn|bd)\\b", "text": "Bengali" },
+				{ "match": "\\bro\\b", "text": "Romanian" },
+				{ "match": "\\b(cs|cz)\\b", "text": "Czech" },
+				{ "match": "\\bmn\\b", "text": "Mongolian" },
+				{ "match": "\\btr\\b", "text": "Turkish" },
+				{ "match": "\\bid\\b", "text": "Indonesian" },
+				{ "match": "\\b(ko|kr)\\b", "text": "Korean" },
+				{ "match": "\\b(es-419|mx)\\b", "text": "SpanishLTAM" },
+				{ "match": "\\b(fa|ir)\\b", "text": "Persian" },
+				{ "match": "\\b(ms|my)\\b", "text": "Malay" },
+				{ "match": "\\bth\\b", "text": "Thai" },
+				{ "match": "\\b(ca|ct)\\b", "text": "Catalan" },
+				{ "match": "\\bfil\\b", "text": "Filipino" },
+				{ "match": "\\bph\\b",  "text": "Language  Filipino" },
+				{ "match": "\\b(zh-Hant|hk)\\b", "text": "ChineseTrad" },
+				{ "match": "\\b(uk|ua)\\b", "text": "Ukrainian" },
+				{ "match": "\\b(my|mm)\\b", "text": "Burmese" },
+				{ "match": "\\b(lt|il)\\b", "text": "Lithuanian" },
+				{ "match": "\\b(he|il)\\b", "text": "Hebrew" },
+				{ "match": "\\b(hi|in)\\b", "text": "Hindi" },
+				{ "match": "\\bno\\b", "text": "Norwegian" }
+			]},
 			"title": {
-				"token1":  "\"volume\":\"",
-				"token2": "\",\"groups",
+				"before": ",\"groups",
+				"token1": "\"volume\":\"",
+				"token2": ",\"groups",
 				"replace": [
-				    { "match": "\",\"chapter\":\"", "text": " - " },
-                    { "match": "\",\"title\":\"(.*?)\",", "text": " " },
-					{ "match": "\"language", "text": " " },
-					{ "prefix": "Chapter " },
-				
-{  "match": "\":\"en", "text": "Language  English"  },
-{  "match": "\":\"en", "text": "Language  English"  },
-{  "match": "\":\"gb", "text": "Language  English"  },
-{  "match": "\":\"ja", "text": "Language  Japanese"  },
-{  "match": "\":\"jp", "text": "Language  Japanese"  },
-{  "match": "\":\"pl", "text": "Language   Polish"  },
-{  "match": "\":\"sh", "text": "Language  SerboCroatian"  },
-{  "match": "\":\"rs", "text": "Language  SerboCroatian"  },
-{  "match": "\":\"nl", "text": "Language  Dutch"  },
-{  "match": "\":\"it", "text": "Language  Italian"  },
-{  "match": "\":\"ru", "text": "Language  Russian"  },
-{  "match": "\":\"de", "text": "Language  German"  },
-{  "match": "\":\"hu", "text": "Language  Hungarian"  },
-{  "match": "\":\"fr", "text": "Language  French"  },
-{  "match": "\":\"fi", "text": "Language  Finnish"  },
-{  "match": "\":\"vi", "text": "Language  Vietnamese"  },
-{  "match": "\":\"vn", "text": "Language  Vietnamese"  },
-{  "match": "\":\"el", "text": "Language  Greek"  },
-{  "match": "\":\"gr", "text": "Language  Greek"  },
-{  "match": "\":\"bg", "text": "Language  Bulgarian"  },
-{  "match": "\":\"es", "text": "Language  SpanishSpain"  },
-{  "match": "\":\"pt-BR",  "text": "Language  PortugueseBrazil"  },
-{  "match": "\":\"br", "text": "Language  PortugueseBrazil"  },
-{  "match": "\":\"pt", "text": "Language  PortuguesePortugal"  },
-{  "match": "\":\"sv", "text": "Language  Swedish"  },
-{  "match": "\":\"se", "text": "Language  Swedish"  },
-{  "match": "\":\"ar", "text": "Language  Arabic"  },
-{  "match": "\":\"sa", "text": "Language  Arabic"  },
-{  "match": "\":\"da", "text": "Language  Danish"  },
-{  "match": "\":\"dk", "text": "Language  Danish"  },
-{  "match": "\":\"zh-Hans", "text": "Language  ChineseSimp"  },
-{  "match": "\":\"cn", "text": "Language  ChineseSimp"  },
-{  "match": "\":\"bn", "text": "Language  Bengali"  },
-{  "match": "\":\"bd", "text": "Language  Bengali"  },
-{  "match": "\":\"ro", "text": "Language  Romanian"  },
-{  "match": "\":\"cs", "text": "Language  Czech"  },
-{  "match": "\":\"cz", "text": "Language  Czech"  },
-{  "match": "\":\"mn", "text": "Language  Mongolian"  },
-{  "match": "\":\"tr", "text": "Language  Turkish"  },
-{  "match": "\":\"id", "text": "Language  Indonesian"  },
-{  "match": "\":\"ko", "text": "Language  Korean"  },
-{  "match": "\":\"kr", "text": "Language  Korean"  },
-{  "match": "\":\"es-419", "text": "Language  SpanishLTAM"  },
-{  "match": "\":\"mx", "text": "Language  SpanishLTAM"  },
-{  "match": "\":\"fa", "text": "Language  Persian"  },
-{  "match": "\":\"ir", "text": "Language  Persian"  },
-{  "match": "\":\"ms", "text": "Language  Malay"  },
-{  "match": "\":\"my", "text": "Language  Malay"  },
-{  "match": "\":\"th", "text": "Language  Thai"  },
-{  "match": "\":\"ca", "text": "Language  Catalan"  },
-{  "match": "\":\"ct", "text": "Language  Catalan"  },
-{  "match": "\":\"fil", "text": "Language  Filipino"  },
-{  "match": "\":\"ph",  "text": "Language  Language  Filipino"  },
-{  "match": "\":\"zh-Hant", "text": "Language  ChineseTrad"  },
-{  "match": "\":\"hk", "text": "Language  ChineseTrad"  },
-{ "match": "\":\"uk", "text": "Language  Ukrainian"  },
-{ "match": "\":\"ua", "text": "Language  Ukrainian"  },
-{  "match": "\":\"my", "text": "Language  Burmese"  },
-{  "match": "\":\"mm", "text": "Language  Burmese"  },
-{  "match": "\":\"lt", "text": "Language  Lithuanian"  },
-{  "match": "\":\"il", "text": "Language  Lithuanian"  },
-{  "match": "\":\"he", "text": "Language  Hebrew"  },
-{  "match": "\":\"il", "text": "Language  Hebrew"  },
-{  "match": "\":\"hi", "text": "Language  Hindi"  },
-{  "match": "\":\"in", "text": "Language  Hindi"  },
-{  "match": "\":\"no", "text": "Language  Norwegian"  }
-
-
-
+				    { "match": "\",\"chapter\":\"", "text": " - "},
+                    { "match": "\",\"title\":\"(.*?)\",", "text": "$1"},
+					{ "match": "\"language\":\".*?\"", "text": " %%chapter_lang%%"},
+					{ "prefix": "Chapter "}
 				]
 			},
 			"end": "],\"groups\""
