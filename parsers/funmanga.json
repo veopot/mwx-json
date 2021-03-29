@@ -1,6 +1,6 @@
 {   
     "id": 30422,
-	"version": 23,
+	"version": 24,
 	"old_ids": [50003],
     
 	"title": "Funmanga",
@@ -17,6 +17,35 @@
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/funmanga.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/funmanga.zip",
     "file_type": "sqlite",
+	
+		"manga_search_complete": {		
+		"search_link": "https://www.funmanga.com/service/advanced_search",
+		"headers": {
+		         "accept": "*/*",
+				"x-requested-with": "XMLHttpRequest",
+				"Referer": "https://www.funmanga.com/"
+			},
+		"form_data": {
+			"type": "all",
+            "manga-name": "$query$",
+            "status": "both"
+		},
+		"query_type": "POST",
+		
+		"add_manga": {
+			"next": "class=\"col-md-4\">",
+			
+			
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			
+			"cover": { "after": "<img", "token1": "src=\"//", "token2": "\"", 
+			"replace": { "prefix": "https://" } },
+			
+			"title": { "after": "<a href", "token1": "title=\"", "token2": "\"" },
+			"uniq":  { "after": "<a href", "token1": "title=\"", "token2": "\"" }
+		} 
+	},
+	
 	
 	
 	"manga_list_complete": {
