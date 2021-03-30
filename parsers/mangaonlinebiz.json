@@ -1,7 +1,7 @@
 {
 	"id": 30442,
-	"version": 2,
-	
+	"version": 3,
+	"old_ids": [40136],
 	"title": "Manga-Online.biz",
 	"host": "https://manga-online.biz/",
 	"public_link": "https://manga-online.biz/",
