@@ -1,6 +1,6 @@
 {
 	"id": 9728,
-	"version": 30, 
+	"version": 33, 
 	"title": "MangaEden Italian",
 	"host": "https://www.mangaeden.com/it/",
 	"public_link": "https://www.mangaeden.com/it-directory/",
@@ -39,11 +39,11 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://www.mangaeden.com/en/it-directory/?order=1&page=",
+			"base_url": "https://www.mangaeden.com/it/it-directory/?order=1&page=",
 			"append_nums": { "from": 1, "to": 23 }
 		},
 		"add_manga": { 
-			"next": "<td><a href=\"/en/it-manga/",
+			"next": "<td><a href=\"/it/it-manga/",
 			"link":  { "token1": "href=\"", "token2": "\"" }, 
 			"title": { "token1": "\">",     "token2": "</a>" }
 		},
@@ -58,7 +58,7 @@
         "uniq": { "after": "<span class=\"manga-title\"", "token1": "\">", "token2": "</span>" },
 		"author":      { "after": "?artist=", "token1":"\">", "token2": "</a>" },
 		"summary":     { "skip": "id=\"mangaDescription\"", "token1":">", "token2": "</h2>"},
-		"status":      { "complete": "Completed", "ongoing": "Ongoing" },
+		"status":      { "complete": "Completato", "ongoing": "In Corso" },
 		"read_dir":    { "right_to_left": "Japanese Manga", "left_to_right": "Korean Manhwa" },
 		"cover":       { "after": "class=\"mangaImage2\"", "token1": "src=\"", "token2": "\"" },
 		
@@ -68,24 +68,31 @@
             "values": [">Mature", ">Yaoi", ">Yuri"] },
 		 
 		"add_genre":   { "after": "?categoriesInc=", "token1": "\">", "token2": "</a>" },
-		"add_chapter": { 
 		
-			"next":  "<a href=\"/en/it-manga/", 
+		"add_chapter": { 
+		       
+			"next":  "<a href=\"/it/it-manga/", 
 			"start": "\"chapterBlocks\"",
 			"end" : "</tbody>",
+			
 			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
-			"title": { "token1": ">",       "token2": "</a>" },
-			"uniq" : { "token1": "href=\"", "token2": "/1/\"", "replace" : { "match" : "/en/it-manga/[\\w,\\-]*/", "text" : "" } }
+			"title": { "token1": ">",       "token2": "</a>",
+                "replace":{"match":"<span class=\"chapterDate hideM0\">.*?</span>", "text":""}  },
+				
+				
+			"uniq" : { "token1": "href=\"", "token2": "/1/\"", 
+			"replace" : { "match" : "/it/it-manga/[\\w,\\-]*/", "text" : "" } }
 		}
 	},
 	"chapter_complete": {
 		"add_images": {
 			"start": "var pages =",
-			"token1": "fs\":",
-			"token2": "\",",
+			"end": "];",
+			"token1": "fs\": \"//cdn.mangaeden.com/mangasimg/",
+			"token2": "\"",
 			
-			"end": "window.manga_page",
-			"replace": { "match": "\"//", "text": "https://" }
+			
+			"replace": {"prefix" : "https://cdn.mangaeden.com/mangasimg/"} 
 		}
 	},
 	
@@ -98,7 +105,7 @@
 			"assert" : {
 				"mangas" : [
 					{ "title" : "One Piece", 
-						"link" : "https://www.mangaeden.com/en/it-manga/one-piece/",
+						"link" : "https://www.mangaeden.com/it/it-manga/one-piece/",
 						"uniq" : "one-piece"
 					}
 				],
@@ -107,7 +114,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://www.mangaeden.com/en/it-manga/one-piece/",
+			"link" : "https://www.mangaeden.com/it/it-manga/one-piece/",
 			          
 			"title" : "One Piece",
 			"assert" : {
@@ -120,13 +127,13 @@
 				"chapters_count" : ">=690",
 				"chapters" : [
 					{
-           "link": "https://www.mangaeden.com/en/it-manga/one-piece/0/1/",
-           "title": "One Piece Chapter 0"
+           "link": "https://www.mangaeden.com/it/it-manga/one-piece/0/1/",
+           "title": "Capitolo 0"
         },
         {
             
             "folder": "1.5/",
-            "link": "https://www.mangaeden.com/en/it-manga/one-piece/1.5/1/"
+            "link": "https://www.mangaeden.com/it/it-manga/one-piece/1.5/1/"
             
         }
 				]
@@ -134,7 +141,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://www.mangaeden.com/en/it-manga/one-piece/0/1/",
+			"link" : "https://www.mangaeden.com/it/it-manga/one-piece/0/1/",
 			"assert" : {
 				"pages" : [
 		{"image": "https://cdn.mangaeden.com/mangasimg/8d/8d65678196005b1a4ce560acf39fc51e04652d8749e720bfeb54b097.jpg"},

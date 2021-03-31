@@ -1,6 +1,6 @@
 {
 	"id": 9472,
-	"version": 30, 
+	"version": 33, 
 	"title": "MangaEden English",
 	"host": "https://www.mangaeden.com/eng/",
 	"public_link": "https://www.mangaeden.com/en/en-directory/",
@@ -70,21 +70,23 @@
 			"start": "\"chapterBlocks\"",
 			"end" : "</tbody>",
 			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
-			"title": { "token1": ">",       "token2": "</a>" },
+			"title": { "token1": ">",       "token2": "</a>",
+                "replace":{"match":"<span class=\"chapterDate hideM0\">.*?</span>", "text":""}  },
 			"uniq" : { "token1": "href=\"", "token2": "/1/\"", "replace" : { "match" : "/en/en-manga/[\\w,\\-]*/", "text" : "" } }
 		}
 	},
+	
 	"chapter_complete": {
 		"add_images": {
 			"start": "var pages =",
-			"token1": "fs\":",
-			"token2": "\",",
+			"end": "];",
+			"token1": "fs\": \"//cdn.mangaeden.com/mangasimg/",
+			"token2": "\"",
 			
-			"end": "window.manga_page",
-			"replace": { "match": "\"//", "text": "https://" }
+			
+			"replace": {"prefix" : "https://cdn.mangaeden.com/mangasimg/"} 
 		}
 	},
-	
 	
 
 	"test": [
@@ -117,13 +119,13 @@
 				"chapters" : [
 					{
            "link": "https://www.mangaeden.com/en/en-manga/bleach/0/1/",
-           "title": "Bleach Chapter 0"
+           "title": "Chapter 0"
         },
         {
             
             "folder": "1/",
             "link": "https://www.mangaeden.com/en/en-manga/bleach/1/1/",
-            "title": "Bleach Chapter 1"
+            "title": "Chapter 1"
         }
 				]
 			}
