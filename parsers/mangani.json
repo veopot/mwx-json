@@ -1,6 +1,6 @@
 {
 "id": 40239, 
-"version": 10,
+"version": 11,
 "title": "MangaNi",
 "host": "https://mangani.ru",
 "public_link": "https://mangani.ru/search/?cat=2",
@@ -23,7 +23,7 @@
 "authorization_complete": {
 		"logo": "https://mangani.ru/i/favicon.ico",
 		"registration": "https://mangani.ru/register",
-		"expires": 31536000,
+		"expires": 31536000000,
 		"is_redirect": true,
 
 		"values": {

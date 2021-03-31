@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 76,
+	"version": 77,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -25,7 +25,7 @@
 	"authorization_complete": {
 		"logo": "https://tl.rulate.ru/i/favicon.ico",
 		"registration": "https://tl.rulate.ru/register",
-		"expires": 31536000,
+		"expires": 31536000000,
 		"is_redirect": true,
 
 		"values": {

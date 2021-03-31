@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 58,
+	"version": 59,
 	"title": "Re-Manga!",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -18,6 +18,36 @@
     "author": {"name": "Veopot","email": "fant-net@ya.ru"},
 
    
+
+	"authorization_complete": {
+		"logo": "https://remanga.org/icon.png",
+		"registration": "https://remanga.org/",
+		"expires": 31536000000,
+		"values": {
+			"user": {
+				"label": "Логин",
+				"hint": "Введите свой логин",
+				"kind": "text"
+			},
+			"password": {
+				"label": "Пароль",
+				"hint": "Введите свой пароль",
+				"kind": "password"
+			},
+		"headers": {
+			"Accept": "*/*" }
+		},
+		"request": {
+			"method": "json",
+			"url": "https://api.remanga.org/api/users/login/"
+		},
+		"response_check": {
+			"status": 200,
+			"body": "@\"content\"\\:(\\{.*?\\})",
+			"body_to_cookie": ["user"]
+		}
+	},
+
 
  "manga_search_complete": {
 	    "headers": {
