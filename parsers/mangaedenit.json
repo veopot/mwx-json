@@ -1,6 +1,6 @@
 {
 	"id": 9728,
-	"version": 30, 
+	"version": 31, 
 	"title": "MangaEden Italian",
 	"host": "https://www.mangaeden.com/it/",
 	"public_link": "https://www.mangaeden.com/it-directory/",
@@ -81,11 +81,11 @@
 	"chapter_complete": {
 		"add_images": {
 			"start": "var pages =",
-			"token1": "fs\":",
+			"token1": "cdn.mangaeden.com/mangasimg/",
 			"token2": "\",",
 			
 			"end": "window.manga_page",
-			"replace": { "match": "\"//", "text": "https://" }
+			"replace": {"prefix" : "https://cdn.mangaeden.com/mangasimg/"} 
 		}
 	},
 	
