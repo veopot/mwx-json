@@ -2,7 +2,7 @@
 
     "old_ids": [40125],
 	
-	"version": 32,
+	"version": 33,
 	"title": "MangaTown",
 	"host": "http://www.mangatown.com/",
 	"public_link": "http://www.mangatown.com/",
@@ -124,7 +124,7 @@
 		{
           "folder": "c315.2/",
           "link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.2/",
-          "title": "Shokugeki no Soma 315.2"
+          "title": "Shokugeki no Soma 315.2 Dessert - Le Passé"
         },
         {
            "link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/",
@@ -142,7 +142,7 @@
         {"link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/2.html"},
         {"link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/3.html"}
 				],
-				"pages_count": "29"
+				"pages_count": "28"
 			}
 		},
 		{
