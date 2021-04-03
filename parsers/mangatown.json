@@ -1,0 +1,156 @@
+{   "id": 30447,
+
+    "old_ids": [40125],
+	
+	"version": 32,
+	"title": "MangaTown",
+	"host": "http://www.mangatown.com/",
+	"public_link": "http://www.mangatown.com/",
+	"folder": "mangatown",
+	"name" : "mangatown",
+	"language": "en",
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangatown.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangatown.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangatown.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangatown.zip",
+    "file_type": "sqlite",
+
+    "author": {"name":"Veopot & Lomik_XP","email":"fant-net@ya.ru"},
+
+
+
+    "manga_search_complete": {		
+		"search_link": "http://www.mangatown.com/search?page=$page$&name=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "class=\"manga_cover\"",
+			
+			"link":  { "token1": "href=\"", "token2": "\"",
+				"replace": {
+					"prefix": "http://www.mangatown.com"
+				} },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"uniq":  { "token1": "title=\"", "token2": "\"" },
+			"cover": { "token1": "src=\"", "token2": "\"" }
+			
+		}
+	},
+
+
+
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "http://www.mangatown.com/directory/",
+			"append_nums": { "from": 1, "to": 800, "step": 1, "sufix": ".htm" }
+		},                                                              
+		"add_manga": {
+			"next": "class=\"manga_cover\"",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "40000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "skip": "class=\"title-top\"", "token1": ">", "token2": "<" },
+		"uniq":        { "skip": "class=\"title-top\"", "token1": ">", "token2": "<" },
+		"author":      { "skip": "Author(s):", "token1": "\">", "token2": "</" },
+		"summary":     { "skip": "Summary:", "after": "id=\"show\"", "token1": "\">", "token2": "<a" },
+		"status":      { "complete": "Completed", "ongoing": "Ongoing" },
+		"cover":       { "skip": "og:image", "token1": "content=\"", "token2": "\"" },
+		
+		"is_mature": ">Mature",
+		
+		"add_genres":   {
+        "start": "<b>Genre",
+		"end": "</li>",
+		"token1": "title=\"",
+		"token2": "\"" 
+		},
+		
+		
+		"add_chapter": {
+			"start":  "chapter_list",
+			"next": "<a",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": ">", "token2": "<span class=\"time\">" },
+			"end": "</div>"
+		}
+	},
+	
+	"chapter_complete": {
+		
+		"add_pages": {
+			"start": "onchange=\"javascript:location.href=this.value;\">",
+			"token1": "value=\"",
+			"token2": "\"",
+			"end": "<div class=\"go_page_btn\">",
+			"replace": { "match": "/manga/*?/.*?/.*?/featured.html", "text": "" }
+		
+		}
+		
+	},
+	
+	"page_complete": {
+		"image": { "after": "class=\"read_img\"", "token1": "<img src=\"", "token2": "\"" }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "3",
+			"assert" : {
+				"mangas_count" : ">=35"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.mangatown.com/manga/shokugeki_no_soma/",
+			"title" : "Shokugeki no Soma",
+			"assert" : {
+				"author" : "@TSUKUDA Yuuto",
+				"cover" : "@http://fmcdn.mangahere.com/store/manga/12114/ocover.jpg\\.*",
+				"summary" : "@^(Yukihira Souma's dream)",
+				"genres" : "@comedy",
+				"status" : "complete",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=399",
+				"chapters" : [
+		{
+          "folder": "c315.2/",
+          "link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.2/",
+          "title": "Shokugeki no Soma 315.2"
+        },
+        {
+           "link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/",
+           "title": "Shokugeki no Soma 315.1"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/",
+			"assert" : {
+				"pages" : [
+		{"link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/"},
+        {"link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/2.html"},
+        {"link": "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/3.html"}
+				],
+				"pages_count": "29"
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://www.mangatown.com/manga/shokugeki_no_soma/c315.1/",
+			"assert" : {
+				"image" : "@http://zjcdn.mangahere.org/store/manga/12114/315.1/compressed/l20190903_164427_101.jpg?\\.*"
+			}
+		}
+	]
+}
