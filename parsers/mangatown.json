@@ -2,7 +2,7 @@
 
     "old_ids": [40125],
 	
-	"version": 33,
+	"version": 34,
 	"title": "MangaTown",
 	"host": "http://www.mangatown.com/",
 	"public_link": "http://www.mangatown.com/",
@@ -90,7 +90,7 @@
 			"token1": "value=\"",
 			"token2": "\"",
 			"end": "<div class=\"go_page_btn\">",
-			"replace": { "match": "/manga/*?/.*?/.*?/featured.html", "text": "" }
+			"replace": { "match": "/(.*)/featured.html", "text": "" }
 		
 		}
 		
