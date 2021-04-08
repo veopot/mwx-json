@@ -1,0 +1,155 @@
+{
+
+    "id": 30449,
+	"old_ids": [12288],
+
+	
+	"version": 23,
+	"title": "MangaHere",
+	"host": "http://www.mangahere.cc/",
+	"public_link": "http://www.mangahere.cc/directory/",
+	"folder": "mangahere",
+	"name" : "mangahere",
+	"language": "en",
+	"chapters_order": false,
+	"skip_catalog_test": false,
+	
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangahere.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangahere.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangahere.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangahere.zip",
+    "file_type": "sqlite",
+	
+
+	
+	"manga_list_complete": {
+	"headers": {
+			"cookie": "isAdult=1"
+		},
+		"iterator": {
+			"base_url" : "http://www.mangahere.cc/directory/",
+			"append_nums": { "from": 1, "to": 500, "sufix": ".htm" }
+		},
+		"add_manga": { 
+		    "start" : "manga-list-1-list",
+			"end" :   "</ul>",
+			"next":   "<li>",
+			"link":   { "token1": "href=\"", "token2": "\"" }, 
+			"title":  { "token1": "title=\"", "token2": "\"" }
+		}
+	},
+	"manga_complete": {
+	"headers": {
+			"cookie": "isAdult=1"
+		},
+		
+	    "title":       { "skip": "detail-info-right-title-font", "token1": ">", "token2": "</" },
+        "uniq":        { "skip": "detail-info-right-title-font", "token1": ">", "token2": "</" },
+		"author":      { "after": ">Author:", "token1": "title=\"", "token2": "\"" },
+		"summary":     { "skip": "detail-info-right-content", "token1": ">", "token2": "<"},
+		"status":      { "complete": ">Completed<", "licensed": "has been licensed, it is not available in MangaHere.", "ongoing": ">Ongoing<" },
+		"read_dir":    { "right_to_left": "Manga</h1>", "left_to_right": "Manhwa</h1>" },
+		
+		
+		"is_mature": { 
+		     "start": "tag-list\">",
+		     "end": "</p>",
+		        "values": [">Adult<", ">Mature<", ">Seinen<", ">Yaoi<", ">Yuri<"] },
+	
+		
+		
+		"cover":       { "after": "detail-info-cover", "token1": "src=\"", "token2": "\"" },
+		"add_genres":  {
+			"start": "detail-info-right-tag-list",
+			"next": "href=",
+			"token1": "title=\"",
+			"token2": "\"",
+			"end": "</p>"
+		},
+		"add_chapter": {
+			"start": "chapterlist", 
+			"end" :  "</ul>",
+			"next":  "<a", 
+			
+			"uniq":  { "token1": "title3\">", "token2": "</" },
+			"link":  { "token1": "href=\"", "token2": "\"", 
+			"replace": { "prefix": "http://m.mangahere.cc" } }, 
+			"title": { "token1": "title3\">", "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"add_pages": {
+			"start": "onchange=\"javascript:location.href=this.value;\">",
+			"token1": "value=\"",
+			"token2": "\"",
+			"end": "</section>"
+		
+		}
+	},  
+	
+	"page_complete": {
+		"image": { "skip": "id=\"viewer\"",  "token1": "src=\"", "token2": "\"", 
+			"replace": { "prefix": "http:" }}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ 
+						"title" : "Minamoto-kun Monogatari", 
+						"link" : "http://www.mangahere.cc/manga/minamoto_kun_monogatari/"
+					
+					}
+				],
+				"mangas_count" : ">1000"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://www.mangahere.cc/manga/solo_leveling/", 
+			"title" : "Solo Leveling", 
+			"assert" : {
+				"author" : "Jang Sung-Lak",
+				"cover" : "@http://fmcdn.mangahere.com/store/manga/30829/cover.jpg?\\.*",
+				"summary" : "@(10 years ago)",
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=2",
+				"chapters_count" : ">=140",
+				"chapters" : [
+					{
+            "folder": "Ch.001/",
+            "link": "http://m.mangahere.cc/manga/solo_leveling/c001/1.html",
+            "title": "Ch.001"
+        },
+        {
+           "link": "http://m.mangahere.cc/manga/solo_leveling/c002/1.html"
+          
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://m.mangahere.cc/manga/solo_leveling/c001/1.html", 
+		    "assert" : {
+				"pages" : [
+		{"link": "http://m.mangahere.cc/manga/solo_leveling/c001/"},
+        {"link": "http://m.mangahere.cc/manga/solo_leveling/c001/2.html"},
+        {"link": "http://m.mangahere.cc/manga/solo_leveling/c001/3.html"}
+					
+				],
+				"pages_count": "13"
+			}
+		},
+		{
+			"proc" : "page_complete",
+			"link" : "http://m.mangahere.cc/manga/solo_leveling/c001/1.html",
+			"assert" : {
+				"image" : "@^http://zjcdn.mangahere.org/store/manga/30829/001.0/compressed/h20181105_144325_927.jpg?\\.*"
+			}
+		}
+	]
+}
