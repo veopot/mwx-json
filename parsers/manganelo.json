@@ -3,8 +3,7 @@
 	"old_ids": [21859],
     "old_sites": ["mangakakalot.com"],
 	
-	
-	"version": 15,
+	"version": 16,
 	"title": "MangaNelo",
 	"host": "https://manganelo.com",
 	"public_link": "https://manganelo.com/home",
@@ -12,7 +11,6 @@
 	"name" : "manganelo",
 	"language": "en",
 	
-	 
     "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manganelo.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manganelo.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/manganelo.json",
@@ -123,10 +121,9 @@
 		},
 	    "add_images": {
 			"start": "class=\"container-chapter-reader\">",
-			"token1": "<img src=\"https://",
+			"token1": "<img src=\"",
 			"token2": "\"",
-			"end": "<div style=\"max-height: 310px;",
-			"replace" : { "prefix" : "https://" }
+			"end": "<div style=\"float: left; max-width: 300px;"
 		}
 	},
 
@@ -148,7 +145,7 @@
 			"title" : "Naruto",
 			"assert" : {
 				"author" : "Kishimoto Masashi",
-				"cover" : "https://avt.mkklcdnv6.com/48/g/1-1583465604.jpg",
+				"cover" : "https://avt.mkklcdnv6temp.com/48/g/1-1583465604.jpg",
 				"summary" : "@Read Naruto Manga Online",
 				"genres" : "@action",
 				"status" : "complete",
