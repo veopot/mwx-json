@@ -1,0 +1,101 @@
+{
+	"id": 30451,
+	"version": 10,
+	"old_ids": [3567],
+    
+	"title": "VooDoo People",
+	"host": "http://vdppl.ru",
+	"public_link": "http://vdppl.ru",
+	"folder": "vdppl",
+	"name" : "vdppl",
+	"language": "ru",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/vdppl.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/vdppl.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/vdppl.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/vdppl.zip",
+    "file_type": "sqlite",
+
+    "author": {"name":"Veopot & Lomik_XP","email":"admin@mw.lomikxp.ru"},
+	
+
+	"manga_list_complete": {
+		"iterator": "http://vdppl.ru/main/index",
+		"add_manga": {
+			"next": "<p class=\"post-item-category\">",
+			"link":  { "token1": "href=\"", "token2": "\">" },
+			"title": { "token1": "\">", "token2": "</a>" }
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "token1": "<title>", "token2": "</title>" },
+		"uniq":        { "token1": "<title>", "token2": "</title>" },
+		"author":      { "skip": "<strong>Автор:", "token1": ">", "token2": "</", "replace": { "match": ".*>", "text": "" } },
+		"summary":     { "skip": "Описание", "token1": ":", "token2": "</" },
+		"status":      { "ongoing": "Перевод" },
+		"cover":       { "after": "ratio-img__img-wrap", "token1": "<img src=\"", "token2": "\"" },
+		"add_genres":  { "start": "Жанры", "after": "\">", "token1": "\">", "token2": "<", "end": "</p>" },
+		"add_chapter": {
+			"next":  "chapters__item chapters__item_name",
+			"link":  { "before": "download=\"\">fb2", "token1": "<a href=\"", "token2": "\"" },
+			"title": { "skip": "chapters__link", "token1": ">", "token2": "</a>" }
+		}
+	},
+	
+	"chapter_complete": {
+		"add_images": {
+			"start": "<code",
+			"token1": ">",
+			"token2": "</",
+			"end": "/code>",
+			"replace": {"prefix": "http://vdppl.ru"}
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ "title": "Tempest of the Stellar War", "link": "http://vdppl.ru/chapters/tempest-of-the-stellar-war",
+					  "uniq": "tempest-of-the-stellar-war" }
+				],
+				"mangas_count" : ">=13"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "http://vdppl.ru/chapters/tempest-of-the-stellar-war",
+			"title" : "Tempest of the Stellar War",
+			"assert" : {
+				"author" : "@Skeleton Wizard",
+				"cover" : "http://vdppl.ru/upload/images/bzu32mGiY-Tdk1jJfi7EwaXqOW9oxWG8.jpg",
+				"summary" : "@^(В далеком будущем империи)",
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=50",
+				"chapters" : [
+					{ "title" : "Том 3 Глава 12 – Босс, не надо!",
+						"link" : "http://vdppl.ru/upload/images/TSW-3_12.fb2",
+						"folder" : "TSW-3_12.fb2/"
+					}
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "http://google.ru/upload/images/TSW-3_12.fb2",
+			"title" : "Том 3 Глава 12 – Босс, не надо!",
+			"assert" : {
+				"pages" : [
+					{ "image" : "http://vdppl.ru/upload/images/TSW-3_12.fb2" }
+				],
+				"pages_count": "1"
+			}
+		}
+	]
+}
