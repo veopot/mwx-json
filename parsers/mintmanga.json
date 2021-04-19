@@ -1,8 +1,8 @@
 {
 	"id": 30007,
-	"version": 55, 
+	"version": 56, 
     "old_ids": [65884],
-    "old_sites": ["mintmanga.me", "mintmanga.com"],
+    "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
 	
 	"title": "MintManga",
@@ -81,7 +81,7 @@
 			"unknown":  "нет ни одной главы"
 		},
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
+		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		"add_genre":    { "token1": "/genre/", "token2": "\"" },
 		"content_type": { "default": "manga" },
 		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
@@ -115,7 +115,7 @@
 			"unknown":  "нет ни одной главы"
 		},
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "after": "subject-cower", "token1": "src=\"", "token2": "\"" },
+		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		"add_genre":    { "token1": "/genre/", "token2": "\"" },
 		"content_type": { "default": "manga" },
 		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
