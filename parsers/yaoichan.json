@@ -3,7 +3,7 @@
     "old_ids": [65583],
     "old_sites": ["yaoichan.ru"],
     
-	"version": 20, 
+	"version": 21, 
 	"title": "Yaoi-chan!",
 	"host": "https://yaoi-chan.me/",
 	"public_link": "https://yaoi-chan.me/catalog",
@@ -76,7 +76,7 @@
 	"manga_list_complete": {
 		"iterator": {    
 			"base_url": "https://yaoi-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 14240, "step": 20,
+			"append_nums": { "from": 0, "to": 14440, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": { 
@@ -95,16 +95,22 @@
 		"uniq":      { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
 		"author":      { "skip": ">Автор</", "token1":">", "token2": "</a>" },
 		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
+		
 		"status":      { 
-		"single": "Сингл",
-		"complete": "перевод завершен",
-		"ongoing": "перевод продолжается",
-		"empty": "Нет глав" },
+		
+		"single": "Сингл<", 
+		"complete": "перевод завершен<",
+		"ongoing": "перевод продолжается<",
+		"licensed": ">Манга удалена по просьбе",
+		"empty": "Нет глав<" },
 		
 		"read_dir":    { "right_to_left": "href=\"/type/Манга\"", "left_to_right": "href=\"/type/Манхва\"" },
 		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
 		"add_genre":   { "after": "href=\"https://yaoi-chan.me/tags/", "token1": "\">", "token2": "</" },
+		
 		"is_mature":    "яой",
+		
+		
 		"add_chapter": { 
 			"next":  "<div class='manga'><a href='",
 			"link":  { "token1": "<a href='", "token2": "'"   },

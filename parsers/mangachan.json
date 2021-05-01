@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 33,
+	"version": 34,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -81,11 +81,21 @@
 		"uniq":        { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
 		"author":      { "skip": ">Автор</", "token1":">", "token2": "</a>" },
 		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
+		
 		"status":      { 
+		
 		"single": "Сингл<", 
 		"complete": "перевод завершен<",
 		"ongoing": "перевод продолжается<",
+		"licensed": ">Манга удалена по просьбе",
 		"empty": "Нет глав<" },
+		
+		"is_mature": {
+			"start": "class=\"item\">Тэги",
+			"end": ">Переводчики",
+			"values": [">18_плюс<", ">сэйнэн<", ">эротика<"]
+		},
+		
 		"read_dir":    { 
 		"right_to_left": "href=\"/type/Манга\"",
 		"left_to_right": "href=\"/type/Манхва\""
