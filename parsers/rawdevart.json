@@ -1,0 +1,150 @@
+{
+	"id": 30459,
+	"version": 1,
+	
+	
+	"title": "RawDevart",
+	"host": "https://rawdevart.com/",
+	"public_link": "https://rawdevart.com/",
+	"folder": "rawdevart",
+	"name" : "rawdevart",
+	"language": "jp",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/rawdevart.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rawdevart.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/rawdevart.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/rawdevart.zip",
+    "file_type": "sqlite",
+	
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+	
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://rawdevart.com/comic/?page=",
+			"append_nums": { "from": 1, "to": 100,
+				"sufix": "&lister=5" }
+			},
+		"add_manga": {
+			"next": "<div class=\"overlay\">",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "https://rawdevart.com" }
+			},
+			"uniq": {"after": "href=\"", "token1": ">", "token2": "</",
+			"replace": { "match": "<.*?>",	"text": ""} },
+			
+			"title": {"after": "href=\"", "token1": ">", "token2": "</",
+			"replace": { "match": "<.*?>",	"text": ""} }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "after": "<h1 class=\"title", "token1":"\">", "token2": "</" },
+		"uniq":        { "after": "<h1 class=\"title", "token1":"\">", "token2": "</" },
+		"author":      { "skip": ">Author<", "token1":"<span>", "token2": "</" },
+		"cover":       { "after": "og:image", "token1": "content=\"", "token2": "\"" },
+		"summary":     { "skip": ">Description<", "token1": ">", "token2": "</div>",
+			           "replace": { "match": "<.*?>",	"text": ""} },
+		
+		"status":      { 
+		"complete": "Finished",
+		"ongoing": "Ongoing"
+		},
+		
+		"add_genre":   { "after": "<a href=\"/genre", "token1": "\">", "token2": "</" },
+		
+		
+		"chapters_from_pages": { 
+		"start": "<ul class=\"pagination",
+		"end": "class=\"d-block text-muted\">",
+		"token1": "class=\"page-link\" href=\"",
+		"token2": "\"", 
+		"replace" : { "prefix" : "%%url%%" }
+		},
+		
+		
+		"add_chapter": {
+		    "start": ">Description<",
+			"next":  "<span class=\"text-muted\">",
+			
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "https://rawdevart.com" }
+			},
+			
+			"uniq": {"after": "href=\"", "token1": ">", "token2": "</",
+			"replace": { "match": "<.*?>",	"text": ""} },
+			
+			"title": {"after": "href=\"", "token1": ">", "token2": "</",
+			"replace": { "match": "<.*?>",	"text": ""} }
+		}   
+	},
+	"chapter_complete": {
+		"add_images": {
+			"start": "<div id=\"img-container\">",
+			"token1": "data-src=\"",
+			"token2": "\"",
+			"end": "<div class=\"container\">"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [{ 
+			"title" : "Solo Leveling", 
+            "link" : "https://rawdevart.com/comic/webtoon-solo-leveling/" 
+			}],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://rawdevart.com/comic/release-witch/",
+			"title" : "Release That Witch",
+			"assert" : {
+				"author" : "@Er Mu",
+				"cover" : "@https://rawdevart.com/media/comic/release-witch/covers/Release_That_Witch_1.jpg.320x320_q85.jpg",
+				"summary" : "@^(A male engineer transmigrated into another world)",
+				"genres" : "@drama",
+				"status" : "ongoing",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=250",
+				"chapters" : [
+					{
+					"link": "https://rawdevart.com/comic/release-witch/chapter-259/",
+                    "title": "Chapter 259" 
+					},{
+                    "folder": "Chapter 258/",
+                    "link": "https://rawdevart.com/comic/release-witch/chapter-258/",
+                    "title": "Chapter 258"
+                    }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://rawdevart.com/comic/release-witch/chapter-20/",
+			"assert" : {
+				"pages" : [
+		{"image": "https://image.rawdevart.com/comic/release-witch/chapters/20/001_mXlLuRg.jpg"},
+        {"image": "https://image.rawdevart.com/comic/release-witch/chapters/20/002_xSDNExm.jpg"},
+        {"image": "https://image.rawdevart.com/comic/release-witch/chapters/20/003_8XrU5xo.jpg"}
+				],
+				"pages_count": "151"
+			}
+		}
+	]
+}
