@@ -1,6 +1,6 @@
 {
 	"id": 30459,
-	"version": 1,
+	"version": 2,
 	
 	
 	"title": "RawDevart",
@@ -47,7 +47,8 @@
 		}
 	},
 
-	"manga_complete": {
+	"manga_complete": [
+		{ "condition": "Pages", 
 		"title":       { "after": "<h1 class=\"title", "token1":"\">", "token2": "</" },
 		"uniq":        { "after": "<h1 class=\"title", "token1":"\">", "token2": "</" },
 		"author":      { "skip": ">Author<", "token1":"<span>", "token2": "</" },
@@ -82,13 +83,51 @@
 				"replace": {"prefix": "https://rawdevart.com" }
 			},
 			
-			"uniq": {"after": "href=\"", "token1": ">", "token2": "</",
+			"uniq": {"after": "href=\"", "token1": "\">", "token2": "</span>",
 			"replace": { "match": "<.*?>",	"text": ""} },
 			
-			"title": {"after": "href=\"", "token1": ">", "token2": "</",
+			"title": {"after": "href=\"", "token1": "\">", "token2": "</span>",
 			"replace": { "match": "<.*?>",	"text": ""} }
 		}   
 	},
+	
+	{ "condition": "",
+	
+		"title":       { "after": "<h1 class=\"title", "token1":"\">", "token2": "</" },
+		"uniq":        { "after": "<h1 class=\"title", "token1":"\">", "token2": "</" },
+		"author":      { "skip": ">Author<", "token1":"<span>", "token2": "</" },
+		"cover":       { "after": "og:image", "token1": "content=\"", "token2": "\"" },
+		"summary":     { "skip": ">Description<", "token1": ">", "token2": "</div>",
+			           "replace": { "match": "<.*?>",	"text": ""} },
+		
+		"status":      { 
+		"complete": "Finished",
+		"ongoing": "Ongoing"
+		},
+		
+		"add_genre":   { "after": "<a href=\"/genre", "token1": "\">", "token2": "</" },
+		
+		
+		"add_chapter": {
+		    "start": ">Description<",
+			"next":  "<span class=\"text-muted\">",
+			
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "https://rawdevart.com" }
+			},
+			
+			"uniq": {"after": "href=\"", "token1": "\">", "token2": "</span>",
+			"replace": { "match": "<.*?>",	"text": ""} },
+			
+			"title": {"after": "href=\"", "token1": "\">", "token2": "</span>",
+			"replace": { "match": "<.*?>",	"text": ""} }
+		}   
+	}
+	],
+	
+	
 	"chapter_complete": {
 		"add_images": {
 			"start": "<div id=\"img-container\">",
