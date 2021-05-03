@@ -1,6 +1,9 @@
 # MangaWatcher X
 Парсеры для андроид приложения MangaWatcherX и инструкция к ним 
 
+Программа используют файлы json 
+в которых указанно какие данные использовать с сайта источника!
+
 https://github.com/veopot/mwx-json/releases  (Android application Manga Watcher X /приложение для Android Manga Watcher X )
 
 
@@ -9,9 +12,6 @@ https://github.com/veopot/mwx-json/wiki (Instructions/Иструкция)
 https://github.com/veopot/mwx-json/wiki/ID-parsers (ID parsers/Ид парсеров)
 
 --------------------------
-Программа используют файлы json 
-в которых указанно какие данные использовать с сайта источника!
-
 Папка /NigmaX ( Приложение для тестирования парсеров и 
 сборки каталогов в вормате .sqlite либо в .p)
 
@@ -20,9 +20,6 @@ https://github.com/veopot/mwx-json/wiki/ID-parsers (ID parsers/Ид парсер
 Папка  /parsers ( Рабочие парсеры на данный момент в Mangawatcherx)
 
 Папка  /catalogs каталоги для парсеров 
-
-
-
 
 Для подключения ваших парсеров в приложение, скиньте свой  парсер "name.json" файл
 в папку "/mangawatcherx/parsers" и перезапустите приложение.
