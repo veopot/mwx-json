@@ -1,8 +1,9 @@
 # mwx-json
 Парсеры для андроид приложения MangaWatcherX и инструкция к ним 
 
-https://github.com/veopot/mwx-json/wiki
+https://github.com/veopot/mwx-json/wiki (Instructions/Иструкция)
 
+https://github.com/veopot/mwx-json/wiki/ID-parsers (ID parsers/Ид парсеров)
 
 Программа используют файлы json 
 в которых указанно какие данные использовать с сайта источника!
