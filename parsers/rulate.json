@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 77,
+	"version": 78,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -155,14 +155,15 @@
 			"token2": ","
 		},
 		"summary": {
-			"after": "name=\"description\"",
+			"after": "<meta name=\"description\"",
 			"token1": "content=\"",
 			"token2": "\""
 		},
 		"author": {
 			"skip": ">Автор:</",
-			"token1": "'>",
-			"token2": "</a"
+			"token1": "<em>",
+			"token2": "</em>",
+			"replace": { "match": "<.*?>",	"text": ""}
 		},
 
 		"status": {
@@ -186,31 +187,24 @@
 
 		
 
-		"add_genre": {
-			"after": "href=\"/search?genres%5B0%5D=",
-			"token1": "\">",
-			"token2": "</"
-		},
-		
-		"add_tag": {
-			"after": "href=\"/tag/?search=",
-			"token1": "\">",
-			"token2": "</"
+		"add_tags": {
+		    "start": "<div id=\"Info\">",
+			"end": "class=\"dropdown-menu\"",
+			"after": "href=\"/search?",
+			"token1": "class=\"badge\">",
+			"token2": "</a>"
 		},
 		"is_mature": {
-			"start": ">Тэги:<",
-			"end": ">Ваш статус:<",
+			"start": "<div id=\"Info\">",
+			"end": "class=\"dropdown-menu\"",
 			"values": ["+18", "18+", "эротика"]
 		},
 		"cover": {
-			"skip": "<div id='Info'",
-			"token1": "src=\"/i/book",
-			"token2": "\"",
-			"replace": {
-				"prefix": "https://tl.rulate.ru/i/book"
-			}
+			"after": "<meta property=\"og:image\"",
+			"token1": "content=\"",
+			"token2": "\""
 		},
-		
+		 
 		"content_type": {
 			"default": "light_novels"
 		},
