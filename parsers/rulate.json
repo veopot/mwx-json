@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 78,
+	"version": 80,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -104,7 +104,7 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://tl.rulate.ru/search/index/t//cat/2/s_lang/0/t_lang/0/adult/0/type/0/gen/1/sort/5/genres_cond/0/tags_cond/0/n_chapters//Book_page/",
+			"base_url": "https://tl.rulate.ru/search/index/t//cat/2/s_lang/0/t_lang/0/adult/1/type/0/gen/1/remove_machinelate/1/sort/5/genres_cond/0/tags_cond/0/fandoms_cond/0/n_chapters/5/n_pages/0/atmosphere/0/Book_page/",
 			"append_nums": {
 				"from": 1,
 				"to": 959,
@@ -155,7 +155,7 @@
 			"token2": ","
 		},
 		"summary": {
-			"after": "<meta name=\"description\"",
+			"after": "property=\"ranobe:description\"",
 			"token1": "content=\"",
 			"token2": "\""
 		},
