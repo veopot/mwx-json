@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 59,
+	"version": 60,
 	"title": "Re-Manga!",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -138,23 +138,19 @@
 
 
 	    "title":{ 
-           "after":"property=\"og:title\"",
-             "token1":"content=\"",
-             "token2":"\"",
-              "replace": [
-                { "match" : "Читать мангу","text":"" },
-				{ "match" : "онлайн","text":""}
-				]},
+		    "token1":"rus_name\":\"",
+			"token2": "\","},
 		
 		"uniq":{ 
 		    "token1":"en_name\":\"",
 			"token2": "\","},
 		
 	    "cover":{
-           "after":"property=\"og:image\"",
-           "token1":"content=\"",
-           "token2":"\""
-        },
+           "token1":"high\":\"",
+			"token2": "\",",
+	    "replace" : { "prefix" : "https://api.remanga.org" }
+		
+	    },
 		
 		
 		
