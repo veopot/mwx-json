@@ -1,7 +1,7 @@
 {
 	"id": 40155,
-	"version": 60,
-	"title": "Re-Manga!",
+	"version": 61,
+	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
 	"folder": "rbgmanga",
@@ -166,15 +166,16 @@
 						]
 },
 		
+		
 		"status": { 
 		  	"complete": { 
-			 "start": "content",
-             "end": "similarManga",
+			 "start": "\"status\"",
+             "end": "\"props",
 			   "values": [ "Закончен", "Переведена", "Сингл"] },
 			
             "ongoing": { 
-			 "start": "content",
-             "end": "similarManga",
+		 "start": "\"status\"",
+             "end": "\"props",
                 "value": "Продолжается" }
 			 },
 		
@@ -192,7 +193,9 @@
 		},
 		
 		
-		"is_mature":   { "values": [">Сэйнэн<", ">Эротика<", ">Юри<", ">Яой<"] },
+			
+		"is_mature":   { "values": ["Сэйнэн", "Эротика", "Юри", "Яой"] },
+		
 		
 		
 		"chapters_from_page": 
