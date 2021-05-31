@@ -1,17 +1,17 @@
 {
 	"id": 40161,
 	"old_ids": [21859],
-    "old_sites": ["mangakakalot.com"],
+    "old_sites": ["mangakakalot.com", "manganelo.com"],
 	
-	"version": 16,
-	"title": "MangaNelo",
-	"host": "https://manganelo.com",
-	"public_link": "https://manganelo.com/home",
-	"folder": "manganelo",
-	"name" : "manganelo",
+	"version": 17,
+	"title": "Manganato",
+	"host": "https://manganato.com",
+	"public_link": "https://manganato.com",
+	"folder": "manganato",
+	"name" : "manganato",
 	"language": "en",
 	
-    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manganelo.png",
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manganato.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manganelo.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/manganelo.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manganelo.zip",
@@ -19,7 +19,7 @@
 	
 	
 	"manga_search_complete": {		
- "search_link":"https://manganelo.com/search/story/$query$?page=$page$",
+ "search_link":"https://manganato.com/search/story/$query$?page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 		     "start": "class=\"panel-search-story\">", 
@@ -55,9 +55,8 @@
     "manga_list_complete": {
 
 		"iterator": {
-			"base_url": "https://manganelo.com/genre-all/",
-			"append_nums": { "from": 1, "to": 1202,  
-			"last_page": {"before": "Last(", "token1": "href=\"", "token2": "\""} }
+			"base_url": "https://manganato.com/genre-all/",
+			"append_nums": { "from": 1, "to": 1240, "sufix": "?type=topview"}
 		},
 
 		"add_manga": {
@@ -116,7 +115,7 @@
 	"chapter_complete": {
 	 "headers": {
 			"Accept": "*/*",
-			"Referer": "https://manganelo.com/",
+			"Referer": "https://manganato.com/",
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    "add_images": {
@@ -133,29 +132,29 @@
 			
 			"assert" : {
 				"mangas" : [
-					{ "title" : "Miniamaru Kareshi", 
-					 "link" : "https://manganelo.com/manga/tg917675" }
+					{ "title" : "Dear My Hunny Bunny", 
+					 "link" : "https://manganato.com/manga-ly988833" }
 				],
 				"mangas_count" : ">=50"
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://manganelo.com/manga/read_naruto_manga_online_free3",
-			"title" : "Naruto",
+			"link" : "https://manganato.com/manga-fe982639",
+			"title" : "Dokuzakura",
 			"assert" : {
-				"author" : "Kishimoto Masashi",
-				"cover" : "https://avt.mkklcdnv6temp.com/48/g/1-1583465604.jpg",
-				"summary" : "@Read Naruto Manga Online",
-				"genres" : "@action",
-				"status" : "complete",
-				"genres_count" : ">=8",
-				"chapters_count" : ">=740",
+				"author" : "Mita",
+				"cover" : "https://avt.mkklcdnv6temp.com/9/b/19-1583499431.jpg",
+				"summary" : "@Beauty Queen",
+				"genres" : "@drama",
+				"status" : "ongoing",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=25",
 				"chapters" : [
 					{
-            "folder": "Vol.72 Chapter 700 : Uzumaki Naruto!!/",
-            "link": "https://manganelo.com/chapter/read_naruto_manga_online_free3/chapter_700",
-            "title": "Vol.72 Chapter 700 : Uzumaki Naruto!!"
+            "folder": "Chapter 25/",
+            "link": "https://readmanganato.com/manga-fe982639/chapter-25",
+            "title": "Chapter 25"
         
         }
 				]
@@ -163,14 +162,14 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://manganelo.com/chapter/read_naruto_manga_online_free3/chapter_700",
+			"link" : "https://readmanganato.com/manga-fe982639/chapter-25",
 			"assert" : {
 				"pages" : [
-{"image": "https://s3.mkklcdnv3.com/mangakakalot/s2/star_martial_god_technique/chapter_165/3.jpg"},
-{"image": "https://s3.mkklcdnv3.com/mangakakalot/s2/star_martial_god_technique/chapter_165/4.jpg"},
-{"image": "https://s3.mkklcdnv3.com/mangakakalot/s2/star_martial_god_technique/chapter_165/5.jpg"}
+ {"image": "https://s71.mkklcdnv6tempv2.com/mangakakalot/q1/ql920170/chapter_25/1.jpg"},
+ {"image": "https://s71.mkklcdnv6tempv2.com/mangakakalot/q1/ql920170/chapter_25/2.jpg"},
+ {"image": "https://s71.mkklcdnv6tempv2.com/mangakakalot/q1/ql920170/chapter_25/3.jpg"}
 				],
-				"pages_count": "10"
+				"pages_count": "33"
 			}
 		}
 	]
