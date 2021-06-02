@@ -4,7 +4,7 @@
 Программа используют файлы json 
 в которых указанно какие данные использовать с сайта источника!
 
-https://github.com/veopot/mwx-json/releases  (Android application Manga Watcher X /приложение для Android Manga Watcher X )
+https://github.com/veopot/mwx-json/releases  ( Android application Manga Watcher X / Manga Watcher X для Android )
 
 
 https://github.com/veopot/mwx-json/wiki (Instructions/Иструкция)
@@ -29,6 +29,13 @@ https://github.com/veopot/mwx-json/wiki/ID-parsers (ID parsers/Ид парсер
 --------------------------
 Приложение подерживает дополнительно  чтение текстовых файлов с сайтов в форматах 
 , epub, fb2, txt, rtf, pdf
+
+--------------------------
+Our social media  / Наши социальные сети 
+
+https://vk.com/mangawatcher
+
+https://4pda.to/forum/index.php?showtopic=192861&st=4000
 
 --------------------------
 Если вы застряли во время создания парсера
