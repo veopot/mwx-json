@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 82,
+	"version": 81,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -9,15 +9,15 @@
 	"chapters_order": true,
 	"language": "ru",
 	"encoding": "utf-8",
-	
-	
-	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/rulate.png",
+
+
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/rulate.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rulate.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/rulate.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/rulate.zip",
-    "file_type": "sqlite",
-	
-    "author": {
+	"file_type": "sqlite",
+
+	"author": {
 		"name": "Veopot",
 		"email": "fant-net@ya.ru"
 	},
@@ -41,8 +41,9 @@
 				"hint": "Введите свой пароль с сайта Rulate!",
 				"kind": "password"
 			},
-      "headers": {
-			"Accept": "*/*" },
+			"headers": {
+				"Accept": "*/*"
+			},
 
 			"mature": {
 				"forward": "cookie",
@@ -56,12 +57,12 @@
 		},
 		"response_check": {
 			"headers": {
-	    	"Set-Cookie": "@%22login"
-		
+				"Set-Cookie": "@%22login"
+
 			}
 		}
 	},
-	
+
 	"manga_search_complete": {
 		"search_link": "https://tl.rulate.ru/search/index/t/$query$/cat/0/s_lang/0/t_lang/0/sort/4/n_chapters//Book_page/$page$",
 		"query_type": "GET",
@@ -87,10 +88,17 @@
 				"token1": "book/",
 				"token2": "'>"
 			},
-			
-			"summary": { "after": "<div id='book",  "token1": "'>", "token2": "</div>",
-                "replace":{"match":"<.*?>", "text":""} },
-				
+
+			"summary": {
+				"after": "<div id='book",
+				"token1": "'>",
+				"token2": "</div>",
+				"replace": {
+					"match": "<.*?>",
+					"text": ""
+				}
+			},
+
 			"cover": {
 				"before": "href='",
 				"token1": "src='",
@@ -143,7 +151,7 @@
 		"headers": {
 			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
 		},
-		
+
 		"title": {
 			"skip": "class=\"nav nav-tabs book-header\"",
 			"token1": "h1>",
@@ -158,13 +166,16 @@
 			"after": "property=\"ranobe:description\"",
 			"token1": "content=\"",
 			"token2": "\""
-			
+
 		},
 		"author": {
 			"skip": ">Автор:</",
 			"token1": "<em>",
 			"token2": "</em>",
-			"replace": { "match": "<.*?>",	"text": ""}
+			"replace": {
+				"match": "<.*?>",
+				"text": ""
+			}
 		},
 
 		"status": {
@@ -186,10 +197,10 @@
 			"default": "unknown"
 		},
 
-		
+
 
 		"add_tags": {
-		    "start": "<div id=\"Info\">",
+			"start": "<div id=\"Info\">",
 			"end": "class=\"dropdown-menu\"",
 			"after": "href=\"/search?",
 			"token1": "class=\"badge\">",
@@ -205,7 +216,7 @@
 			"token1": "content=\"",
 			"token2": "\""
 		},
-		 
+
 		"content_type": {
 			"default": "light_novels"
 		},
@@ -224,21 +235,35 @@
 				"before": "title='Получить",
 				"token1": "'t'>",
 				"token2": "</a",
-				"replace": [
-            { "match": "<.*>",	"text": ""},
-            { "match": "Главы",	"text": "Глава"},
-			 { "match": "[^a-zA-Z0-9]",	"text": ""}
-                ]
+				"replace": [{
+						"match": "<.*>",
+						"text": ""
+					},
+					{
+						"match": "Главы",
+						"text": "Глава"
+					},
+					{
+						"match": "[^a-zA-Z0-9]",
+						"text": ""
+					}
+				]
 			},
-			
+
 			"title": {
 				"before": "title='Получить",
 				"token1": "'t'>",
 				"token2": "</a",
-				"replace": [
-            { "match": "<.*>",	"text": ""},
-            { "match": "Главы",	"text": "Глава"}
-                ] }
+				"replace": [{
+						"match": "<.*>",
+						"text": ""
+					},
+					{
+						"match": "Главы",
+						"text": "Глава"
+					}
+				]
+			}
 		}
 
 	},
@@ -246,9 +271,9 @@
 
 	"chapter_complete": {
 		"headers": {
-   "cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B",
-   "cookie2": "mwatcher_d=sldotndjssf"
-  },
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B",
+			"cookie2": "mwatcher_d=sldotndjssf"
+		},
 
 		"images": true,
 		"add_pages": {
