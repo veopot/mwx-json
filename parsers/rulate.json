@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 80,
+	"version": 81,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -157,7 +157,8 @@
 		"summary": {
 			"after": "property=\"ranobe:description\"",
 			"token1": "content=\"",
-			"token2": "\""
+			"token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""}
 		},
 		"author": {
 			"skip": ">Автор:</",
@@ -223,22 +224,21 @@
 				"before": "title='Получить",
 				"token1": "'t'>",
 				"token2": "</a",
-				"replace": {
-					"match": "<.*>",
-					"text": ""
-				}
+				"replace": [
+            { "match": "<.*>",	"text": ""},
+			{ "match": "Главы",	"text": "Глава"},
+			{ "match": ":",	"text": ""}
+                           ]
 			},
+			
 			"title": {
 				"before": "title='Получить",
 				"token1": "'t'>",
 				"token2": "</a",
 				"replace": [
-{ "match": "<.*>",	"text": ""},
-{ "match": "Главы",	"text": "Глава"}
-
-
-]
-			}
+            { "match": "<.*>",	"text": ""},
+            { "match": "Главы",	"text": "Глава"}
+                ] }
 		}
 
 	},
@@ -258,11 +258,7 @@
 			"end": "</html>"
 		},
 		"prefix": "https://tl.rulate.ru/book/",
-		"sufix": "/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2",
-		"link_corrector": [{
-			"match": "http://tl.rulate.ru/",
-			"text": "https://tl.rulate.ru/"
-		}]
+		"sufix": "/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2"
 	},
 
 
