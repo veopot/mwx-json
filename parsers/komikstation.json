@@ -1,0 +1,143 @@
+{
+    
+    "id": 41258,
+	"old_ids": [41258],
+	"version": 20,
+	
+	"title": "KomikStation",
+	"host": "https://www.komikstation.com/",
+	"public_link": "https://www.komikstation.com/manga",
+	"folder": "komikstation",
+	"name": "komikstation",
+	"language": "id",
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/komikstation.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/komikstation.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/komikstation.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/komikstation.zip",
+    "file_type": "sqlite",
+	
+	
+	
+	"manga_list_complete": {
+		"iterator": {
+            "base_url": "https://www.komikstation.com/manga/?page=",
+            "append_nums": { "from": 1, "to": 150, "step": 1, "sufix": "&title=&author=&yearx=&status=&order=popular&type=" }
+        },
+		"add_manga": { 
+			"next": "<div class=\"bsx\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"uniq": { "token1": "href=\"https://www.komikstation.com/manga/", "token2": "\"" }
+		}
+	},
+	"manga_complete": {
+	
+		"title":  { "token1": "<h1 itemprop=\"headline\">", "token2": "</h1>",
+				    "replace": [
+				    {"match":"<.*?>","text":""},
+                    { "match": "Bahasa Indonesia", "text": ""}
+				]
+		},
+		
+		"additional_title": { "token1": "<span class=\"alter\">", "token2": "</" },
+		
+		"uniq":        {"after": "rel=\"canonical\"",  "token1": "/manga/", "token2": "\"" },
+		
+		"author":      { "skip": ">Author", "token1": ">", "token2": "</" },
+		
+		"cover":       { "skip": "property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		
+		"status": { 
+		  	"complete": { "start": ">Status:",
+			              "end": "</span>",
+						  "value": "Completed" },
+						  
+            "ongoing": {  "start": ">Status:",
+			              "end": "</span>",
+			              "value": "Ongoing" }
+            },
+		
+		"summary":     { "skip": "class=\"desc\">", "token1": ">", "token2": "</div>",
+         "replace":{"match":"<.*?>","text":""} },
+		 
+		"add_genres":   {
+        "start": "<b>Genres:</b>",
+		"end": "</span>",
+		"token1": "rel=\"tag\">",
+		"token2": "</" 
+		},
+		
+		"add_chapter": {
+			"start": "<h3><i class=\"fas fa-book-open\">",
+			"next":  "<span class=\"lchx\">", 
+			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
+			"title": { "skip": "<a href=\"", "token1": ">", "token2": "</" },
+			"end":   "<i class=\"fas fa-comments\">"
+		}
+	},
+	
+	"chapter_complete": {
+		"images": true,
+		"add_pages": { 
+			"start": "id=\"readerarea", 
+			"token1": "<img src=\"", 
+			"token2": "\"",
+			"end": "</article>"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": 2,
+			"assert" : {
+				"mangas" : [
+					{ 
+					"title" : "I Am Daxianzun", 
+					"link" : "https://www.komikstation.com/manga/i-am-daxianzun/",
+					"uniq" : "i-am-daxianzun/" }
+				],
+				"mangas_count" : ">20"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"title" : "Peerless Soul", 
+			"link" : "https://www.komikstation.com/manga/peerless-soul/",
+			"assert" : {
+				"author" : "天苍子动漫",
+				"cover" : "https://i0.wp.com/www.komikstation.com/wp-content/uploads/2019/11/Peerless-Soul.jpg",
+				"summary" : "@^(Di daratan Canglan)",
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=290",
+				"chapters" : [
+		{
+            "folder": "peerless-soul-chapter-293/",
+            "link": "https://www.komikstation.com/peerless-soul-chapter-293/",
+            "title": "Chapter 293"
+        },
+        {
+            "link": "https://www.komikstation.com/peerless-soul-chapter-292/",
+            "title": "Chapter 292"
+        },
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://www.komikstation.com/peerless-soul-chapter-292/", 
+			"assert" : {
+				"pages" : [
+ {"image": "https://klikcdn.com/data2/9f58da765b77f02244ebde8dcbb674c4/292/1_dbb872c715bd56bb5c4c3b52e3120a08.jpg"},
+ {"image": "https://klikcdn.com/data2/9f58da765b77f02244ebde8dcbb674c4/292/2_c7289117e043abe21c8e684f0fad0e00.jpg"},
+ {"image": "https://klikcdn.com/data2/9f58da765b77f02244ebde8dcbb674c4/292/3_6d61584b644a7283dbe00e84ec3c092b.jpg"}
+				],
+				"pages_count": "44"
+			}
+		}
+	]
+}
