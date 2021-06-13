@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 62,
+	"version": 63,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -67,7 +67,7 @@
 			
 			"link":  { "before": "bookmark_type\"",
 			"token1": "dir\":\"", "token2": "\",",
-			"replace":{"prefix": "https://remanga.org/manga/"} },
+			"replace":{"prefix": "https://remanga.org/api/titles/"} },
 			
 			"cover":  { "skip": "bookmark_type\"",
 			"token1": "mid\":\"", "token2": "\"",
@@ -102,7 +102,7 @@
 			
 			"link":  { "before": "bookmark_type\"",
 			"token1": "dir\":\"", "token2": "\",",
-			"replace":{"prefix": "https://remanga.org/manga/"} },
+			"replace":{"prefix": "https://remanga.org/api/titles/"} },
 			
 			"cover":  { "before": "bookmark_type\"",
 			"token1": "cover_mid\":\"", "token2": "\"",
