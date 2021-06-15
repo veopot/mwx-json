@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 26,
+	"version": 27,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -119,13 +119,16 @@
 	},
 	"chapter_complete": {
 		"remove_first_del": true,
-		"add_images": {
-			"start": "<a href=\"#",
-			"token1": "data-i=\"",
-			"token2": "\"",
-			"end": "div>"
-		}
-	},
+        "images": true,
+        "prefix": "https://img.mangaclub.ru/",
+        "add_pages":    { "start": "manga-lines-page",
+        "token1": "data-i=\"",
+        "token2": "\">",
+        "end": "\"control\""
+                          
+  },
+		
+	
 
 	"test": [
 		{
