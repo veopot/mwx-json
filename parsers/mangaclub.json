@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 27,
+	"version": 28,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -93,7 +93,8 @@
 		"summary":      { "skip": "class=\"description\"", "token1": ">", "token2": "</" },
 		"status":       { 
 			"complete": "Завершен/",
-			"ongoing": "Продолжается/"
+			"ongoing": "Продолжается/",
+		  	"licensed" : "Лицензировано"
 		},
 		"content_type": { 
 			"manga": "link-category\">Манга<",
