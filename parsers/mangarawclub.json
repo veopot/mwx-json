@@ -2,7 +2,7 @@
     
     "id": 30469,
 	
-	"version": 2,
+	"version": 3,
 	
 	"title": "Manga Raw Club",
 	"host": "https://www.manga-raw.club/",
@@ -20,7 +20,28 @@
 
 
 
-	
+	"manga_search_complete": {		
+		"search_link": "https://www.manga-raw.club/search/?search=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "class=\"novel-item\">",
+			"link":  { "token1": "href=\"", "token2": "\"",
+				"replace": {"prefix": "https://www.manga-raw.club"}
+			},
+			
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"uniq": { "token1": "href=\"/manga/", "token2": "/\"" },
+			 
+			"summary": { "token1": "<h4 class=\"novel-title text2row\">", "token2": "</h4>",
+                "replace":{"match":"<.*?>", "text":""} },
+			
+			
+			
+			"cover": { "token1": "data-src='", "token2": "'",
+				"replace": {"prefix": "https://www.manga-raw.club"} }
+			
+		}
+	},
 
 	"manga_list_complete": {
 		"iterator": {
@@ -56,8 +77,8 @@
 		"status":      { 
 		
 		"single": ">Сингл</", 
-		"complete": ">Complete</",
-		"ongoing": ">Ongoing</"
+		"complete": "<strong class=\"completed\">",
+		"ongoing": "<strong class=\"ongoing\">"
 		 },
 		
 		"is_mature": {
@@ -126,7 +147,7 @@
             
             "link": "https://www.manga-raw.club/reader/en/onepunch-man-chapter-146-eng-li/",
              "title": "146-eng-li"
-        },
+        }
 				]
 			}
 		},
