@@ -2,7 +2,7 @@
     
     "id": 30469,
 	
-	"version": 3,
+	"version": 4,
 	
 	"title": "Manga Raw Club",
 	"host": "https://www.manga-raw.club/",
@@ -32,7 +32,7 @@
 			"title": { "token1": "title=\"", "token2": "\"" },
 			"uniq": { "token1": "href=\"/manga/", "token2": "/\"" },
 			 
-			"summary": { "token1": "<h4 class=\"novel-title text2row\">", "token2": "</h4>",
+			"summary": { "token1": "<div class=\"summary truncate-fade\" title=\"", "token2": "\"",
                 "replace":{"match":"<.*?>", "text":""} },
 			
 			
