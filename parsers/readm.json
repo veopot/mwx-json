@@ -1,0 +1,188 @@
+{
+    
+    "id": 30472,
+    "version": 2,
+	
+	"title": "ReadM",
+	"host": "https://readm.org/",
+	"public_link": "https://readm.org/manga",
+	"folder": "readm",
+	"name": "readm",
+	"language": "en",
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/readm.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/readm.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/readm.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/readm.zip",
+    "file_type": "sqlite",
+	
+	
+	"manga_search_complete": {		
+		"search_link": "https://readm.org/service/search",
+		"headers": {
+		        "accept": "*/*",
+				"x-requested-with": "XMLHttpRequest",
+				"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+				"Referer": "https://readm.org/"
+			},
+			
+		"form_data": {
+			"dataType": "json",
+            "phrase": "$query$"
+		},
+		"query_type": "POST",
+		
+		
+		"add_manga": {
+			"next": "{\"title\"",
+			
+			"title": { "before": "url\":\"",  "token1": "\"title\":\"", "token2": "\"" },
+			"uniq":  { "token1": "url\":\"\/manga\/", "token2": "\"" },
+			
+			"link":  { "token1": "url\":\"", "token2": "\"",
+			"replace" : [{ "prefix" : "https://readm.org" },{ "match" : "\\\\", "text" : "" }]
+			 },
+			
+			"cover": { "token1": "image\":\"", "token2": "\"",
+			"replace" : [{ "prefix" : "https://readm.org" },{ "match" : "\\\\", "text" : "" }] }
+			
+		} 
+	},
+	
+	
+	
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://readm.org/popular-manga/",
+			"append_nums": { "from": 0, "to": 1000 }
+		},
+		
+		"add_manga": { 
+			"next": "<div class=\"subject-title\">",
+			
+			"link":  { "token1": "href=\"", "token2": "\"",
+				"replace": {"prefix": "https://readm.org"} 
+			},
+			"title": { "token1": "class=\"truncate\">", "token2": "</" },
+			"uniq": { "token1": "href=\"/manga/", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "40000",
+			"inc": -1
+		}
+	},
+	
+	
+	"manga_complete": {
+	
+		"title":  { "after": "<h1",   "token1": "class=\"page-title\">", "token2": "</h1>"},
+		"uniq": {"before": "<h1 class=\"page-title\">",  "token1": "href=\"/manga/", "token2": "\"" },
+		"author":      { "skip": "href=\"/cast/", "token1": "<small>", "token2": "</" },
+		"cover":       { "token1": "src=\"/uploads/chapter_files", "token2": "\"",
+				"replace": {"prefix": "https://readm.org/uploads/chapter_files"} },
+		
+		"status": { 
+		  	"complete": { "start": "class=\"series-status",
+			              "end": "</span>",
+						  "values": [ "Completed", "completed"]   },
+						  
+            "ongoing": {  "start": "class=\"series-status",
+			              "end": "</span>",
+			              "values": [ "ongoing", "Ongoing"]  }
+            },
+		
+		"summary":     { "skip": "<h2 class=\"section-heading\">",
+		"token1": "</h2>", "token2": "</span>",
+         "replace":{"match":"<.*?>","text":""} },
+		 
+		 
+		"add_genres":   {
+        "start": ">Genres:</",
+		"end": "</div>",
+		"token1": "title=\"",
+		"token2": "\"" 
+		},
+		
+		"add_chapter": {
+			"start": "START READING",
+			"next":  "<h6 class=\"truncate\">", 
+			"link":  { "token1": "<a href=\"", "token2": "\"",
+			
+			"replace": [ { "match": "/all-pages",	"text": ""},{ "match": "%",	"text": "-"}]
+			}, 
+			"title": { "after": "<a href=\"", "token1": ">", "token2": "</",
+         "replace":{ "match": "%",	"text": "-"} },
+			"end":   "<footer class=\"footer\">"
+		}
+	},
+	
+	
+	"chapter_complete": {
+		"images": true,
+		"add_pages": { 
+			"start": "var chapter", 
+			"token1": "\"src\":\"", 
+			"token2": "\"",
+			"end": "<body class=\"fluid\">",
+			"replace" : [{ "prefix" : "https://readm.org" },{ "match" : "\\\\", "text" : "" }]
+			
+			
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": 2,
+			"assert" : {
+				"mangas" : [
+		{ 
+		"uniq": "16701",
+        "link": "https://readm.org/manga/16701",
+        "title": "Above All Gods"
+		}
+				],
+				"mangas_count" : ">15"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"title" : "Martial Peak", 
+			"link" : "https://readm.org/manga/16086",
+			"assert" : {
+				"author" : "Momo (II)",
+				"cover" : "https://readm.org/uploads/chapter_files/cover/tbn/1609673137_198x0.jpg",
+				"summary" : "@^(The journey to the martial peak is a lonely)",
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=1000",
+				"chapters" : [
+		 {
+            "folder": "1264/",
+            "link": "https://readm.org/manga/16086/1264",
+            "title": "Chapter 1264"
+        },
+        {
+           
+            "link": "https://readm.org/manga/16086/1263",
+            "title": "Chapter 1263"
+        }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://readm.org/manga/16086/1264", 
+			"assert" : {
+				"pages" : [
+        {"image": "https://readm.org/uploads/chapter_files/16086/1270/1.jpg"},
+        {"image": "https://readm.org/uploads/chapter_files/16086/1270/2.jpg"},
+        {"image": "https://readm.org/uploads/chapter_files/16086/1270/3.jpg"}
+				],
+				"pages_count": "14"
+			}
+		}
+	]
+}
