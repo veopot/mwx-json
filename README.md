@@ -40,7 +40,7 @@ https://4pda.to/forum/index.php?showtopic=192861&st=4000
 --------------------------
 Если вы застряли во время создания парсера
 и нужна помошь ,пишите в телеграм канал
-https://t.me/joinchat/VJ08utT48avfew6A
+https://t.me/mangawatcher
 
 Полезные ссылки
 
