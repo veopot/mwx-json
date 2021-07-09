@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 56, 
+	"version": 57, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -68,9 +68,21 @@
 		"Referer": "https://mintmanga.live/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-	    "title": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
-	    "additional_title": { "skip": "itemprop=\"name\"", "token1": "=\"", "token2": "\"" },
+		
+		
+	   "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+				"replace": [
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+				] 
+			},
+		
+	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
 		"author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		"status":       { 
@@ -102,9 +114,20 @@
 		"Referer": "https://mintmanga.live/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-	    "title": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
-	    "additional_title": { "skip": "itemprop=\"name\"", "token1": "=\"", "token2": "\"" },
+		
+	    "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+				"replace": [
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+				] 
+			},
+		
+	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
 		"author":       { "after": "elem_author", "skip": "person-link", "token1":"\">", "token2": "</a>" },
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		"status":       { 

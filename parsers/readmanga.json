@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 44,
+    "version": 45,
 	
 	"old_ids": [1280],
     "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com"],
@@ -66,10 +66,21 @@
 		"Referer": "https://readmanga.live/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
+	        "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+				"replace": [
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+				] 
+			},
+		
+	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+        "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 	
-            "title": { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
-            "additional_title": { "after": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
-            "uniq":  { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+	 
+			
             "author": { "skip": "<span class=\"elem_screenwriter \"", "token1": "class=\"person-link\">", "token2": "</" },
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
             "status": { 
@@ -99,9 +110,19 @@
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
-            "title": { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
-            "additional_title": { "after": "itemprop=\"name\"", "token1": "content=\"", "token2": "\"" },
-            "uniq":  { "after": "<meta itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
+            "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+				"replace": [
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+				] 
+			},
+		
+	        "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+            "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
+		
             "author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
             "status": { 
