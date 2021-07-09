@@ -2,7 +2,7 @@
     
     "id": 30469,
 	
-	"version": 4,
+	"version": 5,
 	
 	"title": "Manga Raw Club",
 	"host": "https://www.manga-raw.club/",
@@ -108,7 +108,7 @@
 			"start": "<div style=\"font-size: 0;\">",
 			"token1": "<img src=\"",
 			"token2": "\"",
-			"end": "<div id='div-gpt-ad-Box1'>"
+			"end": ">Comments</"
 		}
 	},
 
