@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 57, 
+	"version": 58, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -102,7 +102,12 @@
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<tr",
-			"link":  	{ "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://mintmanga.live"}},
+			
+			"link":  	{ "token1": "<a href=\"", "token2": "\"",
+			"replace":  [{"prefix": "https://mintmanga.live"},
+			{"sufix": "?mtr=1&mature=1"}
+			]},
+			
 			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
 			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
 			"!postfix":	"?mtr=1&mature=1"
@@ -143,11 +148,16 @@
 		"content_type": { "default": "manga" },
 		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
         "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
+		
 		"add_chapter":  { 
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<tr",
-			"link":  	{ "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://mintmanga.live"}},
+			"link":  	{ "token1": "<a href=\"", "token2": "\"",
+			"replace":  [{"prefix": "https://mintmanga.live"},
+			{"sufix": "?mtr=1&mature=1"}
+			]},
+			
 			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
 			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
 			"!postfix":	"?mtr=1&mature=1"

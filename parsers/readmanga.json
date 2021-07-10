@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 45,
+    "version": 46,
 	
 	"old_ids": [1280],
     "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com"],
@@ -97,7 +97,15 @@
                 "start": "</thead>",
                 "end": "</table>",
                 "next": "<a href=\"",
-                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://readmanga.live"} },
+                "link": { "token1": "<a href=\"", "token2": "\"",
+				
+			 "replace":  [{"prefix": "https://readmanga.live"},
+			              {"sufix": "?mtr=1&mature=1"}
+			    ]
+				},
+				
+				
+				
                 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
 		  	"uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
             }
@@ -139,7 +147,12 @@
                 "start": "</thead>",
                 "end": "</table>",
                 "next": "<a href=\"",
-                "link": { "token1": "<a href=\"", "token2": "\"", "replace": {"prefix": "https://readmanga.live"} },
+                "link": { "token1": "<a href=\"", "token2": "\"",
+				
+			 "replace":  [{"prefix": "https://readmanga.live"},
+			              {"sufix": "?mtr=1&mature=1"}
+			    ]
+				},
                 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
             "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
             }
