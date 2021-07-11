@@ -160,7 +160,7 @@
 			"token1": "href=\"",
                         "token2": "\"",
 	"replace" : [ 
-		{ "prefix" : "https://mangapoisk.ru/manga/" },
+		{ "prefix" : "https://mangapoisk.ru" },
                 { "match": "amp;",  "text": ""}
 		]
 		}
