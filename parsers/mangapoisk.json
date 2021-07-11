@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":3,
+   "version":5,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -86,24 +86,25 @@
 		
    
    "manga_complete":{
+	   "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
+			"Referer": "https://mangapoisk.ru"
+		},
       "title":{
-         "skip":"<head>",
-         "token1":"<title>",
-         "token2":"</title>",
-              "replace": [
-                { "match" : "читать мангу","text":"/" },
-				{ "match" : "онлайн","text":""}
-				]},
+         
+         "token1":"class=\"post-name\">",
+         "token2":"</h1>" ,
+         "replace":{"match":"<.*?>","text":""} },
       
       "uniq":{
-         "skip":"class=\"card-body\">",
+         "skip":"class=\"row\">",
          "token1":"class=\"post-name\">",
          "token2":"</"
       },
 	  
 	  
       "cover":{
-        "skip":"class=\"card-body\">",
+        "skip":"class=\"row\">",
          "token1":"src=\"",
          "token2":"\""
       },
@@ -146,37 +147,56 @@
          ]
       },
 	  
-	  "chapters_from_page":{ 
-		"after": "data-name=\"chaptersList\"", "token1": "data-src=\"", "token2": "\"",
-		"replace" : { "prefix" : "https://mangapoisk.ru" }
-		},
+	"chapters_from_page": {
+            "after": "class=\" manga-links",
+            "token1": "href=\"",
+            "token2": "/chapter",
+            "replace":  [
+			{"prefix": "https://mangapoisk.ru"},
+			{"sufix": "/chaptersList"}
+			], 
+	    "next": {
+			"before": "aria-label=\"Вперёд", 
+			"token1": "href=\"",
+            "token2": "\"",
+			"replace": {"prefix": "https://mangapoisk.ru"}
+		}
+	},
+	  
+	  
+	  
 		
 		"add_chapter":{
-         "start":"<ul",
-         "end":"</ul>",
-         "next":"class=\"list-group",
+         "start":"</head>",
+		 "end": "class=\"pagination\"",
+        
+		 
+         "next": "class=\"list-group-item chapter-item",
+		                 
          "link":{
             "token1":"href=\"",
             "token2":"\"",
 			"replace": {"prefix" : "https://mangapoisk.ru"}
          },
+		 
 		 "uniq":{
             "skip":"href=\"",
             "token1":"/chapter/",
             "token2":"\""
          },
-         "title":{
+		 
+        "title":{
             "skip":"href=\"",
             "token1":"class=\"chapter-title\">",
             "token2":"</a>",
 				"replace": [
-{ "match": "</span>",	"text": ""},
-{ "match": "<span class=\"chapter-extra\">",	"text": ""}
-
-
-]
-         }
+            { "match": "</span>",	"text": ""},
+            { "match": "<span class=\"chapter-extra\">",	"text": ""}
+            ]
+        }
       }
+	  
+	  
    },
    
    
