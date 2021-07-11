@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":10,
+   "version":11,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -152,12 +152,11 @@
 	"chapters_from_pages": { 
 		"start": "class=\"chapters-infinite-pagination",
 		 "end": "</ul>",
-		 
-		"token1": "href=\"/manga/",
-		"token2": "\"", 
-		"replace" : [ { "prefix" : "https://mangapoisk.ru/manga/" },
-                { "match": "amp;",  "text": ""}
-		]
+		"after": "class=\"page-link",
+		"token1": "\">",
+		"token2": "</", 
+		"replace" :  { "prefix" : "%%url%%/chaptersList?page=" } 
+		
 		},
 	  
 	  
