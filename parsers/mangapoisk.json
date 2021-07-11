@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":5,
+   "version":6,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -158,8 +158,11 @@
 	    "next": {
 			"before": "aria-label=\"Вперёд", 
 			"token1": "href=\"",
-            "token2": "\"",
-			"replace": {"prefix": "https://mangapoisk.ru"}
+                        "token2": "\"",
+	"replace" : [ 
+		{ "prefix" : "https://mangapoisk.ru/manga/" },
+                { "match": "amp;",  "text": ""}
+		]
 		}
 	},
 	  
