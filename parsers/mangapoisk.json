@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":6,
+   "version":10,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -85,7 +85,9 @@
 		
 		
    
-   "manga_complete":{
+   "manga_complete":[
+   
+    { "condition": "/chaptersList?",
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
 			"Referer": "https://mangapoisk.ru"
@@ -147,62 +149,150 @@
          ]
       },
 	  
-	"chapters_from_page": {
-            "after": "class=\" manga-links",
-            "token1": "href=\"",
-            "token2": "/chapter",
-            "replace":  [
-			{"prefix": "https://mangapoisk.ru"},
-			{"sufix": "/chaptersList"}
-			], 
-	    "next": {
-			"before": "aria-label=\"Вперёд", 
-			"token1": "href=\"",
-                        "token2": "\"",
-	"replace" : [ 
-		{ "prefix" : "https://mangapoisk.ru" },
+	"chapters_from_pages": { 
+		"start": "class=\"chapters-infinite-pagination",
+		 "end": "</ul>",
+		 
+		"token1": "href=\"/manga/",
+		"token2": "\"", 
+		"replace" : [ { "prefix" : "https://mangapoisk.ru/manga/" },
                 { "match": "amp;",  "text": ""}
 		]
-		}
-	},
+		},
 	  
 	  
 	  
 		
 		"add_chapter":{
-         "start":"</head>",
-		 "end": "class=\"pagination\"",
+        "start": "<head>",
+		 "end": "class=\"chapters-infinite-pagination\"",
         
 		 
-         "next": "class=\"list-group-item chapter-item",
+         "next": "chapter-item",
+		 
 		                 
          "link":{
+			
             "token1":"href=\"",
             "token2":"\"",
 			"replace": {"prefix" : "https://mangapoisk.ru"}
          },
 		 
-		 "uniq":{
+		"uniq":{
             "skip":"href=\"",
             "token1":"/chapter/",
             "token2":"\""
-         },
+        },
 		 
         "title":{
             "skip":"href=\"",
             "token1":"class=\"chapter-title\">",
             "token2":"</a>",
-				"replace": [
-            { "match": "</span>",	"text": ""},
-            { "match": "<span class=\"chapter-extra\">",	"text": ""}
-            ]
+			"replace": { "match": "</span>",	"text": ""}
         }
       }
 	  
 	  
    },
-   
-   
+   { "condition": "",
+	   "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
+			"Referer": "https://mangapoisk.ru"
+		},
+      "title":{
+         
+         "token1":"class=\"post-name\">",
+         "token2":"</h1>" ,
+         "replace":{"match":"<.*?>","text":""} },
+      
+      "uniq":{
+         "skip":"class=\"row\">",
+         "token1":"class=\"post-name\">",
+         "token2":"</"
+      },
+	  
+	  
+      "cover":{
+        "skip":"class=\"row\">",
+         "token1":"src=\"",
+         "token2":"\""
+      },
+      
+	  "status": { 
+		  	"complete": { 
+			 "start": ">Статус:<",
+             "end": ">Жанр:<",
+			   "values": [ "Завершена", "Переведена", "Сингл"] },
+			
+            "ongoing": { 
+			"start": ">Статус:<",
+             "end": ">Жанр:<",
+                "value": "Выпускается" }
+			 },
+			 
+			 
+      "summary":{
+         "skip":">Описание:<",
+         "token1":"class=\"manga-description entry\">",
+         "token2":"</div>",
+         "replace":{
+            "match":"<.*?>",
+            "text":""
+         }
+      },
+      "add_genres":{
+         "start":">Жанр:<",
+         "end":">Год:<",
+         "token1":"\">",
+         "token2":"</"
+      },
+      "is_mature":{
+         "values":[
+            "эротика",
+            "сэйнэн",
+            "юри",
+			"этти",
+            "яой"
+         ]
+      },
+	  
+	
+	  
+	  
+	  
+		
+		"add_chapter":{
+        "start": "<head>",
+		 "end": "class=\"chapters-infinite-pagination\"",
+        
+		 
+         "next": "chapter-item",
+		 
+		                 
+         "link":{
+			
+            "token1":"href=\"",
+            "token2":"\"",
+			"replace": {"prefix" : "https://mangapoisk.ru"}
+         },
+		 
+		"uniq":{
+            "skip":"href=\"",
+            "token1":"/chapter/",
+            "token2":"\""
+        },
+		 
+        "title":{
+            "skip":"href=\"",
+            "token1":"class=\"chapter-title\">",
+            "token2":"</a>",
+			"replace": { "match": "</span>",	"text": ""}
+        }
+      }
+	  
+	  
+   }
+   ],
    "chapter_complete":{
     "add_numeration": true,
         "headers": {
