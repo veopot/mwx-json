@@ -1,6 +1,6 @@
 {   
     "id": 30426,
-	"version": 22,
+	"version": 23,
 	"title": "MangaPanda",
 	
     "old_ids": [528],
@@ -148,33 +148,39 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"title" : "My Stepmom", 
-			"link" : "http://manga-panda.today/manga/my-stepmom",
+			"title" : "Dragon Hermit", 
+			"link" : "http://manga-panda.today/manga/dragon-hermit",
 			"assert" : {
-				"author" : "Andromeda11",
-				"cover" : "https://xcdn-000.animemark.com/acg_covers/W300/01/c6/01c63ec0a1e4edd1cd21fb1f4e3b4e5aea7836fa_42059_270_400.jpeg",
-				"summary" : "@^(My Stepmom)",
+				
+				"cover" : "https://manganelo.tv/mangaimage/hb924934.jpg",
+				"summary" : "@^(Dragon Hermit)",
 				"genres" : "@comedy",
 				"status" : "complete",
-				"genres_count" : ">2",
+				"genres_count" : ">5",
 				"chapters_count" : ">50",
 				"chapters" : [
-					{ 
-					"folder": "my-stepmom-chapter-50/",
-                    "link": "http://manga-panda.today/my-stepmom-chapter-50",
-                    "title": "My Stepmom Chapter 50"
-					}
+		{
+            
+           "link": "http://manga-panda.today/dragon-hermit-chapter-56",
+           "title": "Dragon Hermit Chapter 56"
+        },
+		{
+           
+            "folder": "dragon-hermit-chapter-55/",
+            "link": "http://manga-panda.today/dragon-hermit-chapter-55",
+            "title": "Dragon Hermit Chapter 55"
+        }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-		    "link" : "http://manga-panda.today/my-stepmom-chapter-50",
+		    "link" : "http://manga-panda.today/dragon-hermit-chapter-55",
 			"assert" : {
 				"pages" : [
-{"image": "https://xcdn-207.bato.to/10211/f9/82/5c9cc8801257515f3421289f/001_13455_720_500.jpeg?acc=H3BVWig7UJKiqb9KYLYfWA&exp=1614661054"},
-{"image": "https://xcdn-207.bato.to/10211/f9/82/5c9cc8801257515f3421289f/002_45656_720_500.jpeg?acc=m1YpW2ZOKi1yPVnCRU3wXg&exp=1614661054"},
-{"image": "https://xcdn-207.bato.to/10211/f9/82/5c9cc8801257515f3421289f/003_34733_720_500.jpeg?acc=NhJaPKRdBfsWgftxEgrxFA&exp=1614661054"}		
+        {"image": "http://cdn1-isekai.com/isekaiscan/manga_5fb3f0cb63f1b/2ef13f4d35e8693c85c22858fdf344ce/1.jpg"},
+        {"image": "http://cdn1-isekai.com/isekaiscan/manga_5fb3f0cb63f1b/2ef13f4d35e8693c85c22858fdf344ce/2.jpg"},
+        {"image": "http://cdn1-isekai.com/isekaiscan/manga_5fb3f0cb63f1b/2ef13f4d35e8693c85c22858fdf344ce/3.jpg"}	
 		]
 			}
 		}
