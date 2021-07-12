@@ -1,6 +1,6 @@
 {
 "id": 40223,
-"version": 5,
+"version": 6,
 "title": "MangaBat",
 "host": "https://mangabat.com",
 "public_link": "https://mangabat.com/manga-list-all",
@@ -141,7 +141,7 @@
 	"chapter_complete": {
 	    "add_images": {
 			"start": "class=\"container-chapter-reader",
-			"token1": "<img src=\"",
+			"token1": "class=\"img-content\" src=\"",
 			"token2": "\"",
 			"end": "</span>",
 			"replace": [
@@ -187,7 +187,7 @@
             "folder": "Vol.1 Chapter 1: A Normal Person/",
             "link": "https://read.mangabat.com/read-di15731-chap-1",
             "title": "Vol.1 Chapter 1: A Normal Person"
-        },
+        }
 				]
 			}
 		},
