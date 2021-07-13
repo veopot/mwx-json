@@ -1,6 +1,6 @@
 {
 "id": 40223,
-"version": 6,
+"version": 7,
 "title": "MangaBat",
 "host": "https://mangabat.com",
 "public_link": "https://mangabat.com/manga-list-all",
@@ -21,7 +21,7 @@
 
         "iterator": {
 			"base_url": "https://m.mangabat.com/manga-list-all/",
-			"append_nums": { "from": 1, "to": 1202 }
+			"append_nums": { "from": 1, "to": 1247 }
 		},
 
 		"add_manga": {
@@ -125,15 +125,15 @@
 		"add_chapter":  {
 		    "start": "chapter-list\">",
 			"end": ">Facebook Comments<",
-			"next":  "<a",
+			"next":  "class=\"chapter-name",
 			
-			"uniq":  { "skip" : "href=\"https://read.mangabat.com", "token1": "\">", "token2": "</",
+			"uniq":  { "skip" : "href=\"https://", "token1": "\">", "token2": "</",
 			 "replace" : { "match" : "&nbsp;", "text" : "" }},
 			 
-			"link":  { "token1": "href=\"https://read.mangabat.com", "token2": "\"",
-		       "replace" : { "prefix" : "https://read.mangabat.com" }},
+			"link":  { "token1": "href=\"https://", "token2": "\"",
+		       "replace" : { "prefix" : "https://" }},
 		
-			"title": { "skip" : "href=\"https://read.mangabat.com", "token1": "\">", "token2": "</",
+			"title": { "skip" : "href=\"https://", "token1": "\">", "token2": "</",
 			 "replace" : { "match" : "&nbsp;", "text" : "" }
 			}
 		}
