@@ -1,13 +1,13 @@
 {
 	"id": 30401,
-	"version": 35,
+	"version": 36,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
-    "old_sites": ["allhentai.ru"],
+    "old_sites": ["allhentai.ru", "wwv.allhen.me" ],
 	
-	"host": "http://wwv.allhen.me",
-	"public_link": "http://wwv.allhen.me/list/presentation",
+	"host": "http://wwv.allhen.live",
+	"public_link": "http://wwv.allhen.live/list/presentation",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
 	"name" : "allhentai",
@@ -23,7 +23,7 @@
 	
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://wwv.allhen.me/list?sortType=votes&offset=",
+			"base_url": "http://wwv.allhen.live/list?sortType=votes&offset=",
 			"append_nums": { "from": 0, "to": 13370, "step": 70}
 		},
 		"add_manga": {
@@ -39,17 +39,18 @@
 	},
 	
 	"manga_complete": {
-		"title":       { "after": "<h1", "token1": "class=\"names\">", "token2": "</h1>", 
-		"replace":[ 
-		{ "match": "<.*?>", "text": "" },
-		{ "match": "Порно комикс", "text": "" },
-		{ "match": "Хентай манга", "text": "" },
-		{ "match": "\n", "text": "" }
-		]},
+		"title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+				"replace": [
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+				] 
+			},
 		
 		"uniq": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
 		
-		"author":      { "after": "<a href=\"/list/author/", "token1":"\">", "token2": "</a>" },
+		"author":      { "skip": "class=\"elem_author", "token1":"\">", "token2": "</a>" },
 		
 		"summary":     { "after": "manga-description", "token1": ">", "token2": "</div", 
 		"replace": { "match": "<.*?>", "text": "" }},
@@ -75,6 +76,8 @@
 		"is_mature":   "hentai",
 		
 		"add_genre":   { "after": "href=\"/list/genre/", "token1":"\">", "token2": "</" },
+		
+		"add_tag":   { "after": "href=\"/list/tag/", "token1":"\">", "token2": "</" },
 		
 		"add_chapter": { 
 			"start" : "<div class=\"expandable",
@@ -118,14 +121,18 @@
 			
 			"assert" : {
 				"mangas" : [
-					{ "title" : "Lucky Guy", "link" : "http://wwv.allhen.me/schastlivyi_paren" }
+		{  
+		"link": "http://wwv.allhen.live/delovoi_stil",
+        "title": "Деловой стиль (Business Casual)",
+        "uniq": "delovoi_stil" 
+		}
 				],
 				"mangas_count" : ">100"
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://wwv.allhen.me/a_peephole",
+			"link" : "http://wwv.allhen.live/a_peephole",
 			"title" : "Nozoki ana (A peephole)",
 			"assert" : {
 				"cover" : "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
@@ -137,7 +144,7 @@
 				"chapters" : [
 					{ 
 						"title" : "Дыра 1 - 1", 
-						"link" : "http://wwv.allhen.me/a_peephole/vol1/1",
+						"link" : "http://wwv.allhen.live/a_peephole/vol1/1",
 						"folder" : "Дыра 1 - 1/"
 					}
 				]
@@ -146,14 +153,15 @@
 		
 		{
 			"proc" : "chapter_complete",
-			"link" : "http://wwv.allhen.me/a_peephole/vol1/1",
+			"link" : "http://wwv.allhen.live/a_peephole/vol1/1",
 		     "assert" : {
 				"pages" : [
-{"image": "http://a.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1612896946&u=0&h=UuexafYi1wS8gfJQH8Wpxg"},
-{"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1612896946&u=0&h=vz76628SXnKBy_uqsAKEvw"},
-{"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1612896946&u=0&h=8BIHGLLrzoZT7OYTF_cm8A"}
-				]
+ {"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
+ {"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"},
+ {"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"}
+	]
 			}
 		}
 	]
 }
+
