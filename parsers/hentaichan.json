@@ -1,14 +1,15 @@
 {
 	"id": 30432,
-	"version": 62,
+	"version": 63,
 	
 	"old_ids": [30333],
-    "old_sites": ["henchan.pro"],
+	"old_sites": ["henchan.pro", "hentai-chan.pro" ],
+    
 	
 	
 	"title": "Хентай-тян",
-	"host": "https://hentai-chan.pro/",
-	"public_link": "https://hentai-chan.pro/mostfavorites",
+	"host": "https://hen-chan.pro",
+	"public_link": "https://hen-chan.pro/mostfavorites",
 	"folder": "hentaichan",
 	"name": "hentaichan",
 	"language": "ru",
@@ -26,7 +27,7 @@
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
-		"registration": "https://hentai-chan.pro/index.php?do=register",
+		"registration": "https://hen-chan.pro/index.php?do=register",
 		"expires": 		31449600000,
 	
 		"values": {
@@ -37,7 +38,7 @@
 		},
 		"request": {
 			"method": 	"post",
-			"url": 		"https://hentai-chan.pro/index.php"
+			"url": 		"https://hen-chan.pro/index.php"
     	},
     	"response_check": {
     	  	"cookies": { "dle_user_id": "@\\d+" },
@@ -47,7 +48,7 @@
     
 	
 	"manga_search_complete": {		
-		"search_link": "https://hentai-chan.pro/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"search_link": "https://hen-chan.pro/?do=search&subaction=search&story=$query$&search_start=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
@@ -57,7 +58,7 @@
 			"title": { "token1": "title=\"", "token2": "\"" },
 			
 			"cover": { "token1": "src=\"", "token2": "\"",
-			"replace" : { "match" : "https://hentai-chan.prohttps://hentai-chan.pro", "text" : "https://hentai-chan.pro" } },
+			"replace" : { "match" : "https://hen-chan.prohttps://hen-chan.pro", "text" : "https://hen-chan.pro" } },
 			
 			"uniq":  { "token1": "title=\"", "token2": "\"" }
 		}
@@ -67,8 +68,8 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": 	"https://hentai-chan.pro/manga/new&n=favdesc?offset=",
-			"append_nums": 	{ "from": 0, "to": 21500, "step": 20 }
+			"base_url": 	"https://hen-chan.pro/manga/new&n=favdesc?offset=",
+			"append_nums": 	{ "from": 0, "to": 22800, "step": 20 }
 		},
 		"add_manga": {
 			"next": 		"<div class=\"content_row\"",
@@ -93,7 +94,7 @@
 		  "headers": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		    "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		    "referer": "https://hentai-chan.pro/"
+		    "referer": "https://hen-chan.pro/"
 	    },
 		
 		"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
@@ -101,7 +102,7 @@
 			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</" },
 			
 			
-			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "/a>", 
+			"author":      	{ "skip": ">Автор</", "token1":"'>", "token2": "</a>", 
 			"replace" : { "match" : "<.*?>", "text" : "" } },
 			
 			"summary":     	{ "skip": "<div id=\"description\"", "token1": "<br />", "token2": "</div>", 
@@ -147,7 +148,7 @@
 		    "headers": {
 			  "accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		      "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		      "referer": "https://hentai-chan.pro/"
+		      "referer": "https://hen-chan.pro/"
 	      },
 		
 			
@@ -195,7 +196,7 @@
             "skip": "id=\"right\">",
             "token1": "href=\"/related", 
 			"token2": "?", 
-			"replace" : {"prefix": "https://hentai-chan.pro/related" },
+			"replace" : {"prefix": "https://hen-chan.pro/related" },
 			
             "next": {
                 "before": ">Вперед</a>",
@@ -243,80 +244,88 @@
 			"testpages": "3",
 			"assert" : {
 				"mangas" : [
-					{ "title" : "@Pandemonium", "link" : "https://hentai-chan.pro/manga/17531-pandemonium-chast-1.html",
-						"uniq" : "17531-pandemonium-chast-1.html" }
+					{ "title" : "Pandemonium", 
+					   "link" : "https://hen-chan.pro/manga/17531-pandemonium-chast-1.html",
+					   "uniq" : "Pandemonium" }
 				],
 				"mangas_count" : ">=3"
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hentai-chan.pro/manga/23093-moya-gruppovaya-akademiya.html",
+			"link" : "https://hen-chan.pro/manga/23093-moya-gruppovaya-akademiya.html",
 			"title" : "МОЯ ГРУППОВАЯ АКАДЕМИЯ (MY GANGBANG ACADEMIA)",
 			"assert" : {
-				"author" : "@Shinnihon Pepsitou",
-				"cover" : "https://imgcover.hentai-chan.pro/showfull_retina/manga/s/1505627648_shinnihon-pepsitou-st.germain-sal-my-gangbang-academia-boku-no-hero-academia-russian-ilion/scan_01.jpg",
+				"author" : "St.Germain-Sal",
+				"cover" : "https://imgcover.hen-chan.pro/showfull_retina/manga/s/1505627648_shinnihon-pepsitou-st.germain-sal-my-gangbang-academia-boku-no-hero-academia-russian-ilion/scan_01.jpg",
 				"summary" : "@^()",
 				"status" : "single",
 				"genres_count" : ">=0",
 				"chapters_count" : ">=1",
 				"chapters" : [
-					{ "title" : "@МОЯ ГРУППОВАЯ АКАДЕМИЯ",
-						"link" : "https://hentai-chan.pro/online/23093-moya-gruppovaya-akademiya.html",
-						"folder" : "23093-moya-gruppovaya-akademiya.html/"
+					{ 
+		"folder": "23093-moya-gruppovaya-akademiya.html/",
+        "link": "http://exhentai-dono.me/online/23093-moya-gruppovaya-akademiya.html?development_access=true?cacheId=1505627648",
+        "title": "МОЯ ГРУППОВАЯ АКАДЕМИЯ"
 					}
 				]
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hentai-chan.pro/manga/9179-kyoushi-to-seito-to-glava-1.html",
+			"link" : "https://hen-chan.pro/manga/9179-kyoushi-to-seito-to-glava-1.html",
 			"title" : "Kyoushi to Seito to - глава 1",
 			"assert" : {
 				"author" : "@Fuuga",
-				"cover" : "https://imgcover.hentai-chan.pro/showfull_retina/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_004.jpg",
+				"cover" : "https://imgcover.hen-chan.pro/showfull_retina/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_004.jpg",
 				"summary" : "@^()",
 				"genres" : "@romance",
 				"status" : "ongoing",
 				"genres_count" : ">=0",
 				"chapters_count" : ">=1",
 				"chapters" : [
-					{ "title" : "@Kyoushi to Seito to",
-						"link" : "https://hentai-chan.pro/online/9179-kyoushi-to-seito-to-glava-1.html",
-						"folder" : "9179-kyoushi-to-seito-to-glava-1.html/"
+					{ 
+		    "folder": "9411-kyoushi-to-seito-to-glava-7.html/",
+            "link": "http://exhentai-dono.me/online/9411-kyoushi-to-seito-to-glava-7.html?development_access=true",
+            "title": "Kyoushi to Seito to - глава 7"
 					}
 				]
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hentai-chan.pro/manga/23009-ayanami-rey-chast-4.html",
-			"title" : "Аянами Рей - часть 4 (Моя девушка - Ayanami 4 Boku no Kanojohen)",
+			"link" : "https://hen-chan.pro/manga/23009-ayanami-rey-chast-4.html",
+			"title" : "Аянами Рей",
 			"assert" : {
-				"author" : "@Nakayohi Mogudan",
-				"cover" : "https://imgcover.hentai-chan.pro/showfull_retina/manga/n/1504416738_nakayohi-mogudan-mogudan-ayanami-4-boku-no-kanojohen-neon-genesis-evangelion-russianiliondecensored/001.jpg",
+				"author" : "Nakayohi Mogudan",
+				"cover" : "https://imgcover.hen-chan.pro/showfull_retina/manga/n/1504416738_nakayohi-mogudan-mogudan-ayanami-4-boku-no-kanojohen-neon-genesis-evangelion-russianiliondecensored/001.jpg",
 				"summary" : "@^()",
 				"status" : "ongoing",
 				"genres_count" : ">=0",
 				"chapters_count" : ">=3",
 				"chapters" : [
-					{ "title" : "@Аянами",
-						"link" : "https://hentai-chan.pro/online/22678-ayanami-rey-chast-3.html",
-						"folder" : "22678-ayanami-rey-chast-3.html/"
-					}
+					{ 
+					
+           
+            "folder": "28771-ayanami-rey-chast-8.html/",
+            "link": "http://exhentai-dono.me/online/28771-ayanami-rey-chast-8.html?development_access=true",
+            "title": "Аянами Рей - часть 8"
+        }
+			
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://hentai-chan.pro/online/9179-kyoushi-to-seito-to-glava-1.html", 
-			"title" : "Kyoushi to Seito to - глава 1", 
+			"link" : "http://exhentai-dono.me/online/28771-ayanami-rey-chast-8.html?development_access=true", 
+			
 			"assert" : {
 				"pages" : [
-					{ "image" : "@hentai-chan.pro/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_010.png" },
-					{ "image" : "@hentai-chan.pro/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_026.png" }
-				],
-				"pages_count": "37"
+		{"image": "https://img.hen-chan.pro/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/001.jpg"},
+        {"image": "https://img.hen-chan.pro/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/003.jpg"},
+        {"image": "https://img.hen-chan.pro/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/004.jpg"}
+					],
+				"pages_count": "33"
 			}
 		}
 	]
