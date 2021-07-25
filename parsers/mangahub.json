@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 42,
+	"version": 43,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -108,7 +108,7 @@
 			"start": ">Содержание<",
 			"end": "class=\"card-title\">Похожая манга<",
 			
-			"next":  "<a class=\"ml-2 text-truncate",
+			"next":  "<a class=\"ms-2 text-truncate",
 		
 			"link":  { "token1": "href=\"", "token2": "\"" },
 			
