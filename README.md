@@ -13,7 +13,7 @@ https://github.com/veopot/mwx-json/wiki/ID-parsers (ID parsers/Ид парсер
 
 --------------------------
 Папка /NigmaX ( Приложение для тестирования парсеров и 
-сборки каталогов в вормате .sqlite либо в .p)
+сборки каталогов в формате .sqlite либо в .p)
 
 Папка /old ( Старые парсеры для примера )
 
@@ -35,7 +35,7 @@ Our social media  / Наши социальные сети
 
 https://vk.com/mangawatcher
 
-https://4pda.to/forum/index.php?showtopic=192861&st=4000
+https://4pda.to/forum/index.php?showtopic=192861
 
 --------------------------
 Если вы застряли во время создания парсера
@@ -48,9 +48,8 @@ https://regex101.com удобный сервис чтоб проверить и 
 
 https://jsonlint.com сервис для проверки вашего json
 
-https://4pda.ru/forum/index.php?showtopic=192861 мы на 4пда
 
-https://vk.com/mangawatcher мы в вк
+
 
 --------------------------
 
