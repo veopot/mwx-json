@@ -1,0 +1,146 @@
+{
+	"id": 30474,
+	"version": 1,
+	
+	
+	
+	"title": "Submanga",
+	"host": "https://submanga.io/",
+	"public_link": "https://submanga.io/",
+	"folder": "submanga",
+	"name" : "submanga",
+	"language": "es",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/submanga.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/submanga.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/submanga.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/submanga.zip",
+    "file_type": "sqlite",
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+
+	
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://submanga.io/manga-list?page=",
+			"append_nums": { "from": 0, "to": 95 }
+		},
+		"add_manga": {
+			"next": "class=\"thumbnail\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			
+			"title": { "token1": "<h3>", "token2": "</h3>",
+                    "replace":{"match":"<.*?>","text":""} },
+					
+			"uniq": { "token1": "https://submanga.io/manga/", "token2": "\">" },
+			
+			"cover": { "token1": "src='", "token2": "'" }
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "after": "itemprop=\"itemreviewed\"", "token1":"content = \"", "token2": "\"" },
+		
+		"uniq":        {  "token1":"this.page.url = \"https://submanga.io/manga/", "token2": "\"" },
+		
+		"author":      { "after": "manga-list/author/", "token1":"\">", "token2": "</" },
+		
+		"summary":     { "skip": ">Resumen</", "token1": ">", "token2": "</div> ",
+         "replace":{"match":"<.*?>","text":""} },
+		
+		"rating":     { "after": "class=\"nmcnt\">", "token1": "<strong>", "token2": "</strong>" },
+		
+		
+		"status":      { 
+		
+		"single": "Сингл<", 
+		"complete": ">Complete</",
+		"ongoing": ">Ongoing</",
+		"licensed": ">Манга удалена по просьбе",
+		"empty": "Нет глав<" },
+		
+		"is_mature": {
+			"start": ">Categorías",
+			"end": "</span>",
+			"values": [">Hentai<", ">Madura<"]
+		},
+		
+		
+		
+		"cover":       { "after": "class=\"img-responsive\"", "token1": "src='", "token2": "'" },
+		
+		"add_tag":   { "after": "manga-list/category/", "token1": "\">", "token2": "</" },
+		
+		"add_chapter": {
+			"next":  "<i class=\"fa fa-eye\">",
+			"link":  { "token1": "<a href=\"", "token2": "\"", 
+			"replace": { "match": " ", "text": "%20" } },
+			
+			"title": { "skip" : "<a href=\"", "token1": "\">", "token2": "</",
+				"replace" : [{ "match" : "v2","text":" v2" },{ "match" : "v1","text":" v1" }]
+			}
+		}   
+	},
+	"chapter_complete": {
+		"add_images": {
+			"start": "<div class=\"viewer-cnt\">",
+			"token1": "data-src='",
+			"token2": "'",
+			"end": " <div id=\"ppp\" style=\"\">"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+            { "title" : "Watanare", 
+            "link" : "https://submanga.io/manga/watanare",
+			"uniq" : "watanare" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://submanga.io/manga/one-piece-online",
+			"title" : "One Piece",
+			"assert" : {
+				"author" : "@Oda Eiichiro",
+				"cover" : "@https://submanga.io/uploads/manga/one-piece-online/cover/cover_250x350.jpg",
+				"summary" : "@^(Monkey)",
+				"tags" : "@accion",
+				"status" : "ongoing",
+				"chapters_count" : ">=1000",
+				"chapters" : [
+		            {
+		            "folder": "Especial/",
+		            "link": "https://submanga.io/manga/one-piece-online/Especial",
+		            "title": "One Piece Especial"
+		            },
+		            {
+		            "link": "https://submanga.io/manga/one-piece-online/onepiece1019v1",
+		            "title": "One Piece 1019 v1"
+		            }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://submanga.io/manga/one-piece-online/onepiece1019v1",
+			"assert" : {
+				"pages" : [
+		{"image": "https://submanga.io/uploads/manga/one-piece-online/chapters/onepiece1019v1/01.png"},
+        {"image": "https://submanga.io/uploads/manga/one-piece-online/chapters/onepiece1019v1/02.png"},
+        {"image": "https://submanga.io/uploads/manga/one-piece-online/chapters/onepiece1019v1/03.jpg"}
+				],
+				"pages_count": "25"
+			}
+		}
+	]
+}
