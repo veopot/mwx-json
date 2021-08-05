@@ -1,15 +1,15 @@
 {
 	"id": 30432,
-	"version": 69,
+	"version": 70,
 	
 	"old_ids": [30333],
-	"old_sites": ["henchan.pro", "hentai-chan.pro", "hen-chan.pro" ],
+	"old_sites": ["henchan.pro", "hentai-chan.pro", "hen-chan.pro", "hchan.pro" ],
     
-	
+
 	
 	"title": "Хентай-тян",
-	"host": "https://hchan.pro",
-	"public_link": "https://hchan.pro/mostfavorites",
+	"host": "https://hchan.me",
+	"public_link": "https://hchan.me/mostfavorites",
 	"folder": "hentaichan",
 	"name": "hentaichan",
 	"language": "ru",
@@ -27,7 +27,7 @@
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
-		"registration": "https://hchan.pro/index.php?do=register",
+		"registration": "https://hchan.me/index.php?do=register",
 		"expires": 		31449600000,
 	
 		"values": {
@@ -38,7 +38,7 @@
 		},
 		"request": {
 			"method": 	"post",
-			"url": 		"https://hchan.pro/index.php"
+			"url": 		"https://hchan.me/index.php"
     	},
     	"response_check": {
     	  	"cookies": { "dle_user_id": "@\\d+" },
@@ -48,7 +48,7 @@
     
 	
 	"manga_search_complete": {		
-		"search_link": "https://hchan.pro/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"search_link": "https://hchan.me/?do=search&subaction=search&story=$query$&search_start=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
@@ -58,7 +58,7 @@
 			"title": { "token1": "title=\"", "token2": "\"" },
 			
 			"cover": { "token1": "src=\"", "token2": "\"",
-			"replace" : { "match" : "https://hchan.prohttps://hchan.pro", "text" : "https://hchan.pro" } },
+			"replace" : { "match" : "https://hchan.mehttps://hchan.me", "text" : "https://hchan.me" } },
 			
 			"uniq":  { "token1": "title=\"", "token2": "\"" }
 		}
@@ -68,7 +68,7 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": 	"https://hchan.pro/manga/new&n=favdesc?offset=",
+			"base_url": 	"https://hchan.me/manga/new&n=favdesc?offset=",
 			"append_nums": 	{ "from": 0, "to": 22800, "step": 20 }
 		},
 		"add_manga": {
@@ -94,7 +94,7 @@
 		  "headers": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		    "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		    "referer": "https://hchan.pro/"
+		    "referer": "https://hchan.me/"
 	    },
 		
 		"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
@@ -148,7 +148,7 @@
 		    "headers": {
 			  "accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		      "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		      "referer": "https://hchan.pro/"
+		      "referer": "https://hchan.me/"
 	      },
 		
 			
@@ -196,7 +196,7 @@
             "skip": "id=\"right\">",
             "token1": "href=\"/related", 
 			"token2": "?", 
-			"replace" : {"prefix": "https://hchan.pro/related" },
+			"replace" : {"prefix": "https://hchan.me/related" },
 			
             "next": {
                 "before": ">Вперед</a>",
@@ -245,7 +245,7 @@
 			"assert" : {
 				"mangas" : [
 					{ "title" : "Pandemonium", 
-					   "link" : "https://hchan.pro/manga/17531-pandemonium-chast-1.html",
+					   "link" : "https://hchan.me/manga/17531-pandemonium-chast-1.html",
 					   "uniq" : "Pandemonium" }
 				],
 				"mangas_count" : ">=3"
@@ -253,11 +253,11 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hchan.pro/manga/23093-moya-gruppovaya-akademiya.html",
+			"link" : "https://hchan.me/manga/23093-moya-gruppovaya-akademiya.html",
 			"title" : "МОЯ ГРУППОВАЯ АКАДЕМИЯ (MY GANGBANG ACADEMIA)",
 			"assert" : {
 				"author" : "St.Germain-Sal",
-				"cover" : "https://imgcover.hchan.pro/showfull_retina/manga/s/1505627648_shinnihon-pepsitou-st.germain-sal-my-gangbang-academia-boku-no-hero-academia-russian-ilion/scan_01.jpg",
+				"cover" : "https://imgcover.hchan.me/showfull_retina/manga/s/1505627648_shinnihon-pepsitou-st.germain-sal-my-gangbang-academia-boku-no-hero-academia-russian-ilion/scan_01.jpg",
 				"summary" : "@^()",
 				"status" : "single",
 				"genres_count" : ">=0",
@@ -273,11 +273,11 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hchan.pro/manga/9179-kyoushi-to-seito-to-glava-1.html",
+			"link" : "https://hchan.me/manga/9179-kyoushi-to-seito-to-glava-1.html",
 			"title" : "Kyoushi to Seito to - глава 1",
 			"assert" : {
 				"author" : "@Fuuga",
-				"cover" : "https://imgcover.hchan.pro/showfull_retina/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_004.jpg",
+				"cover" : "https://imgcover.hchan.me/showfull_retina/manga/k/1370186331_kyoushi-to-seito-to-ch1/teacher_and_student_004.jpg",
 				"summary" : "@^()",
 				"genres" : "@romance",
 				"status" : "ongoing",
@@ -294,11 +294,11 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hchan.pro/manga/23009-ayanami-rey-chast-4.html",
+			"link" : "https://hchan.me/manga/23009-ayanami-rey-chast-4.html",
 			"title" : "Аянами Рей",
 			"assert" : {
 				"author" : "Nakayohi Mogudan",
-				"cover" : "https://imgcover.hchan.pro/showfull_retina/manga/n/1504416738_nakayohi-mogudan-mogudan-ayanami-4-boku-no-kanojohen-neon-genesis-evangelion-russianiliondecensored/001.jpg",
+				"cover" : "https://imgcover.hchan.me/showfull_retina/manga/n/1504416738_nakayohi-mogudan-mogudan-ayanami-4-boku-no-kanojohen-neon-genesis-evangelion-russianiliondecensored/001.jpg",
 				"summary" : "@^()",
 				"status" : "ongoing",
 				"genres_count" : ">=0",
@@ -321,9 +321,9 @@
 			
 			"assert" : {
 				"pages" : [
-		{"image": "https://img.hchan.pro/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/001.jpg"},
-        {"image": "https://img.hchan.pro/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/003.jpg"},
-        {"image": "https://img.hchan.pro/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/004.jpg"}
+		{"image": "https://img.hchan.me/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/001.jpg"},
+        {"image": "https://img.hchan.me/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/003.jpg"},
+        {"image": "https://img.hchan.me/manganew/m/1564768528_mogudannekopunch-bashibashi-ayanami-chapter-8-girlfriend-edition/004.jpg"}
 					],
 				"pages_count": "33"
 			}
