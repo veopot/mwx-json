@@ -1,8 +1,9 @@
 {
 	"id": 30474,
-	"version": 1,
+	"version": 2,
 	
-	
+	"old_ids": [50020],
+	  "old_sites": "submanga.com",
 	
 	"title": "Submanga",
 	"host": "https://submanga.io/",
