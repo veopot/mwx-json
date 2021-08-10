@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 32,
+	"version": 33,
 	
 	"old_ids": [66348],
 
@@ -19,6 +19,30 @@
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/desu.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/desu.zip",
     "file_type": "sqlite",
+		
+	"manga_search_complete": {
+	    
+		"search_link": "https://desu.me/manga/api/?limit=10&page=$page$&search=$query$",
+		"query_type": "GET",
+		
+		"add_manga":  {
+		    "start": "response",
+			"end": "]",
+            "next": "{\"i",
+			
+			"link":  { "token1": "url\":\"", "token2": "\"" },
+			
+			"cover":  { "skip": "image\":{", "token1": "original\":\"", "token2": "\"" },
+            
+			"title": { "token1": "russian\":\"", "token2": "\"" },
+			
+			"summary":{  "token1":"description\":\"", "token2": "\"" }
+			
+			}
+		
+		},
+	
+		
 		
 	"manga_list_complete": {
 		"iterator": {
