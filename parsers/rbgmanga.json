@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 63,
+	"version": 64,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -77,6 +77,18 @@
 			"token1": "en_name\":\"", "token2": "\",\"dir",
 			"replace": { "match" : "\",\"rus_name\":\"",  "text" : ", " }},
 			
+			"summary":{ 
+		
+		"token1":"\"issue_", "token2": "}",
+"replace": [
+{ "match" : "year\":",  "text" : "Год выпуска " },
+{ "match" : "\"avg_rating\":\"",  "text" : " Рейтинг  " },
+{ "match" : "\"type\":(.*?),",  "text" : "" },
+{ "match":"\"count_chapters\":","text":" Доступно Глав "}
+						]
+},
+		
+			
 			"uniq": { "before": "bookmark_type\"",
 			"token1": "en_name\":\"", "token2": "\""}
 			
@@ -92,8 +104,9 @@
 		},
 
 	  "iterator": {
-		"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&count=30&page=",
-		"append_nums": { "from": 1, "to": 509 }
+"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
+
+		"append_nums": { "from": 1, "to": 1000 }
 		},
 		"add_manga": {
 		    "start": "content",
@@ -133,8 +146,8 @@
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 "link_corrector" : [ 			
-{ "match" : "https://remanga.org/manga/", 
-"text" : "https://api.remanga.org/api/titles/" } 		],
+{ "match" : "remanga.org/manga/", 
+"text" : "api.remanga.org/api/titles/" } 		],
 
 
 	    "title":{ 
@@ -173,6 +186,7 @@
  { "match" : "u003Cp",  "text" : "" },
 { "match" : "u003E",  "text" : "" },
 { "match" : "u003C",  "text" : "" },
+{ "match":"<.*?>","text":""} ,
 { "match" : "u002Fp",  "text" : "" }
 						]
 },
@@ -281,7 +295,7 @@
 			   "assert" : {
 				"mangas" : [
 					{ "title" : "Another Emperor Reborn, Возрождение иного императора",
-					 "link" : "https://remanga.org/manga/another-emperor-reborn",
+					 "link" : "https://remanga.org/api/titles/another-emperor-reborn",
 					  "uniq" : "Another Emperor Reborn" }
 				],
 				"mangas_count" : ">=20"
@@ -289,7 +303,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://remanga.org/manga/solo-leveling",
+			"link" : "https://remanga.org/api/titles/solo-leveling",
 			"title" : "Поднятие уровня в одиночку / Solo Leveling",
 			"assert" : {
 				"cover" : "https://api.remanga.org/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
