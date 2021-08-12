@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 34,
+	"version": 35,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -104,14 +104,10 @@
 		"add_genre":   { "after": "href=\"https://manga-chan.me/tags/", "token1": "\">", "token2": "</" },
 		
 		"add_chapter": {
-			"next":  "<div class='manga2'><a href='",
+			"next":  "<div class='manga2'",
 			"link":  { "token1": "<a href='", "token2": "'"   },
 			"title": { "skip" : "href='", "token1": ">", "token2": "</",
-				"replace" : [
-                { "match" : "Глава &nbsp;&nbsp;v","text":"Том " },
-				{ "match" : "&nbsp;&nbsp;","text":" " }
-				
-				]
+				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
 			}
 		}   
 	},
