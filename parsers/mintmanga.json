@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 58, 
+	"version": 59, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -70,7 +70,7 @@
 		},
 		
 		
-	   "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+	   "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
 				"replace": [
 				    { "match": "\" />", "text": ""},
 					{ "match": "\n", "text": ""},
@@ -120,7 +120,7 @@
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		
-	    "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
+	    "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
 				"replace": [
 				    { "match": "\" />", "text": ""},
 					{ "match": "\n", "text": ""},
@@ -208,7 +208,7 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://mintmanga.live/gantz",
+			"link": "https://mintmanga.live/ganc",
 			"title": "Gantz",
 			"assert": {
 				"author": "Оку Хироя",
