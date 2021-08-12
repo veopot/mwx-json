@@ -1,9 +1,14 @@
 {
 	"id": 30478,
-	"version": 1,
+	"version": 3,
+	
+	"old_ids": [40172],
+    "old_sites": ["newbie-manga.ru"],
+	
+	
 	"title": "Newbie Translate",
 	"host": "https://newbie-tl.ru",
-	"public_link": "https://newbie-tl.ru/manga",
+	"public_link": "https://newbie-tl.ru/catalog/all",
 	"folder": "newbiemanga",
 	"name" : "newbiemanga",
 	"chapters_order": true,
@@ -20,7 +25,7 @@
    
 
 	"authorization_complete": {
-		"logo": "https://newbie-tl.ru/icon.png",
+		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
 		"registration": "https://newbie-tl.ru/",
 		"expires": 31536000000,
 		"values": {
@@ -56,41 +61,40 @@
 			
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-		"search_link": "https://api.newbie-tl.ru/api/search/?count=10&page=$page$&query=$query$",
+		"search_link": "https://api.newbie-tl.ru/v2/projects?query=$query$&limit=103&page=$page$",
 		"query_type": "GET",
 		
 		
 		"add_manga":  {
-		    "start": "content\"",
-			"end": "props\"",
-            "next": "bookmark_type\"",
+		    "start": "\"items\":[",
+			"end": "],",
+            "next": "\"title\":{",
 			
-			"link":  { "before": "bookmark_type\"",
-			"token1": "dir\":\"", "token2": "\",",
-			"replace":{"prefix": "https://newbie-tl.ru/api/titles/"} },
+			"link":  { "before": "\"en\":\"",
+			"token1": "id\":", "token2": ",",
+			"replace":{"prefix": "https://api.newbie-tl.ru/v2/projects/" } },
 			
-			"cover":  { "skip": "bookmark_type\"",
-			"token1": "mid\":\"", "token2": "\"",
-			"replace": {"prefix": "https://api.newbie-tl.ru"}},
-            
-			"title": { "before": "bookmark_type\"",
-			"token1": "en_name\":\"", "token2": "\",\"dir",
-			"replace": { "match" : "\",\"rus_name\":\"",  "text" : ", " }},
 			
-			"summary":{ 
-		
-		"token1":"\"issue_", "token2": "}",
-"replace": [
-{ "match" : "year\":",  "text" : "Год выпуска " },
-{ "match" : "\"avg_rating\":\"",  "text" : " Рейтинг " },
-{ "match" : "\"type\":(.*?),",  "text" : "" },
-{ "match":"\"count_chapters\":","text":" Доступно Глав "}
+			"title": { "skip": "title\"",
+			"token1": "\"en\":\"", "token2": "\"},",
+			"replace": { "match" : "\",\"ru\":\"",  "text" : " | " }},
+			
+			"uniq": { "skip": "title\"",
+			"token1": "\"en\":\"", "token2": "\"," },
+			
+			"cover":{ "token1":"\"large\":\"images/projects/", "token2": "\",",
+			"replace": [
+            { "prefix" : "https://storage.newbie-tl.ru/images/projects/" },
+            { "match" : "u002F",  "text" : "/" }
 						]
-},
-		
-			
-			"uniq": { "before": "bookmark_type\"",
-			"token1": "en_name\":\"", "token2": "\""}
+		    },
+            
+			"summary": {  "token1":"\"description\":\"", "token2": "\",",
+                "replace": [
+                    { "match" : "u003C",  "text" : "" },
+                    { "match":"<.*?>","text":""}
+						]
+            }
 			
 			}
 		
@@ -200,7 +204,7 @@
 			
 		
 		
-		"add_genres":   {
+		"add_tags":   {
         "start": "genres\":[",
 		"end": "],",
 		"token1": "\"ru\":\"",
@@ -244,8 +248,9 @@
                 "token2": ",\"hearts\"",
 				"replace": [
                         { "match" : "\"name\":(.*?),",  "text" : " " },
-						{ "match" : "\"name\":null,",  "text" : " " }
-						
+						{ "match" : "\"number\":",  "text" : "Глава " },
+						{ "match" : "\"name\":null,",  "text" : " " },
+						{ "prefix" : "Том " }
 						]
             }
         }
