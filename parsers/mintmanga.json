@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 59, 
+	"version": 60, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -172,23 +172,14 @@
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		"no_404": true,
-		"images": true,
-		"add_servers": { 
-			"start": "var servers", 
-			"token1": "['", 
-			"token2": "']",
-			"split": "','",
-			"end": ";"
-		},
+        "images": true,
+        
         "add_pages": { 
-            "start": "rm_h.init( [[",
+            "start": "rm_h.init",
             "token1": "['",
             "token2": "],",
             "end": "]],",
-            "replace": { 
-                "match": "(.*?)','(.*?)',\"(.*?)\".*", 
-                "text": "$1$3"
-            } 
+            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
         },
         "postfix": "?mature=1"
     },

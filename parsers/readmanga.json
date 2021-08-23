@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 47,
+    "version": 48,
 	
 	"old_ids": [40172],
     "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com"],
@@ -84,12 +84,14 @@
 			
             "author": { "skip": "<span class=\"elem_screenwriter \"", "token1": "class=\"person-link\">", "token2": "</" },
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
-            "status": { 
+            
+			"status": { 
 		  	"complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
                 "ongoing": { "start": "<b>Перевод:</b>", "end": "</p>", "value": "продолжается" },
                 "single": "<b>Сингл</b>",
 		  	"licensed" : "Главы удалены",
 		  	"unknown" : "нет ни одной главы" },
+			
             "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
             "add_genre": { "token1": "/genre/", "token2": "\"" },
             "content_type": { "default": "manga" },
@@ -134,12 +136,15 @@
 		
             "author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+			
             "status": { 
-            "complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
+		  	"complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
                 "ongoing": { "start": "<b>Перевод:</b>", "end": "</p>", "value": "продолжается" },
                 "single": "<b>Сингл</b>",
-            "licensed" : "Главы удалены",
-            "unknown" : "нет ни одной главы" },
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" },
+			
+			
              "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
             "add_genre": { "token1": "/genre/", "token2": "\"" },
             "content_type": { "default": "manga" },
@@ -168,15 +173,9 @@
 	
     	"no_404": true,
         "images": true,
-        "add_servers": { 
-			"start": "var servers", 
-			"token1": "['", 
-			"token2": "']",
-			"split": "','",
-			"end": ";"
-		},
+        
         "add_pages": { 
-            "start": "rm_h.init(",
+            "start": "rm_h.init",
             "token1": "['",
             "token2": "],",
             "end": "]],",

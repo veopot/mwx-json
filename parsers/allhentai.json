@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 37,
+	"version": 38,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -42,6 +42,7 @@
 		"title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
 				"replace": [
 				    { "match": "\" />", "text": ""},
+					{ "match": "\"/>", "text": ""},
 					{ "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
                     { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
@@ -80,7 +81,7 @@
 		"add_tag":   { "after": "href=\"/list/tag/", "token1":"\">", "token2": "</" },
 		
 		"add_chapter": { 
-			"start" : "<div class=\"expandable",
+			"start" : "<table class=\"table table-hover\">",
 			"end" : "</table>",
 			"next":  "<td class",
 			"link":  { "token1": "<a href=\"", "token2": "\"" , 
@@ -97,16 +98,11 @@
 	},
 
 	"chapter_complete": {
-		"images": true,
-        "add_servers": { 
-			"start": "var servers", 
-			"token1": "['", 
-			"token2": "']",
-			"split": "','",
-			"end": ";"
-		},
+		"no_404": true,
+        "images": true,
+        
         "add_pages": { 
-            "start": "rm_h.init(",
+            "start": "rm_h.init",
             "token1": "['",
             "token2": "],",
             "end": "]],",
