@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 38,
+	"version": 40,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -24,7 +24,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "http://wwv.allhen.live/list?sortType=votes&offset=",
-			"append_nums": { "from": 0, "to": 13370, "step": 70}
+			"append_nums": { "from": 0, "to": 15000, "step": 70}
 		},
 		"add_manga": {
             "start": "tiles row",
@@ -82,18 +82,17 @@
 		
 		"add_chapter": { 
 			"start" : "<table class=\"table table-hover\">",
-			"end" : "</table>",
+			"end": "</table>",
+			
 			"next":  "<td class",
-			"link":  { "token1": "<a href=\"", "token2": "\"" , 
-		              "replace": { "match": "Сингл", "text": "" }}, 
+			"link":  {  "before": "class=\"chapter-link",    "token1": "<a href=\"", "token2": "\""  }, 
 		
-			"title": { "after": "<a href=\"", "token1": ">", "token2": "<" , 
-		              "replace": { "match": "Сингл", "text": "" }},
-		
-			"uniq": { "after": "<a href=\"", "token1": ">", "token2": "<", 
-			"replace": [ 
-			{ "match": "Сингл", "text": "" },
-			{ "match": "\n          \n          ", "text": " " }] }
+			 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", 
+				"replace": { "match": "(.*)\n          \n          ", "text": "" } },  
+           
+		   "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"",
+		   "replace" : { "match" : "\\?.*", "text" : "" } }
+			
 		}
 	},
 
