@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":11,
+   "version":12,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -305,7 +305,7 @@
          "start":"class=\"text-center\">",
          "token1":"\"https://static2.mangapoisk.ru/",
          "token2":"\"",
-         "end":">Конец главы</",
+         "end":"<div class=\"row text-center\">",
          "replace":{
             "prefix":"https://static2.mangapoisk.ru/"
          }
