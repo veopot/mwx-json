@@ -1,0 +1,144 @@
+{
+	"id": 1347,
+	"version": 2,
+	
+	"title": "VK (test)",
+	"host": "https://vk.com/",
+	"public_link": "https://vk.com/",
+	"folder": "vk",
+	"name" : "vk",
+	"language": "ru",
+	"is_paid": true,
+	"encoding": "windows-1251",
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/vkcom.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/vkcom.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/vkcom.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/vkcom.zip",
+    "file_type": "sqlite",
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+
+	
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://vk.com/mostfavorites?offset=",
+			"append_nums": { "from": 0, "to": 19500, "step": 20,
+			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
+		},
+		"add_manga": {
+			"next": "<div class=\"content_row\"",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"cover": { "token1": "img src=\"", "token2": "\"" }
+		},
+		"rating_auto_inc": {
+			"start": "30000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title":       { "after": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+		"uniq":        { "after": "<link rel=\"canonical\"", "token1":"vk.com/", "token2": "\"" },
+		
+		"summary":     { "after": "property=\"og:description\"", "token1":"content=\"", "token2": "\"" },
+		
+		  "cover": { "after": "property=\"og:image\"", "token1":"content=\"", "token2": "\"",
+                "replace":  { "match" : "amp;",  "text" : "" } },
+		
+		"chapters_from_page":{  
+		
+		 "skip": "page_block page_block_groups",
+		 "token1":"href=\"/@",
+		 "token2": "\"",
+		 "replace" : { "prefix" : "https://vk.com/@" },
+            "next": {
+                "token1": "href=\"https://vk.com/@martial_peak_club?offset=",
+                "token2": "\"",
+                "replace": {
+                "prefix": "https://vk.com/@martial_peak_club?offset="
+                }
+            }
+		},
+		
+		
+		
+		
+		"add_chapter": {
+			"next":  "author_page_published_item\"",
+			
+			"link":  { "token1": "<a href=\"", "token2": "\"",
+                "replace": {"prefix": "https://vk.com" }   
+			},
+			
+			"title": { "token1": "title=\"", "token2": "\"",
+				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
+			}
+		}   
+	},
+	"chapter_complete": {
+		"add_numeration": true,
+		"add_images": {
+			"start": "</head>",
+			"token1": ",&quot;w&quot;:[&quot;",
+			"token2": "&quot;,",
+			"end": "</body>",
+			"replace": [
+                        { "match" : "amp;",  "text" : "" },
+						{ "match" : "\\\\", "text" : "" }
+						
+						]
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+            { "title" : "The Breaker: New waves", 
+            "link" : "https://vk.com/manga/5335-the-breaker-new-waves.html",
+			"uniq" : "5335-the-breaker-new-waves.html" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://vk.com/martial_peak_club",
+			"title" : "Martial peak | Пик боевых искусств",
+			"assert" : {
+				"cover" : "@http://sun9-70.userapi.com/impf/6P_shN22M3EZnpQwbUd0C4fTC2LV-efUq2g5hw/9OwWAL1zZM0.jpg?size=1590x530&quality=95&crop=98,149,1044,348&sign=65739133ee5b430eefe93d51a53626d3&type=cover_group",
+				"summary" : "@^(Данная группа)",
+				"chapters_count" : ">=20",
+				"chapters" : [
+				{
+            "folder": "@martial_peak_club-1448/",
+            "link": "https://vk.com/@martial_peak_club-1448",
+            "title": "1448"
+        },
+        {
+            "link": "https://vk.com/@martial_peak_club-1447",
+            "title": "1447"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://vk.com/@martial_peak_club-1448",
+			"assert" : {
+				"pages" : [
+		{"image": "https://sun9-18.userapi.com/impg/hcOgcutY3ct4b1wv-nE5lSSHnjYfMQDTTbB7mQ/MOVibJfUQjA.jpg?size=1528x2160&quality=96&sign=cd548d911fc64f0f5b74571bbde65c45&type=album"},
+        {"image": "https://sun9-9.userapi.com/impg/t860nPazD08JVDBOVK_l9GsR4oxXrAKYBZZWuQ/bhfd3Q5eHek.jpg?size=1528x2160&quality=96&sign=29c31fad84a015aded40942470c44ae2&type=album"},
+        {"image": "https://sun9-42.userapi.com/impg/dmv9FY5KUV7TsxCUJLhxWFKhVGmJYpNdohdH6A/-EUvHJwn27I.jpg?size=1528x2160&quality=96&sign=4477acebbb0df2b7d47acbe4da0c4215&type=album"}
+				],
+				"pages_count": "12"
+			}
+		}
+	]
+}
