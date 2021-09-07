@@ -1,8 +1,8 @@
 {
 	"id": 1347,
-	"version": 2,
+	"version": 5,
 	
-	"title": "VK (test)",
+	"title": "VK (Test)",
 	"host": "https://vk.com/",
 	"public_link": "https://vk.com/",
 	"folder": "vk",
@@ -31,12 +31,7 @@
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
 			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "token1": "title=\"", "token2": "\"" },
-			"cover": { "token1": "img src=\"", "token2": "\"" }
-		},
-		"rating_auto_inc": {
-			"start": "30000",
-			"inc": -1
+			"title": { "token1": "title=\"", "token2": "\"" }
 		}
 	},
 
@@ -51,10 +46,10 @@
 		
 		"chapters_from_page":{  
 		
-		 "skip": "page_block page_block_groups",
-		 "token1":"href=\"/@",
+		 "skip": "<link rel=\"canonical\"",
+		 "token1":"href=\"https://vk.com/",
 		 "token2": "\"",
-		 "replace" : { "prefix" : "https://vk.com/@" },
+		 "replace" : { "prefix":"https://vk.com/@"},
             "next": {
                 "token1": "href=\"https://vk.com/@martial_peak_club?offset=",
                 "token2": "\"",
@@ -68,9 +63,9 @@
 		
 		
 		"add_chapter": {
-			"next":  "author_page_published_item\"",
+			"next":  "title=\"",
 			
-			"link":  { "token1": "<a href=\"", "token2": "\"",
+			"link":  {  "before": "title=\"",  "token1": "<a href=\"", "token2": "\"",
                 "replace": {"prefix": "https://vk.com" }   
 			},
 			
