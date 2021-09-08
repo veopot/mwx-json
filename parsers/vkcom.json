@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version": 5,
+	"version": 6,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -51,10 +51,10 @@
 		 "token2": "\"",
 		 "replace" : { "prefix":"https://vk.com/@"},
             "next": {
-                "token1": "href=\"https://vk.com/@martial_peak_club?offset=",
+                "token1": "?offset=",
                 "token2": "\"",
                 "replace": {
-                "prefix": "https://vk.com/@martial_peak_club?offset="
+                "prefix": "%%host%%%%path%%?offset="
                 }
             }
 		},
