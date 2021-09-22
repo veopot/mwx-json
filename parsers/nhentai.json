@@ -1,6 +1,6 @@
 {
 	"id": 30479,
-	"version": 20,
+	"version": 21,
 	
 	"old_ids": [40010],
     "old_sites": ["nhentai.net"],
@@ -10,7 +10,7 @@
 	
 	
 	
-	"title": "NHentai",
+	"title": "nHentai",
 	
 	"folder": "nhentai",
 	"name" : ["nhen", "nhentai"],
@@ -54,7 +54,8 @@
 		
 		"author":      { "after": "<a href=\"/artist/", "token1":"\">", "token2": "</a>" },
 		
-		"summary":     { "skip": "<a href=\"/language", "token1": "/", "token2": "/\"", "prefix": "Language: " },
+		"summary":     { "skip": "<a href=\"/language", "token1": "/", "token2": "/\"",
+                "replace" : { "prefix": "Language: " } },
 		"status":      { "single": [ "download"], "ongoing": "перевод продолжается<" },
 		"read_dir":    { "right_to_left": "doujinshi and manga", "left_to_right": "notmanga" },
 		"cover":       { "skip": "<div id=\"cover\">", "token1": "data-src=\"", "token2": "\"" },
