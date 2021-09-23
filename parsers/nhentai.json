@@ -1,6 +1,6 @@
 {
 	"id": 30479,
-	"version": 21,
+	"version": 22,
 	
 	"old_ids": [40010],
     "old_sites": ["nhentai.net"],
@@ -27,6 +27,23 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/nhentai.zip",
     "file_type": "sqlite",
 	
+    
+	"manga_search_complete": {		
+		"search_link": "https://nhentai.to/search?q=$query$&page=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "div class=\"gallery\"",
+			"link":  { "token1": "<a href=\"/g/", "token2": "\"",
+				"replace": {"prefix": "https://nhentai.to/g/"} }, 
+			 
+			"title": { "token1": "class=\"caption\">", "token2": "</" },
+			"cover": { "token1": "src=\"https://", "token2": "\"",
+				"replace": {"prefix": "https://"} },
+			"uniq":  { "token1": "class=\"caption\">", "token2": "</" }
+		}
+	},
+
+
 
 	"manga_list_complete": {
 
@@ -55,7 +72,8 @@
 		"author":      { "after": "<a href=\"/artist/", "token1":"\">", "token2": "</a>" },
 		
 		"summary":     { "skip": "<a href=\"/language", "token1": "/", "token2": "/\"",
-                "replace" : { "prefix": "Language: " } },
+				"replace": {"prefix": "Language: "} 
+			},
 		"status":      { "single": [ "download"], "ongoing": "перевод продолжается<" },
 		"read_dir":    { "right_to_left": "doujinshi and manga", "left_to_right": "notmanga" },
 		"cover":       { "skip": "<div id=\"cover\">", "token1": "data-src=\"", "token2": "\"" },
@@ -90,12 +108,18 @@
 		}
 	},
 	
+	
 	"chapter_complete": {
+		"headers": {
+			"Accept": "*/*",
+			"Referer": "https://nhentai.to/"
+		},
 		"add_images": { 
 			"start": "<div class=\"container\" id=\"thumbnail-container\">", 
 			"token1": "data-src=\"", 
-			"token2": "\"",
-			"end": "</body>"
+			"token2": "t.jpg",
+			"end": "</body>",
+			"replace" : {  "sufix": ".jpg" }
 		}
 	},
 

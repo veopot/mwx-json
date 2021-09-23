@@ -1,13 +1,13 @@
 {
 	"id": 30401,
-	"version": 41,
+	"version": 42,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
-    "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ],
+    "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ,"24.allhen.online"],
 	
-	"host": "http://24.allhen.online",
-	"public_link": "http://24.allhen.online",
+	"host": "http://23.allhen.online",
+	"public_link": "http://23.allhen.online",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
 	"name" : "allhentai",
@@ -21,9 +21,43 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/allhentai.zip",
     "file_type": "sqlite",
 	
+	
+	
+	"manga_search_complete": {		
+		"search_link": "http://23.allhen.online/search",
+		"headers": {
+		         "accept": "*/*",
+				"x-requested-with": "XMLHttpRequest",
+				"Content-Type": "application/x-www-form-urlencoded",
+				"Referer": "http://23.allhen.online/search"
+			},       
+		"form_data": {"q": "$query$"},
+		"query_type": "POST",
+		
+		"add_manga": {
+			"next": "<div class=\"tile col-md-6",
+			
+			"summary": { "token1": "class=\"html-popover-holder\">", "token2": "</div>",
+                "replace":{"match":"<.*?>", "text":" "} },
+				
+			
+			
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			
+			"cover": { "after": "<img", "token1": "data-original='", "token2": "'" },
+			
+			"title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
+			"uniq":  { "after": "<h3>", "token1": "title=\"", "token2": "\"" }
+		} 
+	},
+
+
+
+
+
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://24.allhen.online/list?sortType=votes&offset=",
+			"base_url": "http://23.allhen.online/list?sortType=votes&offset=",
 			"append_nums": { "from": 0, "to": 15000, "step": 70}
 		},
 		"add_manga": {
@@ -121,7 +155,7 @@
 			"assert" : {
 				"mangas" : [
 		{  
-		"link": "http://24.allhen.online/delovoi_stil",
+		"link": "http://23.allhen.online/delovoi_stil",
         "title": "Деловой стиль (Business Casual)",
         "uniq": "delovoi_stil" 
 		}
@@ -131,7 +165,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://24.allhen.online/a_peephole",
+			"link" : "http://23.allhen.online/a_peephole",
 			"title" : "Nozoki ana (A peephole)",
 			"assert" : {
 				"cover" : "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
@@ -143,7 +177,7 @@
 				"chapters" : [
 					{ 
 						"title" : "Дыра 1 - 1", 
-						"link" : "http://24.allhen.online/a_peephole/vol1/1",
+						"link" : "http://23.allhen.online/a_peephole/vol1/1",
 						"folder" : "Дыра 1 - 1/"
 					}
 				]
@@ -152,7 +186,7 @@
 		
 		{
 			"proc" : "chapter_complete",
-			"link" : "http://24.allhen.online/a_peephole/vol1/1",
+			"link" : "http://23.allhen.online/a_peephole/vol1/1",
 		     "assert" : {
 				"pages" : [
  {"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
