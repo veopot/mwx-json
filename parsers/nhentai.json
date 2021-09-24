@@ -1,6 +1,6 @@
 {
 	"id": 30479,
-	"version": 23,
+	"version": 24,
 
 	"old_ids": [40010],
     "host": "https://nhentai.net/",
@@ -8,7 +8,7 @@
 
 
 
-	"title": "nHentai",
+	"title": "nHentai 2",
     "folder": "nhentai",
 	"name": ["nhen", "nhentai"],
 	"chapters_order": false,
@@ -40,7 +40,11 @@
 
 			"title": {
 				"token1": "class=\"caption\">",
-				"token2": "</"
+				"token2": "</",
+			"replace": [ 
+			{ "match": "(\\[[^]]*]|[({][^)}]*[)}])", "text": "" }, 
+		    { "match": "<.*?>", "text": "" } 
+				 ] 
 			},
 			"cover": {
 				"token1": "src=\"https://",
@@ -51,7 +55,11 @@
 			},
 			"uniq": {
 				"token1": "class=\"caption\">",
-				"token2": "</"
+				"token2": "</",
+			"replace": [ 
+			{ "match": "(\\[[^]]*]|[({][^)}]*[)}])", "text": "" }, 
+		    { "match": "<.*?>", "text": "" } 
+				 ] 
 			}
 		}
 	},
@@ -245,7 +253,7 @@
 		{"image": "https://i.nhentai.net/galleries/2016994/1.jpg"},
         {"image": "https://i.nhentai.net/galleries/2016994/2.jpg"},
         {"image": "https://i.nhentai.net/galleries/2016994/3.jpg"},
-        {"image": "https://i.nhentai.net/galleries/2016994/4.jpg"},
+        {"image": "https://i.nhentai.net/galleries/2016994/4.jpg"}
 				],
 				"pages_count": "75"
 			}
