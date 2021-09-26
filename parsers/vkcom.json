@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version": 6,
+	"version": 7,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -23,20 +23,30 @@
 	
 
 	"manga_list_complete": {
-		"iterator": {
-			"base_url": "https://vk.com/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 19500, "step": 20,
-			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
-		},
+		
+		"iterator": "https://mwx.su/VK-group-manga.html",
+		
+		
 		"add_manga": {
-			"next": "<div class=\"content_row\"",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "token1": "title=\"", "token2": "\"" }
+			
+			"start": "<div class=\"faq\">",
+			  
+			"next": "<div class=\"manga",
+			"link":  { "after": "<a", "token1": "href=\"", "token2": "\"" },
+			"title": { "after": "<a", "token1": "\">", "token2": "</" },
+			"uniq":  { "token1": "href=\"https://vk.com/", "token2": "\"" }
 		}
 	},
 
 	"manga_complete": {
-		"title":       { "after": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+		"title":       { "after": "property=\"og:title\"", "token1":"content=\"", "token2": "\"",
+				"replace": [
+				    { "match": "Маньхуа", "text": ""},
+					{ "match": "&amp;quot;", "text": ""},
+					{ "match": "&quot;", "text": ""},
+					{ "match": "Манга", "text": " "}
+				] 
+        },
 		"uniq":        { "after": "<link rel=\"canonical\"", "token1":"vk.com/", "token2": "\"" },
 		
 		"summary":     { "after": "property=\"og:description\"", "token1":"content=\"", "token2": "\"" },
@@ -94,12 +104,8 @@
 			"proc" : "manga_list_complete",
 			
 			"assert" : {
-				"mangas" : [
-            { "title" : "The Breaker: New waves", 
-            "link" : "https://vk.com/manga/5335-the-breaker-new-waves.html",
-			"uniq" : "5335-the-breaker-new-waves.html" }
-				],
-				"mangas_count" : ">=50"
+				"mangas" : [ { "link" : "https://vk.com/martial_peak_club" } ],
+				"mangas_count" : ">=1"
 			}
 		},
 		{
