@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version": 8,
+	"version":9,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -88,7 +88,7 @@
 		"add_numeration": true,
 		"add_images": {
 			"start": "</head>",
-			"token1": ",&quot;y&quot;:[&quot;",
+			"token1": ",&quot;w&quot;:[&quot;",
 			"token2": "&quot;,",
 			"end": "</body>",
 			"replace": [
