@@ -1,9 +1,9 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 10,
-	"title": "MangaDex (test)",
-	"host": "https://mangadex.org/",
+	"version": 13,
+	"title": "MangaDex (API)",
+	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
 	"folder": "mangadex",
 	"name": "mangadex",
@@ -93,82 +93,93 @@
 		}
 	},
 	"manga_complete": {
-		"headers": {
-			"cookie": "mangadex_h_toggle=1"
-		},
+		
 		"title": {
-			"skip": "<h6",
-			"token1": "class=\"mx-1\">",
-			"token2": "</"
-		},
-		"uniq": {
-			"skip": "<h6",
-			"token1": "class=\"mx-1\">",
-			"token2": "</"
-		},
-		"additional_title": {
-			"skip": ">Alt name(s):<",
-			"token1": "'>",
-			"token2": "</ul"
-		},
-		"author": {
-			"skip": ">Author:<",
-			"token1": "\">",
-			"token2": "</"
-		},
-		"summary": {
-			"after": "Description:<",
-			"token1": "\">",
-			"token2": "</"
-		},
-		"status": {
-			"complete": ">Completed<",
-			"ongoing": ">Ongoing<"
-		},
-		"cover": {
-			"after": "card-header",
-			"token1": "src=\"",
+			"after": "\"title\":{",
+			"token1": "\"en\":\"",
 			"token2": "\""
 		},
+		"uniq": {
+			"after": "\"title\":{",
+			"token1": "\"en\":\"",
+			"token2": "\""
+		},
+		"additional_title": {
+			"after": "altTitles\":[",
+			"token1": "\"ru\":\"",
+			"token2": "\""
+		},
+		
+		"author": {
+			"skip": "type\":\"author\"",
+			"token1": "\"name\":\"",
+			"token2": "\""
+		},
+		"summary": {
+			"token1":"\"description\":{",
+			"token2": "}"
+		},
+		"status": {
+			"complete": "\"completed\",",
+			"ongoing": "\"ongoing\","
+		},
+		"cover": {
+			"after": "cover_art\",",
+			"token1": "fileName\":\"",
+			"token2": "\"",
+			"replace": [
+                        { "match" : "111111",  "text" : "222222" },
+						{ "prefix": "https://uploads.mangadex.org/covers/%%page%%/" }
+						]
+		},
+		
 		"is_mature": "<span class='badge badge-danger ml-1'>H</span>",
-		"add_genre": {
-			
-			"after": "href='/genre/",
-			"token1": "'>",
-			"token2": "</a>",
-			
+		
+		
+		"add_tags": {
+			"start": "\"tags\":[",
+			"end": "createdAt",
+			"token1": "\"en\":\"",
+			"token2": "\"",
 			"replace": { "match": "<.*?>",	"text": ""}
 		},
-		"add_tag": {
-			
-			"after": "href='/genre/",
-			"token1": "'>",
-			"token2": "</a>",
-			
-			"replace": { "match": "<.*?>",	"text": ""}
-		},
+		
 		"chapters_from_page": {
-			"skip": ">Title ID:</div>",
-			"token1": "' ></span>",
-			"token2": "</",
-			"replace": {
-				"match": " ",
-				"text": "",
-				"prefix": "https://api.mangadex.org/v2/manga/",
-				"sufix": "/chapters"
-			}
+			"after": "data\":{",
+			"token1": "\"id\":\"",
+			"token2": "\",",
+			"replace": [
+			    {
+					"prefix": "https://api.mangadex.org/manga/"
+				},
+				{
+					"sufix": "/feed?limit=500&offset=2"
+				}
+			]
 		},
+		
+			
 		"add_chapter": {
-			"start": "\"chapters\":[",
-			"next": "{\"",
+			"start": "response",
+			"next": "type\":\"chapter\",",
+			
 			"link": {
-				"token1": "id\":",
-				"token2": ",",
+				"before": "chapter\":",
+				"token1": "\"id\":\"",
+				"token2": "\",",
 				"replace": {
-					"prefix": "https://api.mangadex.org/v2/chapter/"
+					"prefix": "https://api.mangadex.org/chapter/"
 				}
 			},
-			"lang": {"token1": "\"language\":\"", "token2": "\"", "replace": [
+			"title": {
+				"token1": "chapter\":\"",
+				"token2": "\",",
+				"replace": {
+					"sufix": "&nbsp;Language&nbsp;%%chapter_lang%%"
+				}
+			},
+			
+			"lang": {"token1": "translatedLanguage\":\"", "token2": "\",", "replace": [
 				{ "match": "\\b(en|gb)\\b", "text": "English" },
 				{ "match": "\\b(ja|jp)\\b", "text": "Japanese" },
 				{ "match": "\\bpl\\b", "text": "Polish" },
@@ -211,19 +222,8 @@
 				{ "match": "\\b(he|il)\\b", "text": "Hebrew" },
 				{ "match": "\\b(hi|in)\\b", "text": "Hindi" },
 				{ "match": "\\bno\\b", "text": "Norwegian" }
-			]},
-			"title": {
-				"before": ",\"groups",
-				"token1": "\"volume\":\"",
-				"token2": ",\"groups",
-				"replace": [
-				    { "match": "\",\"chapter\":\"", "text": " - "},
-                    { "match": "\",\"title\":\"(.*?)\",", "text": "$1"},
-					{ "match": "\"language\":\".*?\"", "text": " %%chapter_lang%%"},
-					{ "prefix": "Chapter "}
-				]
-			},
-			"end": "],\"groups\""
+			]}
+			
 		}
 	},
 	"chapter_complete": {
@@ -234,27 +234,22 @@
 			"token1": ":\"",
 			"token2": "\"",
 			"stop": ",",
-			"replace": {
-				"sufix": "/"
-			}
+			"replace": [{
+					"prefix": "https://uploads.mangadex.org/data/"
+				},
+				{
+					"sufix": "/"
+				}
+			]
 		},
-		"add_servers": {
-			"start": "\"server",
-			"token1": ":\"",
-			"token2": "\"",
-			"next": "\"server",
-			"end": "}",
-			"replace": {
-				"match": "\\\\",
-				"text": ""
-			}
-		},
+		"add_servers": "https://uploads.mangadex.org/data/",
+		
 		"add_pages": {
-			"start": "\"pages\":",
+			"start": "\"data\":",
 			"token1": "[\"",
 			"token2": "\"],",
 			"split": "\",\"",
-			"end": "server"
+			"end": "],"
 		}
 	},
 	"test": [{
@@ -270,12 +265,12 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://mangadex.org/manga/39/one-piece",
+			"link": "https://api.mangadex.org/manga/a1c7c817-4e59-43b7-9365-09675a149a6f?includes[]=artist&includes[]=author&includes[]=cover_art",
 			"title": "One Piece",
 			"assert": {
 				"additional_title": "Đảo Hải Tặc Wan Pīsu Ван Пис ون بيس ワンピース",
 				"author": "@Oda Eiichiro",
-				"cover": "@https://mangadex.org/images/manga/39.jpg?\\.*",
+				"cover": "@https://uploads.mangadex.org/covers/a1c7c817-4e59-43b7-9365-09675a149a6f/39df0d10-c9ea-416f-a3b5-7f56ef83e96a.jpg",
 				"summary": "@^(Gol D. Roger)",
 				"genres": "@comedy",
 				"status": "ongoing",
@@ -295,7 +290,7 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://mangadex.org/manga/11199/killing-bites",
+			"link": "https://mangadex.org/title/7643e9f6-8455-4a58-b7e8-bf6cd00f5251/tsuki-ga-michibiku-isekai-douchuu",
 			"title": "Killing Bites",
 			"assert": {
 				"additional_title": "キリングバイツ",
@@ -320,7 +315,7 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://api.mangadex.org/v2/chapter/615666",
+			"link": "https://api.mangadex.org/chapter/c2391892-9677-4f0b-b84d-0ec979b23395",
 			"assert": {
 				"pages": [{
 						"link": "https://mangadex.org/chapter/277233/2"
