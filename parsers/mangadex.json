@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 13,
+	"version": 14,
 	"title": "MangaDex (API)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -58,37 +58,109 @@
 			}
 		}
 	},
+	
+	"manga_search_complete": {
+		
+		"search_link": "https://api.mangadex.org/manga?limit=32&offset=$page$&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&title=$query$&order[relevance]=desc",
+		"query_type": "GET",
+
+
+		"add_manga": {
+			"start": "response",
+			"end": "total",
+			
+			"next": "\"title\":{",
+			
+			"title": {
+			"token1": "\"en\":\"",
+			"token2": "\""
+			},
+			
+			"uniq": {
+			    "before": "\"en\":\"",
+			    "token1": "\"id\":\"",
+				"token2": "\""
+			},
+			
+			"link": {
+				"before": "\"en\":\"",
+			    "token1": "\"id\":\"",
+				"token2": "\"",
+			    "replace": [
+			        {"prefix": "https://api.mangadex.org/manga/"},
+			        {"sufix": "?includes[]=artist&includes[]=author&includes[]=cover_art"}
+			                ]
+			},
+
+			"cover": {
+			"after": "cover_art\",",
+			"token1": "fileName\":\"",
+			"token2": "\"",
+			"replace": { "prefix": "https://uploads.mangadex.org/covers/"}
+			},
+			
+            "add_tags": {
+			"start": "\"tags\":[",
+			"end": "createdAt",
+			"token1": "\"en\":\"",
+			"token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""}
+		    },
+			
+		
+			"summary": {
+				"token1": "\"description\":{\"en\":\"",
+				"token2": "\"",
+				"replace": [{
+						"match": "u003C",
+						"text": ""
+					},
+					{
+						"match": "<.*?>",
+						"text": ""
+					}
+				]
+			}
+
+		}
+
+	},
+
+
+
 	"manga_list_complete": {
 	"headers": {
 			"cookie": "mangadex_h_toggle=1"
 		},
 		
 		"iterator": {
-			"base_url": "https://mangadex.org/titles/7/",
+			"base_url": "https://api.mangadex.org/manga?limit=32&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&order[followedCount]=desc&offset=32",
 			"append_nums": {
-				"from": 1,
-				"to": 1075,
-				"step": 1
+				"from": 0,
+				"to": 1000,
+				"step": 32
 			}
 		},
 		"add_manga": {
-			"next": "<a href=\"/title/",
+			"next": "\"title\":{",
+			
 			"title": {
-				"skip": "</span></div>",
-				"token1": "\">",
-				"token2": "</"
+			"token1": "\"en\":\"",
+			"token2": "\""
 			},
 			"uniq": {
-				"skip": "</span></div>",
-				"token1": "\">",
-				"token2": "</"
+			    "before": "\"en\":\"",
+			    "token1": "\"id\":\"",
+				"token2": "\""
 			},
 			"link": {
-				"token1": "href=\"",
+				"before": "\"en\":\"",
+			    "token1": "\"id\":\"",
 				"token2": "\"",
-				"replace": {
-					"prefix": "https://mangadex.org"
-				}
+			    "replace": [
+			        {"prefix": "https://api.mangadex.org/manga/"},
+			        {"sufix": "?includes[]=artist&includes[]=author&includes[]=cover_art"}
+			                ]
 			}
 		}
 	},
