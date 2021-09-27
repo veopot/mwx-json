@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 42,
+	"version": 43,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -44,7 +44,10 @@
 			
 			"link":  { "token1": "<a href=\"", "token2": "\"" },
 			
-			"cover": { "after": "<img", "token1": "data-original='", "token2": "'" },
+			"cover": { "after": "<img", "token1": "data-original='", "token2": "'", 
+			    "replace":{"prefix": "http://b964805y.beget.tech/index.php?q="} },
+			
+			
 			
 			"title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
 			"uniq":  { "after": "<h3>", "token1": "title=\"", "token2": "\"" }
@@ -66,7 +69,8 @@
             "link":  { "token1": "href=\"", "token2": "\"" },
             "title": { "skip": "href=\"", "token1": "title='", "token2": "'" },
             
-			"cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.jpg", "text": ".jpg" } }
+			"cover": { "token1": "data-original='", "token2": "'", 
+			"replace": { "match": "_p.jpg", "text": ".jpg" } }
 			
 		
         }
@@ -109,9 +113,7 @@
 		
 		"cover":       { "after": "picture-fotorama", "token1": "src=\"", "token2": "\"",
 				"replace": {"prefix": "http://b964805y.beget.tech/index.php?q="}
-
-
-},
+                    },
 		"is_mature":   "hentai",
 		
 		"add_genre":   { "after": "href=\"/list/genre/", "token1":"\">", "token2": "</" },
