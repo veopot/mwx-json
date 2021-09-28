@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 14,
+	"version": 15,
 	"title": "MangaDex (API)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -88,7 +88,7 @@
 				"token2": "\"",
 			    "replace": [
 			        {"prefix": "https://api.mangadex.org/manga/"},
-			        {"sufix": "?includes[]=artist&includes[]=author&includes[]=cover_art"}
+			        {"sufix": "?includes[]=artist&includes[]=author&includes[]=cover_art&"}
 			                ]
 			},
 
@@ -134,10 +134,10 @@
 		},
 		
 		"iterator": {
-			"base_url": "https://api.mangadex.org/manga?limit=32&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&order[followedCount]=desc&offset=32",
+			"base_url": "https://api.mangadex.org/manga?limit=32&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&order[followedCount]=desc&offset=",
 			"append_nums": {
 				"from": 0,
-				"to": 1000,
+				"to": 10000,
 				"step": 32
 			}
 		},
@@ -159,7 +159,7 @@
 				"token2": "\"",
 			    "replace": [
 			        {"prefix": "https://api.mangadex.org/manga/"},
-			        {"sufix": "?includes[]=artist&includes[]=author&includes[]=cover_art"}
+			        {"sufix": "?includes[]=artist&includes[]=author&includes[]=cover_art&"}
 			                ]
 			}
 		}
@@ -176,11 +176,7 @@
 			"token1": "\"en\":\"",
 			"token2": "\""
 		},
-		"additional_title": {
-			"after": "altTitles\":[",
-			"token1": "\"ru\":\"",
-			"token2": "\""
-		},
+		
 		
 		"author": {
 			"skip": "type\":\"author\"",
@@ -188,8 +184,9 @@
 			"token2": "\""
 		},
 		"summary": {
-			"token1":"\"description\":{",
-			"token2": "}"
+			"after":"\"description\":{",
+			"token1":"\"en\":\"",
+			"token2": "\""
 		},
 		"status": {
 			"complete": "\"completed\",",
@@ -207,6 +204,13 @@
 		
 		"is_mature": "<span class='badge badge-danger ml-1'>H</span>",
 		
+		"add_genres": {
+			"start": "\"tags\":[",
+			"end": "createdAt",
+			"token1": "\"en\":\"",
+			"token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""}
+		},
 		
 		"add_tags": {
 			"start": "\"tags\":[",
@@ -225,7 +229,7 @@
 					"prefix": "https://api.mangadex.org/manga/"
 				},
 				{
-					"sufix": "/feed?limit=500&offset=2"
+					"sufix": "/feed?limit=500&offset=1"
 				}
 			]
 		},
@@ -252,10 +256,10 @@
 			},
 			
 			"lang": {"token1": "translatedLanguage\":\"", "token2": "\",", "replace": [
-				{ "match": "\\b(en|gb)\\b", "text": "English" },
-				{ "match": "\\b(ja|jp)\\b", "text": "Japanese" },
+				{ "match": "\\ben\\b", "text": "English" },
+				{ "match": "\\bja\\b", "text": "Japanese" },
 				{ "match": "\\bpl\\b", "text": "Polish" },
-				{ "match": "\\b(sh|rs)\\b", "text": "SerboCroatian" },
+				{ "match": "\\bsh\\b", "text": "SerboCroatian" },
 				{ "match": "\\bnl\\b", "text": "Dutch" },
 				{ "match": "\\bit\\b", "text": "Italian" },
 				{ "match": "\\bru\\b", "text": "Russian" },
@@ -263,36 +267,35 @@
 				{ "match": "\\bhu\\b", "text": "Hungarian" },
 				{ "match": "\\bfr\\b", "text": "French" },
 				{ "match": "\\bfi\\b", "text": "Finnish" },
-				{ "match": "\\b(vi|vn)\\b", "text": "Vietnamese" },
-				{ "match": "\\b(el|gr)\\b", "text": "Greek" },
+				{ "match": "\\bvi\\b", "text": "Vietnamese" },
+				{ "match": "\\bel\\b", "text": "Greek" },
 				{ "match": "\\bbg\\b", "text": "Bulgarian" },
 				{ "match": "\\bes\\b", "text": "SpanishSpain" },
-				{ "match": "\\b(pt-BR|br)\\b",  "text": "PortugueseBrazil" },
+				{ "match": "\\b(pt-BR|pt-br)\\b",  "text": "PortugueseBrazil" },
 				{ "match": "\\bpt\\b", "text": "PortuguesePortugal" },
-				{ "match": "\\b(sv|se)\\b", "text": "Swedish" },
-				{ "match": "\\b(ar|sa)\\b", "text": "Arabic" },
-				{ "match": "\\b(da|dk)\\b", "text": "Danish" },
-				{ "match": "\\b(zh-Hans|cn)\\b", "text": "ChineseSimp" },
-				{ "match": "\\b(bn|bd)\\b", "text": "Bengali" },
+				{ "match": "\\bsv\\b", "text": "Swedish" },
+				{ "match": "\\bar\\b", "text": "Arabic" },
+				{ "match": "\\bda\\b", "text": "Danish" },
+				{ "match": "\\b(zh-Hans|zh)\\b", "text": "ChineseSimp" },
+				{ "match": "\\bbn\\b", "text": "Bengali" },
 				{ "match": "\\bro\\b", "text": "Romanian" },
-				{ "match": "\\b(cs|cz)\\b", "text": "Czech" },
+				{ "match": "\\bcs\\b", "text": "Czech" },
 				{ "match": "\\bmn\\b", "text": "Mongolian" },
 				{ "match": "\\btr\\b", "text": "Turkish" },
 				{ "match": "\\bid\\b", "text": "Indonesian" },
-				{ "match": "\\b(ko|kr)\\b", "text": "Korean" },
-				{ "match": "\\b(es-419|mx)\\b", "text": "SpanishLTAM" },
-				{ "match": "\\b(fa|ir)\\b", "text": "Persian" },
-				{ "match": "\\b(ms|my)\\b", "text": "Malay" },
+				{ "match": "\\bko\\b", "text": "Korean" },
+				{ "match": "\\b(es-419|es-la)\\b", "text": "SpanishLTAM" },
+				{ "match": "\\bfa\\b", "text": "Persian" },
+				{ "match": "\\bms\\b", "text": "Malay" },
 				{ "match": "\\bth\\b", "text": "Thai" },
-				{ "match": "\\b(ca|ct)\\b", "text": "Catalan" },
-				{ "match": "\\bfil\\b", "text": "Filipino" },
-				{ "match": "\\bph\\b",  "text": "Language  Filipino" },
-				{ "match": "\\b(zh-Hant|hk)\\b", "text": "ChineseTrad" },
-				{ "match": "\\b(uk|ua)\\b", "text": "Ukrainian" },
-				{ "match": "\\b(my|mm)\\b", "text": "Burmese" },
-				{ "match": "\\b(lt|il)\\b", "text": "Lithuanian" },
-				{ "match": "\\b(he|il)\\b", "text": "Hebrew" },
-				{ "match": "\\b(hi|in)\\b", "text": "Hindi" },
+				{ "match": "\\bca\\b", "text": "Catalan" },
+				{ "match": "\\b(fil|tl)\\b", "text": "Filipino" },
+				{ "match": "\\b(zh-Hant|zh-hk)\\b", "text": "ChineseTrad" },
+				{ "match": "\\buk\\b", "text": "Ukrainian" },
+				{ "match": "\\bmy\\b", "text": "Burmese" },
+				{ "match": "\\blt\\b", "text": "Lithuanian" },
+				{ "match": "\\bhe\\b", "text": "Hebrew" },
+				{ "match": "\\bhi\\b", "text": "Hindi" },
 				{ "match": "\\bno\\b", "text": "Norwegian" }
 			]}
 			
@@ -314,7 +317,7 @@
 				}
 			]
 		},
-		"add_servers": "https://uploads.mangadex.org/data/",
+		
 		
 		"add_pages": {
 			"start": "\"data\":",
