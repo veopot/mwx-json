@@ -1,8 +1,8 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 17,
-	"title": "MangaDex (API)",
+	"version": 18,
+	"title": "MangaDex (test)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
 	"folder": "mangadex",
