@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 19,
+	"version": 20,
 	"title": "MangaDex (test)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -19,46 +19,37 @@
 		"name": "Veopot & Lomik_XP",
 		"email": "fant-net@ya.ru"
 	},
-	"authorization_complete": {
+	
+		
+		"authorization_complete": {
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
-		"registration": "https://mangadex.org/signup",
+		"registration": "https://mangadex.org/account/signup",
 		"expires": 31449600000,
 		"values": {
-			"two_factor": "",
-			"remember_me": "1",
-			"login_username": {
-				"label": "Login",
-				"kind": "login"
+			"username": {
+				"label": "Логин",
+				"hint": "Введите свой логин",
+				"kind": "text"
 			},
-			"login_password": {
-				"label": "Password",
+			"password": {
+				"label": "Пароль",
+				"hint": "Введите свой пароль",
 				"kind": "password"
 			},
-			
-			"mangadex_h_toggle": {
-				"forward": "cookie",
-				"value": "1"
-			}
-			
+		"headers": {
+			"Accept": "*/*" }
 		},
 		"request": {
-			"method": "post",
-			"url": "https://mangadex.org/ajax/actions.ajax.php?function=login",
-			"headers": {
-				"x-requested-with": "XMLHttpRequest"
-			}
+			"method": "json",
+			"url": "https://api.mangadex.org/auth/login"
 		},
 		"response_check": {
-			"cookies": {
-				"mangadex_rememberme_token": "@\\w+",
-				"mangadex_session": "@\\w+"
-			},
-			"headers": {
-				"Set-Cookie": "@mangadex_rememberme_token=\\w+"
-			}
+			"result": "ok"
 		}
 	},
-	
+
+		
+		
 	"manga_search_complete": {
 		
 		"search_link": "https://api.mangadex.org/manga?limit=32&offset=$page$&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&title=$query$&order[relevance]=desc",
@@ -169,12 +160,50 @@
 		"title": {
 			"after": "\"title\":{",
 			"token1": "\"en\":\"",
-			"token2": "\""
+			"token2": "\"",
+"replace": [
+{ "match" : "u003Cp",  "text" : "" },
+{ "match" : "u003E",   "text" : "" },
+{ "match" : "u003C",   "text" : "" },
+{ "match" : "u0022",   "text" : "'" },
+{ "match" : "u0027",   "text": "'"},
+{ "match" : "u002Fp",  "text" : "" },
+{ "match" : "u201c",  "text" : "“" },
+{ "match" : "u201d",  "text" : "”" },
+{ "match" : "u2019",  "text" : "’" },
+{ "match" : "u2026",  "text" : "…" },
+{ "match" : "u00e4",  "text" : "ä" },
+{ "match" : "\n",  "text" : "" },
+{ "match":"<.*?>", "text":""},
+{ "match" : "\"",  "text" : "'" },
+{ "match" : "\\\\",  "text" : "" },
+{ "match" : "&quot;",  "text" : "'" }
+
+			]
 		},
 		"uniq": {
 			"after": "\"title\":{",
 			"token1": "\"en\":\"",
-			"token2": "\""
+			"token2": "\"",
+"replace": [
+{ "match" : "u003Cp",  "text" : "" },
+{ "match" : "u003E",   "text" : "" },
+{ "match" : "u003C",   "text" : "" },
+{ "match" : "u0022",   "text" : "'" },
+{ "match" : "u0027",   "text": "'"},
+{ "match" : "u002Fp",  "text" : "" },
+{ "match" : "u201c",  "text" : "“" },
+{ "match" : "u201d",  "text" : "”" },
+{ "match" : "u2019",  "text" : "’" },
+{ "match" : "u2026",  "text" : "…" },
+{ "match" : "u00e4",  "text" : "ä" },
+{ "match" : "\n",  "text" : "" },
+{ "match":"<.*?>", "text":""},
+{ "match" : "\"",  "text" : "'" },
+{ "match" : "\\\\",  "text" : "" },
+{ "match" : "&quot;",  "text" : "'" }
+
+			]
 		},
 		
 		
@@ -189,17 +218,23 @@
 			"token2": "\"",
 "replace": [
 { "match" : "u003Cp",  "text" : "" },
-{ "match" : "u003E",  "text" : "" },
-{ "match" : "u003C",  "text" : "" },
-{ "match" : "u0022",  "text" : "'" },
-{ "match" : "\n",  "text" : "" },
-{ "match":"<.*?>","text":""} ,
+{ "match" : "u003E",   "text" : "" },
+{ "match" : "u003C",   "text" : "" },
+{ "match" : "u0022",   "text" : "'" },
+{ "match" : "u0027",   "text": "'"},
 { "match" : "u002Fp",  "text" : "" },
+{ "match" : "u201c",  "text" : "“" },
+{ "match" : "u201d",  "text" : "”" },
+{ "match" : "u2019",  "text" : "’" },
+{ "match" : "u2026",  "text" : "…" },
+{ "match" : "u00e4",  "text" : "ä" },
+{ "match" : "\n",  "text" : "" },
+{ "match":"<.*?>", "text":""},
 { "match" : "\"",  "text" : "'" },
 { "match" : "\\\\",  "text" : "" },
 { "match" : "&quot;",  "text" : "'" }
 
-						]
+			]
 		},
 		"status": {
 			"complete": "\"completed\",",
@@ -215,14 +250,40 @@
 						]
 		},
 		
-		"is_mature": "<span class='badge badge-danger ml-1'>H</span>",
+		"is_mature": {
+			"start": "\"tags\":[",
+			"end": "createdAt",
+			"values": [
+			"97893a4c-12af-4dac-b6be-0dffb353568e", 
+			"5bd0e105-4481-44ca-b6e7-7544da56b1a3",
+			"5920b825-4181-4a17-beeb-9918b0ff7a30"]
+		},
+		
 		
 		"add_genres": {
 			"start": "\"tags\":[",
 			"end": "createdAt",
 			"token1": "\"en\":\"",
 			"token2": "\"",
-			"replace": { "match": "<.*?>",	"text": ""}
+"replace": [
+{ "match" : "u003Cp",  "text" : "" },
+{ "match" : "u003E",   "text" : "" },
+{ "match" : "u003C",   "text" : "" },
+{ "match" : "u0022",   "text" : "'" },
+{ "match" : "u0027",   "text": "'"},
+{ "match" : "u002Fp",  "text" : "" },
+{ "match" : "u201c",  "text" : "“" },
+{ "match" : "u201d",  "text" : "”" },
+{ "match" : "u2019",  "text" : "’" },
+{ "match" : "u2026",  "text" : "…" },
+{ "match" : "u00e4",  "text" : "ä" },
+{ "match" : "\n",  "text" : "" },
+{ "match":"<.*?>", "text":""},
+{ "match" : "\"",  "text" : "'" },
+{ "match" : "\\\\",  "text" : "" },
+{ "match" : "&quot;",  "text" : "'" }
+
+			]
 		},
 		
 		"add_tags": {
@@ -230,7 +291,25 @@
 			"end": "createdAt",
 			"token1": "\"en\":\"",
 			"token2": "\"",
-			"replace": { "match": "<.*?>",	"text": ""}
+"replace": [
+{ "match" : "u003Cp",  "text" : "" },
+{ "match" : "u003E",   "text" : "" },
+{ "match" : "u003C",   "text" : "" },
+{ "match" : "u0022",   "text" : "'" },
+{ "match" : "u0027",   "text": "'"},
+{ "match" : "u002Fp",  "text" : "" },
+{ "match" : "u201c",  "text" : "“" },
+{ "match" : "u201d",  "text" : "”" },
+{ "match" : "u2019",  "text" : "’" },
+{ "match" : "u2026",  "text" : "…" },
+{ "match" : "u00e4",  "text" : "ä" },
+{ "match" : "\n",  "text" : "" },
+{ "match":"<.*?>", "text":""},
+{ "match" : "\"",  "text" : "'" },
+{ "match" : "\\\\",  "text" : "" },
+{ "match" : "&quot;",  "text" : "'" }
+
+			]
 		},
 		
 		"chapters_from_page": {
@@ -264,79 +343,19 @@
 			"title": {
 				"before": "chapter\":",
 				"token1": "\"attributes\":{",
-				"token2": "\"data\":[",
+				"token2": "\"translatedLanguage\"",
 				"replace": [
-				    { "sufix": "&nbsp;Language&nbsp;%%chapter_lang%%" },
-					{ "match" : "\"translatedLanguage\":\"(.*?)\",","text":"" },
-                    { "match" : "\"hash\":\"(.*?)\",","text":"" },
-					{ "match" : "\"volume\":\"","text":"Volume&nbsp;" },
-					{ "match" : "\"chapter\":\"","text":"Chapter&nbsp;" },
+				    { "sufix": "Language %%chapter_lang%%" },
+					{ "match" : "\"hash\":\"(.*?)\",","text":"" },
+					{ "match" : "\"volume\":\"","text":"Volume " },
+					{ "match" : "\"chapter\":\"","text":"Chapter " },
 					{ "match" : "\"title\":\"(.*?)\",","text":"" },
 					
-					{ "match" : "\",","text":"&nbsp;" }
-					]
-			},
-			"uniq": {
-				"before": "chapter\":",
-				"token1": "\"attributes\":{",
-				"token2": "\"data\":[",
-				"replace": [
-				    { "match" : "\"translatedLanguage\":\"","text":"Language " },
-                    { "match" : "\"hash\":\"(.*?)\",","text":"" },
-					{ "match" : "\"volume\":\"","text":"volume " },
-					{ "match" : "\"chapter\":\"","text":"chapter " },
-					{ "match" : "\"title\":\"(.*?)\",","text":"" },
-					{ "match" : "\",","text":" " },
-					
-					
-				{ "match": "\\ben\\b", "text": "English" },
-				{ "match": "\\bja\\b", "text": "Japanese" },
-				{ "match": "\\bpl\\b", "text": "Polish" },
-				{ "match": "\\bsh\\b", "text": "SerboCroatian" },
-				{ "match": "\\bnl\\b", "text": "Dutch" },
-				{ "match": "\\bit\\b", "text": "Italian" },
-				{ "match": "\\bru\\b", "text": "Russian" },
-				{ "match": "\\bde\\b", "text": "German" },
-				{ "match": "\\bhu\\b", "text": "Hungarian" },
-				{ "match": "\\bfr\\b", "text": "French" },
-				{ "match": "\\bfi\\b", "text": "Finnish" },
-				{ "match": "\\bvi\\b", "text": "Vietnamese" },
-				{ "match": "\\bel\\b", "text": "Greek" },
-				{ "match": "\\bbg\\b", "text": "Bulgarian" },
-				{ "match": "\\bes\\b", "text": "SpanishSpain" },
-				{ "match": "\\b(pt-BR|pt-br)\\b",  "text": "PortugueseBrazil" },
-				{ "match": "\\bpt\\b", "text": "PortuguesePortugal" },
-				{ "match": "\\bsv\\b", "text": "Swedish" },
-				{ "match": "\\bar\\b", "text": "Arabic" },
-				{ "match": "\\bda\\b", "text": "Danish" },
-				{ "match": "\\b(zh-Hans|zh)\\b", "text": "ChineseSimp" },
-				{ "match": "\\bbn\\b", "text": "Bengali" },
-				{ "match": "\\bro\\b", "text": "Romanian" },
-				{ "match": "\\bcs\\b", "text": "Czech" },
-				{ "match": "\\bmn\\b", "text": "Mongolian" },
-				{ "match": "\\btr\\b", "text": "Turkish" },
-				{ "match": "\\bid\\b", "text": "Indonesian" },
-				{ "match": "\\bko\\b", "text": "Korean" },
-				{ "match": "\\b(es-419|es-la)\\b", "text": "SpanishLTAM" },
-				{ "match": "\\bfa\\b", "text": "Persian" },
-				{ "match": "\\bms\\b", "text": "Malay" },
-				{ "match": "\\bth\\b", "text": "Thai" },
-				{ "match": "\\bca\\b", "text": "Catalan" },
-				{ "match": "\\b(fil|tl)\\b", "text": "Filipino" },
-				{ "match": "\\b(zh-Hant|zh-hk)\\b", "text": "ChineseTrad" },
-				{ "match": "\\buk\\b", "text": "Ukrainian" },
-				{ "match": "\\bmy\\b", "text": "Burmese" },
-				{ "match": "\\blt\\b", "text": "Lithuanian" },
-				{ "match": "\\bhe\\b", "text": "Hebrew" },
-				{ "match": "\\bhi\\b", "text": "Hindi" },
-				{ "match": "\\bno\\b", "text": "Norwegian" }
-				
-				
+					{ "match" : "\",","text":" " }
 					]
 			},
 			
 			"lang": {
-				"before": "chapter\":",
 				"token1": "translatedLanguage\":\"",
 				"token2": "\",",
   			    "replace": [
