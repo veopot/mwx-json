@@ -1,14 +1,14 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 18,
+	"version": 19,
 	"title": "MangaDex (test)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
 	"folder": "mangadex",
 	"name": "mangadex",
 	"language": "en",
-	"chapters_order": false,
+	"chapters_order": true,
 	"skip_catalog_test": false,
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangadex.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangadex.json",
@@ -242,19 +242,9 @@
 					"prefix": "https://api.mangadex.org/manga/"
 				},
 				{
-					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic"
+					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic&offset=500"
 				}
-			],
-            "next": {
-                "after": "\"total",
-                "token1": "\":",
-                "token2": "}",
-                "replace": [
-				    { "prefix": "%%url%%" },
-                    { "match" : "&offset=500","text":"" }
-				            ],
-				"stop": "\"data\":[],"
-            }
+			]
 			
 		},
 		
@@ -345,7 +335,11 @@
 					]
 			},
 			
-			"lang": {"token1": "translatedLanguage\":\"", "token2": "\",", "replace": [
+			"lang": {
+				"before": "chapter\":",
+				"token1": "translatedLanguage\":\"",
+				"token2": "\",",
+  			    "replace": [
 				{ "match": "\\ben\\b", "text": "English" },
 				{ "match": "\\bja\\b", "text": "Japanese" },
 				{ "match": "\\bpl\\b", "text": "Polish" },
