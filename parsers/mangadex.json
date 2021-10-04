@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 16,
+	"version": 17,
 	"title": "MangaDex (API)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -186,7 +186,20 @@
 		"summary": {
 			"after":"\"description\":{",
 			"token1":"\"en\":\"",
-			"token2": "\""
+			"token2": "\"",
+"replace": [
+{ "match" : "u003Cp",  "text" : "" },
+{ "match" : "u003E",  "text" : "" },
+{ "match" : "u003C",  "text" : "" },
+{ "match" : "u0022",  "text" : "'" },
+{ "match" : "\n",  "text" : "" },
+{ "match":"<.*?>","text":""} ,
+{ "match" : "u002Fp",  "text" : "" },
+{ "match" : "\"",  "text" : "'" },
+{ "match" : "\\\\",  "text" : "" },
+{ "match" : "&quot;",  "text" : "'" }
+
+						]
 		},
 		"status": {
 			"complete": "\"completed\",",
@@ -229,9 +242,20 @@
 					"prefix": "https://api.mangadex.org/manga/"
 				},
 				{
-					"sufix": "/feed?limit=500&offset=1"
+					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic"
 				}
-			]
+			],
+            "next": {
+                "after": "\"total",
+                "token1": "\":",
+                "token2": "}",
+                "replace": [
+				    { "prefix": "%%url%%" },
+                    { "match" : "&offset=500","text":"" }
+				            ],
+				"stop": "\"data\":[],"
+            }
+			
 		},
 		
 			
@@ -248,11 +272,77 @@
 				}
 			},
 			"title": {
-				"token1": "chapter\":\"",
-				"token2": "\",",
-				"replace": {
-					"sufix": "&nbsp;Language&nbsp;%%chapter_lang%%"
-				}
+				"before": "chapter\":",
+				"token1": "\"attributes\":{",
+				"token2": "\"data\":[",
+				"replace": [
+				    { "sufix": "&nbsp;Language&nbsp;%%chapter_lang%%" },
+					{ "match" : "\"translatedLanguage\":\"(.*?)\",","text":"" },
+                    { "match" : "\"hash\":\"(.*?)\",","text":"" },
+					{ "match" : "\"volume\":\"","text":"Volume&nbsp;" },
+					{ "match" : "\"chapter\":\"","text":"Chapter&nbsp;" },
+					{ "match" : "\"title\":\"(.*?)\",","text":"" },
+					
+					{ "match" : "\",","text":"&nbsp;" }
+					]
+			},
+			"uniq": {
+				"before": "chapter\":",
+				"token1": "\"attributes\":{",
+				"token2": "\"data\":[",
+				"replace": [
+				    { "match" : "\"translatedLanguage\":\"","text":"Language " },
+                    { "match" : "\"hash\":\"(.*?)\",","text":"" },
+					{ "match" : "\"volume\":\"","text":"volume " },
+					{ "match" : "\"chapter\":\"","text":"chapter " },
+					{ "match" : "\"title\":\"(.*?)\",","text":"" },
+					{ "match" : "\",","text":" " },
+					
+					
+				{ "match": "\\ben\\b", "text": "English" },
+				{ "match": "\\bja\\b", "text": "Japanese" },
+				{ "match": "\\bpl\\b", "text": "Polish" },
+				{ "match": "\\bsh\\b", "text": "SerboCroatian" },
+				{ "match": "\\bnl\\b", "text": "Dutch" },
+				{ "match": "\\bit\\b", "text": "Italian" },
+				{ "match": "\\bru\\b", "text": "Russian" },
+				{ "match": "\\bde\\b", "text": "German" },
+				{ "match": "\\bhu\\b", "text": "Hungarian" },
+				{ "match": "\\bfr\\b", "text": "French" },
+				{ "match": "\\bfi\\b", "text": "Finnish" },
+				{ "match": "\\bvi\\b", "text": "Vietnamese" },
+				{ "match": "\\bel\\b", "text": "Greek" },
+				{ "match": "\\bbg\\b", "text": "Bulgarian" },
+				{ "match": "\\bes\\b", "text": "SpanishSpain" },
+				{ "match": "\\b(pt-BR|pt-br)\\b",  "text": "PortugueseBrazil" },
+				{ "match": "\\bpt\\b", "text": "PortuguesePortugal" },
+				{ "match": "\\bsv\\b", "text": "Swedish" },
+				{ "match": "\\bar\\b", "text": "Arabic" },
+				{ "match": "\\bda\\b", "text": "Danish" },
+				{ "match": "\\b(zh-Hans|zh)\\b", "text": "ChineseSimp" },
+				{ "match": "\\bbn\\b", "text": "Bengali" },
+				{ "match": "\\bro\\b", "text": "Romanian" },
+				{ "match": "\\bcs\\b", "text": "Czech" },
+				{ "match": "\\bmn\\b", "text": "Mongolian" },
+				{ "match": "\\btr\\b", "text": "Turkish" },
+				{ "match": "\\bid\\b", "text": "Indonesian" },
+				{ "match": "\\bko\\b", "text": "Korean" },
+				{ "match": "\\b(es-419|es-la)\\b", "text": "SpanishLTAM" },
+				{ "match": "\\bfa\\b", "text": "Persian" },
+				{ "match": "\\bms\\b", "text": "Malay" },
+				{ "match": "\\bth\\b", "text": "Thai" },
+				{ "match": "\\bca\\b", "text": "Catalan" },
+				{ "match": "\\b(fil|tl)\\b", "text": "Filipino" },
+				{ "match": "\\b(zh-Hant|zh-hk)\\b", "text": "ChineseTrad" },
+				{ "match": "\\buk\\b", "text": "Ukrainian" },
+				{ "match": "\\bmy\\b", "text": "Burmese" },
+				{ "match": "\\blt\\b", "text": "Lithuanian" },
+				{ "match": "\\bhe\\b", "text": "Hebrew" },
+				{ "match": "\\bhi\\b", "text": "Hindi" },
+				{ "match": "\\bno\\b", "text": "Norwegian" }
+				
+				
+					]
 			},
 			
 			"lang": {"token1": "translatedLanguage\":\"", "token2": "\",", "replace": [
