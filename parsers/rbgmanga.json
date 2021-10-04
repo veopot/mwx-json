@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 64,
+	"version": 65,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -82,7 +82,7 @@
 		"token1":"\"issue_", "token2": "}",
 "replace": [
 { "match" : "year\":",  "text" : "Год выпуска " },
-{ "match" : "\"avg_rating\":\"",  "text" : " Рейтинг  " },
+{ "match" : "\"avg_rating\":\"",  "text" : " Рейтинг " },
 { "match" : "\"type\":(.*?),",  "text" : "" },
 { "match":"\"count_chapters\":","text":" Доступно Глав "}
 						]
@@ -104,9 +104,9 @@
 		},
 
 	  "iterator": {
-"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
+		"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
 
-		"append_nums": { "from": 1, "to": 1000 }
+		"append_nums": { "from": 1, "to": 650 }
 		},
 		"add_manga": {
 		    "start": "content",
@@ -155,7 +155,10 @@
 			"token2": "\"dir\":\"",
             "replace" : [
 			{ "match" : "\"(.*?)\",\"(.*?)\":\"(.*?)\",",  "text" : "$3 / $1" },
-			{ "match" : "\"another_name\":\"(.*?)\",",  "text" : "" }
+			{ "match" : "\"another_name\":\"(.*?)\",",  "text" : "" },
+			{ "match" : "\"",  "text" : "'" },
+			{ "match" : "\\\\", "text" : "" }
+			
 			]
 			},
 			
@@ -187,7 +190,8 @@
 { "match" : "u003E",  "text" : "" },
 { "match" : "u003C",  "text" : "" },
 { "match":"<.*?>","text":""} ,
-{ "match" : "u002Fp",  "text" : "" }
+{ "match" : "u002Fp",  "text" : "" },
+{ "match" : "&quot;",  "text" : "'" }
 						]
 },
 		
