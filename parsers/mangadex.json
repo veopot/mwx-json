@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 20,
+	"version": 21,
 	"title": "MangaDex (test)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -37,14 +37,17 @@
 				"kind": "password"
 			},
 		"headers": {
-			"Accept": "*/*" }
+			"Accept": "application/json, text/plain, */*" }
 		},
 		"request": {
 			"method": "json",
 			"url": "https://api.mangadex.org/auth/login"
 		},
 		"response_check": {
-			"result": "ok"
+			"status": 200,
+			
+			"body": "@\"token\"\\:(\\{.*?\\})",
+			"body_to_cookie": ["refresh"]
 		}
 	},
 
@@ -244,10 +247,7 @@
 			"after": "cover_art\",",
 			"token1": "fileName\":\"",
 			"token2": "\"",
-			"replace": [
-                        { "match" : "111111",  "text" : "222222" },
-						{ "prefix": "https://uploads.mangadex.org/covers/%%page%%/" }
-						]
+			"replace": { "prefix": "https://uploads.mangadex.org/covers/%%page%%/" }
 		},
 		
 		"is_mature": {
@@ -321,7 +321,7 @@
 					"prefix": "https://api.mangadex.org/manga/"
 				},
 				{
-					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic&offset=500"
+					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic&offset=0"
 				}
 			]
 			
