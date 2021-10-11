@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 21,
+	"version": 22,
 	"title": "MangaDex (test)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -348,6 +348,7 @@
 				    { "sufix": "Language %%chapter_lang%%" },
 					{ "match" : "\"hash\":\"(.*?)\",","text":"" },
 					{ "match" : "\"volume\":\"","text":"Volume " },
+					{ "match" : "\"volume\":null,","text":"" },
 					{ "match" : "\"chapter\":\"","text":"Chapter " },
 					{ "match" : "\"title\":\"(.*?)\",","text":"" },
 					
