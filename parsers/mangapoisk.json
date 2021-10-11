@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":12,
+   "version":13,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -26,7 +26,7 @@
          "base_url":"https://mangapoisk.ru/manga?sortBy=popular&page=",
          "append_nums":{
             "from":0,
-            "to":158,
+            "to":160,
             "step":1
          }
       },
@@ -65,7 +65,7 @@
 		 
          "title":{
             "skip":"href=\"",
-            "token1":"\">",
+            "token1":"class=\"card-title js-card-title\">",
             "token2":"</"
          },
          "link":{
@@ -77,8 +77,10 @@
                 "replace":{"match":"<.*?>", "text":""} },
 				
          "cover":{
-		    "token1":"data-src=\"",
-            "token2":"\""
+			"skip":"href=\"",
+		    "token1":"https://static2.mangapoisk.ru/posters/",
+            "token2":"\"",
+			"replace": { "prefix": "https://static2.mangapoisk.ru/posters/"}
          }
       }
 		},	
@@ -99,9 +101,9 @@
          "replace":{"match":"<.*?>","text":""} },
       
       "uniq":{
-         "skip":"class=\"row\">",
-         "token1":"class=\"post-name\">",
-         "token2":"</"
+         
+         "token1":"let manga = '",
+         "token2":"';"
       },
 	  
 	  
@@ -111,6 +113,15 @@
          "token2":"\""
       },
       
+	  
+	  
+	  "rating":{
+        "skip":"class=\"post-info\">",
+         "token1":"class=\"ratesCount\">",
+         "token2":"</"
+      },
+	  
+	  
 	  "status": { 
 		  	"complete": { 
 			 "start": ">Статус:<",
@@ -215,6 +226,12 @@
         "skip":"class=\"row\">",
          "token1":"src=\"",
          "token2":"\""
+      },
+	  
+	  "rating":{
+        "skip":"class=\"post-info\">",
+         "token1":"class=\"ratesCount\">",
+         "token2":"</"
       },
       
 	  "status": { 
