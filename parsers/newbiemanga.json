@@ -1,28 +1,31 @@
 {
 	"id": 30478,
-	"version": 4,
-	
+	"version": 7,
+
 	"old_ids": [40172],
-    "old_sites": ["newbie-manga.ru"],
-	
-	
-	"title": "Newbie Translate",
+	"old_sites": ["newbie-manga.ru"],
+
+
+	"title": "NewManga",
 	"host": "https://newbie-tl.ru",
 	"public_link": "https://newbie-tl.ru/catalog/all",
 	"folder": "newbiemanga",
-	"name" : "newbiemanga",
+	"name": "newbiemanga",
 	"chapters_order": true,
 	"language": "ru",
 	"encoding": "utf-8",
-	
-    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
+
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/newbiemanga.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/newbiemanga.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/newbiemanga.zip",
-    "file_type": "sqlite",
-    "author": {"name": "Veopot","email": "fant-net@ya.ru"},
+	"file_type": "sqlite",
+	"author": {
+		"name": "Veopot",
+		"email": "fant-net@ya.ru"
+	},
 
-   
+
 
 	"authorization_complete": {
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
@@ -39,8 +42,9 @@
 				"hint": "Введите свой пароль",
 				"kind": "password"
 			},
-		"headers": {
-			"Accept": "*/*" }
+			"headers": {
+				"Accept": "*/*"
+			}
 		},
 		"request": {
 			"method": "json",
@@ -54,271 +58,416 @@
 	},
 
 
- "manga_search_complete": {
-	    "headers": {
+	"manga_search_complete": {
+		"headers": {
 			"Accept": "*/*",
 			"Referer": "https://newbie-tl.ru/",
-			
+
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		"search_link": "https://api.newbie-tl.ru/v2/projects/search?query=$query$&size=10&page=$page$",
 		"query_type": "GET",
-		
-		
-		"add_manga":  {
-		    "start": "\"items\":[",
+
+
+		"add_manga": {
+			"start": "\"items\":[",
 			"end": "],",
-            "next": "\"title\":{",
-			
-			"link":  { "before": "\"en\":\"",
-			"token1": "id\":", "token2": ",",
-			"replace":{"prefix": "https://api.newbie-tl.ru/v2/projects/" } },
-			
-			
-			"title": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"},",
-			"replace": { "match" : "\",\"ru\":\"",  "text" : " | " }},
-			
-			"uniq": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"," },
-			
-			"cover":{ "token1":"\"large\":\"images/projects/", "token2": "\",",
-			"replace": [
-            { "prefix" : "https://storage.newbie-tl.ru/images/projects/" },
-            { "match" : "u002F",  "text" : "/" }
-						]
-		    },
-            
-			"summary": {  "token1":"\"description\":\"", "token2": "\"",
-                "replace": [
-                    { "match" : "u003C",  "text" : "" },
-                    { "match":"<.*?>","text":""}
-						]
-            }
-			
+			"next": "\"title\":{",
+
+			"link": {
+				"before": "\"en\":\"",
+				"token1": "id\":",
+				"token2": ",",
+				"replace": {
+					"prefix": "https://api.newbie-tl.ru/v2/projects/"
+				}
+			},
+
+
+			"title": {
+				"skip": "title\"",
+				"token1": "\"en\":\"",
+				"token2": "\"},",
+				"replace": {
+					"match": "\",\"ru\":\"",
+					"text": " | "
+				}
+			},
+
+			"uniq": {
+				"skip": "title\"",
+				"token1": "\"en\":\"",
+				"token2": "\","
+			},
+
+			"cover": {
+				"token1": "\"large\":\"images/projects/",
+				"token2": "\",",
+				"replace": [{
+						"prefix": "https://storage.newbie-tl.ru/images/projects/"
+					},
+					{
+						"match": "u002F",
+						"text": "/"
+					}
+				]
+			},
+
+			"summary": {
+				"token1": "\"description\":\"",
+				"token2": "\"",
+				"replace": [{
+						"match": "u003C",
+						"text": ""
+					},
+					{
+						"match": "<.*?>",
+						"text": ""
+					}
+				]
 			}
-		
-		},
-		
-		
+
+		}
+
+	},
+
+
 
 	"manga_list_complete": {
-	    "headers": {
-			
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"headers": {
+
+			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 			"Accept-Language": "ru-RU,ru;q=0.9"
 		},
 
-	  "iterator": {
-		"base_url": "https://api.newbie-tl.ru/v2/projects/catalog?query=&sorting=rating&size=32&page=",
+		"iterator": {
+			"base_url": "https://api.newbie-tl.ru/v2/projects/catalog?query=&sorting=rating&size=32&page=",
 
-		"append_nums": { "from": 1, "to": 30 }
+			"append_nums": {
+				"from": 1,
+				"to": 30
+			}
 		},
 		"add_manga": {
-		    "start": "\"items\":[",
+			"start": "\"items\":[",
 			"end": "],",
-            "next": "\"title\":{",
-			
-			"link":  { "before": "\"en\":\"",
-			"token1": "id\":", "token2": ",",
-			"replace":{"prefix": "https://api.newbie-tl.ru/v2/projects/" } },
-			
-			
-			"title": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"},",
-			"replace": { "match" : "\",\"ru\":\"",  "text" : " | " }},
-			
-			"uniq": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"," }
-			
+			"next": "\"title\":{",
+
+			"link": {
+				"before": "\"en\":\"",
+				"token1": "id\":",
+				"token2": ",",
+				"replace": {
+					"prefix": "https://api.newbie-tl.ru/v2/projects/"
+				}
 			},
+
+
+			"title": {
+				"skip": "title\"",
+				"token1": "\"en\":\"",
+				"token2": "\"},",
+				"replace": {
+					"match": "\",\"ru\":\"",
+					"text": " | "
+				}
+			},
+
+			"uniq": {
+				"skip": "title\"",
+				"token1": "\"en\":\"",
+				"token2": "\","
+			}
+
+		},
 		"rating_auto_inc": {
 			"start": "20000",
 			"inc": -1
 		}
-		
+
 	},
-   
-	
-	
-	
+
+
+
+
 	"manga_complete": {
 		"headers": {
-		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-        "Accept": "image/webp,*/*;q=0.8",
-        "Referer": "https://newbie-tl.ru/"
+
+			"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+			"Accept": "image/webp,*/*;q=0.8",
+			"Referer": "https://newbie-tl.ru/"
 		},
-		
-		
-"link_corrector" : [ 			
-{ "match" : "https://newbie-tl.ru/p/", 
-"text" : "https://api.newbie-tl.ru/v2/projects/" } 		],
 
 
-        "title": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"},",
-			"replace": { "match" : "\",\"ru\":\"",  "text" : " | " }},
-			
-		"uniq": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"," },
-			
-		"additional_title": { "skip": "title\"",
-			"token1": "\"en\":\"", "token2": "\"," },
-		 
-		"author":      { "skip": "\"author\":{", "token1":"\"name\":\"", "token2": "\"",
-			"replace": { "match": "<.*>", "text": " " } },
-	
-		
-	    "cover":{ "token1":"\"large\":\"images/projects/", "token2": "\",",
-			"replace": [
-            { "prefix" : "https://storage.newbie-tl.ru/images/projects/" },
-            { "match" : "u002F",  "text" : "/" }
-						]
-		
-	    },
-		
-		"read_dir": { "right_to_left": "\"manga\"", "left_to_right": "\"manhya\"" },
-			
-		"summary": { "skip": "\"type\":\"", 	
-		    "token1":"\"description\":\"", "token2": "\",",
-		    
-		    "replace": [
- 		    { "match" : "u003Cp",  "text" : "" },
-		    { "match" : "u003E",  "text" : "" },
-		    { "match" : "u003C",  "text" : "" },
-		    { "match":"<.*?>","text":""} ,
-		    { "match" : "u002Fp",  "text" : "" }
-					   ]
-        },
-		
-		
-		"status": { 
-		  	"complete": { 
-			   "values": [ "complete", "Переведена", "Сингл"] },
-			
-            "ongoing": {  
-                "value": "on_going" }
-			 },
-		"rating":     {  "token1": "\"rating\":", "token2": "," },
-			
-		
-		
-		"add_tags":   {
-        "start": "genres\":[",
-		"end": "],",
-		"token1": "\"ru\":\"",
-		"token2": "\""
+		"link_corrector": [{
+			"match": "https://newbie-tl.ru/p/",
+			"text": "https://api.newbie-tl.ru/v2/projects/"
+		}],
+
+
+		"title": {
+			"skip": "title\"",
+			"token1": "\"en\":\"",
+			"token2": "\"},",
+			"replace": {
+				"match": "\",\"ru\":\"",
+				"text": " | "
+			}
 		},
-		
-		
-		
-			
-		"is_mature":   { "values": ["Сэйнэн", "Эротика", "Юри", "Яой"] },
-		
-		
-		
-		"chapters_from_page":  {  "before": "\"type\":\"", 
-		"token1": "\"id\":", "token2": ",",
-		"replace" : [ { "prefix" : "https://api.newbie-tl.ru/v2/projects/" },
-		{ "sufix" : "/chapters?reverse=true" }
-		]
+
+		"uniq": {
+			"skip": "title\"",
+			"token1": "\"en\":\"",
+			"token2": "\","
 		},
-		
-		
+
+		"additional_title": {
+			"skip": "title\"",
+			"token1": "\"en\":\"",
+			"token2": "\","
+		},
+
+		"author": {
+			"skip": "\"author\":{",
+			"token1": "\"name\":\"",
+			"token2": "\"",
+			"replace": {
+				"match": "<.*>",
+				"text": " "
+			}
+		},
+
+
+		"cover": {
+			"token1": "\"large\":\"images/projects/",
+			"token2": "\",",
+			"replace": [{
+					"prefix": "https://storage.newbie-tl.ru/images/projects/"
+				},
+				{
+					"match": "u002F",
+					"text": "/"
+				}
+			]
+
+		},
+
+		"read_dir": {
+			"right_to_left": "\"manga\"",
+			"left_to_right": "\"manhya\""
+		},
+
+		"summary": {
+			"skip": "\"type\":\"",
+			"token1": "\"description\":\"",
+			"token2": "\",",
+
+			"replace": [{
+					"match": "u003Cp",
+					"text": ""
+				},
+				{
+					"match": "u003E",
+					"text": ""
+				},
+				{
+					"match": "u003C",
+					"text": ""
+				},
+				{
+					"match": "<.*?>",
+					"text": ""
+				},
+				{
+					"match": "\n",
+					"text": " "
+				},
+				{
+					"match": "u002Fp",
+					"text": ""
+				}
+			]
+		},
+
+
+		"status": {
+			"complete": {
+				"values": ["complete", "Переведена", "Сингл"]
+			},
+
+			"ongoing": {
+				"value": "on_going"
+			}
+		},
+		"rating": {
+			"token1": "bookmarks\":",
+			"token2": ","
+		},
+
+
+
+		"add_tags": {
+			"start": "genres\":[",
+			"end": "],",
+			"token1": "\"ru\":\"",
+			"token2": "\""
+		},
+
+
+
+
+		"is_mature": {
+			"values": ["Сэйнэн", "Эротика", "Юри", "Яой"]
+		},
+
+
+
+		"chapters_from_page": {
+			"before": "\"type\":\"",
+			"token1": "\"id\":",
+			"token2": ",",
+			"replace": [{
+					"prefix": "https://api.newbie-tl.ru/v2/projects/"
+				},
+				{
+					"sufix": "/chapters?reverse=false&page=1&size=10000"
+				}
+			]
+		},
+
+
 		"add_chapter": {
-            "start": "[",
-            "end": "]",
-            "next": "{\"id\":",
-			
-            "link": {
-			 "before": "\"number\":",
-			 "token1": "id\":", "token2": ",",
-			    "replace" : [ 
-				    { "prefix" : "https://api.newbie-tl.ru/v2/chapters/" },
-		            { "sufix" : "/pages" } 
-			    ] 
-		    },
-			
-			"uniq": { "token1": "\"number\":",  "token2": "," },
-            
-            "title": {
-			    
-                "token1": "\"tom\":",
-                "token2": ",\"hearts\"",
+			"start": "items",
+			"end": "]",
+			"next": "{\"",
+
+			"link": {                       
+				"token1": "id\":",
+				"token2": ",\"",
 				"replace": [
-                        { "match" : "\"name\":(.*?),",  "text" : " " },
-						{ "match" : "\"number\":",  "text" : "Глава " },
-						{ "match" : "\"name\":null,",  "text" : " " },
-						{ "prefix" : "Том " }
-						]
-            }
-        }
-	 
-},
+				    {
+						"prefix": "https://api.newbie-tl.ru/v2/chapters/"
+					},	
+					{
+						"sufix": "/pages/"
+					}
+				]
+			},
+
+		
+			"uniq": {
+                "token1": "\"tom\":",
+				"token2": ".0,\"hearts\"",
+				"replace": [{
+						"match": "\"name\":(.*?),",
+						"text": " "
+					},
+					{
+						"match": "\"number\":",
+						"text": "Глава "
+					},
+					{
+						"match": "\"name\":null,",
+						"text": " "
+					},
+					{
+						"prefix": "Том "
+					}
+				]
+			},
+
+			"title": {
+                "token1": "\"tom\":",
+				"token2": ".0,\"hearts\"",
+				"replace": [{
+						"match": "\"name\":(.*?),",
+						"text": " "
+					},
+					{
+						"match": "\"number\":",
+						"text": "Глава "
+					},
+					{
+						"match": "\"name\":null,",
+						"text": " "
+					},
+					{
+						"prefix": "Том "
+					}
+				]
+			}
+		}
+
+	},
 
 
 	"chapter_complete": {
-	    "add_numeration": true,
-	    "headers": {
-			"Accept": "*/*",
-			"Referer": "https://newbie-tl.ru",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		"headers": {
+			"Referer": "https://newbie-tl.ru/",
+            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"accept": "application/json, text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+ 
 		},
 		"add_images": {
 			"start": "[",
 			"token1": "{\"id\":",
-			"token2": ",",
+			"token2": "}",
 			"end": "]",
-			"replace": [
-                    { "prefix": "%%url%%/" },
-					{ "match" : "\\\\", "text" : "" }
-						]
+			"replace":[ 
+			{ "match" : ",\"slices\":",  "text" : "?slice=" },
+			{"prefix": "%%url%%/" }
+			]
 		}
-        
+		
 	},
-	"test": [
-		{
-			"proc" : "manga_list_complete",
-			   "assert" : {
-				"mangas" : [
-					{ "title" : "Another Emperor Reborn, Возрождение иного императора",
-					 "link" : "https://newbie-tl.ru/api/titles/another-emperor-reborn",
-					  "uniq" : "Another Emperor Reborn" }
-				],
-				"mangas_count" : ">=20"
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+					"title": "Another Emperor Reborn, Возрождение иного императора",
+					"link": "https://newbie-tl.ru/api/titles/another-emperor-reborn",
+					"uniq": "Another Emperor Reborn"
+				}],
+				"mangas_count": ">=20"
 			}
 		},
 		{
-			"proc" : "manga_complete",
-			"link" : "https://api.newbie-tl.ru/v2/projects/1",
-			"title" : "Martial peak | Пик боевых искусств",
-			"assert" : {
-				"cover" : "https://api.newbie-tl.ru/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
-				
-				"genres" : "@action",
-				"status" : "ongoing",
-				"genres_count" : ">=4",
-				"chapters_count" : ">=130",
-				"chapters" : [
-			        {
-            "folder": "Том_2_Глава_136/",
-            "link": "https://api.newbie-tl.ru/v2/chapters/462182/pages",
-            "title": "Том 2 Глава 136"
-                   }
-		 		]
+			"proc": "manga_complete",
+			"link": "https://api.newbie-tl.ru/v2/projects/2",
+			"title": "Martial peak | Пик боевых искусств",
+			"assert": {
+				"cover": "https://api.newbie-tl.ru/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
+
+				"genres": "@action",
+				"status": "ongoing",
+				"genres_count": ">=4",
+				"chapters_count": ">=130",
+				"chapters": [{
+					"folder": "Том_2_Глава_136/",
+					"link": "https://api.newbie-tl.ru/v2/chapters/462182/pages/",
+					"title": "Том 2 Глава 136"
+				}]
 			}
 		},
+
+
 		{
-			"proc" : "chapter_complete",
-			"link" : "https://api.newbie-tl.ru/v2/chapters/462182/pages",
-			"assert" : {
-				"pages" : [
-{"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/32094b422c3366fb581ef2cdade49229.jpeg"},
-{"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/7bf3f403e4687c63dcee6712f5bcc979.jpeg"},
-{"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/229bf517a7e4c00eb10a634fabfba3a7.jpeg"}
+			"proc": "chapter_complete",
+			"link": "https://api.newbie-tl.ru/v2/chapters/2627/pages/",
+			"assert": {
+				"pages": [{
+						"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/32094b422c3366fb581ef2cdade49229.jpeg"
+					},
+					{
+						"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/7bf3f403e4687c63dcee6712f5bcc979.jpeg"
+					},
+					{
+						"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/229bf517a7e4c00eb10a634fabfba3a7.jpeg"
+					}
 				]
 			}
 		}
+
+
 	]
 }
