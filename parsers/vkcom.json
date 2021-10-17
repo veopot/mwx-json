@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version":10,
+	"version":11,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -73,13 +73,16 @@
 		
 		
 		"add_chapter": {
-			"next":  "title\"",
+			"next":  "article__title\"",
 			
-			"link":  {  "before": "title\"",  "token1": "<a href=\"", "token2": "\"",
+			"link":  {  "before": "article__title\"",  "token1": "<a href=\"", "token2": "\"",
                 "replace": {"prefix": "https://m.vk.com" }   
 			},
 			
-			"title": { "token1": "title=\"", "token2": "\"",
+			"title": { "token1": "article__title\">", "token2": "</",
+				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
+			},
+			"uniq": { "token1": "article__title\">", "token2": "</",
 				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
 			}
 		}   
