@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version":9,
+	"version":10,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -59,7 +59,7 @@
 		 "skip": "<link rel=\"canonical\"",
 		 "token1":"href=\"https://vk.com/",
 		 "token2": "\"",
-		 "replace" : { "prefix":"https://vk.com/@"},
+		 "replace" : { "prefix":"https://m.vk.com/@"},
             "next": {
                 "token1": "?offset=",
                 "token2": "\"",
@@ -73,10 +73,10 @@
 		
 		
 		"add_chapter": {
-			"next":  "title=\"",
+			"next":  "title\"",
 			
-			"link":  {  "before": "title=\"",  "token1": "<a href=\"", "token2": "\"",
-                "replace": {"prefix": "https://vk.com" }   
+			"link":  {  "before": "title\"",  "token1": "<a href=\"", "token2": "\"",
+                "replace": {"prefix": "https://m.vk.com" }   
 			},
 			
 			"title": { "token1": "title=\"", "token2": "\"",
@@ -86,9 +86,11 @@
 	},
 	"chapter_complete": {
 		"add_numeration": true,
-		"add_images": {
+		"images": true,
+        
+        "add_pages": { 
 			"start": "</head>",
-			"token1": ",&quot;w&quot;:[&quot;",
+			"token1": "&quot;w&quot;:[&quot;",
 			"token2": "&quot;,",
 			"end": "</body>",
 			"replace": [
