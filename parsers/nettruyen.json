@@ -1,6 +1,6 @@
 {
 	"id": 40164,
-	"version": 16,
+	"version": 17,
 	"title": "NetTruyen",
 	"host": "http://www.nettruyen.com",
 	"public_link": "http://www.nettruyen.com/hot",
@@ -114,9 +114,9 @@
 			"start": "class=\"reading-detail",
 			"end": "class=\"top bottom\"",
 			"after": "<img",
-			"token1": "data-original='",
-			"token2": "'"
-			
+			"token1": "data-original='//",
+			"token2": "'",
+			"replace": {"prefix" : "%%url%%/"}
 		}
 	},
 	
