@@ -1,9 +1,11 @@
 {
 	"id": 40164,
-	"version": 18,
+	"old_sites": ["nettruyen.com"],
+	
+	"version": 20,
 	"title": "NetTruyen",
-	"host": "http://www.nettruyen.com",
-	"public_link": "http://www.nettruyen.com/hot",
+	"host": "http://www.nettruyenpro.com",
+	"public_link": "http://www.nettruyenpro.com/hot",
 	"folder": "nettruyen",
 	"name" : "nettruyen",
 	"chapters_order": false,
@@ -18,7 +20,7 @@
    
     "manga_list_complete": {
 		"iterator": {
-			"base_url":"http://www.nettruyen.com/tim-truyen?status=-1&sort=15&page=",
+			"base_url":"http://www.nettruyenpro.com/tim-truyen?status=-1&sort=15&page=",
 				"append_nums": { "from": 1, "to": 528, "step": 1}
 			},
 		
@@ -42,7 +44,7 @@
 	
 	
     "manga_search_complete": {		
-        "search_link":"http://www.nettruyen.com/tim-truyen?keyword=$query$&page=$page$",
+        "search_link":"http://www.nettruyenpro.com/tim-truyen?keyword=$query$&page=$page$",
 		    "query_type": "GET",
 		    "add_manga": {
 			
@@ -71,7 +73,6 @@
 	"manga_complete": {
 		"title":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
 		"uniq":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
-		"additional_title": { "after": "<h2 class=\"other-name", "token1":"\">", "token2": "</" },
 		"author":      { "skip": "> Tác giả", "token1": "\">", "token2": "</" },
 		"summary":     { "skip": "> Nội dung", "token1": "<p>", "token2": "</p>" },
 		"status": { 
@@ -100,7 +101,7 @@
 		"add_chapter": {
 		    "start": "class=\"list-chapter\"",
 			"end": "</article>",
-		    "next":  "chapter\">",
+		    "next":  "<a",
 			"link":  { "token1": "href=\"", "token2": "\""},
 			"uniq": { "after" : "href=\"", "token1": "\">", "token2": "</" },
 			"title": { "after" : "href=\"", "token1": "\">", "token2": "</",
@@ -112,11 +113,11 @@
 		"images": true,
 		"add_pages": {
 			"start": "class=\"reading-detail",
-			"end": "class=\"top bottom\"",
+			"end": "<div class=\"text-center mrt5 mrb5\">",
 			"after": "<img",
 			"token1": "data-original='//",
 			"token2": "'",
-			"replace": {"prefix" : "%%url%%/"}
+			"replace": {"prefix" : "http://"}
 		}
 	},
 	
@@ -129,14 +130,14 @@
 			"assert" : {
 				"mangas" : [
 					{ "title" : "Vô Địch Học Bạ Hệ Thống", 
-					 "link" : "http://www.nettruyen.com/truyen-tranh/vo-dich-hoc-ba-he-thong-37577" }
+					 "link" : "http://www.nettruyenpro.com/truyen-tranh/vo-dich-hoc-ba-he-thong-37577" }
 				],
 				"mangas_count" : ">=50"
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat",
+			"link" : "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat",
 			"title" : "Thuần Tình Nha Đầu Hoả Lạt Lạt",
 			"assert" : {
 				"author" : "Đang cập nhật",
@@ -149,11 +150,11 @@
 				"chapters" : [
 {
 "folder": "Chapter 1/",
-"link": "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
+"link": "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
 "title": "Chapter 1"
 },
 {
-"link": "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-2/179470",
+"link": "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-2/179470",
 "title": "Chapter 2"
 }
 ]
@@ -161,7 +162,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "http://www.nettruyen.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
+			"link" : "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
 			"assert" : {
 				"pages" : [
 {"image": "https://3.bp.blogspot.com/-4LaJWvNX4w4/WsyKCKFseHI/AAAAAAALzl0/z_26D1yenKIvKBvaJ4v2Kk2vYZAbVNy1wCHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-1.jpg"},
