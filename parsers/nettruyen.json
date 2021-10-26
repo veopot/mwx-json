@@ -1,6 +1,6 @@
 {
 	"id": 40164,
-	"version": 17,
+	"version": 18,
 	"title": "NetTruyen",
 	"host": "http://www.nettruyen.com",
 	"public_link": "http://www.nettruyen.com/hot",
@@ -100,10 +100,10 @@
 		"add_chapter": {
 		    "start": "class=\"list-chapter\"",
 			"end": "</article>",
-		    "next":  "<li class=\"row",
+		    "next":  "chapter\">",
 			"link":  { "token1": "href=\"", "token2": "\""},
-			"uniq": { "skip" : "href=\"", "token1": "\">", "token2": "</" },
-			"title": { "skip" : "href=\"", "token1": "\">", "token2": "</",
+			"uniq": { "after" : "href=\"", "token1": "\">", "token2": "</" },
+			"title": { "after" : "href=\"", "token1": "\">", "token2": "</",
 			 "replace" : { "match" : "&nbsp;", "text" : "" }
 			}
 		}
