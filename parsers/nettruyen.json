@@ -2,7 +2,7 @@
 	"id": 40164,
 	"old_sites": ["nettruyen.com"],
 	
-	"version": 20,
+	"version": 21,
 	"title": "NetTruyen",
 	"host": "http://www.nettruyenpro.com",
 	"public_link": "http://www.nettruyenpro.com/hot",
@@ -71,6 +71,17 @@
 		} },	
 
 	"manga_complete": {
+		
+		"headers": {
+			"Accept": "
+text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+			"Referer": "http://www.nettruyenpro.com/"
+			
+
+			
+		},
+
+
 		"title":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
 		"uniq":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
 		"author":      { "skip": "> Tác giả", "token1": "\">", "token2": "</" },
