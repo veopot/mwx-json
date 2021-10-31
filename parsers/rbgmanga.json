@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 65,
+	"version": 66,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -67,7 +67,11 @@
 			
 			"link":  { "before": "bookmark_type\"",
 			"token1": "dir\":\"", "token2": "\",",
-			"replace":{"prefix": "https://remanga.org/api/titles/"} },
+			"replace":[
+			{"prefix": "https://remanga.org/api/titles/"}, 
+			{"sufix": "/"} 
+			]
+			},
 			
 			"cover":  { "skip": "bookmark_type\"",
 			"token1": "mid\":\"", "token2": "\"",
@@ -75,7 +79,7 @@
             
 			"title": { "before": "bookmark_type\"",
 			"token1": "en_name\":\"", "token2": "\",\"dir",
-			"replace": { "match" : "\",\"rus_name\":\"",  "text" : ", " }},
+			"replace": { "match" : "\",\"rus_name\":\"",  "text" : " | " }},
 			
 			"summary":{ 
 		
@@ -115,7 +119,12 @@
 			
 			"link":  { "before": "bookmark_type\"",
 			"token1": "dir\":\"", "token2": "\",",
-			"replace":{"prefix": "https://remanga.org/api/titles/"} },
+			
+			"replace":[
+			{"prefix": "https://remanga.org/api/titles/"}, 
+			{"sufix": "/"} 
+			        ]
+			},
 			
 			"cover":  { "before": "bookmark_type\"",
 			"token1": "cover_mid\":\"", "token2": "\"",
@@ -145,16 +154,15 @@
 			"Referer": "https://remanga.org/",
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-"link_corrector" : [ 			
-{ "match" : "remanga.org/manga/", 
-"text" : "api.remanga.org/api/titles/" } 		],
-
-
+        "link_corrector" : [
+			{ "match" : "remanga.org/manga/", "text" : "remanga.org/api/titles/" }
+		],
+		
 	    "title":{ 
 		    "token1":"en_name\":",
 			"token2": "\"dir\":\"",
             "replace" : [
-			{ "match" : "\"(.*?)\",\"(.*?)\":\"(.*?)\",",  "text" : "$3 / $1" },
+			{ "match" : "\"(.*?)\",\"(.*?)\":\"(.*?)\",",  "text" : "$3 | $1" },
 			{ "match" : "\"another_name\":\"(.*?)\",",  "text" : "" },
 			{ "match" : "\"",  "text" : "'" },
 			{ "match" : "\\\\", "text" : "" }
@@ -194,6 +202,8 @@
 { "match" : "&quot;",  "text" : "'" }
 						]
 },
+		
+		"need_auth": "авторизироваться"
 		
 		
 		"status": { 
