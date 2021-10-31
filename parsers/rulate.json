@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 82,
+	"version": 83,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -165,7 +165,11 @@
 		"summary": {
 			"after": "property=\"ranobe:description\"",
 			"token1": "content=\"",
-			"token2": "\""
+			"token2": "\"",
+				"replace": [
+				    { "match": "&quot;", "text": "'" },
+					{ "match": "<.*?>", "text": " " }
+				]
 
 		},
 		"author": {
@@ -277,7 +281,7 @@
 
 		"images": true,
 		"add_pages": {
-			"start": ">Настройки</",
+			"start": "<h5>Настройки</h5>",
 			"token1": "action=\"/book/",
 			"token2": "/ready",
 			"end": "</html>"

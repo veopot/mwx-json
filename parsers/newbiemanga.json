@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 7,
+	"version": 10,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru"],
@@ -14,6 +14,7 @@
 	"chapters_order": true,
 	"language": "ru",
 	"encoding": "utf-8",
+
 
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/newbiemanga.json",
@@ -30,9 +31,9 @@
 	"authorization_complete": {
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
 		"registration": "https://newbie-tl.ru/",
-		"expires": 31536000000,
+		"expires": 60480000000,
 		"values": {
-			"user": {
+			"credentials": {
 				"label": "Логин",
 				"hint": "Введите свой логин",
 				"kind": "text"
@@ -48,12 +49,11 @@
 		},
 		"request": {
 			"method": "json",
-			"url": "https://api.newbie-tl.ru/api/users/login/"
+			"url": "https://api.newbie-tl.ru/v2/login"
 		},
 		"response_check": {
-			"status": 200,
-			"body": "@\"content\"\\:(\\{.*?\\})",
-			"body_to_cookie": ["user"]
+			"cookies": { "user_session": "@\\d+" },
+			"headers": { "Set-Cookie": "@user_session=\\d+" }
 		}
 	},
 
@@ -143,10 +143,7 @@
 		"iterator": {
 			"base_url": "https://api.newbie-tl.ru/v2/projects/catalog?query=&sorting=rating&size=32&page=",
 
-			"append_nums": {
-				"from": 1,
-				"to": 30
-			}
+			"append_nums": {"from": 1,"to": 32}
 		},
 		"add_manga": {
 			"start": "\"items\":[",
@@ -192,9 +189,6 @@
 
 	"manga_complete": {
 		"headers": {
-
-			"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-			"Accept": "image/webp,*/*;q=0.8",
 			"Referer": "https://newbie-tl.ru/"
 		},
 
@@ -309,7 +303,7 @@
 		"add_tags": {
 			"start": "genres\":[",
 			"end": "],",
-			"token1": "\"ru\":\"",
+			"token1": "\"en\":\"",
 			"token2": "\""
 		},
 
@@ -330,7 +324,7 @@
 					"prefix": "https://api.newbie-tl.ru/v2/projects/"
 				},
 				{
-					"sufix": "/chapters?reverse=false&page=1&size=10000"
+					"sufix": "/chapters?reverse=true&size=1000000"
 				}
 			]
 		},
@@ -341,22 +335,21 @@
 			"end": "]",
 			"next": "{\"",
 
-			"link": {                       
+			"link": {
 				"token1": "id\":",
 				"token2": ",\"",
-				"replace": [
-				    {
+				"replace": [{
 						"prefix": "https://api.newbie-tl.ru/v2/chapters/"
-					},	
+					},
 					{
-						"sufix": "/pages/"
+						"sufix": "/pages"
 					}
 				]
 			},
 
-		
+
 			"uniq": {
-                "token1": "\"tom\":",
+				"token1": "\"tom\":",
 				"token2": ".0,\"hearts\"",
 				"replace": [{
 						"match": "\"name\":(.*?),",
@@ -377,7 +370,7 @@
 			},
 
 			"title": {
-                "token1": "\"tom\":",
+				"token1": "\"tom\":",
 				"token2": ".0,\"hearts\"",
 				"replace": [{
 						"match": "\"name\":(.*?),",
@@ -400,33 +393,40 @@
 
 	},
 
-
 	"chapter_complete": {
 		"headers": {
-			"Referer": "https://newbie-tl.ru/",
-            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"accept": "application/json, text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
- 
+			"accept": "application/json, text/plain, */*",
+			"referer": "https://newbie-tl.ru/",
+			"accept-encoding": "gzip, deflate, br",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+
 		},
-		"add_images": {
+
+		"add_pages": {
 			"start": "[",
 			"token1": "{\"id\":",
 			"token2": "}",
 			"end": "]",
-			"replace":[ 
-			{ "match" : ",\"slices\":",  "text" : "?slice=" },
-			{"prefix": "%%url%%/" }
+			"replace": [{
+					"prefix": "%%url%%/"
+				},
+				{
+					"match": ",\"slices\":",
+					"text": "?slice="
+				}
 			]
+
 		}
-		
 	},
+
+
 	"test": [{
 			"proc": "manga_list_complete",
 			"assert": {
 				"mangas": [{
-					"title": "Another Emperor Reborn, Возрождение иного императора",
-					"link": "https://newbie-tl.ru/api/titles/another-emperor-reborn",
-					"uniq": "Another Emperor Reborn"
+					"title": "Beast with Flowers | Зверь с цветами",
+					"link": "https://api.newbie-tl.ru/v2/projects/1124",
+					"uniq": "Beast with Flowers"
 				}],
 				"mangas_count": ">=20"
 			}
@@ -436,16 +436,16 @@
 			"link": "https://api.newbie-tl.ru/v2/projects/2",
 			"title": "Martial peak | Пик боевых искусств",
 			"assert": {
-				"cover": "https://api.newbie-tl.ru/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
+				"cover": "https://storage.newbie-tl.ru/images/projects/2/large_6c0c5458-449c-436b-bb52-2a3cb2e64745.jpeg",
 
-				"genres": "@action",
+				"tags": "@game",
 				"status": "ongoing",
-				"genres_count": ">=4",
+				"tags_count": ">=9",
 				"chapters_count": ">=130",
 				"chapters": [{
-					"folder": "Том_2_Глава_136/",
-					"link": "https://api.newbie-tl.ru/v2/chapters/462182/pages/",
-					"title": "Том 2 Глава 136"
+					"folder": "Том 2, Глава 171/",
+					"link": "https://api.newbie-tl.ru/v2/chapters/14653/pages",
+					"title": "Том 2, Глава 171"
 				}]
 			}
 		},
@@ -453,16 +453,16 @@
 
 		{
 			"proc": "chapter_complete",
-			"link": "https://api.newbie-tl.ru/v2/chapters/2627/pages/",
+			"link": "https://api.newbie-tl.ru/v2/chapters/14653/pages",
 			"assert": {
 				"pages": [{
-						"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/32094b422c3366fb581ef2cdade49229.jpeg"
+						"image": "https://api.newbie-tl.ru/v2/chapters/2627/pages/1"
 					},
 					{
-						"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/7bf3f403e4687c63dcee6712f5bcc979.jpeg"
+						"image": "https://api.newbie-tl.ru/v2/chapters/2627/pages/2"
 					},
 					{
-						"image": "https://img.newbie-tl.ru/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/229bf517a7e4c00eb10a634fabfba3a7.jpeg"
+						"image": "https://api.newbie-tl.ru/v2/chapters/2627/pages/3"
 					}
 				]
 			}
