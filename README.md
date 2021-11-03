@@ -1,5 +1,5 @@
-# MangaWatcher X
-Парсеры для андроид приложения MangaWatcherX и инструкция к ним 
+# Manga Watcher X
+Парсеры для андроид приложения Manga Watcher X и инструкция к ним 
 
 Программа используют файлы json 
 в которых указанно какие данные использовать с сайта источника!
@@ -36,6 +36,8 @@ Our social media  / Наши социальные сети
 https://vk.com/mangawatcher
 
 https://4pda.to/forum/index.php?showtopic=192861
+
+https://mwx.su 
 
 --------------------------
 Если вы застряли во время создания парсера
