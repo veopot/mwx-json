@@ -1,0 +1,130 @@
+{
+	"id": 40119,
+    "old_ids": [48000],
+	"version": 20,
+	"title": "WebToon",
+	"host": "https://www.webtoons.com/en/",
+	"public_link": "https://www.webtoons.com/en/genre",
+	"folder": "webtoon",
+	"name" : "webtoon",
+	"language": "en",
+	"skip_catalog_test": false,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/webtoon.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/webtoon.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/webtoon.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/webtoon.zip",
+	"file_type": "sqlite",
+	"author": {
+		"name": "Veopot & Lomik_XP",
+		"email": "fant-net@ya.ru"
+	},
+	
+
+	"manga_list_complete": {
+		"iterator": "https://www.webtoons.com/en/genre",
+		"add_manga": { 
+			"start": "<div class=\"card_wrap genre\"",
+			"end":   "<div id=\"footer\"",
+			"next": "class=\"card_item",
+			
+			"link":  { "before": "<a", "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "class=\"subj\">", "token2": "</" },
+			"uniq": { "token1": "class=\"subj\">", "token2": "</" }
+		}
+
+	},
+
+	"manga_complete": {
+		"title":       { "after": "<meta property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+		
+		"uniq":         { "after": "<meta property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+		
+		"author":      { "after": "<meta property=\"com-linewebtoon:webtoon:author\"", "token1":"content=\"", "token2": "\"" },
+		"summary":     { "token1": "class=\"summary\">", "token2": "</p>",
+				"replace": { "match": "<.*?>","text": ""}
+			},
+			
+		"cover":       { "after": "<meta property=\"og:image\"", "token1":"content=\"", "token2": "\"" },
+		
+		"add_genre":   { "token1": "class=\"genre g_romance\">", "token2": "</" },
+		
+		"chapters_from_page": { "skip": "<li id=\"", "token1": "<a href=\"", "token2": "\"" },
+		
+		"add_chapter": {
+			"start": "<div class=\"episode_lst\">",
+			"next": "<li data-episode",
+			"end": "<div class=\"paginate\">",
+			
+			"link":  { "token1": "<a href=\"", "token2": "\""},
+			"uniq":  { "token1": "class=\"subj\">", "token2": "</" },
+			"title": { "token1": "class=\"subj\">", "token2": "</" }
+		}
+	},
+
+	"chapter_complete": {
+		"add_images": {
+			"start": "class=\"viewer_img",
+			"token1": "data-url=\"",
+			"token2": "\"",
+			"end": "class=\"viewer_ad_area\"",
+			"replace" : { "match" : "webtoon", "text" : "awebtoon" }
+        }
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"assert" : {
+				"mangas" : [
+					{ 
+					"title" : "ORANGE MARMALADE",
+					"uniq" : "ORANGE MARMALADE",
+					"link" : "https://www.webtoons.com/en/romance/orange-marmalade/list?title_no=97"
+					}
+				],
+				"mangas_count" : ">100"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://www.webtoons.com/en/romance/letsplay/list?title_no=1218",
+			"title" : "Let's Play",
+			"assert" : {
+				"author" : "Leeanne M. Krecic (Mongie)",
+				"cover" : "https://swebtoon-phinf.pstatic.net/20210629_204/1624917440082pN0q6_PNG/3Let27sPlay_mobile_landingpage.png?type=crop540_540",
+				"summary" : "@^(She\u2019s young)",
+				"genres" : "@romance",
+				"genres_count" : ">=1",
+				"chapters_count" : ">=50",
+				"chapters" : [
+		    {
+           "folder": "Ep. 1/",
+            "link": "https://www.webtoons.com/en/romance/letsplay/ep-1-/viewer?title_no=1218&episode_no=1",
+            "title": "Ep. 1"
+            },
+            {
+            "link": "https://www.webtoons.com/en/romance/letsplay/ep-2/viewer?title_no=1218&episode_no=2",
+            "title": "Ep. 2"
+            },
+            {
+            "link": "https://www.webtoons.com/en/romance/letsplay/ep-3/viewer?title_no=1218&episode_no=3",
+            }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://www.webtoons.com/en/romance/letsplay/ep-1-/viewer?title_no=1218&episode_no=1",
+			"assert" : {
+				"pages" : [
+		{"image": "https://awebtoon-phinf.pstatic.net/20171128_133/15118471333127PwFi_JPEG/1511847133263121812.jpg?type=q90"},
+        {"image": "https://awebtoon-phinf.pstatic.net/20171128_228/1511847133608oM77H_JPEG/1511847133564121812.jpg?type=q90"},
+        {"image": "https://awebtoon-phinf.pstatic.net/20171128_269/151184713384970fp2_JPEG/1511847133817121815.jpg?type=q90"}
+				],
+				"pages_count": "37"
+			}
+		}
+	]
+}
