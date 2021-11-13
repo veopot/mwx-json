@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 50,
+    "version": 51,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -86,11 +86,23 @@
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
             
 			"status": { 
-		  	"complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
-                "ongoing": { "start": "<b>Перевод:</b>", "end": "</p>", "value": "продолжается" },
-                "single": "<b>Сингл</b>",
+			
+		  	"complete": { 
+			"start": ">Перевод:</",
+			"end": "</p>",
+			"values": [ "завершен", "завершён", "Переведена", "Сингл"] },
+			             
+            "ongoing": { 
+			"start": ">Перевод:</", 
+			"end": "</p>", 
+			"value": "продолжается"},
+			
+            "single": "<b>Сингл</b>",
 		  	"licensed" : "Главы удалены",
-		  	"unknown" : "нет ни одной главы" },
+		  	"unknown" : "нет ни одной главы" 
+			},
+			
+			
 			
             "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
             "add_genre": { "token1": "/genre/", "token2": "\"" },
@@ -138,14 +150,25 @@
             "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
 		
             "author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
+			
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
 			
             "status": { 
-		  	"complete": { "start": "<b>Перевод:</b>", "end": "</p>", "values": [ "завершен", "Переведена", "Сингл"] },
-                "ongoing": { "start": "<b>Перевод:</b>", "end": "</p>", "value": "продолжается" },
-                "single": "<b>Сингл</b>",
+			
+		  	"complete": { 
+			"start": ">Перевод:</",
+			"end": "</p>",
+			"values": [ "завершен", "завершён", "Переведена", "Сингл"] },
+			             
+            "ongoing": { 
+			"start": ">Перевод:</", 
+			"end": "</p>", 
+			"value": "продолжается"},
+			
+            "single": "<b>Сингл</b>",
 		  	"licensed" : "Главы удалены",
-		  	"unknown" : "нет ни одной главы" },
+		  	"unknown" : "нет ни одной главы" 
+			},
 			
 			
              "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
@@ -202,7 +225,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://readmanga.io/bashnia_boga",
+            "link": "https://readmanga.io/bashnia_boga__A339d2",
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
@@ -214,7 +237,7 @@
                 "chapters_count": ">=300",
                 "chapters": [
                   { "folder" : "3/67/",
-                   "link" : "https://readmanga.io/bashnia_boga/vol3/67",
+                   "link" : "https://readmanga.io/bashnia_boga__A339d2/vol3/67",
                    "title" : "3 - 67 52F Вторая защитная стена (01)"
 				   }
 				   ]
@@ -224,7 +247,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://readmanga.io/bashnia_boga/vol2/266",
+            "link": "https://readmanga.io/bashnia_boga__A339d2/vol2/266",
             "assert": {
                 "pages": [
 {"image": "https://h37.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini.jpg_res.jpg?t=1612902665&u=0&h=x4ugHg59HL7Lu5Zn2tiWoQ"},

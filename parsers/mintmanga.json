@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 61, 
+	"version": 62, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -47,7 +47,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://mintmanga.live/list?sortType=RATING&offset=",
-			"append_nums": { "from": 0, "to": 14500, "step": 70,
+			"append_nums": { "from": 0, "to": 14600, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
 		},
 		"add_manga": { 
@@ -89,9 +89,11 @@
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
 		"author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
+		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
+		
 		"status":       { 
-			"complete": ["Перевод:</b>\n    заверше", "Переведена"],
+			"complete": ["завершён", "Переведена"],
 			"ongoing":  "продолжается",
 			"single":   "Сингл",
 			"licensed": "Главы удалены",
@@ -142,7 +144,7 @@
 		"author":       { "after": "elem_author", "skip": "person-link", "token1":"\">", "token2": "</a>" },
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		"status":       { 
-			"complete": ["Перевод:</b>\n    заверше", "Переведена"],
+			"complete": ["завершён", "Переведена"],
 			"ongoing":  "продолжается",
 			"single":   "Сингл",
 			"licensed": "Главы удалены",
