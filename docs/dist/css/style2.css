@@ -119,3 +119,32 @@
 
 
 // ---------------- Display meny end--------------------
+
+
+.nav2 > li > a {
+  display: block;
+  line-height: 44px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+  outline: 0;
+}
+.nav2 > li, .nav:active > .active {
+  position: relative;
+  color: #ccc;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.9);
+ 
+ 
+}
+.nav2 > li:hover {
+  color: #b0d157;
+  
+}
+.nav3 {
+	
+	font-size:15;
+	color:#ccc;
+	font-family:arial;
+	border:0px #ddd solid;
+}
