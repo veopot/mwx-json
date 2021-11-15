@@ -1,7 +1,7 @@
 {
 	"id": 40119,
     "old_ids": [48000],
-	"version": 20,
+	"version": 21,
 	"title": "WebToon",
 	"host": "https://www.webtoons.com/en/",
 	"public_link": "https://www.webtoons.com/en/genre",
@@ -47,7 +47,7 @@
 			
 		"cover":       { "after": "<meta property=\"og:image\"", "token1":"content=\"", "token2": "\"" },
 		
-		"add_genre":   { "token1": "class=\"genre g_romance\">", "token2": "</" },
+		"add_genre":   { "after": "class=\"genre",  "token1": "\">", "token2": "</" },
 		
 		"chapters_from_page": { "skip": "<li id=\"", "token1": "<a href=\"", "token2": "\"" },
 		
