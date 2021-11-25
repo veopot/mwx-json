@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 63, 
+	"version": 64, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -104,7 +104,7 @@
 		
 		"add_genres":   {
                 "start": ">Жанры:<",
-		        "end": "</p>",
+		        "end": "<table class=\"table table-hover\"",
 		            "token1": "/genre/",
 		            "token2": "\""
 		    },
@@ -161,7 +161,7 @@
 		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		"add_genres":   {
                 "start": ">Жанры:<",
-		        "end": "</p>",
+		        "end": "<table class=\"table table-hover\"",
 		            "token1": "/genre/",
 		            "token2": "\""
 		    },

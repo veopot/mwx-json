@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 52,
+    "version": 53,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -108,7 +108,7 @@
             
 			"add_genres":   {
                 "start": ">Жанры:<",
-		        "end": "</p>",
+		        "end": "<table class=\"table table-hover\"",
 		            "token1": "/genre/",
 		            "token2": "\""
 		    },
@@ -184,11 +184,10 @@
 			 
 			"add_genres":   {
                 "start": ">Жанры:<",
-		        "end": "</p>",
+		        "end": "<table class=\"table table-hover\"",
 		            "token1": "/genre/",
 		            "token2": "\""
 		    },
-		
            
 			
             "content_type": { "default": "manga" },
