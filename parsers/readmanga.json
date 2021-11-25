@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 51,
+    "version": 52,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -105,9 +105,18 @@
 			
 			
             "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
-            "add_genre": { "token1": "/genre/", "token2": "\"" },
-            "content_type": { "default": "manga" },
-           "is_mature": "class=\"mtr-message\"",
+            
+			"add_genres":   {
+                "start": ">Жанры:<",
+		        "end": "</p>",
+		            "token1": "/genre/",
+		            "token2": "\""
+		    },
+            
+			"content_type": { "default": "manga" },
+           
+		    "is_mature": "class=\"mtr-message\"",
+		   
             "add_chapter": {
                 "start": "</thead>",
                 "end": "</table>",
@@ -122,7 +131,7 @@
 				
 				
                 "title": { "after": "<a href=\"", "token1": ">", "token2": "<",
-				"replace": { "match": "(.*)\n          \n          ", "text": "" } },  
+				"replace": { "match": "\n          \n          ", "text": "" } },  
 				
 		  	"uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"",
 			"replace" : { "match" : "\\?.*", "text" : "" } }
@@ -172,9 +181,20 @@
 			
 			
              "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
-            "add_genre": { "token1": "/genre/", "token2": "\"" },
+			 
+			"add_genres":   {
+                "start": ">Жанры:<",
+		        "end": "</p>",
+		            "token1": "/genre/",
+		            "token2": "\""
+		    },
+		
+           
+			
             "content_type": { "default": "manga" },
+			
             "is_mature": "class=\"mtr-message\"",
+			
             "add_chapter": {
                 "start": "</thead>",
                 "end": "</table>",
@@ -185,7 +205,7 @@
 			              {"sufix": "?mtr=1"}
 			    ]
 				},
-                "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "(.*)\n          \n          ", "text": "" } },  
+                "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "\n          \n          ", "text": "" } },  
 				
             "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
             }
