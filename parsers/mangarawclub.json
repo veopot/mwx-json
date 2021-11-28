@@ -2,7 +2,7 @@
     
     "id": 30469,
 	
-	"version": 5,
+	"version": 6,
 	
 	"title": "Manga Raw Club",
 	"host": "https://www.manga-raw.club/",
@@ -46,9 +46,13 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://www.manga-raw.club/browse/?results=",
-			"append_nums": { "from": 0, "to": 150, "step": 1, "sufix": "&filter=views" }
+			"append_nums": { "from": 0, "to": 97, "step": 1, "sufix": "&filter=views" }
 		},
+		
+		
 		"add_manga": {
+			"start": "<header id=\"Result\">",
+			"end": "<span class=\"copyright\">", 
 			"next": "class=\"novel-item\">",
 			"link":  { "token1": "href=\"", "token2": "\"",
 				"replace": {"prefix": "https://www.manga-raw.club"}
@@ -58,19 +62,22 @@
 			"uniq": { "token1": "href=\"/manga/", "token2": "/\"" }
 		},
 		"rating_auto_inc": {
-			"start": "20000",
+			"start": "30000",
 			"inc": -1
 		}
 	},
 
 	"manga_complete": {
-		"title":       { "after": "<h1 itemprop=\"name\"", "token1":"\">", "token2": "</" },
+		"title":       { "after": "<h1 itemprop=\"name\"", "token1":"\">", "token2": "</",
+         "replace":{"match":"12312312","text":""} },
+		
+		
 		"uniq":        { "after": "property=\"og:url\"", 
 		 "token1":"content=\"https://www.manga-raw.club/manga/", "token2": "/\"" },
 		 
 		"author":      { "token1":"<span itemprop=\"author\">", "token2": "</" },
 		
-		"summary":     { "skip": "<h4>Summary</h4>", "token1": ">", "token2": "</div>" ,
+		"summary":     { "after": "<p class=\"description", "token1": ">", "token2": "</p>" ,
          "replace":{"match":"<.*?>","text":""} 
 		},
 		
@@ -93,6 +100,8 @@
 		
 		"add_genre":   { "after": "href=\"/browse/?genre=", "token1": "\">", "token2": "</" },
 		
+		"add_tag":   { "after": "href=\"/tag/?tag=", "token1": "\">", "token2": "</" },
+		
 		"add_chapter": {
 			"next":  "<li data-chapterno",
 			"link":  { "token1": "href=\"", "token2": "\"",
@@ -105,7 +114,7 @@
 	
 	"chapter_complete": {
 		"add_images": {
-			"start": "<div style=\"font-size: 0;\">",
+			"start": "<div style=\"margin-bottom: 5px;margin-top: 10px;\">",
 			"token1": "<img src=\"",
 			"token2": "\"",
 			"end": ">Comments</"
@@ -127,7 +136,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://www.manga-raw.club/manga/onepunch-man/",
+			"link" : "https://www.manga-raw.club/manga/miracle-hero/",
 			"title" : "Onepunch-Man",
 			"assert" : {
 				"author" : "@One , Murata Yuusuke",
@@ -153,15 +162,14 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://www.manga-raw.club/reader/en/onepunch-man-chapter-146-eng-li/",
+			"link" : "https://www.manga-raw.club/reader/en/miracle-hero-chapter-16-eng-li/",
 			"assert" : {
 				"pages" : [
-		{"image": "https://toy.novel-fast.club/cdn_mangaraw/onepunch-man/chapter-146/01.jpg"},
-        {"image": "https://toy.novel-fast.club/cdn_mangaraw/onepunch-man/chapter-146/02.jpg"},
-        {"image": "https://toy.novel-fast.club/cdn_mangaraw/onepunch-man/chapter-146/03.jpg"},
-        {"image": "https://toy.novel-fast.club/cdn_mangaraw/onepunch-man/chapter-146/04.jpg"}
+		{"image": "https://toy.novel-fast.club/cdn_mangaraw/miracle-hero/chapter-16/1.jpg"},
+        {"image": "https://toy.novel-fast.club/cdn_mangaraw/miracle-hero/chapter-16/2.jpg"},
+        {"image": "https://toy.novel-fast.club/cdn_mangaraw/miracle-hero/chapter-16/3.jpg"}
 				],
-				"pages_count": "30"
+				"pages_count": "31"
 			}
 		}
 	]
