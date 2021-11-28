@@ -22,21 +22,7 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/komikstation.zip",
     "file_type": "sqlite",
 	
-	 "manga_search_complete": {
-	    "headers": {"Referer": "https://komikstation.co/"},
-		"search_link": "https://komikstation.co/page/$page$/?s=$query$",
-		"query_type": "GET",
-		
-		"add_manga":  {
-		    "next": "<div class=\"bsx\">",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "token1": "title=\"", "token2": "\"" },
-			"uniq": { "token1": "href=\"https://komikstation.co/manga/", "token2": "\"" },
-			"cover":  { "skip": "<img", "token1": "src=", "token2": "/>"},
-            "summary":{ "token1":"<div class=\"tt\">", "token2": "</div>"}
-		}
-	},
-		
+	
 	
 	"manga_list_complete": {
 		"iterator": {
