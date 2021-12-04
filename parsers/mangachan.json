@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 37,
+	"version": 38,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -62,7 +62,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://manga-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 19500, "step": 20,
+			"append_nums": { "from": 0, "to": 19700, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": {
@@ -80,7 +80,11 @@
 	"manga_complete": {
 		"title":       { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
 		"uniq":        { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
-		"author":      { "skip": ">Автор</", "token1":">", "token2": "</a>" },
+		
+		"author":      { "skip": ">Автор</", "token1":"<td class=\"item2\">", "token2": "</span>",
+                            "replace": { "match":"<.*?>","text":""}
+						},
+		
 		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
 		
 		"status":      { 
@@ -102,7 +106,8 @@
 		"left_to_right": "href=\"/type/Манхва\""
 		},
 		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
-		"add_genre":   { "after": "href=\"https://manga-chan.me/tags/", "token1": "\">", "token2": "</" },
+		
+		"add_tag":   { "after": "href=\"https://manga-chan.me/tags/", "token1": "\">", "token2": "</" },
 		
 		"add_chapter": {
 			"next":  "<div class='manga2'",
