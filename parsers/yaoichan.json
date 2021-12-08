@@ -3,7 +3,7 @@
     "old_ids": [65583],
     "old_sites": ["yaoichan.ru"],
     
-	"version": 21, 
+	"version": 22, 
 	"title": "Yaoi-chan!",
 	"host": "https://yaoi-chan.me/",
 	"public_link": "https://yaoi-chan.me/catalog",
@@ -76,7 +76,7 @@
 	"manga_list_complete": {
 		"iterator": {    
 			"base_url": "https://yaoi-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 14440, "step": 20,
+			"append_nums": { "from": 0, "to": 15500, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": { 
@@ -85,7 +85,7 @@
 			"title": { "token1": "title=\"", "token2": "\"" }
 		},
 		"rating_auto_inc": {
-			"start": "20000",
+			"start": "30000",
 			"inc": -1
 		}
 	},
@@ -93,7 +93,11 @@
 	"manga_complete": {
 		"title":      { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
 		"uniq":      { "skip": "<div class=\"name_row\"", "token1":"\">", "token2": "</a>" },
-		"author":      { "skip": ">Автор</", "token1":">", "token2": "</a>" },
+		
+		"author":      { "skip": ">Автор</", "token1":"<td class=\"item2\">", "token2": "</span>",
+                            "replace": { "match":"<.*?>","text":""}
+						},
+						
 		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
 		
 		"status":      { 
@@ -106,7 +110,7 @@
 		
 		"read_dir":    { "right_to_left": "href=\"/type/Манга\"", "left_to_right": "href=\"/type/Манхва\"" },
 		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
-		"add_genre":   { "after": "href=\"https://yaoi-chan.me/tags/", "token1": "\">", "token2": "</" },
+		"add_tag":   { "after": "href=\"https://yaoi-chan.me/tags/", "token1": "\">", "token2": "</" },
 		
 		"is_mature":    "яой",
 		
