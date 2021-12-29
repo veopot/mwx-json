@@ -1,14 +1,14 @@
 {
 	"id": 30478,
-	"version": 10,
+	"version": 11,
 
 	"old_ids": [40172],
-	"old_sites": ["newbie-manga.ru"],
+	"old_sites": ["newbie-manga.ru","newmanga.org"],
 
 
 	"title": "NewManga",
-	"host": "https://newbie-tl.ru",
-	"public_link": "https://newbie-tl.ru/catalog/all",
+	"host": "https://newmanga.org/",
+	"public_link": "https://newmanga.org/titles/",
 	"folder": "newbiemanga",
 	"name": "newbiemanga",
 	"chapters_order": true,
@@ -30,7 +30,7 @@
 
 	"authorization_complete": {
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
-		"registration": "https://newbie-tl.ru/",
+		"registration": "https://newmanga.org/",
 		"expires": 60480000000,
 		"values": {
 			"credentials": {
@@ -49,7 +49,7 @@
 		},
 		"request": {
 			"method": "json",
-			"url": "https://api.newbie-tl.ru/v2/login"
+			"url": "https://api.newmanga.org/v2/login"
 		},
 		"response_check": {
 			"cookies": { "user_session": "@\\d+" },
@@ -61,11 +61,11 @@
 	"manga_search_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"Referer": "https://newbie-tl.ru/",
+			"Referer": "https://newmanga.org/",
 
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-		"search_link": "https://api.newbie-tl.ru/v2/projects/search?query=$query$&size=10&page=$page$",
+		"search_link": "https://api.newmanga.org/v2/projects/search?query=$query$&size=10&page=$page$",
 		"query_type": "GET",
 
 
@@ -79,20 +79,21 @@
 				"token1": "id\":",
 				"token2": ",",
 				"replace": {
-					"prefix": "https://api.newbie-tl.ru/v2/projects/"
+					"prefix": "https://api.newmanga.org/v2/projects/"
 				}
 			},
 
 
 			"title": {
-				"skip": "title\"",
-				"token1": "\"en\":\"",
-				"token2": "\"},",
-				"replace": {
-					"match": "\",\"ru\":\"",
-					"text": " | "
-				}
-			},
+			"skip": "title\"",
+			"token1": "\"en\":\"",
+			"token2": "},",
+			"replace": [ 
+			{"match": "\",\"ru\":\"","text": " | "},
+			{"match": "\",\"original\":null","text": ""},
+			{"match": "\",\"original\":\".*?\"","text": ""}
+			 ]
+		},
 
 			"uniq": {
 				"skip": "title\"",
@@ -104,7 +105,7 @@
 				"token1": "\"large\":\"images/projects/",
 				"token2": "\",",
 				"replace": [{
-						"prefix": "https://storage.newbie-tl.ru/images/projects/"
+						"prefix": "https://storage.newmanga.org/images/projects/"
 					},
 					{
 						"match": "u002F",
@@ -141,9 +142,9 @@
 		},
 
 		"iterator": {
-			"base_url": "https://api.newbie-tl.ru/v2/projects/catalog?query=&sorting=rating&size=32&page=",
+			"base_url": "https://api.newmanga.org/v2/projects/catalog?query=&sorting=rating&size=32&page=",
 
-			"append_nums": {"from": 1,"to": 32}
+			"append_nums": {"from": 1,"to": 57}
 		},
 		"add_manga": {
 			"start": "\"items\":[",
@@ -155,20 +156,22 @@
 				"token1": "id\":",
 				"token2": ",",
 				"replace": {
-					"prefix": "https://api.newbie-tl.ru/v2/projects/"
+					"prefix": "https://api.newmanga.org/v2/projects/"
 				}
 			},
 
 
 			"title": {
-				"skip": "title\"",
-				"token1": "\"en\":\"",
-				"token2": "\"},",
-				"replace": {
-					"match": "\",\"ru\":\"",
-					"text": " | "
-				}
-			},
+			"skip": "title\"",
+			"token1": "\"en\":\"",
+			"token2": "},",
+			"replace": [ 
+			{"match": "\",\"ru\":\"","text": " | "},
+			{"match": "\",\"original\":null","text": ""},
+			{"match": "\",\"original\":\".*?\"","text": ""}
+			 ]
+		},
+
 
 			"uniq": {
 				"skip": "title\"",
@@ -189,24 +192,25 @@
 
 	"manga_complete": {
 		"headers": {
-			"Referer": "https://newbie-tl.ru/"
+			"Referer": "https://newmanga.org/"
 		},
 
 
 		"link_corrector": [{
-			"match": "https://newbie-tl.ru/p/",
-			"text": "https://api.newbie-tl.ru/v2/projects/"
+			"match": "https://newmanga.org/p/",
+			"text": "https://api.newmanga.org/v2/projects/"
 		}],
 
 
 		"title": {
 			"skip": "title\"",
 			"token1": "\"en\":\"",
-			"token2": "\"},",
-			"replace": {
-				"match": "\",\"ru\":\"",
-				"text": " | "
-			}
+			"token2": "},",
+			"replace": [ 
+			{"match": "\",\"ru\":\"","text": " | "},
+			{"match": "\",\"original\":null","text": ""},
+			{"match": "\",\"original\":\".*?\"","text": ""}
+			 ]
 		},
 
 		"uniq": {
@@ -236,7 +240,7 @@
 			"token1": "\"large\":\"images/projects/",
 			"token2": "\",",
 			"replace": [{
-					"prefix": "https://storage.newbie-tl.ru/images/projects/"
+					"prefix": "https://storage.newmanga.org/images/projects/"
 				},
 				{
 					"match": "u002F",
@@ -321,15 +325,13 @@
 			"token1": "\"id\":",
 			"token2": ",",
 			"replace": [{
-					"prefix": "https://api.newbie-tl.ru/v2/projects/"
+					"prefix": "https://api.newmanga.org/v2/projects/"
 				},
 				{
 					"sufix": "/chapters?reverse=true&size=1000000"
 				}
 			]
 		},
-
-
 		"add_chapter": {
 			"start": "items",
 			"end": "]",
@@ -339,7 +341,7 @@
 				"token1": "id\":",
 				"token2": ",\"",
 				"replace": [{
-						"prefix": "https://api.newbie-tl.ru/v2/chapters/"
+						"prefix": "https://api.newmanga.org/v2/chapters/"
 					},
 					{
 						"sufix": "/pages"
@@ -395,25 +397,27 @@
 
 	"chapter_complete": {
 		"headers": {
-			"accept": "application/json, text/plain, */*",
-			"referer": "https://newbie-tl.ru/",
+			"encoding": "utf-8",
+			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+			"Content-Type": "application/json",
+			"referer": "https://newmanga.org/",
 			"accept-encoding": "gzip, deflate, br",
 			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 
 		},
 
-		"add_pages": {
+		"add_images": {
 			"start": "[",
-			"token1": "{\"id\":",
-			"token2": "}",
+			"token1": "[{",
+			"token2": "}]",
+			"split" : "},{",
 			"end": "]",
-			"replace": [{
-					"prefix": "%%url%%/"
-				},
-				{
-					"match": ",\"slices\":",
-					"text": "?slice="
-				}
+			"replace": [
+			    {"prefix": "%%url%%/"},
+				{"match": ",\"slices\":", "text": "?slice="},
+				{"match": "\"id\":", "text": ""}
+				
+				
 			]
 
 		}
@@ -425,7 +429,7 @@
 			"assert": {
 				"mangas": [{
 					"title": "Beast with Flowers | Зверь с цветами",
-					"link": "https://api.newbie-tl.ru/v2/projects/1124",
+					"link": "https://api.newmanga.org/v2/projects/1124",
 					"uniq": "Beast with Flowers"
 				}],
 				"mangas_count": ">=20"
@@ -433,10 +437,10 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://api.newbie-tl.ru/v2/projects/2",
+			"link": "https://api.newmanga.org/v2/projects/2",
 			"title": "Martial peak | Пик боевых искусств",
 			"assert": {
-				"cover": "https://storage.newbie-tl.ru/images/projects/2/large_6c0c5458-449c-436b-bb52-2a3cb2e64745.jpeg",
+				"cover": "https://storage.newmanga.org/images/projects/2/large_6c0c5458-449c-436b-bb52-2a3cb2e64745.jpeg",
 
 				"tags": "@game",
 				"status": "ongoing",
@@ -444,7 +448,7 @@
 				"chapters_count": ">=130",
 				"chapters": [{
 					"folder": "Том 2, Глава 171/",
-					"link": "https://api.newbie-tl.ru/v2/chapters/14653/pages",
+					"link": "https://api.newmanga.org/v2/chapters/14653/pages",
 					"title": "Том 2, Глава 171"
 				}]
 			}
@@ -453,16 +457,16 @@
 
 		{
 			"proc": "chapter_complete",
-			"link": "https://api.newbie-tl.ru/v2/chapters/14653/pages",
+			"link": "https://api.newmanga.org/v2/chapters/14653/pages",
 			"assert": {
 				"pages": [{
-						"image": "https://api.newbie-tl.ru/v2/chapters/2627/pages/1"
+						"image": "https://api.newmanga.org/v2/chapters/2627/pages/1"
 					},
 					{
-						"image": "https://api.newbie-tl.ru/v2/chapters/2627/pages/2"
+						"image": "https://api.newmanga.org/v2/chapters/2627/pages/2"
 					},
 					{
-						"image": "https://api.newbie-tl.ru/v2/chapters/2627/pages/3"
+						"image": "https://api.newmanga.org/v2/chapters/2627/pages/3"
 					}
 				]
 			}
