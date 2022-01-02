@@ -1,6 +1,6 @@
 {
    "id":40226,
-   "version":6,
+   "version":7,
    "title":"MangaKatana",
    "host":"https://mangakatana.com",
    "public_link":"https://mangakatana.com/manga-list",
@@ -24,6 +24,14 @@
    
    
    "manga_list_complete":{
+	   "headers": {
+		"Referer": "https://mangakatana.com/",
+"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		
+		
       "iterator":{
          "base_url":"https://mangakatana.com/manga/page/",
          "append_nums":{
@@ -58,6 +66,14 @@
    
    
    "manga_search_complete": {
+	   "headers": {
+		"Referer": "https://mangakatana.com/",
+"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		
+		
  "search_link":"https://mangakatana.com/page/$page$?search=$query$&search_by=book_name",
 
 		"query_type": "GET",
@@ -88,6 +104,16 @@
 		
    
    "manga_complete":{
+	   "headers": {
+		"Referer": "https://mangakatana.com/",
+"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		
+	  
+	   
+	   
       "title":{ 
            "after":"property=\"og:title\"",
              "token1":"content=\"",

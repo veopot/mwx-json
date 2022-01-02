@@ -1,6 +1,6 @@
 {   
     "id": 30422,
-	"version": 24,
+	"version": 25,
 	"old_ids": [50003],
     
 	"title": "Funmanga",
@@ -130,7 +130,7 @@
 			"start": "var images",
 			"token1": "\"url\":\"",
 			"token2": "\"",
-			"end": "];",
+			"end": "}];",
 			"replace" : { "match" : "\\\\", "text" : "" }
 		}
 	},
@@ -175,9 +175,9 @@
 		"link": "https://www.funmanga.com/Tales-of-Demons-and-Gods/315",
 		"assert" : {
 				"pages" : [
-		{"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/1.jpg?u=603d9b9c33d44"},
-        {"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/2.jpg?u=603d9b9c33d82"},
-        {"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/3.jpg?u=603d9b9c33dbe"}
+		{"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/1.jpg?u=61d152b490134"},
+        {"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/2.jpg?u=61d152b49017a"},
+        {"image": "https://www.funmanga.com/uploads/chapter_files/15514/566/3.jpg?u=61d152b4901bc"}
 				],
 				"pages_count": "9"
 			}

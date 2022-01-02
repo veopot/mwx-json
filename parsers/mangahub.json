@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 43,
+	"version": 44,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -35,9 +35,9 @@
 	"manga_list_complete": {
 		"iterator": {
 			
-			"base_url": "https://mangahub.ru/explore?filter%5Bsort%5D=rating&filter%5Btypes%5D%5Bexcludes%5D=&filter%5Bgenres%5D%5Bexcludes%5D=&filter%5Bstatus%5D%5Bexcludes%5D=&filter%5Bcountry%5D%5Bexcludes%5D=&page=",
+			"base_url": "https://mangahub.ru/explore?filter%5Bsort%5D=rating&filter%5Btype%5D%5Bexcludes%5D=&filter%5Bformats%5D%5Bexcludes%5D=&filter%5Bgenres%5D%5Bexcludes%5D=&filter%5Bstatus%5D%5Bexcludes%5D=&filter%5BstatusTranslation%5D%5Bexcludes%5D=&filter%5BageRating%5D%5Bexcludes%5D=&filter%5Bcountry%5D%5Bexcludes%5D=&page=",
 			
-			"append_nums": { "from": 1, "to": 380, "step": 1 }
+			"append_nums": { "from": 1, "to": 401, "step": 1 }
 		},
 		"add_manga": {
 			"next": "class=\"comic-grid-name",
@@ -53,9 +53,9 @@
 	},
 
 	"manga_complete": {
-		"title": { "skip": "class=\"page-head\">", 
-		"token1": "<h1 class=\"text-white\">", "token2": "</h1>",
-		"replace":{ "match": "<.*?>", "text": "" } },
+		"title": { "skip": "<head>", 
+		"token1": "<title>Читать", "token2": "</title>",
+		"replace":{ "match": "/", "text": " | " } },
 		
 		"uniq": { "skip": "class=\"page-head\">", 
 		"token1": "<h1 class=\"text-white\">", "token2": "</h1>",
@@ -65,7 +65,8 @@
 		
 		"author":      { "skip": "Авторы:", "token1":"\">", "token2": "</" },
 		
-		"summary":     { "skip": "class=\"markdown-style\">", "token1": "<p>", "token2": "</div>",
+		"summary":     { "skip": "class=\"markdown-style text-expandable-content\">", 
+		"token1": "<p>", "token2": "</div>",
 		"replace":{ "match": "<.*?>", "text": "" } },
 		
 		 
