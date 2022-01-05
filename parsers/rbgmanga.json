@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 69,
+	"version": 70,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -261,7 +261,7 @@
 			 "token1": "id\":",
                 "token2": ",",
                 "replace": {
-                        "prefix": "https://api.remanga.org/api/titles/chapters/"
+                        "prefix": "https://remanga.org/api/titles/chapters/"
                 }                  
             },
 			"uniq": {
