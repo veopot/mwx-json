@@ -1,9 +1,9 @@
 {
 	"id": 30478,
-	"version": 11,
+	"version": 12,
 
 	"old_ids": [40172],
-	"old_sites": ["newbie-manga.ru","newmanga.org"],
+	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
 
 
 	"title": "NewManga",
@@ -290,15 +290,19 @@
 
 		"status": {
 			"complete": {
-				"values": ["complete", "Переведена", "Сингл"]
+				"start": "\"status\":\" ",
+				"end": "\",",
+				"values": ["complete", "completed", "Сингл"]
 			},
-
 			"ongoing": {
+				"start": "\"status\":\" ",
+				"end": "\",",
 				"value": "on_going"
 			}
 		},
+		
 		"rating": {
-			"token1": "bookmarks\":",
+			"token1": "\"rating\":",
 			"token2": ","
 		},
 
@@ -307,7 +311,7 @@
 		"add_tags": {
 			"start": "genres\":[",
 			"end": "],",
-			"token1": "\"en\":\"",
+			"token1": "\"ru\":\"",
 			"token2": "\""
 		},
 
@@ -315,7 +319,7 @@
 
 
 		"is_mature": {
-			"values": ["Сэйнэн", "Эротика", "Юри", "Яой"]
+			"values": ["\"adult\":\"18\",", "Эротика", "Юри", "Яой"]
 		},
 
 
@@ -335,22 +339,18 @@
 		"add_chapter": {
 			"start": "items",
 			"end": "]",
-			"next": "{\"",
+			"next": "\"is_available\":true",
 
 			"link": {
+				"before": "\"pages\":",
 				"token1": "id\":",
 				"token2": ",\"",
-				"replace": [{
-						"prefix": "https://api.newmanga.org/v2/chapters/"
-					},
-					{
-						"sufix": "/pages"
-					}
-				]
+				"replace": { "sufix": "/pages" }
 			},
 
 
 			"uniq": {
+				"before": "\"pages\":",
 				"token1": "\"tom\":",
 				"token2": ".0,\"hearts\"",
 				"replace": [{
@@ -366,12 +366,17 @@
 						"text": " "
 					},
 					{
+						"match": ",",
+						"text": " "
+					},
+					{
 						"prefix": "Том "
 					}
 				]
 			},
 
 			"title": {
+				"before": "\"pages\":",
 				"token1": "\"tom\":",
 				"token2": ".0,\"hearts\"",
 				"replace": [{
@@ -397,9 +402,8 @@
 
 	"chapter_complete": {
 		"headers": {
-			"encoding": "utf-8",
-			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-			"Content-Type": "application/json",
+			"content-type": "application/json",
+			"accept": "*/*",
 			"referer": "https://newmanga.org/",
 			"accept-encoding": "gzip, deflate, br",
 			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -408,19 +412,11 @@
 
 		"add_images": {
 			"start": "[",
-			"token1": "[{",
-			"token2": "}]",
-			"split" : "},{",
 			"end": "]",
-			"replace": [
-			    {"prefix": "%%url%%/"},
-				{"match": ",\"slices\":", "text": "?slice="},
-				{"match": "\"id\":", "text": ""}
-				
-				
-			]
-
-		}
+			"token1": "{\"id\":",
+			"token2": ",",
+			"replace": {"prefix": "%%url%%/"}
+        }
 	},
 
 
