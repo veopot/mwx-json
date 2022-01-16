@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 69,
+	"version": 71,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -108,7 +108,7 @@
 		},
 
 	  "iterator": {
-		"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
+		"base_url": "https://remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
 
 		"append_nums": { "from": 1, "to": 650 }
 		},
@@ -247,7 +247,7 @@
 		
 		{ 
 		"after": "branches\"", "token1": "id\":", "token2": ",",
-		"replace" : { "prefix" : "https://api.remanga.org/api/titles/chapters/?branch_id=" }
+		"replace" : { "prefix" : "https://remanga.org/api/titles/chapters/?branch_id=" }
 		},
 		
 		
@@ -261,7 +261,7 @@
 			 "token1": "id\":",
                 "token2": ",",
                 "replace": {
-                        "prefix": "https://api.remanga.org/api/titles/chapters/"
+                        "prefix": "https://remanga.org/api/titles/chapters/"
                 }                  
             },
 			"uniq": {
