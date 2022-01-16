@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 12,
+	"version": 13,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -345,7 +345,11 @@
 				"before": "\"pages\":",
 				"token1": "id\":",
 				"token2": ",\"",
-				"replace": { "sufix": "/pages" }
+				
+				"replace": [
+			{"prefix": "https://api.newmanga.org/v2/chapters/"}, 
+			{"sufix": "/pages"} 
+			        ]
 			},
 
 
