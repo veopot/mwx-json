@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 53,
+    "version": 54,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -118,7 +118,7 @@
 		    "is_mature": "class=\"mtr-message\"",
 		   
             "add_chapter": {
-                "start": "</thead>",
+                "start": "<table class=\"table table-hover\">",
                 "end": "</table>",
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
@@ -195,7 +195,7 @@
             "is_mature": "class=\"mtr-message\"",
 			
             "add_chapter": {
-                "start": "</thead>",
+                "start": "<table class=\"table table-hover\">",
                 "end": "</table>",
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
@@ -204,7 +204,9 @@
 			              {"sufix": "?mtr=1"}
 			    ]
 				},
-                "title": { "after": "<a href=\"", "token1": ">", "token2": "<", "replace": { "match": "\n          \n          ", "text": "" } },  
+				
+                "title": { "after": "<a href=\"", "token1": ">", "token2": "<",
+				"replace": { "match": "\n          \n          ", "text": "" } },  
 				
             "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
             }
