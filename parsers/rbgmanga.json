@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 71,
+	"version": 72,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -52,7 +52,7 @@
  "manga_search_complete": {
 	    "headers": {
 			"Accept": "*/*",
-			"Referer": "https://remanga.org/",
+			"Referer": "https://api.remanga.org/",
 			
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
@@ -68,7 +68,7 @@
 			"link":  { "before": "bookmark_type\"",
 			"token1": "dir\":\"", "token2": "\",",
 			"replace":[
-			{"prefix": "https://remanga.org/api/titles/"}, 
+			{"prefix": "https://api.remanga.org/api/titles/"}, 
 			{"sufix": "/"} 
 			]
 			},
@@ -108,7 +108,7 @@
 		},
 
 	  "iterator": {
-		"base_url": "https://remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
+		"base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
 
 		"append_nums": { "from": 1, "to": 650 }
 		},
@@ -121,7 +121,7 @@
 			"token1": "dir\":\"", "token2": "\",",
 			
 			"replace":[
-			{"prefix": "https://remanga.org/api/titles/"}, 
+			{"prefix": "https://api.remanga.org/api/titles/"}, 
 			{"sufix": "/"} 
 			        ]
 			},
@@ -151,11 +151,11 @@
 	"manga_complete": {
 	    "headers": {
 			"Accept": "*/*",
-			"Referer": "https://remanga.org/",
+			"Referer": "https://api.remanga.org/",
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
         "link_corrector" : [
-			{ "match" : "remanga.org/manga/", "text" : "remanga.org/api/titles/" }
+			{ "match" : "remanga.org/manga/", "text" : "api.remanga.org/api/titles/" }
 		],
 		
 	    "title":{ 
@@ -247,7 +247,7 @@
 		
 		{ 
 		"after": "branches\"", "token1": "id\":", "token2": ",",
-		"replace" : { "prefix" : "https://remanga.org/api/titles/chapters/?branch_id=" }
+		"replace" : { "prefix" : "https://api.remanga.org/api/titles/chapters/?branch_id=" }
 		},
 		
 		
@@ -261,7 +261,7 @@
 			 "token1": "id\":",
                 "token2": ",",
                 "replace": {
-                        "prefix": "https://remanga.org/api/titles/chapters/"
+                        "prefix": "https://api.remanga.org/api/titles/chapters/"
                 }                  
             },
 			"uniq": {
@@ -293,7 +293,7 @@
 	    "add_numeration": true,
 	    "headers": {
 			"Accept": "*/*",
-			"Referer": "https://remanga.org/",
+			"Referer": "https://api.remanga.org/",
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		"add_images": {
@@ -309,7 +309,7 @@
 			   "assert" : {
 				"mangas" : [
 					{ "title" : "Another Emperor Reborn, Возрождение иного императора",
-					 "link" : "https://remanga.org/api/titles/another-emperor-reborn",
+					 "link" : "https://api.remanga.org/api/titles/another-emperor-reborn",
 					  "uniq" : "Another Emperor Reborn" }
 				],
 				"mangas_count" : ">=20"
@@ -317,7 +317,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://remanga.org/api/titles/solo-leveling",
+			"link" : "https://api.remanga.org/api/titles/solo-leveling",
 			"title" : "Поднятие уровня в одиночку / Solo Leveling",
 			"assert" : {
 				"cover" : "https://api.remanga.org/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
