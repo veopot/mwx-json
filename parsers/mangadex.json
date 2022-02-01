@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 22,
+	"version": 23,
 	"title": "MangaDex (test)",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -336,9 +336,10 @@
 				"before": "chapter\":",
 				"token1": "\"id\":\"",
 				"token2": "\",",
-				"replace": {
-					"prefix": "https://api.mangadex.org/chapter/"
-				}
+				"replace": [ 
+				{ "sufix": "?forcePort443=false" }, 
+				{"prefix": "https://api.mangadex.org/at-home/server/"}
+				]
 			},
 			"title": {
 				"before": "chapter\":",
@@ -350,7 +351,9 @@
 					{ "match" : "\"volume\":\"","text":"Volume " },
 					{ "match" : "\"volume\":null,","text":"" },
 					{ "match" : "\"chapter\":\"","text":"Chapter " },
+					
 					{ "match" : "\"title\":\"(.*?)\",","text":"" },
+					{ "match" : "\"title\":null,","text":"" },
 					
 					{ "match" : "\",","text":" " }
 					]
@@ -480,28 +483,29 @@
 				"status": "ongoing",
 				"genres_count": ">=8",
 				"chapters_count": ">=20",
-				"chapters": [{
-						"title": "Chapter 57 Language mx",
-						"link": "https://api.mangadex.org/v2/chapter/615666",
-						"folder": "615666/"
-					},
-					{
-						"title": "Vol. 1 Ch. 1 - You're better off not looking behind the curtain",
-						"link": "https://mangadex.org/chapter/134380"
-					}
+				"chapters": [
+		{
+         
+            "folder": "cfcee10c-3425-4a2a-80b3-41ad4c32185e/",
+            "link": "https://api.mangadex.org/at-home/server/cfcee10c-3425-4a2a-80b3-41ad4c32185e?forcePort443=false",
+            "title": "Chapter 1038 Language %%chapter_lang%%"
+        },
+        {
+            "folder": "cd41b5de-16a7-43d4-ad61-37a6e9284798/",
+            "link": "https://api.mangadex.org/at-home/server/cd41b5de-16a7-43d4-ad61-37a6e9284798?forcePort443=false",
+            "title": "Chapter 1038 Language %%chapter_lang%%"
+        }
 				]
 			}
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://api.mangadex.org/chapter/c2391892-9677-4f0b-b84d-0ec979b23395",
+			"link": "https://api.mangadex.org/at-home/server/c2391892-9677-4f0b-b84d-0ec979b23395?forcePort443=false",
 			"assert": {
-				"pages": [{
-						"link": "https://mangadex.org/chapter/277233/2"
-					},
-					{
-						"link": "https://mangadex.org/chapter/277233/6"
-					}
+				"pages": [ 
+		{"image": "https://uploads.mangadex.org/data/b5b25c64fe438b998cb29ebb499c5923/1-e9c4743014ea05fa3fc58587aba62ff38f325b23e6f8e256801c6994935c894a.jpg"},
+        {"image": "https://uploads.mangadex.org/data/b5b25c64fe438b998cb29ebb499c5923/2-1b874b0ca8286824e3456c7a7dadcd4e8439521ecba1363bdf76266c377acfec.jpg"},
+        {"image": "https://uploads.mangadex.org/data/b5b25c64fe438b998cb29ebb499c5923/3-164a12abfd99f6ec684240aafc08a869d110bc03a7a4a8eeb44767c6fef1a753.jpg"}
 				]
 			}
 		}
