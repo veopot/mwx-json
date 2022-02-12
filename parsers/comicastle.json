@@ -1,6 +1,6 @@
 {
 	"id": 40121,
-	"version": 3,
+	"version": 4,
 	
 	 
 	"title": "Comicastle",
@@ -110,6 +110,7 @@
 	},
 	
 	"chapter_complete": {
+		"add_numeration": true,
 		"headers": {
 		    "Referer": "https://comicastle.org/",
             "Accept": "*/*"
