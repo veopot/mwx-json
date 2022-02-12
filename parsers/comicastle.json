@@ -1,6 +1,6 @@
 {
 	"id": 40121,
-	"version": 2,
+	"version": 3,
 	
 	 
 	"title": "Comicastle",
@@ -119,8 +119,12 @@
 			"end": "</div>",
 			 
 			 
-			"token1": "alt=\"",
-			"token2": "\">"
+			"token1": "drive.google.com/uc?",
+			"token2": "\">",
+         "replace":{
+            "prefix":"http://drive.google.com/uc?"
+         }
+			
 		}
 	},
 
