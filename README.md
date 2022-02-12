@@ -5,6 +5,7 @@
 в которых указанно какие данные использовать с сайта источника!
 
 https://github.com/veopot/mwx-json/releases  ( Android application Manga Watcher X / Manga Watcher X для Android )
+https://github.com/veopot/mwx-json/wiki/List-of-changes-Manga-Watcher-X ( List of changes Manga Watcher X / Список изменений Manga Watcher X )
 
 
 https://github.com/veopot/mwx-json/wiki (Instructions/Иструкция)
@@ -51,12 +52,11 @@ https://regex101.com удобный сервис чтоб проверить и 
 https://jsonlint.com сервис для проверки вашего json
 
 
-
-
 --------------------------
 
-Багрепорты по Android MangaWatcherX принимаются либо на почту admin@mw.lomikxp.ru либо
-
+Багрепорты по Android Manga Watcher X принимаются либо на 
+почту admin@mw.lomikxp.ru 
+либо
 https://bitbucket.org/Lomik_XP/mangawatcherx/issues
 --------------------------
 # Отказ от ответственности
