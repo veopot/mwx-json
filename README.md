@@ -4,13 +4,18 @@
 Программа используют файлы json 
 в которых указанно какие данные использовать с сайта источника!
 
-https://github.com/veopot/mwx-json/releases  ( Android application Manga Watcher X / Manga Watcher X для Android )
-https://github.com/veopot/mwx-json/wiki/List-of-changes-Manga-Watcher-X ( List of changes Manga Watcher X / Список изменений Manga Watcher X )
+https://github.com/veopot/mwx-json/releases 
+( Android application Manga Watcher X / Manga Watcher X для Android )
+
+https://github.com/veopot/mwx-json/wiki/List-of-changes-Manga-Watcher-X 
+( List of changes Manga Watcher X / Список изменений Manga Watcher X )
 
 
-https://github.com/veopot/mwx-json/wiki (Instructions/Иструкция)
+https://github.com/veopot/mwx-json/wiki 
+(Instructions/Иструкция)
 
-https://github.com/veopot/mwx-json/wiki/ID-parsers (ID parsers/Ид парсеров)
+https://github.com/veopot/mwx-json/wiki/ID-parsers 
+(ID parsers/Ид парсеров)
 
 --------------------------
 Папка /NigmaX ( Приложение для тестирования парсеров и 
