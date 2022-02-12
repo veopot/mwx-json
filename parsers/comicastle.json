@@ -1,6 +1,6 @@
 {
 	"id": 40121,
-	"version": 5,
+	"version": 6,
 	
 	 
 	"title": "Comicastle",
@@ -37,7 +37,7 @@
 			"next": "<div class=\"col-xl-2 col-lg-3 col-md-3 col-6 mb-2 shadow-sm rounded\">",
 			
 			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			"cover": { "after": "<img", "token1": "data-src=\"", "token2": "\""},
+			"cover": { "token1": "data-src=\"", "token2": "\""},
 			"title": { "after": "<p class=\"font-small-3", "token1": "\">", "token2": "</" },
 			"summary":{ "token1":"<p class='font-small-2 text-left'>", "token2": "</p>",
                 "replace": { "match":"<.*?>","text":""} },
@@ -54,8 +54,8 @@
 		"add_manga": {
 			"next": "<div class=\"col-xl-2 col-lg-3 col-md-3 col-6 mb-1 shadow-sm rounded\">",
 			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "after": "<p class=\"",  "token1": "\">", "token2": "</" },
-			"cover": { "token1": "data-src=\"", "token2": "\"" }
+			"title": { "after": "<p class=\"",  "token1": "\">", "token2": "</" }
+			
 		},
 		"rating_auto_inc": {
 			"start": "40000",
@@ -93,8 +93,7 @@
 		"empty": "<strong>Empty</strong>" },
 		
 		
-		"cover": { "after": "<img src=\"https://comicastle.org/upload/no__cover.png\"",
-		            "token1": "data-src=\"", "token2": "\"" },
+		"cover": { "token1": "data-src=\"", "token2": "\"" },
 		
 		"add_tag":   { "after": "<button class=\"btn btn-info btn-sm text-bold\"", "token1": "\">", "token2": "</" },
 		
