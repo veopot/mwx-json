@@ -1,7 +1,7 @@
 {
 	"id": 40119,
     "old_ids": [48000],
-	"version": 21,
+	"version": 22,
 	"title": "WebToon",
 	"host": "https://www.webtoons.com/en/",
 	"public_link": "https://www.webtoons.com/en/genre",
@@ -108,7 +108,7 @@
             "title": "Ep. 2"
             },
             {
-            "link": "https://www.webtoons.com/en/romance/letsplay/ep-3/viewer?title_no=1218&episode_no=3",
+            "link": "https://www.webtoons.com/en/romance/letsplay/ep-3/viewer?title_no=1218&episode_no=3"
             }
 				]
 			}
