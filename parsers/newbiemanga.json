@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 13,
+	"version": 14,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -329,22 +329,23 @@
 			"token1": "\"id\":",
 			"token2": ",",
 			"replace": [{
-					"prefix": "https://api.newmanga.org/v2/projects/"
+					"prefix": "https://api.newmanga.org/v2/branches/"
 				},
 				{
 					"sufix": "/chapters?reverse=true&size=1000000"
 				}
 			]
 		},
+		
 		"add_chapter": {
 			"start": "items",
 			"end": "]",
 			"next": "\"is_available\":true",
 
 			"link": {
-				"before": "\"pages\":",
-				"token1": "id\":",
-				"token2": ",\"",
+				"before": "pages\":",
+				"token1": "{\"id\":",
+				"token2": ",",
 				
 				"replace": [
 			{"prefix": "https://api.newmanga.org/v2/chapters/"}, 
@@ -356,7 +357,7 @@
 			"uniq": {
 				"before": "\"pages\":",
 				"token1": "\"tom\":",
-				"token2": ".0,\"hearts\"",
+				"token2": "\"project_id\"",
 				"replace": [{
 						"match": "\"name\":(.*?),",
 						"text": " "
@@ -366,11 +367,12 @@
 						"text": "Глава "
 					},
 					{
-						"match": "\"name\":null,",
-						"text": " "
+						"match": ".0,",
+						"text": ""
 					},
+					
 					{
-						"match": ",",
+						"match": "\"name\":null,",
 						"text": " "
 					},
 					{
@@ -382,7 +384,7 @@
 			"title": {
 				"before": "\"pages\":",
 				"token1": "\"tom\":",
-				"token2": ".0,\"hearts\"",
+				"token2": "\"project_id\"",
 				"replace": [{
 						"match": "\"name\":(.*?),",
 						"text": " "
@@ -391,6 +393,11 @@
 						"match": "\"number\":",
 						"text": "Глава "
 					},
+					{
+						"match": ".0,",
+						"text": ""
+					},
+					
 					{
 						"match": "\"name\":null,",
 						"text": " "
