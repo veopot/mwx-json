@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 14,
+	"version": 15,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -290,12 +290,12 @@
 
 		"status": {
 			"complete": {
-				"start": "\"status\":\" ",
+				"start": "\"status\":\"",
 				"end": "\",",
 				"values": ["complete", "completed", "Сингл"]
 			},
 			"ongoing": {
-				"start": "\"status\":\" ",
+				"start": "\"status\":\"",
 				"end": "\",",
 				"value": "on_going"
 			}
