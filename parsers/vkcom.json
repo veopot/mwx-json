@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version":11,
+	"version":13,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -76,14 +76,29 @@
 			"next":  "article__title\"",
 			
 			"link":  {  "before": "article__title\"",  "token1": "<a href=\"", "token2": "\"",
-                "replace": {"prefix": "https://m.vk.com" }   
+                "replace": [
+				   { "match" : "amp;", "text" : "" },
+				    
+					{"prefix": "https://m.vk.com" }
+						
+						
+						]
+						  
 			},
 			
 			"title": { "token1": "article__title\">", "token2": "</",
+			
 				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
 			},
-			"uniq": { "token1": "article__title\">", "token2": "</",
-				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
+			"uniq": { "before": "article__title\"", "token1": "href=\"/@", 
+            "token2": "\"",
+                "replace": [
+				   { "match" : "amp;", "text" : "" },
+				   { "match" : "ref=author_page", "text" : "" },
+				    { "match" : "context=author_page_date&", "text" : "" },
+				      { "match" : "&nbsp;&nbsp;","text":" " },
+				      { "match" : "|", "text":"" }
+				    ]
 			}
 		}   
 	},
@@ -93,11 +108,13 @@
         
         "add_pages": { 
 			"start": "</head>",
-			"token1": "&quot;w&quot;:[&quot;",
-			"token2": "&quot;,",
+			"token1": "w&quot;:[&quot;",
+			"token2": "&quot",
 			"end": "</body>",
 			"replace": [
-                        { "match" : "amp;",  "text" : "" },
+                        
+                        { "match" : "amp;", "text" : "" },
+                       
 						{ "match" : "\\\\", "text" : "" }
 						
 						]
@@ -148,3 +165,8 @@
 		}
 	]
 }
+
+	
+		
+	
+	
