@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 75,
+	"version": 76,
 	"title": "ReManga",
 	"host": "https://remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -257,33 +257,7 @@
 				{
 					"sufix": "&count=100&ordering=-index&page=1"
 				}
-			],
-			"next": {
-                "after": "\"props\":{",
-                "token1": "\":{",
-                "token2": ",", 
-			    "replace" :[ 
-				        {"prefix": "%%host%%/%%path%%" },
-						{ "match": "\"page\":1", "text": "2"},
-						{ "match": "\"page\":2", "text": "3"},
-						{ "match": "\"page\":3", "text": "4"},
-						{ "match": "\"page\":4", "text": "5"},
-						{ "match": "\"page\":5", "text": "6"},
-						{ "match": "\"page\":6", "text": "7"},
-						{ "match": "\"page\":7", "text": "8"},
-						{ "match": "\"page\":8", "text": "9"},
-						{ "match": "\"page\":9", "text": "10"},
-						{ "match": "\"page\":10", "text": "11"},
-						{ "match": "\"page\":11", "text": "12"},
-						{ "match": "\"page\":12", "text": "13"},
-						{ "match": "\"page\":13", "text": "14"},
-						{ "match": "\"page\":14", "text": "15"},
-						{ "match": "\"page\":15", "text": "16"},
-						{ "match": "\"page\":16", "text": "17"},
-						{ "match": "\"page\":18", "text": "19"},
-						{ "match": "\"page\":19", "text": "20"}
-				    ]
-                }
+			]
             },
 		
 		
