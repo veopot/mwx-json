@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 15,
+	"version": 17,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -144,7 +144,7 @@
 		"iterator": {
 			"base_url": "https://api.newmanga.org/v2/projects/catalog?query=&sorting=rating&size=32&page=",
 
-			"append_nums": {"from": 1,"to": 57}
+			"append_nums": {"from": 1,"to": 100}
 		},
 		"add_manga": {
 			"start": "\"items\":[",
@@ -152,9 +152,9 @@
 			"next": "\"title\":{",
 
 			"link": {
-				"before": "\"en\":\"",
-				"token1": "id\":",
-				"token2": ",",
+				"after": "\"slug\"",
+			    "token1": ":\"",
+			    "token2": "\"",
 				"replace": {
 					"prefix": "https://api.newmanga.org/v2/projects/"
 				}
@@ -172,12 +172,11 @@
 			 ]
 		},
 
-
-			"uniq": {
-				"skip": "title\"",
-				"token1": "\"en\":\"",
-				"token2": "\","
-			}
+            "uniq": {
+			"after": "\"slug\"",
+			"token1": ":\"",
+			"token2": "\""
+		    }
 
 		},
 		"rating_auto_inc": {
@@ -214,8 +213,8 @@
 		},
 
 		"uniq": {
-			"skip": "title\"",
-			"token1": "\"en\":\"",
+			"skip": "\"slug\":",
+			"token1": ":\"",
 			"token2": "\","
 		},
 
@@ -325,7 +324,7 @@
 
 
 		"chapters_from_page": {
-			"before": "\"type\":\"",
+			"skip": "\"branches\":",
 			"token1": "\"id\":",
 			"token2": ",",
 			"replace": [{
@@ -413,18 +412,15 @@
 
 	"chapter_complete": {
 		"headers": {
-			"content-type": "application/json",
 			"accept": "*/*",
-			"referer": "https://newmanga.org/",
-			"accept-encoding": "gzip, deflate, br",
-			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+			"referer": "https://newmanga.org/"
 
 		},
 
 		"add_images": {
-			"start": "[",
-			"end": "]",
-			"token1": "{\"id\":",
+			"start": "[{",
+			"end": "}]",
+			"token1": "id\":",
 			"token2": ",",
 			"replace": {"prefix": "%%url%%/"}
         }
@@ -436,15 +432,15 @@
 			"assert": {
 				"mangas": [{
 					"title": "Beast with Flowers | Зверь с цветами",
-					"link": "https://api.newmanga.org/v2/projects/1124",
-					"uniq": "Beast with Flowers"
+					"link": "https://api.newmanga.org/v2/projects/beast-with-flowers",
+					"uniq": "beast-with-flowers"
 				}],
 				"mangas_count": ">=20"
 			}
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://api.newmanga.org/v2/projects/2",
+			"link": "https://api.newmanga.org/v2/projects/solo-leveling",
 			"title": "Martial peak | Пик боевых искусств",
 			"assert": {
 				"cover": "https://storage.newmanga.org/images/projects/2/large_6c0c5458-449c-436b-bb52-2a3cb2e64745.jpeg",

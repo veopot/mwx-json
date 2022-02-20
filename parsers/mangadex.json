@@ -1,8 +1,8 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 23,
-	"title": "MangaDex (test)",
+	"version": 25,
+	"title": "MangaDex",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
 	"folder": "mangadex",
@@ -321,9 +321,17 @@
 					"prefix": "https://api.mangadex.org/manga/"
 				},
 				{
-					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic&offset=0"
+					"sufix": "/feed?limit=500&order[volume]=desc&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic&offset=%%iterator_num%%"
 				}
-			]
+			],
+			"iterator": {
+				"base_url": "",
+				"append_nums": {
+					"from": 0,
+					"step": 500
+				}
+			}
+			
 			
 		},
 		
@@ -350,10 +358,14 @@
 					{ "match" : "\"hash\":\"(.*?)\",","text":"" },
 					{ "match" : "\"volume\":\"","text":"Volume " },
 					{ "match" : "\"volume\":null,","text":"" },
-					{ "match" : "\"chapter\":\"","text":"Chapter " },
 					
-					{ "match" : "\"title\":\"(.*?)\",","text":"" },
+					{ "match" : "\"chapter\":\"","text":"Chapter " },
+					{ "match" : "\"chapter\":null,","text":"" },
+					
+					{ "match" : "\"title\":\"","text":" " },
 					{ "match" : "\"title\":null,","text":"" },
+					
+					
 					
 					{ "match" : "\",","text":" " }
 					]
