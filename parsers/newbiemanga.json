@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 20,
+	"version": 21,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -236,10 +236,10 @@
 
 
 		"cover": {
-			"token1": "\"large\":\"images/projects/",
+			"token1": "\"large\":\"images",
 			"token2": "\",",
 			"replace": [{
-					"prefix": "https://storage.newmanga.org/images/projects/"
+					"prefix": "https://storage.newmanga.org/images"
 				},
 				{
 					"match": "u002F",
@@ -447,10 +447,10 @@
 
 
 		"cover": {
-			"token1": "\"large\":\"images/projects/",
+			"token1": "\"large\":\"images",
 			"token2": "\",",
 			"replace": [{
-					"prefix": "https://storage.newmanga.org/images/projects/"
+					"prefix": "https://storage.newmanga.org/images"
 				},
 				{
 					"match": "u002F",
