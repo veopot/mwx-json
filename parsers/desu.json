@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 33,
+	"version": 34,
 	
 	"old_ids": [66348],
 
@@ -89,8 +89,21 @@
 		{"condition": "",
 			"title":      { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
 			"uniq":       { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
-			"status":      { "complete": [ "Сингл", "вышло" ], "ongoing": "выходит" },
-			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "</div>" },
+			"status":      { 
+				"complete": [ "Сингл", "вышло" ], 
+					"licensed": "<span class=\"b-anime_status_tag copyright\">Закрыт",
+					"ongoing": "выходит" 
+			
+			},
+			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "<div class=\"shade\">",
+
+				"replace": [
+
+				    { "match": "&quot;", "text": "'" },
+
+					{ "match": "<.*?>", "text": " " }
+
+				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
 			"cover":       { "skip": "<div class=\"c-poster\"", "token1": "src=\"", "token2": "\"" },
 			"add_genre":   { 
