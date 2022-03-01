@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 54,
+    "version": 55,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -47,7 +47,7 @@
             "start": "\"tiles",
             "next": "class=\"img\"",
             "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
-            "title": { "after": "<h4 title=\"", "token1": ">", "token2": "</" },
+            "title": { "after": "<h5 title=\"", "token1": ">", "token2": "</" },
             "additional_title": { "after": "img class", "token1": "title='", "token2": "'" },
             "cover": { "token1": "data-original='", "token2": "'" }
         },
