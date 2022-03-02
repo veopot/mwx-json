@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 64, 
+	"version": 65, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -35,11 +35,11 @@
             "start": "\"tiles",
             "next":  "class=\"img\"",
             "link":  { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
-            "title": { "before": "tile-info", "after": "href=\"", "token1": "<h4 title=\"", "token2": "\"" },
+            "title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
             "cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.", "text": "." } },
             "is_mature": { "start": "tile-info", "values": [">ужасы<",">юри<",">яой<",">эротика<"], "end": "</div>" },
 			
-			"summary": { "skip": "href=\"", "token1": "class=\"hidden long-description-holder\">", "token2": "</div>",
+			"summary": { "skip": "href=\"", "token1": "class=\"manga-description\">", "token2": "</noindex>",
                 "replace":{"match":"<.*?>", "text":""} }
         }
     },
