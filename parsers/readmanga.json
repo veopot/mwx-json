@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 56,
+    "version": 57,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -26,14 +26,25 @@
         "query_type": "GET",
         
         "add_manga": {
+
             "start": "\"tiles",
-            "next": "class=\"img\"",
-            "link": { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
-            "title": { "after": "<h5 title=\"", "token1": ">", "token2": "</" },
-            "cover": { "token1": "data-original='", "token2": "'" },
+
+            "next":  "class=\"img\"",
+
+            "link":  { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
+
+            "title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
+
+            "cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.", "text": "." } },
+
+            "is_mature": { "start": "tile-info", "values": [">ужасы<",">юри<",">яой<",">эротика<"], "end": "</div>" },
+
 			
-			"summary": { "skip": "href=\"", "token1": "class=\"hidden long-description-holder\">", "token2": "</div>",
-                "replace":{"match":"<.*?>", "text":" "} }
+
+			"summary": { "skip": "href=\"", "token1": "class=\"manga-description\">", "token2": "</noindex>",
+
+                "replace":{"match":"<.*?>", "text":""} }
+
         }
     },
         
