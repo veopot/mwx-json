@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 57,
+    "version": 58,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
@@ -51,7 +51,7 @@
     "manga_list_complete": {
         "iterator": {
             "base_url": "https://readmanga.io/list?sortType=POPULARITY&offset=",
-            "append_nums": { "from": 0, "to": 22000, "step": 70,
+            "append_nums": { "from": 0, "to": 23000, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
         "add_manga": {
@@ -96,12 +96,12 @@
             "author": { "skip": "<span class=\"elem_screenwriter \"", "token1": "class=\"person-link\">", "token2": "</" },
             "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
             
-			"status": { 
-			
-		  	"complete": { 
+			"status":      {
+				
+			"complete": { 
 			"start": ">Перевод:</",
 			"end": "</p>",
-			"values": [ "завершен", "завершён", "Переведена", "Сингл"] },
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
 			"start": ">Перевод:</", 
@@ -178,7 +178,7 @@
 		  	"complete": { 
 			"start": ">Перевод:</",
 			"end": "</p>",
-			"values": [ "завершен", "завершён", "Переведена", "Сингл"] },
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
 			"start": ">Перевод:</", 

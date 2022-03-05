@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 65, 
+	"version": 66, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -47,7 +47,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://mintmanga.live/list?sortType=RATING&offset=",
-			"append_nums": { "from": 0, "to": 14600, "step": 70,
+			"append_nums": { "from": 0, "to": 15000, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
 		},
 		"add_manga": { 
@@ -92,13 +92,23 @@
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
-		"status":       { 
-			"complete": ["завершён", "Переведена"],
-			"ongoing":  "продолжается",
-			"single":   "Сингл",
-			"licensed": "Главы удалены",
-			"unknown":  "нет ни одной главы"
-		},
+		"status": { 
+			
+		  	"complete": { 
+			"start": ">Перевод:</",
+			"end": "</p>",
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			             
+            "ongoing": { 
+			"start": ">Перевод:</", 
+			"end": "</p>", 
+			"value": "продолжается"},
+			
+            "single": "<b>Сингл</b>",
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" 
+			},
+			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
 		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		
@@ -150,13 +160,22 @@
 		
 		"author":       { "after": "elem_author", "skip": "person-link", "token1":"\">", "token2": "</a>" },
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
-		"status":       { 
-			"complete": ["завершён", "Переведена"],
-			"ongoing":  "продолжается",
-			"single":   "Сингл",
-			"licensed": "Главы удалены",
-			"unknown":  "нет ни одной главы"
-		},
+		"status": { 
+			
+		  	"complete": { 
+			"start": ">Перевод:</",
+			"end": "</p>",
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			             
+            "ongoing": { 
+			"start": ">Перевод:</", 
+			"end": "</p>", 
+			"value": "продолжается"},
+			
+            "single": "<b>Сингл</b>",
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" 
+			},
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
 		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		"add_genres":   {
