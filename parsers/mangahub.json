@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 45,
+	"version": 46,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -113,12 +113,9 @@
 		
 		"chapters_from_page": {
             "after": "property=\"og:url\"",
-            "token1": "content=\"", 
+            "token1": "content=\"/title/", 
 			"token2": "\"", 
-			"replace": [
-				    {"sufix": "/chapters" },
-					{ "prefix": "https://mangahub.ru"}
-				] 
+			"replace": { "prefix": "https://mangahub.ru/chapters/"}
 				
 			
 			},
