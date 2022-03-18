@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":13,
+   "version":16,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -313,20 +313,23 @@
     "add_numeration": true,
         "headers": {
 			"Accept": "*/*",
-			"Referer": "https://mangapoisk.ru/",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+			"Referer": "https://mangapoisk.ru/"
 		},
      
       "images":true,
       "add_pages":{
+		  
          "start":"class=\"text-center\">",
-         "token1":"\"https://static2.mangapoisk.ru/",
-         "token2":"\"",
+	 
+	   "token1":"<img src=\"",
+         "token2":"\" class=\"",
          "end":"<div class=\"row text-center\">",
-         "replace":{
-            "prefix":"https://static2.mangapoisk.ru/"
-         }
-      }
+         "replace": [
+{ "match" : "\" data-small-src=\"(.*?).png", "text":"" },
+{ "match" : "data:image(.*?)\" data-src=\"", "text":"" }
+]
+}
+
    },
    "test":[
       {
