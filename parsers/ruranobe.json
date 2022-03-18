@@ -1,6 +1,6 @@
 {
 	"id": 40152,
-	"version": 65,
+	"version": 66,
 	"time_invalidate": 0,
 	"title": "RuRanobe",
 	"host": "https://ruranobe.ru/",
@@ -10,10 +10,16 @@
 	"chapters_order": false,
 	"language": "ru",
 	"encoding": "utf-8",
-	"catalog_link": "http://account.mangawatcherx.com/user_content/veopot/catalog/p/ruranobe.p",
-	"self_link": "http://account.mangawatcherx.com/user_content/veopot/parsers/ruranobe.json",
-	"icon_link": "http://account.mangawatcherx.com/user_content/veopot/img/ruranobe.png",
-
+	
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/ruranobe.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/ruranobe.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/ruranobe.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/ruranobe.zip",
+    "file_type": "sqlite",
+	
+	
+	
 	"manga_list_complete": {
 
 		"iterator": {
