@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 46,
+	"version": 47,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -140,8 +140,8 @@
 	"chapter_complete": {
 	    "headers": {
 			"Accept": "*/*",
-			"Referer": "https://mangahub.ru",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+			"Referer": "https://mangahub.ru/"
+			
 		},
 		"add_numeration": true,
 		"add_images": {
