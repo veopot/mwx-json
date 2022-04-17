@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":16,
+   "version":17,
    "title":"MangaPoisk",
    "host":"https://mangapoisk.ru",
    "public_link":"https://mangapoisk.ru/manga-list",
@@ -326,6 +326,7 @@
          "end":"<div class=\"row text-center\">",
          "replace": [
 { "match" : "\" data-small-src=\"(.*?).png", "text":"" },
+{ "match" : "\" data-small-src=\"(.*?).jpg", "text":"" },
 { "match" : "data:image(.*?)\" data-src=\"", "text":"" }
 ]
 }
