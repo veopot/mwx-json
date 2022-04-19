@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 38,
+	"version": 39,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -62,7 +62,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://manga-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 19700, "step": 20,
+			"append_nums": { "from": 0, "to": 20000, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": {
@@ -120,10 +120,9 @@
 	"chapter_complete": {
 		"headers": {
 			
-			"Referer": "https://manga-chan.me/",
-"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-            
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		"Referer": "https://manga-chan.me/",
+        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		"add_images": {
 			"start": "fullimg\":",
