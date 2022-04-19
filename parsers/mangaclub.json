@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 29,
+	"version": 30,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -112,8 +112,8 @@
 			"start": "\"chapters\"",
 			"next":  "\"chapter-item\"",
 			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			"title": { "token1": "> ", "token2": "<" },
-			"uniq": { "token1": "> ", "token2": "<" },
+			"title": { "token1": "\"> ", "token2": "<" },
+			"uniq": { "token1": "\"> ", "token2": "<" },
 			"end": "\"content-footer\">"
 		},
 		"need_auth_genres": ["сэйнэн", "сёдзё для взрослых", "этти", "эротика", "юри"]
