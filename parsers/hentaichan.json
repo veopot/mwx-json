@@ -1,15 +1,16 @@
 {
 	"id": 30432,
-	"version": 71,
+	"version": 72,
 	
 	"old_ids": [30333],
-	"old_sites": ["henchan.pro", "hentai-chan.pro", "hen-chan.pro", "hchan.pro", "hchan.me" ],
+	"old_sites": ["henchan.pro", "hentai-chan.pro", "hentaichan.live", "hen-chan.pro", "hchan.pro", "hchan.me" ],
     
 
 	
 	"title": "Хентай-тян",
-	"host": "https://hentaichan.live",
-	"public_link": "https://hentaichan.live/mostfavorites",
+	         
+	"host": "https://xx.hentaichan.live",
+	"public_link": "https://xx.hentaichan.live/mostfavorites",
 	"folder": "hentaichan",
 	"name": "hentaichan",
 	"language": "ru",
@@ -27,7 +28,7 @@
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
-		"registration": "https://hentaichan.live/index.php?do=register",
+		"registration": "https://xx.hentaichan.live/index.php?do=register",
 		"expires": 		31449600000,
 	
 		"values": {
@@ -38,7 +39,7 @@
 		},
 		"request": {
 			"method": 	"post",
-			"url": 		"https://hentaichan.live/index.php"
+			"url": 		"https://xx.hentaichan.live/index.php"
     	},
     	"response_check": {
     	  	"cookies": { "dle_user_id": "@\\d+" },
@@ -48,7 +49,7 @@
     
 	
 	"manga_search_complete": {		
-		"search_link": "https://hentaichan.live/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"search_link": "https://xx.hentaichan.live/?do=search&subaction=search&story=$query$&search_start=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
@@ -58,7 +59,7 @@
 			"title": { "token1": "title=\"", "token2": "\"" },
 			
 			"cover": { "token1": "src=\"", "token2": "\"",
-			"replace" : { "match" : "https://hentaichan.livehttps://hentaichan.live/", "text" : "https://hentaichan.live/" } },
+			"replace" : { "match" : "https://xx.hentaichan.livehttps://xx.hentaichan.live/", "text" : "https://xx.hentaichan.live/" } },
 			
 			"uniq":  { "token1": "title=\"", "token2": "\"" }
 		}
@@ -68,8 +69,8 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": 	"https://hentaichan.live/manga/new&n=favdesc?offset=",
-			"append_nums": 	{ "from": 0, "to": 22800, "step": 20 }
+			"base_url": 	"https://xx.hentaichan.live/manga/new&n=favdesc?offset=",
+			"append_nums": 	{ "from": 0, "to": 24800, "step": 20 }
 		},
 		"add_manga": {
 			"next": 		"<div class=\"content_row\"",
@@ -94,7 +95,7 @@
 		  "headers": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		    "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		    "referer": "https://hentaichan.live/"
+		    "referer": "https://xx.hentaichan.live/"
 	    },
 		
 		"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
@@ -148,12 +149,25 @@
 		    "headers": {
 			  "accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		      "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		      "referer": "https://hentaichan.live/"
+		      "referer": "https://xx.hentaichan.live/"
 	      },
 		
 			
 			"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</a>",
-			"replace" : { "match" : " - (.*)", "text" : "" } },
+				"replace": [
+				    { "match" : "[0-9]", "text" : "" },
+				    { "match": "глава", "text": ""},
+					{ "match": "Глава", "text": ""},
+					{ "match": "-   ", "text": ""},
+					{ "match": "  ", "text": " "},
+					{ "match": "Часть", "text": ""},
+					{ "match": "часть", "text": ""}
+					
+					
+				]
+			
+			
+			},
 			                          
 			"uniq": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</a>",
 			"replace" : { "match" : " - (.*)", "text" : "" } },
@@ -196,7 +210,7 @@
             "skip": "id=\"right\">",
             "token1": "href=\"/related", 
 			"token2": "?", 
-			"replace" : {"prefix": "https://hentaichan.live/related" },
+			"replace" : {"prefix": "https://xx.hentaichan.live/related" },
 			
             "next": {
                 "before": ">Вперед</a>",
@@ -245,7 +259,7 @@
 			"assert" : {
 				"mangas" : [
 					{ "title" : "Pandemonium", 
-					   "link" : "https://hentaichan.live/manga/17531-pandemonium-chast-1.html",
+					   "link" : "https://xx.hentaichan.live/manga/17531-pandemonium-chast-1.html",
 					   "uniq" : "Pandemonium" }
 				],
 				"mangas_count" : ">=3"
@@ -253,7 +267,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hentaichan.live/manga/23093-moya-gruppovaya-akademiya.html",
+			"link" : "https://xx.hentaichan.live/manga/23093-moya-gruppovaya-akademiya.html",
 			"title" : "МОЯ ГРУППОВАЯ АКАДЕМИЯ (MY GANGBANG ACADEMIA)",
 			"assert" : {
 				"author" : "St.Germain-Sal",
@@ -273,7 +287,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hentaichan.live/manga/9179-kyoushi-to-seito-to-glava-1.html",
+			"link" : "https://xx.hentaichan.live/manga/9179-kyoushi-to-seito-to-glava-1.html",
 			"title" : "Kyoushi to Seito to - глава 1",
 			"assert" : {
 				"author" : "@Fuuga",
@@ -294,7 +308,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://hentaichan.live/manga/23009-ayanami-rey-chast-4.html",
+			"link" : "https://xx.hentaichan.live/manga/23009-ayanami-rey-chast-4.html",
 			"title" : "Аянами Рей",
 			"assert" : {
 				"author" : "Nakayohi Mogudan",
