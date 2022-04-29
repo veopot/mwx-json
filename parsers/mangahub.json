@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 47,
+	"version": 48,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -60,11 +60,33 @@
 	"manga_complete": {
 		"title": { "skip": "<head>", 
 		"token1": "<title>Читать", "token2": "</title>",
-		"replace":{ "match": "/", "text": " | " } },
+		"replace":[
+			{ "match": "/", "text": " | " },
+			{ "match": "&amp;#039;", "text": "'" },
+			{ "match": ". Руманга онлайн.", "text": "" },
+			{ "match": ". OEL-манга онлайн.", "text": "" },
+			{ "match": ". Ранобэ онлайн.", "text": "" },
+			{ "match": ". Комикс западный онлайн.", "text": "" },
+			{ "match": ". Манхва онлайн.", "text": "" },
+			{ "match": ". Манга онлайн.", "text": "" },
+            { "match": ". Маньхуа онлайн.", "text": "" }			
+			]
+		
+		 },
 		
 		"uniq": { "skip": "class=\"page-head\">", 
 		"token1": "<h1 class=\"text-white\">", "token2": "</h1>",
-		"replace":{ "match": "<.*?>", "text": "" } },
+		"replace":[
+			{ "match": "/", "text": " | " },
+			{ "match": "&amp;#039;", "text": "'" },
+			{ "match": ". Руманга онлайн.", "text": "" },
+			{ "match": ". OEL-манга онлайн.", "text": "" },
+			{ "match": ". Ранобэ онлайн.", "text": "" },
+			{ "match": ". Комикс западный онлайн.", "text": "" },
+			{ "match": ". Манхва онлайн.", "text": "" },
+			{ "match": ". Манга онлайн.", "text": "" },
+            { "match": ". Маньхуа онлайн.", "text": "" }			
+			] },
 		
 		"cover": { "after": "class=\"cover cover-detail\"", "token1": "src=\"", "token2": "\"" },
 		
@@ -73,7 +95,11 @@
 		
 		"summary":     { "skip": "class=\"markdown-style text-expandable-content\">", 
 		"token1": "<p>", "token2": "</div>",
-		"replace":{ "match": "<.*?>", "text": "" } },
+		"replace":[
+            { "match" : "\n",  "text" : " " },
+            { "match": "<.*?>", "text": "" }
+			]
+		},
 		
 		 
 		"status": { 
@@ -102,8 +128,15 @@
 		"add_genres":  { 
 		 "start": "<collapse-multiple class=\"d-block tags mt-4\">",
 		 "end": " </collapse-multiple>", 
-
-		"after": "href=\"/genre/", "token1": "\">", "token2": "</"},
+         "after": "href=\"/genre/", "token1": ">", "token2": "</"
+		},
+		
+		"add_tags":   {
+         "start": "<collapse-multiple class=\"d-block tags mt-4\">",
+		 "end": " </collapse-multiple>", 
+         "after": "href=\"/tags/", "token1": ">", "token2": "</"
+		},
+		
 		
 		 
 		"is_mature":   { 
@@ -198,12 +231,12 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://mangahub.ru/title/their_story/read/oldxian/vol1/3/1/",
+			"link" : "https://mangahub.ru/read/their_story/sayonara_melody/vol1/1/1/",
 			"assert" : {
 				"pages" : [
-		{"image": "https://1hubst.ru/uploads/media/scan/0001/36/5fe3946077063b9d5f2078ec7ad584fdb4da2129.jpeg"},
-        {"image": "https://2hubst.ru/uploads/media/scan/0001/36/7b82658385742424548f638eb5b73068299728d0.jpeg"},
-        {"image": "https://2hubst.ru/uploads/media/scan/0001/36/6315ee3005ecc1ef1c7f7349b694ca9f7cf26084.jpeg"}
+		{"image": "https://2hubst.guru/uploads/media/scan/0004/16/20a3a7492cf954a77979710b7812e85bc3bdfaa7.jpeg"},
+        {"image": "https://1hubst.guru/uploads/media/scan/0004/16/3d635ec44c5d867e7e5d5d998ded74ceb75aeb19.jpeg"},
+        {"image": "https://2hubst.guru/uploads/media/scan/0004/16/4e73872d14cc0a7bc42fec147edb60a701aa5d6b.jpeg"}
 				]
 			}
 		}
