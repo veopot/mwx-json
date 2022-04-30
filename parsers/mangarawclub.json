@@ -2,7 +2,7 @@
     
     "id": 30469,
 	
-	"version": 7,
+	"version": 8,
 	"old_sites": ["www.manga-raw.club"],
 	
 	
@@ -99,7 +99,7 @@
 		
 		
 		
-		"cover":       { "after": "property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		"cover":       { "after": "<figure class=\"cover\">", "token1": "data-src=\"", "token2": "\"" },
 		
 		"add_genre":   { "after": "href=\"/browse/?genre=", "token1": "\">", "token2": "</" },
 		
