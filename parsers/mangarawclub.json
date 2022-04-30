@@ -2,7 +2,7 @@
     
     "id": 30469,
 	
-	"version": 8,
+	"version": 9,
 	"old_sites": ["www.manga-raw.club"],
 	
 	
@@ -71,8 +71,7 @@
 	},
 
 	"manga_complete": {
-		"title":       { "after": "<h1 itemprop=\"name\"", "token1":"\">", "token2": "</",
-         "replace":{"match":"312312312341","text":""} },
+		"title":       { "skip": "<figure class=\"cover\">", "token1":"alt=\"", "token2": "\""},
 		
 		
 		"uniq":        { "after": "property=\"og:url\"", 
@@ -81,7 +80,11 @@
 		"author":      { "token1":"<span itemprop=\"author\">", "token2": "</" },
 		
 		"summary":     { "after": "<p class=\"description", "token1": ">", "token2": "</p>" ,
-         "replace":{"match":"<.*?>","text":""} 
+         "replace":[
+            { "match" : "\n",  "text" : " " },
+			{ "match" : "\r",  "text" : " " },
+			{ "match": "<.*?>", "text": "" }
+			] 
 		},
 		
 		"status":      { 
@@ -101,9 +104,11 @@
 		
 		"cover":       { "after": "<figure class=\"cover\">", "token1": "data-src=\"", "token2": "\"" },
 		
-		"add_genre":   { "after": "href=\"/browse/?genre=", "token1": "\">", "token2": "</" },
+		"add_genre":   { "after": "href=\"/browse-comics/?genre=", "token1": "\">", "token2": "</" },
 		
 		"add_tag":   { "after": "href=\"/tag/?tag=", "token1": "\">", "token2": "</" },
+		
+		
 		
 		"add_chapter": {
 			"next":  "<li data-chapterno",
