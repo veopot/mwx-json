@@ -1,8 +1,8 @@
 {
 	"id": 40155,
-	"version": 77,
+	"version": 78,
 	"title": "ReManga",
-	"host": "https://remanga.org",
+	"host": "https://api.remanga.org",
 	"public_link": "https://remanga.org/manga",
 	"folder": "rbgmanga",
 	"name" : "rbgmanga",
