@@ -1,6 +1,6 @@
 {
 	"id": 30004,
-	"version": 32,
+	"version": 33,
 	
 	"old_ids": [256],
    
@@ -47,8 +47,13 @@
 			"end":   "class=\"pagination",
 			"next":  "catalog__manga-block",
 			"link":  { "token1": "href=\"", "token2": "\"" }, 
-			"title": { "skip": "catalog__manga-name", "token1": ">", "token2": "</" },
-			"additional_title": { "skip": "catalog__manga-desc", "token1": ">", "token2": "</" },
+			"title": { "after": "catalog__manga-name", "token1": "\">", "token2": "</div>",
+            "replace":[
+                { "match" : "                                        ",  "text" : " " },
+                { "match" : "\r",  "text" : " " },
+                { "match" : "<p class=\"catalog__manga-desc\">",  "text" : " | " },
+                { "match": "</p>", "text": "" }
+			] },
 			"cover": { "token1": "src=\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru" } }
 			
 		}
@@ -60,13 +65,22 @@
 			"replace": [
 {"match": "<h1 class=\"manga-data__title\">","text": ""},
 {"match": "<h2 class=\"manga-data__subtitle\">","text": ""},
+{ "match" : "\n",  "text" : " " },
+{ "match" : "\t",  "text" : " " },
+{ "match" : "\r",  "text" : " " },          
 {"match": "</h1>", "text": " / " }
 			] },
 		
 		"uniq":        { "skip": "manga-data__title", "token1": ">", "token2": "</" },
         "cover":       { "skip": "manga-bg-info", "token1": "src=\"", "token2": "\"" },
 		"author":      { "skip": ">Автор:", "token1": ">", "token2": "<" },
-		"summary":     { "skip" : "manga-data__description", "token1": "<span>", "token2": "</span>"},
+		"summary":     { "skip" : "manga-data__description", "token1": "<span>", "token2": "</span>",
+			"replace": [
+{ "match" : "\n",  "text" : " " },
+{ "match" : "\t",  "text" : " " },
+{ "match" : "\r",  "text" : " " },          
+{"match": "</h1>", "text": " / " }
+			] },
 		"status":      { "complete": ">Завершено<", "ongoing": ">В процессе перевода<" },
 		"translation_status": { "complete": ">Завершено<", "ongoing": ">В процессе перевода<" },
 		"content_type": { "default": "manga" },
@@ -107,7 +121,7 @@
 			"token2": "\"", 
 			"end": ",],"
 		},
-		"prefix": { "skip": "dir:", "token1": "\"", "token2": "\"", "replace": { "prefix": "https://manga24.ru/" } }
+		"prefix": { "skip": "dir:", "token1": "\"", "token2": "\"", "replace": { "prefix": "https://img.manga24.ru/" } }
 	},
 
 	"test": [
@@ -116,9 +130,9 @@
 			"testpages": "3",
 			"assert" : {
 				"mangas" : [
-					{ "title" : "Naruto",   "link" : "https://manga24.ru/naruto",
-						"uniq" : "naruto" },
-					{ "title" : "Noblesse", "link" : "https://manga24.ru/noblesse" }
+					{ "title" : "One Piece | Ван Пис",   
+					"link" : "https://manga24.ru/onepiece",
+						"uniq" : "onepiece" }
 				],
 				"mangas_count" : ">30"
 			}
@@ -138,9 +152,10 @@
 				"chapters" : [
 					{ "folder": "001/",
                       "link": "https://manga24.ru/fairytail/001",
-                      "title": "Глава #001"
+                      "title": "Глава #001 - Фейри Тейл"
 					},
-					{ "title" : "Глава #003", "link" : "https://manga24.ru/fairytail/003" }
+					{ "title" : "Глава #003 - Саламандер, обезьяна и бык", 
+					"link" : "https://manga24.ru/fairytail/003" }
 				]
 			}
 		},
@@ -150,9 +165,9 @@
 			"link" : "https://manga24.ru/fairytail/001",
 			"assert" : {
 				"pages" : [
-					{"image": "https://manga24.ru/Content/pages/fairytail/001/001.jpeg"},
-                    {"image": "https://manga24.ru/Content/pages/fairytail/001/002.png"},
-                    {"image": "https://manga24.ru/Content/pages/fairytail/001/003.png"}
+		{"image": "https://img.manga24.ru/Content/pages/fairytail/001/001.jpeg"},
+        {"image": "https://img.manga24.ru/Content/pages/fairytail/001/002.png"},
+        {"image": "https://img.manga24.ru/Content/pages/fairytail/001/003.png"}
 				]
 			}
 		}
