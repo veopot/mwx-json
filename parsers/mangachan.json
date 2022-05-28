@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 39,
+	"version": 40,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -121,8 +121,7 @@
 		"headers": {
 			
 		"Referer": "https://manga-chan.me/",
-        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+        "Accept": "image/avif,image/webp,image/apng"
 		},
 		"add_images": {
 			"start": "fullimg\":",
