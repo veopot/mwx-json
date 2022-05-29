@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 34,
+	"version": 35,
 	
 	"old_ids": [66348],
 
@@ -90,7 +90,7 @@
 		     }
 		},
 		{"condition": "",
-			"title":      { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
+			"title":      { "after": "meta property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
 			"uniq":       { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
 			"status":      { 
 				"complete": [ "Сингл", "вышло" ], 
