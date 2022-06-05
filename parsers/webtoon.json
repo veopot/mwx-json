@@ -1,7 +1,7 @@
 {
 	"id": 40119,
     "old_ids": [48000],
-	"version": 22,
+	"version": 23,
 	"title": "WebToon",
 	"host": "https://www.webtoons.com/en/",
 	"public_link": "https://www.webtoons.com/en/genre",
@@ -49,7 +49,7 @@
 		
 		"add_genre":   { "after": "class=\"genre",  "token1": "\">", "token2": "</" },
 		
-		"chapters_from_page": { "skip": "<li id=\"", "token1": "<a href=\"", "token2": "\"" },
+		"chapters_from_page": { "before": "\">First episode<", "token1": "<a href=\"", "token2": "\"" },
 		
 		"add_chapter": {
 			"start": "<div class=\"episode_lst\">",
