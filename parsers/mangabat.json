@@ -1,6 +1,6 @@
 {
 "id": 40223,
-"version": 7,
+"version": 8,
 "title": "MangaBat",
 "host": "https://mangabat.com",
 "public_link": "https://mangabat.com/manga-list-all",
@@ -21,7 +21,7 @@
 
         "iterator": {
 			"base_url": "https://m.mangabat.com/manga-list-all/",
-			"append_nums": { "from": 1, "to": 1247 }
+			"append_nums": { "from": 1, "to": 1320 }
 		},
 
 		"add_manga": {
@@ -139,6 +139,11 @@
 		}
 	},
 	"chapter_complete": {
+		"headers": {
+			"Referer": "https://mangabat.com/"
+		},
+		
+		
 	    "add_images": {
 			"start": "class=\"container-chapter-reader",
 			"token1": "class=\"img-content\" src=\"",
