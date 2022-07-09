@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 48,
+	"version": 49,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -171,8 +171,11 @@
 	},
 
 	"chapter_complete": {
+		
 	    "headers": {
 			"Accept": "*/*",
+			"cookie": "confirm_age=on",
+			"cookie2": "catalog_view=grid",
 			"Referer": "https://mangahub.ru/"
 			
 		},
