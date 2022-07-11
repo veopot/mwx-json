@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 3,
+	"version": 5,
 	"title": "Manga Ovh",
 	"host": "https://manga.ovh",
 	"public_link": "https://manga.ovh/manga/catalog",
@@ -347,7 +347,7 @@
 			"token1": "\"id\":\"",
 			"token2": "\"",
 			"replace": [{
-					"prefix": "https://api.manga.ovh/manga/"
+					"prefix": "https://api.manga.ovh/book/"
 				},
 				{
 					"sufix": "/branches"
@@ -377,7 +377,7 @@
 			"next": "\"paid\":",
 
 			"link": {
-				"before": "\"translators\":",
+				"before": "\"moderationStatus\":",
 				"token1": "id\":\"",
 				"token2": "\"",
 				"replace": {
@@ -385,7 +385,7 @@
 				}
 			},
 			"uniq": {
-				"before": "\"translators\"",
+				"before": "\"moderationStatus\"",
 				"token1": "\"numb",
 				"token2": "tionStatus\"",
 				"replace": [{
@@ -403,7 +403,7 @@
 			"title": {
 				"before": "\"translators\"",
 				"token1": "\"numb",
-				"token2": "tionStatus\"",
+				"token2": "volume\"",
 				"replace": [{
 						"match": "er\":(.*?),\"paid\":(.*?)\"name\":\"(.*?)\",\"id\":\"(.*?)\"modera",
 						"text": "Глава $1, Перевод от  $3"
