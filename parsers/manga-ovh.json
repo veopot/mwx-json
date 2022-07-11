@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 3,
+	"version": 4,
 	"title": "Manga Ovh",
 	"host": "https://manga.ovh",
 	"public_link": "https://manga.ovh/manga/catalog",
@@ -347,7 +347,7 @@
 			"token1": "\"id\":\"",
 			"token2": "\"",
 			"replace": [{
-					"prefix": "https://api.manga.ovh/manga/"
+					"prefix": "https://api.manga.ovh/book/"
 				},
 				{
 					"sufix": "/branches"
