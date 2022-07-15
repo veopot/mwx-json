@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 6,
+	"version": 7,
 	"title": "Manga Ovh",
 	"host": "https://api.manga.ovh",
 	"public_link": "https://manga.ovh",
@@ -390,12 +390,8 @@
 				"token1": "{\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),\"id\":\"(.*?)\",\"number\":(.*?),\"createdAt\":\"(.*?)\"moderationStatus\":\"(.*?)\",\"volume\":(.*?)",
+"match": "me\":(.*?),\"id\":\"(.*?)\",\"number\":(.*?).0,\"createdAt\":\"(.*?)\"moderationStatus\":\"(.*?)\",\"volume\":(.*?)",
 						"text": "Глава: $3, $1 Том: "
-					},
-					{
-						"match": ".0",
-						"text": ""
 					},
 					
 					{
@@ -414,12 +410,8 @@
 				"token1": "{\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),\"id\":\"(.*?)\",\"number\":(.*?),\"createdAt\":\"(.*?)\"moderationStatus\":\"(.*?)\",\"volume\":(.*?)",
+"match": "me\":(.*?),\"id\":\"(.*?)\",\"number\":(.*?).0,\"createdAt\":\"(.*?)\"moderationStatus\":\"(.*?)\",\"volume\":(.*?)",
 						"text": "Глава: $3, $1 Том: "
-					},
-					{
-						"match": ".0",
-						"text": ""
 					},
 					
 					{
