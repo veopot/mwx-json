@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 8,
+	"version": 9,
 	"title": "Manga Ovh",
 	"host": "https://api.manga.ovh",
 	"public_link": "https://manga.ovh",
@@ -147,7 +147,34 @@
 						"text": "Продолжается"
 					},
 
-
+                     {
+                      "match": "\"createdAt\":\"(.*?)\",",
+                     "text": ""
+					},
+					{
+                      "match": "\"updatedAt\":\"(.*?)\",",
+                     "text": ""
+					},
+					{
+                      "match": "\"longStrip\":(.*?),",
+                     "text": ""
+					},
+					{
+                      "match": "\"contentStatus\":\"(.*?)\",",
+                     "text": ""
+					},
+					{
+                      "match": "\"poster\":\"(.*?)\",",
+                     "text": ""
+					},
+					{
+                      "match": "\"slug\":\"(.*?)\",",
+                     "text": ""
+					},
+					{
+                      "match": "\",",
+                     "text": ","
+					},
 					{
 						"match": "\"status\":\"",
 						"text": " Статус-перевода "
