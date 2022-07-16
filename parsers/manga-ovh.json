@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 9,
+	"version": 10,
 	"title": "Manga Ovh",
 	"host": "https://api.manga.ovh",
 	"public_link": "https://manga.ovh",
@@ -88,23 +88,24 @@
 
 			"title": {
 				"token1": "\"ru\":\"",
-				"token2": "\"}",
-				"replace": [{
-						"match": "\",\"original\":\"(.*?)\",\"en\":\"",
-						"text": " | "
-					},
-					{
-						"match": "\"another_name\":\"(.*?)\",",
-						"text": ""
-					},
-					{
-						"match": "\"",
-						"text": "'"
-					},
-					{
-						"match": "\\\\",
-						"text": ""
-					}
+				"token2": "}",
+				"replace": [
+				{
+					"match": "\"original\":\"(.*?)\"",
+					"text": ""
+				},
+				{
+					"match": "\"en\":\"",
+					"text": ""
+				},
+				{
+					"match": "\",",
+					"text": " | "
+				},
+				{
+					"match": "\\\\",
+					"text": ""
+				}
 
 				]
 			},
@@ -224,22 +225,23 @@
 			"title": {
 				"token1": "\"ru\":\"",
 				"token2": "\"}",
-				"replace": [{
-						"match": "\",\"original\":\"(.*?)\",\"en\":\"",
-						"text": " | "
-					},
-					{
-						"match": "\"another_name\":\"(.*?)\",",
-						"text": ""
-					},
-					{
-						"match": "\"",
-						"text": "'"
-					},
-					{
-						"match": "\\\\",
-						"text": ""
-					}
+				"replace": [
+				{
+					"match": "\"original\":\"(.*?)\"",
+					"text": ""
+				},
+				{
+					"match": "\"en\":\"",
+					"text": ""
+				},
+				{
+					"match": "\",",
+					"text": " | "
+				},
+				{
+					"match": "\\\\",
+					"text": ""
+				}
 
 				]
 			},
@@ -268,19 +270,28 @@
 
 		"title": {
 			"before": "\"labels\":[",
-			"token1": "{\"name\":{\"ru\":\"",
+			"token1": "\"name\":{",
 			"token2": "\"}",
-			"replace": [{
-					"match": "\",\"original\":\"(.*?)\",\"en\":\"",
-					"text": " | "
-				},
-				{
-					"match": "\"another_name\":\"(.*?)\",",
+			"replace": [
+			    {
+					"match": "\"ru\":\"",
 					"text": ""
 				},
 				{
-					"match": "\"",
-					"text": "'"
+					"match": "\"original\":\"",
+					"text": ""
+				},
+				{
+					"match": "\"en\":\"",
+					"text": ""
+				},
+				{
+					"match": "\",",
+					"text": " | "
+				},
+				{
+					"match": ",",
+					"text": ""
 				},
 				{
 					"match": "\\\\",
@@ -385,8 +396,8 @@
 			],
 
 			"next": {
-				"before": "chaptersCount",
-				"token1": "\"id\":\"",
+				"before": "\"translators\"",
+				"token1": "{\"id\":\"",
 				"token2": "\",",
 				"replace": [{
 						"prefix": "https://api.manga.ovh/branch/"
@@ -402,7 +413,8 @@
 
 
 		"add_chapter": {
-            "start": "[",
+            "start": "[", 
+			"end" :  "]",
 
 			"next": "{",
 
@@ -417,18 +429,13 @@
 				"token1": "{\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),\"id\":\"(.*?)\",\"number\":(.*?).0,\"createdAt\":\"(.*?)\"moderationStatus\":\"(.*?)\",\"volume\":(.*?)(.*)",
-						"text": "Том: $7 Глава: $3"
+"match": "me\":(.*?),\"id\"(.*?)\"number\":(.*?)\"amount\":(.*?)\"createdAt\"(.*?)\"paid\"(.*?)\"volume\":(.*?),(.*)",
+						"text": "Том $7 Глава $3 $1"
 					},
-					
-					{
-						"match": "\"",
-						"text": ""
-					},
-					{
-						"match": "null",
-						"text": ""
-					}
+	
+	{ "match": "\"", "text": "" },
+    {"match": ".0,", "text": "" },
+	{ "match": "null", "text": "" }
 
 				]
 			},
@@ -437,21 +444,13 @@
 				"token1": "{\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),\"id\":\"(.*?)\",\"number\":(.*?).0,\"createdAt\":\"(.*?)\"moderationStatus\":\"(.*?)\",\"volume\":(.*?)(.*)",
-						"text": "Том: $7 Глава: $3, $1"
+"match": "me\":(.*?),\"id\"(.*?)\"number\":(.*?)\"amount\":(.*?)\"createdAt\"(.*?)\"paid\"(.*?)\"volume\":(.*?),(.*)",
+						"text": "Том $7 Глава $3 $1"
 					},
-					{
-						"match": ",",
-						"text": " "
-					},
-					{
-						"match": "\"",
-						"text": ""
-					},
-					{
-						"match": "null",
-						"text": ""
-					}
+	
+	{ "match": "\"", "text": "" },
+    {"match": ".0,", "text": "" },
+	{ "match": "null", "text": "" }
 
 				]
 			}
@@ -480,7 +479,7 @@
 			"assert": {
 				"mangas": [{
 					"title": "Another Emperor Reborn, Возрождение иного императора",
-					"link": "https://api.manga.ovh/api/titles/another-emperor-reborn",
+					"link": "https://api.manga.ovh/book/another-emperor-reborn",
 					"uniq": "Another Emperor Reborn"
 				}],
 				"mangas_count": ">=20"
@@ -488,7 +487,7 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://manga.ovh/manga/isekai-ojisan",
+			"link": "https://api.manga.ovh/book/isekai-ojisan",
 			"title": "Перерождение Дяди | IsekaI Ojisan",
 			"assert": {
 				"cover": "https://storage.manga.ovh/manga/isekai-ojisan/poster/1653212911854.jpeg",
