@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 1,
+	"version": 2,
 	"title": "Manga Ovh",
 	"host": "https://api.manga.ovh",
 	"public_link": "https://manga.ovh",
@@ -53,7 +53,6 @@
 
 		"response_check": {
 			"status": 200,
-			"body": "@\"content\"\\:(\\{.*?\\})",
 			"body_to_cookie": ["username"]
 		}
 	},
@@ -315,7 +314,7 @@
 		},
 
 		"cover": {
-			"token1": "\"poster\":\"",
+			"token1": "v",
 			"token2": "\","
 		},
 
@@ -331,6 +330,10 @@
 				{
 					"match": "u003E",
 					"text": ""
+				},
+				{
+					"match": "\n",
+					"text": " "
 				},
 				{
 					"match": "u003C",
@@ -386,7 +389,7 @@
 "chapters_from_page": {
 			"before": "\"labels\"",
 			"token1": "\"id\":\"",
-			"token2": "\"",
+			"token2": "\",",
 			"replace": [{
 					"prefix": "https://api.manga.ovh/book/"
 				},
@@ -419,6 +422,7 @@
 			"next": "{",
 
 			"link": {
+				
 				"token1": "id\":\"",
 				"token2": "\"",
 				"replace": {
@@ -426,6 +430,7 @@
 				}
 			},
 			"uniq": {
+				
 				"token1": "{\"na",
 				"token2": "}",
 				"replace": [{
@@ -441,6 +446,7 @@
 			},
 
 			"title": {
+				
 				"token1": "{\"na",
 				"token2": "}",
 				"replace": [{
