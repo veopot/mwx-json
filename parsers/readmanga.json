@@ -1,12 +1,12 @@
 {
     "id": 30006,
-    "version": 58,
+    "version": 59,
 	
 	"old_ids": [40172],
-        "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.live"],
+        "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
 	
 	"title": "ReadManga",
-    "host": "https://readmanga.io/",
+    "host": "https://readmanga.live/",
     "public_link": "https://readmanga.io/list/",
     "folder": "readmanga",
     "name": "readmanga",
