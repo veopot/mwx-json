@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 66, 
+	"version": 67, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -132,7 +132,14 @@
 			{"sufix": "?mtr=1"}
 			]},
 			
-			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
+			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
+				"replace":  [
+				{ "match": "\n          \n          ", "text": "" },
+				{"prefix": "Том:"},
+				{ "match": " - ", "text": " Глава:" }
+				] },
+			
+			
 			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", 
 			"replace": { "match": "\\?.*", "text": "" } },
 			"!postfix":	"?mtr=1"
@@ -197,7 +204,13 @@
 			{"sufix": "?mtr=1"}
 			]},
 			
-			"title":	{ "after": "<a href=\"", "token1": ">", "token2": "<", "replace": [ { "match": "(.*)\n          \n          ", "text": "" } ] },
+			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
+				"replace":  [
+				{ "match": "\n          \n          ", "text": "" },
+				{"prefix": "Том:"},
+				{ "match": " - ", "text": " Глава:" }
+				] },
+				
 			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
 			"!postfix":	"?mtr=1"
 		}
