@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 42,
+	"version": 44,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -118,13 +118,13 @@
 		}   
 	},
 	"chapter_complete": {
+		
+		
+	
+	
+	
 		"headers": {
-"accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-"referer": "https://manga-chan.me/",
-"sec-fetch-dest": "image",
-"sec-fetch-mode": "no-cors",
-"sec-fetch-site": "same-site"
+"accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*"
 		},
 		"add_images": {
 			"start": "fullimg\":",
