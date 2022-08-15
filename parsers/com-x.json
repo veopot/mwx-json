@@ -3,7 +3,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version": 30,
+	"version": 31,
 	"title": "Com-X.life",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -116,23 +116,21 @@
 			"token2": "</a>"
 		},
 		
-		"chapters_from_page": {
-			"before": ">Читать онлайн",
-			"token1": "href=\"",
-			"token2": "\"",
-			"replace": {"prefix": "https://com-x.life" }
-		},
+		
 		
 		
 		"add_chapter": {
 		    "start": "\"chapters\":[",
-			"end":  "\"images\":",
+			"end":  "<div v-if=\"page_count >",
 			
 			"next": "{\"i",
 			"link": {
-				"token1": "d\":",
-				"token2": ",",
-			"replace": { "sufix": ".html" }
+				"token1": "/download\\/",
+				"token2": "\"",
+				"replace": [
+				{ "match": "-", "text": "/"},
+				{ "prefix": "https://com-x.life/reader/"}
+		        ]
 			},
 			"title": {
 				"token1": "\"title\":\"",
@@ -142,8 +140,9 @@
 	},
 
 	"chapter_complete": {
+		"add_numeration": true,
 		"add_images": {
-			"start": "images\":",
+			"start": "\"images\":",
 			"token1": "[\"",
 			"token2": "\"]",
 			"split" : "\",\"",
@@ -188,7 +187,7 @@
             
             "link": "https://com-x.life/readcomix/3482/30986.html",
             "title": "# 2"
-        },
+        }
 				
 				
 				]
