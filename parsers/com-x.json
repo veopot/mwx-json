@@ -3,7 +3,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version": 31,
+	"version": 32,
 	"title": "Com-X.life",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -67,7 +67,8 @@
 	"manga_complete": {
         "headers": {
 			"userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0",
-			"Referer": "https://com-x.life"
+			"Referer": "https://com-x.life",
+		    "cookie": "adult=8109"
 		
 		},
 		"title": {
@@ -140,6 +141,9 @@
 	},
 
 	"chapter_complete": {
+		"headers": {
+			"cookie": "adult=8109"
+		},
 		"add_numeration": true,
 		"add_images": {
 			"start": "\"images\":",
