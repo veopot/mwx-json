@@ -1,0 +1,459 @@
+{
+	"id": 70503,
+	"version": 17,
+	"time_invalidate": 0,
+	"title": "Novel.tl",
+	"host": "https://novel.tl",
+	"public_link": "https://novel.tl/projects",
+	"folder": "worksnovel",
+	"name": "worksnovel",
+	"chapters_order": false,
+	"language": "ru",
+	"encoding": "utf-8",
+	"catalog_link": "https://rusiniu.bitbucket.io/parsers/works-novel.zip",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/works-novel.json",
+	"self_link2": "https://rusiniu.bitbucket.io/parsers/works-novel.json",
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/works-novel.png",
+	"file_type": "sqlite",
+	"author": { "name": "Kro4" },
+	
+	"manga_search_complete": {
+		"search_link": "https://novel.tl/projects;page=$page$?query=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"start": ">Проекты</span",
+			"end": "<app-footer",
+			"next": "class=\"center ng-star-inserted\">",
+			"link": {
+				"before": "href=\"/r/",
+				"token1": " href=\"",
+				"token2": "\"",
+				"replace": [{
+						"match": "//",
+						"text": "/"
+					},
+					{
+						"prefix": "https:/"
+					},
+					{
+						"match": "https://r/",
+						"text": "https://novel.tl/r/"
+					}
+				]
+			},
+			"title": {
+				"token1": "<b _ngcontent-sc84=\"\">",
+				"token2": "</b>"
+			},
+			"uniq": {
+				"token1": "class=\"cover__title\" title=\"",
+				"token2": "\""
+			},
+			"summary": {
+				"token1": "<div _ngcontent-sc84=\"\">",
+				"token2": "</div>"
+			},
+			"cover": {
+				"before": "<b _ngcontent-sc84=\"\">",
+				"token1": "class=\"cover__image\" src=\"",
+				"token2": "\"",
+				"replace": {
+					"prefix": "https://novel.tl/"
+				}
+			}
+		}
+	},
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://novel.tl/projects;page=",
+			"append_nums": {
+				"from": 1,
+				"to": 12
+			}
+		},
+		"add_manga": {
+			"start": ">Проекты</span",
+			"end": "<app-footer",
+			"next": "class=\"cover\"",
+			"link": {
+				"token1": " href=\"",
+				"token2": "\"",
+				"replace": [{
+						"match": "//",
+						"text": "/"
+					},
+					{
+						"prefix": "https:/"
+					},
+					{
+						"match": "https://r/",
+						"text": "https://novel.tl/r/"
+					}
+				]
+			},
+			"title": {
+				"token1": "class=\"cover__title\" title=\"",
+				"token2": "\""
+			},
+			"skipmanga": {
+				"link_contains": [
+					"ruranobe"
+				]
+			}
+		},
+		"link_corrector": [{
+				"match": "https://works.novel.tl/",
+				"text": "https://novel.tl/"
+			},
+			{
+				"match": "https://r/",
+				"text": "https://novel.tl/"
+			}
+		]
+	},
+	"manga_complete": [{
+			"condition": "Альтернативное:",
+			"title": {
+				"skip": "class=\"headline__text\">",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "class=\"headline__text\">",
+				"token1": "\">",
+				"token2": "</",
+				"replace": [{
+						"match": "’m",
+						"text": "_"
+					},
+					{
+						"match": "\\?",
+						"text": " "
+					}
+				]
+			},
+			"additional_title": {
+				"skip": ">Альтернативное: </",
+				"token1": ">",
+				"token2": "</"
+			},
+			"author": {
+				"skip": ">Автор: </",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"summary": {
+				"skip": "class=\"read-more\">",
+				"token1": "id=\"p0\">",
+				"token2": "</p></div></div>"
+			},
+			"add_genre": {
+				"after": "href=\"/projects/genres/",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"add_tag": {
+				"after": "href=\"/projects/tags/",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"cover": {
+				"after": "class=\"detail__image\"",
+				"token1": "src=\"",
+				"token2": "\"",
+				"replace": {
+					"prefix": "https://novel.tl"
+				}
+			},
+			"status": {
+				"complete": {
+					"start": "class=\"text--ellipsis\">",
+					"end": "</span",
+					"values": [
+						", перевод завершен",
+						", перевод Завершен",
+						"Переведен",
+						"переведен"
+					]
+				},
+				"ongoing": {
+					"start": "class=\"text--ellipsis\">",
+					"end": "</span",
+					"values": [
+						", перевод Активен ",
+						", перевод активен",
+						", перевод в Процессе",
+						", перевод в процессе",
+						", перевод Идёт",
+						", перевод идёт",
+						", перевод Пассивен",
+						", перевод пассивен"
+					]
+				}
+			},
+			"content_type": {
+				"default": "light_novels"
+			},
+			"add_chapter": {
+				"start": ">Содержание</",
+				"end": "<app-footer",
+				"next": "class=\"list__item\"",
+				"link": {
+					"token1": "href=\"",
+					"token2": "\""
+				},
+				"uniq": {
+					"token1": "class=\"list__item-number\">",
+					"token2": "<span _ngcontent",
+					"replace": [{
+							"match": "</span>",
+							"text": ""
+						},
+						{
+							"match": ":",
+							"text": " "
+						},
+						{
+							"match": ",",
+							"text": " "
+						},
+						{
+							"match": "\\?",
+							"text": " "
+						},
+						{
+							"match": "<!---->",
+							"text": ""
+						}
+					]
+				},
+				"title": {
+					"token1": "class=\"list__name\">",
+					"token2": "</a>",
+					"replace": [{
+							"match": "</span>",
+							"text": "&nbsp;"
+						},
+						{
+							"match": "</span><!---->",
+							"text": "&nbsp;"
+						},
+						{
+							"match": "<span .*? class=\"list__item-number\">",
+							"text": ""
+						},
+						{
+							"match": "<span .*?>",
+							"text": "(Статус:"
+						},
+						{
+							"sufix": ")"
+						}
+					]
+				}
+			}
+		},
+		{
+			"condition": "",
+			"title": {
+				"skip": "Английское:",
+				"token1": ">",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "Английское:",
+				"token1": ">",
+				"token2": "</",
+				"replace": [{
+						"match": "’m",
+						"text": "_"
+					},
+					{
+						"match": "\\?",
+						"text": " "
+					}
+				]
+			},
+			"additional_title": {
+				"skip": "class=\"headline__text\">",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"author": {
+				"skip": ">Автор: </",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"summary": {
+				"skip": "class=\"read-more\">",
+				"token1": "id=\"p0\">",
+				"token2": "</p></div></div>"
+			},
+			"add_genre": {
+				"after": "href=\"/projects/genres/",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"add_tag": {
+				"after": "href=\"/projects/tags/",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"cover": {
+				"after": "class=\"detail__image\"",
+				"token1": "src=\"/",
+				"token2": "\"",
+				"replace": {
+					"prefix": "https://novel.tl/"
+				}
+			},
+			"status": {
+				"complete": {
+					"start": "class=\"text--ellipsis\">",
+					"end": "</span",
+					"values": [
+						", перевод завершен",
+						", перевод Завершен",
+						"Переведен",
+						"переведен"
+					]
+				},
+				"ongoing": {
+					"start": "class=\"text--ellipsis\">",
+					"end": "</span",
+					"values": [
+						", перевод Активен ",
+						", перевод активен",
+						", перевод в Процессе",
+						", перевод в процессе",
+						", перевод Идёт",
+						", перевод идёт",
+						", перевод Пассивен",
+						", перевод пассивен"
+					]
+				}
+			},
+			"content_type": {
+				"default": "light_novels"
+			},
+			"add_chapter": {
+				"start": ">Содержание</",
+				"end": "<app-footer",
+				"next": "class=\"list__item\"",
+				"link": {
+					"token1": "href=\"",
+					"token2": "\""
+				},
+				"uniq": {
+					"token1": "class=\"list__item-number\">",
+					"token2": "<span _ngcontent",
+					"replace": [{
+							"match": "</span>",
+							"text": ""
+						},
+						{
+							"match": ":",
+							"text": " "
+						},
+						{
+							"match": ",",
+							"text": " "
+						},
+						{
+							"match": "\\?",
+							"text": " "
+						},
+						{
+							"match": "<!---->",
+							"text": ""
+						}
+					]
+				},
+				"title": {
+					"token1": "class=\"list__name\">",
+					"token2": "</a>",
+					"replace": [{
+							"match": "</span>",
+							"text": "&nbsp;"
+						},
+						{
+							"match": "</span><!---->",
+							"text": "&nbsp;"
+						},
+						{
+							"match": "<span .*? class=\"list__item-number\">",
+							"text": ""
+						},
+						{
+							"match": "<span .*?>",
+							"text": "(Статус:"
+						},
+						{
+							"sufix": ")"
+						}
+					]
+				}
+			}
+		}
+	],
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": ">Выберите формат</",
+			"token1": " href=\"/d/fb2/",
+			"token2": "\"",
+			"end": " fb2 <small"
+		},
+		"sufix": "?title=/ranobe.fb2",
+		"prefix": "https://novel.tl/d/fb2/"
+	},
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+						"title": "Да, я паук, и что с того?",
+						"link": "https://novel.tl/r/kdgnk",
+						"uniq": "kdgnk"
+					},
+					{
+						"title": "Да будет благословен этот прекрасный мир!",
+						"link": "https://axel.znovel.space/r/burabuba"
+					}
+				],
+				"mangas_count": ">10"
+			}
+		},
+		{
+			"proc": "manga_complete",
+			"link": "https://novel.tl/r/inn",
+			"title": "Isekai Nonbiri Nouka",
+			"assert": {
+				"author": "Найто Киноске",
+				"cover": "https://novel.tl/images/thumb/4/4e/works_inn_arc1_b970058b-1e80-40a3-9146-4fb55cc13f00_%25D0%25B7%25D0%25B0%25D0%25B3%25D1%2580%25D1%2583%25D0%25B6%25D0%25B5%25D0%25BD%25D0%25BE_%252811%2529.jpg/240px-works_inn_arc1_b970058b-1e80-40a3-9146-4fb55cc13f00_%25D0%25B7%25D0%25B0%25D0%25B3%25D1%2580%25D1%2583%25D0%25B6%25D0%25B5%25D0%25BD%25D0%25BE_%252811%2529.jpg",
+				"summary": "@^(После борьбы с болезнью в течении 10 лет)",
+				"additional_title": "Фермерская жизнь в ином мире",
+				"status": "ongoing",
+				"chapters_count": ">=2",
+				"genres_count": "=1",
+				"genres": "@fantasy",
+				"chapters": [{
+						"folder": "Том 2/",
+						"link": "https://novel.tl/r/inn/arc2",
+						"title": "Isekai Nonbiri Nouka 2  (Статус: Редактура  )"
+					},
+					{
+						"link": "https://novel.tl/r/inn/arc1",
+						"title": "Isekai Nonbiri Nouka 1  (Статус: Редактура  )"
+					}
+				]
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "https://novel.tl/r/inn/arc1",
+			"assert": {
+				"image": "https://novel.tl/d/fb2/2664/Isekai_Nonbiri_Nouka_1.fb2?title=/ranobe.fb2"
+			}
+		}
+	]
+}
