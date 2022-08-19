@@ -3,7 +3,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version": 32,
+	"version": 33,
 	"title": "Com-X.life",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -32,17 +32,17 @@
 		},
 		
 		"iterator": {
-			"base_url": "https://com-x.life/ComicList/page/",
+			"base_url": "https://com-x.life/comix-read/page/",
 			"append_nums": {
 				"from": 1,
-				"to": 136,
+				"to": 932,
 				"step": 1,
 				"sufix": "/"
 			}
 		},
 		"add_manga": {
 
-			"next": "data-id=",
+			"next": "class=\"readed__title\">",
 			"link": {
 				"token1": "href=\"",
 				"token2": "\""
@@ -59,7 +59,7 @@
 			}
 		},
 		"rating_auto_inc": {
-			"start": "30000",
+			"start": "50000",
 			"inc": -1
 		}
 	},
