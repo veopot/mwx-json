@@ -1,6 +1,6 @@
 {
    "id":40226,
-   "version":9,
+   "version":10,
    "title":"MangaKatana",
    "host":"https://mangakatana.com",
    "public_link":"https://mangakatana.com/manga-list",
@@ -36,7 +36,7 @@
          "base_url":"https://mangakatana.com/manga/page/",
          "append_nums":{
             "from":1,
-            "to":1290,
+            "to":1322,
             "step":1,
 			"sufix": "?filter=1&include_mode=and&order=numc"
          }
@@ -176,7 +176,8 @@
 		 "uniq":{
             "skip":"href=\"",
             "token1":"\">",
-            "token2":"</a>"
+            "token2":"</a>",
+                "replace":{"match":":", "text":" "}
          },
          "title":{
             "skip":"href=\"",
@@ -191,9 +192,16 @@
    "chapter_complete":{
     "add_numeration": true,
         "headers": {
-			"Accept": "*/*",
-			"Referer": "https://mangakatana.com/",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+"Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+"Accept-Encoding": "gzip, deflate, br",
+"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+"Connection": "keep-alive",
+
+"Referer": "https://mangakatana.com/",
+"Sec-Fetch-Dest": "image",
+"Sec-Fetch-Mode": "no-cors",
+"Sec-Fetch-Site": "same-site",
+"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
 		},
      
       "images":true,

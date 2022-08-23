@@ -1,6 +1,6 @@
 {
 	"id": 40223,
-	"version": 9,
+	"version": 10,
 	"title": "MangaBat",
 	"host": "https://mangabat.com",
 	"public_link": "https://mangabat.com/manga-list-all",
@@ -23,10 +23,10 @@
 	"manga_list_complete": {
 
 		"iterator": {
-			"base_url": "https://m.mangabat.com/manga-list-all/",
+			"base_url": "https://h.mangabat.com/advanced_search?s=all&orby=topview&page=",
 			"append_nums": {
 				"from": 1,
-				"to": 1320
+				"to": 1355
 			}
 		},
 
@@ -55,7 +55,7 @@
 
 
 	"manga_search_complete": {
-		"search_link": "https://m.mangabat.com/search/manga/$query$?page=$page$",
+		"search_link": "https://h.mangabat.com//search/manga/$query$?page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "class=\"list-story-item\">",
@@ -91,7 +91,7 @@
 			"token2": "</"
 		},
 		"author": {
-			"after": "href='https://m.mangabat.com/search/author/",
+			"after": "href='https://h.mangabat.com//search/author/",
 			"token1": "'>",
 			"token2": "</"
 		},
@@ -150,10 +150,11 @@
 				"skip": "href=\"https://",
 				"token1": "\">",
 				"token2": "</",
-				"replace": {
-					"match": "&nbsp;",
-					"text": ""
-				}
+				
+				"replace": [
+				{ "match": ":", "text": " "},
+				{ "match": "&nbsp;", "text": ""}
+				    ]
 			},
 
 			"link": {
@@ -177,7 +178,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"Referer": "https://m.mangabat.com/"
+			"Referer": "https://h.mangabat.com//"
 		},
 
 
@@ -212,7 +213,7 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://mangabat.com/manga/serie-1088887707",
+			"link": "https://readmangabat.com/read-af359398",
 			"title": "Komi-san wa Komyushou Desu",
 			"assert": {
 				"author": "Oda Tomohito",
@@ -222,35 +223,29 @@
 				"status": "ongoing",
 				"genres_count": ">=3",
 				"chapters_count": ">=200",
-				"chapters": [{
-
-						"folder": "Vol.1 Chapter 0: One Shot/",
-						"link": "https://read.mangabat.com/read-di15731-chap-0",
-						"title": "Vol.1 Chapter 0: One Shot"
-					},
-					{
-						"folder": "Vol.1 Chapter 1: A Normal Person/",
-						"link": "https://read.mangabat.com/read-di15731-chap-1",
-						"title": "Vol.1 Chapter 1: A Normal Person"
-					}
+				"chapters": [
+		{
+            "folder": "Vol.1 Chapter 0  One Shot/",
+            "link": "https://readmangabat.com/read-af359398-chap-0",
+            "title": "Vol.1 Chapter 0: One Shot"
+        },
+        {
+            "link": "https://readmangabat.com/read-af359398-chap-1",
+            "title": "Vol.1 Chapter 1: A Normal Person"
+        }
 				]
 			}
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://read.mangabat.com/read-di15731-chap-1",
+			"link": "https://readmangabat.com/read-af359398-chap-0",
 			"assert": {
-				"pages": [{
-						"image": "https://s31.mkklcdnv31.com/mangakakalot/k2/komisan_wa_komyushou_desu/vol1_chapter_1_a_normal_person/1.jpg"
-					},
-					{
-						"image": "https://s31.mkklcdnv31.com/mangakakalot/k2/komisan_wa_komyushou_desu/vol1_chapter_1_a_normal_person/2.jpg"
-					},
-					{
-						"image": "https://s31.mkklcdnv31.com/mangakakalot/k2/komisan_wa_komyushou_desu/vol1_chapter_1_a_normal_person/3.jpg"
-					}
+				"pages": [
+	{"image": "https://v2.mkklcdnv6tempv2.com/img/tab_2/00/21/52/va953509/vol_1_chapter_0_one_shot/1-o.jpg"},
+    {"image": "https://v2.mkklcdnv6tempv2.com/img/tab_2/00/21/52/va953509/vol_1_chapter_0_one_shot/2-o.jpg"},
+    {"image": "https://v2.mkklcdnv6tempv2.com/img/tab_2/00/21/52/va953509/vol_1_chapter_0_one_shot/3-o.jpg"}
 				],
-				"pages_count": "14"
+				"pages_count": "44"
 			}
 		}
 	]
