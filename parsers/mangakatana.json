@@ -1,6 +1,6 @@
 {
    "id":40226,
-   "version":11,
+   "version":12,
    "title":"MangaKatana",
    "host":"https://mangakatana.com",
    "public_link":"https://mangakatana.com/manga-list",
@@ -197,7 +197,7 @@
      
       "images":true,
       "add_images": {
-         "start":"var htnc=",
+         "start":"var ytaw=",
          "token1":"http",
          "token2":"'",
 		 "end":"id=\"copyright\">",
