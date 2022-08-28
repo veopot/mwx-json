@@ -1,0 +1,195 @@
+{
+    "id": 80001,
+    "version": 1,
+
+    "title": "Flame Scans",
+    "host": "https://flamescans.org/",
+    "public_link": "https://flamescans.org/series/",
+    "name": "flamescans",
+    "folder": "flamescans",
+    "language": "en",
+
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/flamescans.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/flamescans.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/flamescans.zip",
+    "file_type": "sqlite",
+
+    "manga_list_complete": {
+        "headers": {
+            "Referer": "https://flamescans.org/"
+        },
+        "iterator": "https://flamescans.org/series/list-mode",
+        "add_manga": {
+            "start": "class=\"soralist\">",
+            "end": "id=\"sidebar\">",
+            "next": "<li><a",
+
+            "link": {
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "after": "href=\"",
+                "token1": "flamescans.org/",
+                "token2": "\"",
+                "replace": {
+                    "match": "[^A-Za-z0-9]",
+                    "text": " "
+                }
+            },
+            "title": {
+                "after": "href=\"",
+                "token1": "\">",
+                "token2": "</",
+                "replace": {
+                    "match": "\"",
+                    "text": ""
+                }
+            }
+        }
+    },
+
+    "manga_complete": {
+        "title": {
+            "skip": "class=\"first-half\">",
+            "token1": "itemprop=\"name\">",
+            "token2": "</",
+            "replace": {
+                "match": "[^A-Za-z0-9]",
+                "text": " "
+            }
+        },
+
+        "uniq": {
+            "skip": "class=\"first-half\">",
+            "token1": "itemprop=\"name\">",
+            "token2": "</",
+            "replace": {
+                "match": "[^A-Za-z0-9]",
+                "text": " "
+            }
+        },
+
+        "summary": {
+            "after": "class=\"summary",
+            "token1": "<p>",
+            "token2": "</p>"
+        },
+
+        "author": {
+            "skip": "<h1> Author </h1>",
+            "token1": "i>",
+            "token2": "</"
+        },
+
+        "status": {
+            "complete": "<h1> Status </h1> <i>Completed</i>",
+            "ongoing": "<h1> Status </h1> <i>Ongoing</i>"
+        },
+
+        "rating": {
+            "skip": "class=\"info-half\"",
+            "token1": "class=\"numscore\">",
+            "token2": "</div>",
+        },
+
+        "cover": {
+            "skip": "class=\"thumb\"",
+            "token1": "src=\"",
+            "token2": "\""
+        },
+
+        "add_genres": {
+            "start": "class=\"genres-container\"",
+            "end": "class=\"summary\">",
+            "token1": "rel=\"tag\">",
+            "token2": "</a>"
+        },
+
+        "add_chapter": {
+            "start": "class=\"eplister\"",
+            "end": "</ul>",
+            "next": "<li",
+            "link": {
+                "token1": "<a href=\"",
+                "token2": "\""
+            },
+            "title": {
+                "token1": "chapternum\">",
+                "token2": "</span>",
+                "replace": [{
+                        "match": "<.*?>",
+                        "text": ""
+                    }, {
+                        "match": "\"",
+                        "text": ""
+                    }
+                ]
+            }
+        }
+    },
+
+    "chapter_complete": {
+        "images": true,
+        "add_pages": {
+            "start": "id=\"readerarea\"",
+            "token1": "\" src=\"",
+            "token2": "\"",
+            "end": "class=\"promo-banner\"",
+            "replace": {
+                "match": "\\\\",
+                "text": ""
+            }
+        }
+    },
+
+    "test": [{
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [{
+                        "title": "48 Hours a Day",
+                        "link": "https://flamescans.org/series/forty-eight-hours-a-day/"
+
+                    }
+                ],
+                "mangas_count": ">60"
+            }
+        }, {
+            "proc": "manga_complete",
+            "title": "48 Hours a Day",
+            "link": "https://flamescans.org/series/forty-eight-hours-a-day/",
+            "assert": {
+                "author": "@Little Bleary Zhao",
+                "cover": "https://flamescans.org/wp-content/uploads/2022/06/unknown-1.png",
+                "summary": "@^(The God of Time)",
+                "genres": "@action",
+                "status": "ongoing",
+                "genres_count": ">2",
+                "chapters_count": ">24",
+                "chapters": [{
+                        "folder": "forty-eight-hours-a-day-chapter-25/",
+                        "link": "https://flamescans.org/forty-eight-hours-a-day-chapter-25/",
+                        "title": "Chapter 25"
+                    }, {
+                        "link": "https://flamescans.org/forty-eight-hours-a-day-chapter-24/",
+                        "title": "Chapter 24"
+                    }
+                ]
+            }
+        }, {
+            "proc": "chapter_complete",
+            "link": "https://flamescans.org/forty-eight-hours-a-day-chapter-25/",
+            "assert": {
+                "pages": [{
+                        "image": "https://flamescans.org/wp-content/uploads/2022/08/FEH25-01.jpg"
+                    }, {
+                        "image": "https://flamescans.org/wp-content/uploads/2022/08/FEH25-02.jpg"
+                    }, {
+                        "image": "https://flamescans.org/wp-content/uploads/2022/08/FEH25-03.jpg"
+                    }
+                ],
+                "pages_count": "10"
+            }
+        }
+    ]
+}
