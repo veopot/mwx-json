@@ -1,9 +1,9 @@
 {
 	"id": 70503,
-	"version": 17,
+	"version": 18,
 	"time_invalidate": 0,
 	"title": "Novel.tl",
-	"host": "https://novel.tl",
+	"host": "https://novel.tl/",
 	"public_link": "https://novel.tl/projects",
 	"folder": "worksnovel",
 	"name": "worksnovel",
@@ -15,8 +15,9 @@
 	"self_link2": "https://rusiniu.bitbucket.io/parsers/works-novel.json",
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/works-novel.png",
 	"file_type": "sqlite",
-	"author": { "name": "Kro4" },
-	
+	"author": {
+		"name": "Kro4"
+	},
 	"manga_search_complete": {
 		"search_link": "https://novel.tl/projects;page=$page$?query=$query$",
 		"query_type": "GET",
@@ -25,7 +26,7 @@
 			"end": "<app-footer",
 			"next": "class=\"center ng-star-inserted\">",
 			"link": {
-				"before": "href=\"/r/",
+				"before": "href=\"",
 				"token1": " href=\"",
 				"token2": "\"",
 				"replace": [{
@@ -100,16 +101,7 @@
 					"ruranobe"
 				]
 			}
-		},
-		"link_corrector": [{
-				"match": "https://works.novel.tl/",
-				"text": "https://novel.tl/"
-			},
-			{
-				"match": "https://r/",
-				"text": "https://novel.tl/"
-			}
-		]
+		}
 	},
 	"manga_complete": [{
 			"condition": "Альтернативное:",
@@ -437,15 +429,9 @@
 				"genres_count": "=1",
 				"genres": "@fantasy",
 				"chapters": [{
-						"folder": "Том 2/",
-						"link": "https://novel.tl/r/inn/arc2",
-						"title": "Isekai Nonbiri Nouka 2  (Статус: Редактура  )"
-					},
-					{
-						"link": "https://novel.tl/r/inn/arc1",
-						"title": "Isekai Nonbiri Nouka 1  (Статус: Редактура  )"
-					}
-				]
+					"link": "https://novel.tl/r/inn/arc1",
+					"title": "Isekai Nonbiri Nouka 1  (Статус: Редактура  )"
+				}]
 			}
 		},
 		{
