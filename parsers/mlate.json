@@ -1,6 +1,6 @@
 {
 	"id": 40118,
-	"version": 1,
+	"version": 2,
 	"title": "MLate",
 	"host": "https://mlate.ru",
 	"public_link": "https://mlate.ru/search/?cat=2",
@@ -337,7 +337,7 @@
         {
             "link": "https://mlate.ru/book/1/22/ready",
             "title": "Глава 2: Я вернулся!"
-        },
+        }
 				]
 			}
 		},

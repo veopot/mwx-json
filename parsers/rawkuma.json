@@ -1,0 +1,170 @@
+{
+	"id": 40128,
+	"version": 1,
+	
+	
+	"title": "Rawkuma",
+	"host": "https://rawkuma.com/",
+	"public_link": "https://rawkuma.com/",
+	"folder": "rawkuma",
+	"name" : "rawkuma",
+	"language": "jp",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/rawkuma.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rawkuma.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/rawkuma.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/rawkuma.zip",
+    "file_type": "sqlite",
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+
+	"manga_search_complete": {		
+		"search_link": "https://rawkuma.com/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<div class=\"bsx\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"uniq": { "token1": "href=\"https://rawkuma.com/manga/", "token2": "/\"" },
+			"cover": { "token1": "src=\"", "token2": "\"" }
+			}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://rawkuma.com/manga/?page=",
+			"append_nums": {
+				"from": 1,
+				"to": 152,
+				"step": 1,
+				"sufix": "&type=&order=popular"
+			}
+		},
+		"add_manga": {
+			"next": "<div class=\"bsx\">",
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": "title=\"", "token2": "\"" },
+			"uniq": { "token1": "href=\"https://rawkuma.com/manga/", "token2": "/\"" }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+		"title": { "after": "<h1 class=\"entry-title\"", "token1":"\">", "token2": "</h1>",
+                            "replace": { "match":"Raw","text":""} },
+							
+		"uniq": { "after": "<h1 class=\"entry-title\"", "token1":"\">", "token2": "</h1>",
+                            "replace": { "match":"Raw","text":""} },
+		
+		"author":      { "skip": "<b>Author</b>", "token1":"<span>", "token2": "</span>",
+                            "replace": { "match":"<.*?>","text":""}
+						},
+		
+		"summary":     { "skip": "itemprop=\"description\">", "token1": ">", "token2": "</div>",
+                            "replace": { "match":"<.*?>","text":" "} },
+		
+		"status":      { 
+		
+		"single": "Сингл-Запаска<", 
+		"complete": "<i>Completed</i>",
+		"ongoing": "<i>Ongoing</i>",
+		"licensed": ">Манга удалена по просьбе-Запаска",
+		"empty": "Нет глав-Запаска<" },
+		
+		"is_mature": {
+		"start": "<div class=\"wd-full\"><b>Genres</b>",
+		"end": "</span>",
+			"values": ["Adult", "Mature"]
+		},
+		
+		"read_dir":    { 
+		"right_to_left": "&type=Manga\">Manga",
+		"left_to_right": "&type=Manhwa\">Manhwa"
+		},
+		
+		"cover":       { "after": "<meta property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		
+		"add_genres":  { 
+		 "start": "<div class=\"wd-full\"><b>Genres</b>",
+		 "end": "</span>", 
+         "after": "href=\"https://rawkuma.com/genres/", "token1": "rel=\"tag\">", "token2": "</"
+		},
+		
+		"add_chapter": {
+			"next":  "<div class=\"eph-num\">",
+			"link":  { "token1": "href=\"", "token2": "\""   },
+			"uniq":  { "token1": "href=\"https://rawkuma.com/", "token2": "\""   },
+			"title": { "skip" : "href=\"", "token1": "class=\"chapternum\">", "token2": "</",
+				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
+			}
+		}   
+	},
+	"chapter_complete": {
+	"add_images": {
+			"start": "<![CDATA[*/ts_reader.run",
+			 "end": "var chapter_id",
+			"token1": "\"images\":[\"",
+			"token2": "\"]",
+			"split" : "\",\"",
+		
+			"replace": { "match": "\\\\", "text": "" }
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+            { "title" : "Jigoku no Gouka de Yaka re Tsuzuketa Shounen. Saikyou no Honou Tsukai to Natte Fukkatsu Suru", 
+            "link" : "https://rawkuma.com/manga/jigoku-no-gouka-de-yaka-re-tsuzuketa-shounen-saikyou-no-honou-tsukai-to-natte-fukkatsu-suru/",
+			"uniq" : "jigoku-no-gouka-de-yaka-re-tsuzuketa-shounen-saikyou-no-honou-tsukai-to-natte-fukkatsu-suru" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://rawkuma.com/manga/destiny-lovers/",
+			"title" : "Destiny Lovers",
+			"assert" : {
+				"author" : "@KAZUTAKA",
+				"cover" : "@https://rawkuma.com/wp-content/uploads/2020/06/Destiny-Lovers.jpg",
+				"summary" : "@^(『デスラバ』はWEB版マガポケでのみ配信しておりますので、)",
+				"genres" : "@comedy",
+				"status" : "ongoing",
+				"genres_count" : ">=6",
+				"chapters_count" : ">=100",
+				"chapters" : [
+		{
+            "folder": "destiny-lovers-chapter-111/",
+            "link": "https://rawkuma.com/destiny-lovers-chapter-111/",
+            "title": "Chapter 111"
+        },
+        {
+            "link": "https://rawkuma.com/destiny-lovers-chapter-110/",
+            "title": "Chapter 110"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://rawkuma.com/destiny-lovers-chapter-111/",
+			"assert" : {
+				"pages" : [
+		{"image": "https://kumacdn.club/image-new-2/d/destiny-lovers/chapter-111/1-63123bc8955c9.jpg"},
+        {"image": "https://kumacdn.club/image-new-2/d/destiny-lovers/chapter-111/2-63123bc933dbb.jpg"},
+        {"image": "https://kumacdn.club/image-new-2/d/destiny-lovers/chapter-111/3-63123bca054bf.jpg"}
+				],
+				"pages_count": "14"
+			}
+		}
+	]
+}

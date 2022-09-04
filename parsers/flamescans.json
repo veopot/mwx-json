@@ -1,6 +1,6 @@
 {
     "id": 80001,
-    "version": 1,
+    "version": 2,
 
     "title": "Flame Scans",
     "host": "https://flamescans.org/",
@@ -30,7 +30,7 @@
             },
             "uniq": {
                 "after": "href=\"",
-                "token1": "flamescans.org/",
+                "token1": "flamescans.org/series/",
                 "token2": "\"",
                 "replace": {
                     "match": "[^A-Za-z0-9]",
@@ -90,7 +90,7 @@
         "rating": {
             "skip": "class=\"info-half\"",
             "token1": "class=\"numscore\">",
-            "token2": "</div>",
+            "token2": "</div>"
         },
 
         "cover": {
