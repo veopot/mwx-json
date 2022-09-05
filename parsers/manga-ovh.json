@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 4,
+	"version": 3,
 	"title": "Manga Ovh",
 	"host": "https://api.manga.ovh",
 	"public_link": "https://manga.ovh",
@@ -387,11 +387,10 @@
 
 		
 "chapters_from_page": {
-			"after": "{\"name\":",
+			"before": "type",
 			"token1": "\"id\":\"",
-			"token2": "\",\"type\":\"",
-			"replace": [ 
-               {
+			"token2": "\"",
+			"replace": [{
 					"prefix": "https://api.manga.ovh/book/"
 				},
 				{
@@ -400,11 +399,10 @@
 			],
 
 			"next": {
-				
+				"before": "\"createdAt\"",
 				"token1": "{\"id\":\"",
 				"token2": "\",",
-				"replace": [
-                    {
+				"replace": [{
 						"prefix": "https://api.manga.ovh/branch/"
 					},
 					{
@@ -419,12 +417,11 @@
 
 		"add_chapter": {
             "start": "[", 
-			
+			"end" :  "]",
 
 			"next": "{",
 
 			"link": {
-			    "before": "donut", 
 				"token1": "id\":\"",
 				"token2": "\"",
 				"replace": {
@@ -432,12 +429,12 @@
 				}
 			},
 			"uniq": {
-				 "before": "donut", 
+				
 				"token1": "\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),(.*?)\"id\":\"(.*?)\",\"number\":(.*?)\"(.*?)\"volume\":(.*)",
-						"text": "Том $6 Глава $4"
+"match": "me\":(.*?),\"id\"(.*?)\"number\":(.*?)\"amount\":(.*?)\"createdAt\"(.*?)\"paid\"(.*?)\"volume\":(.*?),(.*)",
+						"text": "Том $7 Глава $3 $1"
 					},
 	
 	{ "match": "\"", "text": "" },
@@ -448,12 +445,12 @@
 			},
 
 			"title": {
-				"before": "donut", 
+				
 				"token1": "\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),(.*?)\"id\":\"(.*?)\",\"number\":(.*?)\"(.*?)\"volume\":(.*)",
-						"text": "Том $6 Глава $4 $1"
+"match": "me\":(.*?),\"id\"(.*?)\"number\":(.*?)\"amount\":(.*?)\"createdAt\"(.*?)\"paid\"(.*?)\"volume\":(.*?),(.*)",
+						"text": "Том $7 Глава $3 $1"
 					},
 	
 	{ "match": "\"", "text": "" },
