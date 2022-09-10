@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 49,
+	"version": 50,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -40,7 +40,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			
-			"base_url": "https://mangahub.ru/explore?filter%5Bsort%5D=rating&filter%5Btype%5D%5Bexcludes%5D=&filter%5Bformats%5D%5Bexcludes%5D=&filter%5Bgenres%5D%5Bexcludes%5D=&filter%5Bstatus%5D%5Bexcludes%5D=&filter%5BstatusTranslation%5D%5Bexcludes%5D=&filter%5BageRating%5D%5Bexcludes%5D=&filter%5Bcountry%5D%5Bexcludes%5D=&page=",
+			"base_url": "https://mangahub.ru/explore/sort-is-rating?page=",
 			
 			"append_nums": { "from": 1, "to": 450, "step": 1 }
 		},
@@ -100,48 +100,36 @@
             { "match": "<.*?>", "text": "" }
 			]
 		},
-		
+		"status": {
+
+			"complete": {
+				"value": "</svg><span>завершён</span>"
+			},
+
+			"ongoing": {
+				"value": "</svg><span>онгоинг</span>"
+			},
+			"single": {
+				"value": "/formats-is-single\">Сингл</a>"
+			}
+		},
 		 
-		"status": { 
-			"single":   { 
-			    "start": "<div class=\"detail-attrs\">",
-			    "end": " </div>",
-			    "value": "Сингл" },
-			
-			"complete": { 
-			    "start": "<div class=\"detail-attrs\">",
-			    "end": " </div>",
-			        "values": ["Выпуск завершен", "Переведена", "Завершен"	] },
-			
-			"ongoing":  { 
-			    "start": "<div class=\"detail-attrs\">",
-			    "end": " </div>",
-			        "value": "Продолжается" },
-			
-			"empty":    { 
-			    "start": "<div class=\"detail-attrs\">",
-			    "end": " </div>",
-			        "value": "Без глав" }
-		},
 		
 		
-		"add_genres":  { 
-		 "start": "<collapse-multiple class=\"d-block tags mt-4\">",
-		 "end": " </collapse-multiple>", 
-         "after": "href=\"/genre/", "token1": ">", "token2": "</"
-		},
+		
+		
 		
 		"add_tags":   {
-         "start": "<collapse-multiple class=\"d-block tags mt-4\">",
-		 "end": " </collapse-multiple>", 
+         "start": "<collapse-multiple class=\"tags\">",
+		 "end": "</collapse-multiple>", 
          "after": "href=\"/tags/", "token1": ">", "token2": "</"
 		},
 		
 		
 		 
 		"is_mature":   { 
-        "start": "<collapse-multiple class=\"d-block tags mt-4\">",
-		 "end": " </collapse-multiple>",
+        "start": "<collapse-multiple class=\"tags\">",
+		"end": "</collapse-multiple>", 
 		 "values": ["Эротика", "Юри", "Яой"] },
 		
 		"chapters_from_page": {
@@ -181,8 +169,8 @@
 		},
 		"add_numeration": true,
 		"add_images": {
-			"start": "class=\"fast-view-wrapper\">",
-			"end": "<div class=\"reader",
+			"start": " <reader data-store",
+			"end": ">",
 			"token1": "src&quot;:&quot;",
 			"token2": "&quot",
 			"replace" : [{ "prefix" : "https:" },{ "match" : "\\\\", "text" : "" }]
@@ -222,19 +210,19 @@
 				"chapters" : [
 					{  
 					"title": "Том 1. Глава 1 - Трудности знакомства",
-					"link": "https://mangahub.ru/their_story/read/sayonara_melody/vol1/1/1/",
+					"link": "https://mangahub.ru/their_story/read/sayonara_melody/vol1/1",
 					"folder": "Том1.Глава1-Трудностизнакомства/"
 					},
 					{ 
 					"title": "Том 1. Глава 3 - Потом",
- 					"link": "https://mangahub.ru/their_story/read/oldxian/vol1/3/1/"
+ 					"link": "https://mangahub.ru/their_story/read/oldxian/vol1/3"
 					}
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://mangahub.ru/read/their_story/sayonara_melody/vol1/1/1/",
+			"link" : "https://mangahub.ru/read/their_story/sayonara_melody/vol1/1",
 			"assert" : {
 				"pages" : [
 		{"image": "https://2hubst.guru/uploads/media/scan/0004/16/20a3a7492cf954a77979710b7812e85bc3bdfaa7.jpeg"},
