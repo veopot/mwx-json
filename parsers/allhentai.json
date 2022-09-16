@@ -1,13 +1,13 @@
 {
 	"id": 30401,
-	"version": 43,
+	"version": 44,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
-    "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ,"24.allhen.online"],
+    "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ,"24.allhen.online","23.allhen.online"],
 	
-	"host": "http://23.allhen.online",
-	"public_link": "http://23.allhen.online",
+	"host": "http://22.allhen.online",
+	"public_link": "http://22.allhen.online",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
 	"name" : "allhentai",
@@ -24,12 +24,12 @@
 	
 	
 	"manga_search_complete": {		
-		"search_link": "http://23.allhen.online/search",
+		"search_link": "http://22.allhen.online/search",
 		"headers": {
 		         "accept": "*/*",
 				"x-requested-with": "XMLHttpRequest",
 				"Content-Type": "application/x-www-form-urlencoded",
-				"Referer": "http://23.allhen.online/search"
+				"Referer": "http://22.allhen.online/search"
 			},       
 		"form_data": {"q": "$query$"},
 		"query_type": "POST",
@@ -56,11 +56,53 @@
 
 
 
+    "authorization_complete": {
+		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
+		"registration": "https://qawa.org/internal/auth/register?siteId=1",
+		"expires": 31536000000,
+		"is_redirect": true,
 
+		"values": {
+            
+			"targetUri": "/login/continueSso?targetUri=http://22.allhen.online",
+			
+			
+		    "remember_me": "true",
+			"remember_me_yes": "on",
+			
+			"username": {
+				"label": "Логин",
+				"hint": "имя от allhen или email",
+				"kind": "text"
+			},
+
+			"password": {
+				"label": "Пароль",
+				"hint": "Введите свой пароль с сайта allhen!",
+				"kind": "password"
+			},
+			"headers": {
+				"Accept": "*/*"
+			}
+
+			
+		},
+
+		"request": {
+			"method": "post",
+		"url": "https://qawa.org/login/authenticate?ttt=1663322245225&siteId=1"
+		},
+		"response_check": {
+			"headers": {
+				"remember_me": "@.*?"
+
+			}
+		}
+	},
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://23.allhen.online/list?sortType=votes&offset=",
+			"base_url": "http://22.allhen.online/list?sortType=votes&offset=",
 			"append_nums": { "from": 0, "to": 15000, "step": 70}
 		},
 		"add_manga": {
@@ -95,6 +137,8 @@
 		"replace": { "match": "<.*?>", "text": "" }},
 		
 		
+		"need_auth": ["залогиненным", "доступна только"],
+		
 		"status":      {
 			"ongoing":  { 
 				"start" : "<b>Томов:</b>",
@@ -124,8 +168,8 @@
 			"start" : "<table class=\"table table-hover\">",
 			"end": "</table>",
 			
-			"next":  "<td class",
-			"link":  {  "before": "class=\"chapter-link",    "token1": "<a href=\"", "token2": "\""  }, 
+			"next":  "item-title\"",
+			"link":  { "token1": "<a href=\"", "token2": "\""  }, 
 		
 			 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", 
 				"replace": { "match": "(.*)\n          \n          ", "text": "" } },  
@@ -141,12 +185,14 @@
         "images": true,
         
         "add_pages": { 
-            "start": "rm_h.init",
+            "start": "rm_h.initReader(",
             "token1": "['",
             "token2": "],",
             "end": "]],",
             "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
+			
         },
+		"prefix": "http:",
         "postfix": "?mature=1"
 	},
 
@@ -157,7 +203,7 @@
 			"assert" : {
 				"mangas" : [
 		{  
-		"link": "http://23.allhen.online/delovoi_stil",
+		"link": "http://22.allhen.online/delovoi_stil",
         "title": "Деловой стиль (Business Casual)",
         "uniq": "delovoi_stil" 
 		}
@@ -167,7 +213,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://23.allhen.online/a_peephole",
+			"link" : "http://22.allhen.online/a_peephole",
 			"title" : "Nozoki ana (A peephole)",
 			"assert" : {
 				"cover" : "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
@@ -179,7 +225,7 @@
 				"chapters" : [
 					{ 
 						"title" : "Дыра 1 - 1", 
-						"link" : "http://23.allhen.online/a_peephole/vol1/1",
+						"link" : "http://22.allhen.online/a_peephole/vol1/1",
 						"folder" : "Дыра 1 - 1/"
 					}
 				]
@@ -188,7 +234,7 @@
 		
 		{
 			"proc" : "chapter_complete",
-			"link" : "http://23.allhen.online/a_peephole/vol1/1",
+			"link" : "http://22.allhen.online/a_peephole/vol1/1",
 		     "assert" : {
 				"pages" : [
  {"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
