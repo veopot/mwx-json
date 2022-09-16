@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 44,
+	"version": 45,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -137,7 +137,7 @@
 		"replace": { "match": "<.*?>", "text": "" }},
 		
 		
-		"need_auth": ["залогиненным", "доступна только"],
+		"need_auth": ["залогиненным", "доступна только","хентай"   ],
 		
 		"status":      {
 			"ongoing":  { 
@@ -164,6 +164,9 @@
 		
 		"add_tag":   { "after": "href=\"/list/tag/", "token1":"\">", "token2": "</" },
 		
+		
+		"need_auth_genres": ["сэйнэн", "сёдзё для взрослых", "этти", "эротика", "юри", "яой","завершен", "Переведена", "Сингл","залогиненным", "доступна только","хентай" ],
+		
 		"add_chapter": { 
 			"start" : "<table class=\"table table-hover\">",
 			"end": "</table>",
@@ -176,6 +179,7 @@
            
 		   "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"",
 		   "replace" : { "match" : "\\?.*", "text" : "" } }
+		
 			
 		}
 	},
