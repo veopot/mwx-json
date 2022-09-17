@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 35,
+	"version": 36,
 	
 	"old_ids": [66348],
 
@@ -108,7 +108,7 @@
 
 				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
-			"cover":       { "skip": "<div class=\"c-poster\"", "token1": "src=\"", "token2": "\"" },
+			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://desu.me" } },
 			"add_genre":   { 
 				"!start": "<ul class=\"tagList\"",
 				"!end": "</ul>",
