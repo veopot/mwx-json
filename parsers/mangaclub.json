@@ -19,7 +19,7 @@
 	"author": {"name":"Veopot & Lomik_XP","email":"admin@mw.lomikxp.ru"},
 	
 	"authorization_complete": {
-		"logo": 		"https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
+		"logo": 		"https://mangaclub.ru/templates/MangaClub/images/icon/favicon.ico",
 		"registration": "https://mangaclub.ru/index.php?do=register",
 		"expires": 		31449600000,
 		"expires_check": {"cookies_value": ["PHPSESSID"]},
