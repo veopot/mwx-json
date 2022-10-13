@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 32,
+	"version": 33,
 	"old_ids": [29000],
 	
 	"title": "MangaClub",
@@ -10,7 +10,8 @@
 	"name" : "mangclub",
 	"language": "ru",
 	"skip_catalog_test": false,
-	"icon_link": "https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
+	"icon_link": "https://mangaclub.ru/templates/MangaClub/images/icon/favicon.ico",
+	
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaclub.json",
 	"self_link2": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangaclub.zip",
@@ -18,7 +19,7 @@
 	"author": {"name":"Veopot & Lomik_XP","email":"admin@mw.lomikxp.ru"},
 	
 	"authorization_complete": {
-		"logo": 		"https://mangaclub.ru/templates/MangaClubTheme/images/favicon.ico",
+		"logo": 		"https://mangaclub.ru/templates/MangaClub/images/icon/favicon.ico",
 		"registration": "https://mangaclub.ru/index.php?do=register",
 		"expires": 		31449600000,
 		"expires_check": {"cookies_value": ["PHPSESSID"]},

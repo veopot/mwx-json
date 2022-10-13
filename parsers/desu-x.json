@@ -1,13 +1,12 @@
 {
 	"id": 30402,
 	"version": 37,
-	
-	"old_ids": [66348],
+	"old_sites": ["desu.me"],
 
 	
-	"title": "Desu",
-	"host": "https://desu.me/",
-	"public_link": "https://desu.me/manga/",
+	"title": "Desu (Зеркало)",
+	"host": "https://x.desu.me/",
+	"public_link": "https://x.desu.me/manga/",
 	"folder": "desu",
 	"name" : "desu",
 	"language": "ru",
@@ -15,14 +14,14 @@
 	"chapters_order": true,
 	"skip_catalog_test": false,
 	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/desu.png",
-	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/desu.json",
-	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/desu.json",
-	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/desu.zip",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/desu-x.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/desu-x.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/desu-x.zip",
     "file_type": "sqlite",
 		
 	"manga_search_complete": {
 	    
-		"search_link": "https://desu.me/manga/api/?limit=10&page=$page$&search=$query$",
+		"search_link": "https://x.desu.me/manga/api/?limit=10&page=$page$&search=$query$",
 		"query_type": "GET",
 		
 		"add_manga":  {
@@ -46,13 +45,13 @@
 		
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://desu.me/manga/api/?limit=30&order=popular&page=",
+			"base_url": "https://x.desu.me/manga/api/?limit=30&order=popular&page=",
 			"append_nums": { "from": 1, "to": 80 }
 		},
 		"add_manga": {
 			"next": "\"id\"",
 			"link":  { "after": "\"url\"", "token1": ":\"", "token2": "\",",
-			"replace" : { "match" : "desu.me/manga/", "text" : "desu.me/manga/api/" }},
+			"replace" : { "match" : "x.desu.me/manga/", "text" : "x.desu.me/manga/api/" }},
 			"uniq": { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
 			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
 		},	 
@@ -108,7 +107,7 @@
 
 				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
-			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://desu.me" } },
+			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://x.desu.me" } },
 			"add_genre":   { 
 				"!start": "<ul class=\"tagList\"",
 				"!end": "</ul>",
@@ -116,7 +115,7 @@
 				"token2": "\"" 
 			},
 			"chapters_from_page": { "skip": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "\"",
-			"replace" : { "match" : "desu.me/manga/", "text" : "desu.me/manga/api/" }},
+			"replace" : { "match" : "x.desu.me/manga/", "text" : "x.desu.me/manga/api/" }},
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
@@ -144,18 +143,18 @@
 			"testpages": "3",
 			"assert" : {
 				"mangas" : [
-					{ "link" : "https://desu.me/manga/api/z-shokugeki-no-soma.142/", "uniq" : "Shokugeki no Soma" },
-					{ "link" : "https://desu.me/manga/api/z-onepunch-man.48/" }
+					{ "link" : "https://x.desu.me/manga/api/z-shokugeki-no-soma.142/", "uniq" : "Shokugeki no Soma" },
+					{ "link" : "https://x.desu.me/manga/api/z-onepunch-man.48/" }
 				],
 				"mangas_count" : ">25"
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://desu.me/manga/api/z-fairy-tail.10/",
+			"link" : "https://x.desu.me/manga/api/z-fairy-tail.10/",
 			"title" : "Фейри Тейл",
 			"assert" : {
-				"cover" : "https://desu.me/data/manga/covers/original/10.jpg",
+				"cover" : "https://x.desu.me/data/manga/covers/original/10.jpg",
 				"summary" : "@^(Фейри Тейл – знаменитая на весь мир)",
 				"genres" : "@comedy",
 				"status" : "complete",
@@ -163,16 +162,16 @@
 				"chapters_count" : ">=511",
 				"chapters" : [
 					{ "title" : "1 - 1 - Фейри Тейл",
-						"link" : "https://desu.me/manga/api/z-fairy-tail.10/chapter/37975",
+						"link" : "https://x.desu.me/manga/api/z-fairy-tail.10/chapter/37975",
 						"folder" : "1-1/"
 					}, 
-					{ "title" : "@(2 - Появление)", "link" : "https://desu.me/manga/api/z-fairy-tail.10/chapter/37976" }
+					{ "title" : "@(2 - Появление)", "link" : "https://x.desu.me/manga/api/z-fairy-tail.10/chapter/37976" }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://desu.me/manga/api/z-fairy-tail.10/chapter/37975",
+			"link" : "https://x.desu.me/manga/api/z-fairy-tail.10/chapter/37975",
 			"assert" : {
 				"pages" : [
 		{"image": "https://img4.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg"},
