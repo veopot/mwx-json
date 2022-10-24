@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 45,
+	"version": 46,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -59,7 +59,8 @@
     "authorization_complete": {
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
 		"registration": "https://qawa.org/internal/auth/register?siteId=1",
-		"expires": 31536000000,
+		
+		"expires": 1728000000,
 		"is_redirect": true,
 
 		"values": {
