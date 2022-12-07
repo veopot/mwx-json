@@ -1,6 +1,6 @@
 {
 	"id": 40155,
-	"version": 82,
+	"version": 83,
 	"title": "ReManga",
 	"host": "https://api.remanga.org",
 	"public_link": "https://remanga.org/manga",
@@ -11,8 +11,7 @@
 	"encoding": "utf-8",
 	"headers": {
 "Referer": "https://api.remanga.org/",
-"content-type": "application/json",
-"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+"content-type": "application/json"
 
 },
 	
@@ -324,7 +323,6 @@
 	    "headers": {
 "Referer": "https://api.remanga.org/",
 "content-type": "application/json",
-"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/jxl,image/webp,*/*;q=0.8"
 
 },
