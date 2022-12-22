@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 67, 
+	"version": 68, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -25,6 +25,54 @@
 	"custom_settings": {
     	"updates_check_delay": 5000
     },
+
+    "authorization_complete": {
+		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mintmanga.png",
+		"registration": "https://grouple.co/internal/auth/register?siteId=2",
+		
+		"expires": 2509600,
+		"is_redirect": true,
+
+		"values": {
+            
+			"targetUri": "/login/continueSso?targetUri=https://mintmanga.live/&siteId=2",
+			
+		    "remember_me": "true",
+			"remember_me_yes": "on",
+			
+			"username": {
+				"label": "Логин",
+				"hint": "Ник от MintManga или email",
+				"kind": "text"
+			},
+
+			"password": {
+				"label": "Пароль",
+				"hint": "Введите свой пароль с сайта MintManga!",
+				"kind": "password"
+			},
+			"headers": {
+				"Accept": "*/*"
+			}
+
+			
+		},
+
+		"request": {
+			"method": "post",
+		"url": "https://grouple.co/login/authenticate?ttt=1671721674659&siteId=2"
+		        
+		},
+		
+"response_check": {
+			"headers": {
+				"remember_me": "@.*?"
+
+			}
+		}
+	},
+	
+
 
     "manga_search_complete": {      
         "search_link": "https://mintmanga.live/search/advanced?q=$query$&offset=$page$",
@@ -109,6 +157,8 @@
 		  	"unknown" : "нет ни одной главы" 
 			},
 			
+			"need_auth": "Для доступа к странице",
+			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
 		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		
@@ -183,6 +233,9 @@
 		  	"licensed" : "Главы удалены",
 		  	"unknown" : "нет ни одной главы" 
 			},
+			
+		"need_auth": "Для доступа к странице",
+		
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
 		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
 		"add_genres":   {
