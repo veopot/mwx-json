@@ -1,13 +1,13 @@
 {
     "id": 30006,
-    "version": 60,
+    "version": 61,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
 	
 	"title": "ReadManga",
     "host": "https://readmanga.live/",
-    "public_link": "https://readmanga.io/list/",
+    "public_link": "https://readmanga.live/list/",
     "folder": "readmanga",
     "name": "readmanga",
     "language": "ru",
@@ -190,7 +190,8 @@
 			"value": "продолжается"},
 			
             "single": "<b>Сингл</b>",
-		  	"licensed" : "Главы удалены",
+		  	"licensed": {"values": [ "Главы удалены", "Запрещена публикация"] },
+			
 		  	"unknown" : "нет ни одной главы" 
 			},
 			
@@ -250,8 +251,12 @@
             "token1": "['",
             "token2": "],",
             "end": "]],",
-            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
-        },
+            "replace" : [
+			{ "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" },
+			{ "match" : "one-way.work\/(.*?)?t=(.*)",  "text" : "one-way.work/$1" }
+			]
+			
+			},
         "postfix" : "?mtr=1"
     },
 	
