@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 68, 
+	"version": 69, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -30,12 +30,13 @@
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mintmanga.png",
 		"registration": "https://grouple.co/internal/auth/register?siteId=2",
 		
-		"expires": 2509600,
+		"expires": 31449600000,
 		"is_redirect": true,
+		"expires_check": {"cookies_value": ["JSESSIONID"]},
 
 		"values": {
             
-			"targetUri": "/login/continueSso?targetUri=https://mintmanga.live/&siteId=2",
+			"targetUri": "https://grouple.co/login/auth?siteId=2&targetUri=https://mintmanga.live",
 			
 		    "remember_me": "true",
 			"remember_me_yes": "on",
@@ -52,6 +53,8 @@
 				"kind": "password"
 			},
 			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+				"referer": "https://grouple.co/login/auth?siteId=2&targetUri=https://mintmanga.live",
 				"Accept": "*/*"
 			}
 
@@ -60,16 +63,14 @@
 
 		"request": {
 			"method": "post",
-		"url": "https://grouple.co/login/authenticate?ttt=1671721674659&siteId=2"
+		"url": "https://grouple.co/login/authenticate?ttt=1671900724631&siteId=2"
 		        
 		},
 		
-"response_check": {
-			"headers": {
-				"remember_me": "@.*?"
-
-			}
+		"response_check": {
+			"Set-Cookie": { "JSESSIONID": "@\\w+?" }
 		}
+
 	},
 	
 
