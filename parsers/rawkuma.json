@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 4,
+	"version": 5,
 	
 	
 	"title": "Rawkuma",
@@ -37,7 +37,7 @@
 			"base_url": "https://rawkuma.com/manga/?page=",
 			"append_nums": {
 				"from": 1,
-				"to": 152,
+				"to": 200,
 				"step": 1,
 				"sufix": "&type=&order=popular"
 			}
@@ -106,7 +106,7 @@
 	},
 	"chapter_complete": {
 	"add_images": {
-			"start": "<![CDATA[*/ts_reader.run",
+			"start": "ts_reader.run",
 			 "end": "var chapter_id",
 			"token1": "\"images\":[\"",
 			"token2": "\"]",
@@ -135,7 +135,7 @@
 			"title" : "Destiny Lovers",
 			"assert" : {
 				"author" : "@KAZUTAKA",
-				"cover" : "@https://rawkuma.com/wp-content/uploads/2020/06/Destiny-Lovers.jpg",
+				"cover" : "@https://rawkuma.com/wp-content/uploads/2020/06/Destiny-Lovers-703x1024.jpg",
 				"summary" : "@^(『デスラバ』はWEB版マガポケでのみ配信しておりますので、)",
 				"genres" : "@comedy",
 				"status" : "ongoing",

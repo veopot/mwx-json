@@ -1,7 +1,7 @@
 {
     
     "id": 30472,
-    "version": 2,
+    "version": 3,
 	
 	"title": "ReadM",
 	"host": "https://readm.org/",
@@ -54,7 +54,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://readm.org/popular-manga/",
-			"append_nums": { "from": 0, "to": 1000 }
+			"append_nums": { "from": 0, "to": 1100 }
 		},
 		
 		"add_manga": { 
@@ -123,7 +123,7 @@
 			"start": "var chapter", 
 			"token1": "\"src\":\"", 
 			"token2": "\"",
-			"end": "<body class=\"fluid\">",
+			"end": "</head>",
 			"replace" : [{ "prefix" : "https://readm.org" },{ "match" : "\\\\", "text" : "" }]
 			
 			
@@ -137,8 +137,8 @@
 			"assert" : {
 				"mangas" : [
 		{ 
-		"uniq": "16701",
-        "link": "https://readm.org/manga/16701",
+		"uniq": "above-all-gods",
+        "link": "https://readm.org/manga/above-all-gods",
         "title": "Above All Gods"
 		}
 				],
@@ -148,7 +148,7 @@
 		{
 			"proc" : "manga_complete",
 			"title" : "Martial Peak", 
-			"link" : "https://readm.org/manga/16086",
+			"link" : "https://readm.org/manga/martial-peak",
 			"assert" : {
 				"author" : "Momo (II)",
 				"cover" : "https://readm.org/uploads/chapter_files/cover/tbn/1609673137_198x0.jpg",
@@ -159,14 +159,14 @@
 				"chapters_count" : ">=1000",
 				"chapters" : [
 		 {
-            "folder": "1264/",
-            "link": "https://readm.org/manga/16086/1264",
-            "title": "Chapter 1264"
+            "folder": "1/",
+            "link": "https://readm.org/manga/martial-peak/1",
+            "title": "Chapter 1"
         },
         {
            
-            "link": "https://readm.org/manga/16086/1263",
-            "title": "Chapter 1263"
+           "link": "https://readm.org/manga/martial-peak/2",
+            "title": "Chapter 2"
         }
 				]
 			}
@@ -174,14 +174,14 @@
 
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://readm.org/manga/16086/1264", 
+			"link" : "https://readm.org/manga/martial-peak/1", 
 			"assert" : {
 				"pages" : [
-        {"image": "https://readm.org/uploads/chapter_files/16086/1270/1.jpg"},
-        {"image": "https://readm.org/uploads/chapter_files/16086/1270/2.jpg"},
-        {"image": "https://readm.org/uploads/chapter_files/16086/1270/3.jpg"}
+        {"image": "https://readm.org/uploads/chapter_files/16086/1/0.4.jpg"},
+        {"image": "https://readm.org/uploads/chapter_files/16086/1/0.5.jpg"},
+        {"image": "https://readm.org/uploads/chapter_files/16086/1/1.jpg"}
 				],
-				"pages_count": "14"
+				"pages_count": "20"
 			}
 		}
 	]
