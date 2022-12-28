@@ -1,6 +1,6 @@
 {
 	"id": 41131,
-	"version": 1,
+	"version": 2,
 	
 	"title": "WeLoveManga",
 	"host": "https://welovemanga.one/",
@@ -11,6 +11,7 @@
 	"is_paid": true,
 	"skip_catalog_test": false,
 	
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/welovemanga.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/welovemanga.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/welovemanga.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/welovemanga.zip",
