@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 9,
+	"version": 10,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -42,22 +42,21 @@
             "base_url": "https://mangalib.me/manga-list?sort=rating_score&dir=desc&page=",
             "append_nums": {
 				"from": 1,
-				"to": 142
+				"to": 30
 			}
         },
 		"add_manga": {
-			"start": "\"series\":",
+			"start": "id=\"manga-list\">",
 			"end": "],",
-			"next":   "{\"id\":",
-			"title":  { "token1": "\"name\":\"", "token2": "\"" },
-			"link":   { "token1": "\"slug\":\"", "token2": "\"",
-				"replace": {"prefix": "https://mangalib.me/"} },
+			"next":   "<a class=\"media-card\"",
+			"title":  { "token1": "class=\"media-card__title line-clamp\">", "token2": "</" },
+			"link":   { "token1": "href=\"", "token2": "\"" },
 				
-			"uniq":   { "token1": "\"slug\":\"", "token2": "\""}
+			"uniq":   { "token1": "data-media-slug=\"", "token2": "\""}
 			
 		},
         "rating_auto_inc": {
-            "start": 40000,
+            "start": 50000,
             "inc": -1
         }
 	},
