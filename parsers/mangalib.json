@@ -1,0 +1,238 @@
+{
+	"id": 2021,
+	"version": 9,
+	
+	"title": "MangaLib (test)",
+	"host": "https://mangalib.me/",
+	"public_link": "https://mangalib.me/",
+	"folder": "mangalib",
+	"name" : "mangalib",
+	"language": "ru",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangalib.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangalib.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangalib.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangalib.zip",
+    "file_type": "sqlite",
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+
+	"manga_search_complete": {		
+		"search_link": "https://mangalib.me/search?type=manga&q=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next":   "moder_id",
+			
+			"link":   {  "before": "\"metadata\"",  "token1": "slug\":\"", "token2": "\",", 
+			"replace" : {"prefix": "https://mangalib.me/" } },
+			
+			"title":  { "before": "\"metadata\"", "token1": "rus_name\":\"", "token2": "\",\"slug\":", 
+			"replace" : { "match" : "\",\"eng_name\":\"", "text" : " | " } },
+			
+			"cover":  {  "token1": "default\":\"", "token2": "\"" , 
+			"replace" : { "match":"\\\\","text":""}}
+		}
+	},
+
+
+	"manga_list_complete": {
+		 "iterator": {
+            "base_url": "https://mangalib.me/manga-list?sort=rating_score&dir=desc&page=",
+            "append_nums": {
+				"from": 1,
+				"to": 142
+			}
+        },
+		"add_manga": {
+			"start": "\"series\":",
+			"end": "],",
+			"next":   "{\"id\":",
+			"title":  { "token1": "\"name\":\"", "token2": "\"" },
+			"link":   { "token1": "\"slug\":\"", "token2": "\"",
+				"replace": {"prefix": "https://mangalib.me/"} },
+				
+			"uniq":   { "token1": "\"slug\":\"", "token2": "\""}
+			
+		},
+        "rating_auto_inc": {
+            "start": 40000,
+            "inc": -1
+        }
+	},
+
+
+	"manga_complete": {
+	    "headers": {
+		
+		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+        "Accept": "image/webp,*/*;q=0.8",
+        "Referer": "https://mangalib.me"
+		},
+		
+		"title": { "after": "<div class=\"media-name__main",
+		"token1":"\">",
+		"token2": "<div class=\"media-rating-wrap\">",
+			"replace": [{ "match": "<div class=\"media-name__alt\">", "text": "| " },
+			{ "match": "<.*>", "text": "" }
+			]
+			
+			
+			
+			
+		},
+		"uniq":  { "after": "<div class=\"media-name__main",
+		"token1":"\">",
+		"token2": "</div>",
+			"replace": { "match": "<.*>", "text": " " }
+		},
+		
+		
+		"author":      { "skip": ">Автор<", "token1":"\">", "token2": "</a>",
+			"replace": { "match": "<.*>", "text": " " } },
+		
+		
+		"summary":     { "after": "itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
+		
+		"cover":       { "skip": "<div class=\"section\">", 
+		"token1": "src=\"https://mangalib.me/uploads/cover/",
+		"token2": "\"",
+				"replace": {"prefix": "https://mangalib.me/uploads/cover/" } },
+		
+		"status":{ 
+		
+		"single": { "start": ">Формат выпуска</div>","end": " </a>",
+			"values": [ "Сингл", "сингл"] },
+		
+		"complete": { "start": ">Статус перевода</div>","end": " </a>",
+			"values": [ "Завершен", "завершен"] },
+			
+		"ongoing": { "start": ">Статус перевода</div>","end": " </a>",
+			"values": [ "Продолжается", "продолжается"] },
+			
+			
+		"unknown": { "start": ">Статус перевода</div>","end": " </a>",
+			"values": [ "Заморожен", "заморожен"] },
+		
+		"licensed": {  "values": [ "Манга удалена по просьбе правообладателей",
+		"Данный тайтл лицензирован на территории РФ"] }
+		},
+		
+		
+			   
+		"read_dir": { "right_to_left": ">Манга</div>", "left_to_right": ">Манхва</div>" },
+		
+		"add_genre": { "after": "manga-list?genres", "token1": ">", "token2": "</" },
+		
+		"add_tag": { "after": "manga-list?tags", "token1": ">", "token2": "</" },
+		
+		"is_mature": { "values": [">18+<", ">18<", ">эротика<", ">юри<", ">яой<"] },
+		
+		
+		
+		
+		"add_chapter": {
+		
+			"next":  "{\"chap",
+			
+			"link": {
+			 
+			"token1": "\"chapter_number\":",
+            "token2": "\"chapter_moderated",
+			"replace": [
+                       
+						{ "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "/v$4/c$2" },
+						{ "prefix" : "%%url%%" }
+						]                  
+            },
+			
+            "uniq": {
+			     "token1": "\"chapter_number\":",
+            "token2": "\"chapter_moderated",
+			"replace": { "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "Том $4 Глава $2" } 
+            },
+			
+            "title": {
+			     "token1": "\"chapter_number\":",
+            "token2": "\"chapter_moderated",
+			"replace": { "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "Том $4 Глава $2" } 
+            }
+		}   
+	},
+	"chapter_complete": {
+   "headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://mangalib.me/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	
+    	"images": true,
+		"use_servers_only": true,
+		
+		"add_servers": { 
+			"start": "\"img\":", 
+			"token1": "{\"url\":\"", 
+			"token2": "\"",
+			"end": "\"server\"",
+			"replace": [{"match" : "\\\\",  "text" : "" }, 
+            { "prefix": "https://img33.imgslib.link" }
+			]  			
+			    
+		},
+        "add_pages": { 
+            "start": "window.__pg",
+            "token1": "\"u\":\"",
+            "token2": "\"",
+            "end": ">Комментарии<"
+        }
+    },
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+            { "title" : "The Breaker: New waves", 
+            "link" : "https://mangalib.me/manga/5335-the-breaker-new-waves.html",
+			"uniq" : "5335-the-breaker-new-waves.html" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://mangalib.me/isekai-cheat-survival-meshi",
+			"title" : "Gantz",
+			"assert" : {
+				"author" : "@Oku Hiroya",
+				"cover" : "@https://imgcover.mangalib.me/showfull_retina/uploads/posts/2011-10/thumbs/1318827066_gantz.jpg",
+				"summary" : "@^(Где\\-то в Токио)",
+				"genres" : "@scifi",
+				"status" : "complete",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=383",
+				"chapters" : [
+					{ "title" : "Том 37 Глава 383 КОНЕЦ",
+						"link" : "https://mangalib.me/online/148650-gantz_v37_ch383.html",
+						"folder" : "148650-gantz_v37_ch383.html/"
+					},
+					{ "title" : "Том 37 Глава 381",
+ 					  "link" : "https://mangalib.me/online/145147-gantz_v37_ch381.html" }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://mangalib.me/isekai-cheat-survival-meshi/v5/c30?ui=725",
+			"assert" : {
+				"pages" : [
+					{ "image" : "@https://.*.mangalib.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p01.jpg" },
+					{ "image" : "@https://.*.mangalib.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p02.jpg" }
+				],
+				"pages_count": "30"
+			}
+		}
+	]
+}
