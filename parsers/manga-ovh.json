@@ -1,6 +1,6 @@
 {
-	"id": 40128,
-	"version": 3,
+	"id": 40129,
+	"version": 5,
 	"title": "Manga Ovh",
 	"host": "https://api.manga.ovh",
 	"public_link": "https://manga.ovh",
@@ -90,7 +90,7 @@
 				"token2": "}",
 				"replace": [
 				{
-					"match": "\"original\":\"(.*?)\"",
+					"match": "\"original\":\"(.*?)\",",
 					"text": ""
 				},
 				{
@@ -111,10 +111,10 @@
 
 			"summary": {
 
-				"token1": "\"ye",
-				"token2": "\"folder\":",
+				"token1": "\"pos",
+				"token2": "\"formats\":",
 				"replace": [{
-						"match": "ar\":",
+						"match": "\"year\":",
 						"text": "Год выпуска "
 					},
 					{
@@ -146,6 +146,15 @@
 						"match": "ONGOING",
 						"text": "Продолжается"
 					},
+					
+					{
+                      "match": "\"contentStatus\":\"(.*?)\",",
+                     "text": ""
+					},
+					{
+                      "match": "ter\":\"(.*?)\",",
+                     "text": ""
+					},
 
                      {
                       "match": "\"createdAt\":\"(.*?)\",",
@@ -159,21 +168,19 @@
                       "match": "\"longStrip\":(.*?),",
                      "text": ""
 					},
+					
 					{
-                      "match": "\"contentStatus\":\"(.*?)\",",
-                     "text": ""
+                      "match": "\",",
+                     "text": " "
 					},
-					{
-                      "match": "\"poster\":\"(.*?)\",",
-                     "text": ""
-					},
+					
 					{
                       "match": "\"slug\":\"(.*?)\",",
                      "text": ""
 					},
 					{
-                      "match": "\",",
-                     "text": ","
+                      "match": "\"name\":{\"ru\":\"(.*?)\",\"original\":\"(.*?)\",\"en\":\"(.*?)\"},",
+                     "text": " "
 					},
 					{
 						"match": "\"status\":\"",
@@ -201,7 +208,8 @@
 },
 
 		"iterator": {
-			"base_url": "https://api.manga.ovh/book?sort=updatedAt%2Cdesc&size=30&page=",
+			"base_url": "https://api.manga.ovh/book?sort=createdAt&size=40&page=0",
+			
 			"append_nums": {
 				"from": 0,
 				"to": 3000
@@ -209,12 +217,12 @@
 		},
 
 		"add_manga": {
-			"start": "[",
-			"end": "]",
+			
 			"next": "\"name\":{",
 
 			"link": {
-				"token1": "\"slug\":\"",
+				"before": "\"createdAt\":",
+				"token1": "\"id\":\"",
 				"token2": "\"",
 				"replace": {
 					"prefix": "https://api.manga.ovh/book/"
@@ -226,7 +234,7 @@
 				"token2": "\"}",
 				"replace": [
 				{
-					"match": "\"original\":\"(.*?)\"",
+					"match": "\"original\":\"(.*?)\",",
 					"text": ""
 				},
 				{
@@ -277,7 +285,7 @@
 					"text": ""
 				},
 				{
-					"match": "\"original\":\"",
+					"match": "\"original\":\"(.*?)\",",
 					"text": ""
 				},
 				{
@@ -314,10 +322,14 @@
 		},
 
 		"cover": {
-			"token1": "v",
+			"token1": "\"poster\":\"",
 			"token2": "\","
 		},
 
+        "author":      { 
+		"skip": "\"type\":\"AUTHOR\"",
+		"token1":"name\":\"",
+		"token2": "\"" },
 
 		"summary": {
 			"after": "\"description\":{",
@@ -399,7 +411,7 @@
 			],
 
 			"next": {
-				"before": "\"createdAt\"",
+				"before": "\"chaptersCount\"",
 				"token1": "{\"id\":\"",
 				"token2": "\",",
 				"replace": [{
@@ -433,8 +445,8 @@
 				"token1": "\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),\"id\"(.*?)\"number\":(.*?)\"amount\":(.*?)\"createdAt\"(.*?)\"paid\"(.*?)\"volume\":(.*?),(.*)",
-						"text": "Том $7 Глава $3 $1"
+"match": "me\":(.*?),\"volume\":(.*?),\"number\":(.*?).0,(.*)",
+						"text": "Том $2 Глава $3 $1"
 					},
 	
 	{ "match": "\"", "text": "" },
@@ -449,8 +461,8 @@
 				"token1": "\"na",
 				"token2": "}",
 				"replace": [{
-"match": "me\":(.*?),\"id\"(.*?)\"number\":(.*?)\"amount\":(.*?)\"createdAt\"(.*?)\"paid\"(.*?)\"volume\":(.*?),(.*)",
-						"text": "Том $7 Глава $3 $1"
+"match": "me\":(.*?),\"volume\":(.*?),\"number\":(.*?).0,(.*)",
+						"text": "Том $2 Глава $3 $1"
 					},
 	
 	{ "match": "\"", "text": "" },
