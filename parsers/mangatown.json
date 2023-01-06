@@ -2,7 +2,7 @@
 
     "old_ids": [40125],
 	
-	"version": 35,
+	"version": 36,
 	"title": "MangaTown",
 	"host": "http://www.mangatown.com/",
 	"public_link": "http://www.mangatown.com/",
@@ -20,7 +20,12 @@
 
 
 
-    "manga_search_complete": {		
+    "manga_search_complete": {	
+        "headers": {
+			"Accept": "*/*",
+			"Referer": "https://www.mangatown.com/"
+		},
+		
 		"search_link": "http://www.mangatown.com/search?page=$page$&name=$query$",
 		"query_type": "GET",
 		"add_manga": {
@@ -42,9 +47,9 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://www.mangatown.com/directory/",
+			"base_url": "https://www.mangatown.com/hot/",
 			"append_nums": { "from": 1, "to": 800, "step": 1, "sufix": ".htm" }
-		},                                                              
+		},                                                             
 		"add_manga": {
 			"next": "class=\"manga_cover\"",
 			"link":  { "token1": "href=\"", "token2": "\"" },
@@ -57,6 +62,11 @@
 	},
 
 	"manga_complete": {
+		"headers": {
+			"Accept": "*/*",
+			"Referer": "https://www.mangatown.com/"
+		},
+		
 		"title":       { "skip": "class=\"title-top\"", "token1": ">", "token2": "<" },
 		"uniq":        { "skip": "class=\"title-top\"", "token1": ">", "token2": "<" },
 		"author":      { "skip": "Author(s):", "token1": "\">", "token2": "</" },
