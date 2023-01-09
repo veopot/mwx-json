@@ -1,9 +1,8 @@
-{
-
+{ 
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version": 33,
+	"version":34,
 	"title": "Com-X.life",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -22,7 +21,45 @@
     
 
 
+     "manga_search_complete": {
+        "search_link":"https://com-x.life/index.php?do=search&subaction=search&search_start=$page$&story=$query$",
+		"query_type": "GET",
+		
+		"add_manga": {
+            "start": ">Поиск по сайту</",
+            "end": ">Последние комментарии</",
+            "next": "class=\"readed__title\">",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
+			},
+			"uniq": {
+				"token1": "href=\"https://com-x.life/",
+				"token2": ".html"
+			},
 
+			"title": {
+				"skip": "href=\"",
+				"token1": "\">",
+				"token2": "</"
+			},
+			
+            "cover": {
+                "before": "href=\"",
+                "token1": "data-src=\"",
+                "token2": "\"",
+                "replace": {
+                    "prefix": "https://com-x.life"
+                }
+            },
+            
+            "summary": {
+                "token1": "class=\"readed__info\">",
+                "token2": "</",
+                "replace":{"match":"<.*?>", "text":""}
+            }
+        }
+    },
 
 	"manga_list_complete": {
 	    "headers": {
@@ -35,7 +72,7 @@
 			"base_url": "https://com-x.life/comix-read/page/",
 			"append_nums": {
 				"from": 1,
-				"to": 932,
+				"to": 1006,
 				"step": 1,
 				"sufix": "/"
 			}
@@ -74,7 +111,8 @@
 		"title": {
 			"after": "property=\"og:title\"",
 			"token1": "content=\"",
-			"token2": "\""
+			"token2": "\"",
+         "replace":{"match":"скачать/читать онлайн","text":""}
 		},
 		
 		"uniq": {
