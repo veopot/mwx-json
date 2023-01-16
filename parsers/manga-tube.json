@@ -1,7 +1,7 @@
 {
 	"id": 41133,
 	"old_ids": [20992],
-	"version": 2, 
+	"version": 3, 
 	
 	
     "title": "Manga-Tube",
@@ -56,8 +56,10 @@
 		
 		
 		"add_chapter": { 
-		    "start": "vol-container",
-			"next":  "<li>", 
+		    "start": "chapter-list\">",
+			"end": "<div id=\"comments\"",
+			
+			"next":  "<li", 
 			"link":  { "before": "title=", "token1": "<a href=\"", "token2": "\"" }, 
 			"uniq":  { "token1": "<b>","token2": "</b>" },
 			"title": { "token1": "<b>","token2": "</a>",
