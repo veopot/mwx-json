@@ -1,0 +1,120 @@
+{
+	"id": 41133,
+	"version": 1, 
+	"title": "MangaTube",
+	"host": "https://manga-tube.me/",
+	"public_link": "https://manga-tube.me/series",
+	"folder": "manga-tube",
+	"name" : ["mt", "tube"],
+	"language": "de",
+	"chapters_order": false,
+	"skip_catalog_test": false,
+	
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manga-tube.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manga-tube.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/manga-tube.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manga-tube.zip",
+	"file_type": "sqlite",
+	"author": {"name": "MangaWatcherX","email": "fant-net@ya.ru" },
+	
+	
+	
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "https://manga-tube.me/series/?filter=popularity&page=",
+			"append_nums": { "from": 1, "to": 100 }
+		},
+
+		"add_manga": { 
+			"next": "<div class=\"series-header\">",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "skip" : "href=\"", "token1": ">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "60000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete": {
+	    "title":       { "after": "<h1 class=\"series-title\"", "token1": ">", "token2": "</" },
+        "uniq":        { "after": "<h1 class=\"series-title\"", "token1": ">", "token2": "</" },
+		"author":      { "after": "<b>Autor", "token1":"\">", "token2": "</" },
+		"summary":     { "after": "<meta property=\"og:description\"", "token1": "content=\"", "token2": "\"" },
+		"cover":       { "after": "<meta property=\"og:image\"", "token1": "content=\"", "token2": "\"", "replace": { "match": "thumb_", "text": "" } },
+		"status":      { 
+		"complete": "> abgeschlossen</", 
+		"ongoing": "> laufend</",
+        "licensed": ">Lizenzierte Serie<" 
+		},
+		"add_genre":   { "after": "?genre=", "token1": "\">", "token2": "</" },
+		"add_chapter": { 
+		    "start": "vol-container",
+			"next":  "<li>", 
+			"link":  { "before": "title=", "token1": "<a href=\"", "token2": "\"" }, 
+			"uniq":  { "token1": "<b>","token2": "</b>" },
+			"title": { "token1": "<b>","token2": "</span>", "replace": { "match": "</b><span class=\"chapter-name\">", "text": "" } }
+		}
+	},
+	"chapter_complete": {
+		"images": true,
+        "add_pages": { 
+            "start": "pages: [{",
+            "token1": "file_name\":\"",
+            "token2": "\",",
+            "end": "}],"
+        },
+		"prefix": { "after": "img_path:", "token1": "'", "token2": "',"}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "4",
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Dragon Ball Multiverse", "link" : "https://manga-tube.me/series/dragon_ball_multiverse",
+						"uniq" : "dragon_ball_multiverse" }
+				]
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://manga-tube.me/series/release_that_witch", 
+			"title" : "Release that Witch", 
+			"assert" : {
+				"cover" : "https://a.mtcdn.org/c/max_1bec87c5ed113b1d34b3fe9eeb055e3f1b49cbc5.jpg",
+				"summary" : "@^(Ein Ingenieur wurde)",
+				"author" : "Er Mu",
+				"genres" : "@fantasy",
+				"status" : "ongoing",
+				"genres_count" : ">=4",
+				"chapters_count" : ">=190",
+				"chapters" : [
+		{
+             "link": "https://manga-tube.me/series/release_that_witch/read/15410/1",
+            "title": "Kapitel 1 Ab heute bin ich ein Prinz!"
+        },
+        {
+            "folder": "Kapitel 2\\",
+            "link": "https://manga-tube.me/series/release_that_witch/read/15424/1",
+            "title": "Kapitel 2 Lasst sie frei! Ich kümmere mich darum..."
+        }
+				]
+			}
+		},
+		{
+            "proc": "chapter_complete",
+            "link": "https://manga-tube.me/series/release_that_witch/read/15410/1",
+            "assert": {
+                "pages": [
+		{"image": "https://a.mtcdn.org/m/933-release_that_witch/15410/page_001_2c38b2.png"},
+        {"image": "https://a.mtcdn.org/m/933-release_that_witch/15410/page_002_a8c8f9.png"},
+        {"image": "https://a.mtcdn.org/m/933-release_that_witch/15410/page_003_09e290.png"}
+				]
+            }
+        }
+	]
+}
