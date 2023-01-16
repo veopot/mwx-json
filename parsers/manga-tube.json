@@ -1,7 +1,10 @@
 {
 	"id": 41133,
-	"version": 1, 
-	"title": "MangaTube",
+	"old_ids": [20992],
+	"version": 2, 
+	
+	
+    "title": "Manga-Tube",
 	"host": "https://manga-tube.me/",
 	"public_link": "https://manga-tube.me/series",
 	"folder": "manga-tube",
@@ -50,12 +53,19 @@
         "licensed": ">Lizenzierte Serie<" 
 		},
 		"add_genre":   { "after": "?genre=", "token1": "\">", "token2": "</" },
+		
+		
 		"add_chapter": { 
 		    "start": "vol-container",
 			"next":  "<li>", 
 			"link":  { "before": "title=", "token1": "<a href=\"", "token2": "\"" }, 
 			"uniq":  { "token1": "<b>","token2": "</b>" },
-			"title": { "token1": "<b>","token2": "</span>", "replace": { "match": "</b><span class=\"chapter-name\">", "text": "" } }
+			"title": { "token1": "<b>","token2": "</a>",
+			"replace": [
+				{ "match": "</b><span class=\"chapter-name\">", "text": " " },
+				{ "match": "</span>", "text": "" }
+                ]
+            }
 		}
 	},
 	"chapter_complete": {
