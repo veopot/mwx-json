@@ -1,6 +1,6 @@
 {   
     "id": 30419,
-	"version": 23,
+	"version": 24,
 	
 	"old_ids": [65702],
     "old_sites": ["readmanga.today"],
@@ -22,25 +22,33 @@
 	
 	
 	"manga_search_complete": {		
-    "search_link":"https://www.readmng.com/search",
+    "search_link":"https://www.readmng.com/search/live",
+	    "headers": {
+		        "accept": "application/json, text/javascript, */*; q=0.01",
+				"content-type": "application/x-www-form-urlencoded",
+				"x-requested-with": "XMLHttpRequest",
+				"Referer": "https://www.readmng.com/"
+			},
 		"query_type": "POST",
-		"form_data": { "query": "$query$" },
+		"form_data": { 
+		
+		    "dataType": "json",
+            "phrase": "$query$"
+        },
 		
 		"add_manga": {
-		     "start": "class=\"content\">",
-			 "end": "class=\"clearfix\">",
-             "next": "class=\"box\">",
+		   
+			"next": "\"manga",
 			
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			
-			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
-			
-			"uniq": { "after": "href=\"", "token1": "\">", "token2": "</" },
-			
-			"summary": { "skip": "href=\"", "token1": "class=\"summary\">", "token2": "</div>",
-                "replace":{"match":"<.*?>", "text":""} },
-			 
-			"cover": { "after": "<img", "token1": "src=\"", "token2": "\"" }
+			"link":  {"before": "_id\"",  "token1": "url\":\"", "token2": "\"",
+			"replace": [
+				    {"prefix": "https://www.readmng.com"},
+					{ "match": "\\\\", "text": "" }
+				]},
+			"title": {"before": "_id\"", "token1": "\"title\":\"", "token2": "\"" }, 
+			"uniq": {"before": "_id\"", "token1": "url\":\"/\\", "token2": "\""  }, 
+			"cover": {"before": "_id\"",  "token1": "\"image\":\"", "token2": "\"", 
+                      "replace": { "match": "\\\\", "text": "" }			}
 		}
 },
 
@@ -49,76 +57,103 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://www.readmng.com/hot-manga/",
-			"append_nums": { "from": 1, "to": 850, "step": 1 }
+			"append_nums": { "from": 1, "to": 610, "step": 1 }
 			},
 		"add_manga": {
-			"start": "class=\"content\">",
-			"end": "class=\"clearfix\">",
-			"next": "class=\"box\">",
+			"start": "<h2>Hot Manga</h2>",
+			"end": ">Chat Box</",
+			"next": "class=\"mangaSliderCard\">",
 			
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
-			"skipmanga": { "skipmatch": [ "Monster Musume no Iru Nichijou"] }
-		},
+			"link":  { "token1": "href=\"", "token2": "\"",
+			"replace": {"prefix": "https://www.readmng.com"} },
+			"title": { "after": "href=\"", "token1": "<h2>", "token2": "</h2>" }, 
+			"uniq": { "token1": "href=\"/", "token2": "\"" }
+			},
 		"rating_auto_inc": {
-			"start": "20000",
+			"start": "40000",
 			"inc": -1
 		}
 	},
 	
 	"manga_complete": {
-		"title":     { "skip": "class=\"panel-heading clearfix\"","token1": "h1>","token2": "</h1" },
+		"title":     { "skip": "class=\"productDetail\">", "token1": "h1>","token2": "</h1" },
 		
-		"uniq":      { "skip": "class=\"panel-heading clearfix\"","token1": "h1>","token2": "</h1",
+		"uniq":      { "skip": "class=\"productDetail\">", "token1": "h1>","token2": "</h1",
 				"replace" : [
                 { "match" : "%", "text":"" },
 				{ "match" : ";", "text":" " },
 				{ "match" : ":", "text":" " },
 				{ "match" : "&nbsp;", "text":" "} ]},
 		
-		"author":    { "before": ">Author<", "token1": "\">", "token2": "</" },
-		"summary":   { "after": "<li class=\"list-group-item movie-detail\"", "token1": ">", "token2": "</li>" },
-		"status":    { "complete": "<dd>Completed</dd>", "ongoing": "<dd>Ongoing</dd>" },
-		"cover":     { "skip": "class=\"row movie-meta\"", "token1": "<img src=\"", "token2": "\"" },
-		"is_mature": { "start": "<dt>Categories:</dt>", "end": "<dt>Type :</dt>",
-		"values": ["Doujinshi", "Ecchi", "Seinen", "Mature", "Yaoi", "Yuri"] },
+		"author":    { "after": "href=\"/people/", "token1": "\">", "token2": "</" },
 		
-		"add_genre": {
-			"!start": "<dt>Categories:</dt>",
-			"!end": "<li class=\"director\"",
-			"after": "href=\"https://www.readmng.com/category/",
-			"token1": ">",
-			"token2": "</a>"
+		
+		"summary":     { "after": "<h2>Description",
+		"token1": "</h2>", "token2": "</div>",
+         "replace":{"match":"<.*?>","text":""} },
+		 
+		 
+		 
+		"status":    { "complete": "<i>Completed</i>", "ongoing": "<i>Ongoing</i>" },
+		
+		
+		"cover":     { "skip": "class=\"productDetail\">",  "token1": "<img src=\"", "token2": "\"" },
+		
+		
+		"is_mature": { "start": "<b>Genres</b>", "end": ">Latest Chapters</",
+		"values": ["Doujinshi", "Ecchi", "Seinen", "Mature", "Yaoi", "Yuri"] 
 		},
+		
+		
+		"add_genres":   {
+        "start": "<b>Genres</b>",
+		"end": "<b>Latest Chapters</b>",
+		"token1": "rel=\"tag\">",
+	    "token2": "</"
+		},
+		
+		
+		
+		
 		"add_chapter": {
-			"start": "class=\"chp_lst\"",
-			"end": "</ul>",
-			"next": "<li>",
-			"link": { "token1": "<a href=\"", "token2": "\"" },
-			"title": { "token1": "icon-arrow-2\"></span>", "token2": "</span>" }
-		}
-	},
-	"chapter_complete": {
-		"images": true,
-		"add_pages": {
-			"start": "var images",
-			"token1": "\"url\":\"",
-			"token2": "\"",
-			"end": "];",
-			"replace" : { "match" : "\\\\", "text" : "" }
+			"start": ">Chapters</",
+			"end": ">Comments</",
+			"next": "class=\"chnumber\"",
+			
+			"link": { "before": ">", "token1": "href=\"", "token2": "\"" },
+			"title": { "token1": ">", "token2": "<i" }
 		}
 	},
 	
+	
+	"chapter_complete": {
+		"headers": {
+	"User-Agent": "MangaWatcherX",
+    "Accept": "*/*"
+		},
+
+		"images": true,
+		"add_pages": {
+			"start": "ts_reader.run",
+			"end": "}],",
+			"token1": "\"images\": [\"",
+			"token2": "\"]",
+			"split" : "\",\"",
+		
+			"replace": { "match": "\\\\", "text": "" }
+		}
+	},
+
 	
 	"test": [{
 		"proc": "manga_list_complete",
             "assert": {
 			    "mangas": [{
-				   "title": "Shen Yin Wang Zuo",
-				      "link": "https://www.readmng.com/shen_yin_wang_zuo"
+				   "title": "Naruto",
+				      "link": "https://www.readmng.com/naruto1"
 				   
 			}],
-			"mangas_count": ">22"
+			"mangas_count": ">25"
 		}
 	}, {
 		"proc": "manga_complete",
@@ -126,7 +161,7 @@
 		"link": "https://www.readmng.com/martial-peak",
 		"assert": {
 			"author": "@Momo (II)",
-			"cover": "https://www.readmng.com/uploads/posters/1525258495.jpg",
+			"cover": "https://www.readmng.com/uploads/posters/thumb/1525258495.jpg",
 			"summary": "@^(The journey to the martial peak)",
 			"genres": "@action",
 			"status": "ongoing",
