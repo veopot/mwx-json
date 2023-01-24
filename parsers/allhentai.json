@@ -1,13 +1,13 @@
 {
 	"id": 30401,
-	"version": 46,
+	"version": 47,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
-    "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ,"24.allhen.online","23.allhen.online"],
+     "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ,"24.allhen.online","23.allhen.online","22.allhen.online"],
 	
-	"host": "http://22.allhen.online",
-	"public_link": "http://22.allhen.online",
+	"host": "http://2023.allhen.online",
+	"public_link": "http://2023.allhen.online",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
 	"name" : "allhentai",
@@ -24,7 +24,7 @@
 	
 	
 	"manga_search_complete": {		
-		"search_link": "http://22.allhen.online/search",
+		"search_link": "https://2023.allhen.online/search/advanced",
 		"headers": {
 		         "accept": "*/*",
 				"x-requested-with": "XMLHttpRequest",
@@ -38,7 +38,11 @@
 			"next": "<div class=\"tile col-md-6",
 			
 			"summary": { "token1": "class=\"html-popover-holder\">", "token2": "</div>",
-                "replace":{"match":"<.*?>", "text":" "} },
+                "replace":[
+			{"match":"<.*?>", "text":" "},
+			{"match":"\n", "text":" "},
+			{"match":"                              ", "text":" "}
+			] },
 				
 			
 			
@@ -56,55 +60,13 @@
 
 
 
-    "authorization_complete": {
-		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
-		"registration": "https://qawa.org/internal/auth/register?siteId=1",
-		
-		"expires": 1728000000,
-		"is_redirect": true,
 
-		"values": {
-            
-			"targetUri": "/login/continueSso?targetUri=http://22.allhen.online",
-			
-			
-		    "remember_me": "true",
-			"remember_me_yes": "on",
-			
-			"username": {
-				"label": "Логин",
-				"hint": "имя от allhen или email",
-				"kind": "text"
-			},
-
-			"password": {
-				"label": "Пароль",
-				"hint": "Введите свой пароль с сайта allhen!",
-				"kind": "password"
-			},
-			"headers": {
-				"Accept": "*/*"
-			}
-
-			
-		},
-
-		"request": {
-			"method": "post",
-		"url": "https://qawa.org/login/authenticate?ttt=1663322245225&siteId=1"
-		},
-		"response_check": {
-			"headers": {
-				"remember_me": "@.*?"
-
-			}
-		}
-	},
+   
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://22.allhen.online/list?sortType=votes&offset=",
-			"append_nums": { "from": 0, "to": 15000, "step": 70}
+			"base_url": "http://2023.allhen.online/list?sortType=votes&offset=",
+			"append_nums": { "from": 0, "to": 20000, "step": 70}
 		},
 		"add_manga": {
             "start": "tiles row",
@@ -116,6 +78,10 @@
 			"replace": { "match": "_p.jpg", "text": ".jpg" } }
 			
 		
+        },
+        "rating_auto_inc": {
+            "start": 30000,
+            "inc": -1
         }
 	},
 	
@@ -142,15 +108,15 @@
 		
 		"status":      {
 			"ongoing":  { 
-				"start" : "<b>Томов:</b>",
-				"end" : "</div>",
+				"start" : ">Перевод:<",
+				"end" : "</p>",
 
 				"values" : ["продолжается"]
 			},
 			"complete": { 
-				"start" : "<b>Томов:</b>",
-				"end" : "</div>",
-				"values" : ["завершен", "Переведена", "Сингл"]
+				"start" : ">Перевод:<",
+				"end" : "</p>",
+				"values" : ["завершен","переведено", "Переведена", "Сингл"]
 			},
 			"single":  "<b>Сингл</b>"
 		},
@@ -186,6 +152,13 @@
 	},
 
 	"chapter_complete": {
+		"headers": {
+		"cookie": "JSESSIONID=7E5D1A77C1452F4EC76E2D7B327E1D4A",
+		
+		"Accept": "*/*",
+		"Referer": "https://2023.allhen.online/"
+		},
+		
 		"no_404": true,
         "images": true,
         
@@ -197,7 +170,7 @@
             "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
 			
         },
-		"prefix": "http:",
+		"prefix": "https:",
         "postfix": "?mature=1"
 	},
 
@@ -208,7 +181,7 @@
 			"assert" : {
 				"mangas" : [
 		{  
-		"link": "http://22.allhen.online/delovoi_stil",
+		"link": "http://2023.allhen.online/delovoi_stil",
         "title": "Деловой стиль (Business Casual)",
         "uniq": "delovoi_stil" 
 		}
@@ -218,7 +191,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://22.allhen.online/a_peephole",
+			"link" : "http://2023.allhen.online/a_peephole",
 			"title" : "Nozoki ana (A peephole)",
 			"assert" : {
 				"cover" : "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
@@ -230,7 +203,7 @@
 				"chapters" : [
 					{ 
 						"title" : "Дыра 1 - 1", 
-						"link" : "http://22.allhen.online/a_peephole/vol1/1",
+						"link" : "http://2023.allhen.online/a_peephole/vol1/1",
 						"folder" : "Дыра 1 - 1/"
 					}
 				]
@@ -239,7 +212,7 @@
 		
 		{
 			"proc" : "chapter_complete",
-			"link" : "http://22.allhen.online/a_peephole/vol1/1",
+			"link" : "http://2023.allhen.online/a_peephole/vol1/1",
 		     "assert" : {
 				"pages" : [
  {"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
