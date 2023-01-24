@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 47,
+	"version": 48,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -153,12 +153,12 @@
 
 	"chapter_complete": {
 		"headers": {
-		"cookie": "JSESSIONID=7E5D1A77C1452F4EC76E2D7B327E1D4A",
+		"cookie": "remember_me=b2JMTmJ3Z3VMb3h6SWgwajU1YmNVekljU3N3aUVwUkFuU2tGN0k4bXJjRSUzRDp6MDJYQWVWaUFZdlJFNFoxc2Z4ZGZGV0hHTWE0NmM0UFZ4UXpvJTJCeUlwQXclM0Q",
 		
 		"Accept": "*/*",
 		"Referer": "https://2023.allhen.online/"
 		},
-		
+	
 		"no_404": true,
         "images": true,
         
