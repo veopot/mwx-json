@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 37,
+	"version": 38,
 	
 	"old_ids": [66348],
 
@@ -47,7 +47,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://desu.me/manga/api/?limit=30&order=popular&page=",
-			"append_nums": { "from": 1, "to": 80 }
+			"append_nums": { "from": 1, "to": 200 }
 		},
 		"add_manga": {
 			"next": "\"id\"",
@@ -57,7 +57,7 @@
 			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
 		},	 
 		"rating_auto_inc": {
-			"start": "1000",
+			"start": "20000",
 			"inc": -1
 		}
 	},
@@ -77,7 +77,7 @@
 			"add_genre": { 
 				"!start": "\"genres\":[",
 				"!end": "],",
-				"token1": "\"text\":\"",
+				"token1": "\"russian\":\"",
 				"token2": "\"" },
 			"add_chapter": {
 				"start": "\"list\":[",
@@ -108,15 +108,16 @@
 
 				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
+			
 			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://desu.me" } },
-			"add_genre":   { 
-				"!start": "<ul class=\"tagList\"",
-				"!end": "</ul>",
-				"token1": "href=\"manga/?genres=",
-				"token2": "\"" 
-			},
+			
+			"add_genre": { "after": "href=\"manga/?genre", "token1": "\">", "token2": "</a>",
+			"replace": { "match": "<.*>", "text": "" } },
+			
+			
 			"chapters_from_page": { "skip": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "\"",
 			"replace" : { "match" : "desu.me/manga/", "text" : "desu.me/manga/api/" }},
+			
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
