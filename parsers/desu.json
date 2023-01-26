@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 38,
+	"version": 39,
 	
 	"old_ids": [66348],
 
@@ -74,11 +74,13 @@
 			"read_dir":{ "right_to_left": "\"right-to-left\"","left_to_right": "\"left-to-right\"" },
 			"cover":   { "skip": "\"original\"", "token1": ":\"", "token2": "\"" },
 			"is_mature": "\"adult\":1,",
-			"add_genre": { 
-				"!start": "\"genres\":[",
-				"!end": "],",
+			
+			"add_genres": { 
+				"start": "\"genres\":[",
+				"end": "],",
 				"token1": "\"russian\":\"",
 				"token2": "\"" },
+				
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
@@ -92,10 +94,12 @@
 		{"condition": "",
 			"title":      { "after": "meta property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
 			"uniq":       { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
+			
+			
 			"status":      { 
-				"complete": [ "Сингл", "вышло" ], 
-					"licensed": "<span class=\"b-anime_status_tag copyright\">Закрыт",
-					"ongoing": "выходит" 
+				"complete": [ "Сингл", "вышло", ">завершён<" ], 
+				"licensed": "<span class=\"b-anime_status_tag copyright\">Закрыт",
+				"ongoing":[ "выходит", ">продолжается<"],  
 			
 			},
 			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "<div class=\"shade\">",
