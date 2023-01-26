@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 39,
+	"version": 40,
 	
 	"old_ids": [66348],
 
@@ -99,7 +99,7 @@
 			"status":      { 
 				"complete": [ "Сингл", "вышло", ">завершён<" ], 
 				"licensed": "<span class=\"b-anime_status_tag copyright\">Закрыт",
-				"ongoing":[ "выходит", ">продолжается<"],  
+				"ongoing":[ "выходит", ">продолжается<"]  
 			
 			},
 			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "<div class=\"shade\">",

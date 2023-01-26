@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 37,
+	"version": 38,
 	"old_sites": ["desu.me"],
 
 	
@@ -18,7 +18,6 @@
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/desu-x.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/desu-x.zip",
     "file_type": "sqlite",
-		
 	"manga_search_complete": {
 	    
 		"search_link": "https://x.desu.me/manga/api/?limit=10&page=$page$&search=$query$",
@@ -46,7 +45,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://x.desu.me/manga/api/?limit=30&order=popular&page=",
-			"append_nums": { "from": 1, "to": 80 }
+			"append_nums": { "from": 1, "to": 200 }
 		},
 		"add_manga": {
 			"next": "\"id\"",
@@ -56,7 +55,7 @@
 			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
 		},	 
 		"rating_auto_inc": {
-			"start": "1000",
+			"start": "20000",
 			"inc": -1
 		}
 	},
@@ -73,11 +72,13 @@
 			"read_dir":{ "right_to_left": "\"right-to-left\"","left_to_right": "\"left-to-right\"" },
 			"cover":   { "skip": "\"original\"", "token1": ":\"", "token2": "\"" },
 			"is_mature": "\"adult\":1,",
-			"add_genre": { 
-				"!start": "\"genres\":[",
-				"!end": "],",
-				"token1": "\"text\":\"",
+			
+			"add_genres": { 
+				"start": "\"genres\":[",
+				"end": "],",
+				"token1": "\"russian\":\"",
 				"token2": "\"" },
+				
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
@@ -91,10 +92,12 @@
 		{"condition": "",
 			"title":      { "after": "meta property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
 			"uniq":       { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
+			
+			
 			"status":      { 
-				"complete": [ "Сингл", "вышло" ], 
-					"licensed": "<span class=\"b-anime_status_tag copyright\">Закрыт",
-					"ongoing": "выходит" 
+				"complete": [ "Сингл", "вышло", ">завершён<" ], 
+				"licensed": "<span class=\"b-anime_status_tag copyright\">Закрыт",
+				"ongoing":[ "выходит", ">продолжается<"]  
 			
 			},
 			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "<div class=\"shade\">",
@@ -107,15 +110,16 @@
 
 				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
+			
 			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://x.desu.me" } },
-			"add_genre":   { 
-				"!start": "<ul class=\"tagList\"",
-				"!end": "</ul>",
-				"token1": "href=\"manga/?genres=",
-				"token2": "\"" 
-			},
+			
+			"add_genre": { "after": "href=\"manga/?genre", "token1": "\">", "token2": "</a>",
+			"replace": { "match": "<.*>", "text": "" } },
+			
+			
 			"chapters_from_page": { "skip": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "\"",
 			"replace" : { "match" : "x.desu.me/manga/", "text" : "x.desu.me/manga/api/" }},
+			
 			"add_chapter": {
 				"start": "\"list\":[",
 				"next":  "\"id\"",
@@ -174,9 +178,9 @@
 			"link" : "https://x.desu.me/manga/api/z-fairy-tail.10/chapter/37975",
 			"assert" : {
 				"pages" : [
-		{"image": "https://img4.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg"},
-        {"image": "https://img4.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p002.jpg"},
-        {"image": "https://img4.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p003.jpg"}
+		{"image": "https://img4.x.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg"},
+        {"image": "https://img4.x.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p002.jpg"},
+        {"image": "https://img4.x.desu.me/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p003.jpg"}
 				],
 				"pages_count": "77"
 			}
