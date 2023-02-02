@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 84,
+    "version": 85,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -73,14 +73,39 @@
                         "match": "year\":",
                         "text": "Год выпуска "
                     },
+					{
+                        "match": "\",",
+                        "text": ","
+                    },
                     {
                         "match": "\"avg_rating\":\"",
                         "text": " Рейтинг "
                     },
                     {
+                        "match": "\"is_yaoi\":",
+                        "text": "яой:"
+                    },
+					{
+                        "match": "\"is_erotic\":",
+                        "text": "эротика:"
+                    },
+					{
+                        "match": "false",
+                        "text": "нет"
+                    },
+					{
+                        "match": "true",
+                        "text": "да"
+                    },
+					
+					{
                         "match": "\"type\":(.*?),",
                         "text": ""
                     },
+					
+					
+					
+					
                     {
                         "match": "\"count_chapters\":",
                         "text": " Доступно Глав "
