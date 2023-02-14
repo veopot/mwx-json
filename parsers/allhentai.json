@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 50,
+	"version": 51,
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -139,7 +139,10 @@
 			"end": "</table>",
 			
 			"next":  "item-title\"",
-			"link":  { "token1": "<a href=\"", "token2": "\""  }, 
+			"link":  { "token1": "<a href=\"", "token2": "\"",
+				"replace": {"prefix": "?mtr=1"}  }, 
+			
+			
 		
 			 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", 
 				"replace": { "match": "(.*)\n          \n          ", "text": "" } },  
