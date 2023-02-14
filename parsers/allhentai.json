@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 49,
+	"version": 50
 	"title": "All Hentai",
 	
     "old_ids": [1616],
@@ -163,7 +163,7 @@
         "images": true,
         
         "add_pages": { 
-            "start": "rm_h.initReader(",
+            "start": "rm_h.readerInit(",
             "token1": "['",
             "token2": "],",
             "end": "]],",
