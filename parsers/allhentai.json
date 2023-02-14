@@ -1,228 +1,320 @@
 {
 	"id": 30401,
-	"version": 51,
+	"version": 52,
 	"title": "All Hentai",
-	
-    "old_ids": [1616],
-     "old_sites": ["allhentai.ru","wwv.allhen.me","wwv.allhen.live" ,"24.allhen.online","23.allhen.online","22.allhen.online"],
-	
+	"old_ids": [
+		1616
+	],
+	"old_sites": [
+		"allhentai.ru",
+		"wwv.allhen.me",
+		"wwv.allhen.live",
+		"24.allhen.online",
+		"23.allhen.online",
+		"22.allhen.online"
+	],
 	"host": "http://2023.allhen.online",
 	"public_link": "http://2023.allhen.online",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
-	"name" : "allhentai",
+	"name": "allhentai",
 	"language": "ru",
 	"is_mature": true,
 	"chapters_order": false,
-	
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/allhentai.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/allhentai.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/allhentai.zip",
-    "file_type": "sqlite",
-	
-	
-	
-	"manga_search_complete": {		
+	"file_type": "sqlite",
+	"manga_search_complete": {
 		"search_link": "https://2023.allhen.online/search/advanced",
 		"headers": {
-		         "accept": "*/*",
-				"x-requested-with": "XMLHttpRequest",
-				"Content-Type": "application/x-www-form-urlencoded",
-				"Referer": "http://22.allhen.online/search"
-			},       
-		"form_data": {"q": "$query$"},
+			"accept": "*/*",
+			"x-requested-with": "XMLHttpRequest",
+			"Content-Type": "application/x-www-form-urlencoded",
+			"Referer": "http://22.allhen.online/search"
+		},
+		"form_data": {
+			"q": "$query$"
+		},
 		"query_type": "POST",
-		
 		"add_manga": {
 			"next": "<div class=\"tile col-md-6",
-			
-			"summary": { "token1": "class=\"html-popover-holder\">", "token2": "</div>",
-                "replace":[
-			{"match":"<.*?>", "text":" "},
-			{"match":"\n", "text":" "},
-			{"match":"                              ", "text":" "}
-			] },
-				
-			
-			
-			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			
-			"cover": { "after": "<img", "token1": "data-original='", "token2": "'", 
-			    "replace":{"prefix": "http://b964805y.beget.tech/index.php?q="} },
-			
-			
-			
-			"title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
-			"uniq":  { "after": "<h3>", "token1": "title=\"", "token2": "\"" }
-		} 
+			"summary": {
+				"token1": "class=\"html-popover-holder\">",
+				"token2": "</div>",
+				"replace": [{
+						"match": "<.*?>",
+						"text": " "
+					},
+					{
+						"match": "\n",
+						"text": " "
+					},
+					{
+						"match": "                              ",
+						"text": " "
+					}
+				]
+			},
+			"link": {
+				"token1": "<a href=\"",
+				"token2": "\""
+			},
+			"cover": {
+				"after": "<img",
+				"token1": "data-original='",
+				"token2": "'",
+				"replace": {
+					"prefix": "http://b964805y.beget.tech/index.php?q="
+				}
+			},
+			"title": {
+				"after": "<h3>",
+				"token1": "title=\"",
+				"token2": "\""
+			},
+			"uniq": {
+				"after": "<h3>",
+				"token1": "title=\"",
+				"token2": "\""
+			}
+		}
 	},
-
-
-
-
-   
-
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "http://2023.allhen.online/list?sortType=votes&offset=",
-			"append_nums": { "from": 0, "to": 20000, "step": 70}
+			"append_nums": {
+				"from": 0,
+				"to": 20000,
+				"step": 70
+			}
 		},
 		"add_manga": {
-            "start": "tiles row",
-            "next":  "class=\"img",
-            "link":  { "token1": "href=\"", "token2": "\"" },
-            "title": { "skip": "href=\"", "token1": "title='", "token2": "'" },
-            
-			"cover": { "token1": "data-original='", "token2": "'", 
-			"replace": { "match": "_p.jpg", "text": ".jpg" } }
-			
-		
-        },
-        "rating_auto_inc": {
-            "start": 30000,
-            "inc": -1
-        }
-	},
-	
-	"manga_complete": {
-		"title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "<meta itemprop=\"url",
-				"replace": [
-				    { "match": "\" />", "text": ""},
-					{ "match": "\"/>", "text": ""},
-					{ "match": "\n", "text": ""},
-					{ "match": "      ", "text": " "},
-                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
-				] 
+			"start": "tiles row",
+			"next": "class=\"img",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\""
 			},
-		
-		"uniq": { "skip": "itemprop=\"alternativeHeadline\"", "token1": "content=\"", "token2": "\"" },
-		
-		"author":      { "skip": "class=\"elem_author", "token1":"\">", "token2": "</a>" },
-		
-		"summary":     { "after": "manga-description", "token1": ">", "token2": "</div", 
-		"replace": { "match": "<.*?>", "text": "" }},
-		
-		
-		"need_auth": ["залогиненным", "доступна только","хентай"   ],
-		
-		"status":      {
-			"ongoing":  { 
-				"start" : ">Перевод:<",
-				"end" : "</p>",
-
-				"values" : ["продолжается"]
+			"title": {
+				"skip": "href=\"",
+				"token1": "title='",
+				"token2": "'"
 			},
-			"complete": { 
-				"start" : ">Перевод:<",
-				"end" : "</p>",
-				"values" : ["завершен","переведено", "Переведена", "Сингл"]
-			},
-			"single":  "<b>Сингл</b>"
+			"cover": {
+				"token1": "data-original='",
+				"token2": "'",
+				"replace": {
+					"match": "_p.jpg",
+					"text": ".jpg"
+				}
+			}
 		},
-		
-		
-		"cover":       { "after": "picture-fotorama", "token1": "src=\"", "token2": "\"",
-				"replace": {"prefix": "http://b964805y.beget.tech/index.php?q="}
-                    },
-		"is_mature":   "hentai",
-		
-		"add_genre":   { "after": "href=\"/list/genre/", "token1":"\">", "token2": "</" },
-		
-		"add_tag":   { "after": "href=\"/list/tag/", "token1":"\">", "token2": "</" },
-		
-		
-		"need_auth_genres": ["сэйнэн", "сёдзё для взрослых", "этти", "эротика", "юри", "яой","завершен", "Переведена", "Сингл","залогиненным", "доступна только","хентай" ],
-		
-		"add_chapter": { 
-			"start" : "<table class=\"table table-hover\">",
-			"end": "</table>",
-			
-			"next":  "item-title\"",
-			"link":  { "token1": "<a href=\"", "token2": "\"",
-				"replace": {"prefix": "?mtr=1"}  }, 
-			
-			
-		
-			 "title": { "after": "<a href=\"", "token1": ">", "token2": "<", 
-				"replace": { "match": "(.*)\n          \n          ", "text": "" } },  
-           
-		   "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"",
-		   "replace" : { "match" : "\\?.*", "text" : "" } }
-		
-			
+		"rating_auto_inc": {
+			"start": 30000,
+			"inc": -1
 		}
 	},
-
+	"manga_complete": {
+		"title": {
+			"after": "<meta itemprop=\"name\"",
+			"token1": "content=\"",
+			"token2": "<meta itemprop=\"url",
+			"replace": [{
+					"match": "\" />",
+					"text": ""
+				},
+				{
+					"match": "\"/>",
+					"text": ""
+				},
+				{
+					"match": "\n",
+					"text": ""
+				},
+				{
+					"match": "      ",
+					"text": " "
+				},
+				{
+					"match": "<meta itemprop=\"alternativeHeadline\" content=\"",
+					"text": "/ "
+				}
+			]
+		},
+		"uniq": {
+			"skip": "itemprop=\"alternativeHeadline\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"author": {
+			"skip": "class=\"elem_author",
+			"token1": "\">",
+			"token2": "</a>"
+		},
+		"summary": {
+			"after": "manga-description",
+			"token1": ">",
+			"token2": "</div",
+			"replace": {
+				"match": "<.*?>",
+				"text": ""
+			}
+		},
+		"need_auth": [
+			"залогиненным",
+			"доступна только",
+			"хентай"
+		],
+		"status": {
+			"ongoing": {
+				"start": ">Перевод:<",
+				"end": "</p>",
+				"values": [
+					"продолжается"
+				]
+			},
+			"complete": {
+				"start": ">Перевод:<",
+				"end": "</p>",
+				"values": [
+					"завершен",
+					"переведено",
+					"Переведена",
+					"Сингл"
+				]
+			},
+			"single": "<b>Сингл</b>"
+		},
+		"cover": {
+			"after": "picture-fotorama",
+			"token1": "src=\"",
+			"token2": "\"",
+			"replace": {
+				"prefix": "http://b964805y.beget.tech/index.php?q="
+			}
+		},
+		"is_mature": "hentai",
+		"add_genre": {
+			"after": "href=\"/list/genre/",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"add_tag": {
+			"after": "href=\"/list/tag/",
+			"token1": "\">",
+			"token2": "</"
+		},
+		"need_auth_genres": [
+			"сэйнэн",
+			"сёдзё для взрослых",
+			"этти",
+			"эротика",
+			"юри",
+			"яой",
+			"завершен",
+			"Переведена",
+			"Сингл",
+			"залогиненным",
+			"доступна только",
+			"хентай"
+		],
+		"add_chapter": {
+			"start": "<table class=\"table table-hover\">",
+			"end": "</table>",
+			"next": "item-title\"",
+			"link": {
+				"token1": "<a href=\"",
+				"token2": "\"",
+				"replace": {
+					"sufix": "?mtr=1"
+				}
+			},
+			"title": {
+				"after": "<a href=\"",
+				"token1": ">",
+				"token2": "<",
+				"replace": {
+					"match": "(.*)\n          \n          ",
+					"text": ""
+				}
+			},
+			"uniq": {
+				"after": "href=\"",
+				"token1": "/vol",
+				"token2": "\"",
+				"replace": {
+					"match": "\\?.*",
+					"text": ""
+				}
+			}
+		}
+	},
 	"chapter_complete": {
 		"headers": {
-		"cookie": "remember_me=dmdEa3E5d1FIejl0bUU3JTJGZm9HWlBrTWRDTmU1VnV2UzRYM2taZVBwN0o0JTNEOk45UzMlMkZKdTJrUU1YTjlEcyUyRkhmNFlDTktGSXhKJTJCV2FLamVTVm91JTJCRExrbyUzRA",
-		
-		"Accept": "*/*",
-		"Referer": "https://2023.allhen.online/"
+			"cookie": "remember_me=Y1dCd1ZLb1l2R0h5Z3NYZjRQTHdLdlMlMkYzanBucm14bjZabmZPb3lTNjg0JTNEOndDQUhieiUyRklxNmVNaGtXN2tkRkYyeVRCNTVSWCUyRk0yR3FuZmFFbmFLc1prJTNE",
+			"Accept": "*/*",
+			"Referer": "https://2023.allhen.online/"
 		},
-	
 		"no_404": true,
-        "images": true,
-        
-        "add_pages": { 
-            "start": "rm_h.readerInit(",
-            "token1": "['",
-            "token2": "],",
-            "end": "]],",
-            "replace" : { "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" }
-			
-        },
+		"images": true,
+		"add_pages": {
+			"start": "rm_h.readerInit(",
+			"token1": "['",
+			"token2": "],",
+			"end": "]],",
+			"replace": {
+				"match": "(.*?)','(.*?)',\"(.*?)\".*",
+				"text": "$1$3"
+			}
+		},
 		"prefix": "https:"
 	},
-
-	"test": [
-		{
-			"proc" : "manga_list_complete",
-			
-			"assert" : {
-				"mangas" : [
-		{  
-		"link": "http://2023.allhen.online/delovoi_stil",
-        "title": "Деловой стиль (Business Casual)",
-        "uniq": "delovoi_stil" 
-		}
-				],
-				"mangas_count" : ">100"
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+					"link": "http://2023.allhen.online/delovoi_stil",
+					"title": "Деловой стиль (Business Casual)",
+					"uniq": "delovoi_stil"
+				}],
+				"mangas_count": ">100"
 			}
 		},
 		{
-			"proc" : "manga_complete",
-			"link" : "http://2023.allhen.online/a_peephole",
-			"title" : "Nozoki ana (A peephole)",
-			"assert" : {
-				"cover" : "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
-				"summary" : "@^(Кидо Тацухико переехал в Токио)",
-				"genres" : "@drama",
-				"status" : "complete",
-				"genres_count" : ">=2",
-				"chapters_count" : ">=115",
-				"chapters" : [
-					{ 
-						"title" : "Дыра 1 - 1", 
-						"link" : "http://2023.allhen.online/a_peephole/vol1/1",
-						"folder" : "Дыра 1 - 1/"
+			"proc": "manga_complete",
+			"link": "http://2023.allhen.online/a_peephole",
+			"title": "Nozoki ana (A peephole)",
+			"assert": {
+				"cover": "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
+				"summary": "@^(Кидо Тацухико переехал в Токио)",
+				"genres": "@drama",
+				"status": "complete",
+				"genres_count": ">=2",
+				"chapters_count": ">=115",
+				"chapters": [{
+					"title": "Дыра 1 - 1",
+					"link": "http://2023.allhen.online/a_peephole/vol1/1",
+					"folder": "Дыра 1 - 1/"
+				}]
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "http://2023.allhen.online/a_peephole/vol1/1",
+			"assert": {
+				"pages": [{
+						"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"
+					},
+					{
+						"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"
+					},
+					{
+						"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"
 					}
 				]
-			}
-		},
-		
-		{
-			"proc" : "chapter_complete",
-			"link" : "http://2023.allhen.online/a_peephole/vol1/1",
-		     "assert" : {
-				"pages" : [
- {"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
- {"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"},
- {"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"}
-	]
 			}
 		}
 	]
 }
-
