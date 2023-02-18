@@ -3,7 +3,7 @@
     "old_ids": [65583],
     "old_sites": ["yaoichan.ru"],
     
-	"version": 22, 
+	"version": 23, 
 	"title": "Yaoi-chan!",
 	"host": "https://yaoi-chan.me/",
 	"public_link": "https://yaoi-chan.me/catalog",
@@ -21,6 +21,7 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/yaoichan.zip",
     "file_type": "sqlite",
 	
+	"author": {"name":"MWX Team","email":"fant-net@ya.ru"},
 
 	"engine_settings": {
 		"is_auth_required": true
@@ -76,7 +77,7 @@
 	"manga_list_complete": {
 		"iterator": {    
 			"base_url": "https://yaoi-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 15500, "step": 20,
+			"append_nums": { "from": 0, "to": 16080, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": { 
@@ -110,7 +111,16 @@
 		
 		"read_dir":    { "right_to_left": "href=\"/type/Манга\"", "left_to_right": "href=\"/type/Манхва\"" },
 		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
-		"add_tag":   { "after": "href=\"https://yaoi-chan.me/tags/", "token1": "\">", "token2": "</" },
+		
+		
+		"add_tags":   {
+        "start": "class=\"item\">Тэги<",
+		"end": "</tr>",
+		"token1": "\">",
+		"token2": "</a>"
+		},
+		
+		
 		
 		"is_mature":    "яой",
 		

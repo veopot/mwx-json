@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 10,
+	"version": 11,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -95,9 +95,8 @@
 		"summary":     { "after": "itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
 		
 		"cover":       { "skip": "<div class=\"section\">", 
-		"token1": "src=\"https://mangalib.me/uploads/cover/",
-		"token2": "\"",
-				"replace": {"prefix": "https://mangalib.me/uploads/cover/" } },
+		"token1": "<img src=\"",
+		"token2": "\"" },
 		
 		"status":{ 
 		

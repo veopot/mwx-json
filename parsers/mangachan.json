@@ -1,6 +1,6 @@
 {
 	"id": 30005,
-	"version": 44,
+	"version": 45,
 	
 	"old_ids": [28673],
     "old_sites": ["mangachan.ru"],
@@ -18,7 +18,7 @@
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangachan.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangachan.zip",
     "file_type": "sqlite",
-	"author": {"name":"Veopot/CrazyXacker","email":"fant-net@ya.ru"},
+	"author": {"name":"MWX Team","email":"fant-net@ya.ru"},
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangachan_logo.png",
@@ -62,7 +62,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://manga-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 20000, "step": 20,
+			"append_nums": { "from": 0, "to": 20460, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": {
@@ -107,7 +107,14 @@
 		},
 		"cover":       { "after": "<div id=\"manga_images\">", "token1": "src=\"", "token2": "\"" },
 		
-		"add_tag":   { "after": "href=\"https://manga-chan.me/tags/", "token1": "\">", "token2": "</" },
+		"add_tags":   {
+        "start": "class=\"item\">Тэги<",
+		"end": "</tr>",
+		"token1": "\">",
+		"token2": "</a>"
+		},
+		
+		
 		
 		"add_chapter": {
 			"next":  "<div class='manga2'",
