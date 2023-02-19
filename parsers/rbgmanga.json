@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 85,
+    "version": 86,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -179,7 +179,7 @@
     "manga_complete": {
 		
         "headers": {
-			"cookie": "user=%7B%22access_token%22%3A%22lOQfOEIsnsPiPis4I5KF4VwfMvALBT%22%2C%22two_factor_auth%22%3Afalse%2C%22id%22%3A558880%2C%22username%22%3A%22veopot2014%22%2C%22is_superuser%22%3Afalse%2C%22is_staff%22%3Afalse%2C%22balance%22%3A%220.00%22%2C%22ticket_balance%22%3A0%2C%22avatar%22%3Anull%2C%22email%22%3A%22veopot2014%40gmail.com%22%2C%22sex%22%3A0%2C%22vk_not%22%3Afalse%2C%22yaoi%22%3A0%2C%22adult%22%3Afalse%2C%22chapters_read%22%3A129%2C%22vk_id%22%3Anull%2C%22google_id%22%3Anull%2C%22yandex_id%22%3Anull%2C%22mail_id%22%3Anull%2C%22is_two_factor_auth%22%3Afalse%2C%22tagline%22%3Anull%2C%22preference%22%3A2%2C%22count_views%22%3A129%2C%22count_votes%22%3A10%2C%22count_comments%22%3A35%7D",
+			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
             "Referer": "https://api.remanga.org/",
             "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -368,7 +368,7 @@
     "chapter_complete": {
         "add_numeration": true,
         "headers": {
-			"cookie": "user=%7B%22access_token%22%3A%22lOQfOEIsnsPiPis4I5KF4VwfMvALBT%22%2C%22two_factor_auth%22%3Afalse%2C%22id%22%3A558880%2C%22username%22%3A%22veopot2014%22%2C%22is_superuser%22%3Afalse%2C%22is_staff%22%3Afalse%2C%22balance%22%3A%220.00%22%2C%22ticket_balance%22%3A0%2C%22avatar%22%3Anull%2C%22email%22%3A%22veopot2014%40gmail.com%22%2C%22sex%22%3A0%2C%22vk_not%22%3Afalse%2C%22yaoi%22%3A0%2C%22adult%22%3Afalse%2C%22chapters_read%22%3A129%2C%22vk_id%22%3Anull%2C%22google_id%22%3Anull%2C%22yandex_id%22%3Anull%2C%22mail_id%22%3Anull%2C%22is_two_factor_auth%22%3Afalse%2C%22tagline%22%3Anull%2C%22preference%22%3A2%2C%22count_views%22%3A129%2C%22count_votes%22%3A10%2C%22count_comments%22%3A35%7D",
+			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
             "Referer": "https://api.remanga.org/",
             "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
