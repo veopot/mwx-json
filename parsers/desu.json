@@ -1,9 +1,11 @@
 {
 	"id": 30402,
-	"version": 40,
+	"version": 41,
 	
 	"old_ids": [66348],
-
+    "old_sites": [
+	"x.desu.me"
+	],
 	
 	"title": "Desu",
 	"host": "https://desu.me/",
