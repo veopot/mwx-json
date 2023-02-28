@@ -1,6 +1,6 @@
 {
 	"id": 41131,
-	"version": 2,
+	"version": 3,
 	
 	"title": "WeLoveManga",
 	"host": "https://welovemanga.one/",
@@ -116,12 +116,17 @@
 	
 	"chapter_complete": {
 		"add_images": {
-			"start": "<div class=\"chapter-content\"",
-			 "end": "<section id=\"rd-side_icon\">",
+			"start": "class=\"chapter-content\"",
+			"end": "<section id=\"rd-side_icon\">",
 			"token1": "data-src='",
 			"token2": "'",
-		
-			"replace": { "match": "\n\n&", "text": "&" }
+		       
+			"replace": [ 
+			        { "match": "\n\n&", "text": "&" },
+					{ "match": "%0A%0D", "text": "" }
+					]                  
+            
+			
 		}
 	},
 
