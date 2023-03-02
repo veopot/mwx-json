@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 71, 
+	"version": 72, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -131,7 +131,7 @@
 		"add_chapter":  { 
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
-			"next":  	"<tr",
+			"next":  	"<i class=\"chapter-status",
 			
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
 			"replace":  [{"prefix": "https://mintmanga.live"},
@@ -207,7 +207,7 @@
 		"add_chapter":  { 
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
-			"next":  	"<tr",
+			"next":  	"<i class=\"chapter-status",
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
 			"replace":  [{"prefix": "https://mintmanga.live"},
 			{"sufix": "?mtr=1"}
@@ -232,7 +232,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=dThTbkh3YTdnSE9uNVdFWTdDMFNuJTJCcUhlcW9POXpPU2JTazVsaGY0VXhzJTNEOjN2biUyQnE4QWczVlUweHB2bVh1U2J3c0pCdGdGSE5EQ0ZaV3JaNGJCaktyRSUzRA",
+		"cookie": "remember_me=R1ZBNUgzVzVQTzJqQm5zelRQd0hlcDZoQ1lTek50JTJGbmIydmNFS1V0WGtNJTNEOnhDRTZpMjl2dWFpMHd5NW9OenAyems1QVgyUzh1WWtwc2Z4TEl1MWdUJTJCOCUzRA",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://mintmanga.live/",
