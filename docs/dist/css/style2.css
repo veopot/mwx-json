@@ -148,3 +148,11 @@
 	font-family:arial;
 	border:0px #ddd solid;
 }
+
+
+
+.p3:hover {
+    border: 4px solid #FFF; /* Ширина, вид и цвет рамки */
+
+}
+
