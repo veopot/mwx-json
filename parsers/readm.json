@@ -1,7 +1,7 @@
 {
     
     "id": 30472,
-    "version": 3,
+    "version": 4,
 	
 	"title": "ReadM",
 	"host": "https://readm.org/",
@@ -118,18 +118,22 @@
 	
 	
 	"chapter_complete": {
-		"images": true,
-		"add_pages": { 
-			"start": "var chapter", 
-			"token1": "\"src\":\"", 
-			"token2": "\"",
-			"end": "</head>",
-			"replace" : [{ "prefix" : "https://readm.org" },{ "match" : "\\\\", "text" : "" }]
+		
+		"add_numeration": true,
+		"add_images": {
+			"start": "var chapter",
+			"token1": ",\"src\":\"",
+			"token2": "\",",
+			"end": "var prea",
+			"replace": 
+			[   
+			{"prefix": "https://readm.org"},
+			{ "match": "\\\\", "text": "" }
+			]
 			
-			
-		}
+			}
 	},
-
+	
 	"test": [
 		{
 			"proc" : "manga_list_complete",
@@ -177,9 +181,9 @@
 			"link" : "https://readm.org/manga/martial-peak/1", 
 			"assert" : {
 				"pages" : [
-        {"image": "https://readm.org/uploads/chapter_files/16086/1/0.4.jpg"},
-        {"image": "https://readm.org/uploads/chapter_files/16086/1/0.5.jpg"},
-        {"image": "https://readm.org/uploads/chapter_files/16086/1/1.jpg"}
+       {"image": "https://readm.org/uploads/chapter_files/16086/1/0.4.jpg"},
+       {"image": "https://readm.org/uploads/chapter_files/16086/1/0.5.jpg"},
+       {"image": "https://readm.org/uploads/chapter_files/16086/1/1.jpg"}
 				],
 				"pages_count": "20"
 			}
