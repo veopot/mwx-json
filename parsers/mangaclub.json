@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 35,
+	"version": 36,
 	"old_ids": [29000],
 
 	"title": "MangaClub",
@@ -146,17 +146,17 @@
 
 	"manga_complete": {
 		"title": {
-			"skip": "itemprop=\"name\"",
-			"token1": "content=\"",
-			"token2": "\""
-		},
-		"additional_title": {
 			"skip": "itemprop=\"alternativeHeadline\"",
 			"token1": "content=\"",
 			"token2": "\""
 		},
-		"uniq": {
+		"additional_title": {
 			"skip": "itemprop=\"name\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"uniq": {
+			"skip": "itemprop=\"alternativeHeadline\"",
 			"token1": "content=\"",
 			"token2": "\""
 		},
@@ -249,7 +249,7 @@
 		}, {
 			"proc": "manga_complete",
 			"link": "https://mangaclub.ru/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya.html",
-			"title": "Isekai Maou to Shoukan Shoujo Dorei Majutsu / Повелитель тьмы. Другая история: магия порабощения",
+			"title": "Isekai Maou to Shoukan Shoujo Dorei Majutsu",
 			"assert": {
 				"author": "@Murasaki Yukiya",
 				"cover": "https://mangaclub.ru/uploads/posts/2016-10/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
