@@ -1,85 +1,142 @@
 {
 	"id": 29001,
-	"version": 33,
+	"version": 34,
 	"old_ids": [29000],
-	
+
 	"title": "MangaClub",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
 	"folder": "mangaclub",
-	"name" : "mangclub",
+	"name": "mangclub",
 	"language": "ru",
 	"skip_catalog_test": false,
 	"icon_link": "https://mangaclub.ru/templates/MangaClub/images/icon/favicon.ico",
-	
+
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangaclub.json",
 	"self_link2": "https://mw.lomikxp.ru/api/v1/repo/parsers/mangaclub",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangaclub.zip",
 	"file_type": "sqlite",
-	"author": {"name":"Veopot & Lomik_XP","email":"admin@mw.lomikxp.ru"},
-	
+	"author": {
+		"name": "Veopot & Lomik_XP",
+		"email": "admin@mw.lomikxp.ru"
+	},
+
 	"authorization_complete": {
-		"logo": 		"https://mangaclub.ru/templates/MangaClub/images/icon/favicon.ico",
+		"logo": "https://mangaclub.ru/templates/MangaClub/images/icon/favicon.ico",
 		"registration": "https://mangaclub.ru/index.php?do=register",
-		"expires": 		31449600000,
-		"expires_check": {"cookies_value": ["PHPSESSID"]},
-	
+		"expires": 31449600000,
+		"expires_check": {
+			"cookies_value": ["PHPSESSID"]
+		},
+
 		"values": {
 			"login": "submit",
 			"image": "Вход",
-			"login_name": 		{ "label": "Login", "hint": "Введите свой логин", "kind": "text" },
-			"login_password": 	{ "label": "Password", "hint": "Введите свой пароль", "kind": "password" }
+			"login_name": {
+				"label": "Login",
+				"hint": "Введите свой логин",
+				"kind": "text"
+			},
+			"login_password": {
+				"label": "Password",
+				"hint": "Введите свой пароль",
+				"kind": "password"
+			}
 		},
 		"request": {
-			"method": 	"post",
-			"url": 		"https://mangaclub.ru/"
-    	},
-    	"response_check": {
-    	  	"cookies": { "dle_user_id": "@\\d+" },
-    	  	"headers": { "Set-Cookie": "@dle_user_id=\\d+"}
-    	}
+			"method": "post",
+			"url": "https://mangaclub.ru/"
+		},
+		"response_check": {
+			"cookies": {
+				"dle_user_id": "@\\d+"
+			},
+			"headers": {
+				"Set-Cookie": "@dle_user_id=\\d+"
+			}
+		}
 	},
 
-
-	"manga_search_complete": {		
+	"manga_search_complete": {
 		"search_link": "https://mangaclub.ru/index.php?do=search&subaction=search&search_start=$page$&full_search=0&result_from=1&story=$query$",
-		
+
 		"query_type": "GET",
-		
+
 		"add_manga": {
 			"start": ">Поиск по сайту<",
 			"next": "<h4 class=\"title\">",
-			
-			
-			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			
-			"cover": { "skip": "<a href=\"", "token1": "<img src=\"", "token2": "\"", 
-			"replace": { "prefix": "https://mangaclub.ru" } },
-			 
-			"summary": { "token1": "class=\"description\">", "token2": "</div>",
-                "replace":{"match":"<.*?>", "text":""} },
-				
-			"title": { "after": "<a href=\"", "token1": "\">", "token2": "</" },
-			"uniq":  { "after": "<a href=\"", "token1": "\">", "token2": "</" }
-		} 
+
+			"link": {
+				"token1": "<a href=\"",
+				"token2": "\""
+			},
+
+			"cover": {
+				"skip": "<a href=\"",
+				"token1": "<img src=\"",
+				"token2": "\"",
+				"replace": {
+					"prefix": "https://mangaclub.ru"
+				}
+			},
+
+			"summary": {
+				"token1": "class=\"description\">",
+				"token2": "</div>",
+				"replace": {
+					"match": "<.*?>",
+					"text": ""
+				}
+			},
+
+			"title": {
+				"after": "<a href=\"",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"uniq": {
+				"after": "<a href=\"",
+				"token1": "\">",
+				"token2": "</"
+			}
+		}
 	},
-
-
 
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://mangaclub.ru/page/",
-			"append_nums": { "from": 1, "to": 625, "step": 1, "last_page": {"before": "page/2/\"><i class=\"glyphicon", "token1": "\">", "token2": "<"} }
+			"append_nums": {
+				"from": 1,
+				"to": 625,
+				"step": 1,
+				"last_page": {
+					"before": "page/2/\"><i class=\"glyphicon",
+					"token1": "\">",
+					"token2": "<"
+				}
+			}
 		},
 		"add_manga": {
-		 "start": "class=\"content\">",
+			"start": "class=\"content\">",
 			"end": "<div class=\"pagination\">",
-		
 			"next": "class=\"title\">",
-			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			"title": { "after": "href=\"", "token1": "\">", "token2": "</" },
-			"uniq":  { "after": "href=\"", "token1": "\">", "token2": "</" },
-			"skipmanga": { "skipmatch": ["Псс, сайт работает!"] }
+			"link": {
+				"token1": "<a href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"after": "href=\"",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"uniq": {
+				"after": "href=\"",
+				"token1": "\">",
+				"token2": "</"
+			},
+			"skipmanga": {
+				"skipmatch": ["Псс, сайт работает!"]
+			}
 		},
 		"rating_auto_inc": {
 			"start": "20000",
@@ -88,90 +145,132 @@
 	},
 
 	"manga_complete": {
-		"title":        { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
-		"uniq":         { "skip": "og:title", "token1": "content=\"", "token2": "\"" },
-		"author":       { "skip": "Автор(ы)", "token1": "\">", "token2": "<" },
-		"summary":      { "skip": "class=\"description\"", "token1": ">", "token2": "</" },
-		"status":       { 
-			"licensed" : "лицензировано на",
+		"title": {
+			"skip": "itemprop=\"name\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"uniq": {
+			"skip": "itemprop=\"name\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"author": {
+			"skip": "Автор(ы)",
+			"token1": "\">",
+			"token2": "<"
+		},
+		"summary": {
+			"skip": "itemprop=\"description\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"status": {
+			"licensed": "лицензировано на",
 			"complete": "Завершен/",
 			"ongoing": "Продолжается/"
 		},
-		"content_type": { 
-			"manga": "link-category\">Манга<",
-			"manhwa": "link-category\">Манхва<",
-			"manhua": "link-category\">Маньхуа<",
-			"webcomics": "link-category\">Веб-манхва<",
+		"content_type": {
+			"manga": "category-title\">Манга<",
+			"manhwa": "category-title\">Манхва<",
+			"manhua": "category-title\">Маньхуа<",
+			"webcomics": "category-title\">Веб-манхва<",
 			"light_novels": "ranobe/\">Ранобэ/Новелла<"
 		},
-		"read_dir":     { "right_to_left": "link-category\">Манга<", "left_to_right": "link-category\">Манхва<" },
-		"cover":        { "after": "og:image", "token1": "content=\"", "token2": "\"" },
-		"is_mature":    "title-adult-rank",
-		"add_genres":   { "after": "\"news_keywords\"", "token1": "content=\"", "token2": "\"", "split": ","},
-		"add_tag":      { "after": "link-category", "token1": ">", "token2": "</" },
-		"add_chapter":  {
+		"read_dir": {
+			"right_to_left": "category-title\">Манга<",
+			"left_to_right": "category-title\">Манхва<"
+		},
+		"cover": {
+			"after": "og:image",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"is_mature": "\"adult\"",
+		"add_genres": {
+			"start": "href=\"/tags",
+			"token1": "\">",
+			"token2": "</",
+			"end": "sidebar"
+		},
+		"add_tag": {
+			"after": "category-title",
+			"token1": ">",
+			"token2": "</"
+		},
+		"add_chapter": {
 			"start": "\"chapters\"",
-			"next":  "\"chapter-item\"",
-			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			"title": { "skip": "href", "token1": "\"> ", "token2": "<" },
-			"uniq": { "skip": "href", "token1": "\"> ", "token2": "<" },
+			"next": "\"chapter-item\"",
+			"link": {
+				"token1": "<a href=\"",
+				"token2": "\""
+			},
+			"title": {
+				"skip": "href",
+				"token1": "\"> ",
+				"token2": "<"
+			},
+			"uniq": {
+				"skip": "href",
+				"token1": "\"> ",
+				"token2": "<"
+			},
 			"end": "\"content-footer\">"
 		},
 		"need_auth_genres": ["сэйнэн", "сёдзё для взрослых", "этти", "эротика", "юри", "яой"]
 	},
 	"chapter_complete": {
 		"remove_first_del": true,
-        "images": true,
-        "prefix": "https://img.mangaclub.ru/",
-        "add_pages":    { "start": "manga-lines-page",
-        "token1": "data-i=\"",
-        "token2": "\">",
-        "end": "\"control\""
-                          
-  }
+		"images": true,
+		"prefix": "https://img.mangaclub.ru/",
+		"add_pages": {
+			"start": "manga-lines-page",
+			"token1": "data-i=\"",
+			"token2": "\">",
+			"end": "\"control\""
+		}
 	},
-		
-	
-
-	"test": [
-		{
-			"proc" : "manga_list_complete",
+	"test": [{
+			"proc": "manga_list_complete",
 			"testpages": "5",
-			"assert" : {
-				"mangas" : [
-					{ "title": "@^(\\w)", "link": "@https:" }
+			"assert": {
+				"mangas": [{
+						"title": "@^(\\w)",
+						"link": "@https:"
+					}
 				],
-				"mangas_count" : ">=45"
+				"mangas_count": ">=45"
 			}
-		},
-		{
-			"proc" : "manga_complete",
-			"link" : "https://mangaclub.ru/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya.html",
-			"title" : "Isekai Maou to Shoukan Shoujo Dorei Majutsu / Повелитель тьмы. Другая история: магия порабощения",
-			"assert" : {
-				"author" : "@Murasaki Yukiya",
-				"cover" : "https://mangaclub.ru/uploads/posts/2016-10/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
-				"summary" : "@^(В MMORPG)",
-				"genres" : "@adult",
-				"status" : "ONGOING",
-				"genres_count" : ">=8",
-				"chapters_count" : ">=32",
-				"chapters" : [
-					{ "title" : "Том 1. Глава 3",
-						"link" : "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c3.html#01",
-						"folder" : "Том 1. Глава 3/"
-					},
-					{ "title" : "Том 1. Глава 2", "link" : "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c2.html#01" }
+		}, {
+			"proc": "manga_complete",
+			"link": "https://mangaclub.ru/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya.html",
+			"title": "Isekai Maou to Shoukan Shoujo Dorei Majutsu / Повелитель тьмы. Другая история: магия порабощения",
+			"assert": {
+				"author": "@Murasaki Yukiya",
+				"cover": "https://mangaclub.ru/uploads/posts/2016-10/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
+				"summary": "@^(В MMORPG)",
+				"genres": "@adult",
+				"status": "ONGOING",
+				"genres_count": ">=8",
+				"chapters_count": ">=32",
+				"chapters": [{
+						"title": "Том 1. Глава 3",
+						"link": "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c3.html#01",
+						"folder": "Том 1. Глава 3/"
+					}, {
+						"title": "Том 1. Глава 2",
+						"link": "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c2.html#01"
+					}
 				]
 			}
-		},
-		{
-			"proc" : "chapter_complete",
-			"link" : "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v-c3.html#01",
-			"title" : "Глава 3",
-			"assert" : {
-				"pages" : [
-					{"image": "https://img.mangaclub.ru/896//v1_c1_p01-u1-896-1477850157017.jpg"}
+		}, {
+			"proc": "chapter_complete",
+			"link": "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v-c3.html#01",
+			"title": "Глава 3",
+			"assert": {
+				"pages": [{
+						"image": "https://img.mangaclub.ru/896//v1_c1_p01-u1-896-1477850157017.jpg"
+					}
 				],
 				"pages_count": "40"
 			}
