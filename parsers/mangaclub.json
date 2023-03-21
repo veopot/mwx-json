@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 34,
+	"version": 35,
 	"old_ids": [29000],
 
 	"title": "MangaClub",
@@ -147,6 +147,11 @@
 	"manga_complete": {
 		"title": {
 			"skip": "itemprop=\"name\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+		"additional_title": {
+			"skip": "itemprop=\"alternativeHeadline\"",
 			"token1": "content=\"",
 			"token2": "\""
 		},
