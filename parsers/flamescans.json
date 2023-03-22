@@ -1,6 +1,6 @@
 {
     "id": 80001,
-    "version": 2,
+    "version": 3,
 
     "title": "Flame Scans",
     "host": "https://flamescans.org/",
@@ -157,7 +157,7 @@
         }, {
             "proc": "manga_complete",
             "title": "48 Hours a Day",
-            "link": "https://flamescans.org/series/forty-eight-hours-a-day/",
+            "link": "https://flamescans.org/series/1679439721-forty-eight-hours-a-day/",
             "assert": {
                 "author": "@Little Bleary Zhao",
                 "cover": "https://flamescans.org/wp-content/uploads/2022/06/unknown-1.png",
