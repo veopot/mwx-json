@@ -1,0 +1,206 @@
+{
+    "id": 80002,
+    "version": 1,
+
+    "title": "Flame Scans FR",
+    "host": "https://flamescans.fr/",
+    "public_link": "https://flamescans.fr/series/",
+    "name": "flamescans-fr",
+    "folder": "flamescans-fr",
+    "language": "fr",
+
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/flamescans-fr.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/flamescans-fr.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/flamescans-fr.zip",
+    "file_type": "sqlite",
+
+    "manga_list_complete": {
+        "headers": {
+            "Referer": "https://flamescans.fr/"
+        },
+        "iterator": "https://flamescans.fr/manga/list-mode/",
+		
+        "add_manga": {
+            "start": "class=\"soralist\">",
+            "end": "id=\"sidebar\">",
+            "next": "<li><a",
+
+            "link": {
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "after": "href=\"",
+                "token1": "flamescans.fr/series/",
+                "token2": "\"",
+                "replace": {
+                    "match": "[^A-Za-z0-9]",
+                    "text": " "
+                }
+            },
+            "title": {
+                "after": "href=\"",
+                "token1": "\">",
+                "token2": "</",
+                "replace": {
+                    "match": "\"",
+                    "text": ""
+                }
+            }
+        }
+    },
+
+    "manga_complete": {
+        "title": {
+            "skip": "class=\"first-half\">",
+            "token1": "itemprop=\"name\">",
+            "token2": "</",
+            "replace": {
+                "match": "[^A-Za-z0-9]",
+                "text": " "
+            }
+        },
+
+        "uniq": {
+            "skip": "class=\"first-half\">",
+            "token1": "itemprop=\"name\">",
+            "token2": "</",
+            "replace": {
+                "match": "[^A-Za-z0-9]",
+                "text": " "
+            }
+        },
+
+       "summary": {
+           "after": "class=\"summary",
+            "token1": "itemprop=\"description\">",
+            "token2": "</div>",
+            "replace": [
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+		
+
+        "author": {
+            "skip": "<h1> Auteur </h1>",
+            "token1": "i>",
+            "token2": "</"
+        },
+
+        "status": {
+            "complete": "<h1> Status </h1> <i>Completed</i>",
+            "ongoing": "<h1> Status </h1>  <i>En cours</i>"
+        },
+
+        "rating": {
+            "skip": "class=\"info-half\"",
+            "token1": "class=\"numscore\">",
+            "token2": "</div>"
+        },
+
+        "cover": {
+            "skip": "class=\"thumb\"",
+            "token1": "src=\"",
+            "token2": "\""
+        },
+
+        "add_genres": {
+            "start": "class=\"genres-container\"",
+            "end": "class=\"summary\">",
+            "token1": "rel=\"tag\">",
+            "token2": "</a>"
+        },
+
+        "add_chapter": {
+            "start": "class=\"eplister\"",
+            "end": "</ul>",
+            "next": "<li",
+            "link": {
+                "token1": "<a href=\"",
+                "token2": "\""
+            },
+            "title": {
+                "token1": "chapternum\">",
+                "token2": "</span>",
+                "replace": [{
+                        "match": "<.*?>",
+                        "text": ""
+                    }, {
+                        "match": "\"",
+                        "text": ""
+                    }
+                ]
+            }
+        }
+    },
+
+    "chapter_complete": {
+        "images": true,
+        "add_pages": {
+            "start": "id=\"readerarea\"",
+            "token1": "src=\"",
+            "token2": "\"",
+            "end": "</div>",
+            "replace": {
+                "match": "\\\\",
+                "text": ""
+            }
+        }
+    },
+
+    "test": [{
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [{
+                        "title": "Reincarnation of the Strongest Sword God",
+                        "link": "https://flamescans.fr/manga/rebirth-of-the-strongest-sword-god/"
+
+                    }
+                ],
+                "mangas_count": ">20"
+            }
+        }, {
+            "proc": "manga_complete",
+            "title": "Swordmaster rsquo s Youngest Son",
+            "link": "https://flamescans.fr/manga/swordmasters-youngest-son/",
+            "assert": {
+                "author": "@Emperor Penguin, AZI et Je-Won Lee",
+                "cover": "https://flamescans.fr/wp-content/uploads/2022/10/dd431cf2-8927-42da-b479-b7dd7a97b936.jpg",
+                "summary": "@^(Jin Runkandel)",
+                "genres": "@action",
+                "status": "ongoing",
+                "genres_count": ">2",
+                "chapters_count": ">60",
+                "chapters": [
+		{
+            "folder": "swordmasters-youngest-son-chapitre-1\\",
+            "link": "https://flamescans.fr/swordmasters-youngest-son-chapitre-1/",
+            "title": "Chapitre 1"
+        },
+        {
+            "link": "https://flamescans.fr/swordmasters-youngest-son-chapitre-2/",
+            "title": "Chapitre 2"
+        }
+                ]
+            }
+        }, {
+            "proc": "chapter_complete",
+            "link": "https://flamescans.fr/swordmasters-youngest-son-chapitre-1/",
+            "assert": {
+                "pages": [
+		{"image": "https://flamescans.fr/wp-content/uploads/2022/10/01-491.jpg"},
+        {"image": "https://flamescans.fr/wp-content/uploads/2022/10/02-491.jpg"},
+        {"image": "https://flamescans.fr/wp-content/uploads/2022/10/03-490.jpg"}
+                ],
+                "pages_count": "17"
+            }
+        }
+    ]
+}
