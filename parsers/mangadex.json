@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 25,
+	"version": 26,
 	"title": "MangaDex",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -55,7 +55,7 @@
 		
 	"manga_search_complete": {
 		
-		"search_link": "https://api.mangadex.org/manga?limit=32&offset=$page$&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&title=$query$&order[relevance]=desc",
+		"search_link": "https://api.mangadex.org/manga?limit=100&offset=0&includes[]=cover_art&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&title=$query$&order[relevance]=desc",
 		"query_type": "GET",
 
 
