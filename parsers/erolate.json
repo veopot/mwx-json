@@ -1,0 +1,351 @@
+{
+	"id": 4131,
+	"version": 1,
+	"title": "EroLate",
+	"host": "https://erolate.com",
+	"public_link": "https://erolate.com",
+	"folder": "erolate",
+	"name": "erolate",
+	"chapters_order": true,
+	"language": "ru",
+	"encoding": "utf-8",
+
+
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/erolate.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/erolate.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/erolate.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/erolate.zip",
+	"file_type": "sqlite",
+
+	"author": {
+		"name": "Veopot",
+		"email": "fant-net@ya.ru"
+	},
+
+	"authorization_complete": {
+		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/erolate.png",
+		"registration": "https://erolate.com/register",
+		"expires": 31536000000,
+		"is_redirect": true,
+
+		"values": {
+
+			"login[login]": {
+				"label": "Логин",
+				"hint": "Введите свой логин с сайта Rulate!",
+				"kind": "text"
+			},
+
+			"login[pass]": {
+				"label": "Пароль",
+				"hint": "Введите свой пароль с сайта Rulate!",
+				"kind": "password"
+			},
+			"headers": {
+				"Accept": "*/*"
+			},
+
+			"mature": {
+				"forward": "cookie",
+				"value": "c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+			}
+		},
+
+		"request": {
+			"method": "post",
+			"url": "https://erolate.com"
+		},
+		"response_check": {
+			"headers": {
+				"Set-Cookie": "@%22login"
+
+			}
+		}
+	},
+
+	"manga_search_complete": {
+		"search_link": "https://erolate.com/search/index/t/$query$/cat/0/s_lang/0/t_lang/0/sort/4/n_chapters//Book_page/$page$",
+		"query_type": "GET",
+		"add_manga": {
+			"start": "<ul class='search-results'>",
+			"next": "<a href='/book/",
+
+			"link": {
+				"skip": "<a",
+				"token1": "href='/book/",
+				"token2": "'>",
+				"replace": {
+					"prefix": "https://erolate.com/book/"
+				}
+			},
+			"title": {
+				"skip": "href='",
+				"token1": "'>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href='",
+				"token1": "book/",
+				"token2": "'>"
+			},
+
+			"summary": {
+				"after": "<div id='book",
+				"token1": "'>",
+				"token2": "</div>",
+				"replace": {
+					"match": "<.*?>",
+					"text": ""
+				}
+			},
+
+			"cover": {
+				"before": "href='",
+				"token1": "src='",
+				"token2": "'",
+				"replace": {
+					"prefix": "https://erolate.com/"
+				}
+			}
+		}
+	},
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://erolate.com/search/index/cat/2/Book_page/",
+			"append_nums": {
+				"from": 1,
+				"to": 40
+			}
+		},
+
+
+		"add_manga": {
+			"start": "</h1>",
+			"end": "</h5>",
+			"next": "<p class='book-tooltip'",
+
+			"link": {
+				"token1": "href='/book/",
+				"token2": "'>",
+				"replace": {
+					"prefix": "https://erolate.com/book/"
+				}
+			},
+			"title": {
+				"skip": "href='/book/",
+				"token1": "'>",
+				"token2": "</"
+			},
+			"uniq": {
+				"skip": "href='",
+				"token1": "book/",
+				"token2": "'>"
+			}
+		}
+
+	},
+
+	"manga_complete": {
+		"headers": {
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+		},
+
+		"title": {
+			"skip": "class=\"nav nav-tabs book-header\"",
+			"token1": "h1>",
+			"token2": "</"
+		},
+		"uniq": {
+			"skip": "var Book = new CBook",
+			"token1": "id:",
+			"token2": ","
+		},
+		"summary": {
+			"after": "property=\"ranobe:description\"",
+			"token1": "content=\"",
+			"token2": "\"",
+				"replace": [
+				    { "match": "&quot;", "text": "'" },
+					{ "match": "<.*?>", "text": " " }
+				]
+
+		},
+		"author": {
+			"skip": ">Автор:</",
+			"token1": "<em>",
+			"token2": "</em>",
+			"replace": {
+				"match": "<.*?>",
+				"text": ""
+			}
+		},
+
+		"status": {
+			"empty": {
+				"start": "<div class='alert alert-info'",
+				"end": "id=\"Chapters\">",
+				"value": "В этом переводе ещё не создано ни одной главы."
+			},
+			"complete": {
+				"start": "dt>Состояние перевода:</dt",
+				"end": "dt>Перевод:</dt",
+				"values": [">Завершён", ">Переведена"]
+			},
+			"ongoing": {
+				"start": "dt>Состояние перевода:</dt",
+				"end": "dt>Перевод:</dt",
+				"values": [">В работе", ">Ожидание", ">Перерыв"]
+			},
+			"default": "unknown"
+		},
+
+
+
+		"add_tags": {
+			"start": "<div id=\"Info\">",
+			"end": "class=\"dropdown-menu\"",
+			"after": "href=\"/search?",
+			"token1": "class=\"badge\">",
+			"token2": "</a>"
+		},
+		"is_mature": {
+			"start": "<div id=\"Info\">",
+			"end": "class=\"dropdown-menu\"",
+			"values": ["+18", "18+", "эротика"]
+		},
+		"cover": {
+			"after": "<meta property=\"og:image\"",
+			"token1": "content=\"",
+			"token2": "\""
+		},
+
+		"content_type": {
+			"default": "light_novels"
+		},
+
+
+		"add_chapter": {
+			"start": "<tbody>",
+			"end": ">Обсуждение:</",
+			"next": "<td class=",
+			"link": {
+				"before": "title='Получить",
+				"token1": "href='",
+				"token2": "'"
+			},
+			"uniq": {
+				"before": "title='Получить",
+				"token1": "'t'>",
+				"token2": "</a",
+				"replace": [{
+						"match": "<.*>",
+						"text": ""
+					},
+					{
+						"match": "Главы",
+						"text": "Глава"
+					},
+					{
+						"match": "[^a-zA-Z0-9]",
+						"text": ""
+					}
+				]
+			},
+
+			"title": {
+				"before": "title='Получить",
+				"token1": "'t'>",
+				"token2": "</a",
+				"replace": [{
+						"match": "<.*>",
+						"text": ""
+					},
+					{
+						"match": "Главы",
+						"text": "Глава"
+					}
+				]
+			}
+		}
+
+	},
+
+
+	"chapter_complete": {
+		"headers": {
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B",
+			"cookie2": "mwatcher_d=sldotndjssf"
+		},
+
+		"images": true,
+		"add_pages": {
+			"start": "<h5>Настройки</h5>",
+			"token1": "action=\"/book/",
+			"token2": "/ready",
+			"end": "</html>"
+		},
+		"prefix": "https://erolate.com/book/",
+		"sufix": "/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2"
+	},
+
+
+	"test": [{
+			"proc": "manga_list_complete",
+
+			"assert": {
+				"mangas": [{
+
+					"link": "https://erolate.com/book/979",
+					"uniq": "979"
+				}, {
+					"link": "https://erolate.com/book/223"
+				}],
+				"mangas_count": ">30"
+			}
+		},
+
+		{
+			"proc": "manga_complete",
+			"link": "https://erolate.com/book/2713",
+			"title": "A Strange Compulsion / Странное принуждение (Инцест, Гипноз 18+)",
+			"assert": {
+				"author" : "@RebekahKarlsen",
+				"cover": "https://erolate.com/i/book/23/3/14530.jpg",
+				"summary": "@^(Молодой человек находит)",
+				"genres": "@fantasy",
+				"status": "ongoing",
+				"chapters_count": ">=6",
+
+				"chapters": [
+		{
+            "folder": "1/",
+            "link": "https://erolate.com/book/2713/63674/ready_new",
+             "title": "Глава 1"
+        },
+        {
+            "link": "https://erolate.com/book/2713/63675/ready_new",
+            "title": "Глава 2"
+        }
+				]
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "https://erolate.com/book/2713/63674/ready_new",
+			"assert": {
+				"image": "https://erolate.com/book/1689/250072/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2"
+			}
+
+		},
+
+		{
+			"proc": "chapter_complete",
+			"link": "https://erolate.com/book/22/76933/ready",
+			"assert": {
+				"image": "https://erolate.com/book/1689/250072/download?format=f&enc=UTF-8&key=qwerty&title=/ranobe.fb2"
+			}
+
+		}
+	]
+}
