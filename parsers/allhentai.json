@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 52,
+	"version": 53,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -117,6 +117,11 @@
 		}
 	},
 	"manga_complete": {
+		"headers": {
+			"cookie": "remember_me=VzZqbThMOTdFYTVOTkRBYzd1NUg5V1JVSnclMkJjZ1kyVzBxVSUyRkpKd0MxR0UlM0Q6SnpaY0RGV1FEZUdvWktlMVRqTDk3SGVDemhiM3FuRTFPM2N2OGVuVElIZyUzRA",
+			"Accept": "*/*",
+			"Referer": "https://2023.allhen.online/"
+		},
 		"title": {
 			"after": "<meta itemprop=\"name\"",
 			"token1": "content=\"",
@@ -253,7 +258,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=Y1dCd1ZLb1l2R0h5Z3NYZjRQTHdLdlMlMkYzanBucm14bjZabmZPb3lTNjg0JTNEOndDQUhieiUyRklxNmVNaGtXN2tkRkYyeVRCNTVSWCUyRk0yR3FuZmFFbmFLc1prJTNE",
+			"cookie": "remember_me=VzZqbThMOTdFYTVOTkRBYzd1NUg5V1JVSnclMkJjZ1kyVzBxVSUyRkpKd0MxR0UlM0Q6SnpaY0RGV1FEZUdvWktlMVRqTDk3SGVDemhiM3FuRTFPM2N2OGVuVElIZyUzRA",
 			"Accept": "*/*",
 			"Referer": "https://2023.allhen.online/"
 		},
@@ -298,6 +303,16 @@
 					"link": "http://2023.allhen.online/a_peephole/vol1/1",
 					"folder": "Дыра 1 - 1/"
 				}]
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "https://2023.allhen.online/tetrad_po_trusikam/vol1/95",
+			"assert": {
+				"pages": [
+		{"image": "https://d.aaa200.rocks/auto/06/27/19/1.png_res.png?t=1679933932&u=0&h=fln3L8hZDKzb6ISLgI7P1A"},
+        {"image": "https://a.aaa200.rocks/auto/06/27/19/2.png_res.png?t=1679933932&u=0&h=PVzk3Th_IxuCwRhOtDqxag"},
+        {"image": "https://e.aaa200.rocks/auto/06/27/19/3.png_res.png?t=1679933932&u=0&h=XWGnJzoVg2brbfoxQagO9A"}				]
 			}
 		},
 		{
