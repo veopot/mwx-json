@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 72, 
+	"version": 73, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -232,7 +232,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=R1ZBNUgzVzVQTzJqQm5zelRQd0hlcDZoQ1lTek50JTJGbmIydmNFS1V0WGtNJTNEOnhDRTZpMjl2dWFpMHd5NW9OenAyems1QVgyUzh1WWtwc2Z4TEl1MWdUJTJCOCUzRA",
+		"cookie": "remember_me=cGQySkptTVdQbTdUY3UwZTBnWWpCQkdVTXA5cWNpRjNIOWN3dTJhVlJMVSUzRDpwYnNtd2Q1RG1ac0lvcFMlMkZrb1Y1VzQ2b3lteXZ4MXUzWHhZNGY4am9RWVklM0Q",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://mintmanga.live/",
@@ -295,6 +295,18 @@
         {"image": "https://h23.mints.rocks/auto/03/32/49/Gantz_ch361_04__OJS-team_.png?t=1613519222&u=0&h=Bq91I0FvZEqGtMzioo-SPQ"}
 				],
 				"pages_count": "22"
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "https://mintmanga.live/istoriia_minamoto_kuna/vol16/359?mtr=true",
+			"assert": {
+				"pages": [
+		{"image": "https://h17m.rmr.rocks/auto/17/73/13/nn001.png_res.jpg?t=1680306344&u=0&h=1y3cef9_CCmFscBYbWgZ7w"},
+        {"image": "https://h19m.rmr.rocks/auto/17/73/13/nn002.png_res.jpg?t=1680306344&u=0&h=j48Kw0R-qp2w2td3SP5Jbg"},
+        {"image": "https://h2m.rmr.rocks/auto/17/73/13/nn003.png_res.jpg?t=1680306344&u=0&h=U0dPGjAqdoCM2NX6ZwjLYA"}
+				],
+				"pages_count": "19"
 			}
 		}
 	]
