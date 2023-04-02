@@ -1,6 +1,6 @@
 {
     "id": 41135,
-    "version": 2,
+    "version": 3,
     "title": "包子漫畫",
     "host": "https://www.baozimh.com",
     "public_link": "https://www.baozimh.com/classify",
@@ -277,7 +277,9 @@
             "token1": "{\"url\": \"",
             "token2": "\"",
             "end": "</body>"
-        }
+        },
+
+        "sufix": "?t=5724751873601868259"
     },
     "test": [
         {
