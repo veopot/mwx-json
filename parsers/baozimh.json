@@ -1,0 +1,324 @@
+{
+    "id": 41135,
+    "version": 2,
+    "title": "包子漫畫",
+    "host": "https://www.baozimh.com",
+    "public_link": "https://www.baozimh.com/classify",
+    "folder": "baozimh",
+    "name": "baozimh",
+    "chapters_order": true,
+    "language": "cn",
+    "encoding": "utf-8",
+    
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/baozimh.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/baozimh.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/baozimh.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/baozimh.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "Veopot",
+        "email": "fant-net@ya.ru"
+    },
+    
+   
+    "manga_list_complete": {
+       
+        "iterator": {
+            "base_url": "https://www.baozimh.com/api/bzmhq/amp_comic_list?type=all&region=all&filter=*&page=",
+            "append_nums": { 
+			"from": 1,
+			"to": 800,
+			"step": 1,
+			"sufix": "&limit=50&language=tw" }
+			
+        },
+        "add_manga": {
+            "next": "{\"comic",
+			
+            "link": {
+                "token1": "_id\":\"",
+                "token2": "\",",
+                "replace":{ "prefix": "https://www.baozimh.com/comic/" }
+            },
+			
+            
+            "title": {
+				"skip": "_id\":\"",
+                "token1": "\"name\":\"",
+                "token2": "\""
+			},
+            "uniq": {
+				
+               "token1": "id\":\"",
+               "token2": "\","
+            }
+        },
+        "rating_auto_inc": {
+            "start": "50000",
+            "inc": -1
+        }
+    },
+    "manga_complete": {
+		
+        
+        "title": {
+			"after": "<h1 class=\"comics-detail__title\"",
+            "token1": ">",
+            "token2": "</h1>",
+			
+			"replace": [
+                {
+                    "match": "\"",
+                    "text": "'"
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+		
+        
+        
+		"uniq": {
+			"after": "name=\"og:url\"",
+            "token1": "/comic/",
+            "token2": "\"",
+			
+            "replace": [
+                 {
+                        "match": "amp;",
+                        "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+		
+       
+		"cover": {
+			"after": "name=\"og:image\"",
+            "token1": "content=\"",
+            "token2": "\"",
+			
+            "replace": [
+                 {
+                        "match": "amp;",
+                        "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+		
+		"author":      { "after": "<h2 class=\"comics-detail__author\"", "token1": ">", "token2": "</" },
+		
+		"summary": {
+			"after": "<p class=\"comics-detail__desc",
+            "token1": ">",
+            "token2": "</p>",
+			
+            "replace": [
+                {
+                    "match": "u003Cp",
+                    "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+       
+       
+       
+        
+        "add_chapter": {
+            "start": "<div id=\"chapter-items\"",
+            "end": "</button>",
+            "next": "href=\"/user/page_direct",
+			
+            "link": {
+                "after": "?comic_id",
+                "token1": "=",
+                "token2": "\"",
+                "replace": [
+                    {
+                        "prefix": "https://www.baozimh.com/comic/chapter/"
+                    },
+                    {
+                        "sufix": ".html"
+                    },
+					{
+                        "match": "&section_slot=",
+                        "text": "/"
+                    },
+					{
+                        "match": "&amp;section_slot=",
+                        "text": "/"
+                    },
+					
+                    {
+                        "match": "&amp;chapter_slot=",
+                        "text": "_"
+                    },
+					{
+                        "match": "&chapter_slot=",
+                        "text": "_"
+                    },
+                    {
+                        "match": "amp;",
+                        "text": ""
+                    }
+					
+					
+                ]
+            },
+            "uniq": {
+                "after": "?comic_id",
+                "token1": "chapter_slot=",
+                "token2": "\"",
+                "replace": [
+                    {
+                        "match": "412213123",
+                        "text": "Том_"
+                    },
+                    {
+                        "match": "313123123123",
+                        "text": "_Глава_"
+                    }
+                ]
+            },
+            "title": {
+                "after": "?comic_id",
+                "token1": ">",
+                "token2": "</a>",
+                "replace": [
+                    {
+                        "match": "me\":",
+                        "text": "Том "
+                    },
+                    {
+                        "match": ",\"chapter\":\"",
+                        "text": " Глава "
+                    },
+					{
+                    "match": "<.*?>",
+                    "text": ""
+                }
+                ]
+            }
+        }
+    },
+    "chapter_complete": {
+        "add_numeration": true,
+		
+		"headers": {
+		"Accept": "*/*",
+		"Referer": "https://www.baozimh.com/"
+		},
+		
+		
+       
+        "add_images": {
+            "start": "<div class=\"chapter-main",
+            "token1": "{\"url\": \"",
+            "token2": "\"",
+            "end": "</body>"
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Another Emperor Reborn, Возрождение иного императора",
+                        "link": "https://www.baozimh.com/api/titles/another-emperor-reborn",
+                        "uniq": "Another Emperor Reborn"
+                    }
+                ],
+                "mangas_count": ">=20"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://www.baozimh.com/comic/wuliandianfeng-pikapi",
+            "title": "武煉巔峰",
+            "assert": {
+                "cover": "https://static-tw.baozimh.com/cover/wuliandianfeng-pikapi.jpg?w=285&h=375&q=100",
+                "chapters_count": ">=3000",
+                "chapters": [
+                    {
+            "folder": "3198\\",
+            "link": "https://www.baozimh.com/comic/chapter/wuliandianfeng-pikapi/0_3198.html",
+            "title": "3199 墨之戰場篇-激戰王城"
+        }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://www.baozimh.com/comic/chapter/wuliandianfeng-pikapi_a/0_3198.html",
+            "assert": {
+                "pages": [
+        {"image": "https://s1.baozicdn.com/scomic/wuliandianfeng-pikapi/0/3198-yp4j/1.jpg"},
+        {"image": "https://s1.baozicdn.com/scomic/wuliandianfeng-pikapi/0/3198-yp4j/2.jpg"},
+        {"image": "https://s1.baozicdn.com/scomic/wuliandianfeng-pikapi/0/3198-yp4j/3.jpg"}
+                ]
+            }
+        }
+    ]
+}
