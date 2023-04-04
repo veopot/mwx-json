@@ -1,6 +1,6 @@
 {
     "id": 41135,
-    "version": 4,
+    "version": 5,
     "title": "包子漫畫",
     "host": "https://www.baozimh.com",
     "public_link": "https://www.baozimh.com/classify",
@@ -58,6 +58,27 @@
             "inc": -1
         }
     },
+	
+	"manga_search_complete": {		
+		"search_link": "https://www.baozimh.com/search?q=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<div class=\"comics-card pure-u-1-2",
+			
+			"link":  { "token1": "href=\"", "token2": "\"",
+				"replace": {
+					"prefix": "https://www.baozimh.com"
+				} },
+				
+			"title": { "token1": "<div class=\"comics-card__title\">", "token2": "</" },
+			"uniq":  { "token1": " href=\"/comic/", "token2": "\"" },
+			"cover": { "token1": "src=\"", "token2": "?w=" }
+			
+		}
+	},
+
+
+
     "manga_complete": {
 		
         
@@ -146,6 +167,19 @@
                 }
             ]
         },
+		
+		"status": {
+
+			"complete": {
+				"values": ["已完结", "已完結", "COMPLETED"]
+			},
+
+			"ongoing": {
+				"values": ["连载中", "連載中", "ONGOING"]
+			}
+		},
+
+		"add_tag": { "after": "<span class=\"tag\"", "token1": ">", "token2": "</" },
 		
 		"author":      { "after": "<h2 class=\"comics-detail__author\"", "token1": ">", "token2": "</" },
 		
@@ -247,11 +281,11 @@
                 "token2": "</a>",
                 "replace": [
                     {
-                        "match": "me\":",
+                        "match": "Том ",
                         "text": "Том "
                     },
                     {
-                        "match": ",\"chapter\":\"",
+                        "match": " Глава ",
                         "text": " Глава "
                     },
 					{
@@ -304,6 +338,7 @@
             "title": "武煉巔峰",
             "assert": {
                 "cover": "https://static-tw.baozimh.com/cover/wuliandianfeng-pikapi.jpg?w=285&h=375&q=100",
+				"status": "ongoing",
                 "chapters_count": ">=3000",
                 "chapters": [
                     {
