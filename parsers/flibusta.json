@@ -1,0 +1,503 @@
+{
+	"id": 70201,
+	"version": 10,
+	"time_invalidate": 0,
+	"title": "Flibusta (Книги)",
+	"host": "http://a.flibusta.is/",
+	"old_sites": ["flibusta.appspot.com"],
+	"public_link": "http://a.flibusta.is/",
+	"author": {"name": "Kro4"},
+	"folder": "flibusta",
+	"name": "flibusta",
+	"chapters_order": false,
+	"language": "ru",
+	"encoding": "utf-8",
+	"catalog_link": "https://rusiniu.bitbucket.io/parsers/flibusta.zip",
+	"file_type": "sqlite",
+	"self_link": "https://rusiniu.bitbucket.io/parsers/flibusta.json",
+	"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/flibusta.json",
+	"icon_link": "https://rusiniu.bitbucket.io/parsers/flibusta.png",
+	
+	"manga_search_complete": {		
+		"search_link":"http://a.flibusta.is/booksearch?ask=$query$",
+		"query_type": "GET",
+		"add_manga": {
+		    "start": "br><h3",
+			"end": "sidebar-right",
+            "next": "<li>",
+			"link": {
+			    "skip": "<a",
+				"token1": "href=\"",
+				"token2": "\">",
+				"replace": {
+					"prefix": "http://a.flibusta.is"
+				}
+			},
+			"title": {
+				"skip": "href=",
+				"token1": "\">",
+				"token2": "</li"
+			},
+			"uniq": {
+				"skip": "<a",
+				"token1": "href=\"",
+				"token2": "\">",
+				"replace": [{"match": "/", "text": ""}, {"match": ":", "text": ""}]
+			}
+			
+		}
+},
+	
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "http://a.flibusta.is/g/",
+			"append_array": ["economics_ref", 
+"popular_business", 
+"org_behavior", 
+"banking", 
+"economics", 
+"det_action", 
+"detective", 
+"det_irony", 
+"det_history", 
+"det_classic", 
+"det_crime", 
+"det_hard", 
+"det_political", 
+"det_police", 
+"det_maniac", 
+"det_su", 
+"thriller", 
+"det_espionage", 
+"nonf_biography", 
+"nonf_military", 
+"military_special", 
+"travel_notes", 
+"nonfiction", 
+"nonf_publicism", 
+
+"drama_antique", 
+"drama", 
+"dramaturgy", 
+"comedy", 
+"vaudeville", 
+"screenplays", 
+"tragedy", 
+
+"children", 
+"child_education", 
+"child_det", 
+"foreign_children", 
+"prose_game", 
+"child_classical", 
+"child_prose", 
+"child_tale_rus", 
+"child_tale", 
+"child_verse", 
+"child_sf", 
+"love_history", 
+"love_short", 
+"love_sf", 
+"love", 
+"love_detective", 
+"love_hard", 
+"love_contemporary", 
+"love_erotica", 
+
+"palindromes", 
+"poetry_for_classical", 
+"poetry_classical", 
+"poetry_rus_classical", 
+"lyrics", 
+"song_poetry", 
+"poetry", 
+"poetry_east", 
+"poem", 
+"poetry_for_modern", 
+"poetry_modern", 
+"poetry_rus_modern", 
+"humor_verse", 
+"adv_story", 
+"adv_indian", 
+"adv_history", 
+"adv_maritime", 
+"adventure", 
+"adv_modern", 
+"child_adv", 
+"adv_animal", 
+"adv_geo", 
+"tale_chivalry", 
+"aphorisms", 
+"gothic_novel", 
+"foreign_prose", 
+"prose_history", 
+"prose_classic", 
+"literature_18", 
+"literature_19", 
+"literature_20", 
+"prose_counter", 
+"prose_magic", 
+"story", 
+"prose", 
+"prose_military", 
+"great_story", 
+"prose_rus_classic", 
+"prose_su_classics", 
+"prose_contemporary", 
+"foreign_antique", 
+"prose_abs", 
+"prose_neformatny", 
+"epistolary_fiction", 
+"periodic", 
+"comics", 
+"unfinished", 
+"other", 
+"network_literature", 
+"fanfiction", 
+
+"antique", 
+"antique_ant", 
+"antique_east", 
+"antique_russian", 
+"antique_european", 
+
+"sf_history", 
+"sf_action", 
+"sf_heroic", 
+"sf_fantasy_city", 
+"sf_detective", 
+"sf_cyberpunk", 
+"sf_space", 
+"sf_litrpg", 
+"sf_mystic", 
+"fairy_fantasy", 
+"sf", 
+"popadancy", 
+"sf_postapocalyptic", 
+"russian_fantasy", 
+"modern_tale", 
+"sf_social", 
+"sf_stimpank", 
+"sf_technofantasy", 
+"sf_horror", 
+"sf_etc", 
+"sf_fantasy", 
+"hronoopera", 
+"sf_epic", 
+"sf_humor", 
+"epic", 
+"child_folklore", 
+"antique_myths", 
+"folk_songs", 
+"folk_tale", 
+"proverbs", 
+"folklore", 
+"limerick", 
+"humor_anecdote", 
+"humor_satire", 
+"humor", 
+"humor_prose" ]
+		},
+
+		"add_manga": {
+		     "start": "<ol>", 
+             "next": " <a ",
+			 "end": "</ol>",
+			
+			"link": {
+			    "skip": "href",
+				"token1": "=\"",
+				"token2": "\">",
+				"replace": {
+					"prefix": "http://a.flibusta.is"
+				}
+			},
+			"title": {
+				"skip": "href=",
+				"token1": "\">",
+				"token2": "</a"
+			},
+			"uniq": {
+				"skip": "href",
+				"token1": "=\"",
+				"token2": "\">",
+				"replace": [{"match": "/", "text": ""}, {"match": ":", "text": ""}]
+			}
+		}
+	},
+
+	"manga_complete": [
+		
+	{"condition": "Тип серии:", "coment": "серия",
+		"title": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		     },
+		"uniq": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		    },
+		"author": {
+			"skip": ">Авторы:</",
+			"token1": "</td><td>",
+			"token2": "</td></tr>"
+		},
+		"summary": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		    },
+		
+		"content_type": {"default": "light_novels" },
+		
+		"add_genres": {
+			"start": "Жанры:",
+			"end": "</tbody>",
+			"token1": "\">",
+			"token2": "</a"
+		    },
+
+		"cover": {
+			"before": "alt=\"Главная\"",
+			"token1": "src=\"",
+			"token2": "\"",
+			"replace==": {"prefix": "http://a.flibusta.is/" }
+			},
+			
+		"add_chapter": {
+			"start": "Аннотации</form>",
+			"end": "sidebar-right",
+			"next": "<br><img",
+			"link": {
+				"skip": " - ",
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "http://a.flibusta.is" }
+			},
+            "uniq": {
+				"before ": "<span style=size>",
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"match": "/", "text": ""}
+			},
+			"title": {
+				"before ": "<span style=size>",
+				"token1": "/>",
+				"token2": "<span style",
+				"replace": [{"match": "/", "text": ""}]
+			}
+		}
+	},
+	
+	{"condition": "Все языки</option><option value=", "coment": "автор?",
+		"title": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		     },
+		"uniq": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		    },
+		"author": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		},
+		"summary": {
+			"skip": "id=\"divabio\"",
+			"token1": "/>",
+			"token2": "</div>"
+		    },
+		
+		"content_type": {"default": "light_novels" },
+		
+		"add_genres": {
+			"start": "Жанры:",
+			"end": "</tbody>",
+			"token1": "\">",
+			"token2": "</a"
+		    },
+
+		"cover": {
+			"skip": "id=\"divabio\"",
+			"token1": "src=\"",
+			"token2": "\"",
+			"replace==": {"prefix": "http://a.flibusta.is/" }
+			},
+			
+		"add_chapter": {
+			"start": "Скрыть оценки</form>",
+			"end": "<br><input type=",
+			"next": "</svg><input type=",
+			"link": {
+				"skip": " - ",
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "http://a.flibusta.is" }
+			},
+            "uniq": {
+				"before ": "<span style=size>)",
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"match": "/", "text": ""}
+			},
+			"title": {
+				"before ": "<span style=size>",
+				"token1": "</svg>",
+				"token2": "<span style",
+				"replace": [{"match": "/", "text": ""}]
+			}
+		}
+	},
+	
+	{"condition": "var bookId", 	"coment": "одиночная книга?",
+		"title": {
+			"skip": "<h1 class=\"title\"",
+			"token1": ">",
+			"token2": "</"
+		     },
+		"uniq": {
+			"skip": "var bookId",
+			"token1": "= ",
+			"token2": "</"
+		    },
+		"author": {
+			"skip": "bookId",
+			"token1": "\">",
+			"token2": "</"
+			},
+		"summary": {
+			"skip": "Аннотация</h2>",
+			"token1": "<p>",
+			"token2": "</p"
+
+		    },
+		"rating": {
+		    "skip": "<p>Оценки",
+			"token1": ":",
+			"token2": "</"
+		    },
+		
+		"content_type": {"default": "light_novels" },
+		
+		"add_genre": {
+			"after": "class=\"genre\"",
+			"token1": "\">",
+			"token2": "</"
+		    },
+
+		"cover": {
+			"before": "alt=\"Cover image\"",
+			"token1": "src=\"",
+			"token2": "\"",
+			"replace==": {"prefix": "http://a.flibusta.is/" }
+			},
+			
+		"add_chapter": {
+			"start": "style=size>",
+
+			"end": "</a>",
+			"next": "<a",
+			"link": {
+				"token1": "href=\"/",
+				"token2": "\"",
+				"replace": [{"prefix": "http://a.flibusta.is/" }, {"match": "/read", "text": ""}]
+			},
+            "uniq": {
+				"skip==": "скачать:",
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": [{"match": "/read", "text": ""}, {"match": "/", "text": ""}]
+			},
+			"title": {
+				"before": "(читать)",
+				"token1": "/>",
+				"token2": "<",
+				"replace": {"match": "/", "text": ""}
+			}
+		}
+	}
+],
+	
+	"chapter_complete": {
+		"images": true,
+		"add_pages": {
+			"start": "border=\"0\" />",
+			"token1": "href=\"",
+			"token2": "\"",
+			"end": "</a>",
+			"replace": [{"sufix": "/epub" }, {"match": "/fb2", "text": "/epub"}, {"match": "/read", "text": "/epub"}, {"match": "/epub/epub", "text": "/epub"}],
+		},
+		"prefix": "http://a.flibusta.is",
+		"sufix": "&title=/ranobe.epub",
+
+	},	
+		
+	"test": [{
+			"proc": "manga_list_complete",
+			"assert": {
+				"mangas": [{
+						"title": "Буря в стакане. (fb2)",
+						"link": "http://a.flibusta.is/b/526673",
+						"uniq": "b526673"
+					},
+					{
+						"title": "Дыхание дьявола",
+						"link": "http://a.flibusta.is/b/526664"
+					}
+				],
+				"mangas_count": ">10"
+			}
+		},
+
+		{
+         "proc": "manga_complete",
+         "link": "http://a.flibusta.is/b/230948",
+         "title": "451 градус по Фаренгейту (fb2)",
+         "assert": {
+				"author": "Рэй Брэдбери",
+				"cover": "http://a.flibusta.is/i/48/230948/cover0.jpg",
+				
+				"chapters_count": "=1",
+				"chapters": [     
+        {
+            "folder": "b230948read/",
+            "link": "http://a.flibusta.is/b/230948/read",
+            "title": "451 градус по Фаренгейту [Farenheitt 451-ru]"
+        }
+				]
+			}
+        },
+		{
+			"proc": "manga_complete",
+			"link": "http://a.flibusta.is/s/45232",
+			"title": "Дом странных детей",
+			"assert": {
+				"author": "Ренсом Риггз",
+				"cover": "http://a.flibusta.is/sites/default/files/bluebreeze_logo.png",
+				
+				"chapters_count": ">=5",
+				"chapters": [{
+						"folder": "b596382/",
+                        "link": "http://a.flibusta.is/b/596382",
+                        "title": "- 5. Собрание птиц [litres] (пер. Ратникова, Ольга В.)"
+					},
+					{"link":  "http://a.flibusta.is/b/645309" }
+				]
+			}
+		},
+		
+		{
+			"proc": "chapter_complete",
+			"link": "http://a.flibusta.is/b/230948/read",
+			"assert": {
+				"pages": [{"link": "http://a.flibusta.is/b/230948/fb2&title=/ranobe.fb2.zip"}]
+
+			}
+		}
+	]
+}
