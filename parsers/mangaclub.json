@@ -1,6 +1,6 @@
 {
 	"id": 29001,
-	"version": 36,
+	"version": 37,
 	"old_ids": [29000],
 
 	"title": "MangaClub",
@@ -148,7 +148,8 @@
 		"title": {
 			"skip": "itemprop=\"alternativeHeadline\"",
 			"token1": "content=\"",
-			"token2": "\""
+			"token2": "\"",
+			"stop": "itemprop=\"url\""
 		},
 		"additional_title": {
 			"skip": "itemprop=\"name\"",
@@ -254,17 +255,14 @@
 				"author": "@Murasaki Yukiya",
 				"cover": "https://mangaclub.ru/uploads/posts/2016-10/1477850090_isekai-maou-to-shoukan-shoujo-dorei-majutsu-manga.jpg",
 				"summary": "@^(В MMORPG)",
-				"genres": "@adult",
+				"genres": "@action",
 				"status": "ONGOING",
 				"genres_count": ">=8",
 				"chapters_count": ">=32",
 				"chapters": [{
-						"title": "Том 1. Глава 3",
-						"link": "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c3.html#01",
-						"folder": "Том 1. Глава 3/"
-					}, {
-						"title": "Том 1. Глава 2",
-						"link": "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya/v1-c2.html#01"
+						"title": "Том 19. Глава 91.2",
+						"link": "https://mangaclub.ru/manga/view/896-isekai-maou-to-shoukan-shoujo-dorei-majutsu-povelitel-tmy-drugaya-istoriya-magiya-poraboscheniya-190F/v19-c91.2.html#1",
+						"folder": "Том 19. Глава 91.2/"
 					}
 				]
 			}
