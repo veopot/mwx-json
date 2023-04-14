@@ -63,7 +63,7 @@ https://jsonlint.com сервис для проверки вашего json
 Багрепорты по Android Manga Watcher X принимаются либо на 
 почту admin@mw.lomikxp.ru 
 либо
-https://bitbucket.org/Lomik_XP/mangawatcherx/issues
+https://github.com/veopot/mwx-json/issues
 --------------------------
 # Отказ от ответственности
 Разработчик этого приложения не связан с доступными поставщиками контента.
