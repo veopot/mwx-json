@@ -3,7 +3,7 @@
     "old_ids": [65583],
     "old_sites": ["yaoichan.ru"],
     
-	"version": 23, 
+	"version": 24, 
 	"title": "Yaoi-chan!",
 	"host": "https://yaoi-chan.me/",
 	"public_link": "https://yaoi-chan.me/catalog",
@@ -99,7 +99,12 @@
                             "replace": { "match":"<.*?>","text":""}
 						},
 						
-		"summary":     { "skip": "<div id=\"description\"", "token1": ">", "token2": "<" },
+		"summary":     { 
+		"skip": "<div id=\"description\"",
+		"token1": ">", 
+		"token2": "<div",
+		"replace": { "match": "<.*?>", "text": "" } 
+		},
 		
 		"status":      { 
 		
