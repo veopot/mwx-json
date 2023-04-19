@@ -1,0 +1,173 @@
+{
+	"id": 20210,
+	
+	
+	"old_ids": [30210],
+    "old_sites": ["kissmanga.com"],
+	
+	"version": 30, 
+	"title": "KissManga",
+	"host": "https://kissmanga.org/",
+	"public_link": "https://kissmanga.org/",
+	"folder": "kissmanga",
+	"name" : ["kissmg"],
+	"chapters_order": false,
+	"language": "en",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/kissmanga.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/kissmanga.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/kissmanga.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/kissmanga.zip",
+    "file_type": "sqlite",
+	
+	"author": {"name":"MWX Team","email":"fant-net@ya.ru"},
+
+
+	"engine_settings": {
+		"skip_chapter_parsing_on_update": true,
+		"stop_mlc_after_match_count": 100
+	},
+
+    "manga_search_complete": {		
+		"search_link": "https://kissmanga.org/manga_list?page=$page$&action=search&q=$query$",
+		"query_type": "GET",
+		"add_manga": {
+			"next": "<a class=\"item_movies_link\"",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": ">", "token2": "</a>" },
+			
+			"cover":  {  "token1": "default\":\"", "token2": "\"" , 
+			"replace" : { "match":"\\\\","text":""}}
+		}
+	},
+
+
+
+	"manga_list_complete": {
+
+		"iterator": {
+			"base_url": "https://kissmanga.org/manga_list?page=",
+			"append_nums": { "from": 1, "to": 725, "step": 1, "last_page": {"before": "Last </a>", "token1": "page=\"", "token2": "\""} }
+		},
+
+		"add_manga": { 
+			"next": "<a class=\"item_movies_link\"",
+			"link":  { "token1": "href=\"", "token2": "\"" }, 
+			"title": { "token1": ">", "token2": "</a>" }
+		},
+		"rating_auto_inc": {
+			"start": "40000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete":  {
+		"title":       { "after": "class=\"bigChar\"", "token1":"\">", "token2": "</" },
+		
+		"additional_title": { "skip": ">Other name:</span>",
+		"token1":"\">", "token2": "</",
+		"replace": { "match": ";", "text": "|" } },
+		
+		
+		"uniq":        { "after": "class=\"bigChar\"", "token1":"\">", "token2": "</" },
+		
+		"author":      { "skip": ">Authors:</span>", "token1":"\">", "token2": "</a>" },
+		
+		"summary":     { "after": "Summary:</span>", "token1": ">", "token2": "</div>",
+			
+            "replace": [
+                { "match": "u003Cp", "text": "" },
+                { "match": "u003E", "text": "" },
+                { "match": "u003C", "text": "" },
+                { "match": "<.*?>",  "text": "" },
+                { "match": "u002Fp",  "text": "" },
+                { "match": "&quot;", "text": "'" }
+            ] },
+			
+			
+		"status":      { "complete": "Completed", "ongoing": "Ongoing" },
+		
+		"is_mature": { "values": ["Erotica", "Mature", "Pornographic", "Seinen"] },
+		
+		 "cover":       { 
+			"skip": ">Cover<", 
+			"token1": "<img src=\"", 
+			"token2": "\""
+		},
+		
+		"add_genre":   { "token1": "href=\"/manga_list?action=genre&q=", "token2": "\"" },
+		
+		"add_chapter": { 
+		
+		"start": "Chapters<",
+		"end": "<h2>Popular",
+	    "next":  "<a ",
+		
+			"link":  { "token1": "href=\"", "token2": "\"" },
+			"title": { "after": "href=\"", "token1": "\">", "token2": "</" }
+		}
+	},
+	"chapter_complete": {
+		"add_numeration": true,
+		
+		"add_images": {  
+			"start": "id=\"centerDivVideo\">", 
+			"token1": "<img src=\"", 
+			"token2": "\"",
+			"end": "<div class=\"Votes\">"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": 3,
+			"assert" : {
+				"mangas" : [
+					{ "title" : "Temple Of Dragon King",  "link": "https://kissmanga.org/manga/manga-iy985481",
+						"uniq" : "manga-iy985481" }
+				],
+				"mangas_count" : ">=100"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://kissmanga.org/manga/manga-hu985203/",
+			"title" : "Mashle",
+			"assert" : {
+				"author" : "@Komoto Hajime",
+				"cover" : "https://kissmanga.org/mangaimage/manga-hu985203.jpg",
+				"summary" : "@^This is a world of magic",
+				"genres" : "@action",
+				"status" : "ongoing",
+				"genres_count" : ">=5",
+				"chapters_count" : ">=150",
+				"chapters" : [
+		{
+            "folder": "chapter-1\\",
+            "link": "https://kissmanga.org/chapter/manga-hu985203/chapter-1",
+            "title": "Mashle - Chapter 1"
+        },
+        {
+            "link": "https://kissmanga.org/chapter/manga-hu985203/chapter-2",
+            "title": "Mashle - Chapter 2"
+        }
+				]
+			}
+		},
+		
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://kissmanga.org/chapter/manga-hu985203/chapter-1", 
+			"assert" : {
+				"pages" : [
+		{"image": "https://cm.blazefast.co/f9/d7/f9d7882a13f687af1d3930e33bbaa819.jpg"},
+        {"image": "https://cm.blazefast.co/7c/45/7c45770b3d996308d86dc35cc00ac5c9.jpg"},
+        {"image": "https://cm.blazefast.co/86/89/868911aea3d3d38566c7f25883468359.jpg"}
+				],
+				"pages_count": "52"
+			}
+		}
+	]
+}
