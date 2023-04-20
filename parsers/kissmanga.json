@@ -5,7 +5,7 @@
 	"old_ids": [30210],
     "old_sites": ["kissmanga.com"],
 	
-	"version": 30, 
+	"version": 31, 
 	"title": "KissManga",
 	"host": "https://kissmanga.org/",
 	"public_link": "https://kissmanga.org/",
@@ -105,7 +105,8 @@
 	    "next":  "<a ",
 		
 			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "after": "href=\"", "token1": "\">", "token2": "</" }
+			"title": { "after": "href=\"", "token1": " -", "token2": "</" },
+			"uniq": { "after": "href=\"", "token1": " -", "token2": "</" }
 		}
 	},
 	"chapter_complete": {
@@ -145,13 +146,13 @@
 				"chapters_count" : ">=150",
 				"chapters" : [
 		{
-            "folder": "chapter-1\\",
+            "folder": "Chapter 1\\",
             "link": "https://kissmanga.org/chapter/manga-hu985203/chapter-1",
-            "title": "Mashle - Chapter 1"
+            "title": "Chapter 1"
         },
         {
             "link": "https://kissmanga.org/chapter/manga-hu985203/chapter-2",
-            "title": "Mashle - Chapter 2"
+            "title": "Chapter 2"
         }
 				]
 			}
