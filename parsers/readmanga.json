@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 62,
+    "version": 63,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -78,12 +78,13 @@
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    
-		"title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
+		"title": 		{ "skip": "<h1 class=\"names\">", 
+			"token1": "<span class='name'>", "token2": "</h1>",
 				"replace": [
-				    { "match": "\" />", "text": ""},
-					{ "match": "\n", "text": ""},
+				    { "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
-                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
+                    { "match": "<span class='original-name'(.*)", "text": " "}
 				] 
 			},
 		
@@ -159,13 +160,13 @@
 		"Referer": "https://readmanga.live/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-	
-            "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
+	        "title": 		{ "skip": "<h1 class=\"names\">", 
+			"token1": "<span class='name'>", "token2": "</h1>",
 				"replace": [
-				    { "match": "\" />", "text": ""},
-					{ "match": "\n", "text": ""},
+				    { "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
-                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
+                    { "match": "<span class='original-name'(.*)", "text": " "}
 				] 
 			},
 		
@@ -214,7 +215,11 @@
             "after": "<link rel=\"canonical\"",
             "token1": "href=\"",
             "token2": "\"",
-            "replace": { "prefix": "https://readmanga.ru"}
+            "replace": [
+			{ "prefix": "https://readmanga.ru"},
+			{"match": "__A(.*)",  "text": ""  }
+			
+			]
             
         },
 		
@@ -252,14 +257,16 @@
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
-            "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
+            "title": 		{ "skip": "<h1 class=\"names\">", 
+			"token1": "<span class='name'>", "token2": "</h1>",
 				"replace": [
-				    { "match": "\" />", "text": ""},
-					{ "match": "\n", "text": ""},
+				    { "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
-                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
+                    { "match": "<span class='original-name'(.*)", "text": " "}
 				] 
 			},
+		
 		
 	        "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
