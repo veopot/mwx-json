@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 63,
+    "version": 65,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -69,6 +69,105 @@
     },
 	
     "manga_complete": [
+	    { 
+            "condition": ">Запрещена публикация произведения по копирайту</",
+			"headers": {
+		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Referer": "https://readmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+	        "title": 		{ "skip": "<h1 class=\"names\">", 
+			"token1": "<span class='name'>", "token2": "</h1>",
+				"replace": [
+				    { "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
+                    { "match": "<span class='original-name'(.*)", "text": " "}
+				] 
+			},
+		
+	        "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+            "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
+		
+            "author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
+			
+            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+			
+            "status": { 
+			
+		  	"complete": { 
+			"start": ">Перевод:</",
+			"end": "</p>",
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			             
+            "ongoing": { 
+			"start": ">Перевод:</", 
+			"end": "</p>", 
+			"value": "продолжается"},
+			
+            "single": "<b>Сингл</b>",
+			
+		  	"licensed": {"values": [ ">Запрещена публикация произведения по копирайту<","Главы удалены", "Запрещена публикация"] },
+			
+		  	"unknown" : "нет ни одной главы" 
+			},
+			
+			
+             "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+			 
+			"add_genres":   {
+                "start": ">Жанры:<",
+		        "end": "<table class=\"table table-hover\"",
+		            "token1": "/genre/",
+		            "token2": "\""
+		    },
+           
+			
+            "content_type": { "default": "manga" },
+			
+            "is_mature": "class=\"mtr-message\"",
+			
+			"chapters_from_page": {
+            "after": "<link rel=\"canonical\"",
+            "token1": "href=\"",
+            "token2": "\"",
+            "replace": [
+			{ "prefix": "https://readmanga.ru"},
+			{"match": "__A(.*)",  "text": ""  }
+			           
+			]
+            
+        },
+		
+            "add_chapter": {
+				
+                "start": "<table class=\"table table-hover\">",
+                "end": "</table>",
+                "next": "<a href=\"",
+                "link": { "token1": "<a href=\"", "token2": "\"",
+				
+			 "replace":  [
+			 {"prefix": "https://readmanga.ru"},
+			 {"match": "readmanga.live", "text": "readmanga.ru" },
+			 {"sufix": "?mtr=1"}
+			    ]
+				},
+				
+				
+				
+				 
+				 
+                "title": { "after": "<a href=\"", "token1": ">", "token2": "<",
+				"replace":  [
+				{ "match": "\n          \n          ", "text": "" },
+				{"prefix": "Том:"},
+				{ "match": " - ", "text": " Глава:" }
+				] },  
+				
+            "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
+            }
+        },
         { 
 		
             "condition": ">Сценарист:<",
@@ -153,102 +252,7 @@
 			"replace" : { "match" : "\\?.*", "text" : "" } }
             }
         },
-		{ 
-            "condition": ">Запрещена публикация произведения по копирайту</",
-			"headers": {
-		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://readmanga.live/",
-		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-		},
-	        "title": 		{ "skip": "<h1 class=\"names\">", 
-			"token1": "<span class='name'>", "token2": "</h1>",
-				"replace": [
-				    { "match": "\n", "text": ""},
-					{ "match": "      ", "text": " "},
-					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
-                    { "match": "<span class='original-name'(.*)", "text": " "}
-				] 
-			},
 		
-	        "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
-		
-            "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
-		
-            "author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
-			
-            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
-			
-            "status": { 
-			
-		  	"complete": { 
-			"start": ">Перевод:</",
-			"end": "</p>",
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
-			             
-            "ongoing": { 
-			"start": ">Перевод:</", 
-			"end": "</p>", 
-			"value": "продолжается"},
-			
-            "single": "<b>Сингл</b>",
-		  	"licensed": {"values": [ "Главы удалены", "Запрещена публикация"] },
-			
-		  	"unknown" : "нет ни одной главы" 
-			},
-			
-			
-             "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
-			 
-			"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
-           
-			
-            "content_type": { "default": "manga" },
-			
-            "is_mature": "class=\"mtr-message\"",
-			
-			"chapters_from_page": {
-            "after": "<link rel=\"canonical\"",
-            "token1": "href=\"",
-            "token2": "\"",
-            "replace": [
-			{ "prefix": "https://readmanga.ru"},
-			{"match": "__A(.*)",  "text": ""  }
-			
-			]
-            
-        },
-		
-            "add_chapter": {
-				
-                "start": "<table class=\"table table-hover\">",
-                "end": "</table>",
-                "next": "<a href=\"",
-                "link": { "token1": "<a href=\"", "token2": "\"",
-				
-			 "replace":  [{"prefix": "https://readmanga.ru"},
-			              {"sufix": "?mtr=1"}
-			    ]
-				},
-				
-				
-				
-				 
-				 
-                "title": { "after": "<a href=\"", "token1": ">", "token2": "<",
-				"replace":  [
-				{ "match": "\n          \n          ", "text": "" },
-				{"prefix": "Том:"},
-				{ "match": " - ", "text": " Глава:" }
-				] },  
-				
-            "uniq":{ "after" : "href=\"",    "token1": "/vol", "token2": "\"", "replace" : { "match" : "\\?.*", "text" : "" } }
-            }
-        },
         { 
             "condition": "",
 			"headers": {
