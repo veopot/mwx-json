@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 53,
+	"version": 54,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -21,11 +21,14 @@
 	"language": "ru",
 	"is_mature": true,
 	"chapters_order": false,
+	"skip_catalog_test": false,
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/allhen.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/allhentai.json",
 	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/allhentai.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/allhentai.zip",
 	"file_type": "sqlite",
+	
+	
 	"manga_search_complete": {
 		"search_link": "https://2023.allhen.online/search/advanced",
 		"headers": {
@@ -86,7 +89,7 @@
 			"base_url": "http://2023.allhen.online/list?sortType=votes&offset=",
 			"append_nums": {
 				"from": 0,
-				"to": 20000,
+				"to": 20020,
 				"step": 70
 			}
 		},
@@ -258,7 +261,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=VzZqbThMOTdFYTVOTkRBYzd1NUg5V1JVSnclMkJjZ1kyVzBxVSUyRkpKd0MxR0UlM0Q6SnpaY0RGV1FEZUdvWktlMVRqTDk3SGVDemhiM3FuRTFPM2N2OGVuVElIZyUzRA",
+			"cookie": "remember_me=bGMzTk0yWTlWMlk2QVZsRXJwekRIbXVtcUJTM21yV0xIVkFGd3pPNmVmOCUzRDo2SjFzc1NTc2IxV1pVeUVuYk9PeWNHOUVWZldOWTNWbjZEV0EzcjhaV3MwJTNE",
 			"Accept": "*/*",
 			"Referer": "https://2023.allhen.online/"
 		},
