@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 73, 
+	"version": 74, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.com"],
 	
@@ -232,7 +232,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=cGQySkptTVdQbTdUY3UwZTBnWWpCQkdVTXA5cWNpRjNIOWN3dTJhVlJMVSUzRDpwYnNtd2Q1RG1ac0lvcFMlMkZrb1Y1VzQ2b3lteXZ4MXUzWHhZNGY4am9RWVklM0Q",
+		"cookie": "remember_me=UTZ4UThLSERlUEVyY1ZYaSUyQnNRSktzZHRwUjI2WUhTTGJaUmFmcGRURUxjJTNEOmt2SnR2RzVPcnpVb1clMkZuRE14akxtMXNxeExWQzdDejFzSkxQRllKJTJCaXk0JTNE",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://mintmanga.live/",
