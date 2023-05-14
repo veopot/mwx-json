@@ -1,6 +1,6 @@
 {
    "id":40219,
-   "version":20,
+   "version":21,
    "title":"MangaBook",
    "host":"https://mangabook.org",
    "public_link":"https://mangabook.org/manga-list",
@@ -37,7 +37,7 @@
 			"link":  { "after": "<a", "token1": "href=\"", "token2": "\"" },
             "title": { "skip": "href=\"", "token1": "<strong>", "token2": "</",
 			"replace": { "match": "&#039;", "text": "'" } },
-            "cover": {"skip": "href=\"",  "token1": "src='", "token2": "'"}
+            "cover": {"skip": "href=\"",  "token1": "src=\"", "token2": "\""}
 			
 			}
 		
@@ -51,7 +51,7 @@
          "base_url":"https://mangabook.org/manga-list?page=",
          "append_nums":{
             "from":0,
-            "to":600,
+            "to":634,
             "step":1
          }
       },
@@ -65,13 +65,11 @@
          "link":{
             "token1":"href=\"",
             "token2":"\""
-         },
-         "cover":{
-            "token1":"src='",
-            "token2":"'"
          }
       }
    },
+   
+   
    "manga_complete":{
       "title":{
          "skip":"id=\"fmain\">",
@@ -89,8 +87,8 @@
       },
       "cover":{
          "after":"class=\"img-responsive",
-         "token1":"src='",
-         "token2":"'"
+         "token1":"src=\"",
+         "token2":"\""
       },
       "author":{
          "after":"/manga-list/author/",
@@ -106,7 +104,7 @@
             "text":""
          }
       },
-      "add_genres":{
+      "add_tags":{
          "start":">Категории:</",
          "end":"</li>",
          "token1":"\">",
@@ -160,7 +158,7 @@
       "add_pages":{
          "start":"class=\"img-responsive\"",
          "token1":"https://mangabook.org/uploads/manga/",
-         "token2":"'",
+         "token2":"\"",
          "end":"<div id=\"ppp\"",
          "replace":{
             "prefix":"https://mangabook.org/uploads/manga/"
