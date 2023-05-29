@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 22,
+	"version": 24,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -632,25 +632,38 @@
 
 		},
 
-		"add_images": {
+			"images": true,
+			"use_servers_only": true,
+			
+		"prefix": {
+			"after": "\"origin\"",
+			"token1": ":\"",
+			"token2": "\"",
+			"stop": "\"pages\":",
+			"replace": [
+			{"prefix": "https://storage.newmanga.org/origin_proxy/"}, 
+			{"sufix": "/"} 
+			        ]
+			
+		},
+			
+			"add_pages": {
 			"start": "\"pages\":",
 			"end": "}]}]}",
 			
 			
 			"token1": "\"path\":\"",
 			"token2": "\"",
-			
-			
 			"replace":[
             {"prefix": "%%path%%/"},
-            {"prefix": ""},
             { "match": "/pages", "text": "/" },
-            { "match": "/v3/chapters/", "text": "https://storage.newmanga.org/origin_proxy/app_disk2_parsed/" }
+            { "match": "/v3/chapters/", "text": "/" }
 			]
+		}
 			
 			
 			
-        }
+        
 	},
 
 
