@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 21,
+	"version": 22,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -558,7 +558,7 @@
 				"token2": ",",
 				
 				"replace": [
-			{"prefix": "https://api.newmanga.org/v2/chapters/"}, 
+			{"prefix": "https://api.newmanga.org/v3/chapters/"}, 
 			{"sufix": "/pages"} 
 			        ]
 			},
@@ -633,11 +633,23 @@
 		},
 
 		"add_images": {
-			"start": "[{",
-			"end": "}]",
-			"token1": "id\":",
-			"token2": ",",
-			"replace": {"prefix": "%%url%%/"}
+			"start": "\"pages\":",
+			"end": "}]}]}",
+			
+			
+			"token1": "\"path\":\"",
+			"token2": "\"",
+			
+			
+			"replace":[
+            {"prefix": "%%path%%/"},
+            {"prefix": ""},
+            { "match": "/pages", "text": "/" },
+            { "match": "/v3/chapters/", "text": "https://storage.newmanga.org/origin_proxy/app_disk2_parsed/" }
+			]
+			
+			
+			
         }
 	},
 
@@ -678,7 +690,7 @@
 			"link": "https://api.newmanga.org/v2/chapters/14653/pages",
 			"assert": {
 				"pages": [{
-						"image": "https://api.newmanga.org/v2/chapters/2627/pages/1"
+						"image": "https://storage.newmanga.org/origin_proxy/app_disk2_parsed/165870/1_F2AF38DE3491E6C09D58B9BCAFF5DEEC_0.jpg"
 					},
 					{
 						"image": "https://api.newmanga.org/v2/chapters/2627/pages/2"
