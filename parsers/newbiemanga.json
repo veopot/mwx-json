@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 24,
+	"version": 25,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -61,6 +61,7 @@
 	"manga_search_complete": {
 		"headers": {
 			"Accept": "*/*",
+			"User-Agent": "mangawatcherx", 
 			"Referer": "https://newmanga.org/",
 
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -136,7 +137,7 @@
 
 	"manga_list_complete": {
 		"headers": {
-
+"User-Agent": "mangawatcherx", 
 			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 			"Accept-Language": "ru-RU,ru;q=0.9"
 		},
@@ -191,6 +192,7 @@
 	{"condition": "\"chapters_total\":0,", 
 
     "headers": {
+    "User-Agent": "mangawatcherx", 
 			"Referer": "https://newmanga.org/"
 		},
 
@@ -402,7 +404,8 @@
 	{"condition": "",
 
     "headers": {
-			"Referer": "https://newmanga.org/"
+			"Referer": "https://newmanga.org/",
+			"User-Agent": "mangawatcherx"
 		},
 
 
@@ -447,7 +450,8 @@
 
 
 		"cover": {
-			"token1": "\"large\":\"images",
+		    "after": "\"image\":",
+			"token1": "images",
 			"token2": "\",",
 			"replace": [{
 					"prefix": "https://storage.newmanga.org/images"
@@ -516,10 +520,15 @@
 			"token2": ","
 		},
 
-
+ "add_genres": {
+			"start": "genres\":[",
+			"end": "],",
+			"token1": "\"ru\":\"",
+			"token2": "\""
+		},
 
 		"add_tags": {
-			"start": "genres\":[",
+			"start": "tags\":[",
 			"end": "],",
 			"token1": "\"ru\":\"",
 			"token2": "\""
@@ -539,16 +548,16 @@
 			"token1": "\"id\":",
 			"token2": ",",
 			"replace": [{
-					"prefix": "https://api.newmanga.org/v2/branches/"
+					"prefix": "https://api.newmanga.org/v3/branches/"
 				},
 				{
-					"sufix": "/chapters?reverse=true&size=1000000"
+					"sufix": "/chapters/all"
 				}
 			]
 		},
 		
 		"add_chapter": {
-			"start": "items",
+			"start": "[",
 			"end": "]",
 			"next": "\"is_available\":true",
 
@@ -565,6 +574,7 @@
 
 
 			"uniq": {
+				 
 				"before": "\"pages\":",
 				"token1": "\"tom\":",
 				"token2": "\"project_id\"",
@@ -587,6 +597,10 @@
 					},
 					{
 						"prefix": "Том "
+					},
+					{
+						"match": "\"pages\":(.*?)\"is_published\":true,",
+						"text": " "
 					}
 				]
 			},
@@ -614,6 +628,10 @@
 					},
 					{
 						"prefix": "Том "
+					},
+					{
+						"match": "\"pages\":(.*?)\"is_published\":true,",
+						"text": " "
 					}
 				]
 			}
@@ -628,8 +646,8 @@
 	"chapter_complete": {
 		"headers": {
 			"accept": "*/*",
-			"referer": "https://newmanga.org/"
-
+			"referer": "https://newmanga.org/",
+"User-Agent": "mangawatcherx"
 		},
 
 			"images": true,
@@ -640,10 +658,8 @@
 			"token1": ":\"",
 			"token2": "\"",
 			"stop": "\"pages\":",
-			"replace": [
-			{"prefix": "https://storage.newmanga.org/origin_proxy/"}, 
-			{"sufix": "/"} 
-			        ]
+			"replace": {"prefix": "https://storage.newmanga.org/origin_proxy/"},
+			        
 			
 		},
 			
@@ -655,7 +671,7 @@
 			"token1": "\"path\":\"",
 			"token2": "\"",
 			"replace":[
-            {"prefix": "%%path%%/"},
+            {"prefix": "%%path%%"},
             { "match": "/pages", "text": "/" },
             { "match": "/v3/chapters/", "text": "/" }
 			]
