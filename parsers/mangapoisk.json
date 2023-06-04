@@ -1,13 +1,13 @@
 {
    "id":40228,
-   "version":19,
+   "version":20,
    
-   "old_sites": ["mangapoisk.ru"],
+   "old_sites": ["mangapoisk.ru","mangapoisk.com"],
    
    
    "title":"MangaPoisk(ремонт)",
-   "host":"https://mangapoisk.com",
-   "public_link":"https://mangapoisk.com/manga-list",
+   "host":"https://mangapoisk.org",
+   "public_link":"https://mangapoisk.org/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
    "language":"ru",
@@ -27,7 +27,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangapoisk.com/manga?sortBy=popular&page=",
+         "base_url":"https://mangapoisk.org/manga?sortBy=popular&page=",
          "append_nums":{
             "from":0,
             "to":161,
@@ -60,7 +60,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://mangapoisk.com/search?q=$query$&page=$page$",
+        "search_link":"https://mangapoisk.org/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -82,9 +82,9 @@
 				
          "cover":{
 			"skip":"href=\"",
-		    "token1":"https://static2.mangapoisk.com/posters/",
+		    "token1":"https://static2.mangapoisk.org/posters/",
             "token2":"\"",
-			"replace": { "prefix": "https://static2.mangapoisk.com/posters/"}
+			"replace": { "prefix": "https://static2.mangapoisk.org/posters/"}
          }
       }
 		},	
@@ -96,7 +96,7 @@
     { "condition": "/chaptersList?",
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.com"
+			"Referer": "https://mangapoisk.org"
 		},
       "title":{
          
@@ -189,7 +189,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.com"}
+			"replace": {"prefix" : "https://mangapoisk.org"}
          },
 		 
 		"uniq":{
@@ -211,7 +211,7 @@
    { "condition": "",
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.com"
+			"Referer": "https://mangapoisk.org"
 		},
       "title":{
          
@@ -293,7 +293,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.com"}
+			"replace": {"prefix" : "https://mangapoisk.org"}
          },
 		 
 		"uniq":{
@@ -317,7 +317,7 @@
     "add_numeration": true,
         "headers": {
 			"Accept": "*/*",
-			"Referer": "https://mangapoisk.com/"
+			"Referer": "https://mangapoisk.org/"
 		},
      
       "images":true,
@@ -325,20 +325,20 @@
 		  
          "start":"chapter-images\">",
 	     
-		 "after":"id=\"",
-	     "token1":"https://",
+		 "before":"id=\"",
+	     "token1":"src=\"https://static2.mangapoisk.org/pages/",
          "token2":"\"",
          "end":"<div class=\"row text-center\">",
 			"replace": 
 			[
+			{ "prefix" : "https://static2.mangapoisk.org/pages/" },
 { "match" : "data-small-src=\"(.*?)\"", "text":"" },
 
-{ "match" : "data:image(.*?)\" data-src=\"", "text":"" }
+{ "match" : "src=\"data:image/(.*?)\"", "text":"" }
 ]
 		 
 		  
-        },
-		"prefix": "https://"
+        }
 	},
 	
 	
@@ -349,7 +349,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://mangapoisk.com/manga/vanpanchmen",
+                  "link":"https://mangapoisk.org/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -358,12 +358,12 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.com/manga/solo-leveling-abs3Cpo",
+         "link":"https://mangapoisk.org/manga/solo-leveling-abs3Cpo",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
           
-            "cover":"@https://static2.mangapoisk.com/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
+            "cover":"@https://static2.mangapoisk.org/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
 		    "summary":"@^(Десять лет назад распахнулись)",
             "genres":"@fantasy",
             "status":"ongoing",
@@ -371,12 +371,12 @@
             "chapters_count":">=130",
             "chapters":[
         {
-            "link": "https://mangapoisk.com/manga/solo-leveling-abs3Cpo/chapter/2-130",
+            "link": "https://mangapoisk.org/manga/solo-leveling-abs3Cpo/chapter/2-130",
             "title": "Том 2 Глава 130"
         },
         {
             "folder": "2-131/",
-            "link": "https://mangapoisk.com/manga/solo-leveling-abs3Cpo/chapter/2-131",
+            "link": "https://mangapoisk.org/manga/solo-leveling-abs3Cpo/chapter/2-131",
             "title": "Том 2 Глава 131"
         }
             ]
@@ -384,12 +384,12 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangapoisk.com/manga/solo-leveling-abs3Cpo/chapter/2-130",
+         "link": "https://mangapoisk.org/manga/solo-leveling-abs3Cpo/chapter/2-130",
          "assert":{
             "pages":[
-        {"image": "https://static2.mangapoisk.com/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.mangapoisk.com/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.mangapoisk.com/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.mangapoisk.org/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangapoisk.org/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangapoisk.org/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
             "pages_count":"14"
          }
