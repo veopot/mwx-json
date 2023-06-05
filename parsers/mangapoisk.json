@@ -1,11 +1,11 @@
 {
    "id":40228,
-   "version":20,
+   "version":21,
    
    "old_sites": ["mangapoisk.ru","mangapoisk.com"],
    
    
-   "title":"MangaPoisk(ремонт)",
+   "title":"MangaPoisk",
    "host":"https://mangapoisk.org",
    "public_link":"https://mangapoisk.org/manga-list",
    "folder":"mangapoisk",
@@ -321,24 +321,47 @@
 		},
      
       "images":true,
-      "add_pages":{
-		  
-         "start":"chapter-images\">",
-	     
-		 "before":"id=\"",
-	     "token1":"src=\"https://static2.mangapoisk.org/pages/",
-         "token2":"\"",
-         "end":"<div class=\"row text-center\">",
-			"replace": 
-			[
-			{ "prefix" : "https://static2.mangapoisk.org/pages/" },
-{ "match" : "data-small-src=\"(.*?)\"", "text":"" },
-
-{ "match" : "src=\"data:image/(.*?)\"", "text":"" }
+"add_pages":
+[
+	{
+		"start": "chapter-images\">",
+		"before": "id=\"",
+		"token1": "<img src=\"https://static2.mangapoisk.org/pages/",
+		"token2": "\"",
+		"end": "<div class=\"row text-center\">",
+		"replace":
+		[{
+				"prefix": "https://static2.mangapoisk.org/pages/"
+			}, {
+				"match": "data-small-src=\"(.*?)\"",
+				"text": ""
+			},
+			{
+				"match": "src=\"data:image/(.*?)\"",
+				"text": ""
+			}
+		]
+	},
+	{
+		"start": "chapter-images\">",
+		"before": "id=\"",
+		"token1": "data-src=\"https://static2.mangapoisk.org/pages/",
+		"token2": "\"",
+		"end": "<div class=\"row text-center\">",
+		"replace":
+		[{
+				"prefix": "https://static2.mangapoisk.org/pages/"
+			}, {
+				"match": "data-small-src=\"(.*?)\"",
+				"text": ""
+			},
+			{
+				"match": "src=\"data:image/(.*?)\"",
+				"text": ""
+			}
+		]
+	},
 ]
-		 
-		  
-        }
 	},
 	
 	
