@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":21,
+   "version":22,
    
    "old_sites": ["mangapoisk.ru","mangapoisk.com"],
    
@@ -30,7 +30,7 @@
          "base_url":"https://mangapoisk.org/manga?sortBy=popular&page=",
          "append_nums":{
             "from":0,
-            "to":161,
+            "to":266,
             "step":1
          }
       },
@@ -260,7 +260,7 @@
             "text":""
          }
       },
-      "add_genres":{
+      "add_tags":{
          "start":">Жанр:<",
          "end":">Год:<",
          "token1":"\">",
@@ -360,7 +360,7 @@
 				"text": ""
 			}
 		]
-	},
+	}
 ]
 	},
 	
@@ -381,15 +381,15 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.org/manga/solo-leveling-abs3Cpo",
+         "link":"https://mangapoisk.org/manga/solo-leveling-abs34Kt",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
           
             "cover":"@https://static2.mangapoisk.org/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
 		    "summary":"@^(Десять лет назад распахнулись)",
-            "genres":"@fantasy",
-            "status":"ongoing",
+            "tags":"@fantasy",
+            "status":"complete",
             "genres_count":">=2",
             "chapters_count":">=130",
             "chapters":[

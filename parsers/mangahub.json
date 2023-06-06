@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	
-	"version": 51,
+	"version": 52,
 	"title": "MangaHub",
 	"host": "https://mangahub.ru",
 	"public_link": "https://mangahub.ru/explore",
@@ -109,6 +109,7 @@
 			]
 		
 		 },
+		 
 		
 		"uniq": { "skip": "class=\"page-head\">", 
 		"token1": "<h1 class=\"text-white\">", "token2": "</h1>",
@@ -123,6 +124,10 @@
 			{ "match": ". Манга онлайн.", "text": "" },
             { "match": ". Маньхуа онлайн.", "text": "" }			
 			] },
+			
+		"additional_title": { "skip": "\"alternativeHeadline\":", "token1": "\"", "token2": "\"," },
+
+		
 		
 		"cover": { "after": "class=\"cover cover-detail\"", "token1": "src=\"", "token2": "\"" },
 		
@@ -139,11 +144,11 @@
 		"status": {
 
 			"complete": {
-				"value": "</svg><span>завершён</span>"
+				"value": "href=\"/explore/translation-is-completed\">"
 			},
 
 			"ongoing": {
-				"value": "</svg><span>онгоинг</span>"
+				"value": "href=\"/explore/translation-is-processing\">"
 			},
 			"single": {
 				"value": "/formats-is-single\">Сингл</a>"
