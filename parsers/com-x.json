@@ -2,7 +2,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version":34,
+	"version":35,
 	"title": "Com-X.life",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -10,8 +10,8 @@
 	"name": "comxlife",
 	"language": "ru",
 	
-    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0",
-	
+"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+
 	
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/com-x.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/com-x.json",
@@ -22,6 +22,12 @@
 
 
      "manga_search_complete": {
+          "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+		"Referer": "https://com-x.life/",
+		    "cookie": "adult=8109"
+		
+		},
         "search_link":"https://com-x.life/index.php?do=search&subaction=search&search_start=$page$&story=$query$",
 		"query_type": "GET",
 		
@@ -62,9 +68,10 @@
     },
 
 	"manga_list_complete": {
-	    "headers": {
-			"userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0",
-			"Referer": "https://com-x.life"
+	        "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+		"Referer": "https://com-x.life/",
+		    "cookie": "adult=8109"
 		
 		},
 		
@@ -103,8 +110,8 @@
 	
 	"manga_complete": {
         "headers": {
-			"userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0",
-			"Referer": "https://com-x.life",
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+		"Referer": "https://com-x.life/",
 		    "cookie": "adult=8109"
 		
 		},
@@ -159,6 +166,12 @@
 		
 		
 		"add_chapter": {
+		        "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+		"Referer": "https://com-x.life/",
+		    "cookie": "adult=8109"
+		
+		},
 		    "start": "\"chapters\":[",
 			"end":  "<div v-if=\"page_count >",
 			
@@ -179,8 +192,11 @@
 	},
 
 	"chapter_complete": {
-		"headers": {
-			"cookie": "adult=8109"
+	        "headers": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+		"Referer": "https://com-x.life/",
+		    "cookie": "adult=8109"
+		
 		},
 		"add_numeration": true,
 		"add_images": {
