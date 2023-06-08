@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 11,
+	"version": 13,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -70,21 +70,23 @@
         "Referer": "https://mangalib.me"
 		},
 		
+		
+		
 		"title": { "after": "<div class=\"media-name__main",
 		"token1":"\">",
 		"token2": "<div class=\"media-rating-wrap\">",
 			"replace": [{ "match": "<div class=\"media-name__alt\">", "text": "| " },
 			{ "match": "<.*>", "text": "" }
 			]
-			
-			
-			
-			
-		},
-		"uniq":  { "after": "<div class=\"media-name__main",
-		"token1":"\">",
-		"token2": "</div>",
-			"replace": { "match": "<.*>", "text": " " }
+		},		
+		"additional_title": {
+			"skip": ">Альтернативные названия<",
+            "token1": "<div>",
+            "token2": "</div>"
+        },
+		"uniq":  { "after": "property=\"og:site_name\"",
+		"token1":"content=\"https://mangalib.me/",
+		"token2": "\""
 		},
 		
 		
@@ -156,12 +158,19 @@
             "token2": "\"chapter_moderated",
 			"replace": { "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "Том $4 Глава $2" } 
             }
-		}   
+		},
+        "link_corrector": [
+            {
+                "match": "?section=info&ui=725",
+                "text": ""
+            }
+        ]		
 	},
 	"chapter_complete": {
    "headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://mangalib.me/",
+	      "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
