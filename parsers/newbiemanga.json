@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 25,
+	"version": 26,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -562,7 +562,7 @@
 			"next": "\"is_available\":true",
 
 			"link": {
-				"before": "pages\":",
+				"before": "\"is_expired\":",
 				"token1": "{\"id\":",
 				"token2": ",",
 				
@@ -575,7 +575,7 @@
 
 			"uniq": {
 				 
-				"before": "\"pages\":",
+				"before": "\"is_expired\":",
 				"token1": "\"tom\":",
 				"token2": "\"project_id\"",
 				"replace": [{
@@ -606,7 +606,7 @@
 			},
 
 			"title": {
-				"before": "\"pages\":",
+				"before": "\"is_expired\":",
 				"token1": "\"tom\":",
 				"token2": "\"project_id\"",
 				"replace": [{
