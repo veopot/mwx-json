@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 54,
+	"version": 55,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -10,7 +10,7 @@
 		"wwv.allhen.me",
 		"wwv.allhen.live",
 		"24.allhen.online",
-		"23.allhen.online",
+		"20.allhen.online",
 		"22.allhen.online"
 	],
 	"host": "http://2023.allhen.online",
@@ -35,7 +35,7 @@
 			"accept": "*/*",
 			"x-requested-with": "XMLHttpRequest",
 			"Content-Type": "application/x-www-form-urlencoded",
-			"Referer": "http://22.allhen.online/search"
+			"Referer": "http://2023.allhen.online/search"
 		},
 		"form_data": {
 			"q": "$query$"
@@ -121,7 +121,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=VzZqbThMOTdFYTVOTkRBYzd1NUg5V1JVSnclMkJjZ1kyVzBxVSUyRkpKd0MxR0UlM0Q6SnpaY0RGV1FEZUdvWktlMVRqTDk3SGVDemhiM3FuRTFPM2N2OGVuVElIZyUzRA",
+			"cookie": "remember_me=Z0R3Vm03bzhWMDFrdENTJTJGWGxqSk84R2Qwd2tGVCUyQkNaSW5xaiUyRlpJc0olMkJjJTNEOmlQRWdjclFpZ2ZwTjhoVFRLRld2a052MGg1N0Zub2YlMkJiMCUyQjFPeVp1ZSUyQnMlM0Q",
 			"Accept": "*/*",
 			"Referer": "https://2023.allhen.online/"
 		},
@@ -261,7 +261,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=bGMzTk0yWTlWMlk2QVZsRXJwekRIbXVtcUJTM21yV0xIVkFGd3pPNmVmOCUzRDo2SjFzc1NTc2IxV1pVeUVuYk9PeWNHOUVWZldOWTNWbjZEV0EzcjhaV3MwJTNE",
+			"cookie": "remember_me=Z0R3Vm03bzhWMDFrdENTJTJGWGxqSk84R2Qwd2tGVCUyQkNaSW5xaiUyRlpJc0olMkJjJTNEOmlQRWdjclFpZ2ZwTjhoVFRLRld2a052MGg1N0Zub2YlMkJiMCUyQjFPeVp1ZSUyQnMlM0Q",
 			"Accept": "*/*",
 			"Referer": "https://2023.allhen.online/"
 		},
