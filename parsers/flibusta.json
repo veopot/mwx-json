@@ -1,11 +1,14 @@
 {
 	"id": 70201,
-	"version": 10,
+	"version": 11,
 	"time_invalidate": 0,
 	"title": "Flibusta (Книги)",
-	"host": "http://a.flibusta.is/",
-	"old_sites": ["flibusta.appspot.com"],
-	"public_link": "http://a.flibusta.is/",
+	"host": "http://b.flibusta.is/",
+	"old_sites": [
+		"flibusta.appspot.com",
+		"a.flibusta.is"
+	],
+	"public_link": "http://b.flibusta.is/",
 	"author": {"name": "Kro4"},
 	"folder": "flibusta",
 	"name": "flibusta",
@@ -19,7 +22,7 @@
 	"icon_link": "https://rusiniu.bitbucket.io/parsers/flibusta.png",
 	
 	"manga_search_complete": {		
-		"search_link":"http://a.flibusta.is/booksearch?ask=$query$",
+		"search_link":"http://b.flibusta.is/booksearch?ask=$query$",
 		"query_type": "GET",
 		"add_manga": {
 		    "start": "br><h3",
@@ -30,7 +33,7 @@
 				"token1": "href=\"",
 				"token2": "\">",
 				"replace": {
-					"prefix": "http://a.flibusta.is"
+					"prefix": "http://b.flibusta.is"
 				}
 			},
 			"title": {
@@ -50,12 +53,9 @@
 	
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://a.flibusta.is/g/",
-			"append_array": ["economics_ref", 
-"popular_business", 
-"org_behavior", 
-"banking", 
-"economics", 
+			"base_url": "http://b.flibusta.is/g/",
+			"append_array": [ 
+
 "det_action", 
 "detective", 
 "det_irony", 
@@ -69,12 +69,6 @@
 "det_su", 
 "thriller", 
 "det_espionage", 
-"nonf_biography", 
-"nonf_military", 
-"military_special", 
-"travel_notes", 
-"nonfiction", 
-"nonf_publicism", 
 
 "drama_antique", 
 "drama", 
@@ -148,7 +142,7 @@
 "prose_abs", 
 "prose_neformatny", 
 "epistolary_fiction", 
-"periodic", 
+ 
 "comics", 
 "unfinished", 
 "other", 
@@ -209,7 +203,7 @@
 				"token1": "=\"",
 				"token2": "\">",
 				"replace": {
-					"prefix": "http://a.flibusta.is"
+					"prefix": "http://b.flibusta.is"
 				}
 			},
 			"title": {
@@ -263,7 +257,7 @@
 			"before": "alt=\"Главная\"",
 			"token1": "src=\"",
 			"token2": "\"",
-			"replace==": {"prefix": "http://a.flibusta.is/" }
+			"replace==": {"prefix": "http://b.flibusta.is/" }
 			},
 			
 		"add_chapter": {
@@ -274,7 +268,7 @@
 				"skip": " - ",
 				"token1": "href=\"",
 				"token2": "\"",
-				"replace": {"prefix": "http://a.flibusta.is" }
+				"replace": {"prefix": "http://b.flibusta.is" }
 			},
             "uniq": {
 				"before ": "<span style=size>",
@@ -326,7 +320,7 @@
 			"skip": "id=\"divabio\"",
 			"token1": "src=\"",
 			"token2": "\"",
-			"replace==": {"prefix": "http://a.flibusta.is/" }
+			"replace==": {"prefix": "http://b.flibusta.is/" }
 			},
 			
 		"add_chapter": {
@@ -337,7 +331,7 @@
 				"skip": " - ",
 				"token1": "href=\"",
 				"token2": "\"",
-				"replace": {"prefix": "http://a.flibusta.is" }
+				"replace": {"prefix": "http://b.flibusta.is" }
 			},
             "uniq": {
 				"before ": "<span style=size>)",
@@ -394,7 +388,7 @@
 			"before": "alt=\"Cover image\"",
 			"token1": "src=\"",
 			"token2": "\"",
-			"replace==": {"prefix": "http://a.flibusta.is/" }
+			"replace==": {"prefix": "http://b.flibusta.is/" }
 			},
 			
 		"add_chapter": {
@@ -405,7 +399,7 @@
 			"link": {
 				"token1": "href=\"/",
 				"token2": "\"",
-				"replace": [{"prefix": "http://a.flibusta.is/" }, {"match": "/read", "text": ""}]
+				"replace": [{"prefix": "http://b.flibusta.is/" }, {"match": "/read", "text": ""}]
 			},
             "uniq": {
 				"skip==": "скачать:",
@@ -432,7 +426,7 @@
 			"end": "</a>",
 			"replace": [{"sufix": "/epub" }, {"match": "/fb2", "text": "/epub"}, {"match": "/read", "text": "/epub"}, {"match": "/epub/epub", "text": "/epub"}],
 		},
-		"prefix": "http://a.flibusta.is",
+		"prefix": "http://b.flibusta.is",
 		"sufix": "&title=/ranobe.epub",
 
 	},	
@@ -442,12 +436,12 @@
 			"assert": {
 				"mangas": [{
 						"title": "Буря в стакане. (fb2)",
-						"link": "http://a.flibusta.is/b/526673",
+						"link": "http://b.flibusta.is/b/526673",
 						"uniq": "b526673"
 					},
 					{
 						"title": "Дыхание дьявола",
-						"link": "http://a.flibusta.is/b/526664"
+						"link": "http://b.flibusta.is/b/526664"
 					}
 				],
 				"mangas_count": ">10"
@@ -456,17 +450,17 @@
 
 		{
          "proc": "manga_complete",
-         "link": "http://a.flibusta.is/b/230948",
+         "link": "http://b.flibusta.is/b/230948",
          "title": "451 градус по Фаренгейту (fb2)",
          "assert": {
 				"author": "Рэй Брэдбери",
-				"cover": "http://a.flibusta.is/i/48/230948/cover0.jpg",
+				"cover": "http://b.flibusta.is/i/48/230948/cover0.jpg",
 				
 				"chapters_count": "=1",
 				"chapters": [     
         {
             "folder": "b230948read/",
-            "link": "http://a.flibusta.is/b/230948/read",
+            "link": "http://b.flibusta.is/b/230948/read",
             "title": "451 градус по Фаренгейту [Farenheitt 451-ru]"
         }
 				]
@@ -474,28 +468,28 @@
         },
 		{
 			"proc": "manga_complete",
-			"link": "http://a.flibusta.is/s/45232",
+			"link": "http://b.flibusta.is/s/45232",
 			"title": "Дом странных детей",
 			"assert": {
 				"author": "Ренсом Риггз",
-				"cover": "http://a.flibusta.is/sites/default/files/bluebreeze_logo.png",
+				"cover": "http://b.flibusta.is/sites/default/files/bluebreeze_logo.png",
 				
 				"chapters_count": ">=5",
 				"chapters": [{
 						"folder": "b596382/",
-                        "link": "http://a.flibusta.is/b/596382",
+                        "link": "http://b.flibusta.is/b/596382",
                         "title": "- 5. Собрание птиц [litres] (пер. Ратникова, Ольга В.)"
 					},
-					{"link":  "http://a.flibusta.is/b/645309" }
+					{"link":  "http://b.flibusta.is/b/645309" }
 				]
 			}
 		},
 		
 		{
 			"proc": "chapter_complete",
-			"link": "http://a.flibusta.is/b/230948/read",
+			"link": "http://b.flibusta.is/b/230948/read",
 			"assert": {
-				"pages": [{"link": "http://a.flibusta.is/b/230948/fb2&title=/ranobe.fb2.zip"}]
+				"pages": [{"link": "http://b.flibusta.is/b/230948/fb2&title=/ranobe.fb2.zip"}]
 
 			}
 		}
