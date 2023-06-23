@@ -1,6 +1,6 @@
 {
 	"id": 30008,
-	"version": 30,
+	"version": 31,
 	"old_ids": [2048],
 	
 	
@@ -25,6 +25,11 @@
 	
 	
 	 "manga_search_complete": {		
+	"headers": {
+"Referer": "https://fanfox.net/",
+ "Set-Cookie": "isAdult=1"
+ },
+		 
  "search_link":"http://fanfox.net/search?page=$page$&title=$query$&genres&nogenres&sort&stype=1&name&type=0&author_method=cw&author&artist_method=cw&artist&rating_method=eq&rating&released_method=eq&released&st=0#searchlt",
 		"query_type": "GET",
 		 "add_manga":{
@@ -58,6 +63,11 @@
 	
 	
 	"manga_list_complete": {
+	"headers": {
+"Referer": "https://fanfox.net/",
+ "Set-Cookie": "isAdult=1"
+ },
+		 
 		"iterator": {    
 			"base_url": "http://fanfox.net/directory/",
 			"append_nums": { "from": 1, "to": 325, "step": 1, "sufix": ".html" }
@@ -78,7 +88,11 @@
 	"manga_complete": {
 	
 	
-	    "headers": { "Set-Cookie": "isAdult=1"},
+	"headers": {
+"Referer": "https://fanfox.net/",
+ "Set-Cookie": "isAdult=1"
+ },
+		 
 	
 		
 	    "title":       { "after": "detail-info-right-title-font", "token1": ">", "token2": "<" },
@@ -106,6 +120,11 @@
 		
 		
 		"add_chapter": { 
+		"headers": {
+"Referer": "https://fanfox.net/",
+ "Set-Cookie": "isAdult=1"
+ },
+		 
 			"start": "class=\"reader-header-title-list\"",
 			"end":   "</div>",
 			"next":  "<a", 
@@ -120,7 +139,10 @@
 	},
 	
 	"chapter_complete": {
-		"headers": { "Set-Cookie": "isAdult=1" },
+		"headers": {
+"Referer": "https://fanfox.net/",
+ "Set-Cookie": "isAdult=1"
+ },
 		 
 		"add_pages": { 
 			"start": "<select class=\"mangaread-page\"", 
@@ -132,6 +154,11 @@
 	},
 	
 	"page_complete": {
+	"headers": {
+"Referer": "https://fanfox.net/",
+ "Set-Cookie": "isAdult=1"
+ },
+		 
 		"image": { "skip": "class=\"mangaread-img\"",
 		"token1": "src=\"//", "token2": "\"",
 		"replace" : { "prefix" : "http://" }
