@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 86,
+    "version": 87,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -370,7 +370,7 @@
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
-            "Referer": "https://api.remanga.org/",
+            "Referer": "https://remanga.org/",
             "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
         },
         "add_images": {
