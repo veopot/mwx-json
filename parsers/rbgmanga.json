@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 87,
+    "version": 88,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -10,9 +10,9 @@
     "language": "ru",
     "encoding": "utf-8",
     "headers": {
-        "Referer": "https://api.remanga.org/",
-        "content-type": "application/json"
-    },
+       "cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+        "User-Agent": "Tachiyomi", 
+	},
     "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/rbgmanga.png",
     "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rbgmanga.json",
     "self_link2": "https://fant.my1.ru/mwparser/mwx/json/rbgmanga.json",
@@ -24,11 +24,12 @@
     },
     
     "manga_search_complete": {
-        "headers": {
+       "headers": {
+			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
-            "Referer": "https://api.remanga.org/",
-            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-        },
+            "Referer": "%%url%%",
+			"User-Agent": "Tachiyomi", 
+			},
         "search_link": "https://api.remanga.org/api/search/?count=10&page=$page$&query=$query$",
         "query_type": "GET",
         "add_manga": {
@@ -121,9 +122,11 @@
     },
     "manga_list_complete": {
         "headers": {
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-            "Accept-Language": "ru-RU,ru;q=0.9"
-        },
+			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+            "Accept": "*/*",
+            "Referer": "%%url%%",
+			"User-Agent": "Tachiyomi", 
+			},
         "iterator": {
             "base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
             "append_nums": {
@@ -181,9 +184,9 @@
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
-            "Referer": "https://api.remanga.org/",
-            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-        },
+            "Referer": "%%url%%",
+			"User-Agent": "Tachiyomi", 
+			},
         "link_corrector": [
             {
                 "match": "remanga.org/manga/",
@@ -317,6 +320,13 @@
             }
         },
         "add_chapter": {
+			"headers": {
+			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+            "Accept": "*/*",
+            "Referer": "%%url%%",
+			"User-Agent": "Tachiyomi", 
+			},
+			
             "start": "content\"",
             "end": "props",
             "next": "\"is_paid\":false",
@@ -370,9 +380,9 @@
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
-            "Referer": "https://remanga.org/",
-            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-        },
+            "Referer": "%%url%%",
+			"User-Agent": "Tachiyomi", 
+			},
         "add_images": {
             "start": "content",
             "token1": "link\":\"",
