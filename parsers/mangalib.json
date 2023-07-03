@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 13,
+	"version": 14,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -19,7 +19,14 @@
 
 	
 
-	"manga_search_complete": {		
+	"manga_search_complete": {
+        "headers": {
+		
+		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+        "Accept": "image/webp,*/*;q=0.8",
+        "Referer": "https://mangalib.me/"
+		},
+				
 		"search_link": "https://mangalib.me/search?type=manga&q=$query$",
 		"query_type": "GET",
 		"add_manga": {
@@ -38,6 +45,14 @@
 
 
 	"manga_list_complete": {
+		"headers": {
+		
+		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+        "Accept": "image/webp,*/*;q=0.8",
+        "Referer": "https://mangalib.me/"
+		},
+		
+		
 		 "iterator": {
             "base_url": "https://mangalib.me/manga-list?sort=rating_score&dir=desc&page=",
             "append_nums": {
@@ -67,7 +82,7 @@
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
-        "Referer": "https://mangalib.me"
+        "Referer": "https://mangalib.me/"
 		},
 		
 		
@@ -109,7 +124,7 @@
 			"values": [ "Завершен", "завершен"] },
 			
 		"ongoing": { "start": ">Статус перевода</div>","end": " </a>",
-			"values": [ "Продолжается", "продолжается"] },
+			"values": [ "Продолжается", "продолжается" ] },
 			
 			
 		"unknown": { "start": ">Статус перевода</div>","end": " </a>",
@@ -133,6 +148,12 @@
 		
 		
 		"add_chapter": {
+			  "headers": {
+	    "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+        "Accept": "image/webp,*/*;q=0.8",
+        "Referer": "https://mangalib.me/"
+		
+		},
 		
 			"next":  "{\"chap",
 			
