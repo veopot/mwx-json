@@ -1,7 +1,7 @@
 {
 	"id": 30435,
 	"old_ids": [20569],
-	"version": 26,
+	"version": 27,
 	"title": "MangaDex",
 	"host": "https://api.mangadex.org/",
 	"public_link": "https://mangadex.org/",
@@ -135,6 +135,12 @@
 				"step": 32
 			}
 		},
+		"link_corrector": [
+            {
+                "match": "https://mangadex.org/title/(.*?)/(.*)",
+                "text": "https://api.mangadex.org/manga/$1?includes[]=artist&includes[]=author&includes[]=cover_art"
+            }
+        ],
 		"add_manga": {
 			"next": "\"title\":{",
 			
