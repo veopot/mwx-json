@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 27,
+	"version": 28,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -664,7 +664,7 @@
 			"token1": ":\"",
 			"token2": "\"",
 			"stop": "\"pages\":",
-			"replace": {"prefix": "https://storage.newmanga.org/origin_proxy/"},
+			"replace": {"prefix": "https://storage.newmanga.org/origin_proxy/"}
 			        
 			
 		},
