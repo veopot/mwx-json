@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 14,
+	"version": 15,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -70,6 +70,12 @@
 			"uniq":   { "token1": "data-media-slug=\"", "token2": "\""}
 			
 		},
+		"link_corrector": [
+            {
+                "match": "mangalib.me/(.*?)\\?section=(.*)",
+                "text": "mangalib.me/$1"
+            }
+        ],
         "rating_auto_inc": {
             "start": 50000,
             "inc": -1
@@ -179,13 +185,7 @@
             "token2": "\"chapter_moderated",
 			"replace": { "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "Том $4 Глава $2" } 
             }
-		},
-        "link_corrector": [
-            {
-                "match": "?section=info&ui=725",
-                "text": ""
-            }
-        ]		
+		}
 	},
 	"chapter_complete": {
    "headers": {
