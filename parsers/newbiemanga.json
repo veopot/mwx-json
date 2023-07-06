@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 26,
+	"version": 27,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -180,6 +180,12 @@
 		    }
 
 		},
+		"link_corrector": [
+            {
+                "match": "newmanga.org/p/",
+                "text": "api.newmanga.org/v2/projects/"
+	    }
+		],
 		"rating_auto_inc": {
 			"start": "20000",
 			"inc": -1
