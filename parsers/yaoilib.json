@@ -1,12 +1,12 @@
 {
 	"id": 1468,
-	"version": 1,
+	"version": 2,
 	
 	"title": "YaoiLib (test)",
 	"host": "https://v1.slashlib.me/",
 	"public_link": "https://v1.slashlib.me/manga-list?sort=rating_score&dir=desc&page=1",
-	"folder": "slashlib",
-	"name" : "slashlib",
+	"folder": "yaoilib",
+	"name" : "yaoilib",
 	"language": "ru",
 	"is_paid": true,
 	"is_mature": true,
