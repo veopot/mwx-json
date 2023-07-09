@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 15,
+	"version": 16,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -31,9 +31,8 @@
 		"query_type": "GET",
 		"add_manga": {
 			"next":   "moder_id",
-			
-			"link":   {  "before": "\"metadata\"",  "token1": "slug\":\"", "token2": "\",", 
-			"replace" : {"prefix": "https://mangalib.me/" } },
+		
+			"link":   { "token1": "\"href\":\"", "token2": "\""},
 			
 			"title":  { "before": "\"metadata\"", "token1": "rus_name\":\"", "token2": "\",\"slug\":", 
 			"replace" : { "match" : "\",\"eng_name\":\"", "text" : " | " } },
@@ -49,12 +48,13 @@
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
+		 "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
         "Referer": "https://mangalib.me/"
 		},
 		
 		
 		 "iterator": {
-            "base_url": "https://mangalib.me/manga-list?sort=rating_score&dir=desc&page=",
+            "base_url": "https://mangalib.me/manga-list?sort=rating_score&dir=desc&chapters[min]=1&site_id=1&type=manga&caution_list[]=%D0%9E%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82&caution_list[]=16+&caution_list[]=18+&page=",
             "append_nums": {
 				"from": 1,
 				"to": 30
@@ -88,6 +88,7 @@
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
+		 "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
         "Referer": "https://mangalib.me/"
 		},
 		
