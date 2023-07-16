@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 16,
+	"version": 17,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -32,7 +32,11 @@
 		"add_manga": {
 			"next":   "moder_id",
 		
-			"link":   { "token1": "\"href\":\"", "token2": "\""},
+			"link":   { "before": "\"href\":",  "token1": "\"slug\":\"", "token2": "\"",
+				"replace": [{"prefix": "https://mangalib.me/"},
+				{ "match":"\\\\","text":""}
+				]
+				},
 			
 			"title":  { "before": "\"metadata\"", "token1": "rus_name\":\"", "token2": "\",\"slug\":", 
 			"replace" : { "match" : "\",\"eng_name\":\"", "text" : " | " } },
