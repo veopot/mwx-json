@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 55,
+	"version": 56,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -89,7 +89,7 @@
 			"base_url": "http://2023.allhen.online/list?sortType=votes&offset=",
 			"append_nums": {
 				"from": 0,
-				"to": 20020,
+				"to": 21560,
 				"step": 70
 			}
 		},
@@ -261,7 +261,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=Z0R3Vm03bzhWMDFrdENTJTJGWGxqSk84R2Qwd2tGVCUyQkNaSW5xaiUyRlpJc0olMkJjJTNEOmlQRWdjclFpZ2ZwTjhoVFRLRld2a052MGg1N0Zub2YlMkJiMCUyQjFPeVp1ZSUyQnMlM0Q",
+			"cookie": "remember_me=MzFsQkZyWVNvTnYyQkQxYXhpJTJGS0tjVmJVcGI3bGE0MzJlUlpKMmo0dFJnJTNEOjJkOUpWa3JBTmxwMFZCUXdmekZSZFNIVkV3OXdNWXAwckNVdDNPclcyU2slM0Q",
 			"Accept": "*/*",
 			"Referer": "https://2023.allhen.online/"
 		},
