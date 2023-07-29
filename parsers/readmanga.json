@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 65,
+    "version": 66,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -133,7 +133,7 @@
             "token1": "href=\"",
             "token2": "\"",
             "replace": [
-			{ "prefix": "https://readmanga.ru"},
+			{ "prefix": "https://readmanga.live/"},
 			{"match": "__A(.*)",  "text": ""  }
 			           
 			]
