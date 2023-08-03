@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 89,
+    "version": 90,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -65,7 +65,7 @@
             },
             "summary": {
                 "token1": "\"issue_",
-                "token2": "}",
+                "token2": "\"bookmark_type\"",
                 "replace": [
                     {
                         "match": "year\":",
@@ -95,6 +95,12 @@
                         "match": "true",
                         "text": "да"
                     },
+					{
+                        "match": "\"admin_rating\":\"(.*?)\",",
+                        "text": ""
+                    },
+					
+					
 					
 					{
                         "match": "\"type\":(.*?),",
