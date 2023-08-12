@@ -3,7 +3,7 @@
 	
 	"old_ids": [50030],
 	
-	"version": 22,
+	"version": 23,
 	"title": "AComics",
 	"host": "https://acomics.ru/",
 	"public_link": "https://acomics.ru/",
@@ -139,7 +139,7 @@
 					},
 					{ 
 				    "title" : "3",
-					"link" : "https://acomics.ru/~alice-in-a-sinland/3",
+					"link" : "https://acomics.ru/~alice-in-a-sinland/3"
 						
 					}
 				]

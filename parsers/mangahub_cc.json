@@ -25,47 +25,37 @@
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
             "Referer": "https://mangahub.cc/",
-	 "User-Agent": "MangaWatcherX"
+	        "User-Agent": "MangaWatcherX"
 			},
-        "search_link": "https://mangahub.cc/api/search/?count=10&page=$page$&query=$query$",
+        "search_link": "https://mangahub.cc/search?q=$query$",
         "query_type": "GET",
         "add_manga": {
-            "start": "content\"",
-            "end": "props\"",
-            "next": "bookmark_type\"",
+            "start": "class=\"base_content_block\">",
+            "end": "<footer class=\"footer\">",
+            "next": "class=\"horizontal_titles_place\">",
             "link": {
-                "before": "bookmark_type\"",
-                "token1": "dir\":\"",
-                "token2": "\",",
-                "replace": [
-                    {
-                        "prefix": "https://mangahub.cc/api/titles/"
-                    },
-                    {
-                        "sufix": "/"
-                    }
-                ]
+                "token1": "href=\"",
+                "token2": "\"",
+                "replace": { "prefix": "https://mangahub.cc"}
+                
             },
             "cover": {
-                "skip": "bookmark_type\"",
-                "token1": "mid\":\"",
+                "token1": "data-src=\"",
                 "token2": "\"",
-                "replace": {
-                    "prefix": "https://mangahub.cc"
-                }
+                "replace": { "prefix": "https://mangahub.cc" }
             },
+			
             "title": {
-                "before": "bookmark_type\"",
-                "token1": "en_name\":\"",
-                "token2": "\",\"dir",
+                "token1": "name main_text_animate\">",
+                "token2": "</",
                 "replace": {
-                    "match": "\",\"rus_name\":\"",
-                    "text": " | "
+                    "match": "\/",
+                    "text": ""
                 }
             },
             "summary": {
-                "token1": "\"issue_",
-                "token2": "}",
+                "token1": "title_info_title_type\">",
+                "token2": "</",
                 "replace": [
                     {
                         "match": "year\":",
@@ -74,45 +64,11 @@
 					{
                         "match": "\",",
                         "text": ","
-                    },
-                    {
-                        "match": "\"avg_rating\":\"",
-                        "text": " Рейтинг "
-                    },
-                    {
-                        "match": "\"is_yaoi\":",
-                        "text": "яой:"
-                    },
-					{
-                        "match": "\"is_erotic\":",
-                        "text": "эротика:"
-                    },
-					{
-                        "match": "false",
-                        "text": "нет"
-                    },
-					{
-                        "match": "true",
-                        "text": "да"
-                    },
-					
-					{
-                        "match": "\"type\":(.*?),",
-                        "text": ""
-                    },
-					
-					
-					
-					
-                    {
-                        "match": "\"count_chapters\":",
-                        "text": " Доступно Глав "
                     }
-                ]
+				]
             },
             "uniq": {
-                "before": "bookmark_type\"",
-                "token1": "en_name\":\"",
+                "token1": "href=\"/manga/",
                 "token2": "\""
             }
         }

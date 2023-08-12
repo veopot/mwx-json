@@ -1,6 +1,6 @@
 {
 	"id": 4131,
-	"version": 2,
+	"version": 3,
 	"title": "EroLate",
 	"host": "https://erolate.com",
 	"public_link": "https://erolate.com",
@@ -115,7 +115,7 @@
 			"base_url": "https://erolate.com/search/index/cat/2/Book_page/",
 			"append_nums": {
 				"from": 1,
-				"to": 40
+				"to": 41
 			}
 		},
 
@@ -152,9 +152,8 @@
 		},
 
 		"title": {
-			"skip": "class=\"nav nav-tabs book-header\"",
-			"token1": "h1>",
-			"token2": "</"
+			"token1": "t_title: '",
+			"token2": "',"
 		},
 		"uniq": {
 			"skip": "var Book = new CBook",
@@ -171,30 +170,22 @@
 				]
 
 		},
-		"author": {
-			"skip": ">Автор:</",
-			"token1": "<em>",
-			"token2": "</em>",
-			"replace": {
-				"match": "<.*?>",
-				"text": ""
-			}
-		},
+		
 
 		"status": {
 			"empty": {
-				"start": "<div class='alert alert-info'",
-				"end": "id=\"Chapters\">",
+				"start": "[<span style=",
+				"end": "</span>]",
 				"value": "В этом переводе ещё не создано ни одной главы."
 			},
 			"complete": {
-				"start": "dt>Состояние перевода:</dt",
-				"end": "dt>Перевод:</dt",
+				"start": "[<span style=",
+				"end": "</span>]",
 				"values": [">Завершён", ">Переведена"]
 			},
 			"ongoing": {
-				"start": "dt>Состояние перевода:</dt",
-				"end": "dt>Перевод:</dt",
+				"start": "[<span style=",
+				"end": "</span>]",
 				"values": [">В работе", ">Ожидание", ">Перерыв"]
 			},
 			"default": "unknown"
@@ -203,11 +194,11 @@
 
 
 		"add_tags": {
-			"start": "<div id=\"Info\">",
-			"end": "class=\"dropdown-menu\"",
-			"after": "href=\"/search?",
+			"start": "class=\"book-description\">",
+			"end": "class=\"swiper-wrapper\">",
+			"after": "%5B0%5D=",
 			"token1": "class=\"badge\">",
-			"token2": "</a>"
+			"token2": "</"
 		},
 		"is_mature": {
 			"start": "<div id=\"Info\">",
