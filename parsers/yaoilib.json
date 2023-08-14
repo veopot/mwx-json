@@ -1,6 +1,6 @@
 {
 	"id": 1468,
-	"version": 3,
+	"version": 4,
 	
 	"title": "YaoiLib",
 	"host": "https://v1.slashlib.me/",
@@ -221,7 +221,7 @@
             "start": "window.__pg",
             "token1": "\"u\":\"",
             "token2": "\"",
-            "end": ">Комментарии<"
+            "end": "}];"
         }
     },
 

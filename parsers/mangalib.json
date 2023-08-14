@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 17,
+	"version": 18,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -217,7 +217,7 @@
             "start": "window.__pg",
             "token1": "\"u\":\"",
             "token2": "\"",
-            "end": ">Комментарии<"
+             "end": "}];"
         }
     },
 
