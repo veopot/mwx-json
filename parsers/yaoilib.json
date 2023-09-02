@@ -1,6 +1,6 @@
 {
 	"id": 1468,
-	"version": 4,
+	"version": 5,
 	
 	"title": "YaoiLib",
 	"host": "https://v1.slashlib.me/",
@@ -213,15 +213,15 @@
 			"token2": "\"",
 			"end": "\"server\"",
 			"replace": [{"match" : "\\\\",  "text" : "" }, 
-            { "prefix": "https://img33.imgslib.link" }
+            { "prefix": "https://img2.mixlib.me/" }
 			]  			
 			    
 		},
         "add_pages": { 
             "start": "window.__pg",
             "token1": "\"u\":\"",
-            "token2": "\"",
-            "end": "}];"
+            "token2": "\"}",
+            "end": "</body>"
         }
     },
 
