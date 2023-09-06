@@ -1,6 +1,6 @@
 {
 	"id": 1468,
-	"version": 6,
+	"version": 7,
 	
 	"title": "YaoiLib",
 	"host": "https://v1.slashlib.me/",
@@ -180,7 +180,7 @@
             "token2": "\"chapter_moderated",
 			"replace": [
                        
-						{ "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "v$4/c$2" },
+						{ "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "/v$4/c$2" },
 						{ "match" : "////",  "text" : "/" },
 						{ "prefix" : "%%url%%" }
 						]                  
