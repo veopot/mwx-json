@@ -1,13 +1,13 @@
 {
    "id":40228,
-   "version":22,
+   "version":23,
    
-   "old_sites": ["mangapoisk.ru","mangapoisk.com"],
+   "old_sites": ["mangapoisk.ru","mangapoisk.com","mangapoisk.org" ],
    
    
    "title":"MangaPoisk",
-   "host":"https://mangapoisk.org",
-   "public_link":"https://mangapoisk.org/manga-list",
+   "host":"https://mangapoisk.net",
+   "public_link":"https://mangapoisk.net/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
    "language":"ru",
@@ -27,10 +27,10 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangapoisk.org/manga?sortBy=popular&page=",
+         "base_url":"https://mangapoisk.net/manga?sortBy=popular&page=",
          "append_nums":{
             "from":0,
-            "to":266,
+            "to":281,
             "step":1
          }
       },
@@ -60,7 +60,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://mangapoisk.org/search?q=$query$&page=$page$",
+        "search_link":"https://mangapoisk.net/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -82,9 +82,9 @@
 				
          "cover":{
 			"skip":"href=\"",
-		    "token1":"https://static2.mangapoisk.org/posters/",
+		    "token1":"https://static2.mangapoisk.net/posters/",
             "token2":"\"",
-			"replace": { "prefix": "https://static2.mangapoisk.org/posters/"}
+			"replace": { "prefix": "https://static2.mangapoisk.net/posters/"}
          }
       }
 		},	
@@ -96,7 +96,7 @@
     { "condition": "/chaptersList?",
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.org"
+			"Referer": "https://mangapoisk.net"
 		},
       "title":{
          
@@ -189,7 +189,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.org"}
+			"replace": {"prefix" : "https://mangapoisk.net"}
          },
 		 
 		"uniq":{
@@ -211,7 +211,7 @@
    { "condition": "",
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.org"
+			"Referer": "https://mangapoisk.net"
 		},
       "title":{
          
@@ -293,7 +293,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.org"}
+			"replace": {"prefix" : "https://mangapoisk.net"}
          },
 		 
 		"uniq":{
@@ -317,7 +317,7 @@
     "add_numeration": true,
         "headers": {
 			"Accept": "*/*",
-			"Referer": "https://mangapoisk.org/"
+			"Referer": "https://mangapoisk.net/"
 		},
      
       "images":true,
@@ -326,12 +326,12 @@
 	{
 		"start": "chapter-images\">",
 		"before": "id=\"",
-		"token1": "<img src=\"https://static2.mangapoisk.org/pages/",
+		"token1": "<img src=\"https://static2.mangapoisk.net/pages/",
 		"token2": "\"",
 		"end": "<div class=\"row text-center\">",
 		"replace":
 		[{
-				"prefix": "https://static2.mangapoisk.org/pages/"
+				"prefix": "https://static2.mangapoisk.net/pages/"
 			}, {
 				"match": "data-small-src=\"(.*?)\"",
 				"text": ""
@@ -345,12 +345,12 @@
 	{
 		"start": "chapter-images\">",
 		"before": "id=\"",
-		"token1": "data-src=\"https://static2.mangapoisk.org/pages/",
+		"token1": "data-src=\"https://static2.mangapoisk.net/pages/",
 		"token2": "\"",
 		"end": "<div class=\"row text-center\">",
 		"replace":
 		[{
-				"prefix": "https://static2.mangapoisk.org/pages/"
+				"prefix": "https://static2.mangapoisk.net/pages/"
 			}, {
 				"match": "data-small-src=\"(.*?)\"",
 				"text": ""
@@ -372,7 +372,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://mangapoisk.org/manga/vanpanchmen",
+                  "link":"https://mangapoisk.net/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -381,12 +381,12 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.org/manga/solo-leveling-abs34Kt",
+         "link":"https://mangapoisk.net/manga/solo-leveling-abs34Kt",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
           
-            "cover":"@https://static2.mangapoisk.org/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
+            "cover":"@https://static2.mangapoisk.net/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
 		    "summary":"@^(Десять лет назад распахнулись)",
             "tags":"@fantasy",
             "status":"complete",
@@ -394,12 +394,12 @@
             "chapters_count":">=130",
             "chapters":[
         {
-            "link": "https://mangapoisk.org/manga/solo-leveling-abs3Cpo/chapter/2-130",
+            "link": "https://mangapoisk.net/manga/solo-leveling-abs34Kt/chapter/2-130",
             "title": "Том 2 Глава 130"
         },
         {
             "folder": "2-131/",
-            "link": "https://mangapoisk.org/manga/solo-leveling-abs3Cpo/chapter/2-131",
+            "link": "https://mangapoisk.net/manga/solo-leveling-abs34Kt/chapter/2-131",
             "title": "Том 2 Глава 131"
         }
             ]
@@ -407,12 +407,12 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangapoisk.org/manga/solo-leveling-abs3Cpo/chapter/2-130",
+         "link": "https://mangapoisk.net/manga/solo-leveling-abs34Kt/chapter/2-130",
          "assert":{
             "pages":[
-        {"image": "https://static2.mangapoisk.org/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.mangapoisk.org/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.mangapoisk.org/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.mangapoisk.net/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangapoisk.net/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangapoisk.net/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
             "pages_count":"14"
          }
