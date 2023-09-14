@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 60,
+	"version": 61,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -115,6 +115,12 @@
 				}
 			}
 		},
+		"link_corrector": [
+            {
+                "match": "http://z.allhen.online",
+                "text": "https://z.allhen.online"
+            }
+        ],
 		"rating_auto_inc": {
 			"start": 30000,
 			"inc": -1
