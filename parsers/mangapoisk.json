@@ -1,6 +1,6 @@
 {
    "id":40228,
-   "version":24,
+   "version":26,
    
    "old_sites": ["mangapoisk.ru","mangapoisk.com","mangapoisk.org","mangapoisk.net" ],
    
@@ -27,7 +27,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangapoisk.me/manga?sortBy=popular&page=",
+         "base_url":"https://mangapoisk.me/manga?page=",
          "append_nums":{
             "from":0,
             "to":281,
@@ -35,16 +35,17 @@
          }
       },
       "add_manga":{
-         "next":"class=\"post-description\">",
+         "next":"<div class=\"manga-card group",
 		 
          "title":{
             "skip":"href=\"",
-            "token1":"\">",
-            "token2":"</"
+            "token1":"title=\"",
+            "token2":"\""
          },
          "link":{
             "token1":"href=\"",
-            "token2":"\""
+            "token2":"\"",
+			"replace": { "prefix": "https://mangapoisk.me"}
          },
          "cover":{
 		    "before":"href=\"",
@@ -91,41 +92,43 @@
 		
 		
    
-   "manga_complete":[
-   
-    { "condition": "/chaptersList?",
+   "manga_complete": { 
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
 			"Referer": "https://mangapoisk.me"
 		},
       "title":{
-         
-         "token1":"class=\"post-name\">",
+         "skip":"<header class=\"card-header p-0\"><h1", 
+         "token1":"\">",
          "token2":"</h1>" ,
-         "replace":{"match":"<.*?>","text":""} },
+		 
+		 "replace": [
+				{"match": "Манга","text": ""},
+				{"match": "Манхва","text": ""},
+				{"match": "/","text": "|"},
+				{"match":"<.*?>","text":""}
+
+				]},
       
       "uniq":{
-         
-         "token1":"let manga = '",
-         "token2":"';"
+         "token1":"\"url\":\"https:\/\/mangapoisk.me\/manga\/",
+         "token2":"\","
       },
 	  
 	  
       "cover":{
-        "skip":"class=\"row\">",
-         "token1":"src=\"",
-         "token2":"\""
-      },
-      
-	  
+         "token1":"src=\"https://static2.mangapoisk.me/posters/",
+         "token2":"\"",
+		"replace": {
+				"prefix": "https://static2.mangapoisk.me/posters/"
+				}
+		},
 	  
 	  "rating":{
-        "skip":"class=\"post-info\">",
-         "token1":"class=\"ratesCount\">",
+         "token1":"\"ratingCount\":",
          "token2":"</"
       },
-	  
-	  
+      
 	  "status": { 
 		  	"complete": { 
 			 "start": ">Статус:<",
@@ -140,17 +143,17 @@
 			 
 			 
       "summary":{
-         "skip":">Описание:<",
-         "token1":"class=\"manga-description entry\">",
+         "skip":"class=\"manga-description",
+         "token1":"\">",
          "token2":"</div>",
          "replace":{
             "match":"<.*?>",
             "text":""
          }
       },
-      "add_genres":{
+      "add_tags":{
          "start":">Жанр:<",
-         "end":">Год:<",
+         "end":"\">Год:</b>",
          "token1":"\">",
          "token2":"</"
       },
@@ -164,13 +167,30 @@
          ]
       },
 	  
-	"chapters_from_pages": { 
-		"start": "class=\"chapters-infinite-pagination",
-		 "end": "</ul>",
-		"after": "class=\"page-link",
-		"token1": "\">",
-		"token2": "</", 
-		"replace" :  { "prefix" : "%%url%%/chaptersList?page=" } 
+	
+	  "chapters_from_page": { 
+		
+		"token1": "&quot;url&quot;:&quot;/manga/",
+		"token2": "&quot", 
+		"replace": [
+		        { "prefix" : "https://mangapoisk.me/manga/" },
+		        { "sufix" : "/chaptersList" },
+				{ "match": "\\\\", "text": "" }
+				],
+				
+			"next": {
+				"before": "rel=\"next\"",
+				"token1": "href=\"",
+				"token2": "\"",
+				
+				"replace": [
+				    {"prefix": "https://mangapoisk.me" },
+					{ "match": "&amp;", "text": "&" }
+				]
+				
+				
+				
+			}	
 		
 		},
 	  
@@ -178,7 +198,7 @@
 	  
 		
 		"add_chapter":{
-        "start": "<head>",
+        "start": "</head>",
 		 "end": "class=\"chapters-infinite-pagination\"",
         
 		 
@@ -208,111 +228,7 @@
 	  
 	  
    },
-   { "condition": "",
-	   "headers": {
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.me"
-		},
-      "title":{
-         
-         "token1":"class=\"post-name\">",
-         "token2":"</h1>" ,
-         "replace":{"match":"<.*?>","text":""} },
-      
-      "uniq":{
-         "skip":"class=\"row\">",
-         "token1":"class=\"post-name\">",
-         "token2":"</"
-      },
-	  
-	  
-      "cover":{
-        "skip":"class=\"row\">",
-         "token1":"src=\"",
-         "token2":"\""
-      },
-	  
-	  "rating":{
-        "skip":"class=\"post-info\">",
-         "token1":"class=\"ratesCount\">",
-         "token2":"</"
-      },
-      
-	  "status": { 
-		  	"complete": { 
-			 "start": ">Статус:<",
-             "end": ">Жанр:<",
-			   "values": [ "Завершена", "Переведена", "Сингл"] },
-			
-            "ongoing": { 
-			"start": ">Статус:<",
-             "end": ">Жанр:<",
-                "value": "Выпускается" }
-			 },
-			 
-			 
-      "summary":{
-         "skip":">Описание:<",
-         "token1":"class=\"manga-description entry\">",
-         "token2":"</div>",
-         "replace":{
-            "match":"<.*?>",
-            "text":""
-         }
-      },
-      "add_tags":{
-         "start":">Жанр:<",
-         "end":">Год:<",
-         "token1":"\">",
-         "token2":"</"
-      },
-      "is_mature":{
-         "values":[
-            "эротика",
-            "сэйнэн",
-            "юри",
-			"этти",
-            "яой"
-         ]
-      },
-	  
-	
-	  
-	  
-	  
-		
-		"add_chapter":{
-        "start": "<head>",
-		 "end": "class=\"chapters-infinite-pagination\"",
-        
-		 
-         "next": "chapter-item",
-		 
-		                 
-         "link":{
-			
-            "token1":"href=\"",
-            "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.me"}
-         },
-		 
-		"uniq":{
-            "skip":"href=\"",
-            "token1":"/chapter/",
-            "token2":"\""
-        },
-		 
-        "title":{
-            "skip":"href=\"",
-            "token1":"class=\"chapter-title\">",
-            "token2":"</a>",
-			"replace": { "match": "</span>",	"text": ""}
-        }
-      }
-	  
-	  
-   }
-   ],
+   
    "chapter_complete":{
     "add_numeration": true,
         "headers": {
@@ -322,32 +238,13 @@
      
       "images":true,
 "add_pages":
-[
+
 	{
-		"start": "chapter-images\">",
+		"start": "class=\"pt-4 mx-auto outline-0 cursor-auto w-full\"",
 		"before": "id=\"",
-		"token1": "<img src=\"https://static2.mangapoisk.me/pages/",
+		"token1": "src=\"https://static2.mangapoisk.me/pages/",
 		"token2": "\"",
-		"end": "<div class=\"row text-center\">",
-		"replace":
-		[{
-				"prefix": "https://static2.mangapoisk.me/pages/"
-			}, {
-				"match": "data-small-src=\"(.*?)\"",
-				"text": ""
-			},
-			{
-				"match": "src=\"data:image/(.*?)\"",
-				"text": ""
-			}
-		]
-	},
-	{
-		"start": "chapter-images\">",
-		"before": "id=\"",
-		"token1": "data-src=\"https://static2.mangapoisk.me/pages/",
-		"token2": "\"",
-		"end": "<div class=\"row text-center\">",
+		"end": ">Комментарии",
 		"replace":
 		[{
 				"prefix": "https://static2.mangapoisk.me/pages/"
@@ -361,7 +258,7 @@
 			}
 		]
 	}
-]
+
 	},
 	
 	
@@ -381,7 +278,7 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.me/manga/solo-leveling-abs34Kt",
+         "link":"https://mangapoisk.me/manga/solo-leveling-abs3R5B",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
@@ -394,12 +291,12 @@
             "chapters_count":">=130",
             "chapters":[
         {
-            "link": "https://mangapoisk.me/manga/solo-leveling-abs34Kt/chapter/2-130",
+            "link": "https://mangapoisk.me/manga/solo-leveling-abs3R5B/chapter/2-130",
             "title": "Том 2 Глава 130"
         },
         {
             "folder": "2-131/",
-            "link": "https://mangapoisk.me/manga/solo-leveling-abs34Kt/chapter/2-131",
+            "link": "https://mangapoisk.me/manga/solo-leveling-abs3R5B/chapter/2-131",
             "title": "Том 2 Глава 131"
         }
             ]
@@ -407,7 +304,7 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangapoisk.me/manga/solo-leveling-abs34Kt/chapter/2-130",
+         "link": "https://mangapoisk.me/manga/solo-leveling-abs3R5B/chapter/2-130",
          "assert":{
             "pages":[
         {"image": "https://static2.mangapoisk.me/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
