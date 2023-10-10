@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 67,
+    "version": 68,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -51,7 +51,7 @@
     "manga_list_complete": {
         "iterator": {
             "base_url": "https://readmanga.live/list?sortType=POPULARITY&offset=",
-            "append_nums": { "from": 0, "to": 23000, "step": 70,
+            "append_nums": { "from": 0, "to": 26250, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
         "add_manga": {
@@ -133,7 +133,7 @@
             "token1": "href=\"",
             "token2": "\"",
             "replace": [
-			{ "prefix": "https://readmanga.live/"},
+			{ "prefix": "https://readmanga.ru/"},
 			{"match": "__A(.*)",  "text": ""  }
 			           
 			]
