@@ -1,6 +1,6 @@
 {
 	"id": 1347,
-	"version":13,
+	"version":14,
 	
 	"title": "VK (Test)",
 	"host": "https://vk.com/",
@@ -56,10 +56,18 @@
 		
 		"chapters_from_page":{  
 		
-		 "skip": "<link rel=\"canonical\"",
-		 "token1":"href=\"https://vk.com/",
+		 "after": "<link rel=\"alternate\"",
+		 "token1":"href=\"",
 		 "token2": "\"",
-		 "replace" : { "prefix":"https://m.vk.com/@"},
+		 "replace" : [{
+						"match": "https://m.vk.com/",
+						"text": "https://m.vk.com/@"
+					},
+					{
+						"match": "https://vk.com/",
+						"text": "https://m.vk.com/@"
+					}
+				],
             "next": {
                 "token1": "?offset=",
                 "token2": "\"",
