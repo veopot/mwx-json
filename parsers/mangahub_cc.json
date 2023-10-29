@@ -1,6 +1,6 @@
 {
     "id": 46547,
-    "version": 1,
+    "version": 3,
     "title": "Mangahub_CC",
     "host": "https://mangahub.cc",
     "public_link": "https://mangahub.cc/manga",
@@ -119,9 +119,11 @@
 			"User-Agent": "MangaWatcherX"
 			},
 			
-		"title":       { "token1":"class=\"title_head_name\">", "token2": "</" },
-		
-		"additional_title": { "token1": "class=\"title_head_additional_info\">", "token2": "</" },
+		"title":       { "token1":"class=\"title_head_name\">", "token2": "<div class=\"title_head_genres",
+				"replace": [
+				    { "match": "/", "text": "" },
+					{ "match": "<.*?>", "text": " " }
+				] },
 		
 		"uniq":        { "after": " property=\"og:url\"", 
 		"token1":"content=\"https://mangahub.cc/manga/", "token2": "\"" },
