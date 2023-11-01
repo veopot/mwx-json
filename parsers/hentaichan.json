@@ -1,6 +1,6 @@
 { 
 	"id": 30432,
-	"version": 79,
+	"version": 80,
 	
 	"old_ids": [30333],
 	"old_sites": [
@@ -15,6 +15,7 @@
 	"hchan.me",
 	"hchan.live",
 	"xxxxx.hentaichan.live",
+	"xx.henchan.pro",
 	"y.hchan.live"
 	],
     
@@ -23,8 +24,8 @@
 	
 	"title": "Хентай-тян",
 	         
-	"host": "https://xx.henchan.pro",
-	"public_link": "https://xx.henchan.pro/mostfavorites",
+	"host": "https://xxxx.henchan.pro",
+	"public_link": "https://xxxx.henchan.pro/mostfavorites",
 	"folder": "hentaichan",
 	"name": "hentaichan",
 	"language": "ru",
@@ -42,7 +43,7 @@
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
-		"registration": "https://xx.henchan.pro/index.php?do=register",
+		"registration": "https://xxxx.henchan.pro/index.php?do=register",
 		"expires": 		31449600000,
 	
 		"values": {
@@ -53,7 +54,7 @@
 		},
 		"request": {
 			"method": 	"post",
-			"url": 		"https://xx.henchan.pro/index.php"
+			"url": 		"https://xxxx.henchan.pro/index.php"
     	},
     	"response_check": {
     	  	"cookies": { "dle_user_id": "@\\d+" },
@@ -63,7 +64,7 @@
     
 	
 	"manga_search_complete": {		
-		"search_link": "https://xx.henchan.pro/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"search_link": "https://xxxx.henchan.pro/?do=search&subaction=search&story=$query$&search_start=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
@@ -74,7 +75,7 @@
 			
 			"cover": { "token1": "src=\"", "token2": "\"",
 			"replace" : { "match" : "https://img4.imgschan.xyzhttps//imgcover.imgschan.xyz",
-			"text" : "https://xx.henchan.pro" } 
+			"text" : "https://img4.imgschan.xyz" } 
 			    },
 			
 			"uniq":  { "token1": "title=\"", "token2": "\"" }
@@ -85,7 +86,7 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": 	"https://xx.henchan.pro/manga/new&n=favdesc?offset=",
+			"base_url": 	"https://xxxx.henchan.pro/manga/new&n=favdesc?offset=",
 			"append_nums": 	{ "from": 0, "to": 24900, "step": 20 }
 		},
 		"add_manga": {
@@ -111,7 +112,7 @@
 		  "headers": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		    "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		    "referer": "https://xx.henchan.pro/"
+		    "referer": "https://xxxx.henchan.pro/"
 	    },
 		
 		"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
@@ -165,7 +166,7 @@
 		    "headers": {
 			  "accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		      "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		      "referer": "https://xx.henchan.pro/"
+		      "referer": "https://xxxx.henchan.pro/"
 	      },
 		
 			
@@ -226,7 +227,7 @@
             "skip": "id=\"right\">",
             "token1": "href=\"/related", 
 			"token2": "?", 
-			"replace" : {"prefix": "https://xx.henchan.pro/related" },
+			"replace" : {"prefix": "https://xxxx.henchan.pro/related" },
 			
             "next": {
                 "before": ">Вперед</a>",
@@ -275,7 +276,7 @@
 			"assert" : {
 				"mangas" : [
 					{ "title" : "Pandemonium", 
-					   "link" : "https://xx.henchan.pro/manga/17531-pandemonium-chast-1.html",
+					   "link" : "https://xxxx.henchan.pro/manga/17531-pandemonium-chast-1.html",
 					   "uniq" : "Pandemonium" }
 				],
 				"mangas_count" : ">=3"
@@ -283,7 +284,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://xx.henchan.pro/manga/23093-moya-gruppovaya-akademiya.html",
+			"link" : "https://xxxx.henchan.pro/manga/23093-moya-gruppovaya-akademiya.html",
 			"title" : "МОЯ ГРУППОВАЯ АКАДЕМИЯ (MY GANGBANG ACADEMIA)",
 			"assert" : {
 				"author" : "St.Germain-Sal",
@@ -303,7 +304,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://xx.henchan.pro/manga/9179-kyoushi-to-seito-to-glava-1.html",
+			"link" : "https://xxxx.henchan.pro/manga/9179-kyoushi-to-seito-to-glava-1.html",
 			"title" : "Kyoushi to Seito to - глава 1",
 			"assert" : {
 				"author" : "@Fuuga",
@@ -324,7 +325,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://xx.henchan.pro/manga/23009-ayanami-rey-chast-4.html",
+			"link" : "https://xxxx.henchan.pro/manga/23009-ayanami-rey-chast-4.html",
 			"title" : "Аянами Рей",
 			"assert" : {
 				"author" : "Nakayohi Mogudan",
