@@ -2,7 +2,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version":36,
+	"version":37,
 	"title": "Com-X.life",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -70,8 +70,7 @@
 	"manga_list_complete": {
 	        "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
-		"Referer": "https://com-x.life/",
-		    "cookie": "adult=8109"
+		"Referer": "https://com-x.life/"
 		
 		},
 		
@@ -79,7 +78,7 @@
 			"base_url": "https://com-x.life/comix-read/page/",
 			"append_nums": {
 				"from": 1,
-				"to": 1006,
+				"to": 902,
 				"step": 1,
 				"sufix": "/"
 			}
@@ -101,10 +100,6 @@
 				"token1": "\">",
 				"token2": "</"
 			}
-		},
-		"rating_auto_inc": {
-			"start": "50000",
-			"inc": -1
 		}
 	},
 	
@@ -138,11 +133,17 @@
 			"token2": "</"
 		},
 		"summary": {
-			"skip": "\"description\":",
-			"token1": "\"",
-			"token2": "\"",
+			"token1": "<div class=\"page__text full-text clearfix\">",
+			"token2": "</div>",
 			"replace": { "match": "<.*?>",	"text": " "}
 		},
+		
+		
+		
+		 "rating":{
+         "token1": "\"ratingCount\":\"",
+         "token2": "\""
+      },
 		
 		"status": {
 			"complete": ["Завершён<","Завершен<", "Лимитка", "Ван шот", "Графический роман"],
