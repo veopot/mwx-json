@@ -1,13 +1,14 @@
 {
 	"id": 30007,
-	"version": 83, 
+	"version": 84, 
     "old_ids": [65884],
-    "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live", "mintmanga.com" ],
+    "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live", "mintmanga.com", "23.mintmanga.live" ],
+	
 	
 	
 	"title": "MintManga",
-	"host": "https://23.mintmanga.live",
-	"public_link": "https://23.mintmanga.live",
+	"host": "https://23.mintmanga.one",
+	"public_link": "https://23.mintmanga.one",
 	"hash_tag": "mintmanga",
 	"folder": "mintmanga",
 	"name":"mintmanga",
@@ -34,11 +35,11 @@
     "headers": {
 		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
-		"Referer": "https://23.mintmanga.live/",
+		"Referer": "https://23.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},	
 		
-        "search_link": "https://23.mintmanga.live/search/advanced?q=$query$&offset=$page$",
+        "search_link": "https://23.mintmanga.one/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         "!page_multiply_by": 50,
         "page_addition_by": -1,
@@ -57,7 +58,7 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://23.mintmanga.live/list?sortType=RATING&offset=",
+			"base_url": "https://23.mintmanga.one/list?sortType=RATING&offset=",
 			"append_nums": { "from": 0, "to": 17080, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
 		},
@@ -82,7 +83,7 @@
 	"headers": {
 		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
-		"Referer": "https://23.mintmanga.live/",
+		"Referer": "https://23.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		
@@ -141,7 +142,7 @@
 		"headers": {
 		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
-		"Referer": "https://23.mintmanga.live/",
+		"Referer": "https://23.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 			"start": 	"<table class=\"table table-hover\"",
@@ -149,7 +150,7 @@
 			"next":  	"<i class=\"chapter-status",
 			
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace":  [{"prefix": "https://23.mintmanga.live"},
+			"replace":  [{"prefix": "https://23.mintmanga.one"},
 			{"sufix": "?mtr=1"}
 			]},
 			
@@ -170,7 +171,7 @@
 	"headers": {
 		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
-		"Referer": "https://23.mintmanga.live/",
+		"Referer": "https://23.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		
@@ -224,14 +225,14 @@
 		 "headers": {
 		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
-		"Referer": "https://23.mintmanga.live/",
+		"Referer": "https://23.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace":  [{"prefix": "https://23.mintmanga.live"},
+			"replace":  [{"prefix": "https://23.mintmanga.one"},
 			{"sufix": "?mtr=1"}
 			]},
 			
@@ -257,7 +258,7 @@
 		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://23.mintmanga.live/",
+		"Referer": "https://23.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		"no_404": true,
@@ -279,8 +280,8 @@
 			"testpages": "5",
 			"assert": {
 				"mangas": [
-					{ "title": "Kigi wa Haru", "link": "https://23.mintmanga.live/the_trees_in_spring" },
-					{ "title": "The conditions of the wicked", "link": "https://23.mintmanga.live/obstoiatelstva_nechestivyh", 
+					{ "title": "Kigi wa Haru", "link": "https://23.mintmanga.one/the_trees_in_spring" },
+					{ "title": "The conditions of the wicked", "link": "https://23.mintmanga.one/obstoiatelstva_nechestivyh", 
 						"uniq": "obstoiatelstva_nechestivyh" }
 				],
 				"mangas_count": ">300"
@@ -288,28 +289,28 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://23.mintmanga.live/ganc",
+			"link": "https://23.mintmanga.one/ganc",
 			"title": "Gantz",
 			"assert": {
 				"author": "Оку Хироя",
-				"cover": "https://static.23.mintmanga.live/uploads/pics/00/52/859.jpg",
+				"cover": "https://static.23.mintmanga.one/uploads/pics/00/52/859.jpg",
 				"summary": "@^(Где-то в Токио)",
 				"genres": "@scifi",
 				"status": "complete",
 				"genres_count": ">=6",
 				"chapters_count": ">=383",
 				"chapters": [
-					{ "title": "34 - 361 Боевой клич", "link": "https://23.mintmanga.live/gantz/vol34/361",
+					{ "title": "34 - 361 Боевой клич", "link": "https://23.mintmanga.one/gantz/vol34/361",
 						"folder": "34/361/" 
 					},
-					{ "title": "1 - 1 Инцидент",       "link": "https://23.mintmanga.live/gantz/vol1/1" }
+					{ "title": "1 - 1 Инцидент",       "link": "https://23.mintmanga.one/gantz/vol1/1" }
 				]
 			}
 		},
 		{
 			"proc": "chapter_complete",
 			"title": "34 - 361 Боевой клич", 
-			"link": "https://23.mintmanga.live/gantz/vol34/361",
+			"link": "https://23.mintmanga.one/gantz/vol34/361",
 			"assert": {
 				"pages": [
 		{"image": "https://h30.mints.rocks/auto/03/32/49/Gantz_ch361_01__OJS-team_.png?t=1613519222&u=0&h=d4n5zwcpSgoGQmpUj5RqYQ"},
@@ -321,7 +322,7 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://23.mintmanga.live/istoriia_minamoto_kuna/vol16/359?mtr=true",
+			"link": "https://23.mintmanga.one/istoriia_minamoto_kuna/vol16/359?mtr=true",
 			"assert": {
 				"pages": [
 		{"image": "https://h17m.rmr.rocks/auto/17/73/13/nn001.png_res.jpg?t=1680306344&u=0&h=1y3cef9_CCmFscBYbWgZ7w"},
