@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 82, 
+	"version": 83, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live", "mintmanga.com" ],
 	
@@ -30,7 +30,14 @@
 	
 
 
-    "manga_search_complete": {      
+    "manga_search_complete": { 
+    "headers": {
+		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
+		"Accept": "*/*",
+		"Referer": "https://23.mintmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},	
+		
         "search_link": "https://23.mintmanga.live/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         "!page_multiply_by": 50,
@@ -73,6 +80,7 @@
 	"manga_complete": [
 	{ "condition": ">Сценарист:<",
 	"headers": {
+		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
 		"Referer": "https://23.mintmanga.live/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -128,7 +136,14 @@
 		"content_type": { "default": "manga" },
 		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
         "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
+		
 		"add_chapter":  { 
+		"headers": {
+		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
+		"Accept": "*/*",
+		"Referer": "https://23.mintmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
@@ -153,6 +168,7 @@
 	},
 	{ "condition": "",
 	"headers": {
+		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		"Accept": "*/*",
 		"Referer": "https://23.mintmanga.live/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -205,6 +221,12 @@
         "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
 		
 		"add_chapter":  { 
+		 "headers": {
+		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
+		"Accept": "*/*",
+		"Referer": "https://23.mintmanga.live/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
@@ -232,7 +254,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=SzUxWVc3cko0TU1VWEVVelljS1NCODZ5UDF3Y0klMkJYekk3NzdXS1ZoemI0JTNEOlNjaGMlMkJxaWpxck9USmtlRDRwQjh1TVM2TVZNNjBNZVI1Z2ZRR01XSnN1MCUzRA",
+		"cookie": "remember_me=cmhMWjdoUElkYTVUbElqSzdzYkZBTXBGJTJCaVJKTWdZUXRQUUozOTBUY0lNJTNEOnA4Tzd2MW1DeUZ3Q0NselB5MVJSb1ZqekNnY1daQTdKbkJIb2lhZzB1OW8lM0Q",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://23.mintmanga.live/",
