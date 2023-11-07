@@ -1,18 +1,18 @@
 {
    "id":5512,
-   "version":1,
+   "version":2,
    
     "title":"YaoiPoisk",
    "host":"https://m2.yaoipoisk.ru",
    "public_link":"https://m2.yaoipoisk.ru/manga-list",
-   "folder":"mangapoisk",
-   "name":"mangapoisk",
+   "folder":"yaoipoisk",
+   "name":"yaoipoisk",
    "language":"ru",
    "encoding":"utf-8",
    "chapters_order":false,
    "is_mature": true,
    
-   "icon_link": "https://m2.yaoipoisk.ru/apple-touch-icon.png",
+   "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoipoisk.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/yaoipoisk.json",
 	"self_link2": "https://fant.my1.com/mwparser/mwx/json/yaoipoisk.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/yaoipoisk.zip",
