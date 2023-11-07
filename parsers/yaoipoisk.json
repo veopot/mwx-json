@@ -1,10 +1,10 @@
 {
    "id":5512,
-   "version":2,
+   "version":3,
    
     "title":"YaoiPoisk",
-   "host":"https://m2.yaoipoisk.ru",
-   "public_link":"https://m2.yaoipoisk.ru/manga-list",
+   "host":"https://m3.yaoipoisk.ru",
+   "public_link":"https://m3.yaoipoisk.ru/manga-list",
    "folder":"yaoipoisk",
    "name":"yaoipoisk",
    "language":"ru",
@@ -25,7 +25,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://m2.yaoipoisk.ru/manga?page=",
+         "base_url":"https://m3.yaoipoisk.ru/manga?page=",
          "append_nums":{
             "from":0,
             "to":84,
@@ -43,7 +43,7 @@
          "link":{
             "token1":"href=\"",
             "token2":"\"",
-			"replace": { "prefix": "https://m2.yaoipoisk.ru"}
+			"replace": { "prefix": "https://m3.yaoipoisk.ru"}
          },
          "cover":{
 		    "before":"href=\"",
@@ -60,7 +60,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://m2.yaoipoisk.ru/search?q=$query$&page=$page$",
+        "search_link":"https://m3.yaoipoisk.ru/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -94,7 +94,7 @@
    "manga_complete": { 
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://m2.yaoipoisk.ru"
+			"Referer": "https://m3.yaoipoisk.ru"
 		},
       "title":{
          "skip":"<header class=\"card-header p-0\"><h1", 
@@ -110,7 +110,7 @@
 				]},
       
       "uniq":{
-         "token1":"\"url\":\"https:\/\/m2.yaoipoisk.ru\/manga\/",
+         "token1":"\"url\":\"https:\/\/m3.yaoipoisk.ru\/manga\/",
          "token2":"\","
       },
 	  
@@ -172,7 +172,7 @@
 		"token1": "&quot;url&quot;:&quot;/manga/",
 		"token2": "&quot", 
 		"replace": [
-		        { "prefix" : "https://m2.yaoipoisk.ru/manga/" },
+		        { "prefix" : "https://m3.yaoipoisk.ru/manga/" },
 		        { "sufix" : "/chaptersList" },
 				{ "match": "\\\\", "text": "" }
 				],
@@ -183,7 +183,7 @@
 				"token2": "\"",
 				
 				"replace": [
-				    {"prefix": "https://m2.yaoipoisk.ru" },
+				    {"prefix": "https://m3.yaoipoisk.ru" },
 					{ "match": "&amp;", "text": "&" }
 				]
 				
@@ -208,7 +208,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://m2.yaoipoisk.ru"}
+			"replace": {"prefix" : "https://m3.yaoipoisk.ru"}
          },
 		 
 		"uniq":{
@@ -232,7 +232,7 @@
     "add_numeration": true,
         "headers": {
 			"Accept": "*/*",
-			"Referer": "https://m2.yaoipoisk.ru/"
+			"Referer": "https://m3.yaoipoisk.ru/"
 		},
      
       "images":true,
@@ -268,7 +268,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://m2.yaoipoisk.ru/manga/vanpanchmen",
+                  "link":"https://m3.yaoipoisk.ru/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -277,12 +277,12 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://m2.yaoipoisk.ru/manga/slyshno-dazhe-bez-mikrofona",
+         "link":"https://m3.yaoipoisk.ru/manga/slyshno-dazhe-bez-mikrofona",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
           
-            "cover":"@https://static2.m2.yaoipoisk.ru/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
+            "cover":"@https://static2.m3.yaoipoisk.ru/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
 		    "summary":"@^(Десять лет назад распахнулись)",
             "tags":"@fantasy",
             "status":"complete",
@@ -290,12 +290,12 @@
             "chapters_count":">=130",
             "chapters":[
         {
-            "link": "https://m2.yaoipoisk.ru/manga/solo-leveling-abs3R5B/chapter/2-130",
+            "link": "https://m3.yaoipoisk.ru/manga/solo-leveling-abs3R5B/chapter/2-130",
             "title": "Том 2 Глава 130"
         },
         {
             "folder": "2-131/",
-            "link": "https://m2.yaoipoisk.ru/manga/solo-leveling-abs3R5B/chapter/2-131",
+            "link": "https://m3.yaoipoisk.ru/manga/solo-leveling-abs3R5B/chapter/2-131",
             "title": "Том 2 Глава 131"
         }
             ]
@@ -304,12 +304,12 @@
       {
          "proc":"chapter_complete",
 		          
-         "link": "https://m2.yaoipoisk.ru/manga/slyshno-dazhe-bez-mikrofona/chapter/1-1",
+         "link": "https://m3.yaoipoisk.ru/manga/slyshno-dazhe-bez-mikrofona/chapter/1-1",
          "assert":{
             "pages":[
-        {"image": "https://static2.m2.yaoipoisk.ru/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.m2.yaoipoisk.ru/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.m2.yaoipoisk.ru/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.m3.yaoipoisk.ru/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.m3.yaoipoisk.ru/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.m3.yaoipoisk.ru/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
             "pages_count":"14"
          }
