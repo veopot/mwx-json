@@ -1,13 +1,13 @@
 {
 	"id": 2064,
-	"version": 4,
+	"version": 5,
 	
-	"old_sites": ["yaoihub.ru","yaoihub.me" ],
+	"old_sites": ["yaoihub.ru","yaoihub.me","moonhub.me"],
 	
 	
 	"title": "YaoiHub",
-	"host": "https://moonhub.me",
-	"public_link": "https://moonhub.me/explore",
+	"host": "https://moonhub.one",
+	"public_link": "https://moonhub.one/explore",
 	"hash_tag": "yaoihub",
 	"folder": "yaoihub",
 	"name" : "yaoihub",
@@ -27,22 +27,22 @@
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAzNzIzNDA6MmYxODgyZGQ4YmZiNWM3ZjM4ZmYxYTQ0MmZmMjkwNDdhOTUxODBjZmRhM2EyYTY1Nzg3MTg5MzcwM2E3ZTk5MA%3D%3D",
+			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzE2NzEzMjM6MGMwOTQ5MWQxMmQ1ZDY1Y2U5ZTY3NWQ5NWI3ZGY0MmVhZmJlNGQwNmI4ZDg5ZjYzZTYzODQwMWQ3NGVjMTIyOA%3D%3D",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://moonhub.me/"
+			"Referer": "https://moonhub.one/"
 			
 		},
 		
-		"search_link": "https://moonhub.me/search/manga?query=$query$&page=$page$",
+		"search_link": "https://moonhub.one/search/manga?query=$query$&page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"text-line-clamp",
 			"link":  { "token1": "href=\"", "token2": "\"",
-			"replace": { "prefix": "https://moonhub.me"} },
+			"replace": { "prefix": "https://moonhub.one"} },
 			
 			
 			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
@@ -61,17 +61,17 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAzNzIzNDA6MmYxODgyZGQ4YmZiNWM3ZjM4ZmYxYTQ0MmZmMjkwNDdhOTUxODBjZmRhM2EyYTY1Nzg3MTg5MzcwM2E3ZTk5MA%3D%3D",
+			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzE2NzEzMjM6MGMwOTQ5MWQxMmQ1ZDY1Y2U5ZTY3NWQ5NWI3ZGY0MmVhZmJlNGQwNmI4ZDg5ZjYzZTYzODQwMWQ3NGVjMTIyOA%3D%3D",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://moonhub.me/"
+			"Referer": "https://moonhub.one/"
 			
 		},
 		
 		"iterator": {
 			
-			"base_url": "https://moonhub.me/explore/sort-is-rating?page=",
+			"base_url": "https://moonhub.one/explore/sort-is-rating?page=",
 			
 			"append_nums": { "from": 1, "to": 164, "step": 1 }
 		},
@@ -90,13 +90,13 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAzNzIzNDA6MmYxODgyZGQ4YmZiNWM3ZjM4ZmYxYTQ0MmZmMjkwNDdhOTUxODBjZmRhM2EyYTY1Nzg3MTg5MzcwM2E3ZTk5MA%3D%3D",
+			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzE2NzEzMjM6MGMwOTQ5MWQxMmQ1ZDY1Y2U5ZTY3NWQ5NWI3ZGY0MmVhZmJlNGQwNmI4ZDg5ZjYzZTYzODQwMWQ3NGVjMTIyOA%3D%3D",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://moonhub.me/"
+			"Referer": "https://moonhub.one/"
 			
 		},
 		
@@ -185,7 +185,7 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"/title/", 
 			"token2": "\"", 
-			"replace": { "prefix": "https://moonhub.me/chapters/"}
+			"replace": { "prefix": "https://moonhub.one/chapters/"}
 				
 			
 			},
@@ -193,13 +193,13 @@
 		"add_chapter": {
 			"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAzNzIzNDA6MmYxODgyZGQ4YmZiNWM3ZjM4ZmYxYTQ0MmZmMjkwNDdhOTUxODBjZmRhM2EyYTY1Nzg3MTg5MzcwM2E3ZTk5MA%3D%3D",
+			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzE2NzEzMjM6MGMwOTQ5MWQxMmQ1ZDY1Y2U5ZTY3NWQ5NWI3ZGY0MmVhZmJlNGQwNmI4ZDg5ZjYzZTYzODQwMWQ3NGVjMTIyOA%3D%3D",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://moonhub.me/"
+			"Referer": "https://moonhub.one/"
 			
 		},
 			"start": ">Содержание<",
@@ -222,13 +222,13 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAzNzIzNDA6MmYxODgyZGQ4YmZiNWM3ZjM4ZmYxYTQ0MmZmMjkwNDdhOTUxODBjZmRhM2EyYTY1Nzg3MTg5MzcwM2E3ZTk5MA%3D%3D",
+			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzE2NzEzMjM6MGMwOTQ5MWQxMmQ1ZDY1Y2U5ZTY3NWQ5NWI3ZGY0MmVhZmJlNGQwNmI4ZDg5ZjYzZTYzODQwMWQ3NGVjMTIyOA%3D%3D",
 			"cookie2": "confirm_age=on",
 			"cookie3": "toast_58=true",
 		     
 			
 			
-			"Referer": "https://moonhub.me/"
+			"Referer": "https://moonhub.one/"
 			
 		},
 		"add_numeration": true,
@@ -249,11 +249,11 @@
 			"assert" : {
 				"mangas" : [
 					{  
-                       "link": "https://moonhub.me/title/their_story",
+                       "link": "https://moonhub.one/title/their_story",
                        "title": "Их_история"
                     },
                     {
-                    "link": "https://moonhub.me/title/baegman_won_ui_lomaense"
+                    "link": "https://moonhub.one/title/baegman_won_ui_lomaense"
                     }
 				],
 				"mangas_count" : ">=20"
@@ -261,22 +261,22 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://moonhub.me/title/youre_here",
+			"link" : "https://moonhub.one/title/youre_here",
 			"title" : "Ты здесь (Here U Are)",
 			"assert" : {
 				"author" : "@Д. Цзюнь",
-				"cover" : "https://static.moonhub.me/uploads/media/manga_cover/thumbnail/big/0018/70/1769097.jpeg",
+				"cover" : "https://static.moonhub.one/uploads/media/manga_cover/thumbnail/big/0018/70/1769097.jpeg",
 				"summary" : "@^(Приём новичков)",
 				"status" : "complete",
 				"chapters_count" : ">=100",
 				"chapters" : [
 		{
            "folder": "Том 1_ Глава 1\\",
-           "link": "https://moonhub.me/read/59417",
+           "link": "https://moonhub.one/read/59417",
            "title": "Том 1. Глава 1"
         },
         {
-            "link": "https://moonhub.me/read/59416",
+            "link": "https://moonhub.one/read/59416",
             "title": "Том 1. Глава 2"
         }
 		
@@ -285,7 +285,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://moonhub.me/read/59417",
+			"link" : "https://moonhub.one/read/59417",
 			"assert" : {
 				"pages" : [
 		{"image": "https://1hubst.guru/uploads/media/scan/0029/54/6e4590bc96ab2a0a146b24dc9e322fdaa45fc8dd.jpg"},
