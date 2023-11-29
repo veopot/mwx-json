@@ -1,6 +1,6 @@
 {
     "id": 46547,
-    "version": 5,
+    "version": 6,
     "title": "Mangahub_CC",
     "host": "https://mangahub.cc",
     "public_link": "https://mangahub.cc/manga",
@@ -1425,7 +1425,7 @@
     },
 	
 	"page_complete": {
-		"image": {  "token1": "\"page_file_path\":\"", "token2": "\"" }
+		"image": {  "token1": "{\"scans\":[{\"page_file_path\":\"", "token2": "\"" }
 	},
     "test": [
         {
