@@ -1,8 +1,8 @@
 {
 	"id": 2021,
-	"version": 20,
+	"version": 21,
 	
-	"title": "MangaLib (test)",
+	"title": "MangaLib",
 	"host": "https://mangalib.me/",
 	"public_link": "https://mangalib.me/",
 	"folder": "mangalib",
