@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 18,
+	"version": 19,
 	
 	"title": "MangaLib (test)",
 	"host": "https://mangalib.me/",
@@ -22,7 +22,7 @@
 	"manga_search_complete": {
         "headers": {
 		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36 Edg/104.0.1293.70",
         "Accept": "image/webp,*/*;q=0.8",
         "Referer": "https://mangalib.me/"
 		},
@@ -50,7 +50,7 @@
 	"manga_list_complete": {
 		"headers": {
 		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36 Edg/104.0.1293.70",
         "Accept": "image/webp,*/*;q=0.8",
 		 "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
         "Referer": "https://mangalib.me/"
@@ -90,7 +90,7 @@
 	"manga_complete": {
 	    "headers": {
 		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36 Edg/104.0.1293.70",
         "Accept": "image/webp,*/*;q=0.8",
 		 "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
         "Referer": "https://mangalib.me/"
@@ -160,7 +160,7 @@
 		
 		"add_chapter": {
 			  "headers": {
-	    "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
+	    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36 Edg/104.0.1293.70",
         "Accept": "image/webp,*/*;q=0.8",
         "Referer": "https://mangalib.me/"
 		
