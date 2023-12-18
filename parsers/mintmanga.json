@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 87, 
+	"version": 88, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live", "mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one"  ],
 	
@@ -101,23 +101,26 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "skip": "<span class=\"elem_author \"", "token1": "class=\"person-link\">", "token2": "</" },
+		"author": { "after": "href=\"/list/person/", "token1": "class=\"person-link\">", "token2": "</" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
 		"status": { 
 			
 		  	"complete": { 
-			"start": ">Перевод:</",
-			"end": "</p>",
+			"start": "<h4 class=\"hide-mobile\">",
+			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": ">Перевод:</", 
-			"end": "</p>", 
-			"value": "продолжается"},
+			"start": "<h4 class=\"hide-mobile\">", 
+			"end": "class=\"elementList", 
+			"values": [ "продолжается", "переводится"   ] 
+			},
 			
-            "single": "<b>Сингл</b>",
+			
+			
+            "single": "Сингл,",
 		  	"licensed" : "Главы удалены",
 		  	"unknown" : "нет ни одной главы" 
 			},
@@ -188,24 +191,29 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author":       { "after": "elem_author", "skip": "person-link", "token1":"\">", "token2": "</a>" },
+		"author": { "after": "href=\"/list/person/", "token1": "class=\"person-link\">", "token2": "</" },
+		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		"status": { 
 			
 		  	"complete": { 
-			"start": ">Перевод:</",
-			"end": "</p>",
+			"start": "<h4 class=\"hide-mobile\">",
+			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": ">Перевод:</", 
-			"end": "</p>", 
-			"value": "продолжается"},
+			"start": "<h4 class=\"hide-mobile\">", 
+			"end": "class=\"elementList", 
+			"values": [ "продолжается", "переводится"   ] 
+			},
 			
-            "single": "<b>Сингл</b>",
+			
+			
+            "single": "Сингл,",
 		  	"licensed" : "Главы удалены",
 		  	"unknown" : "нет ни одной главы" 
 			},
+			
 			
 		"need_auth": "Для доступа к странице",
 		
