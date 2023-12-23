@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":2,
+   "version":3,
    
    
    "title":"Senkuro",
@@ -189,7 +189,7 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"https://senkuro.com/manga/",
             "token2": "\"",
-            "replace": { "prefix": "http://45.95.202.233/api/senkuro/test/manga/chapters/" }
+            "replace": { "prefix": "http://45.95.202.233/api/senkuro/manga/chapters/" }
             
         },
 	  
@@ -210,7 +210,7 @@
 			"replace":
 		        [
 		    { "prefix": "https://senkuro.com/manga/%%url%%/chapters/" },
-			{ "match": "http://45.95.202.233/api/senkuro/test/manga/chapters/", "text": ""}
+			{ "match": "http://45.95.202.233/api/senkuro/manga/chapters/", "text": ""}
 		        ]
          },
 		 
