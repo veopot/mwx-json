@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":3,
+   "version":4,
    
    
    "title":"Senkuro",
@@ -20,7 +20,7 @@
 	
    
    "author":{
-      "name":"MWX",
+      "name":"MWX and Hikkun",
       "email":"fant-net@ya.com"
    },
    "manga_list_complete":{
