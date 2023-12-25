@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 90, 
+	"version": 91, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one"  ],
@@ -104,7 +104,7 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "after": "href=\"/list/person/", "token1": "class=\"person-link\">", "token2": "</" },
+		"author": { "skip": ">Сценарист", "token1": "class=\"person-link\">", "token2": "</" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
@@ -200,7 +200,7 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "after": "href=\"/list/person/", "token1": "class=\"person-link\">", "token2": "</" },
+		"author": {  "skip": ">Автор:<", "token1": "class=\"person-link\">", "token2": "</" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		"status": { 
