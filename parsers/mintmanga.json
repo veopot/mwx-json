@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 89, 
+	"version": 90, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one"  ],
@@ -52,7 +52,7 @@
             "link":  { "after": "<h3>", "token1": "href=\"", "token2": "\"" },
             "title": { "after": "<h3>", "token1": "title=\"", "token2": "\"" },
             "cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.", "text": "." } },
-            "is_mature": { "start": "tile-info", "values": [">ужасы<",">юри<",">яой<",">эротика<"], "end": "</div>" },
+            "is_mature": { "start": "tile-info", "values": [">юри<",">яой<",">эротика<"], "end": "</div>" },
 			
 			"summary": { "skip": "href=\"", "token1": "class=\"manga-description\">", "token2": "</noindex>",
                 "replace":{"match":"<.*?>", "text":""} }
@@ -141,8 +141,14 @@
 		    },
 		
 		"content_type": { "default": "manga" },
-		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
-        "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
+		
+		"is_mature": {
+			"start": ">Жанры:<",
+			"end": "</p>",
+			"values": [">сэйнэн<", ">эротика<"]
+		    },
+		
+		
 		
 		"add_chapter":  { 
 		"headers": {
@@ -229,8 +235,13 @@
 		            "token2": "\""
 		    },
 		"content_type": { "default": "manga" },
-		"is_mature":    { "start": ">Жанры:<", "values": [">ужасы<", ">эротика<"], "end": "</p>" },
-        "is_adult":     { "start": ">Жанры:<", "values": [">юри<", ">яой<"], "end": "</p>" },
+		
+		"is_mature": {
+			"start": ">Жанры:<",
+			"end": "</p>",
+			"values": [">сэйнэн<", ">эротика<"]
+		    },
+		
 		
 		"add_chapter":  { 
 		 "headers": {

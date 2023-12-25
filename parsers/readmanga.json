@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 69,
+    "version": 70,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -37,7 +37,7 @@
 
             "cover": { "token1": "data-original='", "token2": "'", "replace": { "match": "_p.", "text": "." } },
 
-            "is_mature": { "start": "tile-info", "values": [">ужасы<",">юри<",">яой<",">эротика<"], "end": "</div>" },
+            "is_mature": { "start": "tile-info", "values": [">юри<",">яой<",">эротика<"], "end": "</div>" },
 
 			
 
@@ -129,7 +129,18 @@
 			
             "content_type": { "default": "manga" },
 			
-            "is_mature": "class=\"mtr-message\"",
+            
+		
+			
+			
+			  "is_mature": {
+			"start": ">Жанры:<",
+			"end": "</p>",
+			"values": [">сэйнэн<", ">эротика<"]
+		    },
+		
+		
+			
 			
 			"chapters_from_page": {
             "after": "<link rel=\"canonical\"",
@@ -234,7 +245,13 @@
             
 			"content_type": { "default": "manga" },
            
-		    "is_mature": "class=\"mtr-message\"",
+		      "is_mature": {
+			"start": ">Жанры:<",
+			"end": "</p>",
+			"values": [">сэйнэн<", ">эротика<"]
+		    },
+		
+		
 		   
             "add_chapter": {
                 "start": "<table class=\"table table-hover\">",
@@ -324,7 +341,12 @@
 			
             "content_type": { "default": "manga" },
 			
-            "is_mature": "class=\"mtr-message\"",
+            "is_mature": {
+			"start": ">Жанры:<",
+			"end": "</p>",
+			"values": [">сэйнэн<", ">эротика<"]
+		    },
+		
 			
             "add_chapter": {
                 "start": "<table class=\"table table-hover\">",
