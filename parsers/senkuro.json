@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":6,
+   "version":7,
    
    
    "title":"Senkuro",
@@ -36,8 +36,16 @@
             {
                 "match": "/chapters",
                 "text": ""
+            },
+			{
+                "match": "/comments",
+                "text": ""
+            },
+			{
+                "match": "/statistics",
+                "text": ""
             }
-        ],
+		],
       "add_manga":{
          "next":"\"formats\"",
 		 
@@ -221,7 +229,7 @@
             "token2":"}",
 			"replace": [
 			{ "match": "\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\".*?",	
-			"text": "$3/$1"},
+			"text": "$3/$2"},
 			{ "match": "null", "text": ""}
 			]
         },
@@ -244,7 +252,8 @@
    "chapter_complete":{
     "add_numeration": true,
         "headers": {
-			"Accept": "*/*",
+			"Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6",
 			"Referer": "https://senkuro.com/"
 		},
      
