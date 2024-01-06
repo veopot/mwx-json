@@ -1,9 +1,11 @@
 {
     "id": 46547,
-    "version": 6,
+    "version": 7,
+	"old_sites": ["mangahub.cc"],
+	
     "title": "Mangahub_CC",
-    "host": "https://mangahub.cc",
-    "public_link": "https://mangahub.cc/manga",
+    "host": "https://mangahub.space",
+    "public_link": "https://mangahub.space/manga",
     "folder": "mangahub_cc",
     "name": "mangahub_cc",
     "chapters_order": true,
@@ -24,10 +26,10 @@
        "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
             "Accept": "*/*",
-            "Referer": "https://mangahub.cc/",
+            "Referer": "https://mangahub.space/",
 	        "User-Agent": "MangaWatcherX"
 			},
-        "search_link": "https://mangahub.cc/search?q=$query$",
+        "search_link": "https://mangahub.space/search?q=$query$",
         "query_type": "GET",
         "add_manga": {
             "start": "class=\"base_content_block\">",
@@ -36,13 +38,13 @@
             "link": {
                 "token1": "href=\"",
                 "token2": "\"",
-                "replace": { "prefix": "https://mangahub.cc"}
+                "replace": { "prefix": "https://mangahub.space"}
                 
             },
             "cover": {
                 "token1": "data-src=\"",
                 "token2": "\"",
-                "replace": { "prefix": "https://mangahub.cc" }
+                "replace": { "prefix": "https://mangahub.space" }
             },
 			
             "title": {
@@ -77,11 +79,11 @@
         "headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.cc/",
+            "Referer": "https://mangahub.space/",
 			"User-Agent": "MangaWatcherX"
 			},
 			
-		"iterator": "https://mangahub.cc/manga/1-9999",
+		"iterator": "https://mangahub.space/manga/1-9999",
 			
         "add_manga": {
             "start": "<div id=\"Body_block\">",
@@ -90,7 +92,7 @@
             "link": {
                 "token1": "href=\"",
                 "token2": "\"",
-                "replace":{"prefix": "https://mangahub.cc"}
+                "replace":{"prefix": "https://mangahub.space"}
                 },
             
             "title": {
@@ -115,7 +117,7 @@
 		"headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.cc/",
+            "Referer": "https://mangahub.space/",
 			"User-Agent": "MangaWatcherX"
 			},
 			
@@ -126,7 +128,7 @@
 				] },
 		
 		"uniq":        { "after": " property=\"og:url\"", 
-		"token1":"content=\"https://mangahub.cc/manga/", "token2": "\"" },
+		"token1":"content=\"https://mangahub.space/manga/", "token2": "\"" },
 		
 						
 		
@@ -150,7 +152,7 @@
 		"cover":       { "after": "class=\"lazy_load_poster title_image\"",
 		"token1": "data-src=\"", "token2": "\"",
                 "replace": {
-                    "prefix": "https://mangahub.cc"
+                    "prefix": "https://mangahub.space"
                 } },
 		
 		
@@ -163,7 +165,7 @@
 			"next":  "class=\"tap_highlight_remove\"",
 			"link":  { "token1": "href=\"", "token2": "\"",
                 "replace": {
-                    "prefix": "https://mangahub.cc"
+                    "prefix": "https://mangahub.space"
                 }   },
 				
 			"uniq":{ "after" : "href=\"",    
@@ -192,7 +194,7 @@
         "headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.cc/",
+            "Referer": "https://mangahub.space/",
 			"User-Agent": "MangaWatcherX"
 			},
 			
@@ -204,7 +206,7 @@
 			"token1": "chapter_id = ",
             "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-0" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -217,7 +219,7 @@
 			"token1": "chapter_id = ",
             "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-1" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -229,7 +231,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-2" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -241,7 +243,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-3" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -253,7 +255,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-4" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -265,7 +267,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-5" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -277,7 +279,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-6" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -289,7 +291,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-7" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -301,7 +303,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-8" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -313,7 +315,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-9" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -325,7 +327,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-10" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -337,7 +339,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-11" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -349,7 +351,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-12" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -361,7 +363,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-13" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -373,7 +375,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-14" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -385,7 +387,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-15" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -397,7 +399,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-16" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -409,7 +411,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-17" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -421,7 +423,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-18" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -433,7 +435,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-19" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -445,7 +447,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-20" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -457,7 +459,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-21" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -469,7 +471,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-22" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -481,7 +483,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-23" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -493,7 +495,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-24" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -505,7 +507,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-25" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -517,7 +519,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-26" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -529,7 +531,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-27" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -541,7 +543,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-28" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -553,7 +555,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-29" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -565,7 +567,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-30" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -577,7 +579,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-31" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -589,7 +591,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-32" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -601,7 +603,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-33" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -613,7 +615,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-34" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -625,7 +627,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-35" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -637,7 +639,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-36" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -649,7 +651,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-37" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -662,7 +664,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-38" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -674,7 +676,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-39" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -686,7 +688,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-40" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -698,7 +700,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-41" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -710,7 +712,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-42" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -722,7 +724,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-43" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -734,7 +736,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-44" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -746,7 +748,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-45" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -758,7 +760,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-46" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -770,7 +772,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-47" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -783,7 +785,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-48" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -795,7 +797,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-49" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -807,7 +809,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-50" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -819,7 +821,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-51" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -831,7 +833,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-52" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -843,7 +845,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-53" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -855,7 +857,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-54" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -867,7 +869,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-55" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -879,7 +881,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-56" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -891,7 +893,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-57" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -904,7 +906,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-58" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -916,7 +918,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-59" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -928,7 +930,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-60" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -940,7 +942,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-61" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -952,7 +954,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-62" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -964,7 +966,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-63" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -976,7 +978,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-64" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -988,7 +990,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-65" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1000,7 +1002,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-66" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1012,7 +1014,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-67" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1025,7 +1027,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-68" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1037,7 +1039,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-69" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1049,7 +1051,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-70" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1061,7 +1063,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-71" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1073,7 +1075,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-72" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1085,7 +1087,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-73" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1097,7 +1099,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-74" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1109,7 +1111,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-75" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1121,7 +1123,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-76" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1133,7 +1135,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-77" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1145,7 +1147,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-78" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1157,7 +1159,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-79" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1169,7 +1171,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-80" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1181,7 +1183,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-81" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1193,7 +1195,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-82" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1205,7 +1207,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-83" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1217,7 +1219,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-84" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1229,7 +1231,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-85" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1241,7 +1243,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-86" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1253,7 +1255,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-87" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1265,7 +1267,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-88" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1277,7 +1279,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-89" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1289,7 +1291,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-90" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1301,7 +1303,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-91" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1313,7 +1315,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-92" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1325,7 +1327,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-93" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1337,7 +1339,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-94" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1349,7 +1351,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-95" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1361,7 +1363,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-96" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1373,7 +1375,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-97" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1385,7 +1387,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-98" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1397,7 +1399,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-99" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1409,7 +1411,7 @@
 			 "token1": "chapter_id = ",
              "token2": ";",
 			"replace": [
-			{ "prefix": "https://mangahub.cc/load_more_scans/" },
+			{ "prefix": "https://mangahub.space/load_more_scans/" },
 			{ "sufix": "-100" },
             { "match": "Запаска", "text": "" }			
 			],
@@ -1434,7 +1436,7 @@
                 "mangas": [
                     {
                     "uniq": "Rebirth-into-novels-is-so-boring",
-                    "link": "https://mangahub.cc/manga/Rebirth-into-novels-is-so-boring",
+                    "link": "https://mangahub.space/manga/Rebirth-into-novels-is-so-boring",
 					"title": "Наскучившее перерождение"
                     }
                 ],
@@ -1443,21 +1445,21 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game",
+            "link": "https://mangahub.space/manga/Survive-as-a-barbarian-in-game",
             "title": "Выживая в игре за варвара",
             "assert": {
-                "cover": "https://mangahub.cc/static/content/posters/Survive-as-a-barbarian-in-game.jpg",
+                "cover": "https://mangahub.space/static/content/posters/Survive-as-a-barbarian-in-game.jpg",
                 "tags": "@фантастика",
                 "tag_count": ">=2",
                 "chapters_count": ">=10",
                 "chapters": [
         {
             "folder": "v1/c10\\",
-            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c10",
+            "link": "https://mangahub.space/manga/Survive-as-a-barbarian-in-game/v1/c10",
             "title": "Том 1 Глава 10"
         },
         {
-            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c11",
+            "link": "https://mangahub.space/manga/Survive-as-a-barbarian-in-game/v1/c11",
             "title": "Том 1 Глава 11"
         }
                 ]
@@ -1465,16 +1467,16 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c10",
+            "link": "https://mangahub.space/manga/Survive-as-a-barbarian-in-game/v1/c10",
             "assert": {
                 "pages": [
-        { "link": "https://mangahub.cc/load_more_scans/1542-3"}
+        { "link": "https://mangahub.space/load_more_scans/1542-3"}
                 ]
             }
         },
 		{
 			"proc" : "page_complete",
-			"link" : "https://mangahub.cc/load_more_scans/1542-1",
+			"link" : "https://mangahub.space/load_more_scans/1542-1",
 			"assert" : {
 				"image" : "@http://zjcdn.mangahere.org/store/manga/12114/315.1/compressed/l20190903_164427_101.jpg?\\.*"
 			}
