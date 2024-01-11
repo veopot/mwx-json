@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 70,
+    "version": 72,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -390,7 +390,7 @@
             "token2": "],",
             "end": "]],",
             "replace" : [
-			{ "match" : "(.*?)','(.*?)',\"(.*?)\".*",  "text" : "$1$3" },
+			{ "match" : "(.*)(.*?)','(.*?)','(.*?)',.*",  "text" : "$4$3" },
 			{ "match" : "one-way.work\/(.*?)?t=(.*)",  "text" : "one-way.work/$1" }
 			]
 			
