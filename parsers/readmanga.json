@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 72,
+    "version": 73,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -385,12 +385,12 @@
         "images": true,
         
         "add_pages": { 
-            "start": "rm_h.init",
+            "start": "rm_h.readerDoInit",
             "token1": "['",
             "token2": "],",
             "end": "]],",
             "replace" : [
-			{ "match" : "(.*)(.*?)','(.*?)','(.*?)',.*",  "text" : "$4$3" },
+			{ "match" : "(.*)(.*?)','',\"(.*?)(.*?)\",.*",  "text" : "$1$4" },
 			{ "match" : "one-way.work\/(.*?)?t=(.*)",  "text" : "one-way.work/$1" }
 			]
 			
@@ -413,7 +413,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://readmanga.live/bashnia_boga__A5664",
+            "link": "https://readmanga.live/bashnia_boga__A35c96",
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
