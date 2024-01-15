@@ -1,6 +1,6 @@
 {
     "id": 46547,
-    "version": 8,
+    "version": 9,
 	"old_sites": ["mangahub.cc"],
 	
     "title": "Mangahub_CC",
@@ -202,12 +202,12 @@
 		"add_pages":
 		
 		{    
-		    "start": "class=\"pages_placer\">",	
+		    "start": "chapter_page_content_block\">",	
 		   
 			"token1": "data-src=\"",
             "token2": "\"",
 			"replace": [
-			{ "prefix": "https://mangahub.space" },
+			{ "prefix": "https://mangahub.space/" },
 			{ "match": "Запаска", "text": "" }			
 			],
 			"end": "<footer class=\"footer\">"		
