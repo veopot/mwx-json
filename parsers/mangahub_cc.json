@@ -1,6 +1,6 @@
 {
     "id": 46547,
-    "version": 9,
+    "version": 10,
 	"old_sites": ["mangahub.cc"],
 	
     "title": "Mangahub_CC",
@@ -191,15 +191,16 @@
 	
 	
     "chapter_complete": {
+		"add_numeration": true,	
 		"headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
             "Referer": "https://mangahub.space/",
 			"User-Agent": "MangaWatcherX"
 			},
-		"add_numeration": true,	
+		
 		 
-		"add_pages":
+		"add_images":
 		
 		{    
 		    "start": "chapter_page_content_block\">",	
