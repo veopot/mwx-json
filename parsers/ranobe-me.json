@@ -1,0 +1,272 @@
+{
+   "id":40257,
+   "version":1,
+   "title":"Ranobe.me",
+   "host":"https://ranobe.me",
+   "public_link":"https://ranobe.me/ranobe/",
+   "folder":"Ranobe_me",
+   "name":"Ranobe_me",
+   "language":"ru",
+   "encoding":"utf-8",
+   "chapters_order":true,
+   "icon_link":"https://fant.my1.ru/mwparser/mwx/img/ranobesme.png",
+   
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/ranobe-me.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/ranobe-me.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/ranobe-me.zip",
+    "file_type": "sqlite",
+   "author":{
+      "name":"MWX",
+      "email":"fant-net@ya.ru"
+   },
+   
+   "manga_search_complete": {
+       "headers": {
+		"Accept": "*/*",
+        "Referer": "https://ranobe.me/",
+	    "User-Agent": "MangaWatcherX"
+		},
+        "search_link": "https://ranobe.me/index.php?section=search&str=$query$",
+        "query_type": "GET",
+        "add_manga": {
+        
+            
+        "next":"class=\"FicTable_Title\">",
+        
+		"title":{
+            "before":"<div class=\"FicTable_Stat\">",
+            "token1":"\">",
+            "token2":"</a",
+			"replace" : [ 
+			{ "match" : "<span hidden>Новелла </span>", "text" : "" },
+			{ "match" : "<span hidden>Новелла</span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ </span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ</span>", "text" : "" }
+			]
+         },
+         "link":{
+		 
+            "token1":"href=\"",
+            "token2":"\""
+         },
+		 "uniq":{
+            "token1":"href=\"/ranobe",
+            "token2":"\"",
+			"replace" : [ 
+			{ "match" : "<span hidden>Новелла </span>", "text" : "" },
+			{ "match" : "<span hidden>Новелла</span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ </span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ</span>", "text" : "" }
+			]
+            },
+            "cover": {
+                "token1": "<img src=\"",
+                "token2": "\"",
+                "replace": {
+                    "prefix": "https://ranobe.me"
+                }
+            },
+            
+            "summary": {
+                "token1": "class=\"FicTable_Description\">",
+                "token2": "</div></div>",
+                "replace": [
+                    
+					{"match": "<div class=\"FicTable_Genres\">", "text": "&nbsp;&nbsp;" },
+					{ "match":"<.*?>", "text":""},
+					{ "match": ",", "text": ", " }
+                ]
+            }
+        }
+    },
+   
+   
+   "manga_list_complete":{
+      "iterator":{
+         "base_url":"https://ranobe.me/catalog?page=",
+		 
+		 "append_nums": { "from": 1, "to": 30, "step": 1}
+         
+      },
+      "add_manga":{
+         "next":"class=\"FicTable_Title\">",
+         "title":{
+            "before":"<div class=\"FicTable_Stat\">",
+            "token1":"\">",
+            "token2":"</a",
+			"replace" : [ 
+			{ "match" : "<span hidden>Новелла </span>", "text" : "" },
+			{ "match" : "<span hidden>Новелла</span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ </span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ</span>", "text" : "" }
+			]
+         },
+         "link":{
+		 
+            "token1":"href=\"",
+            "token2":"\""
+         },
+		 "uniq":{
+            "token1":"href=\"/ranobe",
+            "token2":"\"",
+			"replace" : [ 
+			{ "match" : "<span hidden>Новелла </span>", "text" : "" },
+			{ "match" : "<span hidden>Новелла</span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ </span>", "text" : "" },
+			{ "match" : "<span hidden>Ранобэ</span>", "text" : "" }
+			]
+         }
+     
+      }
+   },
+   "manga_complete":{
+
+     "content_type": {
+			"default": "light_novels"
+		},
+
+      "title":{
+         "skip":"<head>",
+         "token1":"<title>",
+         "token2":"</title>"
+      },
+      "uniq":{
+          "skip":"<head>",
+         "token1":"<title>",
+         "token2":"</title>"
+      },
+	  
+      "cover":{
+         "after":"class=\"FicCover\"",
+         "token1":"data-src=\"",
+         "token2":"\"",
+"replace":{ "prefix":"https://ranobe.me" }
+      },
+
+      "author":{
+         "after":"/catalog/author/",
+         "token1":"\">",
+         "token2":"</"
+      },
+      "summary":{
+         "skip":"name=\"description\"",
+         "token1":"content=\"",
+         "token2":"\"",
+         "replace":{
+            "match":"<.*?>",
+            "text":" "
+         }
+      },
+      "add_tag":   { "after": "<a href=\"/catalog/genre/",
+	  "token1": ">", "token2": "</" , "replace": { "match": "<.*?>", "text": "" }},
+	  
+	  
+      "is_mature":{
+         "values":[
+            ">Для взрослых 18+<",
+            ">Для взрослых 16+<",
+            ">Сэйнэн<",
+            ">Яой<"
+         ]
+      },
+	  
+
+
+		
+	   	 
+
+
+      "add_chapter":{
+         "start":">Содержание</",
+         "end":"</body>",
+		 
+         "next":"class=\"FicContentsChapterName\"",
+         "link":{
+            "token1":"href=\"",
+            "token2":"\""
+         },
+		 "uniq":{
+            "skip":"href=\"",
+            "token1":"\">",
+            "token2":"</"
+          },
+         "title":{
+            "skip":"href=\"",
+            "token1":"\">",
+            "token2":"</"
+          }
+      }
+
+
+   },
+   
+   
+  
+	"chapter_complete": {
+		"headers": {
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+		},
+
+		"images": true,
+		"add_pages": {
+			"start": "property=\"og:url\"",
+			"token1": "content=\"",
+			"token2": "\"",
+			"end": "property=\"og:description\""
+		},
+		"sufix": "?title=/ranobe.txt"
+	},
+
+
+
+   "test":[
+      {
+         "proc":"manga_list_complete",
+         "assert":{
+            "mangas":[
+               {
+                  "title":"Астральный апостол",
+                  "link":"https://ranobe.me/ranobe523",
+                  "uniq":"523"
+               }
+            ],
+            "mangas_count":">=10"
+         }
+      },
+      {
+         "proc":"manga_complete",
+         "link":"https://ranobe.me/ranobe24",
+         "title":"Воинственный Бог Асура &#183; Martial God Asura",
+         "assert":{
+            "author":"Kindhearted Bee",
+            "cover":"@https://ranobe.me/images/covers/2018/05/22/20180522083112946-big.jpg",
+		    "summary":"@^(Пусть у тебя и есть потенциал)",
+            "status":"unknown",
+            "chapters_count":">=5000",
+            "chapters":[
+        {
+            "link": "https://ranobe.me/ranobe24/5909",
+            "title": "Глава 5868. Цзе Тяньран впервые показывает свою силу"
+        },
+        {
+            "folder": "Глава 5867_ Намерения мастера Особняка Семи Царств\\",
+            "link": "https://ranobe.me/ranobe24/5908",
+            "title": "Глава 5867. Намерения мастера Особняка Семи Царств"
+        }
+            ]
+         }
+      },
+      {
+         "proc":"chapter_complete",
+         "link":"https://ranobe.me/ranobe24/5908",
+         "assert":{
+            "pages":[
+               {"image": "https://ranobe.me/uploads/manga/bleach/chapters/Vol.1-Ch.1/001.png"},
+               {"image": "https://ranobe.me/uploads/manga/bleach/chapters/Vol.1-Ch.1/002.jpg"},
+               {"image": "https://ranobe.me/uploads/manga/bleach/chapters/Vol.1-Ch.1/003.jpg"}
+            ],
+            "pages_count":"55"
+         }
+      }
+   ]
+}
