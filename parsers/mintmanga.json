@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 92, 
+	"version": 93, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one"  ],
@@ -82,7 +82,7 @@
 	},
 
 	"manga_complete": [
-	{ "condition": ">Сценарист:<",
+	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
 		"cookie": "remember_me=ekNHb1NkejI1dUN1SDh1NkZyc01WblE2SUlJREI4eDBwbiUyQnkyTkFkZTJNJTNEOnRoRnQ5Q0F5djZ5b2ElMkZiRkVObmtVa05RRWclMkIzTFpYZlluaGJ4a3kxZzI4JTNE",
 		"Accept": "*/*",
@@ -179,6 +179,101 @@
 			"!postfix":	"?mtr=1"
 		}
 	},
+	{ "condition": ">Сценарист:<",
+	"headers": {
+		"cookie": "remember_me=ekNHb1NkejI1dUN1SDh1NkZyc01WblE2SUlJREI4eDBwbiUyQnkyTkFkZTJNJTNEOnRoRnQ5Q0F5djZ5b2ElMkZiRkVObmtVa05RRWclMkIzTFpYZlluaGJ4a3kxZzI4JTNE",
+		"Accept": "*/*",
+		"Referer": "https://1.mintmanga.one/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+		
+		
+	   "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
+				"replace": [
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
+				] 
+			},
+		
+	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+        "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+		"author": { "skip": ">Сценарист", "token1": "class=\"person-link\">", "token2": "</" },
+		
+		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
+		
+		"status": { 
+			
+		  	"complete": { 
+			"start": "<h4 class=\"hide-mobile\">",
+			"end": "<p class=\"elementList", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			             
+            "ongoing": { 
+			"start": "<h4 class=\"hide-mobile\">", 
+			"end": "class=\"elementList", 
+			"values": [ "продолжается", "переводится"   ] 
+			},
+			
+			
+			
+            "single": "Сингл,",
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" 
+			},
+			
+			"need_auth": "Для доступа к странице",
+			
+		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
+		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+		
+		"add_genres":   {
+                "start": ">Жанры:<",
+		        "end": "<table class=\"table table-hover\"",
+		            "token1": "/genre/",
+		            "token2": "\""
+		    },
+		
+		"content_type": { "default": "manga" },
+		
+		"is_mature": {
+			"start": ">Жанры:<",
+			"end": "</p>",
+			"values": [">сэйнэн<", ">эротика<"]
+		    },
+		
+		
+		
+		"add_chapter":  { 
+		"headers": {
+		"cookie": "remember_me=ekNHb1NkejI1dUN1SDh1NkZyc01WblE2SUlJREI4eDBwbiUyQnkyTkFkZTJNJTNEOnRoRnQ5Q0F5djZ5b2ElMkZiRkVObmtVa05RRWclMkIzTFpYZlluaGJ4a3kxZzI4JTNE",
+		"Accept": "*/*",
+		"Referer": "https://1.mintmanga.one/",
+		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+		},
+			"start": 	"<table class=\"table table-hover\"",
+			"end": 		"</table>",
+			"next":  	"<i class=\"chapter-status",
+			
+			"link":  	{ "token1": "<a href=\"", "token2": "\"",
+			"replace": {"prefix": "https://1.mintmanga.one"}
+			},
+			
+			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
+				"replace":  [
+				{ "match": "\n          \n          ", "text": "" },
+				{"prefix": "Том:"},
+				{ "match": " - ", "text": " Глава:" }
+				] },
+			
+			
+			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", 
+			"replace": { "match": "\\?.*", "text": "" } }
+		}
+	},
 	{ "condition": "",
 	"headers": {
 		"cookie": "remember_me=ekNHb1NkejI1dUN1SDh1NkZyc01WblE2SUlJREI4eDBwbiUyQnkyTkFkZTJNJTNEOnRoRnQ5Q0F5djZ5b2ElMkZiRkVObmtVa05RRWclMkIzTFpYZlluaGJ4a3kxZzI4JTNE",
@@ -254,9 +349,8 @@
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace":  [{"prefix": "https://1.mintmanga.one"},
-			{"sufix": "?mtr=1"}
-			]},
+			"replace":  {"prefix": "https://1.mintmanga.one"}
+			},
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
 				"replace":  [
@@ -265,8 +359,7 @@
 				{ "match": " - ", "text": " Глава:" }
 				] },
 				
-			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } },
-			"!postfix":	"?mtr=1"
+			"uniq":  	{ "after": "href=\"", "token1": "/vol", "token2": "\"", "replace": { "match": "\\?.*", "text": "" } }
 		}
 	}
 	],
@@ -296,8 +389,7 @@
 			{ "match" : "one-way.work\/(.*?)?t=(.*)",  "text" : "one-way.work/$1" }
 			]
 			
-			},
-        "postfix" : "?mtr=1"
+			}
     },
 
 	"test": [
