@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":9,
+   "version":10,
    
    
    "title":"Senkuro",
@@ -208,6 +208,10 @@
 	  
 		
 		"add_chapter":{
+		"headers": {
+			"User-Agent": "MangaWatcherX",
+			"Referer": "https://senkuro.com/"
+		},
         "start": "\"data",
 		"end": "}}",
         
