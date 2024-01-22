@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":10,
+   "version":11,
    
    
    "title":"Senkuro",
@@ -25,7 +25,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"http://45.95.202.233/api/senkuro/mangas?page=",
+         "base_url":"http://45.95.202.233/api/manga/senkuro/mangas?page=",
          "append_nums":{
             "from":1,
             "to":330,
@@ -72,7 +72,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"http://45.95.202.233/api/senkuro/search/?q=$query$",
+        "search_link":"http://45.95.202.233/api/manga/senkuro/search/?q=$query$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -199,8 +199,7 @@
             "token1": "content=\"https://senkuro.com/manga/",
             "token2": "\"",
             "replace": [
-			{ "prefix": "http://45.95.202.233/api/senkuro/" },
-			{ "sufix": "/chapters" }
+			{ "prefix": "http://45.95.202.233/api/manga/senkuro/chapters/" },
 			]
             
         },
@@ -208,10 +207,6 @@
 	  
 		
 		"add_chapter":{
-		"headers": {
-			"User-Agent": "MangaWatcherX",
-			"Referer": "https://senkuro.com/"
-		},
         "start": "\"data",
 		"end": "}}",
         
@@ -226,7 +221,7 @@
 			"replace":
 		        [
 		    { "prefix": "https://senkuro.com/manga/%%url%%/" },
-			{ "match": "http://45.95.202.233/api/senkuro/", "text": ""}
+			{ "match": "http://45.95.202.233/api/manga/senkuro/", "text": ""}
 		        ]
          },
 		 
@@ -297,9 +292,9 @@
          "assert":{
             "mangas":[
                {
-                  "title":"Ванпанчмен",
-                  "link":"https://senkuro.com/manga/vanpanchmen",
-                  "uniq":"vanpanchmen"
+                  "title":"Поднятие уровня в одиночку",
+                  "link":"https://senkuro.com/manga/ore-dake-level-up-na-ken",
+                  "uniq":"ore-dake-level-up-na-ken"
                }
             ],
             "mangas_count":">=14"
@@ -333,7 +328,7 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://senkuro.com/manga/magic-emperor/chapters/103865064364204434/pages/",
+         "link": "https://senkuro.com/manga/magic-emperor/chapters/103865064364204434/pages/1",
          "assert":{
             "pages":[
         {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/235a8a69f04ad2572dd63bbd24792d5cfc53ab0a_103864989336494482.jpeg"},
