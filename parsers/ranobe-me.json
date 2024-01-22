@@ -1,6 +1,6 @@
 {
    "id":40257,
-   "version":1,
+   "version":2,
    "title":"Ranobe.me",
    "host":"https://ranobe.me",
    "public_link":"https://ranobe.me/ranobe/",
@@ -157,6 +157,14 @@
             "text":" "
          }
       },
+	  
+	  "status":      {
+		"complete":  { "start": ">Статус", "end" : "</span>", "value" : "Завершено" },
+		"ongoing":   { "start": ">Статус", "end" : "</span>", "value" : "123123" },
+		"single":   { "start": ">Статус", "end" : "</span>", "value" : "412421шено" } 
+		},
+		
+		
       "add_tag":   { "after": "<a href=\"/catalog/genre/",
 	  "token1": ">", "token2": "</" , "replace": { "match": "<.*?>", "text": "" }},
 	  
@@ -207,14 +215,17 @@
 			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
 		},
 
-		"images": true,
-		"add_pages": {
-			"start": "property=\"og:url\"",
-			"token1": "content=\"",
+		"add_images": {
+			"start": "<head>",
+			"token1": "property=\"og:image\" content=\"",
 			"token2": "\"",
-			"end": "property=\"og:description\""
-		},
-		"sufix": "?title=/ranobe.txt"
+			"end": "</head>",
+		
+			"replace": [
+                    { "prefix": "http://45.95.202.233/ranobe/downloader/?href=%%host%%%%path%%" },
+                    { "match": "/images/ranobe-logo.png", "text": ""  }
+                ]
+		}
 	},
 
 
@@ -261,11 +272,9 @@
          "link":"https://ranobe.me/ranobe24/5908",
          "assert":{
             "pages":[
-               {"image": "https://ranobe.me/uploads/manga/bleach/chapters/Vol.1-Ch.1/001.png"},
-               {"image": "https://ranobe.me/uploads/manga/bleach/chapters/Vol.1-Ch.1/002.jpg"},
-               {"image": "https://ranobe.me/uploads/manga/bleach/chapters/Vol.1-Ch.1/003.jpg"}
+               {"image": "http://45.95.202.233/ranobe/downloader/?href=https://ranobe.me/ranobe24/5908"}
             ],
-            "pages_count":"55"
+            "pages_count":"1"
          }
       }
    ]
