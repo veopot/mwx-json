@@ -1,6 +1,6 @@
 {
    "id":40257,
-   "version":4,
+   "version":5,
    "title":"Ranobe.me",
    "host":"https://ranobe.me",
    "public_link":"https://ranobe.me/ranobe/",
@@ -223,6 +223,8 @@
 		
 			"replace": [
                     { "prefix": "http://45.95.202.233/api/ranobe/download/?href=%%host%%%%path%%" },
+                    
+	{	"sufix": "&title=/ranobe.fb2"},
                     { "match": "/images/ranobe-logo.png", "text": ""  }
                 ]
 		}
