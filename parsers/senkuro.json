@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":12,
+   "version":13,
    
    
    "title":"Senkuro",
@@ -198,17 +198,15 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"https://senkuro.com/manga/",
             "token2": "\"",
-            "replace": [
-			{ "prefix": "http://45.95.202.233/api/manga/senkuro/chapters/" },
-			]            
+            "replace": { "prefix": "http://45.95.202.233/api_v2/manga/senkuro/chapters/" }           
             
         },
 	  
 	  
 		
 		"add_chapter":{
-        "start": "\"data",
-		"end": "}}",
+        "start": "[",
+		"end": "]",
         
 		 
          "next": "\"num",
@@ -221,7 +219,7 @@
 			"replace":
 		        [
 		    { "prefix": "https://senkuro.com/manga/%%url%%/chapters/" },
-			{ "match": "http://45.95.202.233/api/manga/senkuro/chapters/", "text": ""},
+			{ "match": "http://45.95.202.233/api_v2/manga/senkuro/chapters/", "text": ""}
 			
 		        ]      
          },
@@ -232,8 +230,8 @@
             "token1":"ber\":",
             "token2":"}",
 			"replace": [
-			{ "match": "\"(.*?)\",\"(.*?)\",\"(.*?),\"updatedAt\":\"(.*?)\",\"volume\":\"(.*?)\"",		
-			"text": "$5/$1"},
+			{ "match": "(.*)\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\"(.*)",		
+			"text": "$4/$2"},
 			{ "match": "null", "text": ""}
 			]
         },
@@ -243,8 +241,8 @@
             "token1":"ber\":",
             "token2":"}",
 			"replace": [
-			{ "match": "\"(.*?)\",\"(.*?)\",\"(.*?),\"updatedAt\":\"(.*?)\",\"volume\":\"(.*?)\"",	
-			"text": "Том: $5 Глава: $1"},
+			{ "match": "(.*)\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\"(.*)",		
+			"text": "Том: $4 Глава: $2"},
 			{ "match": "null", "text": ""}
 			]
         }
