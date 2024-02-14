@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":13,
+   "version":14,
    
    
    "title":"Senkuro",
@@ -34,18 +34,10 @@
       },
 	  "link_corrector": [
             {
-                "match": "/chapters",
-                "text": ""
-            },
-			{
-                "match": "/comments",
-                "text": ""
-            },
-			{
-                "match": "/statistics",
-                "text": ""
+                "match": "https://senkuro.com/manga/(.*?)/(.*)",
+                "text": "https://senkuro.com/manga/$1"
             }
-		],
+        ],
       "add_manga":{
          "next":"\"formats\"",
 		 
