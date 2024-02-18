@@ -1,6 +1,6 @@
 {
    "id":40257,
-   "version":5,
+   "version":6,
    "title":"Ranobe.me",
    "host":"https://ranobe.me",
    "public_link":"https://ranobe.me/ranobe/",
@@ -128,7 +128,9 @@
       "title":{
          "skip":"<head>",
          "token1":"<title>",
-         "token2":"</title>"
+         "token2":"</title>",
+			"replace": { "match": "&#183;", "text": "|" }
+			
       },
       "uniq":{
           "skip":"<head>",
