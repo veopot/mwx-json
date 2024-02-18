@@ -1,9 +1,9 @@
 {
     "id": 46547,
-    "version": 11,
+    "version": 12,
 	"old_sites": ["mangahub.space"],
 	
-    "title": "Mangahub_CC",
+    "title": "MangaHub_CC",
     "host": "https://mangahub.cc",
     "public_link": "https://mangahub.cc/manga",
     "folder": "mangahub_cc",
@@ -123,7 +123,8 @@
 			
 		"title":       { "token1":"class=\"title_head_name\">", "token2": "<div class=\"title_head_genres",
 				"replace": [
-				    { "match": "/", "text": "" },
+				{ "match": "<h1 style=\"width: 0; height: 0; opacity: 0; display: none;\">(.*)</h1>", "text": "|" },
+				{ "match": "/", "text": "" },
 					{ "match": "<.*?>", "text": " " }
 				] },
 		
@@ -150,10 +151,7 @@
 		
 		
 		"cover":       { "after": "class=\"lazy_load_poster title_image\"",
-		"token1": "data-src=\"", "token2": "\"",
-                "replace": {
-                    "prefix": "https://mangahub.cc"
-                } },
+		"token1": "data-src=\"", "token2": "\"" },
 		
 		
 		
@@ -208,8 +206,8 @@
 			"token1": "data-src=\"",
             "token2": "\"",
 			"replace": [
-			{ "prefix": "https://mangahub.cc" },
-			{ "match": "Запаска", "text": "" }			
+			{ "match": "Запаска1", "text": "" },
+			{ "match": "Запаска2", "text": "" }			
 			],
 			"end": "<footer class=\"footer\">"		
 			    
