@@ -3,7 +3,7 @@
 	
 	"old_ids": [50030],
 	
-	"version": 24,
+	"version": 25,
 	"title": "AComics",
 	"host": "https://acomics.ru/",
 	"public_link": "https://acomics.ru/",
@@ -99,6 +99,7 @@
 		
 		
 		
+	  
 		"add_chapter": {
 			"headers": {
 			"cookie": "ageRestrict=17",
@@ -107,12 +108,23 @@
 	        "User-Agent": "MangaWatcherX"
 			},
 			
-			"next":  "button-content",
-			"link":  { "before": "title=\"Содержание\"", 
-			"token1": "href=\"", "token2": "/content\"", "replace": { "prefix": "https://acomics.ru" } },
-			"chapters_count": { "token1": "Переход к выпуску\"><span>1/", "token2": "</span>", "replace": { "prefix": "Страница " }}
-		}
-	},
+			"next":  "class=\"serial-reader-menu\"",
+			"link":  { "before": "\">Содержание</a>", 
+			"token1": "<a href=\"", "token2": "/content\"", "replace": { "prefix": "https://acomics.ru" } },
+			
+			
+			"chapters_count": {
+				"before": ">с конца<", 
+                "token1": "/",
+                "token2": "\"",
+                    "replace": [
+				{ "prefix": "Страница " },
+				{ "match": "~", "text": "" }
+				]
+					
+		    }    
+	}
+},
 	
 	
 	"chapter_complete": {
