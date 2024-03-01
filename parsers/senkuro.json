@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":14,
+   "version":15,
    
    
    "title":"Senkuro",
@@ -205,14 +205,13 @@
 		 
 		                 
          "link":{
-			"skip": "\"num",
-            "token1":"\"slug\":\"",
+			"before": "\"num",
+            "token1":"\"id\":\"",
             "token2":"\"",
 			"replace":
 		        [
-		    { "prefix": "https://senkuro.com/manga/%%url%%/chapters/" },
+		    { "prefix": "http://45.95.202.233/api/manga/senkuro/%%url%%/" },
 			{ "match": "http://45.95.202.233/api_v2/manga/senkuro/chapters/", "text": ""}
-			
 		        ]      
          },
 		 
@@ -255,16 +254,13 @@
     "add_pages":
 
 	{
-		"start": "MangaChapter\\\",\\\"pages",
-		"after": "\\\"url\\\":\\\"",
-		"token1": "https://",
-		"token2": "\\\"",
-		"end": "branchId",
+		"start": "\"data\"",
+		"token1": "\"url\":\"",
+		"token2": "\"",
+		"end": "]",
 		"replace":
 		[{
-				"prefix": "https://"
-			}, {
-				"match": "Сдесь могла быть ваша реклама",
+				"match": "https://mirai.senkuro.net/system/tachiyomi-op.jpeg",
 				"text": ""
 			},
 			{
@@ -319,12 +315,12 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://senkuro.com/manga/magic-emperor/chapters/103865064364204434/pages/1",
+         "link": "http://45.95.202.233/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA",
          "assert":{
             "pages":[
-        {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/235a8a69f04ad2572dd63bbd24792d5cfc53ab0a_103864989336494482.jpeg"},
-        {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/00a531525f0c533bf2eae136c26c79851cc80bc6_103864992691937682.jpeg"},
-        {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/f8500e25c93dc1dda009dced27e08b307be82edb_103864994839421330.jpeg"}
+          {"image": "http://45.95.202.233/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA"},
+        {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/e224b6890a9e2c1a05234c90494f716bc5fc1a54_83920471380222350.jpeg"},
+        {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/25df8fbe2ce0154d22308a6e81ca5eb9708dd1dd_83920507753226638.jpeg"}
             ],
             "pages_count":"14"
          }
