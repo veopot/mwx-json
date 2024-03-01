@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":15,
+   "version":16,
    
    
    "title":"Senkuro",
@@ -255,20 +255,23 @@
 
 	{
 		"start": "\"data\"",
-		"token1": "\"url\":\"",
+		"token1": "https://mirai.senkuro.net/",
 		"token2": "\"",
 		"end": "]",
 		"replace":
-		[{
-				"match": "https://mirai.senkuro.net/system/tachiyomi-op.jpeg",
-				"text": ""
-			},
-			{
-				"match": "Сдесь могла быть ваша реклама",
-				"text": ""
-			}
+		[
+		{ "prefix": "https://mirai.senkuro.net/" },   
+		{
+		"match": "https://mirai.senkuro.net/system/tachiyomi-op.jpeg",
+		"text": ""
+		},
+		{
+		"match": "http://45.95.202.233/api/manga/senkuro/(.*?)/.*",
+		"text": ""
+		}
 		]
-	}
+	},
+		"remove_first": true,
 
 	},
 	
