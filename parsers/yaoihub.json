@@ -1,14 +1,14 @@
 {
 	"id": 2064,
-	"version": 10,
+	"version": 11,
 	
-	"old_sites": ["yaoihub.ru","yaoihub.me","moonhub.me","moonhub.one","24.moonhub.live","12.moonhub.live"  ],
+	"old_sites": ["yaoihub.ru","yaoihub.me","moonhub.me","moonhub.one","24.moonhub.live","12.moonhub.live","m1.moonhub.live"   ],
 	
 	
 	
 	"title": "YaoiHub",
-	"host": "https://m1.moonhub.live",
-	"public_link": "https://m1.moonhub.live/explore",
+	"host": "https://v1.moonhub.live",
+	"public_link": "https://v1.moonhub.live/explore",
 	"hash_tag": "yaoihub",
 	"folder": "yaoihub",
 	"name" : "yaoihub",
@@ -29,22 +29,22 @@
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1734859124%3AuOqvGdTV9QAwTpCBq98v1k58FU1zCu9rIEh8hG1LgIw~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1740738817%3A887-kh-zygWNDQcDora5X5X1Mjicr8NnlvFMUVbCy8k~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://m1.moonhub.live/"
+			"Referer": "https://v1.moonhub.live/"
 			
 		},
 		
-		"search_link": "https://m1.moonhub.live/search/manga?query=$query$&page=$page$",
+		"search_link": "https://v1.moonhub.live/search/manga?query=$query$&page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"text-line-clamp",
 			"link":  { "token1": "href=\"", "token2": "\"",
-			"replace": { "prefix": "https://m1.moonhub.live"} },
+			"replace": { "prefix": "https://v1.moonhub.live"} },
 			
 			
 			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
@@ -63,19 +63,19 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1734859124%3AuOqvGdTV9QAwTpCBq98v1k58FU1zCu9rIEh8hG1LgIw~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1740738817%3A887-kh-zygWNDQcDora5X5X1Mjicr8NnlvFMUVbCy8k~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://m1.moonhub.live/"
+			"Referer": "https://v1.moonhub.live/"
 			
 		},
 		
 		"iterator": {
 			
-			"base_url": "https://m1.moonhub.live/explore/sort-is-rating?page=",
+			"base_url": "https://v1.moonhub.live/explore/sort-is-rating?page=",
 			
-			"append_nums": { "from": 1, "to": 164, "step": 1 }
+			"append_nums": { "from": 1, "to": 496, "step": 1 }
 		},
 		"add_manga": {
 			"next": "<a class=\"fw-medium\"",
@@ -92,13 +92,13 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1734859124%3AuOqvGdTV9QAwTpCBq98v1k58FU1zCu9rIEh8hG1LgIw~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1740738817%3A887-kh-zygWNDQcDora5X5X1Mjicr8NnlvFMUVbCy8k~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://m1.moonhub.live/"
+			"Referer": "https://v1.moonhub.live/"
 			
 		},
 		
@@ -187,7 +187,7 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"/title/", 
 			"token2": "\"", 
-			"replace": { "prefix": "https://m1.moonhub.live/chapters/"}
+			"replace": { "prefix": "https://v1.moonhub.live/chapters/"}
 				
 			
 			},
@@ -195,13 +195,13 @@
 		"add_chapter": {
 			"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1734859124%3AuOqvGdTV9QAwTpCBq98v1k58FU1zCu9rIEh8hG1LgIw~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1740738817%3A887-kh-zygWNDQcDora5X5X1Mjicr8NnlvFMUVbCy8k~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=on",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://m1.moonhub.live/"
+			"Referer": "https://v1.moonhub.live/"
 			
 		},
 			"start": ">Содержание<",
@@ -224,13 +224,13 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1734859124%3AuOqvGdTV9QAwTpCBq98v1k58FU1zCu9rIEh8hG1LgIw~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1740738817%3A887-kh-zygWNDQcDora5X5X1Mjicr8NnlvFMUVbCy8k~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=on",
 			"cookie3": "toast_58=true",
 		     
 			
 			
-			"Referer": "https://m1.moonhub.live/"
+			"Referer": "https://v1.moonhub.live/"
 			
 		},
 		"add_numeration": true,
@@ -251,11 +251,11 @@
 			"assert" : {
 				"mangas" : [
 					{  
-                       "link": "https://m1.moonhub.live/title/their_story",
+                       "link": "https://v1.moonhub.live/title/their_story",
                        "title": "Их_история"
                     },
                     {
-                    "link": "https://m1.moonhub.live/title/baegman_won_ui_lomaense"
+                    "link": "https://v1.moonhub.live/title/baegman_won_ui_lomaense"
                     }
 				],
 				"mangas_count" : ">=20"
@@ -263,22 +263,22 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://m1.moonhub.live/title/youre_here",
+			"link" : "https://v1.moonhub.live/title/youre_here",
 			"title" : "Ты здесь (Here U Are)",
 			"assert" : {
 				"author" : "@Д. Цзюнь",
-				"cover" : "https://static.m1.moonhub.live/uploads/media/manga_cover/thumbnail/big/0018/70/1769097.jpeg",
+				"cover" : "https://static.v1.moonhub.live/uploads/media/manga_cover/thumbnail/big/0018/70/1769097.jpeg",
 				"summary" : "@^(Приём новичков)",
 				"status" : "complete",
 				"chapters_count" : ">=100",
 				"chapters" : [
 		{
            "folder": "Том 1_ Глава 1\\",
-           "link": "https://m1.moonhub.live/read/59417",
+           "link": "https://v1.moonhub.live/read/59417",
            "title": "Том 1. Глава 1"
         },
         {
-            "link": "https://m1.moonhub.live/read/59416",
+            "link": "https://v1.moonhub.live/read/59416",
             "title": "Том 1. Глава 2"
         }
 		
@@ -287,7 +287,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://m1.moonhub.live/read/59417",
+			"link" : "https://v1.moonhub.live/read/59417",
 			"assert" : {
 				"pages" : [
 		{"image": "https://1hubst.guru/uploads/media/scan/0029/54/6e4590bc96ab2a0a146b24dc9e322fdaa45fc8dd.jpg"},
