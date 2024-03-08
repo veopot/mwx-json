@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 66,
+	"version": 67,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -130,7 +130,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=dVN4dm43NGVMYWlhWWxjRHZBcmJTUkNoR2dJeTlubHNYS3VkakZxNUFaQSUzRDpnME8lMkJIQ0VnZzl3RTZvaEJ4SkhROTBSMGpaVHJiSDkxY0pJeHc3OWdOSDQlM0Q",
+			"cookie": "remember_me=TjdOUXo3MTkzUzJubGF5ekI0YTB0eVhKbmlXbSUyRlRFQWs3TThYbWdZa3Q4JTNEOlhvU2JicW1tV3ZYQUU1ZXlETGxIdlBSMXVmUXZJd1V4WGUzUXI3bXpnSE0lM0Q",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -276,7 +276,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=dVN4dm43NGVMYWlhWWxjRHZBcmJTUkNoR2dJeTlubHNYS3VkakZxNUFaQSUzRDpnME8lMkJIQ0VnZzl3RTZvaEJ4SkhROTBSMGpaVHJiSDkxY0pJeHc3OWdOSDQlM0Q",
+			"cookie": "remember_me=TjdOUXo3MTkzUzJubGF5ekI0YTB0eVhKbmlXbSUyRlRFQWs3TThYbWdZa3Q4JTNEOlhvU2JicW1tV3ZYQUU1ZXlETGxIdlBSMXVmUXZJd1V4WGUzUXI3bXpnSE0lM0Q",
 			
 			"Accept": "*/*",
 			"Referer": "https://20.allhen.online/"
