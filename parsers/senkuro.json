@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":16,
+   "version":17,
    
    
    "title":"Senkuro",
@@ -25,7 +25,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"http://45.95.202.233/api/manga/senkuro/mangas?page=",
+         "base_url":"http://bypass.mwx.su/api/manga/senkuro/mangas?page=",
          "append_nums":{
             "from":1,
             "to":330,
@@ -64,7 +64,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"http://45.95.202.233/api/manga/senkuro/search/?q=$query$",
+        "search_link":"http://bypass.mwx.su/api/manga/senkuro/search/?q=$query$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -190,7 +190,7 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"https://senkuro.com/manga/",
             "token2": "\"",
-            "replace": { "prefix": "http://45.95.202.233/api_v2/manga/senkuro/chapters/" }           
+            "replace": { "prefix": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/" }           
             
         },
 	  
@@ -210,8 +210,8 @@
             "token2":"\"",
 			"replace":
 		        [
-		    { "prefix": "http://45.95.202.233/api/manga/senkuro/%%url%%/" },
-			{ "match": "http://45.95.202.233/api_v2/manga/senkuro/chapters/", "text": ""}
+		    { "prefix": "http://bypass.mwx.su/api/manga/senkuro/%%url%%/" },
+			{ "match": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/", "text": ""}
 		        ]      
          },
 		 
@@ -266,7 +266,7 @@
 		"text": ""
 		},
 		{
-		"match": "http://45.95.202.233/api/manga/senkuro/(.*?)/.*",
+		"match": "http://bypass.mwx.su/api/manga/senkuro/(.*?)/.*",
 		"text": ""
 		}
 		]
@@ -318,10 +318,10 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "http://45.95.202.233/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA",
+         "link": "http://bypass.mwx.su/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA",
          "assert":{
             "pages":[
-          {"image": "http://45.95.202.233/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA"},
+          {"image": "http://bypass.mwx.su/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA"},
         {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/e224b6890a9e2c1a05234c90494f716bc5fc1a54_83920471380222350.jpeg"},
         {"image": "https://mirai.senkuro.net/manga-chapters/56254313260933526/56254313260999062/25df8fbe2ce0154d22308a6e81ca5eb9708dd1dd_83920507753226638.jpeg"}
             ],
