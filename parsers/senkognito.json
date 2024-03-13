@@ -1,9 +1,9 @@
 {
    "id":65218,
-   "version":1,
+   "version":2,
    
    
-   "title":"Senkognito",
+   "title":"Senkognito (18+)",
    "host":"https://ne.senkognito.com",
    "public_link":"https://ne.senkognito.com/browse/manga",
    "folder":"senkognito",
@@ -11,8 +11,9 @@
    "language":"ru",
    "encoding":"utf-8",
    "chapters_order":false,
+    "is_mature": true,
    
-   "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/senkuro.png",
+   "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/senkognito.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/senkognito.json",
 	"self_link2": "https://fant.my1.com/mwparser/mwx/json/senkognito.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/senkognito.zip",
@@ -62,52 +63,8 @@
 		}
    },
    
-   
-   "manga_search_complete": {		
-        "search_link":"http://bypass.mwx.su/api/manga/senkuro/search/?q=$query$",
-		"query_type": "GET",
-		
-		 "add_manga":{
-		 
-         "next":"alternativeNames",
-		 
-          "title":{
-            "before":"\"lang\":\"RU\"",
-            "token1":"\"content\":\"",
-            "token2":"\""
-			
-			
-			
-         },
-		 
-          "link":{
-            "token1":"\"slug\":\"",
-            "token2":"\"",
-			"replace": { "prefix": "https://ne.senkognito.com/manga/"}
-         },
-		 
-		 "summary": {  "token1": "\"translitionStatus\":\"", "token2":"\"",
-                "replace":[
-				{"match": "IN_PROGRESS","text": "Статус перевода: Переводится"},
-				{"match": "FINISHED","text": "Статус перевода: Завершён"},
-				{"match": "FROZEN","text": "Статус перевода: Заморожен"},
-				{"match": "ABANDONED","text": "Статус перевода: Заброшен"},
-				{"match":"<.*?>","text":""}
 
-				] },
-				
-         "cover":{
-			"skip":"\"cover\"",
-		    "token1":"\"url\":\"https://mirai.senkuro.net/manga/",
-            "token2":"\"",
-			"replace": { "prefix": "https://mirai.senkuro.net/manga/"}
-         }
-      }
-		},	
-		
-		
-   
-   "manga_complete": { 
+	"manga_complete": { 
 	   "headers": {
 			"User-Agent": "MangaWatcherX",
 			"Referer": "https://ne.senkognito.com/"
