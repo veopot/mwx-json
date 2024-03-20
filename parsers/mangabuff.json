@@ -1,6 +1,6 @@
 {
     "id": 57843,
-    "version": 1,
+    "version": 2,
     "title": "MangaBuff",
     "host": "https://mangabuff.ru",
     "public_link": "https://mangabuff.org/manga",
@@ -22,16 +22,14 @@
     
     "manga_search_complete": {
        "headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
-            "Referer": "https://mangabuff.org/",
-	 "User-Agent": "MangaWatcherX"
+	"Referer": "https://mangabuff.org/",
+	"User-Agent": "MangaWatcherX"
 			},
         "search_link": "https://mangabuff.ru/search?q=$query$",
         "query_type": "GET",
         "add_manga": {
-            "start": "<div class=\"cards\">",
-            "end": "<ul class=\"pagination\">",
+            "start": "<div class=\"main\">",
+            "end": "class=\"footer\">",
             "next": "class=\"cards__item\"",
             "link": {
                 "before": "class=\"cards__img\"",
@@ -110,8 +108,18 @@
         
         "title": {
             "token1": "<title>",
-            "token2": "/title>",
-            "replace": { "match": " -(.*)", "text": ""}
+            "token2": "</title>",
+            "replace":[
+			{ "match": "- Манхва читать онлайн", "text": ""},
+			{ "match": "- OEL-манга читать онлайн", "text": ""},
+			{ "match": "- Сингл читать онлайн", "text": ""},
+			{ "match": "- Руманга читать онлайн", "text": ""},
+			{ "match": "- Маньхуа читать онлайн", "text": ""},
+			{ "match": "- Комикс западный читать онлайн", "text": ""},
+			{ "match": "- Манга читать онлайн", "text": ""}
+			
+			
+			]
             },
         
         "uniq": {
