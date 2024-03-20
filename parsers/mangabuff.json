@@ -1,0 +1,290 @@
+{
+    "id": 57843,
+    "version": 1,
+    "title": "MangaBuff",
+    "host": "https://mangabuff.ru",
+    "public_link": "https://mangabuff.org/manga",
+    "folder": "mangabuff",
+    "name": "mangabuff",
+    "chapters_order": true,
+    "language": "ru",
+    "encoding": "utf-8",
+
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangabuff.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangabuff.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangabuff.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangabuff.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "Veopot",
+        "email": "fant-net@ya.ru"
+    },
+    
+    "manga_search_complete": {
+       "headers": {
+			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+            "Accept": "*/*",
+            "Referer": "https://mangabuff.org/",
+	 "User-Agent": "MangaWatcherX"
+			},
+        "search_link": "https://mangabuff.ru/search?q=$query$",
+        "query_type": "GET",
+        "add_manga": {
+            "start": "<div class=\"cards\">",
+            "end": "<ul class=\"pagination\">",
+            "next": "class=\"cards__item\"",
+            "link": {
+                "before": "class=\"cards__img\"",
+                "token1": "href=\"",
+                "token2": "\""
+            },
+
+            "title": {
+                "token1": "class=\"cards__name\">",
+                "token2": "</div>"
+            },
+            "uniq": {
+                "token1": "class=\"cards__name\">",
+                "token2": "</div>"
+            },
+			
+            "cover": {
+                "token1": "background-image: url('/x180/",
+                "token2": "')\">",
+                "replace": {
+                    "prefix": "https://mangabuff.ru"
+                }
+            },
+            
+            "summary": {
+                "token1": "class=\"cards__info\">",
+                "token2": "</div>"
+            }
+        }
+    },
+    "manga_list_complete": {
+        "headers": {
+			"Accept": "*/*",
+            "Referer": "https://mangabuff.org/",
+			"User-Agent": "MangaWatcherX"
+			},
+        "iterator": {
+            "base_url": "https://mangabuff.ru/manga?page=",
+            "append_nums": {
+                "from": 1,
+                "to": 153
+            }
+        },
+        "add_manga": {
+            "start": "<div class=\"cards\">",
+            "end": "<ul class=\"pagination\">",
+            "next": "class=\"cards__item\"",
+            "link": {
+                "before": "class=\"cards__img\"",
+                "token1": "href=\"",
+                "token2": "\""
+            },
+
+            "title": {
+                "token1": "class=\"cards__name\">",
+                "token2": "</div>"
+            },
+            "uniq": {
+                "token1": "class=\"cards__name\">",
+                "token2": "</div>"
+            }
+        },
+	    
+        "rating_auto_inc": {
+            "start": "40000",
+            "inc": -1
+        }
+    },
+    "manga_complete": {
+		
+        "headers": {
+			"Accept": "*/*",
+            "Referer": "https://mangabuff.org/",
+            "User-Agent": "MangaWatcherX" 
+			},
+        
+        "title": {
+            "token1": "<title>",
+            "token2": "/title>",
+            "replace": { "match": " -(.*)", "text": ""}
+            },
+        
+        "uniq": {
+            "token1": "<meta property=\"og:url\" content=\"https://mangabuff.ru/manga/",
+            "token2": "\">"
+        },
+        "cover": {
+			"skip": "<div class=\"manga__img\">",
+            "token1": " src=\"",
+            "token2": "\"",
+            "replace": [
+                {
+                    "prefix": "https://mangabuff.ru"
+                },
+                {
+                    "match": "u002F",
+                    "text": "/"
+                }
+            ]
+        },
+        "summary": {
+            "token1": "class=\"manga__description\">",
+            "token2": "</div>",
+            "replace": [
+                {
+                    "match": "u003Cp",
+                    "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+       
+        "status": {
+            "complete": {
+                "start": "class=\"manga__middle\"",
+                "end": "class=\"manga__name\"",
+                "values": ["Закончен", "Переведена","Завершен","Сингл"]
+            },
+            "ongoing": {
+                "start": "class=\"manga__middle\"",
+                "end": "class=\"manga__name\"",
+                "value": "Продолжается"
+            }
+        },
+        
+        "add_tags": {
+            "start": "class=\"manga__middle\"",
+            "end": "class=\"manga__description\">",
+            "token1": "class=\"tags__item\">",
+            "token2": "</"
+        },
+        "is_mature": {
+            "values": ["Сэйнэн", "Эротика", "Юри", "Яой", "class=\"tags__item tags__item--warning\">" ]
+        },
+        
+        "add_chapter": {
+			"headers": {
+			"Accept": "*/*",
+            "Referer": "%%url%%",
+			"User-Agent": "mangawatcherx"
+			},
+			
+            "start": "<div class=\"chapters\">",
+            "end": "<div class=\"sidebar\">",
+            "next": "<a href=",
+            "link": {
+                "token1": "\"https://mangabuff.ru/",
+                "token2": "\"",
+                "replace": { "prefix": "https://mangabuff.ru/"}
+                
+            },
+            "uniq": {
+                "token1": "data-chapter=\"",
+                "token2": "\""
+            },
+            "title": {
+                "skip": "data-chapter=",
+                "token1": "<div class=\"chapters__volume\">",
+                "token2": "<div class=\"chapters__add-date\">",
+                "replace": [
+                    {
+                        "match": "<.*?>",
+                        "text": ""
+                    },
+                    {
+                        "match": ",\"chapter\":\"",
+                        "text": " Глава "
+                    }
+                ]
+            }
+        }
+    },
+    "chapter_complete": {
+        "headers": {
+			"Accept": "*/*",
+            "Referer": "https://mangabuff.org/",
+			"User-Agent": "MangaWatcherX"
+			},
+        "add_images": {
+            "start": "class=\"reader__pages\">",
+            "token1": "src=\"",
+            "token2": "\"",
+            "end": "<div class=\"reader__footer\">"
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Ветролом",
+                        "link": "https://mangabuff.ru/manga/vetrolom-2013",
+                        "uniq": "Ветролом"
+                    }
+                ],
+                "mangas_count": ">=20"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola",
+            "title": "Как насытить дьявола / How to fill the devil",
+			
+			"assert": {
+                "cover": "https://mangabuff.ru/img/manga/posters/kak-nasytit-dyavola.jpg",
+                "genres": "@action",
+                "status": "ongoing",
+				"summary": "@^(Мой мир - это вечный цикл перерождений)",
+                "chapters_count": ">=65",
+                "chapters": [
+        {
+            "folder": "1\\",
+            "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/1",
+            "title": "Том 1 Глава 1"
+        },
+        {
+            "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/2",
+            "title": "Том 1 Глава 2"
+        }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/1",
+            "assert": {
+                "pages": [
+        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/1.jpeg"},
+        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/2.jpeg"},
+        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/3.jpeg"},
+        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/4.jpeg"}
+                ]
+            }
+        }
+    ]
+}
