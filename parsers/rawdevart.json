@@ -1,0 +1,193 @@
+{
+	"id": 30459,
+	"version": 4,
+	
+	"old_sites": ["rawdevart.com" ],
+	
+	"title": "RawDevart",
+	"host": "https://rawdevart.art",
+	"public_link": "https://rawdevart.art",
+	"folder": "rawdevart",
+	"name" : "rawdevart",
+	"language": "jp",
+	"is_paid": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/rawdevart.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/rawdevart.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/rawdevart.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/rawdevart.zip",
+    "file_type": "sqlite",
+	
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+	
+	"manga_search_complete": {
+       "headers": {
+	        "Referer": "https://rawdevart.art/",
+            "User-Agent": "MangaWatcherX"
+			    },
+        "search_link": "https://rawdevart.art/search?query=$query$",
+        "query_type": "GET",
+       "add_manga": {
+			"next": "<div class=\"m-item\">",
+			
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "https://rawdevart.art" }
+			},
+			
+			"uniq": {"token1": "href=\"/",  "token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""} },
+			
+			"title": {"after": "href=\"", "token1": "title=\"", "token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""} },
+		
+			"cover": {
+                "token1": "data-src=\"",
+                "token2": "\""
+            }
+        }
+    },
+	
+
+	"manga_list_complete": {
+		"iterator": {
+			"base_url": "https://rawdevart.art/latest?page=",
+			"append_nums": { "from": 1, "to": 94 }
+			},
+		"add_manga": {
+			"next": "<div class=\"m-item\">",
+			"link": {
+				"token1": "href=\"",
+				"token2": "\"",
+				"replace": {"prefix": "https://rawdevart.art" }
+			},
+			"uniq": {"token1": "href=\"/",  "token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""} },
+			
+			"title": {"after": "href=\"", "token1": "title=\"", "token2": "\"",
+			"replace": { "match": "<.*?>",	"text": ""} }
+		},
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+	},
+
+	"manga_complete":{ 
+		"title":       { "after": "<h1 class=\"manga-title", "token1":"\">", "token2": "</div>",
+		"replace": { "match": "<(.*?)>", "text": "" } 
+		    },
+		"uniq":        { "token1":"headline\": \"", "token2": "\"" },
+		
+		"author":      { "after": "href=\"/author", "token1":"\">", "token2": "</" },
+		"cover":       { "skip": "class=\"img-holder\">", "token1": "src=\"", "token2": "\"" },
+		"summary":     { "skip": "class=\"manga-description\"", "token1": ">", "token2": "</div>",
+			           "replace": { "match": "<.*?>",	"text": ""} },
+		
+		"status":      { 
+		"complete": "Finished",
+		"ongoing": ">Ongoing<"
+		},
+		
+		"add_genres": {
+            "start": "class=\"md-title\">Genre",
+            "end": "</li>",
+            "token1": "title=\"",
+            "token2": "\""
+        },
+		
+		
+		
+		"chapters_from_pages": { 
+		"start": "<input type=\"hidden\"",
+		"end": "class=\"manga-detail\">",
+		"token1": "id=\"manga-id\" value=\"",
+		"token2": "\"", 
+		"replace" : { "prefix" : "https://rawdevart.art/spa/manga/" }
+		},
+		
+		
+		
+		"add_chapter": {
+		    "start": "detail",
+			"next":  "chapter_id",
+			
+			"link": {
+				"token1": "\"chapter_number\":",
+				"token2": ",",
+				"replace": {"prefix": "%%url%%/" }
+			},
+			
+			"uniq": {"after": "href=\"", "token1": "\">", "token2": "</span>",
+			"replace": { "match": "<.*?>",	"text": ""} },
+			
+			"title": {"token1": "\"chapter_number\":", "token2": ",",
+			"replace": {"prefix": "Chapter " } }
+		}   
+	},
+	
+	
+	
+	
+	"chapter_complete": {
+		"add_images": {
+			"start": "chapter_content",
+			"token1": "data-srcset=\\\"",
+			"token2": "\\\"",
+			"end": "manga_url"
+		}
+	},
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [{ 
+			"title" : "Solo Leveling", 
+            "link" : "https://rawdevart.art/comic/webtoon-solo-leveling/" 
+			}],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://rawdevart.art/yuusha-party-o-oida-sareta-kiyou-binbou-c813",
+			"title" : "Yuusha Party O Oida Sareta Kiyou Binbou",
+			"assert" : {
+				"author" : "@都神樹 / きさらぎゆり",
+				"cover" : "@https://rawdevart.art/img/thumb/e0/cf/813/yuusha-party-o-oida-sareta-kiyou-binbou-813-250x356.webp",
+				"summary" : "@^(「器用貧乏」は罪なのか！？)",
+				"genres" : "@COMEDY",
+				"status" : "ongoing",
+				"genres_count" : ">=3",
+				"chapters_count" : ">=100",
+				"chapters" : [
+					{
+					"link": "https://rawdevart.art/comic/release-witch/chapter-259/",
+                    "title": "Chapter 259" 
+					},{
+                    "folder": "Chapter 258/",
+                    "link": "https://rawdevart.art/comic/release-witch/chapter-258/",
+                    "title": "Chapter 258"
+                    }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://rawdevart.art/spa/manga/813/33.1",
+			"assert" : {
+				"pages" : [
+		{"image": "https://cdn.kumacdn.club/wp-content/uploads/images/d/destiny-lovers/chapter-111/1-655ce60faa036.jpg"},
+        {"image": "https://cdn.kumacdn.club/wp-content/uploads/images/d/destiny-lovers/chapter-111/2-655ce61059e56.jpg"},
+        {"image": "https://cdn.kumacdn.club/wp-content/uploads/images/d/destiny-lovers/chapter-111/3-655ce610ee5bf.jpg"}
+				],
+				"pages_count": "151"
+			}
+		}
+	]
+}
