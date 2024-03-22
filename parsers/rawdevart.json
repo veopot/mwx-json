@@ -1,6 +1,6 @@
 {
 	"id": 30459,
-	"version": 4,
+	"version": 5,
 	
 	"old_sites": ["rawdevart.com" ],
 	
@@ -88,7 +88,7 @@
 			           "replace": { "match": "<.*?>",	"text": ""} },
 		
 		"status":      { 
-		"complete": "Finished",
+		"complete": ">Completed<",
 		"ongoing": ">Ongoing<"
 		},
 		
