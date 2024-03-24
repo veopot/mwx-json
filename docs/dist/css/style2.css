@@ -156,3 +156,14 @@
 
 }
 
+
+.item {
+	position: relative;
+	width: 100%;
+	height: 520px;
+	margin-bottom: 25px;
+}
+.item .zoo-item {
+	border: 0px solid #EEEEEE;
+	margin: 0;
+}

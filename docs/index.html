@@ -50,6 +50,10 @@
     <link type="text/css" rel="stylesheet" href="dist/css/style.css">
     <link type="text/css" rel="stylesheet" href="dist/css/style2.css">
 	
+	<link rel="stylesheet" href="dist/css/zoomove.min.css">
+	
+    
+	
 	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 </head>
@@ -82,7 +86,7 @@
         <li><a href="Support.html" title="Support">Поддержка</a></li>
         <li><a href="about.html" title="About">О нас</a></li>
         <li><a href="faq.html" title="faq">F.A.Q.</a></li>
-        <li><a href="https://vk.com/mangawatcher" title="Group vk">Группа в ВК</a></li>
+        <li><a href="https://vk.com/mangawatcher" title="Group vk">Группа в VK</a></li>
         <li><a href="Contact.html" title="Contact">Контакты</a></li>
       </ul>
 	   </center>
@@ -123,7 +127,7 @@
 		</tr>
 	</tbody>
 </table>
-
+<p>Абсолю́тно бесплатно! <br> </p>
 
 							
 							
@@ -231,7 +235,12 @@
                                 <div class="feature-inner">
                                     <h3 class="feature-title mt-24">Классический вид</h3>
                                     <div class="feature-icon">
-									<img src="dist/images/vid/Screenshot_2021-08-31-17-09-57_mini.png"  alt="Классический вид">
+									
+					<div class="item">
+							<figure class="zoo-item" zoo-over="true" zoo-move="false" zoo-image="dist/images/vid/Screenshot_2021-08-31-17-09-57_mini.png">Загрузка...</figure>
+						</div>				
+		
+									
 									</div>
                                 </div>
                             </div>
@@ -239,7 +248,10 @@
                                 <div class="feature-inner">
 								    <h3 class="feature-title mt-24">Строчный вид</h3>
                                     <div class="feature-icon">
-									<img src="dist/images/vid/Screenshot_2021-08-31-17-10-46_mini.png"  alt="Строчный вид">
+									
+						<div class="item">
+			<figure class="zoo-item" zoo-over="true" zoo-move="false" zoo-image="dist/images/vid/Screenshot_2021-08-31-17-10-46_mini.png">Загрузка...</figure>
+						</div>
 									</div>
                                 </div>
                             </div>
@@ -247,8 +259,10 @@
                                 <div class="feature-inner">
                                     <h3 class="feature-title mt-24">Современный вид</h3>
                                     <div class="feature-icon">
-									<img src="dist/images/vid/Screenshot_2021-08-31-17-10-31_mini.png" alt="Современный вид">
-									</div>
+			<div class="item">
+			<figure class="zoo-item" zoo-over="true" zoo-move="false" zoo-image="dist/images/vid/Screenshot_2021-08-31-17-10-31_mini.png">Загрузка...</figure>
+						</div>					
+						</div>
                                 </div>
                             </div>
                         </div>
@@ -348,10 +362,10 @@
 									MangaHub<br>
 									Manga24<br>
 									ReManga<br>
-									MangaNi<br>
-									Rulate<br>
-									MLate<br>
-									VooDoo People<br>
+									MangaNi (Ранобэ)<br>
+									Rulate (Ранобэ)<br>
+									MLate (Ранобэ)<br>
+									VooDoo People (Ранобэ)<br>
 									Desu<br>
 									MangaBook<br>
 									Manga-Online.biz<br>
@@ -365,12 +379,22 @@
                                     Манга-тян!<br>
 									Ягами<br>
 									Яой-тян<br>
-									RuRanobe<br>
-									Novel.tl<br>
+									RuRanobe (Ранобэ)<br>
+									Novel.tl (Ранобэ)<br>
 									VK (Test Group)<br>
 									Yagami<br>
 									Flibusta (Книги)<br>
 									EroLate<br>
+									YaoiLib<br>
+									YaoiPoisk<br>
+									YaoiHub<br>
+									Mangahub_CC<br>
+									Senkuro<br>
+									YaoiScan<br>
+									Ranobe.me (Ранобэ)<br>
+									Sei Manga<br>
+									MangaBuff<br>
+									Senkognito (18+)<br>
 									</p>
                                 </div>
                             </div>
@@ -456,12 +480,23 @@
         
     	
                     </ul>
-                    <div class="footer-copyright">&copy; 2010-2023 Manga Watcher X Team &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <div class="footer-copyright">&copy; 2010-2024 Manga Watcher X Team &nbsp;&nbsp;&nbsp;&nbsp; 
 					Template base from:&nbsp;<a style="color:#888888;font-family:arial;" href="http://pasqualevitiello.com/" title="">Pasquale Vitiello</a> </div>
                 </div>
             </div>
         </footer>
     </div>
+	
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="dist/js/zoomove.min.js"></script>
+	<script>
+		$('.zoo-item').ZooMove({
+			cursor: 'true',
+			scale: '1.3',
+		});
+	</script>
+	
     <!-- jQuery -->
      <script src="dist/js/jquery-3.3.1.min.js"></script>
     <!-- Popper -->
