@@ -1,6 +1,6 @@
 {
 	"id": 1468,
-	"version": 11,
+	"version": 12,
 	"old_sites": ["v1.slashlib.me" ],
 	
 	"title": "YaoiLib",
@@ -208,9 +208,9 @@
    "headers": {
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-        "Accept": "image/webp,*/*;q=0.8",
+        "Accept": "*/*",
 		"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6InpscWQ2Z21tODVnVm95dXBJNnJrS3c9PSIsInZhbHVlIjoiQkF1dU1EME5HK2Uxb3dNSWtseWgwaVovY0pFc01yZ0Z3NXFLaXlLdUcwb1VjWlZVM1VBNTZneDRkYWNpakVtSzMzZ0V6ZmRkRzRoQXB2ZDY4bE5XUXp1eHJ3TjRnYVdNQVhIUFJ5b3ZDb1ptWTJBL1UxZHIyNjVwM3NkUWFhak4zT2E5bHJ4eFBwMG5pUEFTUnphTTk5b0pGYndxaXpxenJTcEV1QXZ6S1Y1WmFEVktYM0RhU3E1WEVCRU5lKzdwVFZNam1ZUFZrOG02OHNIUkl4dTdEWlNvTE9JbVZWTm0wZFdQYmlRRjRBaz0iLCJtYWMiOiJlN2EzOWMwOWMzMmUwNzE0MjZlMTUxNTc4YTcwMGRhYTU1YzI0NGJlMDU2ZjI3NDliZjFiMjg5ZGVmNzlkYjljIiwidGFnIjoiIn0%3D",
-        "Referer": "%%url%%"
+        "Referer": "https://v2.slashlib.me/"
 		
 		},
 		
