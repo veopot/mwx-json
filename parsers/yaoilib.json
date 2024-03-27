@@ -1,10 +1,11 @@
 {
 	"id": 1468,
-	"version": 9,
+	"version": 10,
+	"old_sites": ["v1.slashlib.me" ],
 	
 	"title": "YaoiLib",
-	"host": "https://v1.slashlib.me/",
-	"public_link": "https://v1.slashlib.me/manga-list?sort=rating_score&dir=desc&page=1",
+	"host": "https://v2.slashlib.me/",
+	"public_link": "https://v2.slashlib.me/manga-list?sort=rating_score&dir=desc&page=1",
 	"folder": "yaoilib",
 	"name" : "yaoilib",
 	"language": "ru",
@@ -25,16 +26,16 @@
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
-        "Referer": "https://v1.slashlib.me/"
+        "Referer": "https://v2.slashlib.me/"
 		},
 				
-		"search_link": "https://v1.slashlib.me/search?type=manga&q=$query$",
+		"search_link": "https://v2.slashlib.me/search?type=manga&q=$query$",
 		"query_type": "GET",
 		"add_manga": {
 			"next":   "moder_id",
 			
 			"link":   {  "before": "\"metadata\"",  "token1": "slug\":\"", "token2": "\",", 
-			"replace" : {"prefix": "https://v1.slashlib.me/" } },
+			"replace" : {"prefix": "https://v2.slashlib.me/" } },
 			
 			"title":  { "before": "\"metadata\"", "token1": "rus_name\":\"", "token2": "\",\"slug\":", 
 			"replace" : { "match" : "\",\"eng_name\":\"", "text" : " | " } },
@@ -50,14 +51,14 @@
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
-		"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IkROeDd1K0dqRFV3TTkrSUFjSmI2K0E9PSIsInZhbHVlIjoiTlZCT2RhaVp0bEMyTEorR1BvNkhyV005RFJrNXF0dU8zN291RnBNN05EdDJ5UEV5UkJrM0xTRE1uNW0zdzZoaXhBNjYwR0dYMS9JVmtPNkFvUzhyUCttNGdPNVJuZklLTlFyZ0M0M2dUcG5ELzdEWGthM0RXbHF2dHlKS09leDFYaGNUZWhlNmw5S25CcEFFYzNzWitGaHVGZUloWFFGSlo5eElJSHFWTXVRNjV1OFhza2J5VzEwOTc2T2NMT01IRkIzOVY5M0NJbmc5c1hKVVphSkZjdVRtb2tmbjZZSE9oR1BEVERrMkpqMD0iLCJtYWMiOiJmOWZjY2IyNTg3YmQyMTJlY2FkNGFlOTBhZGE4ZjU3ZDMxZGUwODJlOTA1YzYxY2Q4OWI0OWFiOTIzZGM4ODlhIiwidGFnIjoiIn0%3D",
+		"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6InpscWQ2Z21tODVnVm95dXBJNnJrS3c9PSIsInZhbHVlIjoiQkF1dU1EME5HK2Uxb3dNSWtseWgwaVovY0pFc01yZ0Z3NXFLaXlLdUcwb1VjWlZVM1VBNTZneDRkYWNpakVtSzMzZ0V6ZmRkRzRoQXB2ZDY4bE5XUXp1eHJ3TjRnYVdNQVhIUFJ5b3ZDb1ptWTJBL1UxZHIyNjVwM3NkUWFhak4zT2E5bHJ4eFBwMG5pUEFTUnphTTk5b0pGYndxaXpxenJTcEV1QXZ6S1Y1WmFEVktYM0RhU3E1WEVCRU5lKzdwVFZNam1ZUFZrOG02OHNIUkl4dTdEWlNvTE9JbVZWTm0wZFdQYmlRRjRBaz0iLCJtYWMiOiJlN2EzOWMwOWMzMmUwNzE0MjZlMTUxNTc4YTcwMGRhYTU1YzI0NGJlMDU2ZjI3NDliZjFiMjg5ZGVmNzlkYjljIiwidGFnIjoiIn0%3D",
         "Referer": "%%url%%"
 		
 		},
 		
 		
 		 "iterator": {
-            "base_url": "https://v1.slashlib.me/manga-list?sort=rate&dir=desc&genres[include][]=74&site_id=2&type=manga&caution_list[]=%D0%9E%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82&caution_list[]=16+&caution_list[]=18+&page=",
+            "base_url": "https://v2.slashlib.me/manga-list?sort=rate&dir=desc&genres[include][]=74&site_id=2&type=manga&caution_list[]=%D0%9E%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82&caution_list[]=16+&caution_list[]=18+&page=",
             "append_nums": {
 				"from": 1,
 				"to": 30
@@ -91,7 +92,7 @@
 		
 		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
-		"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IkROeDd1K0dqRFV3TTkrSUFjSmI2K0E9PSIsInZhbHVlIjoiTlZCT2RhaVp0bEMyTEorR1BvNkhyV005RFJrNXF0dU8zN291RnBNN05EdDJ5UEV5UkJrM0xTRE1uNW0zdzZoaXhBNjYwR0dYMS9JVmtPNkFvUzhyUCttNGdPNVJuZklLTlFyZ0M0M2dUcG5ELzdEWGthM0RXbHF2dHlKS09leDFYaGNUZWhlNmw5S25CcEFFYzNzWitGaHVGZUloWFFGSlo5eElJSHFWTXVRNjV1OFhza2J5VzEwOTc2T2NMT01IRkIzOVY5M0NJbmc5c1hKVVphSkZjdVRtb2tmbjZZSE9oR1BEVERrMkpqMD0iLCJtYWMiOiJmOWZjY2IyNTg3YmQyMTJlY2FkNGFlOTBhZGE4ZjU3ZDMxZGUwODJlOTA1YzYxY2Q4OWI0OWFiOTIzZGM4ODlhIiwidGFnIjoiIn0%3D",
+		"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6InpscWQ2Z21tODVnVm95dXBJNnJrS3c9PSIsInZhbHVlIjoiQkF1dU1EME5HK2Uxb3dNSWtseWgwaVovY0pFc01yZ0Z3NXFLaXlLdUcwb1VjWlZVM1VBNTZneDRkYWNpakVtSzMzZ0V6ZmRkRzRoQXB2ZDY4bE5XUXp1eHJ3TjRnYVdNQVhIUFJ5b3ZDb1ptWTJBL1UxZHIyNjVwM3NkUWFhak4zT2E5bHJ4eFBwMG5pUEFTUnphTTk5b0pGYndxaXpxenJTcEV1QXZ6S1Y1WmFEVktYM0RhU3E1WEVCRU5lKzdwVFZNam1ZUFZrOG02OHNIUkl4dTdEWlNvTE9JbVZWTm0wZFdQYmlRRjRBaz0iLCJtYWMiOiJlN2EzOWMwOWMzMmUwNzE0MjZlMTUxNTc4YTcwMGRhYTU1YzI0NGJlMDU2ZjI3NDliZjFiMjg5ZGVmNzlkYjljIiwidGFnIjoiIn0%3D",
         "Referer": "%%url%%"
 		
 		},
@@ -111,7 +112,7 @@
             "token2": "</div>"
         },
 		"uniq":  { "after": "property=\"og:site_name\"",
-		"token1":"content=\"https://v1.slashlib.me/",
+		"token1":"content=\"https://v2.slashlib.me/",
 		"token2": "\""
 		},
 		
@@ -168,7 +169,7 @@
 			  "headers": {
 	    "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
         "Accept": "image/webp,*/*;q=0.8",
-        "Referer": "https://v1.slashlib.me/"
+        "Referer": "https://v2.slashlib.me/"
 		
 		},
 		
@@ -178,17 +179,18 @@
 			 
 			"token1": "\"chapter_number\":",
             "token2": "\"chapter_moderated",
-
+            
 			"replace": [
-                      
-						{ "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "%%path%%/v$4/c$2" },
-						
-{ "match" : "//v",  "text" : "/v" },
-						{ "prefix" : "https://v1.slashlib.me" }
- 
+			
+	{"match": "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),", "text": "%%path%%/v$4/c$2" },
+    { "match": "//v", "text": "/v" },
+	{ "sufix": "?ui=725" },
+	
+	{ "prefix": "https://v1.slashlib.me" }
 
-						]                  
-            },
+			],               
+           "sufix": { "before" : ">Начать читать<", "token1": "/v1/c0?ui=", "token2": "\"" }
+			},
 			
             "uniq": {
 			     "token1": "\"chapter_number\":",
@@ -205,8 +207,8 @@
 	},
 	"chapter_complete": {
    "headers": {
-		"Referer": "https://v1.slashlib.me/",
-"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IkROeDd1K0dqRFV3TTkrSUFjSmI2K0E9PSIsInZhbHVlIjoiTlZCT2RhaVp0bEMyTEorR1BvNkhyV005RFJrNXF0dU8zN291RnBNN05EdDJ5UEV5UkJrM0xTRE1uNW0zdzZoaXhBNjYwR0dYMS9JVmtPNkFvUzhyUCttNGdPNVJuZklLTlFyZ0M0M2dUcG5ELzdEWGthM0RXbHF2dHlKS09leDFYaGNUZWhlNmw5S25CcEFFYzNzWitGaHVGZUloWFFGSlo5eElJSHFWTXVRNjV1OFhza2J5VzEwOTc2T2NMT01IRkIzOVY5M0NJbmc5c1hKVVphSkZjdVRtb2tmbjZZSE9oR1BEVERrMkpqMD0iLCJtYWMiOiJmOWZjY2IyNTg3YmQyMTJlY2FkNGFlOTBhZGE4ZjU3ZDMxZGUwODJlOTA1YzYxY2Q4OWI0OWFiOTIzZGM4ODlhIiwidGFnIjoiIn0%3D"
+		"Referer": "https://v2.slashlib.me/",
+"cookie" :"remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6InpscWQ2Z21tODVnVm95dXBJNnJrS3c9PSIsInZhbHVlIjoiQkF1dU1EME5HK2Uxb3dNSWtseWgwaVovY0pFc01yZ0Z3NXFLaXlLdUcwb1VjWlZVM1VBNTZneDRkYWNpakVtSzMzZ0V6ZmRkRzRoQXB2ZDY4bE5XUXp1eHJ3TjRnYVdNQVhIUFJ5b3ZDb1ptWTJBL1UxZHIyNjVwM3NkUWFhak4zT2E5bHJ4eFBwMG5pUEFTUnphTTk5b0pGYndxaXpxenJTcEV1QXZ6S1Y1WmFEVktYM0RhU3E1WEVCRU5lKzdwVFZNam1ZUFZrOG02OHNIUkl4dTdEWlNvTE9JbVZWTm0wZFdQYmlRRjRBaz0iLCJtYWMiOiJlN2EzOWMwOWMzMmUwNzE0MjZlMTUxNTc4YTcwMGRhYTU1YzI0NGJlMDU2ZjI3NDliZjFiMjg5ZGVmNzlkYjljIiwidGFnIjoiIn0%3D"
 		},
 	
     	"images": true,
@@ -237,7 +239,7 @@
 			"assert" : {
 				"mangas" : [
             { "title" : "Логическая ошибка", 
-            "link" : "https://v1.slashlib.me/semantic-error",
+            "link" : "https://v2.slashlib.me/semantic-error",
 			"uniq" : "semantic-error" }
 				],
 				"mangas_count" : ">=50"
@@ -245,7 +247,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://v1.slashlib.me/semantic-error",
+			"link" : "https://v2.slashlib.me/semantic-error",
 			"title" : "Логическая ошибка | Semantic Error",
 			"assert" : {
 				"author" : "@Jeosuri",
@@ -258,11 +260,11 @@
 				"chapters" : [
 					{
             "folder": "Том 1 Глава 0\\",
-            "link": "https://v1.slashlib.me/semantic-error/v1/c0",
+            "link": "https://v2.slashlib.me/semantic-error/v1/c0?ui=725",
             "title": "Том 1 Глава 0"
         },
         {
-            "link": "https://v1.slashlib.me/semantic-error/v1/c1",
+            "link": "https://v2.slashlib.me/semantic-error/v1/c1?ui=725",
             "title": "Том 1 Глава 1"
         }
 				]
@@ -270,7 +272,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://v1.slashlib.me/semantic-error/v1/c1",
+			"link" : "https://v2.slashlib.me/semantic-error/v1/c1?ui=725",
 			"assert" : {
 				"pages" : [
 				

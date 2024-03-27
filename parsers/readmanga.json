@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 74,
+    "version": 75,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -45,7 +45,13 @@
 
                 "replace":{"match":"<.*?>", "text":""} }
 
-        }
+        },
+		"link_corrector": [
+            {
+                "match": "readmanga.me",
+                "text": "readmanga.live"
+            }
+        ]
     },
         
     "manga_list_complete": {
