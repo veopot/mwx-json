@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 75,
+    "version": 77,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
@@ -45,13 +45,7 @@
 
                 "replace":{"match":"<.*?>", "text":""} }
 
-        },
-		"link_corrector": [
-            {
-                "match": "readmanga.me",
-                "text": "readmanga.live"
-            }
-        ]
+        }
     },
         
     "manga_list_complete": {
@@ -68,6 +62,13 @@
             "additional_title": { "after": "img class", "token1": "title='", "token2": "'" },
             "cover": { "token1": "data-original='", "token2": "'" }
         },
+		
+		"link_corrector": [
+            {
+                "match": "readmanga.me",
+                "text": "readmanga.live"
+            }
+        ]
         "rating_auto_inc": {
             "start": 40000,
             "inc": -1
