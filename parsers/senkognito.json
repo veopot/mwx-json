@@ -1,6 +1,6 @@
 {
    "id":65218,
-   "version":2,
+   "version":3,
    
    
    "title":"Senkognito (18+)",
@@ -145,7 +145,7 @@
 
         "chapters_from_page": {
             "after": "property=\"og:url\"",
-            "token1": "content=\"https://senkuro.com/manga/",
+            "token1": "content=\"https://senkognito.com/manga/",
             "token2": "\"",
             "replace": { "prefix": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/" }           
             
