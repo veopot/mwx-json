@@ -1,10 +1,14 @@
 {
    "id":65216,
-   "version":17,
+   "version":20,
+   
+   "old_sites": ["senkuro.com" ],
+   
+   
    
    
    "title":"Senkuro",
-   "host":"https://senkuro.com",
+   "host":"http://bypass.mwx.su/",
    "public_link":"https://senkuro.com/browse/manga",
    "folder":"senkuro",
    "name":"senkuro",
@@ -23,6 +27,7 @@
       "name":"MWX and Hikkun",
       "email":"fant-net@ya.com"
    },
+   
    "manga_list_complete":{
       "iterator":{
          "base_url":"http://bypass.mwx.su/api/manga/senkuro/mangas?page=",
@@ -35,7 +40,7 @@
 	  "link_corrector": [
             {
                 "match": "https://senkuro.com/manga/(.*?)/(.*)",
-                "text": "https://senkuro.com/manga/$1"
+                "text": "http://bypass.mwx.su/api/manga/senkuro/title/$1"
             }
         ],
       "add_manga":{
@@ -49,7 +54,7 @@
          "link":{
             "token1":"\"slug\":\"",
             "token2":"\"",
-			"replace": { "prefix": "https://senkuro.com/manga/"}
+			"replace": { "prefix": "http://bypass.mwx.su/api/manga/senkuro/title/"}
          },
         "uniq":{
             "token1":"\"slug\":\"",
@@ -69,132 +74,114 @@
 		
 		 "add_manga":{
 		 
-         "next":"alternativeNames",
+         "next":"\"id\":",
 		 
-          "title":{
-            "before":"\"lang\":\"RU\"",
-            "token1":"\"content\":\"",
-            "token2":"\""
-			
-			
-			
-         },
+          "title":{ 
+		  "skip": "\"titles\": [",
+                "token1": "{\"lang\": \"RU\", \"content\": \"",
+                "token2": "\""
+		},
+      
 		 
           "link":{
-            "token1":"\"slug\":\"",
+            "token1":"\"slug\": \"",
             "token2":"\"",
-			"replace": { "prefix": "https://senkuro.com/manga/"}
+			"replace": { "prefix": "http://bypass.mwx.su/api/manga/senkuro/title/"}
          },
 		 
-		 "summary": {  "token1": "\"translitionStatus\":\"", "token2":"\"",
-                "replace":[
-				{"match": "IN_PROGRESS","text": "Статус перевода: Переводится"},
-				{"match": "FINISHED","text": "Статус перевода: Завершён"},
-				{"match": "FROZEN","text": "Статус перевода: Заморожен"},
-				{"match": "ABANDONED","text": "Статус перевода: Заброшен"},
-				{"match":"<.*?>","text":""}
-
-				] },
-				
-         "cover":{
-			"skip":"\"cover\"",
-		    "token1":"\"url\":\"https://mirai.senkuro.net/manga/",
-            "token2":"\"",
-			"replace": { "prefix": "https://mirai.senkuro.net/manga/"}
-         }
+		 
+          
+      "cover":{
+		 "skip":"\"cover\"",
+         "token1":"\"url\": \"",
+         "token2":"\""
+		}
+	  
       }
 		},	
 		
 		
    
-   "manga_complete": { 
-	   "headers": {
-			"User-Agent": "MangaWatcherX",
-			"Referer": "https://senkuro.com/"
+   "manga_complete":{
+		
+	   "headers": {"User-Agent": "MangaWatcherX" },
+		
+	 
+	  
+      "title":{ "skip": "\"titles\": [",
+                "token1": "\"content\": \"",
+                "token2": "\""
 		},
-      "title":{
-         "after":"property=\"og:title\"", 
-         "token1":"content=\"",
-         "token2":"\"" ,
-		 
-		 "replace": [
-				{"match": "Манга","text": ""},
-				{"match": "Манхва","text": ""},
-				{"match": "Читать","text": ""},
-				{"match": "/","text": "|"},
-				{"match":"<.*?>","text":""}
-
-				]},
       
-      "uniq":{
-         "token1":"property=\"og:url\" content=\"https://senkuro.com/manga/",
-         "token2":"\""
-      },
-	  
-	  
+	 "uniq":{
+		"token1": "\"uniq\": \"",
+        "token2": "\""
+		},
+        
+      
       "cover":{
-		 "skip":"\"contentUrl\":",
-         "token1":"\"https://",
-         "token2":"\"",
-		"replace": {
-				"prefix": "https://"
-				}
+		 "skip":"\"cover\"",
+         "token1":"\"url\": \"",
+         "token2":"\""
 		},
 	  
 	  
-	  "status": { 
-		  	"complete": { 
-			"start": "> Статус перевода <",
-            "end": "</div>",
-			   "values": [ "Завершена", "Переведена","Завершён",  "Сингл"] },
-			
-            "ongoing": { 
-			"start": "> Статус перевода <",
-             "end": "</div>",
-               "values": [ "Выпускается", "Переводится", "Переводится"] 
-				
-			 },
-			"single": "<span>Сингл</span>"
-		},
-			 
+	   "status": {
+            "complete": {
+                "start": "\"status\"",
+                "end": "\"translationStatus",
+                "values": ["FINISHED", "CANCELLED", "Сингл"]
+            },
+            "ongoing": {
+                 "start": "\"status\"",
+                "end": "\"translationStatus",
+                "value": "ONGOING"
+            }
+        },
+		
+		
 			 
       "summary":{
-         "after":"name=\"description\"",
-         "token1":"content=\"",
-         "token2":"\">",
+         "token1":"\"description\": \"",
+         "token2":"\"}",
          "replace":{
             "match":"<.*?>",
             "text":""
          }
       },
+	  
+	  "add_genres":   { 	
+	   "start": "\"genres\": [",
+             "end": "],",
+	        "token1": "\"content\": \"", "token2": "\"" },
+			
       "add_tags":   { 	
-	   "start": "\\\"genres\\\":",
-             "end": "\\\"series\\\":",
-	        "token1": "RU\\\",\\\"content\\\":\\\"", "token2": "\\\"" },
+	   "start": "\"tags\": [",
+             "end": "]",
+	        "token1": "\"content\": \"", "token2": "\"" },
 	  
 	  
       "is_mature":{
          "values":[
-            "content\\\":\\\"эротика\\\"",
-            "content\\\":\\\"юри\\\"",
-            "content\\\":\\\"яой\\\""
+            "content\": \"эротика\"",
+            "content\": \"юри\"",
+            "content\": \"яой\""
 			
          ]
       },
 	  
 	
+	
+    	  
 	  
-	 
-
-        "chapters_from_page": {
-            "after": "property=\"og:url\"",
-            "token1": "content=\"https://senkuro.com/manga/",
+"chapters_from_page": {
+            "after": "\"uniq",
+            "token1": "\": \"",
             "token2": "\"",
-            "replace": { "prefix": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/" }           
-            
+            "replace":{"prefix": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/"}
         },
-	  
-	  
+		
+    
 		
 		"add_chapter":{
         "start": "[",
@@ -206,7 +193,7 @@
 		                 
          "link":{
 			"before": "\"num",
-            "token1":"\"id\":\"",
+            "token1":"\"id\": \"",
             "token2":"\"",
 			"replace":
 		        [
@@ -221,8 +208,8 @@
             "token1":"ber\":",
             "token2":"}",
 			"replace": [
-			{ "match": "(.*)\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\"(.*)",		
-			"text": "$4/$2"},
+			{ "match": "\"(.*?)\", \"volume\": \"(.*?)\", \"name\":(.*)",	
+			"text": "$2/$1"},
 			{ "match": "null", "text": ""}
 			]
         },
@@ -232,15 +219,16 @@
             "token1":"ber\":",
             "token2":"}",
 			"replace": [
-			{ "match": "(.*)\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\"(.*)",		
-			"text": "Том: $4 Глава: $2"},
+			{ "match": "\"(.*?)\", \"volume\": \"(.*?)\", \"name\":(.*)",		
+			"text": "Том: $2 Глава: $1"},
 			{ "match": "null", "text": ""}
 			]
         }
       }
 	  
 	  
-   },
+   }, 
+  
    
    "chapter_complete":{
     "add_numeration": true,
@@ -271,7 +259,7 @@
 		}
 		]
 	},
-		"remove_first": true,
+	"remove_first": true
 
 	},
 	
@@ -292,7 +280,7 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://senkuro.com/manga/magic-emperor",
+         "link":"http://bypass.mwx.su/api/manga/senkuro/title/magic-emperor",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
