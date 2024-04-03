@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":20,
+   "version":21,
    
    "old_sites": ["senkuro.com" ],
    
@@ -40,8 +40,7 @@
 	  "link_corrector": [
             {
                 "match": "https://senkuro.com/manga/(.*?)/(.*)",
-                "text": "http://bypass.mwx.su/api/manga/senkuro/title/$1"
-            }
+                "text": "http://bypass.mwx.su/api/manga/senkuro/title/$1"}
         ],
       "add_manga":{
          "next":"\"formats\"",
@@ -107,9 +106,9 @@
 	   "headers": {"User-Agent": "MangaWatcherX" },
 		
 	 
-	  
-      "title":{ "skip": "\"titles\": [",
-                "token1": "\"content\": \"",
+	"title":{ 
+		  "skip": "\"titles\": [",
+                "token1": "{\"lang\": \"RU\", \"content\": \"",
                 "token2": "\""
 		},
       
@@ -142,7 +141,9 @@
 		
 			 
       "summary":{
-         "token1":"\"description\": \"",
+		  "skip": "\"localizations\":",
+		  
+         "token1":"{\"lang\": \"RU\", \"description\": \"",
          "token2":"\"}",
          "replace":{
             "match":"<.*?>",
