@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":21,
+   "version":22,
    
    "old_sites": ["senkuro.com" ],
    
@@ -145,10 +145,13 @@
 		  
          "token1":"{\"lang\": \"RU\", \"description\": \"",
          "token2":"\"}",
-         "replace":{
-            "match":"<.*?>",
-            "text":""
-         }
+         "replace": [
+			{ "match":"<.*?>", "text":""},
+			{ "match": "\\\"", "text": "'"}
+			]
+		 
+		 
+		 
       },
 	  
 	  "add_genres":   { 	
