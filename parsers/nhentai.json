@@ -1,263 +1,315 @@
 {
-	"id": 30479,
-	"version": 25,
-
-	"old_ids": [40010],
+    "id": 30479,
+    "version": 26,
+    "old_ids": [
+        40010
+    ],
     "host": "https://nhentai.net/",
-	"public_link": "https://nhentai.net/",
-
-
-
-	"title": "nHentai",
+    "public_link": "https://nhentai.net/",
+    "title": "nHentai",
     "folder": "nhentai",
-	"name": ["nhen", "nhentai"],
-	"chapters_order": false,
-	"language": "en",
-	"is_mature": true,
-	"is_paid": true,
-
-
-	"skip_catalog_test": false,
-	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/nhentai.png",
-	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/nhentai.json",
-	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/nhentai.json",
-	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/nhentai.zip",
-	"file_type": "sqlite",
-
-
-	"manga_search_complete": {
-		"search_link": "https://nhentai.net/search?q=$query$&page=$page$",
-		"query_type": "GET",
-		"add_manga": {
-			"next": "div class=\"gallery\"",
-			"link": {
-				"token1": "<a href=\"/g/",
-				"token2": "\"",
-				"replace": {
-					"prefix": "https://nhentai.net/g/"
-				}
-			},
-
-			"title": {
-				"token1": "class=\"caption\">",
-				"token2": "</",
-			"replace": [ 
-			{ "match": "(\\[[^]]*]|[({][^)}]*[)}])", "text": "" }, 
-		    { "match": "<.*?>", "text": "" } 
-				 ] 
-			},
-			"cover": {
-				"token1": "src=\"https://",
-				"token2": "\"",
-				"replace": {
-					"prefix": "https://"
-				}
-			},
-			"uniq": {
-				"token1": "class=\"caption\">",
-				"token2": "</",
-			"replace": [ 
-			{ "match": "(\\[[^]]*]|[({][^)}]*[)}])", "text": "" }, 
-		    { "match": "<.*?>", "text": "" } 
-				 ] 
-			}
-		}
-	},
-
-
-
-	"manga_list_complete": {
-
-		"iterator": {
-			"base_url": "https://nhentai.net/?page=",
-			"append_nums": {
-				"from": 1,
-				"to": 15000,
-				"step": 1,
-				"last_page": {
-					"before": "class=\"last\"",
-					"token1": "?page=",
-					"token2": "\""
-				}
-			}
-		},
-
-		"add_manga": {
-			"next": "div class=\"gallery\"",
-			"link": {
-				"token1": "<a href=\"",
-				"token2": "\""
-			},
-			"title": {
-				"token1": "caption\">",
-				"token2": "</div>"
-			}
-		},
-
-		"rating_auto_inc": {
-			"start": "1000000",
-			"inc": -1
-		}
-	},
-
-	"manga_complete": {
-		"title": {
-			"skip": "<div id=\"info\">",
-			"token1": "<h1 class=\"title\">",
-			"token2": "</h1>",
-			"replace": [ 
-			{ "match": "(\\[[^]]*]|[({][^)}]*[)}])", "text": "" }, 
-		    { "match": "<.*?>", "text": "" } 
-				 ] 
-		},
-
-		"uniq": {
-			"skip": "<div id=\"info\">",
-			"token1": "<h1 class=\"title\">",
-			"token2": "</h1>",
-			"replace": [ 
-			{ "match": "(\\[[^]]*]|[({][^)}]*[)}])", "text": "" }, 
-		    { "match": "<.*?>", "text": "" } 
-				 ] 
-		},
-
-		"author": {
-			"after": "<a href=\"/artist/",
-			"token1": "\">",
-			"token2": "</a>",
-			"replace": [ 
-			{ "match": "<span class=\"name\">", "text": "" }, 
-			{ "match": "<span class=\"count\">(.*?)</span>", "text": "" }, 
-			{ "match": "</span>", "text": "" } 
-				 ] 
-		},
-
-		"summary": {
-			"skip": "Languages:",
-			"token1": "<span class=\"tags\">",
-			"token2": "</div>",
-			"replace": [ 
-			{ "match": "<span class=\"name\">", "text": ", " }, 
-			{ "match": "<a (.*?) >", "text": "" }, 
-			{ "match": "<span class=\"count\">(.*?)</span>", "text": "" }, 
-			{ "prefix": "Language: " } 
-				 ] 
-		},
-		"status": {
-			"single": ["download"],
-			"ongoing": "перевод продолжается<"
-		},
-		"read_dir": {
-			"right_to_left": "doujinshi and manga",
-			"left_to_right": "notmanga"
-		},
-		"cover": {
-			"skip": "<div id=\"cover\">",
-			"token1": "data-src=\"",
-			"token2": "\""
-		},
-
-		"add_genre": {
-			"skip": "Languages:",
-			"token1": "<span class=\"tags\">",
-			"token2": "</div>",
-			"replace": [ 
-			{ "match": "<span class=\"name\">", "text": ", " }, 
-			{ "match": "<a (.*?) >", "text": "" }, 
-			{ "match": "<span class=\"count\">(.*?)</span>", "text": "" } 
-				 ] 
-		},
-
-		"add_tag": {
-			"after": "<a href=\"/tag/",
-			"token1": "\">",
-			"token2": "</a",
-			"replace": [ 
-			{ "match": "<span class=\"name\">", "text": "" }, 
-			{ "match": "<span class=\"count\">(.*?)</span>", "text": "" }, 
-			{ "match": "</span>", "text": "" }
-				 ]
-		},
-
-
-		"add_chapter": {
-			"next": "id=\"cover\">",
-			"link": {
-				"token1": "<a href=\"",
-				"token2": "1/\">"
-			},
-			"title": "Read Single",
-			"uniq": "Read Single",
-		}
-	},
-
-
-	"chapter_complete": {
-		"headers": {
-			"Accept": "*/*",
-			"Referer": "https://nhentai.net/"
-		},
-		"add_images": {
-			"start": "<div class=\"container\" id=\"thumbnail-container\">",
-			"token1": "data-src=\"",
-			"token2": "t.jpg",
-			"end": "</body>",
-			"replace": [{
-					"sufix": ".jpg"
-				},
-				{
-					"match": "t.nh",
-					"text": "i.nh"
-				}
-			]
-
-
-		}
-	},
-
-	"test": [{
-			"proc": "manga_list_complete",
-			"testpages": 10,
-			"assert": {
-				"mangas": [{
-					"title": "@^(\\[)",
-					"link": "@https:"
-				}],
-				"mangas_count": ">=100"
-			}
-		},
-		{
-			"proc": "manga_complete",
-			"link": "https://nhentai.net/g/374008/",
-			"title": "Imaizumin-chi wa Douyara Gal no Tamariba ni Natteru Rashii 3",
-			"assert": {
-				"cover": "https://t.nhentai.net/galleries/2016994/cover.jpg",
-				"summary": "@^Language: , translated, english",
-				"status": "single",
-				"tags_count": ">=15",
-				"chapters_count": ">=1",
-				"chapters": [
-				    {
-					"folder": "374008/",
-                    "link": "https://nhentai.net/g/374008/",
-                    "title": "Read Single"
-				    }
-				            ]
-			}
-		},
-
-		{
-			"proc": "chapter_complete",
-			"link": "https://nhentai.net/g/374008/",
-			"assert": {
-				"pages": [
-		{"image": "https://i.nhentai.net/galleries/2016994/1.jpg"},
-        {"image": "https://i.nhentai.net/galleries/2016994/2.jpg"},
-        {"image": "https://i.nhentai.net/galleries/2016994/3.jpg"},
-        {"image": "https://i.nhentai.net/galleries/2016994/4.jpg"},
-				],
-				"pages_count": "75"
-			}
-		}
-	]
+    "name": [
+        "nhen",
+        "nhentai"
+    ],
+    "chapters_order": false,
+    "language": "en",
+    "is_mature": true,
+    "is_paid": true,
+    "skip_catalog_test": false,
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/nhentai.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/nhentai.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/nhentai.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/nhentai.zip",
+    "file_type": "sqlite",
+    "manga_search_complete": {
+        "search_link": "https://nhentai.net/search?q=$query$&page=$page$",
+        "query_type": "GET",
+        "add_manga": {
+            "next": "div class=\"gallery\"",
+            "link": {
+                "token1": "<a href=\"/g/",
+                "token2": "\"",
+                "replace": {
+                    "prefix": "https://nhentai.net/g/"
+                }
+            },
+            "title": {
+                "token1": "class=\"caption\">",
+                "token2": "</",
+                "replace": [
+                    {
+                        "match": "(\\[[^]]*]|[({][^)}]*[)}])",
+                        "text": ""
+                    },
+                    {
+                        "match": "<.*?>",
+                        "text": ""
+                    }
+                ]
+            },
+            "cover": {
+                "token1": "src=\"https://",
+                "token2": "\"",
+                "replace": {
+                    "prefix": "https://"
+                }
+            },
+            "uniq": {
+                "token1": "class=\"caption\">",
+                "token2": "</",
+                "replace": [
+                    {
+                        "match": "(\\[[^]]*]|[({][^)}]*[)}])",
+                        "text": ""
+                    },
+                    {
+                        "match": "<.*?>",
+                        "text": ""
+                    }
+                ]
+            }
+        }
+    },
+    "manga_list_complete": {
+        "iterator": {
+            "base_url": "https://nhentai.net/?page=",
+            "append_nums": {
+                "from": 1,
+                "to": 15000,
+                "step": 1,
+                "last_page": {
+                    "before": "class=\"last\"",
+                    "token1": "?page=",
+                    "token2": "\""
+                }
+            }
+        },
+        "add_manga": {
+            "next": "div class=\"gallery\"",
+            "link": {
+                "token1": "<a href=\"",
+                "token2": "\""
+            },
+            "title": {
+                "token1": "caption\">",
+                "token2": "</div>"
+            }
+        },
+        "rating_auto_inc": {
+            "start": "1000000",
+            "inc": -1
+        }
+    },
+    "manga_complete": {
+        "title": {
+            "skip": "<div id=\"info\">",
+            "token1": "<h1 class=\"title\">",
+            "token2": "</h1>",
+            "replace": [
+                {
+                    "match": "(\\[[^]]*]|[({][^)}]*[)}])",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                }
+            ]
+        },
+        "uniq": {
+            "skip": "<div id=\"info\">",
+            "token1": "<h1 class=\"title\">",
+            "token2": "</h1>",
+            "replace": [
+                {
+                    "match": "(\\[[^]]*]|[({][^)}]*[)}])",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                }
+            ]
+        },
+        "author": {
+            "after": "<a href=\"/artist/",
+            "token1": "\">",
+            "token2": "</a>",
+            "replace": [
+                {
+                    "match": "<span class=\"name\">",
+                    "text": ""
+                },
+                {
+                    "match": "<span class=\"count\">(.*?)</span>",
+                    "text": ""
+                },
+                {
+                    "match": "</span>",
+                    "text": ""
+                }
+            ]
+        },
+        "summary": {
+            "skip": "Languages:",
+            "token1": "<span class=\"tags\">",
+            "token2": "</div>",
+            "replace": [
+                {
+                    "match": "<span class=\"name\">",
+                    "text": ", "
+                },
+                {
+                    "match": "<a (.*?) >",
+                    "text": ""
+                },
+                {
+                    "match": "<span class=\"count\">(.*?)</span>",
+                    "text": ""
+                },
+                {
+                    "prefix": "Language: "
+                }
+            ]
+        },
+        "status": {
+            "single": [
+                "download"
+            ],
+            "ongoing": "перевод продолжается<"
+        },
+        "read_dir": {
+            "right_to_left": "doujinshi and manga",
+            "left_to_right": "notmanga"
+        },
+        "cover": {
+            "skip": "<div id=\"cover\">",
+            "token1": "data-src=\"",
+            "token2": "\""
+        },
+        "add_genre": {
+            "skip": "Languages:",
+            "token1": "<span class=\"tags\">",
+            "token2": "</div>",
+            "replace": [
+                {
+                    "match": "<span class=\"name\">",
+                    "text": ", "
+                },
+                {
+                    "match": "<a (.*?) >",
+                    "text": ""
+                },
+                {
+                    "match": "<span class=\"count\">(.*?)</span>",
+                    "text": ""
+                }
+            ]
+        },
+        "add_tag": {
+            "after": "<a href=\"/tag/",
+            "token1": "\">",
+            "token2": "</a",
+            "replace": [
+                {
+                    "match": "<span class=\"name\">",
+                    "text": ""
+                },
+                {
+                    "match": "<span class=\"count\">(.*?)</span>",
+                    "text": ""
+                },
+                {
+                    "match": "</span>",
+                    "text": ""
+                }
+            ]
+        },
+        "add_chapter": {
+            "next": "id=\"cover\">",
+            "link": {
+                "token1": "<a href=\"",
+                "token2": "1/\">"
+            },
+            "title": "Read Single",
+            "uniq": "Read Single"
+        }
+    },
+    "chapter_complete": {
+        "headers": {
+            "Accept": "*/*",
+            "Referer": "https://nhentai.net/"
+        },
+        "add_images": {
+            "start": "<div class=\"container\" id=\"thumbnail-container\">",
+            "token1": "data-src=\"",
+            "token2": "t.jpg",
+            "end": "</body>",
+            "replace": [
+                {
+                    "sufix": ".jpg"
+                },
+                {
+                    "match": "t.nh",
+                    "text": "i.nh"
+                }
+            ]
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "testpages": 10,
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "@^(\\[)",
+                        "link": "@https:"
+                    }
+                ],
+                "mangas_count": ">=100"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://nhentai.net/g/374008/",
+            "title": "Imaizumin-chi wa Douyara Gal no Tamariba ni Natteru Rashii 3",
+            "assert": {
+                "cover": "https://t.nhentai.net/galleries/2016994/cover.jpg",
+                "summary": "@^Language: , translated, english",
+                "status": "single",
+                "tags_count": ">=15",
+                "chapters_count": ">=1",
+                "chapters": [
+                    {
+                        "folder": "374008/",
+                        "link": "https://nhentai.net/g/374008/",
+                        "title": "Read Single"
+                    }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://nhentai.net/g/374008/",
+            "assert": {
+                "pages": [
+                    {
+                        "image": "https://i.nhentai.net/galleries/2016994/1.jpg"
+                    },
+                    {
+                        "image": "https://i.nhentai.net/galleries/2016994/2.jpg"
+                    },
+                    {
+                        "image": "https://i.nhentai.net/galleries/2016994/3.jpg"
+                    },
+                    {
+                        "image": "https://i.nhentai.net/galleries/2016994/4.jpg"
+                    }
+                ],
+                "pages_count": "75"
+            }
+        }
+    ]
 }
