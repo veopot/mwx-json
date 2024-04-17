@@ -1,13 +1,13 @@
 {
    "id":40228,
-   "version":26,
+   "version":27,
    
-   "old_sites": ["mangapoisk.ru","mangapoisk.com","mangapoisk.org","mangapoisk.net" ],
+   "old_sites": ["mangapoisk.ru","mangapoisk.com","mangapoisk.org","mangapoisk.me" ],
    
    
    "title":"MangaPoisk",
-   "host":"https://mangapoisk.me",
-   "public_link":"https://mangapoisk.me/manga-list",
+   "host":"https://mangapoisk.net",
+   "public_link":"https://mangapoisk.net/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
    "language":"ru",
@@ -27,7 +27,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangapoisk.me/manga?page=",
+         "base_url":"https://mangapoisk.net/manga?page=",
          "append_nums":{
             "from":0,
             "to":281,
@@ -45,7 +45,7 @@
          "link":{
             "token1":"href=\"",
             "token2":"\"",
-			"replace": { "prefix": "https://mangapoisk.me"}
+			"replace": { "prefix": "https://mangapoisk.net"}
          },
          "cover":{
 		    "before":"href=\"",
@@ -61,7 +61,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://mangapoisk.me/search?q=$query$&page=$page$",
+        "search_link":"https://mangapoisk.net/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -83,9 +83,9 @@
 				
          "cover":{
 			"skip":"href=\"",
-		    "token1":"https://static2.mangapoisk.me/posters/",
+		    "token1":"https://static2.mangapoisk.net/posters/",
             "token2":"\"",
-			"replace": { "prefix": "https://static2.mangapoisk.me/posters/"}
+			"replace": { "prefix": "https://static2.mangapoisk.net/posters/"}
          }
       }
 		},	
@@ -95,7 +95,7 @@
    "manga_complete": { 
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.me"
+			"Referer": "https://mangapoisk.net"
 		},
       "title":{
          "skip":"<header class=\"card-header p-0\"><h1", 
@@ -111,16 +111,16 @@
 				]},
       
       "uniq":{
-         "token1":"\"url\":\"https:\/\/mangapoisk.me\/manga\/",
+         "token1":"\"url\":\"https:\/\/mangapoisk.net\/manga\/",
          "token2":"\","
       },
 	  
 	  
       "cover":{
-         "token1":"src=\"https://static2.mangapoisk.me/posters/",
+         "token1":"src=\"https://static2.mangapoisk.net/posters/",
          "token2":"\"",
 		"replace": {
-				"prefix": "https://static2.mangapoisk.me/posters/"
+				"prefix": "https://static2.mangapoisk.net/posters/"
 				}
 		},
 	  
@@ -173,7 +173,7 @@
 		"token1": "&quot;url&quot;:&quot;/manga/",
 		"token2": "&quot", 
 		"replace": [
-		        { "prefix" : "https://mangapoisk.me/manga/" },
+		        { "prefix" : "https://mangapoisk.net/manga/" },
 		        { "sufix" : "/chaptersList" },
 				{ "match": "\\\\", "text": "" }
 				],
@@ -184,7 +184,7 @@
 				"token2": "\"",
 				
 				"replace": [
-				    {"prefix": "https://mangapoisk.me" },
+				    {"prefix": "https://mangapoisk.net" },
 					{ "match": "&amp;", "text": "&" }
 				]
 				
@@ -209,7 +209,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.me"}
+			"replace": {"prefix" : "https://mangapoisk.net"}
          },
 		 
 		"uniq":{
@@ -233,7 +233,7 @@
     "add_numeration": true,
         "headers": {
 			"Accept": "*/*",
-			"Referer": "https://mangapoisk.me/"
+			"Referer": "https://mangapoisk.net/"
 		},
      
       "images":true,
@@ -242,12 +242,12 @@
 	{
 		"start": "class=\"pt-4 mx-auto outline-0 cursor-auto w-full\"",
 		"before": "id=\"",
-		"token1": "src=\"https://static2.mangapoisk.me/pages/",
+		"token1": "src=\"https://static2.mangapoisk.net/pages/",
 		"token2": "\"",
 		"end": ">Комментарии",
 		"replace":
 		[{
-				"prefix": "https://static2.mangapoisk.me/pages/"
+				"prefix": "https://static2.mangapoisk.net/pages/"
 			}, {
 				"match": "data-small-src=\"(.*?)\"",
 				"text": ""
@@ -269,7 +269,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://mangapoisk.me/manga/vanpanchmen",
+                  "link":"https://mangapoisk.net/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -278,12 +278,12 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.me/manga/solo-leveling-abs3R5B",
+         "link":"https://mangapoisk.net/manga/solo-leveling-abs3i3a",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
           
-            "cover":"@https://static2.mangapoisk.me/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
+            "cover":"@https://static2.mangapoisk.net/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
 		    "summary":"@^(Десять лет назад распахнулись)",
             "tags":"@fantasy",
             "status":"complete",
@@ -291,12 +291,12 @@
             "chapters_count":">=130",
             "chapters":[
         {
-            "link": "https://mangapoisk.me/manga/solo-leveling-abs3R5B/chapter/2-130",
+            "link": "https://mangapoisk.net/manga/solo-leveling-abs3i3a/chapter/2-130",
             "title": "Том 2 Глава 130"
         },
         {
             "folder": "2-131/",
-            "link": "https://mangapoisk.me/manga/solo-leveling-abs3R5B/chapter/2-131",
+            "link": "https://mangapoisk.net/manga/solo-leveling-abs3i3a/chapter/2-131",
             "title": "Том 2 Глава 131"
         }
             ]
@@ -304,12 +304,12 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangapoisk.me/manga/solo-leveling-abs3R5B/chapter/2-130",
+         "link": "https://mangapoisk.net/manga/solo-leveling-abs3i3a/chapter/2-130",
          "assert":{
             "pages":[
-        {"image": "https://static2.mangapoisk.me/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.mangapoisk.me/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.mangapoisk.me/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.mangapoisk.net/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangapoisk.net/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangapoisk.net/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
             "pages_count":"14"
          }
