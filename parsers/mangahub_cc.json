@@ -1,6 +1,6 @@
 {
     "id": 46547,
-    "version": 12,
+    "version": 13,
 	"old_sites": ["mangahub.space"],
 	
     "title": "MangaHub_CC",
@@ -121,7 +121,7 @@
 			"User-Agent": "MangaWatcherX"
 			},
 			
-		"title":       { "token1":"class=\"title_head_name\">", "token2": "<div class=\"title_head_genres",
+		"title":       { "token1":"class=\"title_head_name\">", "token2": "<div class=\"title_body_info\">",
 				"replace": [
 				{ "match": "<h1 style=\"width: 0; height: 0; opacity: 0; display: none;\">(.*)</h1>", "text": "|" },
 				{ "match": "/", "text": "" },
