@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 92,
+    "version": 94,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -317,7 +317,7 @@
                     "prefix": "https://api.remanga.org/api/titles/chapters/?branch_id="
                 },
                 {
-                    "sufix": "&count=100&ordering=-index&page=%%iterator_num%%"
+                    "sufix": "&count=100&ordering=-index&user_data=0&page=%%iterator_num%%"
                 }
             ],
             "iterator": {
@@ -338,6 +338,7 @@
             "start": "content\"",
             "end": "props",
             "next": "\"is_paid\":false",
+			
             "link": {
                 "before": "\"is_paid\":false",
                 "token1": "id\":",
@@ -368,12 +369,16 @@
             },
             "title": {
                 "before": "\"is_paid\":false",
-                "token1": ",\"to",
-                "token2": "\",\"name\"",
+                "token1": ",\"t",
+                "token2":  "\",\"is",                   
                 "replace": [
                     {
-                        "match": "me\":",
+                        "match": "ome\":",
                         "text": "Том "
+                    },
+					{
+                        "match": "\",\"name\":\"",
+                        "text": " "
                     },
                     {
                         "match": ",\"chapter\":\"",
