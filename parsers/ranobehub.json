@@ -1,6 +1,6 @@
 {
    "id":40259,
-   "version":2,
+   "version":3,
    "title":"RanobeHub",
    "host":"https://ranobehub.org",
    "public_link":"https://ranobehub.org",
@@ -22,10 +22,8 @@
    
    "manga_search_complete": {
        "headers": {
-		"Accept": "*/*",
-        "Referer": "https://ranobehub.org/",
-	    "User-Agent": "MangaWatcherX"
-		},
+		"Referer": "https://ranobehub.org/",
+	    },
         "search_link": "https://ranobehub.org/api/fulltext/global?query=$query$",
         "query_type": "GET",
         "add_manga": {
@@ -63,8 +61,7 @@
                 "replace": [
                     
 					{"match": "<div class=\"FicTable_Genres\">", "text": "&nbsp;&nbsp;" },
-					{ "match":"<.*?>", "text":""},
-					{ "match": ",", "text": ", " }
+					{ "match":"<.*?>", "text":""}
                 ]
             }
         }
@@ -198,7 +195,10 @@
 			"replace" : [
 			{ "match" : "\u0413\u043b\u0430\u0432\u044b", "text" : "Глава" },
 			{ "match" : "\u0433\u043b\u0430\u0432\u044b", "text" : "Глава" },
-			{ "match" : "\u0433\u043b\u0430\u0432\u0430", "text" : "Глава" }
+			{ "match" : "\u0433\u043b\u0430\u0432\u0430", "text" : "Глава" },
+			{ "match" : "Главы", "text" : "Глава" },
+			{ "match" : "глава", "text" : "Глава" },
+			{ "match" : "главы", "text" : "Глава" }
 		        ] 
           }
       }
