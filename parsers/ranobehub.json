@@ -1,6 +1,6 @@
 {
    "id":40259,
-   "version":1,
+   "version":2,
    "title":"RanobeHub",
    "host":"https://ranobehub.org",
    "public_link":"https://ranobehub.org",
@@ -8,7 +8,7 @@
    "name":"ranobehub",
    "language":"ru",
    "encoding":"utf-8",
-   "chapters_order":false,
+   "chapters_order":true,
    "icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/ranobehub.png",
    
     "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/ranobehub.json",
@@ -33,22 +33,12 @@
             
         "next":"\"id\"",
 		
-		"start": "\"key\":\"ranobe\"",
+		"start": "[",
 		"end": "\"key\":\"users",
         
-		
-		
-		
-        
 		"title":{
-            "token1":"\"names\":{",
-            "token2":"},",
-			"replace" : [ 
-			{ "match" : "\"eng\":\"", "text" : "" },
-			{ "match" : "\"rus\":\"", "text" : "" },
-			{ "match" : "\"original\":\"", "text" : "" },
-			{ "match" : "\",", "text" : "," }
-			]
+            "token1":"\"rus\":\"{",
+            "token2":"\""
          },
          "link":{
 		 
@@ -204,7 +194,12 @@
           },
          "title":{
             "token1":"\"name\":\"",
-            "token2":"\""
+            "token2":"\"",
+			"replace" : [
+			{ "match" : "\u0413\u043b\u0430\u0432\u044b", "text" : "Глава" },
+			{ "match" : "\u0433\u043b\u0430\u0432\u044b", "text" : "Глава" },
+			{ "match" : "\u0433\u043b\u0430\u0432\u0430", "text" : "Глава" }
+		        ] 
           }
       }
 
