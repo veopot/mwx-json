@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 94,
+    "version": 95,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -51,7 +51,7 @@
                 "token1": "mid\":\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://api.remanga.org"
+                    "prefix": "https://remanga.org/media/"
                 }
             },
             "title": {
@@ -236,7 +236,7 @@
             "token2": "\"",
             "replace": [
                 {
-                    "prefix": "https://api.remanga.org"
+                    "prefix": "https://remanga.org/media/"
                 },
                 {
                     "match": "u002F",
