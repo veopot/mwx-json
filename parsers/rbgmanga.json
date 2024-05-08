@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 96,
+    "version": 97,
     "title": "ReManga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -51,13 +51,13 @@
                 "token1": "mid\":\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://remanga.org/media/"
+                    "prefix": "https://remanga.org"
                 }
             },
             "title": {
                 "before": "bookmark_type\"",
                 "token1": "main_name\":\"",
-                "token2": "\"translate_status",
+                "token2": "\",\"translate_status",
                 "replace": {
                     "match": "\",\"secondary_name\":\"",
                     "text": " | "
