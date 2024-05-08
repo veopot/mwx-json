@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 69,
+	"version": 70,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -203,7 +203,7 @@
 			"single": "<b>Сингл</b>"
 		},
 		"cover": {
-			"skin": "class=\"picture-fotorama\"",
+			"skip": "class=\"picture-fotorama\"",
 			"token1": "data-full=\"",
 			"token2": "\"",
 			"replace": {
