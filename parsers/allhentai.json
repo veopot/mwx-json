@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 68,
+	"version": 69,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -33,21 +33,15 @@
 	
 	
 	"manga_search_complete": {
-		"search_link": "https://20.allhen.online/search/advanced",
+		"search_link": "https://20.allhen.online/search/advancedResults?q=$query$&offset=&years=1991%2C2025&sortType=RATING",
 		"headers": {
 			"accept": "*/*",
-			"x-requested-with": "XMLHttpRequest",
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Referer": "https://20.allhen.online/search"
+			"Referer": "https://20.allhen.online/search/advanced"
 		},
-		"form_data": {
-			"q": "$query$"
-		},
-		"query_type": "POST",
 		"add_manga": {
-			"next": "<div class=\"tile col-md-6",
+			"next": "class=\"desc\">",
 			"summary": {
-				"token1": "class=\"html-popover-holder\">",
+				"token1": "class=\"manga-description\">",
 				"token2": "</div>",
 				"replace": [{
 						"match": "<.*?>",
@@ -68,7 +62,7 @@
 				"token2": "\""
 			},
 			"cover": {
-				"after": "<img",
+				"before": "<a href=\"",
 				"token1": "data-original='",
 				"token2": "'",
 				"replace": {
@@ -76,12 +70,10 @@
 				}
 			},
 			"title": {
-				"after": "<h3>",
 				"token1": "title=\"",
 				"token2": "\""
 			},
 			"uniq": {
-				"after": "<h3>",
 				"token1": "title=\"",
 				"token2": "\""
 			}
@@ -130,7 +122,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=WmxZJTJCMzhyZWwlMkJ0VEdzOVNMdCUyRlRPY1cyekwzRVdXRHA5U01lQXdTZTdWWSUzRDpMcE11eFYzdkRUTyUyQnhhbTJGR200OTlxNmQzYVVKR2JKTDJueE0lMkZjZ25UcyUzRA",
+			"cookie": "remember_me=MW1sUEJ1aDF3ejZpS0lSWmZ5dDExOE1XM3pnT3dDZzF2TVdMVjJDdWJTdyUzRDo1REhSTUxiRVIyMzdneFVjeXBZdzJydTYzSWpvd2g3cW1CJTJCMUJkOFNDdmslM0Q",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -211,8 +203,8 @@
 			"single": "<b>Сингл</b>"
 		},
 		"cover": {
-			"after": "picture-fotorama",
-			"token1": "src=\"",
+			"skin": "class=\"picture-fotorama\"",
+			"token1": "data-full=\"",
 			"token2": "\"",
 			"replace": {
 				"prefix": "http://b964805y.beget.tech/index.php?q="
@@ -276,7 +268,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=WmxZJTJCMzhyZWwlMkJ0VEdzOVNMdCUyRlRPY1cyekwzRVdXRHA5U01lQXdTZTdWWSUzRDpMcE11eFYzdkRUTyUyQnhhbTJGR200OTlxNmQzYVVKR2JKTDJueE0lMkZjZ25UcyUzRA",
+			"cookie": "remember_me=MW1sUEJ1aDF3ejZpS0lSWmZ5dDExOE1XM3pnT3dDZzF2TVdMVjJDdWJTdyUzRDo1REhSTUxiRVIyMzdneFVjeXBZdzJydTYzSWpvd2g3cW1CJTJCMUJkOFNDdmslM0Q",
 			
 			"Accept": "*/*",
 			"Referer": "https://20.allhen.online/"
