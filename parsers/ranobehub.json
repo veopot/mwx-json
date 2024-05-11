@@ -1,6 +1,6 @@
 {
    "id":40259,
-   "version":3,
+   "version":4,
    "title":"RanobeHub",
    "host":"https://ranobehub.org",
    "public_link":"https://ranobehub.org",
@@ -21,9 +21,8 @@
    },
    
    "manga_search_complete": {
-       "headers": {
-		"Referer": "https://ranobehub.org/",
-	    },
+       "headers": { "Referer": "https://ranobehub.org/" },
+	   
         "search_link": "https://ranobehub.org/api/fulltext/global?query=$query$",
         "query_type": "GET",
         "add_manga": {
@@ -150,7 +149,7 @@
 	  
 	  "add_tags":   { 	
 	   "start": ">События<",
-       "end": ">Заметки<",
+       "end": "id=\"app-similar-common-desktop\">",
 	     "after": "href=\"https://ranobehub.org/tag",    "token1": ">", "token2": "</a>" },
 			
 			
@@ -186,21 +185,23 @@
 			"replace" : { "match" : "\\\\", "text" : "" }
          },
 		 "uniq":{
-            "token1":"\"num\":",
-            "token2":","
-          },
+            "token1":"\"url\":\"",
+            "token2":"\"",
+			"replace": [
+			{ "match" : "(.*)/(.*)/(.*)", "text" : "$2/$3" },
+			{ "match" : "\\\\", "text" : "" }
+			]
+		    },
          "title":{
-            "token1":"\"name\":\"",
+            "token1":"\"url\":\"",
             "token2":"\"",
 			"replace" : [
-			{ "match" : "\u0413\u043b\u0430\u0432\u044b", "text" : "Глава" },
-			{ "match" : "\u0433\u043b\u0430\u0432\u044b", "text" : "Глава" },
-			{ "match" : "\u0433\u043b\u0430\u0432\u0430", "text" : "Глава" },
-			{ "match" : "Главы", "text" : "Глава" },
-			{ "match" : "глава", "text" : "Глава" },
-			{ "match" : "главы", "text" : "Глава" }
-		        ] 
-          }
+			{ "match" : "(.*)/(.*)/(.*)", "text" : "Том $2 Глава $3" },
+			{ "match" : "\\\\", "text" : "" }
+			]
+			
+		    }
+		 
       }
 
 
