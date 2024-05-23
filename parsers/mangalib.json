@@ -1,6 +1,6 @@
 {
 	"id": 2021,
-	"version": 21,
+	"version": 22,
 	
 	"title": "MangaLib",
 	"host": "https://mangalib.me/",
@@ -76,8 +76,8 @@
 		},
 		"link_corrector": [
             {
-                "match": "mangalib.me/(.*?)\\?section=(.*)",
-                "text": "mangalib.me/$1"
+                "match": "https://mangalib.me/(.*?)\\?(.*)",
+                "text": "https://mangalib.me/$1"
             }
         ],
         "rating_auto_inc": {
