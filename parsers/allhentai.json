@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 70,
+	"version": 71,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -84,7 +84,7 @@
 			"base_url": "https://20.allhen.online/list?sortType=votes&offset=",
 			"append_nums": {
 				"from": 0,
-				"to": 22330,
+				"to": 24850,
 				"step": 70
 			}
 		},
@@ -122,7 +122,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=MW1sUEJ1aDF3ejZpS0lSWmZ5dDExOE1XM3pnT3dDZzF2TVdMVjJDdWJTdyUzRDo1REhSTUxiRVIyMzdneFVjeXBZdzJydTYzSWpvd2g3cW1CJTJCMUJkOFNDdmslM0Q",
+			"cookie": "remember_me=NWJncCUyQkYlMkZvaE1SNEY1RDN4QjJ3WlNNZ1ZnSFNtVXFoZTV6eG5RajBmUlUlM0Q6MFV2YzY3d3FrRVN3d1kxbTA1JTJGMWNaeFVrOVE1ZTIlMkZNbmprJTJCVUY5eXlOdyUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -184,15 +184,15 @@
 		],
 		"status": {
 			"ongoing": {
-				"start": ">Перевод:<",
-				"end": "</p>",
+				"start": ">Информация о манге<",
+				"end": ">Описание<",
 				"values": [
 					"продолжается"
 				]
 			},
 			"complete": {
-				"start": ">Перевод:<",
-				"end": "</p>",
+				"start": ">Информация о манге<",
+				"end": ">Описание<",
 				"values": [
 					"завершен",
 					"переведено",
@@ -268,7 +268,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=MW1sUEJ1aDF3ejZpS0lSWmZ5dDExOE1XM3pnT3dDZzF2TVdMVjJDdWJTdyUzRDo1REhSTUxiRVIyMzdneFVjeXBZdzJydTYzSWpvd2g3cW1CJTJCMUJkOFNDdmslM0Q",
+			"cookie": "remember_me=NWJncCUyQkYlMkZvaE1SNEY1RDN4QjJ3WlNNZ1ZnSFNtVXFoZTV6eG5RajBmUlUlM0Q6MFV2YzY3d3FrRVN3d1kxbTA1JTJGMWNaeFVrOVE1ZTIlMkZNbmprJTJCVUY5eXlOdyUzRA",
 			
 			"Accept": "*/*",
 			"Referer": "https://20.allhen.online/"
@@ -276,7 +276,7 @@
 		"no_404": true,
 		"images": true,
 		"add_pages": {
-			"start": "rm_h.readerInit(",
+			"start": "rm_h.readerDoInit(",
 			"token1": "['",
 			"token2": "],",
 			"end": "]],",
@@ -331,15 +331,10 @@
 			"proc": "chapter_complete",
 			"link": "https://20.allhen.online/a_peephole/vol1/1",
 			"assert": {
-				"pages": [{
-						"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"
-					},
-					{
-						"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"
-					},
-					{
-						"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"
-					}
+				"pages": [
+		{"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
+		{"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"},
+		{"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"}
 				]
 			}
 		}
