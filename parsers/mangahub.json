@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	"old_sites": ["mangahub.ru","mangahub.com"],
-	"version": 56,
+	"version": 57,
 	
 	
 	"title": "MangaHub",
@@ -36,7 +36,7 @@
 			
 		},
 		
-		"search_link": "https://mangahub.me/search/manga?query=$query$&page=$page$",
+		"search_link": "https://mangahub.me/search/title?query=$query$&page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"text-line-clamp",
@@ -72,7 +72,7 @@
 			
 			"base_url": "https://mangahub.me/explore/sort-is-rating?page=",
 			
-			"append_nums": { "from": 1, "to": 313, "step": 1 }
+			"append_nums": { "from": 1, "to": 332, "step": 1 }
 		},
 		"add_manga": {
 			"next": "<a class=\"fw-medium\"",
