@@ -167,3 +167,14 @@
 	border: 0px solid #EEEEEE;
 	margin: 0;
 }
+
+.item2 {
+	position: relative;
+	width: 100%;
+	height: 460px;
+	margin-bottom: 25px;
+}
+.item2 .zoo-item {
+	border: 0px solid #EEEEEE;
+	margin: 0;
+}
