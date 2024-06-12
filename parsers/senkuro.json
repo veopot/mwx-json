@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":23,
+   "version":24,
    
    "old_sites": ["senkuro.com" ],
    
@@ -30,7 +30,7 @@
    
    "manga_list_complete":{
       "iterator":{
-         "base_url":"http://bypass.mwx.su/api/manga/senkuro/mangas?page=",
+         "base_url":"https://bypass.mwx.su/api/manga/senkuro/mangas?page=",
          "append_nums":{
             "from":1,
             "to":330,
@@ -53,7 +53,7 @@
          "link":{
             "token1":"\"slug\":\"",
             "token2":"\"",
-			"replace": { "prefix": "http://bypass.mwx.su/api/manga/senkuro/title/"}
+			"replace": { "prefix": "https://bypass.mwx.su/api/manga/senkuro/title/"}
          },
         "uniq":{
             "token1":"\"slug\":\"",
@@ -68,7 +68,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"http://bypass.mwx.su/api/manga/senkuro/search/?q=$query$",
+        "search_link":"https://bypass.mwx.su/api/manga/senkuro/search/?text=$query$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -76,23 +76,23 @@
          "next":"\"id\":",
 		 
           "title":{ 
-		  "skip": "\"titles\": [",
-                "token1": "{\"lang\": \"RU\", \"content\": \"",
+		  "skip": "\"titles\":[",
+                "token1": "\"lang\":\"RU\",\"content\":\"",
                 "token2": "\""
 		},
       
 		 
           "link":{
-            "token1":"\"slug\": \"",
+            "token1":"\"slug\":\"",
             "token2":"\"",
-			"replace": { "prefix": "http://bypass.mwx.su/api/manga/senkuro/title/"}
+			"replace": { "prefix": "https://bypass.mwx.su/api/manga/senkuro/title/"}
          },
 		 
 		 
           
       "cover":{
 		 "skip":"\"cover\"",
-         "token1":"\"url\": \"",
+         "token1":"\"url\":\"",
          "token2":"\""
 		}
 	  
@@ -107,22 +107,22 @@
 		
 	 
 	"title":{ 
-		  "skip": "\"titles\": [",
-                "token1": "{\"lang\": \"RU\", \"content\": \"",
+		  "skip": "\"titles\":[",
+                "token1": "\"content\":\"",
                 "token2": "\""
 		},
 		
-	"additional_title": { "after": "\"alternativeNames\"", "token1": "\"content\": \"", "token2": "\"" },	
+	"additional_title": { "after": "\"alternativeNames\"", "token1": "\"content\":\"", "token2": "\"" },	
       
 	 "uniq":{
-		"token1": "\"uniq\": \"",
+		"token1": "\"slug\":\"",
         "token2": "\""
 		},
         
       
       "cover":{
 		 "skip":"\"cover\"",
-         "token1":"\"url\": \"",
+         "token1":"\"url\":\"",
          "token2":"\""
 		},
 	  
@@ -130,12 +130,12 @@
 	   "status": {
             "complete": {
                 "start": "\"status\"",
-                "end": "\"translationStatus",
+                "end": "\"translitionStatus",
                 "values": ["FINISHED", "CANCELLED", "Сингл"]
             },
             "ongoing": {
-                 "start": "\"status\"",
-                "end": "\"translationStatus",
+                "start": "\"status\"",
+                "end": "\"translitionStatus",
                 "value": "ONGOING"
             }
         },
@@ -143,9 +143,9 @@
 		
 			 
       "summary":{
-		  "skip": "\"localizations\":",
+		  "skip": "\"description\"",
 		  
-         "token1":"{\"lang\": \"RU\", \"description\": \"",
+         "token1":"\"text\":\"",
          "token2":"\"}",
          "replace": [
 			{ "match":"<.*?>", "text":""},
@@ -157,21 +157,21 @@
       },
 	  
 	  "add_genres":   { 	
-	   "start": "\"genres\": [",
+	   "start": "\"genres\":[",
              "end": "],",
-	        "token1": "\"content\": \"", "token2": "\"" },
+	        "token1": "\"content\":\"", "token2": "\"" },
 			
       "add_tags":   { 	
-	   "start": "\"tags\": [",
+	   "start": "\"tags\":[",
              "end": "],",
-	        "token1": "\"content\": \"", "token2": "\"" },
+	        "token1": "\"content\":\"", "token2": "\"" },
 	  
 	  
       "is_mature":{
          "values":[
-            "content\": \"эротика\"",
-            "content\": \"юри\"",
-            "content\": \"яой\""
+            "content\":\"эротика\"",
+            "content\":\"юри\"",
+            "content\":\"яой\""
 			
          ]
       },
@@ -181,10 +181,10 @@
     	  
 	  
 "chapters_from_page": {
-            "after": "\"uniq",
-            "token1": "\": \"",
+            "after": "\"slug",
+            "token1": "\":\"",
             "token2": "\"",
-            "replace":{"prefix": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/"}
+            "replace":{"prefix": "https://bypass.mwx.su/api/manga/senkuro/chapters/"}
         },
 		
     
@@ -199,22 +199,21 @@
 		                 
          "link":{
 			"before": "\"num",
-            "token1":"\"id\": \"",
+            "token1":"\"id\":\"",
             "token2":"\"",
 			"replace":
 		        [
-		    { "prefix": "http://bypass.mwx.su/api/manga/senkuro/%%url%%/" },
-			{ "match": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/", "text": ""}
+		    { "prefix": "https://bypass.mwx.su/api/manga/senkuro/images/%%url%%/" },
+			{ "match": "https://bypass.mwx.su/api/manga/senkuro/chapters/", "text": ""}
 		        ]      
          },
-		 
 		 
 		"uniq":{
             "after": "\"num",
             "token1":"ber\":",
             "token2":"}",
 			"replace": [
-			{ "match": "\"(.*?)\", \"volume\": \"(.*?)\", \"name\":(.*)",	
+			{ "match": "\"(.*?)\",\"volume\":\"(.*?)\",\"name\":(.*)",	
 			"text": "$2/$1"},
 			{ "match": "null", "text": ""}
 			]
@@ -225,7 +224,7 @@
             "token1":"ber\":",
             "token2":"}",
 			"replace": [
-			{ "match": "\"(.*?)\", \"volume\": \"(.*?)\", \"name\":(.*)",		
+			{ "match": "\"(.*?)\",\"volume\":\"(.*?)\",\"name\":(.*)",		
 			"text": "Том: $2 Глава: $1"},
 			{ "match": "null", "text": ""}
 			]
@@ -248,13 +247,11 @@
     "add_pages":
 
 	{
-		"start": "\"data\"",
-		"token1": "https://mirai.senkuro.net/",
+		"start": "\"pages\"",
+		"token1": "\"url\":\"",
 		"token2": "\"",
 		"end": "]",
-		"replace":
-		[
-		{ "prefix": "https://mirai.senkuro.net/" },   
+		"replace":[
 		{
 		"match": "https://mirai.senkuro.net/system/tachiyomi-op.jpeg",
 		"text": ""
@@ -286,7 +283,7 @@
       },
       {
          "proc":"manga_complete",
-         "link":"http://bypass.mwx.su/api/manga/senkuro/title/magic-emperor",
+         "link":"https://bypass.mwx.su/api/manga/senkuro/title/magic-emperor",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
@@ -312,7 +309,7 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "http://bypass.mwx.su/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA",
+         "link": "https://bypass.mwx.su/api/manga/senkuro/images/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA",
          "assert":{
             "pages":[
           {"image": "http://bypass.mwx.su/api/manga/senkuro/magic-emperor/TUFOR0FfQ0hBUFRFUjo4MzkyMzgwMjk2NjIyMTE5OA"},
