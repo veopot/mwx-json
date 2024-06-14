@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":24,
+   "version":25,
    
    "old_sites": ["senkuro.com" ],
    
@@ -149,7 +149,7 @@
          "token2":"\"}",
          "replace": [
 			{ "match":"<.*?>", "text":""},
-			{ "match": "\\\"", "text": "'"}
+			{ "match":"\\\\\"", "text":"'"}
 			]
 		 
 		 
