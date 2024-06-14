@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":25,
+   "version":26,
    
    "old_sites": ["senkuro.com" ],
    
@@ -108,7 +108,7 @@
 	 
 	"title":{ 
 		  "skip": "\"titles\":[",
-                "token1": "\"content\":\"",
+                "token1": "lang\":\"RU\",\"content\":\"",
                 "token2": "\""
 		},
 		
