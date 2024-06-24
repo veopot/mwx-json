@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":26,
+   "version":27,
    
    "old_sites": ["senkuro.com" ],
    
@@ -75,26 +75,13 @@
 		 
          "next":"\"id\":",
 		 
-          "title":{ 
-		  "skip": "\"titles\":[",
-                "token1": "\"lang\":\"RU\",\"content\":\"",
-                "token2": "\""
-		},
-      
-		 
-          "link":{
+        "title": {  "token1": "\"titles\":\"", "token2": "\"" },
+        "link":{
             "token1":"\"slug\":\"",
             "token2":"\"",
 			"replace": { "prefix": "https://bypass.mwx.su/api/manga/senkuro/title/"}
-         },
-		 
-		 
-          
-      "cover":{
-		 "skip":"\"cover\"",
-         "token1":"\"url\":\"",
-         "token2":"\""
-		}
+        },
+		"cover":{ "token1":"\"cover\":\"", "token2":"\"" }
 	  
       }
 		},	
@@ -106,13 +93,9 @@
 	   "headers": {"User-Agent": "MangaWatcherX" },
 		
 	 
-	"title":{ 
-		  "skip": "\"titles\":[",
-                "token1": "lang\":\"RU\",\"content\":\"",
-                "token2": "\""
-		},
+	"title":{  "token1": "\"title_name\":\"", "token2": "\""},
 		
-	"additional_title": { "after": "\"alternativeNames\"", "token1": "\"content\":\"", "token2": "\"" },	
+	"additional_title": { "token1": "\"alternativeNames\":\"", "token2": "\"" },	
       
 	 "uniq":{
 		"token1": "\"slug\":\"",
@@ -121,8 +104,7 @@
         
       
       "cover":{
-		 "skip":"\"cover\"",
-         "token1":"\"url\":\"",
+		 "token1":"\"cover\":\"",
          "token2":"\""
 		},
 	  
@@ -143,10 +125,8 @@
 		
 			 
       "summary":{
-		  "skip": "\"description\"",
-		  
-         "token1":"\"text\":\"",
-         "token2":"\"}",
+		"token1":"\"description\":\"",
+        "token2":"\",",
          "replace": [
 			{ "match":"<.*?>", "text":""},
 			{ "match":"\\\\\"", "text":"'"}
@@ -157,21 +137,23 @@
       },
 	  
 	  "add_genres":   { 	
-	   "start": "\"genres\":[",
-             "end": "],",
-	        "token1": "\"content\":\"", "token2": "\"" },
+	        "token1": "\"genres\":\"",
+			"token2": "\"" ,
+			"split": "," 
+			},
 			
       "add_tags":   { 	
-	   "start": "\"tags\":[",
-             "end": "],",
-	        "token1": "\"content\":\"", "token2": "\"" },
+	        "token1": "\"tags\":\"",
+			"token2": "\"" ,
+			"split": "," 
+			},
 	  
 	  
       "is_mature":{
          "values":[
-            "content\":\"эротика\"",
-            "content\":\"юри\"",
-            "content\":\"яой\""
+            "эротика",
+            "юри",
+            "яой"
 			
          ]
       },
@@ -211,9 +193,9 @@
 		"uniq":{
             "after": "\"num",
             "token1":"ber\":",
-            "token2":"}",
+            "token2":"\"slug\"",
 			"replace": [
-			{ "match": "\"(.*?)\",\"volume\":\"(.*?)\",\"name\":(.*)",	
+			{ "match": "\"(.*?)\",\"volume\":\"(.*?)\",",	
 			"text": "$2/$1"},
 			{ "match": "null", "text": ""}
 			]
@@ -222,9 +204,9 @@
         "title":{
              "after": "\"num",
             "token1":"ber\":",
-            "token2":"}",
+             "token2":"\"slug\"",
 			"replace": [
-			{ "match": "\"(.*?)\",\"volume\":\"(.*?)\",\"name\":(.*)",		
+			{ "match": "\"(.*?)\",\"volume\":\"(.*?)\",",			
 			"text": "Том: $2 Глава: $1"},
 			{ "match": "null", "text": ""}
 			]
@@ -247,11 +229,12 @@
     "add_pages":
 
 	{
-		"start": "\"pages\"",
-		"token1": "\"url\":\"",
+		"start": "\"links\"",
+		"token1": "\"https://",
 		"token2": "\"",
 		"end": "]",
 		"replace":[
+		{ "prefix": "https://"},
 		{
 		"match": "https://mirai.senkuro.net/system/tachiyomi-op.jpeg",
 		"text": ""
