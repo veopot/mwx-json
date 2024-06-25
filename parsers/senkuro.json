@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":27,
+   "version":28,
    
    "old_sites": ["senkuro.com" ],
    
@@ -136,17 +136,20 @@
 		 
       },
 	  
-	  "add_genres":   { 	
+	  "add_tags":   { 	
 	        "token1": "\"genres\":\"",
-			"token2": "\"" ,
-			"split": "," 
+			"token2": "\",\"cover\"" ,
+			"split": ",",
+         "replace": [
+			{ "match":"\"", "text":""},
+			{ "match":":", "text":""},
+			{ "match":",", "text":""},
+			{ "match":" / ", "text":"/"},
+			{ "match":"tags", "text":""}
+			] 
 			},
 			
-      "add_tags":   { 	
-	        "token1": "\"tags\":\"",
-			"token2": "\"" ,
-			"split": "," 
-			},
+      
 	  
 	  
       "is_mature":{
