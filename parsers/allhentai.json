@@ -123,7 +123,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=VFZobVhhVU16U0tDVk9jUzVtMTZYJTJCc25DekhqSUFzTGs4U2l1aE5WYnNjJTNEOklBcVR2SDh5YmQyVFg1eHRZZWNiTXl4SVg3NmdGSiUyRm9GcmdmVnRxSDhrOCUzRA",
+			"cookie": "remember_me=QmQ2RmFGUExKcm5LUjVHU1BTenclMkJ5VGh4ZGRBRVp2dnN1d1dYdGpsaEFBJTNEOjcweXFJTEVWaWVCWmRRWkFRS00wOCUyQllIMDZLVFZISkEwQUdxZ3BMTFJBbyUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -269,7 +269,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=VFZobVhhVU16U0tDVk9jUzVtMTZYJTJCc25DekhqSUFzTGs4U2l1aE5WYnNjJTNEOklBcVR2SDh5YmQyVFg1eHRZZWNiTXl4SVg3NmdGSiUyRm9GcmdmVnRxSDhrOCUzRA",
+			"cookie": "remember_me=QmQ2RmFGUExKcm5LUjVHU1BTenclMkJ5VGh4ZGRBRVp2dnN1d1dYdGpsaEFBJTNEOjcweXFJTEVWaWVCWmRRWkFRS00wOCUyQllIMDZLVFZISkEwQUdxZ3BMTFJBbyUzRA",
 			
 			"Accept": "*/*",
 			"Referer": "https://z.ahen.me/"
