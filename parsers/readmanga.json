@@ -1,13 +1,13 @@
 {
     "id": 30006,
-    "version": 79,
+    "version": 80,
 	
 	"old_ids": [40172],
-        "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io"],
+        "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io", "readmanga.live" ],
 	
 	"title": "ReadManga",
-    "host": "https://readmanga.live/",
-    "public_link": "https://readmanga.live/list/",
+    "host": "https://1.readmanga.io/",
+    "public_link": "https://1.readmanga.io/list/",
     "folder": "readmanga",
     "name": "readmanga",
     "language": "ru",
@@ -22,7 +22,7 @@
 	
 
     "manga_search_complete": {      
-        "search_link": "https://readmanga.live/search/advanced?q=$query$&offset=$page$",
+        "search_link": "https://1.readmanga.io/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         
         "add_manga": {
@@ -50,7 +50,7 @@
         
     "manga_list_complete": {
         "iterator": {
-            "base_url": "https://readmanga.live/list?sortType=POPULARITY&offset=",
+            "base_url": "https://1.readmanga.io/list?sortType=POPULARITY&offset=",
             "append_nums": { "from": 0, "to": 26250, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
@@ -66,7 +66,7 @@
 		"link_corrector": [
             {
                 "match": "https://readmanga.me/",
-                "text": "https://readmanga.live/"
+                "text": "https://1.readmanga.io/"
             }
         ],
         "rating_auto_inc": {
@@ -80,7 +80,7 @@
             "condition": ">Запрещена публикация произведения по копирайту</",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://readmanga.live/",
+		"Referer": "https://1.readmanga.io/",
 		"cookie": "remember_me=aXI2SEJ2bHo5R3FvdVdBJTJCZ2VRTWtFdFBvaExPMWtRY2VJYzlSN1lFT0FFJTNEOiUyRnlvTFV5aVVjdHpLOWdtUXd3aEpEYlpUWVBwMmkyJTJCJTJCNWRDOHk5ZlhKQnclM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
@@ -171,7 +171,7 @@
 				
 			 "replace":  [
 			 {"prefix": "https://readmanga.ru"},
-			 {"match": "readmanga.live", "text": "readmanga.ru" },
+			 {"match": "1.readmanga.io", "text": "readmanga.ru" },
 			 {"sufix": "?mtr=1"}
 			    ]
 				},
@@ -195,7 +195,7 @@
             "condition": "\">Сценарист",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://readmanga.live/",
+		"Referer": "https://1.readmanga.io/",
 		"cookie": "remember_me=aXI2SEJ2bHo5R3FvdVdBJTJCZ2VRTWtFdFBvaExPMWtRY2VJYzlSN1lFT0FFJTNEOiUyRnlvTFV5aVVjdHpLOWdtUXd3aEpEYlpUWVBwMmkyJTJCJTJCNWRDOHk5ZlhKQnclM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
@@ -268,7 +268,7 @@
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				
-			 "replace":  [{"prefix": "https://readmanga.live"},
+			 "replace":  [{"prefix": "https://1.readmanga.io"},
 			              {"sufix": "?mtr=1"}
 			    ]
 				},
@@ -291,7 +291,7 @@
             "condition": "",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://readmanga.live/",
+		"Referer": "https://1.readmanga.io/",
 		"cookie": "remember_me=aXI2SEJ2bHo5R3FvdVdBJTJCZ2VRTWtFdFBvaExPMWtRY2VJYzlSN1lFT0FFJTNEOiUyRnlvTFV5aVVjdHpLOWdtUXd3aEpEYlpUWVBwMmkyJTJCJTJCNWRDOHk5ZlhKQnclM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
@@ -364,7 +364,7 @@
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				
-			 "replace":  [{"prefix": "https://readmanga.live"},
+			 "replace":  [{"prefix": "https://1.readmanga.io"},
 			              {"sufix": "?mtr=1"}
 			    ]
 				},
@@ -388,7 +388,7 @@
    "headers": {
 	   "cookie": "remember_me=aXI2SEJ2bHo5R3FvdVdBJTJCZ2VRTWtFdFBvaExPMWtRY2VJYzlSN1lFT0FFJTNEOiUyRnlvTFV5aVVjdHpLOWdtUXd3aEpEYlpUWVBwMmkyJTJCJTJCNWRDOHk5ZlhKQnclM0Q",
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://readmanga.live/",
+		"Referer": "https://1.readmanga.io/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
@@ -417,18 +417,18 @@
                 "mangas": [
                     
                     { "title": "Маги: Лабиринт волшебства",
-					"link": "https://readmanga.live/magi__labirint_volshebstva" }
+					"link": "https://1.readmanga.io/magi__labirint_volshebstva" }
                 ],
                 "mangas_count": ">300"
             }
         },
         {
             "proc": "manga_complete",
-            "link": "https://readmanga.live/bashnia_boga__A35c96",
+            "link": "https://1.readmanga.io/bashnia_boga__A35c96",
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
-                "cover": "https://static.readmanga.live/uploads/pics/00/99/917.jpg",
+                "cover": "https://static.1.readmanga.io/uploads/pics/00/99/917.jpg",
                 "summary": "@^(Башня)",
                 "genres": "@comedy",
                 "status": "ongoing",
@@ -436,7 +436,7 @@
                 "chapters_count": ">=300",
                 "chapters": [
                   { "folder" : "3/67/",
-                   "link" : "https://readmanga.live/bashnia_boga__A339d2/vol3/67",
+                   "link" : "https://1.readmanga.io/bashnia_boga__A339d2/vol3/67",
                    "title" : "3 - 67 52F Вторая защитная стена (01)"
 				   }
 				   ]
@@ -446,7 +446,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://readmanga.live/bashnia_boga__A339d2/vol2/266",
+            "link": "https://1.readmanga.io/bashnia_boga__A339d2/vol2/266",
             "assert": {
                 "pages": [
 {"image": "https://h37.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini.jpg_res.jpg?t=1612902665&u=0&h=x4ugHg59HL7Lu5Zn2tiWoQ"},
