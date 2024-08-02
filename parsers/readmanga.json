@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 82,
+    "version": 83,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io", "readmanga.live" , "1.readmanga.io", "2.readmanga.io" ],
@@ -260,9 +260,8 @@
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				
-			 "replace":  [{"prefix": "https://zx.readmanga.io"},
-			              {"sufix": "?mtr=1"}
-			    ]
+			 "replace":  {"prefix": "https://zx.readmanga.io"}
+			    
 				},
 				
 				
