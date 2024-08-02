@@ -1,13 +1,13 @@
 {
     "id": 30006,
-    "version": 81,
+    "version": 82,
 	
 	"old_ids": [40172],
-        "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io", "readmanga.live" , "1.readmanga.io" ],
+        "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" , "readmanga.io", "readmanga.live" , "1.readmanga.io", "2.readmanga.io" ],
 	
 	"title": "ReadManga",
-    "host": "https://2.readmanga.io/",
-    "public_link": "https://2.readmanga.io/list/",
+    "host": "https://zx.readmanga.io/",
+    "public_link": "https://zx.readmanga.io/list/",
     "folder": "readmanga",
     "name": "readmanga",
     "language": "ru",
@@ -22,7 +22,7 @@
 	
 
     "manga_search_complete": {      
-        "search_link": "https://2.readmanga.io/search/advanced?q=$query$&offset=$page$",
+        "search_link": "https://zx.readmanga.io/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         
         "add_manga": {
@@ -50,7 +50,7 @@
         
     "manga_list_complete": {
         "iterator": {
-            "base_url": "https://2.readmanga.io/list?sortType=POPULARITY&offset=",
+            "base_url": "https://zx.readmanga.io/list?sortType=POPULARITY&offset=",
             "append_nums": { "from": 0, "to": 26250, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
@@ -66,7 +66,7 @@
 		"link_corrector": [
             {
                 "match": "https://readmanga.me/",
-                "text": "https://2.readmanga.io/"
+                "text": "https://zx.readmanga.io/"
             }
         ],
         "rating_auto_inc": {
@@ -80,7 +80,7 @@
             "condition": "<strong>Внимание!</strong>",
 	"headers": {
 	   "cookie": "remember_me=R1R0eUNMbGhoclBTbCUyQmpOVTY0Q3NUM2dlYyUyQkhubHZ2Nk44Y3dYMiUyQkxvWSUzRDp4dDd5SkwzUGklMkJMdTBLeURGNVdtMWg4dDVvYVFjMDRLeUNYeTUlMkJLTzE0VSUzRA",
-		"Referer": "https://2.readmanga.io/",
+		"Referer": "https://zx.readmanga.io/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
 	        "title": 		{ "skip": "<h1 class=\"names\">", 
@@ -154,7 +154,7 @@
             "add_chapter": {
 				"headers": {
 	   "cookie": "remember_me=R1R0eUNMbGhoclBTbCUyQmpOVTY0Q3NUM2dlYyUyQkhubHZ2Nk44Y3dYMiUyQkxvWSUzRDp4dDd5SkwzUGklMkJMdTBLeURGNVdtMWg4dDVvYVFjMDRLeUNYeTUlMkJLTzE0VSUzRA",
-		"Referer": "https://2.readmanga.io/",
+		"Referer": "https://zx.readmanga.io/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
 				
@@ -163,7 +163,7 @@
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				
-			 "replace":  [{"prefix": "https://2.readmanga.io"},
+			 "replace":  [{"prefix": "https://zx.readmanga.io"},
 			              {"sufix": "?mtr=1"}
 			    ]
 				},
@@ -187,7 +187,7 @@
             "condition": "\">Сценарист",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://2.readmanga.io/",
+		"Referer": "https://zx.readmanga.io/",
 		"cookie": "remember_me=R1R0eUNMbGhoclBTbCUyQmpOVTY0Q3NUM2dlYyUyQkhubHZ2Nk44Y3dYMiUyQkxvWSUzRDp4dDd5SkwzUGklMkJMdTBLeURGNVdtMWg4dDVvYVFjMDRLeUNYeTUlMkJLTzE0VSUzRA",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
@@ -260,7 +260,7 @@
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				
-			 "replace":  [{"prefix": "https://2.readmanga.io"},
+			 "replace":  [{"prefix": "https://zx.readmanga.io"},
 			              {"sufix": "?mtr=1"}
 			    ]
 				},
@@ -283,7 +283,7 @@
             "condition": "",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://2.readmanga.io/",
+		"Referer": "https://zx.readmanga.io/",
 		"cookie": "remember_me=R1R0eUNMbGhoclBTbCUyQmpOVTY0Q3NUM2dlYyUyQkhubHZ2Nk44Y3dYMiUyQkxvWSUzRDp4dDd5SkwzUGklMkJMdTBLeURGNVdtMWg4dDVvYVFjMDRLeUNYeTUlMkJLTzE0VSUzRA",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
@@ -356,7 +356,7 @@
                 "next": "<a href=\"",
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				
-			 "replace": {"prefix": "https://2.readmanga.io"}
+			 "replace": {"prefix": "https://zx.readmanga.io"}
 			    
 				},
 				
@@ -380,7 +380,7 @@
    "chapter_complete": {
    "headers": {
 	   "cookie": "remember_me=R1R0eUNMbGhoclBTbCUyQmpOVTY0Q3NUM2dlYyUyQkhubHZ2Nk44Y3dYMiUyQkxvWSUzRDp4dDd5SkwzUGklMkJMdTBLeURGNVdtMWg4dDVvYVFjMDRLeUNYeTUlMkJLTzE0VSUzRA",
-		"Referer": "https://2.readmanga.io/",
+		"Referer": "https://zx.readmanga.io/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  
 	
@@ -408,18 +408,18 @@
                 "mangas": [
                     
                     { "title": "Маги: Лабиринт волшебства",
-					"link": "https://2.readmanga.io/magi__labirint_volshebstva" }
+					"link": "https://zx.readmanga.io/magi__labirint_volshebstva" }
                 ],
                 "mangas_count": ">300"
             }
         },
         {
             "proc": "manga_complete",
-            "link": "https://2.readmanga.io/bashnia_boga__A35c96",
+            "link": "https://zx.readmanga.io/bashnia_boga__A35c96",
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
-                "cover": "https://static.2.readmanga.io/uploads/pics/00/99/917.jpg",
+                "cover": "https://static.zx.readmanga.io/uploads/pics/00/99/917.jpg",
                 "summary": "@^(Башня)",
                 "genres": "@comedy",
                 "status": "ongoing",
@@ -427,7 +427,7 @@
                 "chapters_count": ">=300",
                 "chapters": [
                   { "folder" : "3/67/",
-                   "link" : "https://2.readmanga.io/bashnia_boga__A339d2/vol3/67",
+                   "link" : "https://zx.readmanga.io/bashnia_boga__A339d2/vol3/67",
                    "title" : "3 - 67 52F Вторая защитная стена (01)"
 				   }
 				   ]
@@ -437,7 +437,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://2.readmanga.io/bashnia_boga__A35c96/vol2/266",
+            "link": "https://zx.readmanga.io/bashnia_boga__A35c96/vol2/266",
             "assert": {
                 "pages": [
 {"image": "https://h37.mangas.rocks/auto/22/84/07/TowerOfGod_s2_ch266_p01_SIU_Gemini.jpg_res.jpg?t=1612902665&u=0&h=x4ugHg59HL7Lu5Zn2tiWoQ"},
