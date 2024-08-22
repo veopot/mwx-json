@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 97, 
+	"version": 99, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one", "1.mintmanga.one" ],
@@ -32,7 +32,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -80,7 +80,7 @@
 	"manga_complete": [
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -148,7 +148,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -159,8 +159,11 @@
 			
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
 			"replace":  [{"prefix": "https://2.mintmanga.one"},
-			{"sufix": "?mtr=1"}
+			{"sufix": "?d=MzEzNzY3NA&mtr=true"}
 			]},
+			
+			
+			
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
 				"replace":  [
@@ -177,7 +180,7 @@
 	},
 	{ "condition": ">Сценарист:<",
 	"headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -245,7 +248,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -255,7 +258,9 @@
 			"next":  	"<i class=\"chapter-status",
 			
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace": {"prefix": "https://2.mintmanga.one"}
+			"replace": [{"prefix": "https://2.mintmanga.one"},
+			            {"sufix": "?d=MzEzNzY3NA"}
+			]
 			},
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
@@ -272,7 +277,7 @@
 	},
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -336,7 +341,7 @@
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -345,7 +350,9 @@
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace":  {"prefix": "https://2.mintmanga.one"}
+			"replace":  [{"prefix": "https://2.mintmanga.one"},
+			{"sufix": "?d=MzEzNzY3NA"}
+			]
 			},
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
@@ -366,7 +373,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=MDZVb3RrZFFnZFE5a0xwSklVZmpZQWZVWjBBcVN1MVNERVAwS2VSb1VRNCUzRDp1QlpwWGsxcUtuMWFSaFNtWWdaZVMwVHRwd2JrVzhyRGZZNW01M2NReXRrJTNE",
+		"cookie": "remember_me=NTltVTJlV1klMkZkSGQ4aTFRd2pYdmFoYWt4Y2ZpN2EzR3JLUWxseWhSNkNFJTNEOmZmVEpKMklWbGtYY2Nuc3loRnZ1a3JHdzBxRE8lMkZVMUp6UGNvM1lTOUtBWSUzRA",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://2.mintmanga.one/",
@@ -403,21 +410,27 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://2.mintmanga.one/ganc",
-			"title": "Gantz",
+			"link": "https://2.mintmanga.one/djinks",
+			"title": "Джинкс",
 			"assert": {
 				"author": "Оку Хироя",
-				"cover": "https://static.2.mintmanga.one/uploads/pics/00/52/859.jpg",
-				"summary": "@^(Где-то в Токио)",
-				"genres": "@scifi",
-				"status": "complete",
-				"genres_count": ">=6",
-				"chapters_count": ">=383",
+				"cover": "https://staticmm.rmr.rocks/uploads/pics/00/91/809.jpg",
+				"summary": "@^(Джу Дже Гёна)",
+				"genres": "@drama",
+				"status": "ongoing",
+				"genres_count": ">=3",
+				"chapters_count": ">=55",
 				"chapters": [
-					{ "title": "34 - 361 Боевой клич", "link": "https://2.mintmanga.one/gantz/vol34/361",
-						"folder": "34/361/" 
-					},
-					{ "title": "1 - 1 Инцидент",       "link": "https://2.mintmanga.one/gantz/vol1/1" }
+		{
+            "folder": "1/1\\",
+            "link": "https://2.mintmanga.one/djinks/vol1/1?d=MzEzNzY3NA&mtr=true",
+            "title": "Том:1 Глава:1"
+        },
+        {
+            "folder": "1/2\\",
+            "link": "https://2.mintmanga.one/djinks/vol1/2?d=MzEzNzY3NA&mtr=true",
+            "title": "Том:1 Глава:2"
+        }
 				]
 			}
 		},
@@ -436,12 +449,13 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://2.mintmanga.one/istoriia_minamoto_kuna/vol16/359?mtr=true",
+			"link": "https://2.mintmanga.one/djinks/vol1/1?d=MzEzNzY3NA&mtr=true",
 			"assert": {
 				"pages": [
-		{"image": "https://h17m.rmr.rocks/auto/17/73/13/nn001.png_res.jpg?t=1680306344&u=0&h=1y3cef9_CCmFscBYbWgZ7w"},
-        {"image": "https://h19m.rmr.rocks/auto/17/73/13/nn002.png_res.jpg?t=1680306344&u=0&h=j48Kw0R-qp2w2td3SP5Jbg"},
-        {"image": "https://h2m.rmr.rocks/auto/17/73/13/nn003.png_res.jpg?t=1680306344&u=0&h=U0dPGjAqdoCM2NX6ZwjLYA"}
+		{"image": "https://p15m.rmr.rocks/auto/34/86/68/000_res.png?t=1724357802&u=0&h=ShVK_mZLypTGp_zvHY-ucw"},
+        {"image": "https://p14m.rmr.rocks/auto/34/86/68/01_res-py-01.png?t=1724357802&u=0&h=dhGXZiG-fDyK8Aw2iPz-kw"},
+        {"image": "https://p15m.rmr.rocks/auto/34/86/68/01_res-py-02.png?t=1724357802&u=0&h=Sz4P9EjXZ8FTeNgnTULSLA"},
+        {"image": "https://p21m.rmr.rocks/auto/34/86/68/01_res-py-03.png?t=1724357802&u=0&h=vHRKD1GhszuzXiPwUpvTvg"}
 				],
 				"pages_count": "19"
 			}
