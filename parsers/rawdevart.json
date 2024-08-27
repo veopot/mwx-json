@@ -1,6 +1,6 @@
 {
 	"id": 30459,
-	"version": 5,
+	"version": 6,
 	
 	"old_sites": ["rawdevart.com" ],
 	
@@ -55,7 +55,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://rawdevart.art/latest?page=",
-			"append_nums": { "from": 1, "to": 94 }
+			"append_nums": { "from": 1, "to": 102 }
 			},
 		"add_manga": {
 			"next": "<div class=\"m-item\">",
@@ -133,7 +133,16 @@
 	
 	
 	"chapter_complete": {
-		"add_images": {
+		
+		"images": true,
+		"use_servers_only": true,
+		"prefix": {
+			"token1": "\"server\":\"",
+			"token2": "\","
+		},
+		
+		
+		"add_pages": {
 			"start": "chapter_content",
 			"token1": "data-srcset=\\\"",
 			"token2": "\\\"",
