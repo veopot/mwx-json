@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 86,
+    "version": 87,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" ,
@@ -8,7 +8,7 @@
 		
 		
 		
-	"title": "ReadManga",
+	"title": "Usagi (ReadManga)",
     "host": "https://web.usagi.one/",
     "public_link": "https://web.usagi.one/list/",
     "folder": "readmanga",
