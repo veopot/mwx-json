@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 87,
+    "version": 88,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" ,
@@ -102,7 +102,7 @@
 		
             "author": { "after": "href=\"/list/person/", "token1": "class=\"person-link\">", "token2": "</" },
 			
-            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+             "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
 			
 			"status": { 
 			
@@ -213,7 +213,7 @@
 			
            "author": { "skip": ">Сценарист", "token1": "class=\"person-link\">", "token2": "</" },
 		   
-            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+             "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
             
 			"status": { 
 			
@@ -307,7 +307,7 @@
 		
             "author": {  "skip": ">Автор:<", "token1": "class=\"person-link\">", "token2": "</" },
 			
-            "summary": { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"" },
+            "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
 			
              
 			
