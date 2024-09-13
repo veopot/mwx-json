@@ -1,6 +1,6 @@
 {
     "id": 57843,
-    "version": 3,
+    "version": 4,
     "title": "MangaBuff",
     "host": "https://mangabuff.ru",
     "public_link": "https://mangabuff.org/manga",
@@ -209,7 +209,7 @@
 			},
 			
             "start": "class=\"reader-chapters\">",
-            "end": "<h2>Настройки</h2>",
+            "end": ">Настройки</div>",
             "next": "<a href=",
             "link": {
                 "token1": "\"https://mangabuff.ru/",
