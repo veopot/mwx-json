@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	"old_sites": ["mangahub.ru","mangahub.com"],
-	"version": 57,
+	"version": 58,
 	
 	
 	"title": "MangaHub",
@@ -166,7 +166,7 @@
 		
 		
 		"add_tags":   {
-         "start": "<collapse-multiple class=\"tags\">",
+         "start": "class=\"d-block tags\">",
 		 "end": "</collapse-multiple>", 
          "after": "href=\"/genre/", "token1": ">", "token2": "</a>",
                 "replace":{"match":">...<", "text":""}
