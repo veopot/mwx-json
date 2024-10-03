@@ -2,7 +2,7 @@
 	"id": 30414,
 	"old_ids": [19001,40134],
 	"old_sites": ["mangahub.ru","mangahub.com"],
-	"version": 58,
+	"version": 59,
 	
 	
 	"title": "MangaHub",
@@ -26,8 +26,8 @@
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAxMTg4MzA6OGY1NDdlMTk2NGE0N2I3MTMwNzA3ZWZhOTdhN2ViYjNlZDQ3MTkwYzg4ODJjMzI4ZDY5NzNmNjNmYmY4MDkyYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
@@ -60,8 +60,8 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAxMTg4MzA6OGY1NDdlMTk2NGE0N2I3MTMwNzA3ZWZhOTdhN2ViYjNlZDQ3MTkwYzg4ODJjMzI4ZDY5NzNmNjNmYmY4MDkyYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			"Referer": "https://mangahub.me/"
@@ -89,8 +89,8 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAxMTg4MzA6OGY1NDdlMTk2NGE0N2I3MTMwNzA3ZWZhOTdhN2ViYjNlZDQ3MTkwYzg4ODJjMzI4ZDY5NzNmNjNmYmY4MDkyYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
@@ -192,8 +192,8 @@
 		"add_chapter": {
 			"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAxMTg4MzA6OGY1NDdlMTk2NGE0N2I3MTMwNzA3ZWZhOTdhN2ViYjNlZDQ3MTkwYzg4ODJjMzI4ZDY5NzNmNjNmYmY4MDkyYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			"Referer": "https://mangahub.me/"
@@ -220,8 +220,8 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MzAxMTg4MzA6OGY1NDdlMTk2NGE0N2I3MTMwNzA3ZWZhOTdhN2ViYjNlZDQ3MTkwYzg4ODJjMzI4ZDY5NzNmNjNmYmY4MDkyYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "toast_28=true",
 			 
 			
@@ -232,7 +232,7 @@
 		},
 		"add_numeration": true,
 		"add_images": {
-			"start": "<fast-view class=\"fast-view closed\">",
+			"start": "<div class=\"d-flex flex-column flex-fill\">",
 			"end": ">Комментарии<",
 			"token1": "data-src=\"",
 			"token2": "\"",
