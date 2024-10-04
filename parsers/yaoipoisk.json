@@ -1,17 +1,18 @@
 {
     "id": 5512,
-    "version": 10,
+    "version": 11,
     "old_sites": [
         "m3.yaoipoisk.ru",
         "m5.yaoipoisk.ru",
         "m1.yaoipoisk.ru",
         "m1.mangapoisk.me",
 		"m2.mangapoisk.me",
-        "yaoipoisk.com"
+        "yaoipoisk.com",
+        "yaoipoisk.net"
     ],
     "title": "YaoiPoisk",
-    "host": "https://yaoipoisk.net",
-    "public_link": "https://yaoipoisk.net/manga-list",
+    "host": "https://m5.yaoipoisk.net",
+    "public_link": "https://m5.yaoipoisk.net/manga-list",
     "folder": "yaoipoisk",
     "name": "yaoipoisk",
     "language": "ru",
@@ -29,10 +30,10 @@
     },
     "manga_list_complete": {
         "iterator": {
-            "base_url": "https://yaoipoisk.net/manga?page=",
+            "base_url": "https://m5.yaoipoisk.net/manga?page=",
             "append_nums": {
                 "from": 0,
-                "to": 130,
+                "to": 134,
                 "step": 1
             }
         },
@@ -47,7 +48,7 @@
                 "token1": "href=\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://yaoipoisk.net"
+                    "prefix": "https://m5.yaoipoisk.net"
                 }
             },
             "cover": {
@@ -65,7 +66,7 @@
         }
     },
     "manga_search_complete": {
-        "search_link": "https://yaoipoisk.net/search?q=$query$&page=$page$",
+        "search_link": "https://m5.yaoipoisk.net/search?q=$query$&page=$page$",
         "query_type": "GET",
         "add_manga": {
             "next": "<article class=\"flex-item",
@@ -100,7 +101,7 @@
     "manga_complete": {
         "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-            "Referer": "https://yaoipoisk.net"
+            "Referer": "https://m5.yaoipoisk.net"
         },
         "title": {
             "skip": "<header class=\"card-header p-0\"><h1",
@@ -126,7 +127,7 @@
             ]
         },
         "uniq": {
-            "token1": "\"url\":\"https:\/\/yaoipoisk.net\/manga\/",
+            "token1": "\"url\":\"https:\/\/m5.yaoipoisk.net\/manga\/",
             "token2": "\","
         },
         "cover": {
@@ -184,7 +185,7 @@
             "token1": "&quot;url&quot;:&quot;/manga/",
             "token2": "&quot",
             "replace": [
-                {  "prefix": "https://yaoipoisk.net/manga/" },
+                {  "prefix": "https://m5.yaoipoisk.net/manga/" },
                 {  "sufix": "/chaptersList" },
                 {  "match": "\\\\",  "text": "" }
                     ],
@@ -197,7 +198,7 @@
                 "token2": "\"",
                 "replace": [
                     {
-                        "prefix": "https://yaoipoisk.net"
+                        "prefix": "https://m5.yaoipoisk.net"
                     },
                     {
                         "match": "&amp;",
@@ -214,7 +215,7 @@
                 "token1": "href=\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://yaoipoisk.net"
+                    "prefix": "https://m5.yaoipoisk.net"
                 }
             },
             "uniq": {
@@ -237,18 +238,18 @@
         "add_numeration": true,
         "headers": {
             "Accept": "*/*",
-            "Referer": "https://yaoipoisk.net/"
+            "Referer": "https://m5.yaoipoisk.net/"
         },
         "images": true,
         "add_pages": {
             "start": "class=\"pt-4 mx-auto outline-0 cursor-auto w-full\"",
-            "before": "id=\"",
-            "token1": "src=\"https://static2.mangapoisk.net/pages/",
+            "before": "id=\"p",
+            "token1": "src=\"https://static2.mangapoisk.live/pages/",
             "token2": "\"",
             "end": ">Комментарии",
             "replace": [
                 {
-                    "prefix": "https://static2.mangapoisk.net/pages/"
+                    "prefix": "https://static2.mangapoisk.live/pages/"
                 },
                 {
                     "match": "data-small-src=\"(.*?)\"",
@@ -268,7 +269,7 @@
                 "mangas": [
                     {
                         "title": "Ванпанчмен",
-                        "link": "https://yaoipoisk.net/manga/vanpanchmen",
+                        "link": "https://m5.yaoipoisk.net/manga/vanpanchmen",
                         "uniq": "vanpanchmen"
                     }
                 ],
@@ -277,7 +278,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://yaoipoisk.net/manga/slyshno-dazhe-bez-mikrofona",
+            "link": "https://m5.yaoipoisk.net/manga/slyshno-dazhe-bez-mikrofona",
             "title": "Слышно даже без микрофона",
             "assert": {
                 "cover": "@https://static2.mangapoisk.net/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
@@ -288,12 +289,12 @@
                 "chapters_count": ">=130",
                 "chapters": [
                     {
-                        "link": "https://yaoipoisk.net/manga/solo-leveling-abs3R5B/chapter/2-130",
+                        "link": "https://m5.yaoipoisk.net/manga/solo-leveling-abs3R5B/chapter/2-130",
                         "title": "Том 2 Глава 130"
                     },
                     {
                         "folder": "2-131/",
-                        "link": "https://yaoipoisk.net/manga/solo-leveling-abs3R5B/chapter/2-131",
+                        "link": "https://m5.yaoipoisk.net/manga/solo-leveling-abs3R5B/chapter/2-131",
                         "title": "Том 2 Глава 131"
                     }
                 ]
@@ -301,7 +302,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://yaoipoisk.net/manga/slyshno-dazhe-bez-mikrofona/chapter/1-1",
+            "link": "https://m5.yaoipoisk.net/manga/slyshno-dazhe-bez-mikrofona/chapter/1-1",
             "assert": {
                 "pages": [
                     {

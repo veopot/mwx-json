@@ -1,10 +1,12 @@
 {
     "id": 80001,
-    "version": 3,
-
-    "title": "Flame Scans",
-    "host": "https://flamescans.org/",
-    "public_link": "https://flamescans.org/series/",
+    "version": 5,
+    "old_sites": [ "flamecomics.me" ],
+	
+	
+    "title": "Flame Comics",
+    "host": "https://flamecomics.me/",
+    "public_link": "https://flamecomics.me/series/",
     "name": "flamescans",
     "folder": "flamescans",
     "language": "en",
@@ -16,9 +18,9 @@
 
     "manga_list_complete": {
         "headers": {
-            "Referer": "https://flamescans.org/"
+            "Referer": "https://flamecomics.me/"
         },
-        "iterator": "https://flamescans.org/series/list-mode",
+        "iterator": "https://flamecomics.me/series/list-mode",
         "add_manga": {
             "start": "class=\"soralist\">",
             "end": "id=\"sidebar\">",
@@ -30,7 +32,7 @@
             },
             "uniq": {
                 "after": "href=\"",
-                "token1": "flamescans.org/series/",
+                "token1": "flamecomics.me/series/",
                 "token2": "\"",
                 "replace": {
                     "match": "[^A-Za-z0-9]",
@@ -77,7 +79,7 @@
         },
 
         "author": {
-            "skip": "<h1> Author </h1>",
+            "skip": "<h1> Author</h1>",
             "token1": "i>",
             "token2": "</"
         },
@@ -133,14 +135,17 @@
         "images": true,
         "add_pages": {
             "start": "id=\"readerarea\"",
-            "token1": "\" src=\"",
+			
+			
+            "token1": "decoding=\"async\" src=\"",
             "token2": "\"",
-            "end": "class=\"promo-banner\"",
+            "end": "<div class=\"chnav cbot\">",
             "replace": {
                 "match": "\\\\",
                 "text": ""
             }
-        }
+			
+		}
     },
 
     "test": [{
@@ -148,7 +153,7 @@
             "assert": {
                 "mangas": [{
                         "title": "48 Hours a Day",
-                        "link": "https://flamescans.org/series/forty-eight-hours-a-day/"
+                        "link": "https://flamecomics.me/series/forty-eight-hours-a-day/"
 
                     }
                 ],
@@ -157,38 +162,39 @@
         }, {
             "proc": "manga_complete",
             "title": "48 Hours a Day",
-            "link": "https://flamescans.org/series/1679439721-forty-eight-hours-a-day/",
+            "link": "https://flamecomics.me/series/forty-eight-hours-a-day/",
             "assert": {
                 "author": "@Little Bleary Zhao",
-                "cover": "https://flamescans.org/wp-content/uploads/2022/06/unknown-1.png",
+                "cover": "https://flamecomics.me/wp-content/uploads/2022/06/unknown-1.png",
                 "summary": "@^(The God of Time)",
                 "genres": "@action",
                 "status": "ongoing",
                 "genres_count": ">2",
                 "chapters_count": ">24",
-                "chapters": [{
-                        "folder": "forty-eight-hours-a-day-chapter-25/",
-                        "link": "https://flamescans.org/forty-eight-hours-a-day-chapter-25/",
-                        "title": "Chapter 25"
-                    }, {
-                        "link": "https://flamescans.org/forty-eight-hours-a-day-chapter-24/",
-                        "title": "Chapter 24"
-                    }
+                "chapters": [
+				    {
+           
+            "link": "https://flamecomics.me/forty-eight-hours-a-day-chapter-1/",
+            "title": "Chapter 1"
+        },
+        {
+            "folder": "forty-eight-hours-a-day-chapter-2\\",
+            "link": "https://flamecomics.me/forty-eight-hours-a-day-chapter-2/",
+            "title": "Chapter 2"
+        }
                 ]
             }
         }, {
             "proc": "chapter_complete",
-            "link": "https://flamescans.org/forty-eight-hours-a-day-chapter-25/",
+            "link": "https://flamecomics.me/forty-eight-hours-a-day-chapter-1/",
             "assert": {
-                "pages": [{
-                        "image": "https://flamescans.org/wp-content/uploads/2022/08/FEH25-01.jpg"
-                    }, {
-                        "image": "https://flamescans.org/wp-content/uploads/2022/08/FEH25-02.jpg"
-                    }, {
-                        "image": "https://flamescans.org/wp-content/uploads/2022/08/FEH25-03.jpg"
-                    }
+                "pages": [
+		{"image": "https://flamecomics.me/wp-content/uploads/2022/06/FEHD1-1.jpg"},
+        {"image": "https://flamecomics.me/wp-content/uploads/2022/05/readonflamescans.png"},
+        {"image": "https://flamecomics.me/wp-content/uploads/2022/06/FEHD1-2.jpg"},
+        {"image": "https://flamecomics.me/wp-content/uploads/2022/06/FEHD1-3.jpg"}
                 ],
-                "pages_count": "10"
+                "pages_count": "24"
             }
         }
     ]
