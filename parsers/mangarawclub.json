@@ -1,14 +1,15 @@
 {
     
     "id": 30469,
-	"version": 12,
-	"old_sites": ["www.manga-raw.club","www.mcreader.net","www.mangageko.com"  ],
+	"version": 13,
+	"old_sites": ["www.manga-raw.club","www.mcreader.net","www.mangageko.com","www.mgeko.com"  ],
+	
 	
 	
 	
 	"title": "Manga Geko",
-	"host": "https://www.mgeko.com/",
-	"public_link": "https://www.mgeko.com/manga",
+	"host": "https://www.mgeko.cc/",
+	"public_link": "https://www.mgeko.cc/manga",
 	"folder": "mangarawclub",
 	"name": "mangarawclub",
 	"language": "en",
@@ -23,14 +24,14 @@
 
 
 	"manga_search_complete": {		
-		"search_link": "https://www.mgeko.com/search/?search=$query$",
+		"search_link": "https://www.mgeko.cc/search/?search=$query$",
 		"query_type": "GET",
 		"add_manga": {
 			"start": "<header id=\"Result\">",
 			"end": "</main>", 
 			"next": "class=\"novel-item\">",
 			"link":  { "token1": "href=\"", "token2": "\"",
-				"replace": {"prefix": "https://www.mgeko.com"}
+				"replace": {"prefix": "https://www.mgeko.cc"}
 			},
 			
 			"title": { "token1": "title=\"", "token2": "\"" },
@@ -41,16 +42,16 @@
 			
 			
 			
-			"cover": { "token1": "data-src='", "token2": "'",
-				"replace": {"prefix": "https://www.mgeko.com"} }
+			"cover": { "token1": "data-src=\"", "token2": "\"",
+				"replace": {"prefix": "https://www.mgeko.cc"} }
 			
 		}
 	},
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://www.mgeko.com/browse-comics/?results=",
-			"append_nums": { "from": 0, "to": 188, "step": 1, "sufix": "&filter=views" }
+			"base_url": "https://www.mgeko.cc/browse-comics/?results=",
+			"append_nums": { "from": 0, "to": 207, "step": 1, "sufix": "&filter=views" }
 		},
 		
 		
@@ -60,7 +61,7 @@
 			"next": "class=\"novel-item\">",
 			
 			"link":  { "token1": "href=\"", "token2": "\"",
-				"replace": {"prefix": "https://www.mgeko.com"}
+				"replace": {"prefix": "https://www.mgeko.cc"}
 			},
 			
 			"title": { "token1": "title=\"", "token2": "\"" },
@@ -77,7 +78,7 @@
 		
 		
 		"uniq":        { "after": "property=\"og:url\"", 
-		 "token1":"content=\"https://www.mgeko.com/manga/", "token2": "/\"" },
+		 "token1":"content=\"https://www.mgeko.cc/manga/", "token2": "/\"" },
 		 
 		"author":      { "token1":"<span itemprop=\"author\">", "token2": "</" },
 		
@@ -106,9 +107,7 @@
 		
 		"cover":       { "after": "<figure class=\"cover\">", "token1": "data-src=\"", "token2": "\"" },
 		
-		"add_genre":   { "after": "href=\"/browse-comics/?genre=", "token1": "\">", "token2": "</" },
-		
-		"add_tag":   { "after": "href=\"/tag/?tag=", "token1": "\">", "token2": "</" },
+		"add_tag":   { "after": "href=\"/browse-comics/?genre", "token1": "\">", "token2": "</" },
 		
 		
 		
@@ -143,7 +142,7 @@
 			"assert" : {
 				"mangas" : [
             { "title" : "Takarakuji de 3 oku-en atattanode himo bishoujo kai hajimemashita", 
-    "link" : "https://www.mgeko.com/manga/takarakuji-de-3-oku-en-atattanode-himo-bishoujo-kai-hajimemashita/",
+    "link" : "https://www.mgeko.cc/manga/takarakuji-de-3-oku-en-atattanode-himo-bishoujo-kai-hajimemashita/",
 			"uniq" : "takarakuji-de-3-oku-en-atattanode-himo-bishoujo-kai-hajimemashita" }
 				],
 				"mangas_count" : ">=50"
@@ -151,11 +150,11 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://www.mgeko.com/manga/miracle-hero/",
+			"link" : "https://www.mgeko.cc/manga/miracle-hero/",
 			"title" : "Onepunch-Man",
 			"assert" : {
 				"author" : "@One , Murata Yuusuke",
-				"cover" : "@https://www.mgeko.com/media/manga_covers/miracle-hero.jpg",
+				"cover" : "@https://www.mgeko.cc/media/manga_covers/miracle-hero.jpg",
 				"summary" : "@^(One punch-Man imitates the)",
 				"genres" : "@comedy",
 				"status" : "ongoing",
@@ -164,12 +163,12 @@
 				"chapters" : [
 					{
             "folder": "147-eng-li/",
-            "link": "https://www.mgeko.com/reader/en/onepunch-man-chapter-147-eng-li/",
+            "link": "https://www.mgeko.cc/reader/en/onepunch-man-chapter-147-eng-li/",
             "title": "147-eng-li"
         },
         {
             
-            "link": "https://www.mgeko.com/reader/en/onepunch-man-chapter-146-eng-li/",
+            "link": "https://www.mgeko.cc/reader/en/onepunch-man-chapter-146-eng-li/",
              "title": "146-eng-li"
         }
 				]
@@ -177,7 +176,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://www.mgeko.com/reader/en/miracle-hero-chapter-105-eng-li/",
+			"link" : "https://www.mgeko.cc/reader/en/miracle-hero-chapter-105-eng-li/",
 			"assert" : {
 				"pages" : [
 		{"image": "https://novel-fast.club/mg2/cdn_mangaraw/miracle-hero/chapter-105/1.jpg"},
