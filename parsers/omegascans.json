@@ -1,0 +1,329 @@
+{
+    "id": 4231,
+    "version": 1,
+    "title": "Omega Scans",
+    "host": "https://omegascans.org",
+    "public_link": "https://omegascans.org/comics",
+    "folder": "omegascans",
+    "name": "omegascans",
+    "chapters_order": true,
+    "language": "ru",
+    "encoding": "utf-8",
+    "is_mature": true,
+	
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/omegascans.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/omegascans.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/omegascans.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/omegascans.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "Veopot",
+        "email": "fant-net@ya.ru"
+    },
+    
+    "manga_search_complete": {
+       "headers": {
+			"Accept": "*/*",
+            "Referer": "https://omegascans.org/comics",
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+			
+        "search_link": "https://api.omegascans.org/query?adult=true&query_string=$query$",
+        "query_type": "GET",
+        "add_manga": {
+            "start": "\"data\":[",
+            "end": "]}",
+			"next": "\"series_slug",
+            
+			"link": {
+                "before": "\"rating\"",
+                "token1": "\"series_slug\":\"",
+                "token2": "\",",
+                "replace":{ "prefix": "https://omegascans.org/series/" }
+                
+            },
+            
+
+            "title": {
+                "before": "\"rating\"",
+                "token1": "\"title\":\"",
+                "token2": "\""
+            },
+
+		   
+		  
+            "cover": {
+                "before": "\"rating\"",
+                "token1": "\"thumbnail\":\"",
+                "token2": "\""
+            },
+            
+            "summary": {
+				"before": "\"rating\"",
+                "token1": "\"description\":\"",
+                "token2": "\",",
+                "replace": [
+				    {
+                    "match": "<.*?>",
+                    "text": ""
+                    },
+					{
+                        "match": "\"admin_rating\":\"(.*?)\",",
+                        "text": ""
+                    }
+                ]
+            },
+            "uniq": {
+                "before": "\"rating\"",
+                "token1": "\"title\":\"",
+                "token2": "\""
+            }
+        }
+    },
+    "manga_list_complete": {
+        "headers": {
+			"Accept": "*/*",
+            "Referer": "https://omegascans.org/comics",
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+        "iterator": {
+            "base_url": "https://api.omegascans.org/query?page=",
+            "append_nums": { 
+			"from": 1, 
+			"to": 10,
+			"step": 1,
+			"sufix": "&perPage=20&series_type=Comic&query_string=&orderBy=created_at&adult=true&status=All" }
+        },
+        "add_manga": {
+            "start": "\"data\":[",
+            "end": "]}",
+            "next": "\"series_slug",
+            "link": {
+                "before": "\"rating\"",
+                "token1": "\"series_slug\":\"",
+                "token2": "\",",
+                "replace":{ "prefix": "https://omegascans.org/series/" }
+                
+            },
+            
+
+            "title": {
+                "before": "\"rating\"",
+                "token1": "\"title\":\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "before": "\"rating\"",
+                "token1": "\"title\":\"",
+                "token2": "\""
+            }
+        },
+	    
+        "rating_auto_inc": {
+            "start": "50000",
+            "inc": -1
+        }
+    },
+    "manga_complete": {
+		
+        "headers": {
+			"Accept": "*/*",
+            "Referer": "https://omegascans.org",
+            "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
+			},
+        
+        "title": {
+            "token1": "<h1 class=\"text-xl md:text-3xl text-foreground font-bold text-center lg:text-left inline\">",
+            "token2": "</h1>",
+            "replace": [
+                {
+                    "match": "\"",
+                    "text": "'"
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+		
+		
+		"author": {
+			"skip": ">Author</span>",
+			"token1": "\">",
+			"token2": "</span>",
+			"replace": {
+				"match": "<.*?>",
+				"text": ""
+			}
+		},
+		
+        
+        "uniq": {
+            "token1": "initialCanonicalUrl\":\"/series/",
+            "token2": "\","
+        },
+		
+		
+        "cover": {
+            "token1": "srcSet=\"/_next/image?url=https%3A%2F%2F",
+            "token2": "&amp;w=640&amp;",
+            "replace": [
+                {
+                    "prefix": "https://"
+                },
+				{
+                    "match": "%2F",
+                    "text": "/"
+                },
+                {
+                    "match": "u002F",
+                    "text": "/"
+                }
+            ]
+        },
+        "summary": {
+            "token1": "<meta property=\"og:description\" content=\"",
+            "token2": "\" />",
+            "replace": [
+                {
+                    "match": "u003Cp",
+                    "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+        
+        "status": {
+            "complete": ">Completed<",
+            "ongoing": ">Ongoing<"
+        },
+		
+		
+       
+       
+        "chapters_from_page": {
+            "token1": "post\\\":{\\\"id\\\":",
+            "token2": ",",
+            "replace":{  "prefix": "https://api.omegascans.org/chapter/query?perPage=1000&series_id=" }
+            
+            
+        },
+        "add_chapter": {
+			
+			"start": "\"data\":[",
+            "end": "]}",
+            "next": "\"price\":0",
+            
+			
+            "link": {
+                "before": "\"price\":",
+                "token1": "\"chapter_slug\":\"",
+                "token2": "\",",
+                "replace": [
+                    {
+                        "prefix": "https://omegascans.org/series/god-bless-you/"
+                    },
+                    {
+                        "sufix": "/"
+                    }
+                ]
+            },
+            "uniq": {
+               "before": "\"price\":",
+                "token1": "\"chapter_name\":\"",
+                "token2": "\","
+            },
+            "title": {
+               "before": "\"price\":",
+                "token1": "\"chapter_name\":\"",
+                "token2": "\","
+            }
+        }
+    },
+	
+	
+    "chapter_complete": {
+        "add_numeration": true,
+        "headers": {
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+			
+        "add_images": {
+            "start": "chapter_data\\\":{",
+            "token1": "https://media.omegascans.org/",
+            "token2": "\\\"",
+            "end": "]},",
+				"replace": {
+					"prefix": "https://media.omegascans.org/"
+				}
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Another Emperor Reborn, Возрождение иного императора",
+                        "link": "https://omegascans.org/api/titles/another-emperor-reborn",
+                        "uniq": "Another Emperor Reborn"
+                    }
+                ],
+                "mangas_count": ">=20"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://omegascans.org/series/god-bless-you",
+            "title": "God Bless You",
+            "assert": {
+				"author": "@Ha:rt",
+                "cover": "https://media.omegascans.org/file/zFSsXt/ps6ymhy26mndkxuynwpstiyf.jpg",
+                "status": "ongoing",
+                "chapters_count": ">=2",
+                "chapters": [
+                    {
+            "folder": "Chapter 1\\",
+            "link": "https://omegascans.org/series/god-bless-you/chapter-1/",
+            "title": "Chapter 1"
+        },
+        {
+            "link": "https://omegascans.org/series/god-bless-you/chapter-2/",
+            "title": "Chapter 2"
+        }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://omegascans.org/series/god-bless-you/chapter-1",
+            "assert": {
+                "pages": [
+        {"image": "https://media.omegascans.org/file/zFSsXt/uploads/series/god-bless-you/dcfe66cb-5324-4aa7-be5f-caad3626061b/01.jpg"},
+        {"image": "https://media.omegascans.org/file/zFSsXt/uploads/series/god-bless-you/dcfe66cb-5324-4aa7-be5f-caad3626061b/02.jpg"},
+        {"image": "https://media.omegascans.org/file/zFSsXt/uploads/series/god-bless-you/dcfe66cb-5324-4aa7-be5f-caad3626061b/03.jpg"}
+                ]
+            }
+        }
+    ]
+}
