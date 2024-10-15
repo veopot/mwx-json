@@ -1,13 +1,13 @@
 {
     "id": 4231,
-    "version": 1,
+    "version": 2,
     "title": "Omega Scans",
     "host": "https://omegascans.org",
     "public_link": "https://omegascans.org/comics",
     "folder": "omegascans",
     "name": "omegascans",
     "chapters_order": true,
-    "language": "ru",
+    "language": "en",
     "encoding": "utf-8",
     "is_mature": true,
 	
@@ -232,29 +232,30 @@
 			
 			"start": "\"data\":[",
             "end": "]}",
-            "next": "\"price\":0",
+            "next": "{\"id\"",
             
 			
             "link": {
-                "before": "\"price\":",
-                "token1": "\"chapter_slug\":\"",
-                "token2": "\",",
+				
+                "token1": "\"chapter_slu",
+                "token2": ",\"id\"",
                 "replace": [
-                    {
-                        "prefix": "https://omegascans.org/series/god-bless-you/"
-                    },
-                    {
-                        "sufix": "/"
-                    }
+				{ "prefix": "https://omegascans.org/series/"  },
+				{
+  "match": "g\":\"(.*?)\",\"price\":(.*?),\"created_at\":\"(.*?)\",\"series\":\\{\"series_slug\":\"(.*?)\"",
+				"text": "$4/$1"
+			}
+                    
+                    
                 ]
             },
             "uniq": {
-               "before": "\"price\":",
+               
                 "token1": "\"chapter_name\":\"",
                 "token2": "\","
             },
             "title": {
-               "before": "\"price\":",
+               
                 "token1": "\"chapter_name\":\"",
                 "token2": "\","
             }
