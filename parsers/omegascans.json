@@ -1,6 +1,6 @@
 {
     "id": 4231,
-    "version": 2,
+    "version": 3,
     "title": "Omega Scans",
     "host": "https://omegascans.org",
     "public_link": "https://omegascans.org/comics",
@@ -232,11 +232,12 @@
 			
 			"start": "\"data\":[",
             "end": "]}",
-            "next": "{\"id\"",
+            "next": "\"price\":0,",
             
 			
             "link": {
 				
+				"before": "\"series\"",
                 "token1": "\"chapter_slu",
                 "token2": ",\"id\"",
                 "replace": [
@@ -250,12 +251,12 @@
                 ]
             },
             "uniq": {
-               
+                "before": "\"series\"",
                 "token1": "\"chapter_name\":\"",
                 "token2": "\","
             },
             "title": {
-               
+                "before": "\"series\"",
                 "token1": "\"chapter_name\":\"",
                 "token2": "\","
             }
