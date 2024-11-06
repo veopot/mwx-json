@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":28,
+   "version":29,
    
    "old_sites": ["senkuro.com" ],
    
@@ -111,14 +111,14 @@
 	  
 	   "status": {
             "complete": {
-                "start": "\"status\"",
-                "end": "\"translitionStatus",
+                "start": "\"translitionStatus\"",
+                "end": "\"branches",
                 "values": ["FINISHED", "CANCELLED", "Сингл"]
             },
             "ongoing": {
-                "start": "\"status\"",
-                "end": "\"translitionStatus",
-                "value": "ONGOING"
+                 "start": "\"translitionStatus\"",
+                "end": "\"branches",
+                "value": "IN_PROGRESS"
             }
         },
 		
