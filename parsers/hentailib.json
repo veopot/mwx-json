@@ -1,11 +1,12 @@
 {
     "id": 8021,
-    "version": 1,
+    "version": 2,
     "title": "HentaiLib",
     "host": "https://hentailib.me/",
     "public_link": "https://hentailib.me/ru/catalog",
     "folder": "hentailib",
     "name": "hentailib",
+	"is_mature": true,
     "language": "ru",
     "is_paid": true,
     "encoding": "utf-8",
@@ -13,7 +14,7 @@
     "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentailib.png",
     "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/hentailib.json",
     "self_link2": "https://fant.my1.ru/mwparser/mwx/json/hentailib.me.json",
-    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/hentailibzip",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/hentailib.zip",
     "file_type": "sqlite",
     "author": {
         "name": "MWX Team",
