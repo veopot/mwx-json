@@ -1,6 +1,6 @@
 {
     "id": 30479,
-    "version": 26,
+    "version": 27,
     "old_ids": [
         40010
     ],
@@ -251,8 +251,8 @@
                     "sufix": ".jpg"
                 },
                 {
-                    "match": "t.nh",
-                    "text": "i.nh"
+                    "match": "https://t(.*?).nh",
+                    "text": "https://i$1.nh"
                 }
             ]
         }
