@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 88,
+    "version": 89,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" ,
@@ -82,7 +82,7 @@
 	    { 
             "condition": "<strong>Внимание!</strong>",
 	"headers": {
-	   "cookie": "remember_me=dk1hcmxjcmlhMWFRQjk2M3V1VlRwS0ZEWk5LR0NJUUtMenNuS0FRcmglMkY4JTNEOmptQmlzWnc5MGJObE1wRVNsc0x5SSUyQmhUcCUyRm00a3RxWjRXQkxtMkhvVFdvJTNE",
+	   "cookie": "remember_me=MmQwOG5DZDlKMjRZMSUyRjNwUkpHZEtyS1RLcDhLM2x0azI4RVZaZmsyR1Q4JTNEOiUyRnBuUUJYbEYybFdESFVnYSUyQjE1UGlNM3dMcE1sem02ZEliNyUyRm5GdVpZVW8lM0Q",
 		"Referer": "https://web.usagi.one/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -156,7 +156,7 @@
 		
             "add_chapter": {
 				"headers": {
-	   "cookie": "remember_me=dk1hcmxjcmlhMWFRQjk2M3V1VlRwS0ZEWk5LR0NJUUtMenNuS0FRcmglMkY4JTNEOmptQmlzWnc5MGJObE1wRVNsc0x5SSUyQmhUcCUyRm00a3RxWjRXQkxtMkhvVFdvJTNE",
+	   "cookie": "remember_me=MmQwOG5DZDlKMjRZMSUyRjNwUkpHZEtyS1RLcDhLM2x0azI4RVZaZmsyR1Q4JTNEOiUyRnBuUUJYbEYybFdESFVnYSUyQjE1UGlNM3dMcE1sem02ZEliNyUyRm5GdVpZVW8lM0Q",
 		"Referer": "https://web.usagi.one/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -191,7 +191,7 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://web.usagi.one/",
-		"cookie": "remember_me=dk1hcmxjcmlhMWFRQjk2M3V1VlRwS0ZEWk5LR0NJUUtMenNuS0FRcmglMkY4JTNEOmptQmlzWnc5MGJObE1wRVNsc0x5SSUyQmhUcCUyRm00a3RxWjRXQkxtMkhvVFdvJTNE",
+		"cookie": "remember_me=MmQwOG5DZDlKMjRZMSUyRjNwUkpHZEtyS1RLcDhLM2x0azI4RVZaZmsyR1Q4JTNEOiUyRnBuUUJYbEYybFdESFVnYSUyQjE1UGlNM3dMcE1sem02ZEliNyUyRm5GdVpZVW8lM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    
@@ -286,7 +286,7 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://web.usagi.one/",
-		"cookie": "remember_me=dk1hcmxjcmlhMWFRQjk2M3V1VlRwS0ZEWk5LR0NJUUtMenNuS0FRcmglMkY4JTNEOmptQmlzWnc5MGJObE1wRVNsc0x5SSUyQmhUcCUyRm00a3RxWjRXQkxtMkhvVFdvJTNE",
+		"cookie": "remember_me=MmQwOG5DZDlKMjRZMSUyRjNwUkpHZEtyS1RLcDhLM2x0azI4RVZaZmsyR1Q4JTNEOiUyRnBuUUJYbEYybFdESFVnYSUyQjE1UGlNM3dMcE1sem02ZEliNyUyRm5GdVpZVW8lM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
@@ -381,7 +381,7 @@
 	
    "chapter_complete": {
    "headers": {
-	   "cookie": "remember_me=dk1hcmxjcmlhMWFRQjk2M3V1VlRwS0ZEWk5LR0NJUUtMenNuS0FRcmglMkY4JTNEOmptQmlzWnc5MGJObE1wRVNsc0x5SSUyQmhUcCUyRm00a3RxWjRXQkxtMkhvVFdvJTNE",
+	   "cookie": "remember_me=MmQwOG5DZDlKMjRZMSUyRjNwUkpHZEtyS1RLcDhLM2x0azI4RVZaZmsyR1Q4JTNEOiUyRnBuUUJYbEYybFdESFVnYSUyQjE1UGlNM3dMcE1sem02ZEliNyUyRm5GdVpZVW8lM0Q",
 		"Referer": "https://web.usagi.one/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  
