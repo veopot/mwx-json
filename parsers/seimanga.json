@@ -1,6 +1,6 @@
 {
 	"id": 3075,
-	"version": 2, 
+	"version": 3, 
     
 	"old_sites": ["seimanga.me"],
 	
@@ -31,7 +31,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -79,7 +79,7 @@
 	"manga_complete": [
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -147,7 +147,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -156,10 +156,13 @@
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
 			
+			
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
 			"replace":  [{"prefix": "https://1.seimanga.me"},
-			{"sufix": "?mtr=1"}
-			]},
+			{"sufix": "?d=MzEzNzY3NA&mtr=true"}
+			]
+			},
+			
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
 				"replace":  [
@@ -176,7 +179,7 @@
 	},
 	{ "condition": ">Сценарист:<",
 	"headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -244,7 +247,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -254,7 +257,9 @@
 			"next":  	"<i class=\"chapter-status",
 			
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace": {"prefix": "https://1.seimanga.me"}
+			"replace":  [{"prefix": "https://1.seimanga.me"},
+			{"sufix": "?d=MzEzNzY3NA&mtr=true"}
+			]
 			},
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
@@ -271,7 +276,7 @@
 	},
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -335,7 +340,7 @@
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -344,7 +349,9 @@
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
 			"link":  	{ "token1": "<a href=\"", "token2": "\"",
-			"replace":  {"prefix": "https://1.seimanga.me"}
+			"replace":  [{"prefix": "https://1.seimanga.me"},
+			{"sufix": "?d=MzEzNzY3NA&mtr=true"}
+			]
 			},
 			
 			"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
@@ -365,7 +372,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=NXIlMkJBaEw3VG1jOEdMU2NnSFJMNnl1eGRHbEpJa1dCdVFSR1lvY3JUJTJGSzglM0Q6RHBiMXhpeDRaalNtTDBncG5DUVYxeFVvdGxlOUJhMzVhc2taVzBQZGEyWSUzRA",
+		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://1.seimanga.me/",
@@ -375,7 +382,7 @@
         "images": true,
         
         "add_pages": { 
-            "start": "rm_h.readerDoInit",
+            "start": "rm_h.readerInit",
             "token1": "['",
             "token2": "],",
             "end": "]],",
@@ -452,7 +459,7 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://1.seimanga.me/jelanie_diavola/vol1/1?mtr=1",
+			"link": "https://1.seimanga.me/jelanie_diavola/vol1/1?d=MzEzNzY3NA&mtr=true",
 			"assert": {
 				"pages": [
 		{"image": "https://h30.mints.rocks/auto/03/32/49/Gantz_ch361_01__OJS-team_.png?t=1613519222&u=0&h=d4n5zwcpSgoGQmpUj5RqYQ"},
@@ -464,7 +471,7 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://1.seimanga.me/istoriia_minamoto_kuna/vol16/359?mtr=true",
+			"link": "https://1.seimanga.me/istoriia_minamoto_kuna/vol16/359?d=MzEzNzY3NA&mtr=true",
 			"assert": {
 				"pages": [
 		{"image": "https://p2s.rmr.rocks/auto/31/98/47/000________________res.png?t=1710441983&u=0&h=4CuAa0SjStG1mrX1J1g7jg"},
