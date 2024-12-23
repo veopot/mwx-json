@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 89,
+    "version": 90,
 	
 	"old_ids": [40172],
         "old_sites": ["readmanga.me", "readmanga.ru", "readmanga.com" ,
@@ -390,7 +390,7 @@
         "images": true,
         
         "add_pages": { 
-            "start": "rm_h.readerDoInit",
+            "start": "rm_h.readerInit",
             "token1": "['",
             "token2": "],",
             "end": "]],",
