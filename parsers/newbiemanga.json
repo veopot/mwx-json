@@ -1,12 +1,12 @@
 {
 	"id": 30478,
-	"version": 28,
+	"version": 29,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
 
 
-	"title": "NewManga",
+	"title": "NewManga (DEAD)",
 	"host": "https://api.newmanga.org/",
 	"public_link": "https://newmanga.org/titles/",
 	"folder": "newbiemanga",
