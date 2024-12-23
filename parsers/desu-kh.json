@@ -30,7 +30,8 @@
 			"end": "]",
             "next": "{\"i",
 			
-			"link":  { "token1": "url\":\"", "token2": "\"" },
+			"link":  { "token1": "url\":\"", "token2": "\"",
+				"replace": { "match" : "https://desu.me", "text": "https://desu.win" } },
 			
 			"cover":  { "skip": "image\":{", "token1": "original\":\"", "token2": "\"" },
             
@@ -55,7 +56,13 @@
 			"replace" : { "match" : "desu.win/manga/", "text" : "desu.win/manga/api/" }},
 			"uniq": { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
 			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
-		},	 
+		},	
+			"link_corrector": [
+            {
+                "match": "https://desu.me",
+                "text": "https://desu.win"
+            }
+        ],
 		"rating_auto_inc": {
 			"start": "20000",
 			"inc": -1
