@@ -1,6 +1,6 @@
 {
     "id": 5512,
-    "version": 12,
+    "version": 13,
     "old_sites": [
         "m3.yaoipoisk.ru",
         "m5.yaoipoisk.ru",
@@ -8,6 +8,7 @@
         "m1.mangapoisk.me",
 		"m2.mangapoisk.me",
         "yaoipoisk.com",
+		"m5.yaoipoisk.net",
         "yaoipoisk.net"
     ],
     "title": "YaoiPoisk",
