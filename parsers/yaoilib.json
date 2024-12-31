@@ -1,6 +1,6 @@
 {
     "id": 1468,
-    "version": 22,
+    "version": 23,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me"
@@ -110,7 +110,7 @@
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api.mangalib.me/api/manga/"
+                        "prefix": "https://api2.mangalib.me/api/manga/"
                     },
                     {
                         "sufix": "/?fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
@@ -305,7 +305,7 @@
             "token2": "\",",
             "replace": [
                 {
-                    "prefix": "https://api.mangalib.me/api/manga/"
+                    "prefix": "https://api2.mangalib.me/api/manga/"
                 },
                 {
                     "sufix": "/chapters"
@@ -374,8 +374,9 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "*/*",
             "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IncrYUNiZ2llUGZicWhSODFVMmdTYmc9PSIsInZhbHVlIjoiWmpUR0JMMWdUeXJOYVNKYzV1aHVGMmQ0NkRxMFhkT3FUMERYVFpQanBSckg3YmNZdjNtNUhtMWJldnVTaVNMbUVnSk5iR3B6cms5UXlNOWlsS0lmQmVKaHRtWVR3b0FjcW5nQitLRERHcGRiRHYxSWlzVU1UalAvK243Z0YwYVhZS0lqZ3NFNkRpc09aOXF5aVNzUkF4ZW1wRkNLYzkrTTNpK2MwNWpjL3YyZUZBSk91aTdaRDFyNVpMWUVQVnlRSXhUWGIyNkFPWHJ1M2wvRHF2TGlCOHp1eGQ2d3dIUE9KMFVqQldZSG90WT0iLCJtYWMiOiI3NmYwNzU2ZTQzY2JiODI3NzZmODNhZWFiZjg4NTZiZDA5OTk2NjI4ZjcwZDY4NTQ5MDViOWU4NDM4NWE5OTIyIiwidGFnIjoiIn0%3D",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2NlNzBlZDI0MzA0YjlmY2EzMTZkZDVkYTM1NWM5MzUyOGQ0NzY2MDNkMTE2ZmZhZjY2NmUwN2U0MzJmYjFiY2FmMjZkYjhiMWEzODhmMWIiLCJpYXQiOjE3MzE2Njg5NzguOTcyNTI4LCJuYmYiOjE3MzE2Njg5NzguOTcyNTMsImV4cCI6MTczNDI2MDk3OC45Njk0MTYsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.Noy4t0ZxoXbw8AVMQYVuqHZ2GScEmXqs4aOEyIcPvrUlAOCQKVK_sSradwyac3oyhRTTtkemXPUdUVcanOX7OaPZukBESQY1TWkE23WAH6dm2ZMH2S_FVpv3IGIP9c-pnUrGLWD4moGXd41_fswg8YLlwb7Py2qcqKdlmdHktkeidCN1ok-lrLesjCTd2WXXXsQxmHYUrZgS89XTruOG0RUd6Aut4kuNaGdwNQIFEcjVKBOTHmO8vX6OPBYyuVUHpNewzLPo0wPvALOHH6CpsOecWwmbYA2jDVc-P1DChOsjqoQSEu35vY_HhsQB-JaRCQGBX0UviiI5pil4kmPm7EEdbgGyMQQe3fRwxiZ-Xq8cvqRfioBjcIK2QTLl2f30wUAUWPYWtfstyMAYLhZfoPyO7mjm-ROUpM4euh7ewIM6UdJXcMrf9uKOri5Lb0dPDqgowgd0-g312WkACSHJuvHgT5rlpIMmiG1z8_iDOuebZ1smwJ0vcFP211KzzKFdtIBTCb24ITj7S3TG_W4mHJNj4rqIbfNdgbp9eN2UUWYf8E2C02lcmpDHqJgTvS3HFPFDPoem4ICEILTgXtjjuTpcNmZGWC6PtjwVXE596zL9MXc8TNM5ygL12nKZIgVzGS36PSIdOPO8CcS_fIf0tXrhU7kc7dzHpeSdcBfuyn0",
-            "Referer": "https://api.mangalib.me/"
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjc1MmQ4NjkyOTUzMzQ0ZjM1ZDdlNzZlNTI5YzFlN2FkMDZhZGYyMDRiMjljZGQwNDRlMGE2MzM1NjBkNGFiZjhkYjYyNTE3MzkzYmM0NjQiLCJpYXQiOjE3MzU2NjcwNzcuNjA2NTYxLCJuYmYiOjE3MzU2NjcwNzcuNjA2NTYzLCJleHAiOjE3MzgzNDU0NzcuNjAzNDQ4LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.TvxZWjzYKYaWpQ_T2p0o5hDB1Qk501WnrkgRMi8JPUn5kAldxdLvKOlbqgPRj_YI40E2d9L0Cds3lPekHfI1ACF878Ynt-R66HqcIBhlE5UhHdQPEUHUL-oy2m_tKDN_txMqt690JZcZWTT1gV6hV5ZsdmeGK8zlQK1E6HflsP06Qm5Qz8TfufGM34Jqn2JEv7luToW9ITzLmfWuv3RCDLiNdXYqrruYQlziCBvP1ZBxVPZYvHNk6gS0gEbxXPZXbuRS74BYFMNLKOZ5ZHn6z9q4CBSJdz8Zfrugo7x0XP58CQQKEeV_wQlRxOXOlziTRX3_dlWwuVUSr3OYDmpV-hk4Dj_PZ2iEzGjG52aoMLRL5mxHdru73E7MOXWa7ew1b9mUJ4blwU8SrbWbESYfJ7umyfseNeVGl0T-timgn3JrFp-nufRZmtlPhqLeuYLNXVhbVlUW3RGe1ikimeHJ0tEFXdMz8lwYbErWfwyBiFmf3kafI_WaDLbQD7YZ3TuYkKEfuBbCnNSJeSZO54jOmNd3AzhH6tbG17qecvK8GE1X1J7CelCRH_91BzzNOYrd_xg7Vk0uE7j302JeJoseD5QYJG2Dtz5Ypgrfimy7xg18ZmWV_LDaUyNAC0v7PFzKjY5aNwjTokZiJuVFifiM-oxNvt7hkzPQJNlC8iITbZ0",
+            "Referer": "https://v1.yaoilib.net/"
+			
         },
         "images": true,
         "add_pages": {
@@ -422,12 +423,12 @@
                 "chapters_count": ">=80",
                 "chapters": [
         {
-            "link": "https://api.mangalib.me/api/manga/1886--19-tian/chapter?number=417&volume=2",
+            "link": "https://api2.mangalib.me/api/manga/1886--19-tian/chapter?number=417&volume=2",
             "title": "Том 2 Глава 417 \"Обуздать.\""
         },
         {
             "folder": "Том 2 Глава 416\\",
-            "link": "https://api.mangalib.me/api/manga/1886--19-tian/chapter?number=416&volume=2",
+            "link": "https://api2.mangalib.me/api/manga/1886--19-tian/chapter?number=416&volume=2",
             "title": "Том 2 Глава 416 \"Преображение перед собеседованием.\""
         }
                 ]
@@ -435,7 +436,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://api.mangalib.me/api/manga/1886--19-tian/chapter?number=417&volume=2",
+            "link": "https://api2.mangalib.me/api/manga/1886--19-tian/chapter?number=417&volume=2",
             "assert": {
                 "pages": [
                     {
