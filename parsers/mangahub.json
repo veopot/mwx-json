@@ -1,13 +1,13 @@
 {
 	"id": 30414,
 	"old_ids": [19001,40134],
-	"old_sites": ["mangahub.ru","mangahub.com"],
-	"version": 59,
+	"old_sites": ["mangahub.ru","mangahub.com","mangahub.me"],
+	"version": 60,
 	
 	
 	"title": "MangaHub",
-	"host": "https://mangahub.me",
-	"public_link": "https://mangahub.me/explore",
+	"host": "https://v3.moonhub.live",
+	"public_link": "https://v3.moonhub.live/explore",
 	"hash_tag": "mangahub",
 	"folder": "mangahub",
 	"name" : "mangahub",
@@ -26,22 +26,22 @@
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1768381470%3AltPzVD0gisLaXQ7a775K5PexKvEJFuAf-aYZRbXhUX4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://mangahub.me/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
-		"search_link": "https://mangahub.me/search/title?query=$query$&page=$page$",
+		"search_link": "https://v3.moonhub.live/search/title?query=$query$&page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"text-line-clamp",
 			"link":  { "token1": "href=\"", "token2": "\"",
-			"replace": { "prefix": "https://mangahub.me"} },
+			"replace": { "prefix": "https://v3.moonhub.live"} },
 			
 			
 			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
@@ -60,19 +60,19 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1768381470%3AltPzVD0gisLaXQ7a775K5PexKvEJFuAf-aYZRbXhUX4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://mangahub.me/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
 		"iterator": {
 			
-			"base_url": "https://mangahub.me/explore/sort-is-rating?page=",
+			"base_url": "https://v3.moonhub.live/explore/sort-is-rating?page=",
 			
-			"append_nums": { "from": 1, "to": 332, "step": 1 }
+			"append_nums": { "from": 1, "to": 545, "step": 1 }
 		},
 		"add_manga": {
 			"next": "<a class=\"fw-medium\"",
@@ -89,13 +89,13 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1768381470%3AltPzVD0gisLaXQ7a775K5PexKvEJFuAf-aYZRbXhUX4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://mangahub.me/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
@@ -184,7 +184,7 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"/title/", 
 			"token2": "\"", 
-			"replace": { "prefix": "https://mangahub.me/chapters/"}
+			"replace": { "prefix": "https://v3.moonhub.live/chapters/"}
 				
 			
 			},
@@ -192,11 +192,11 @@
 		"add_chapter": {
 			"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1768381470%3AltPzVD0gisLaXQ7a775K5PexKvEJFuAf-aYZRbXhUX4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://mangahub.me/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
@@ -220,14 +220,14 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1759482915%3AS5tzFW4Yg_jHspGNVkb4EQW7x0gOryYJ6n_4sb4ncgA~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1768381470%3AltPzVD0gisLaXQ7a775K5PexKvEJFuAf-aYZRbXhUX4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "toast_28=true",
 			 
 			
 			
 			
-			"Referer": "https://mangahub.me/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		"add_numeration": true,
@@ -248,11 +248,11 @@
 			"assert" : {
 				"mangas" : [
 					{
-                       "link": "https://mangahub.me/cover_up",
+                       "link": "https://v3.moonhub.live/cover_up",
                        "title": "Перекрыть"
                     },
                     {
-                    "link": "https://mangahub.me/incorrigible"
+                    "link": "https://v3.moonhub.live/incorrigible"
                     }
 				],
 				"mangas_count" : ">=40"
@@ -260,27 +260,27 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://mangahub.me/title/berserk",
+			"link" : "https://v3.moonhub.live/title/berserk",
 			"title" : "Берсерк (Berserk)",
 			"assert" : {
 				"author" : "@Кэнтаро Миура",
-				"cover" : "https://static.mangahub.me/uploads/media/manga_cover/thumbnail/big/0021/45/2044343.jpeg",
+				"cover" : "https://static.v3.moonhub.live/uploads/media/manga_cover/thumbnail/big/0021/45/2044343.jpeg",
 				"summary" : "@^(Гатс, известный, как Чёрный Мечник)",
 				"status" : "unknown",
 				"genres_count" : ">=3",
 				"chapters_count" : ">=300",
 				"chapters" : [
 		{
-            "link": "https://mangahub.me/read/484352",
+            "link": "https://v3.moonhub.live/read/484352",
             "title": "Том 1_ Глава 0 - Берсерк: Прототип"
         },
-        { "link": "https://mangahub.me/read/117313"}
+        { "link": "https://v3.moonhub.live/read/117313"}
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://mangahub.me/read/484352",
+			"link" : "https://v3.moonhub.live/read/484352",
 			"assert" : {
 				"pages" : [
 		{"image": "https://1hubst.guru/uploads/media/scan/0029/54/6e4590bc96ab2a0a146b24dc9e322fdaa45fc8dd.jpg"},
