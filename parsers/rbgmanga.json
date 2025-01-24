@@ -1,7 +1,7 @@
 {
     "id": 40155,
-    "version": 98,
-    "title": "ReManga",
+    "version": 99,
+    "title": "Re:Manga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
     "folder": "rbgmanga",
@@ -23,7 +23,7 @@
     "manga_search_complete": {
        "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+            
             "Referer": "https://remanga.org/",
 	 "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
@@ -126,7 +126,7 @@
     "manga_list_complete": {
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+           
             "Referer": "https://remanga.org/",
 			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
@@ -196,7 +196,7 @@
 		
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+            
             "Referer": "https://remanga.org/",
             "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
 			},
@@ -330,7 +330,7 @@
         "add_chapter": {
 			"headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+           
             "Referer": "%%url%%",
 			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
@@ -392,7 +392,7 @@
         "add_numeration": true,
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+            
             "Referer": "https://remanga.org/",
 			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
