@@ -1,7 +1,9 @@
 {
     "id": 46547,
-    "version": 1,
-    "title": "Mangahub_CC",
+    "version": 13,
+	"old_sites": ["mangahub.space"],
+	
+    "title": "MangaHub_CC",
     "host": "https://mangahub.cc",
     "public_link": "https://mangahub.cc/manga",
     "folder": "mangahub_cc",
@@ -22,7 +24,7 @@
     
     "manga_search_complete": {
        "headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
             "Referer": "https://mangahub.cc/",
 	        "User-Agent": "MangaWatcherX"
@@ -119,9 +121,12 @@
 			"User-Agent": "MangaWatcherX"
 			},
 			
-		"title":       { "token1":"class=\"title_head_name\">", "token2": "</" },
-		
-		"additional_title": { "token1": "class=\"title_head_additional_info\">", "token2": "</" },
+		"title":       { "token1":"class=\"title_head_name\">", "token2": "<div class=\"title_body_info\">",
+				"replace": [
+				{ "match": "<h1 style=\"width: 0; height: 0; opacity: 0; display: none;\">(.*)</h1>", "text": "|" },
+				{ "match": "/", "text": "" },
+					{ "match": "<.*?>", "text": " " }
+				] },
 		
 		"uniq":        { "after": " property=\"og:url\"", 
 		"token1":"content=\"https://mangahub.cc/manga/", "token2": "\"" },
@@ -146,10 +151,7 @@
 		
 		
 		"cover":       { "after": "class=\"lazy_load_poster title_image\"",
-		"token1": "data-src=\"", "token2": "\"",
-                "replace": {
-                    "prefix": "https://mangahub.cc"
-                } },
+		"token1": "data-src=\"", "token2": "\"" },
 		
 		
 		
@@ -187,25 +189,31 @@
 	
 	
     "chapter_complete": {
-        "add_numeration": true,
-		
-        "headers": {
+		"add_numeration": true,	
+		"headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
             "Referer": "https://mangahub.cc/",
 			"User-Agent": "MangaWatcherX"
 			},
-			
-			
-        "add_images": {
-            "start": "class=\"pages_placer\">",
-            "token1": "src=\"",
+		
+		 
+		"add_images":
+		
+		{    
+		    "start": "chapter_page_content_block\">",	
+		   
+			"token1": "data-src=\"",
             "token2": "\"",
-			"replace": { "prefix": "https://mangahub.cc" },
-			
-            "end": "<footer class=\"footer\">"
-        }
-    },
+			"replace": [
+			{ "match": "Запаска1", "text": "" },
+			{ "match": "Запаска2", "text": "" }			
+			],
+			"end": "<footer class=\"footer\">"		
+			    
+		}
+		},
+	
     "test": [
         {
             "proc": "manga_list_complete",
@@ -247,11 +255,16 @@
             "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c10",
             "assert": {
                 "pages": [
-        {"image": "https://mangahub.cc/static/content/scans/920c885b-90c1-4a7f-a95a-2cc32db9bc63.jpg"},
-        {"image": "https://mangahub.cc/static/content/scans/d0267766-4bab-4000-b3a2-6860dd2d3441.jpg"},
-        {"image": "https://mangahub.cc/static/content/scans/ce867873-40aa-43d7-be90-a473e0ba2e3a.jpg"}
+        { "link": "https://mangahub.cc/load_more_scans/1542-3"}
                 ]
             }
-        }
+        },
+		{
+			"proc" : "page_complete",
+			"link" : "https://mangahub.cc/load_more_scans/1542-1",
+			"assert" : {
+				"image" : "@http://zjcdn.mangahere.org/store/manga/12114/315.1/compressed/l20190903_164427_101.jpg?\\.*"
+			}
+		}
     ]
 }

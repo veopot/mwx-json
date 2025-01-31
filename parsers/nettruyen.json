@@ -1,184 +1,277 @@
 {
-	"id": 40164,
-	"old_sites": ["nettruyen.com"],
-	
-	"version": 22,
-	"title": "NetTruyen",
-	"host": "http://www.nettruyenpro.com",
-	"public_link": "http://www.nettruyenpro.com/hot",
-	"folder": "nettruyen",
-	"name" : "nettruyen",
-	"chapters_order": false,
+    "id": 40164,
+    "old_sites": [
+        "nettruyen.com",
+        "www.nettruyenpro.com"
+    ],
+    "version": 24,
+    "title": "NetTruyen",
+    "host": "http://nhattruyenmax.com",
+    "public_link": "http://nhattruyenmax.com/hot",
+    "folder": "nettruyen",
+    "name": "nettruyen",
+    "chapters_order": false,
     "language": "vi",
-	"content_type": "manga",
- 
-	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/nettruyen.png",
-	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/nettruyen.json",
-	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/nettruyen.json",
-	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/nettruyen.zip",
+    "content_type": "manga",
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/nettruyen.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/nettruyen.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/nettruyen.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/nettruyen.zip",
     "file_type": "sqlite",
-   
+	
     "manga_list_complete": {
-		"iterator": {
-			"base_url":"http://www.nettruyenpro.com/tim-truyen?status=-1&sort=15&page=",
-				"append_nums": { "from": 1, "to": 528, "step": 1}
-			},
+		"headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Referer": "http://nhattruyenmax.com/"
+        },
 		
-		"add_manga": {
-			"next": "<figure class=\"clearfix\">",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"cover": { 
-			"after": "<img",
-            "token1": "data-original=\"//", 
-			"token2": "\"", 
-			"replace": {"prefix": "http://"}
-			},
-			
-			"uniq":{ "token1": "title=\"", "token2": "\"",
-			"replace": { "match": "Truyện tranh", "text": ""} },
-			"title": { "token1": "title=\"", "token2": "\"",
-			"replace": { "match": "Truyện tranh", "text": ""} }
-		             }
 		
-	},	
-	
-	
-    "manga_search_complete": {		
-        "search_link":"http://www.nettruyenpro.com/tim-truyen?keyword=$query$&page=$page$",
-		    "query_type": "GET",
-		    "add_manga": {
-			
-			"next": "<figure class=\"clearfix\">",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			
-			"cover": { 
-			"after": "<img",
-            "token1": "data-original=\"//", 
-			"token2": "\"", 
-			"replace": {"prefix": "http://"}
-			},
-			
-			"summary": { "skip": "href=\"",
-  			    "token1": "class=\"box_text\">", "token2": "</div>",
-                "replace":{"match":"<.*?>", "text":" " } },
-			
-			"uniq":{ "token1": "title=\"", "token2": "\"",
-			"replace": { "match": "Truyện tranh", "text": ""} },
-			
-			"title": { "token1": "title=\"", "token2": "\"",
-			"replace": { "match": "Truyện tranh", "text": ""} }
-		           
-		} },	
+        "iterator": {
+            "base_url": "https://nhattruyenmax.com/tim-truyen?status=-1&sort=15&page=",
+            "append_nums": {
+                "from": 1,
+                "to": 453,
+                "step": 1
+            }
+        },
+        "add_manga": {
 
-	"manga_complete": {
-	    "headers": {
 			
-           "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-           "Referer": "http://www.nettruyenpro.com",
-		   "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-		   "Accept-Encoding": "gzip,deflate"
-		},
-		
-		"title":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
-		"uniq":       { "skip": "property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
-		"author":      { "skip": "> Tác giả", "token1": "\">", "token2": "</" },
-		"summary":     { "skip": "> Nội dung", "token1": "<p>", "token2": "</p>" },
-		"status": { 
-				"complete": { "start": "> Tình trạng", 
-				  "values": ["Hoàn thành", ">Переведена"],
-				  "end": "> Thể loại" },
-				"ongoing":   { "start": "> Tình trạng", 
-				  "values" : ["Đang tiến hành",">Ожидание", ">Перерыв"],
-				  "end": "> Thể loại" },
-			"default": "unknown"
-			},
-		"is_mature": {
-			"start": "> Thể loại",
-			"end": "> Lượt xem",
-			"values": ["Adult", "Mature","Yuri","Yaoi", "Seinen"]
+            "next": "<figure",
+            "link": {
+				 "after": "<a title=",
+                "token1": "href=\"",
+                "token2": "\""
             },
-		"add_genres":   {
-        "start": "> Thể loại",
-		"end": "> Lượt xem",
-		"token1": "'>",
-		"token2": "</" 
-		},
-		"cover": { "skip": "itemprop=\"image\"", "token1": "content=\"", "token2": "\"" },
-		"content_type": { "default": "manga" },
+            "uniq": {
+                "token1": "title=\"",
+                "token2": "\"",
+                "replace": {
+                    "match": "Truyện tranh",
+                    "text": ""
+                }
+            },
+            "title": {
+                "token1": "title=\"",
+                "token2": "\"",
+                "replace": {
+                    "match": "Truyện tranh",
+                    "text": ""
+                }
+            }
+        }
+    },
+    "manga_search_complete": {
+		"headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Referer": "http://nhattruyenmax.com/"
+        },
 		
-		"add_chapter": {
-		    "start": "class=\"list-chapter\"",
-			"end": "</article>",
-		    "next":  "<a",
-			"link":  { "token1": "href=\"", "token2": "\""},
-			"uniq": { "after" : "href=\"", "token1": "\">", "token2": "</" },
-			"title": { "after" : "href=\"", "token1": "\">", "token2": "</",
-			 "replace" : { "match" : "&nbsp;", "text" : "" }
-			}
-		}
-	},
-	"chapter_complete": {
-		"images": true,
-		"add_pages": {
-			"start": "class=\"reading-detail",
-			"end": "<div class=\"text-center mrt5 mrb5\">",
-			"after": "<img",
-			"token1": "data-original='//",
-			"token2": "'",
-			"replace": {"prefix" : "http://"}
-		}
-	},
-	
-	
-
-	"test": [
-		{
-			"proc" : "manga_list_complete",
-			
-			"assert" : {
-				"mangas" : [
-					{ "title" : "Vô Địch Học Bạ Hệ Thống", 
-					 "link" : "http://www.nettruyenpro.com/truyen-tranh/vo-dich-hoc-ba-he-thong-37577" }
-				],
-				"mangas_count" : ">=50"
-			}
-		},
-		{
-			"proc" : "manga_complete",
-			"link" : "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat",
-			"title" : "Thuần Tình Nha Đầu Hoả Lạt Lạt",
-			"assert" : {
-				"author" : "Đang cập nhật",
-"cover":"http://st.imageinstant.net/data/comics/207/thuan-tinh-nha-dau-hoa-lat-lat.jpg",
-				"summary" : "@tình tiết rất ly kỳ hấp dẫn,",
-				"genres" : "@comedy",
-				"status" : "ongoing",
-				"genres_count" : ">=2",
-				"chapters_count" : ">=410",
-				"chapters" : [
-{
-"folder": "Chapter 1/",
-"link": "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
-"title": "Chapter 1"
-},
-{
-"link": "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-2/179470",
-"title": "Chapter 2"
-}
-]
-			}
-		},
-		{
-			"proc" : "chapter_complete",
-			"link" : "http://www.nettruyenpro.com/truyen-tranh/thuan-tinh-nha-dau-hoa-lat-lat/chap-1/179396",
-			"assert" : {
-				"pages" : [
-{"image": "https://3.bp.blogspot.com/-4LaJWvNX4w4/WsyKCKFseHI/AAAAAAALzl0/z_26D1yenKIvKBvaJ4v2Kk2vYZAbVNy1wCHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-1.jpg"},
-        {"image": "https://3.bp.blogspot.com/-W3xY8K-AGXs/WsyKDcbeRyI/AAAAAAALzl4/PLqz472bdmIyRM73tsi-z1oozfqwspbQQCHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-2.jpg"},
-        {"image": "https://3.bp.blogspot.com/-jNLXG6VRH7g/WsyKEuCuW4I/AAAAAAALzl8/Ks-O6y5bl-Qwy69LNvHknfXiEnmvRuESACHMYCw/s0/Thuan-Tinh-Nha-Dau-Hoa-Lat-Lat-Chapter-1-P-3.jpg"}
-],
-"pages_count": "8"
-}}
-
-]
+        "search_link": "https://nhattruyenmax.com/tim-truyen?keyword=$query$&page=$page$",
+        "query_type": "GET",
+        "add_manga": {
+            "next": "<figure class=\"clearfix\">",
+            "link": {
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "cover": {
+                "after": "<img",
+                "token1": "data-original=\"//",
+                "token2": "\"",
+                "replace": {
+                    "prefix": "http://"
+                }
+            },
+            "summary": {
+                "skip": "href=\"",
+                "token1": "class=\"box_text\">",
+                "token2": "</div>",
+                "replace": {
+                    "match": "<.*?>",
+                    "text": " "
+                }
+            },
+            "uniq": {
+                "token1": "title=\"",
+                "token2": "\"",
+                "replace": {
+                    "match": "Truyện tranh",
+                    "text": ""
+                }
+            },
+            "title": {
+                "token1": "title=\"",
+                "token2": "\"",
+                "replace": {
+                    "match": "Truyện tranh",
+                    "text": ""
+                }
+            }
+        }
+    },
+    "manga_complete": {
+        "headers": {
+            "Accept": " */*",
+            "Referer": "http://nhattruyenmax.com"
+        },
+        "title": {
+            "after": "property=\"og:title\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+        "uniq": {
+            "after": "property=\"og:title\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+        "author": {
+            "skip": "> Tác giả",
+            "token1": "\">",
+            "token2": "</"
+        },
+        "summary": {
+            "skip": "> Nội dung",
+            "token1": "<p>",
+            "token2": "</p>"
+        },
+        "status": {
+            "complete": {
+                "start": "> Tình trạng",
+                "values": [
+                    "Hoàn thành",
+                    ">Переведена"
+                ],
+                "end": "> Thể loại"
+            },
+            "ongoing": {
+                "start": "> Tình trạng",
+                "values": [
+                    "Đang tiến hành",
+                    ">Ожидание",
+                    ">Перерыв"
+                ],
+                "end": "> Thể loại"
+            },
+            "default": "unknown"
+        },
+        "is_mature": {
+            "start": "> Thể loại",
+            "end": "</li>",
+            "values": [
+                "Adult",
+                "Mature",
+                "Yuri",
+                "Yaoi",
+                "Seinen"
+            ]
+        },
+        "add_genres": {
+            "start": "> Thể loại",
+            "end": "</li>",
+            "token1": "\">",
+            "token2": "</"
+        },
+        "cover": {
+            "skip": "itemprop=\"image\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+        "content_type": {
+            "default": "manga"
+        },
+        "add_chapter": {
+            "start": "class=\"list-chapter\"",
+            "end": "</article>",
+            "next": "<a",
+            "link": {
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "after": "href=\"",
+                "token1": "\">",
+                "token2": "</"
+            },
+            "title": {
+                "after": "href=\"",
+                "token1": "\">",
+                "token2": "</",
+                "replace": {
+                    "match": "&nbsp;",
+                    "text": ""
+                }
+            }
+        }
+    },
+    "chapter_complete": {
+		"headers": {
+            "Accept": "*/*",
+            "Referer": "http://nhattruyenmax.com"
+        },
+        "images": true,
+        "add_pages": {
+            "start": "class=\"reading-detail",
+            "end": "<div class=\"container mrt5\">",
+            "after": "<img",
+            "token1": "data-original=\"//",
+            "token2": "\"",
+            "replace": {
+                "prefix": "http://"
+            }
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Vô Địch Học Bạ Hệ Thống",
+                        "link": "http://nhattruyenmax.com/truyen-tranh/vo-dich-hoc-ba-he-thong-37577"
+                    }
+                ],
+                "mangas_count": ">=50"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://nhattruyento.com/truyen-tranh/touch-17",
+            "title": "Touch",
+            "assert": {
+                "author": "Adachi Mitsuru",
+                "cover": "https://st.nhattruyento.com/data/comics/17/touch.jpg",
+                "summary": "@Touch là câu chuyện",
+                "genres": "@romance",
+                "status": "complete",
+                "genres_count": ">=1",
+                "chapters_count": ">=200",
+                "chapters": [
+        {
+            "folder": "Chapter 1\\",
+            "link": "https://nhattruyento.com/truyen-tranh/touch/chap-1/550",
+            "title": "Chapter 1"
+        },
+        {
+            "link": "https://nhattruyento.com/truyen-tranh/touch/chap-2/551",
+            "title": "Chapter 2"
+        }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://nhattruyento.com/truyen-tranh/touch/chap-1/550",
+            "assert": {
+                "pages": [
+        {"image": "http://i32.ntcdntempv26.com/data/images/17/550/001-fix.jpg?data=nht"},
+        {"image": "http://i32.ntcdntempv26.com/data/images/17/550/002-fix.jpg?data=nht"},
+        {"image": "http://i32.ntcdntempv26.com/data/images/17/550/003-fix.jpg?data=nht"}
+                ],
+                "pages_count": "31"
+            }
+        }
+    ]
 }

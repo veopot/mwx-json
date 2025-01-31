@@ -1,0 +1,236 @@
+{
+	"id": 4213,
+	"version": 1,
+	
+	"title": "YaoiScan",
+	"host": "https://yaoiscan.com/",
+	"public_link": "https://yaoiscan.com/manga/",
+	"folder": "yaoiscan",
+	"name" : "yaoiscan",
+	"language": "en",
+	"is_paid": true,
+	"is_mature": true,
+	"skip_catalog_test": false,
+	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoiscan.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/yaoiscan.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/yaoiscan.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/yaoiscan.zip",
+    "file_type": "sqlite",
+	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
+
+	
+
+	"manga_search_complete": {
+        "headers": {
+		"cookie": "wpmanga-adault=1",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "image/webp,*/*;q=0.8",
+        "Referer": "https://yaoiscan.com/"
+		},
+				
+		"search_link": "https://yaoiscan.com/?s=$query$&post_type=wp-manga",
+		"query_type": "GET",
+		"add_manga": {
+			"next":   "item__content\">",
+		
+			"title":  { "after":  "<a href=\"", "token1": "title=\"", "token2": "\"" },
+			"link":   { "token1": "<a href=\"", "token2": "\"" },
+				
+			"uniq":    { "token1": "<a href=\"https://yaoiscan.com/read/", "token2": "/\"" },
+			
+			"summary": {
+                "token1": "Genres </h5>",
+                "token2": "<div class=\"post-content_item",
+                "replace": [
+                    {
+                        "match": "year\":",
+                        "text": "Год выпуска "
+                    },
+					{
+                        "match": "<(.*?)>",
+                        "text": ""
+                    }
+			]},	
+			"cover":  {  "token1": "data-src=\"", "token2": "\"" , 
+			"replace" : { "match":"\\\\","text":""}}
+		}
+	},
+
+
+	"manga_list_complete": {
+		
+		
+		"iterator": {
+            "base_url": "https://yaoiscan.com/manga/page/",
+            "append_nums": {
+				"from": 1,
+				"to": 237,
+				"sufix": "/?m_orderby=rating"
+			}
+        },
+		"add_manga": {
+			"start": "class=\"tab-content-wrap\">",
+			"end": "<div class=\"sidebar",
+			"next":   "<div id=\"manga-item",
+			"title":  { "after":  "<a href=\"", "token1": "title=\"", "token2": "\"" },
+			"link":   { "token1": "<a href=\"", "token2": "\"" },
+				
+			"uniq":    { "token1": "<a href=\"https://yaoiscan.com/read/", "token2": "/\"" }
+			
+		},
+		"link_corrector": [
+            {
+                "match": "yaoiscan.com/(.*?)\\?section=(.*)",
+                "text": "yaoiscan.com/$1"
+            }
+        ],
+        "rating_auto_inc": {
+            "start": 50000,
+            "inc": -1
+        }
+	},
+
+
+	"manga_complete": {
+	    "headers": {
+		"cookie": "wpmanga-adault=1",
+		"Referer": "https://yaoiscan.com/"
+		},
+		
+		
+		
+		"title": { "after": "property=\"og:title\"",
+		"token1":"content=\"",
+		"token2": "\"",
+			"replace": [{ "match": "<div class=\"media-name__alt\">", "text": "| " },
+			{ "match": "<.*>", "text": "" }
+			]
+		},		
+		"additional_title": {
+			"skip": "Alternative </h5>",
+            "token1": "class=\"summary-content\">",
+            "token2": "</div>"
+        },
+		"uniq":  { "after": "property=\"og:url\"",
+		"token1":"content=\"https://yaoiscan.com/read/",
+		"token2": "\""
+		},
+		
+		
+		
+		
+		"summary":     { "after": "class=\"summary__content show-more\">",
+		"token1": ">", "token2": "</div>",
+		"replace": { "match": "<.*?>", "text": "" }  },
+		
+		"cover":       { "skip": "class=\"summary_image\">", 
+		"token1": "data-src=\"",
+		"token2": "\"" },
+		
+		
+		
+		"status":      { 
+		
+		"single": "Single </div>", 
+		"complete": "Completed </div>",
+		"ongoing": "OnGoing <"
+		},
+		
+		"add_tag": { "after": "href=\"https://yaoiscan.com/manga-genre/", "token1": ">", "token2": "</" },
+		
+		"add_chapter": {
+			  "headers": {
+		"cookie": "wpmanga-adault=1",
+	    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "image/webp,*/*;q=0.8",
+        "Referer": "https://yaoiscan.com/"
+		
+		},
+		
+			"next":  "<li class=\"wp-manga-chapter",
+			
+			"link": {
+			 
+			"token1": "href=\"",
+            "token2": "\""                 
+             },
+			
+            "uniq": {
+			     "token1": "href=\"https://yaoiscan.com/read/(.*?)/",
+            "token2": "\"" 
+            },
+			
+            "title": {
+			"after": "href=\"",
+			"token1": ">",
+            "token2": "</"
+			}
+		}
+	},
+	"chapter_complete": {
+   "headers": {
+	    "User-Agent": "mangawatcherx",
+		"Referer": "https://yaoiscan.com/",
+	    "cookie": "wpmanga-adault=1"
+		},
+	
+    	"images": true,
+		
+        "add_pages": { 
+            "start": "class=\"entry-content\">",
+            "after": "<img id=\"image",
+		"token1": "data-src=\"",
+		"token2": "\"",
+            "end": "<div class=\"entry-header footer\""
+        }
+    },
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			
+			"assert" : {
+				"mangas" : [
+            { "title" : "Oyasumi Matane Mashirokun", 
+            "link" : "https://yaoiscan.com/read/oyasumi-matane-mashirokun/",
+			"uniq" : "oyasumi-matane-mashirokun" }
+				],
+				"mangas_count" : ">=50"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://yaoiscan.com/read/jikyuu-jisoku-de-nani-ga-warui/",
+			"title" : "Jikyuu Jisoku De Nani Ga Warui",
+			"assert" : {
+				"cover" : "@https://yaoiscan.com/wp-content/uploads/2021/08/jikyuu-jisoku-de-nani-ga-warui-193x278.jpg",
+				"summary" : "@^(Rin and Nozomu have)",
+				"status" : "ongoing",
+				"chapters_count" : ">=5",
+				"chapters" : [
+		{
+            "folder": "chapter-1\\",
+            "link": "https://yaoiscan.com/read/jikyuu-jisoku-de-nani-ga-warui/chapter-1/",
+            "title": "Chapter 1"
+        },
+        {
+            "link": "https://yaoiscan.com/read/jikyuu-jisoku-de-nani-ga-warui/chapter-2/",
+            "title": "Chapter 2"
+        }
+				]
+			}
+		},
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://yaoiscan.com/read/jikyuu-jisoku-de-nani-ga-warui/chapter-1/",
+			"assert" : {
+				"pages" : [
+		{"image": "https://img.yaoiscan.com/site-1/jikyuu-jisoku-de-nani-ga-warui-2896/chapter-1/1.jpg"},
+        {"image": "https://img.yaoiscan.com/site-1/jikyuu-jisoku-de-nani-ga-warui-2896/chapter-1/2.jpg"},
+        {"image": "https://img.yaoiscan.com/site-1/jikyuu-jisoku-de-nani-ga-warui-2896/chapter-1/3.jpg"}
+				],
+				"pages_count": "34"
+			}
+		}
+	]
+}

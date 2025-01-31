@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 62,
+	"version": 84,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -9,15 +9,16 @@
 		"allhentai.ru",
 		"wwv.allhen.me",
 		"wwv.allhen.live",
-		"20.allhen.online",
 		"22.allhen.online",
 		"2023.allhen.online",
-		"z.allhen.onlin"
+		"z.allhen.online",
+		"24.allhen.online",
+		"z.ahen.me"
 	
 	],
 	
-	"host": "https://24.allhen.online",
-	"public_link": "https://24.allhen.online",
+	"host": "https://20.allhen.online",
+	"public_link": "https://20.allhen.online",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
 	"name": "allhentai",
@@ -33,21 +34,15 @@
 	
 	
 	"manga_search_complete": {
-		"search_link": "https://24.allhen.online/search/advanced",
+		"search_link": "https://20.allhen.online/search/advancedResults?q=$query$&offset=&years=1991%2C2025&sortType=RATING",
 		"headers": {
 			"accept": "*/*",
-			"x-requested-with": "XMLHttpRequest",
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Referer": "https://24.allhen.online/search"
+			"Referer": "https://20.allhen.online/search/advanced"
 		},
-		"form_data": {
-			"q": "$query$"
-		},
-		"query_type": "POST",
 		"add_manga": {
-			"next": "<div class=\"tile col-md-6",
+			"next": "class=\"desc\">",
 			"summary": {
-				"token1": "class=\"html-popover-holder\">",
+				"token1": "class=\"manga-description\">",
 				"token2": "</div>",
 				"replace": [{
 						"match": "<.*?>",
@@ -68,7 +63,7 @@
 				"token2": "\""
 			},
 			"cover": {
-				"after": "<img",
+				"before": "<a href=\"",
 				"token1": "data-original='",
 				"token2": "'",
 				"replace": {
@@ -76,12 +71,10 @@
 				}
 			},
 			"title": {
-				"after": "<h3>",
 				"token1": "title=\"",
 				"token2": "\""
 			},
 			"uniq": {
-				"after": "<h3>",
 				"token1": "title=\"",
 				"token2": "\""
 			}
@@ -89,10 +82,10 @@
 	},
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://24.allhen.online/list?sortType=votes&offset=",
+			"base_url": "https://20.allhen.online/list?sortType=votes&offset=",
 			"append_nums": {
 				"from": 0,
-				"to": 22330,
+				"to": 25100,
 				"step": 70
 			}
 		},
@@ -119,8 +112,8 @@
 		},
 		"link_corrector": [
             {
-                "match": "http://24.allhen.online",
-                "text": "https://24.allhen.online"
+                "match": "http://20.allhen.online",
+                "text": "https://20.allhen.online"
             }
         ],
 		"rating_auto_inc": {
@@ -130,7 +123,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=Z3NrbDAwRnJZUkZSQ25ZWTRyUSUyQkRlN005JTJGWG1Dc1hKZVViUUREM2VrY0klM0Q6bE9kRFBIVWVra2RudTYlMkJTYVJSRVJKUjIlMkIxU3JEODdsN1F5Q1BzQURLVWMlM0Q",
+			"cookie": "remember_me=Mk1BV1BibzdabyUyQnpCUnRMMDZiTnNDaWRzQ3NjUkx4WE8xckt2b3FZd3pJJTNEOiUyRmlCRlFzcjQ0NUFidFdJcUNFaHp4Z1BQYUR5S2I2UWVSYzlHNnBJNmpNbyUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -138,7 +131,7 @@
 	        "gdpr-flag": "dismiss",
 				
 			
-			"Referer": "https://24.allhen.online/"
+			"Referer": "https://20.allhen.online/"
 		},
 		"title": {
 			"after": "<meta itemprop=\"name\"",
@@ -192,15 +185,15 @@
 		],
 		"status": {
 			"ongoing": {
-				"start": ">Перевод:<",
-				"end": "</p>",
+				"start": ">Информация о манге<",
+				"end": ">Описание<",
 				"values": [
 					"продолжается"
 				]
 			},
 			"complete": {
-				"start": ">Перевод:<",
-				"end": "</p>",
+				"start": ">Информация о манге<",
+				"end": ">Описание<",
 				"values": [
 					"завершен",
 					"переведено",
@@ -211,8 +204,8 @@
 			"single": "<b>Сингл</b>"
 		},
 		"cover": {
-			"after": "picture-fotorama",
-			"token1": "src=\"",
+			"skip": "class=\"picture-fotorama\"",
+			"token1": "data-full=\"",
 			"token2": "\"",
 			"replace": {
 				"prefix": "http://b964805y.beget.tech/index.php?q="
@@ -251,7 +244,7 @@
 				"token1": "<a href=\"",
 				"token2": "\"",
 				"replace": {
-					"sufix": "?mtr=1"
+					"sufix": "?d=ODQ0Nzgw"
 				}
 			},
 			"title": {
@@ -276,10 +269,10 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=Z3NrbDAwRnJZUkZSQ25ZWTRyUSUyQkRlN005JTJGWG1Dc1hKZVViUUREM2VrY0klM0Q6bE9kRFBIVWVra2RudTYlMkJTYVJSRVJKUjIlMkIxU3JEODdsN1F5Q1BzQURLVWMlM0Q",
+			"cookie": "remember_me=Mk1BV1BibzdabyUyQnpCUnRMMDZiTnNDaWRzQ3NjUkx4WE8xckt2b3FZd3pJJTNEOiUyRmlCRlFzcjQ0NUFidFdJcUNFaHp4Z1BQYUR5S2I2UWVSYzlHNnBJNmpNbyUzRA",
 			
 			"Accept": "*/*",
-			"Referer": "https://24.allhen.online/"
+			"Referer": "https://20.allhen.online/"
 		},
 		"no_404": true,
 		"images": true,
@@ -299,7 +292,7 @@
 			"proc": "manga_list_complete",
 			"assert": {
 				"mangas": [{
-					"link": "https://24.allhen.online/delovoi_stil",
+					"link": "https://20.allhen.online/delovoi_stil",
 					"title": "Деловой стиль (Business Casual)",
 					"uniq": "delovoi_stil"
 				}],
@@ -309,7 +302,7 @@
 		{
 			"proc": "manga_complete",
 			         
-			"link": "https://24.allhen.online/a_peephole",
+			"link": "https://20.allhen.online/a_peephole",
 			"title": "Nozoki ana (A peephole)",
 			"assert": {
 				"cover": "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
@@ -320,14 +313,14 @@
 				"chapters_count": ">=115",
 				"chapters": [{
 					"title": "Дыра 1 - 1",
-					"link": "https://24.allhen.online/a_peephole/vol1/1",
+					"link": "https://20.allhen.online/a_peephole/vol1/1?d=ODQ0Nzgw",
 					"folder": "Дыра 1 - 1/"
 				}]
 			}
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://24.allhen.online/tetrad_po_trusikam/vol1/95",
+			"link": "https://20.allhen.online/tetrad_po_trusikam/vol1/95?d=ODQ0Nzgw",
 			"assert": {
 				"pages": [
 		{"image": "https://d.aaa200.rocks/auto/06/27/19/1.png_res.png?t=1679933932&u=0&h=fln3L8hZDKzb6ISLgI7P1A"},
@@ -337,17 +330,12 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://24.allhen.online/a_peephole/vol1/1",
+			"link": "https://20.allhen.online/a_peephole/vol1/1?d=ODQ0Nzgw",
 			"assert": {
-				"pages": [{
-						"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"
-					},
-					{
-						"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"
-					},
-					{
-						"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"
-					}
+				"pages": [
+		{"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
+		{"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_001.png?t=1626802845&u=0&h=ZYQ1RKQTOUO81t6dCcmVNA"},
+		{"image": "http://c.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_002.png?t=1626802845&u=0&h=k5O-KYnahxnZriok4SKn9w"}
 				]
 			}
 		}

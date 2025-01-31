@@ -1,271 +1,450 @@
 {
-	"id": 2021,
-	"version": 18,
-	
-	"title": "MangaLib (test)",
-	"host": "https://mangalib.me/",
-	"public_link": "https://mangalib.me/",
-	"folder": "mangalib",
-	"name" : "mangalib",
-	"language": "ru",
-	"is_paid": true,
-	"skip_catalog_test": false,
-	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangalib.png",
-	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangalib.json",
-	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangalib.json",
-	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangalib.zip",
+    "id": 2021,
+    "version": 25,
+    "title": "MangaLib",
+    "host": "https://mangalib.me/",
+    "public_link": "https://mangalib.me/",
+    "folder": "mangalib",
+    "name": "mangalib",
+    "language": "ru",
+    "is_paid": true,
+    "encoding": "utf-8",
+    "skip_catalog_test": false,
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangalib.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangalib.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangalib.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangalib.zip",
     "file_type": "sqlite",
-	"author": {"name":"Veopot","email":"fant-net@ya.ru"},
-
-	
-
-	"manga_search_complete": {
+    "author": {
+        "name": "MWX Team",
+        "email": "fant-net@ya.ru"
+    },
+    "manga_search_complete": {
         "headers": {
-		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-        "Accept": "image/webp,*/*;q=0.8",
-        "Referer": "https://mangalib.me/"
-		},
-				
-		"search_link": "https://mangalib.me/search?type=manga&q=$query$",
-		"query_type": "GET",
-		"add_manga": {
-			"next":   "moder_id",
-		
-			"link":   { "before": "\"href\":",  "token1": "\"slug\":\"", "token2": "\"",
-				"replace": [{"prefix": "https://mangalib.me/"},
-				{ "match":"\\\\","text":""}
-				]
-				},
-			
-			"title":  { "before": "\"metadata\"", "token1": "rus_name\":\"", "token2": "\",\"slug\":", 
-			"replace" : { "match" : "\",\"eng_name\":\"", "text" : " | " } },
-			
-			"cover":  {  "token1": "default\":\"", "token2": "\"" , 
-			"replace" : { "match":"\\\\","text":""}}
-		}
-	},
-
-
-	"manga_list_complete": {
-		"headers": {
-		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-        "Accept": "image/webp,*/*;q=0.8",
-		 "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
-        "Referer": "https://mangalib.me/"
-		},
-		
-		
-		 "iterator": {
-            "base_url": "https://mangalib.me/manga-list?sort=rating_score&dir=desc&chapters[min]=1&site_id=1&type=manga&caution_list[]=%D0%9E%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82&caution_list[]=16+&caution_list[]=18+&page=",
-            "append_nums": {
-				"from": 1,
-				"to": 30
-			}
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept": "image/webp,*/*;q=0.8",
+            "Referer": "https://api.mangalib.me/"
         },
-		"add_manga": {
-			"start": "id=\"manga-list\">",
-			"end": "],",
-			"next":   "<a class=\"media-card\"",
-			"title":  { "token1": "class=\"media-card__title line-clamp\">", "token2": "</" },
-			"link":   { "token1": "href=\"", "token2": "\"" },
-				
-			"uniq":   { "token1": "data-media-slug=\"", "token2": "\""}
-			
-		},
-		"link_corrector": [
+        "search_link": "https://api.mangalib.me/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=1",
+        "query_type": "GET",
+        "add_manga": {
+            "next": "\"name\":",
+            "link": {
+                "token1": "\"slug_url\":\"",
+                "token2": "\",",
+                "replace": [
+                    {
+                        "prefix": "https://api.mangalib.me/api/manga/"
+                    },
+                    {
+                        "sufix": "/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
+                    }
+                ]
+            },
+            "title": {
+                "token1": "rus_name\":\"",
+                "token2": "\",\"slug\":",
+                "replace": [
+                    {
+                        "match": "\",\"eng_name\":\"",
+                        "text": " | "
+                    },
+                    {
+                        "clear_escape": true
+                    }
+                ]
+            },
+            "uniq": {
+                "token1": "\"slug\":\"",
+                "token2": "\""
+            },
+            "summary": {
+                "skip": "\"ageRestriction\"",
+                "token1": "\"label\":\"",
+                "token2": "\"",
+                "replace": [
+                    {
+                        "prefix": "Требование к возрасту: "
+                    },
+                    {
+                        "clear_escape": true
+                    }
+                ]
+            },
+            "cover": {
+                "token1": "\"default\":\"",
+                "token2": "\"",
+                "replace": {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            }
+        }
+    },
+    "manga_list_complete": {
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept": "image/webp,*/*;q=0.8",
+            "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IncrYUNiZ2llUGZicWhSODFVMmdTYmc9PSIsInZhbHVlIjoiWmpUR0JMMWdUeXJOYVNKYzV1aHVGMmQ0NkRxMFhkT3FUMERYVFpQanBSckg3YmNZdjNtNUhtMWJldnVTaVNMbUVnSk5iR3B6cms5UXlNOWlsS0lmQmVKaHRtWVR3b0FjcW5nQitLRERHcGRiRHYxSWlzVU1UalAvK243Z0YwYVhZS0lqZ3NFNkRpc09aOXF5aVNzUkF4ZW1wRkNLYzkrTTNpK2MwNWpjL3YyZUZBSk91aTdaRDFyNVpMWUVQVnlRSXhUWGIyNkFPWHJ1M2wvRHF2TGlCOHp1eGQ2d3dIUE9KMFVqQldZSG90WT0iLCJtYWMiOiI3NmYwNzU2ZTQzY2JiODI3NzZmODNhZWFiZjg4NTZiZDA5OTk2NjI4ZjcwZDY4NTQ5MDViOWU4NDM4NWE5OTIyIiwidGFnIjoiIn0%3D",
+            "Referer": "https://mangalib.me/ru/catalog"
+        },
+        "iterator": {
+            "base_url": "https://api.mangalib.me/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=1&page=",
+            "append_nums": {
+                "from": 1,
+                "to": 1162
+            }
+        },
+        "add_manga": {
+            "start": "\"data\"",
+            "end": "\"meta\":",
+            "next": "\"site\"",
+            "link": {
+                "before": "\"type\"",
+                "token1": "\"slug_url\":\"",
+                "token2": "\",",
+                "replace": [
+                    {
+                        "prefix": "https://api.mangalib.me/api/manga/"
+                    },
+                    {
+                        "sufix": "/?fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
+                    }
+                ]
+            },
+            "title": {
+                "before": "\"type\"",
+                "token1": "rus_name\":\"",
+                "token2": "\",\"slug\":",
+                "replace": [
+                    {
+                        "match": "\",\"eng_name\":\"",
+                        "text": " | "
+                    },
+                    {
+                        "clear_escape": true
+                    }
+                ]
+            },
+            "uniq": {
+                "before": "\"type\"",
+                "token1": "\"slug\":\"",
+                "token2": "\""
+            },
+            "cover": {
+                "before": "\"cover\"",
+                "token1": "default\":\"",
+                "token2": "\"",
+                "replace": {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            }
+        },
+        "link_corrector": [
             {
-                "match": "mangalib.me/(.*?)\\?section=(.*)",
-                "text": "mangalib.me/$1"
+                "match": "https://mangalib.me/ru/manga/(.*)",
+                "text": "https://api.mangalib.me/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
             }
         ],
         "rating_auto_inc": {
-            "start": 50000,
+            "start": 100000,
             "inc": -1
         }
-	},
-
-
-	"manga_complete": {
-	    "headers": {
-		
-		"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-        "Accept": "image/webp,*/*;q=0.8",
-		 "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
-        "Referer": "https://mangalib.me/"
-		},
-		
-		
-		
-		"title": { "after": "<div class=\"media-name__main",
-		"token1":"\">",
-		"token2": "<div class=\"media-rating-wrap\">",
-			"replace": [{ "match": "<div class=\"media-name__alt\">", "text": "| " },
-			{ "match": "<.*>", "text": "" }
-			]
-		},		
-		"additional_title": {
-			"skip": ">Альтернативные названия<",
-            "token1": "<div>",
-            "token2": "</div>"
+    },
+    "manga_complete": {
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept": "image/webp,*/*;q=0.8",
+            "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IncrYUNiZ2llUGZicWhSODFVMmdTYmc9PSIsInZhbHVlIjoiWmpUR0JMMWdUeXJOYVNKYzV1aHVGMmQ0NkRxMFhkT3FUMERYVFpQanBSckg3YmNZdjNtNUhtMWJldnVTaVNMbUVnSk5iR3B6cms5UXlNOWlsS0lmQmVKaHRtWVR3b0FjcW5nQitLRERHcGRiRHYxSWlzVU1UalAvK243Z0YwYVhZS0lqZ3NFNkRpc09aOXF5aVNzUkF4ZW1wRkNLYzkrTTNpK2MwNWpjL3YyZUZBSk91aTdaRDFyNVpMWUVQVnlRSXhUWGIyNkFPWHJ1M2wvRHF2TGlCOHp1eGQ2d3dIUE9KMFVqQldZSG90WT0iLCJtYWMiOiI3NmYwNzU2ZTQzY2JiODI3NzZmODNhZWFiZjg4NTZiZDA5OTk2NjI4ZjcwZDY4NTQ5MDViOWU4NDM4NWE5OTIyIiwidGFnIjoiIn0%3D",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2NlNzBlZDI0MzA0YjlmY2EzMTZkZDVkYTM1NWM5MzUyOGQ0NzY2MDNkMTE2ZmZhZjY2NmUwN2U0MzJmYjFiY2FmMjZkYjhiMWEzODhmMWIiLCJpYXQiOjE3MzE2Njg5NzguOTcyNTI4LCJuYmYiOjE3MzE2Njg5NzguOTcyNTMsImV4cCI6MTczNDI2MDk3OC45Njk0MTYsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.Noy4t0ZxoXbw8AVMQYVuqHZ2GScEmXqs4aOEyIcPvrUlAOCQKVK_sSradwyac3oyhRTTtkemXPUdUVcanOX7OaPZukBESQY1TWkE23WAH6dm2ZMH2S_FVpv3IGIP9c-pnUrGLWD4moGXd41_fswg8YLlwb7Py2qcqKdlmdHktkeidCN1ok-lrLesjCTd2WXXXsQxmHYUrZgS89XTruOG0RUd6Aut4kuNaGdwNQIFEcjVKBOTHmO8vX6OPBYyuVUHpNewzLPo0wPvALOHH6CpsOecWwmbYA2jDVc-P1DChOsjqoQSEu35vY_HhsQB-JaRCQGBX0UviiI5pil4kmPm7EEdbgGyMQQe3fRwxiZ-Xq8cvqRfioBjcIK2QTLl2f30wUAUWPYWtfstyMAYLhZfoPyO7mjm-ROUpM4euh7ewIM6UdJXcMrf9uKOri5Lb0dPDqgowgd0-g312WkACSHJuvHgT5rlpIMmiG1z8_iDOuebZ1smwJ0vcFP211KzzKFdtIBTCb24ITj7S3TG_W4mHJNj4rqIbfNdgbp9eN2UUWYf8E2C02lcmpDHqJgTvS3HFPFDPoem4ICEILTgXtjjuTpcNmZGWC6PtjwVXE596zL9MXc8TNM5ygL12nKZIgVzGS36PSIdOPO8CcS_fIf0tXrhU7kc7dzHpeSdcBfuyn0",
+            "Referer": "https://mangalib.me/"
         },
-		"uniq":  { "after": "property=\"og:site_name\"",
-		"token1":"content=\"https://mangalib.me/",
-		"token2": "\""
-		},
-		
-		
-		"author":      { "skip": ">Автор<", "token1":"\">", "token2": "</a>",
-			"replace": { "match": "<.*>", "text": " " } },
-		
-		
-		"summary":     { "after": "itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
-		
-		"cover":       { "skip": "<div class=\"section\">", 
-		"token1": "<img src=\"",
-		"token2": "\"" },
-		
-		"status":{ 
-		
-		"single": { "start": ">Формат выпуска</div>","end": " </a>",
-			"values": [ "Сингл", "сингл"] },
-		
-		"complete": { "start": ">Статус перевода</div>","end": " </a>",
-			"values": [ "Завершен", "завершен"] },
-			
-		"ongoing": { "start": ">Статус перевода</div>","end": " </a>",
-			"values": [ "Продолжается", "продолжается" ] },
-			
-			
-		"unknown": { "start": ">Статус перевода</div>","end": " </a>",
-			"values": [ "Заморожен", "заморожен"] },
-		
-		"licensed": {  "values": [ "Манга удалена по просьбе правообладателей",
-		"Данный тайтл лицензирован на территории РФ"] }
-		},
-		
-		
-			   
-		"read_dir": { "right_to_left": ">Манга</div>", "left_to_right": ">Манхва</div>" },
-		
-		"add_genre": { "after": "manga-list?genres", "token1": ">", "token2": "</" },
-		
-		"add_tag": { "after": "manga-list?tags", "token1": ">", "token2": "</" },
-		
-		"is_mature": { "values": [">18+<", ">18<", ">эротика<", ">юри<", ">яой<"] },
-		
-		
-		
-		
-		"add_chapter": {
-			  "headers": {
-	    "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64)",
-        "Accept": "image/webp,*/*;q=0.8",
-        "Referer": "https://mangalib.me/"
-		
-		},
-		
-			"next":  "{\"chap",
-			
-			"link": {
-			 
-			"token1": "\"chapter_number\":",
-            "token2": "\"chapter_moderated",
-			"replace": [
-                       
-						{ "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "/v$4/c$2" },
-						{ "prefix" : "%%url%%" }
-						]                  
-            },
-			
-            "uniq": {
-			     "token1": "\"chapter_number\":",
-            "token2": "\"chapter_moderated",
-			"replace": { "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "Том $4 Глава $2" } 
-            },
-			
-            "title": {
-			     "token1": "\"chapter_number\":",
-            "token2": "\"chapter_moderated",
-			"replace": { "match" : "\"(.*?)(.*?)\",\"(.*?)chapter_volume\":(.*?),",  "text" : "Том $4 Глава $2" } 
+        "title": {
+            "skip": "\"data\"",
+            "token1": "\"rus_name\":\"",
+            "token2": "\",\"slug\":",
+            "replace": [
+                {
+                    "match": "\",\"eng_name\":\"",
+                    "text": " | "
+                },
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "<.*>",
+                    "text": ""
+                }
+            ]
+        },
+        "uniq": {
+            "token1": "\"slug\":\"",
+            "token2": "\""
+        },
+        "author": {
+            "skip": "\"authors",
+            "token1": "\"name\":\"",
+            "token2": "\",",
+            "replace": {
+                "match": "<.*>",
+                "text": " "
             }
-		}
-	},
-	"chapter_complete": {
-   "headers": {
-		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://mangalib.me/",
-	      "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Im94SFJtMFNCUi9XQ2hQVm9Eb2U1TUE9PSIsInZhbHVlIjoiSVdGRUxuOUVjMHJrcE5tdFcrT1ZpeHRRUUFDalY2RTJ0bys3U01yTXJLVUNFNjBsdXZUQngzamd6TTBIdldKTTdEcm5BcThUK2syYlEvcmJ6dzJuYmd5eWhOWGRUdjRnV2ltL2tKSnR0TjRyaDM4VjF2VE9wSVFLNWhVMTM4MG0wRDZrWHRVOXpoZ2xXWXNlcFVsNDRzUDRnSWhjS0lrS1htcmI2YkJwUkZraWhVckNJc3Rrbm9adjZEOURRblIzb3hETlViSEdLNGxEd2J3a1ZSemQ5MHBEeDBuVUY2YUx3OWU0d2t6ZWlXMD0iLCJtYWMiOiI1ODJlNzU5MWRkNDg3OTkwMjA4YmM3NTcwMDA0Y2UxYzlhNzZlZTFkZTgwNTIyNjZhNzhkM2Q4YTI0NjM2MDllIn0%3D",
-		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-		},
-	
-    	"images": true,
-		"use_servers_only": true,
-		
-		"add_servers": { 
-			"start": "\"img\":", 
-			"token1": "{\"url\":\"", 
-			"token2": "\"",
-			"end": "\"server\"",
-			"replace": [{"match" : "\\\\",  "text" : "" }, 
-            { "prefix": "https://img33.imgslib.link" }
-			]  			
-			    
-		},
-        "add_pages": { 
-            "start": "window.__pg",
-            "token1": "\"u\":\"",
+        },
+        "summary": {
+            "skip": "\"data\"",
+            "token1": "\"summary\":\"",
+            "token2": "\",",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "'%', '\\'",
+                    "text": "'unicode-escape'"
+                }
+            ]
+        },
+        "cover": {
+            "skip": "\"cover\"",
+            "token1": "\"default\":\"",
             "token2": "\"",
-             "end": "}];"
+            "replace": {
+                "match": "\\\\",
+                "text": ""
+            }
+        },
+        "status": {
+            "single": {
+                "start": "\"status\":{",
+                "end": "\"meta\"",
+                "values": [
+                    "Сингл",
+                    "сингл"
+                ]
+            },
+            "complete": {
+                "start": "\"status\":{",
+                "end": "\"meta\"",
+                "values": [
+                    "Завершен",
+                    "завершен",
+                    "\u0417\u0430\u0432\u0435\u0440\u0448\u0451\u043d",
+                    "\"id\":2,"
+                ]
+            },
+            "ongoing": {
+                "start": "\"status\":{",
+                "end": "\"meta\"",
+                "values": [
+                    "Продолжается",
+                    "продолжается",
+                    "Онгоинг",
+                    "\u041e\u043d\u0433\u043e\u0438\u043d\u0433",
+                    "\"id\":1,"
+                ]
+            },
+            "unknown": {
+                "start": "\"status\":{",
+                "end": "\"meta\"",
+                "values": [
+                    "Заморожен",
+                    "заморожен"
+                ]
+            },
+            "licensed": {
+                "value": "\"is_licensed\":true,"
+            }
+        },
+        "content_type": {
+            "manga": "\"type\":{\"id\":1,",
+            "manhwa": "\"type\":{\"id\":5,",
+            "manhua": "\"type\":{\"id\":6,"
+        },
+        "read_dir": {
+            "right_to_left": "\"type\":{\"id\":1,",
+            "left_to_right": "\"type\":{\"id\":5,"
+        },
+        "add_genres": {
+            "start": "\"genres\"",
+            "end": "],",
+            "token1": "\"name\":\"",
+            "token2": "\",",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+        "add_tags": {
+            "start": "\"tags\"",
+            "end": "],",
+            "token1": "\"name\":\"",
+            "token2": "\",",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+        "chapters_from_page": {
+            "token1": "\"slug_url\":\"",
+            "token2": "\",",
+            "replace": [
+                {
+                    "prefix": "https://api.mangalib.me/api/manga/"
+                },
+                {
+                    "sufix": "/chapters"
+                }
+            ]
+        },
+        "add_chapter": {
+            "headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                "Accept": "*/*",
+                "apilib_session": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2NlNzBlZDI0MzA0YjlmY2EzMTZkZDVkYTM1NWM5MzUyOGQ0NzY2MDNkMTE2ZmZhZjY2NmUwN2U0MzJmYjFiY2FmMjZkYjhiMWEzODhmMWIiLCJpYXQiOjE3MzE2Njg5NzguOTcyNTI4LCJuYmYiOjE3MzE2Njg5NzguOTcyNTMsImV4cCI6MTczNDI2MDk3OC45Njk0MTYsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.Noy4t0ZxoXbw8AVMQYVuqHZ2GScEmXqs4aOEyIcPvrUlAOCQKVK_sSradwyac3oyhRTTtkemXPUdUVcanOX7OaPZukBESQY1TWkE23WAH6dm2ZMH2S_FVpv3IGIP9c-pnUrGLWD4moGXd41_fswg8YLlwb7Py2qcqKdlmdHktkeidCN1ok-lrLesjCTd2WXXXsQxmHYUrZgS89XTruOG0RUd6Aut4kuNaGdwNQIFEcjVKBOTHmO8vX6OPBYyuVUHpNewzLPo0wPvALOHH6CpsOecWwmbYA2jDVc-P1DChOsjqoQSEu35vY_HhsQB-JaRCQGBX0UviiI5pil4kmPm7EEdbgGyMQQe3fRwxiZ-Xq8cvqRfioBjcIK2QTLl2f30wUAUWPYWtfstyMAYLhZfoPyO7mjm-ROUpM4euh7ewIM6UdJXcMrf9uKOri5Lb0dPDqgowgd0-g312WkACSHJuvHgT5rlpIMmiG1z8_iDOuebZ1smwJ0vcFP211KzzKFdtIBTCb24ITj7S3TG_W4mHJNj4rqIbfNdgbp9eN2UUWYf8E2C02lcmpDHqJgTvS3HFPFDPoem4ICEILTgXtjjuTpcNmZGWC6PtjwVXE596zL9MXc8TNM5ygL12nKZIgVzGS36PSIdOPO8CcS_fIf0tXrhU7kc7dzHpeSdcBfuyn0",
+                "Referer": "https://mangalib.me/"
+            },
+            "next": "index",
+            "start": "\"data\"",
+            "link": {
+                "token1": "\"volume\":\"",
+                "token2": "\"number_secondary\"",
+                "replace": [
+                    {
+                        "match": "(.*)\",\"number\":\"(.*?)\",",
+                        "text": "%%path%%?number=$2&volume=$1"
+                    },
+                    {
+                        "match": "/chapters",
+                        "text": "/chapter"
+                    },
+                    {
+                        "prefix": "%%host%%"
+                    }
+                ]
+            },
+            "uniq": {
+                "token1": "\"volume\":\"",
+                "token2": "\"number_secondary\"",
+                "replace": {
+                    "match": "(.*)\",\"number\":\"(.*?)\",",
+                    "text": "Том $1 Глава $2"
+                }
+            },
+            "title": {
+                "token1": "\"volume\":\"",
+                "token2": ",\"branches_count\"",
+                "replace": [
+                    {
+                        "clear_escape": true
+                    },
+                    {
+                        "match": "(.*)\",\"number\":\"(.*?)\",\"number_secondary\":\"(.*?)\",\"name\":(.*)",
+                        "text": "Том $1 Глава $2 $4"
+                    },
+                    {
+                        "match": "\"\"",
+                        "text": ""
+                    },
+                    {
+                        "match": "null",
+                        "text": ""
+                    }
+                ]
+            }
         }
     },
-
-	"test": [
-		{
-			"proc" : "manga_list_complete",
-			
-			"assert" : {
-				"mangas" : [
-            { "title" : "The Breaker: New waves", 
-            "link" : "https://mangalib.me/manga/5335-the-breaker-new-waves.html",
-			"uniq" : "5335-the-breaker-new-waves.html" }
-				],
-				"mangas_count" : ">=50"
-			}
-		},
-		{
-			"proc" : "manga_complete",
-			"link" : "https://mangalib.me/isekai-cheat-survival-meshi",
-			"title" : "Gantz",
-			"assert" : {
-				"author" : "@Oku Hiroya",
-				"cover" : "@https://imgcover.mangalib.me/showfull_retina/uploads/posts/2011-10/thumbs/1318827066_gantz.jpg",
-				"summary" : "@^(Где\\-то в Токио)",
-				"genres" : "@scifi",
-				"status" : "complete",
-				"genres_count" : ">=5",
-				"chapters_count" : ">=383",
-				"chapters" : [
-					{ "title" : "Том 37 Глава 383 КОНЕЦ",
-						"link" : "https://mangalib.me/online/148650-gantz_v37_ch383.html",
-						"folder" : "148650-gantz_v37_ch383.html/"
-					},
-					{ "title" : "Том 37 Глава 381",
- 					  "link" : "https://mangalib.me/online/145147-gantz_v37_ch381.html" }
-				]
-			}
-		},
-		{
-			"proc" : "chapter_complete",
-			"link" : "https://mangalib.me/isekai-cheat-survival-meshi/v5/c30?ui=725",
-			"assert" : {
-				"pages" : [
-					{ "image" : "@https://.*.mangalib.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p01.jpg" },
-					{ "image" : "@https://.*.mangalib.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p02.jpg" }
-				],
-				"pages_count": "30"
-			}
-		}
-	]
+    "chapter_complete": {
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept": "*/*",
+            "cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IncrYUNiZ2llUGZicWhSODFVMmdTYmc9PSIsInZhbHVlIjoiWmpUR0JMMWdUeXJOYVNKYzV1aHVGMmQ0NkRxMFhkT3FUMERYVFpQanBSckg3YmNZdjNtNUhtMWJldnVTaVNMbUVnSk5iR3B6cms5UXlNOWlsS0lmQmVKaHRtWVR3b0FjcW5nQitLRERHcGRiRHYxSWlzVU1UalAvK243Z0YwYVhZS0lqZ3NFNkRpc09aOXF5aVNzUkF4ZW1wRkNLYzkrTTNpK2MwNWpjL3YyZUZBSk91aTdaRDFyNVpMWUVQVnlRSXhUWGIyNkFPWHJ1M2wvRHF2TGlCOHp1eGQ2d3dIUE9KMFVqQldZSG90WT0iLCJtYWMiOiI3NmYwNzU2ZTQzY2JiODI3NzZmODNhZWFiZjg4NTZiZDA5OTk2NjI4ZjcwZDY4NTQ5MDViOWU4NDM4NWE5OTIyIiwidGFnIjoiIn0%3D",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2NlNzBlZDI0MzA0YjlmY2EzMTZkZDVkYTM1NWM5MzUyOGQ0NzY2MDNkMTE2ZmZhZjY2NmUwN2U0MzJmYjFiY2FmMjZkYjhiMWEzODhmMWIiLCJpYXQiOjE3MzE2Njg5NzguOTcyNTI4LCJuYmYiOjE3MzE2Njg5NzguOTcyNTMsImV4cCI6MTczNDI2MDk3OC45Njk0MTYsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.Noy4t0ZxoXbw8AVMQYVuqHZ2GScEmXqs4aOEyIcPvrUlAOCQKVK_sSradwyac3oyhRTTtkemXPUdUVcanOX7OaPZukBESQY1TWkE23WAH6dm2ZMH2S_FVpv3IGIP9c-pnUrGLWD4moGXd41_fswg8YLlwb7Py2qcqKdlmdHktkeidCN1ok-lrLesjCTd2WXXXsQxmHYUrZgS89XTruOG0RUd6Aut4kuNaGdwNQIFEcjVKBOTHmO8vX6OPBYyuVUHpNewzLPo0wPvALOHH6CpsOecWwmbYA2jDVc-P1DChOsjqoQSEu35vY_HhsQB-JaRCQGBX0UviiI5pil4kmPm7EEdbgGyMQQe3fRwxiZ-Xq8cvqRfioBjcIK2QTLl2f30wUAUWPYWtfstyMAYLhZfoPyO7mjm-ROUpM4euh7ewIM6UdJXcMrf9uKOri5Lb0dPDqgowgd0-g312WkACSHJuvHgT5rlpIMmiG1z8_iDOuebZ1smwJ0vcFP211KzzKFdtIBTCb24ITj7S3TG_W4mHJNj4rqIbfNdgbp9eN2UUWYf8E2C02lcmpDHqJgTvS3HFPFDPoem4ICEILTgXtjjuTpcNmZGWC6PtjwVXE596zL9MXc8TNM5ygL12nKZIgVzGS36PSIdOPO8CcS_fIf0tXrhU7kc7dzHpeSdcBfuyn0",
+            "Referer": "https://api.mangalib.me/"
+        },
+        "images": true,
+        "add_pages": {
+            "start": "\"pages\"",
+            "token1": "\"url\":\"",
+            "token2": "\"",
+            "end": "]}}",
+            "replace": [
+                {
+                    "prefix": "https://img33.imgslib.link"
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Логическая ошибка",
+                        "link": "https://api.mangalib.me/semantic-error",
+                        "uniq": "semantic-error"
+                    }
+                ],
+                "mangas_count": ">=50"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://api.mangalib.me/api/manga/144736--madara/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&",
+            "title": "Логическая ошибка | Semantic Error",
+            "assert": {
+                "author": "@Jeosuri",
+                "cover": "@https://cover.imgslib.link/uploads/cover/semantic-error/cover/e8kgec0GMpec_250x350.jpg",
+                "summary": "@^(Студент магистратуры факультета)",
+                "genres": "@comedy",
+                "status": "ongoing",
+                "genres_count": ">=3",
+                "chapters_count": ">=80",
+                "chapters": [
+                    {
+                        "link": "https://api.mangalib.me/api/manga/144736--madara/chapter?number=19&volume=3",
+                        "title": "Том 3 Глава 19"
+                    },
+                    {
+                        "folder": "Том 2 Глава 18\\",
+                        "uniq": "Том 2 Глава 18\\",
+                        "link": "https://api.mangalib.me/api/manga/144736--madara/chapter?number=18&volume=2"
+                    }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://api.mangalib.me/api/manga/144736--madara/chapter?number=18&volume=2",
+            "assert": {
+                "pages": [
+                    {
+                        "image": "https://img33.imgslib.link/manga/semantic-error/chapters/825000/ищем_Y5n2.png"
+                    },
+                    {
+                        "image": "https://img33.imgslib.link/manga/semantic-error/chapters/825000/1_UKUS.png"
+                    },
+                    {
+                        "image": "https://img33.imgslib.link/manga/semantic-error/chapters/825000/Untitled-2_ms0z.png"
+                    }
+                ],
+                "pages_count": "7"
+            }
+        }
+    ]
 }

@@ -1,11 +1,13 @@
 {
 	"id": 2064,
-	"version": 1,
+	"version": 15,
+	
+	"old_sites": ["yaoihub.ru","yaoihub.me","moonhub.me","moonhub.one","24.moonhub.live","12.moonhub.live","m1.moonhub.live","v1.moonhub.live","v2.moonhub.live" ],
 	
 	
 	"title": "YaoiHub",
-	"host": "https://yaoihub.ru",
-	"public_link": "https://yaoihub.ru/explore",
+	"host": "https://v3.moonhub.live",
+	"public_link": "https://v3.moonhub.live/explore",
 	"hash_tag": "yaoihub",
 	"folder": "yaoihub",
 	"name" : "yaoihub",
@@ -21,26 +23,27 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/yaoihub.zip",
     "file_type": "sqlite",
 	
+	
 
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MTYwMjM2NzI6ZmQ3MzFhNjkwNTg4ZGVmNGVkZjgxNmU5MGQ4YTBlYTU3NzMwNjEyMTMzOGRmYzQ0Y2M2ZTBkMTU2Y2ZjNjZjYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1760865221%3AySMBzvTaYAdshIuGlGQKRrXB3VOAFRUvWiSeThJsoLk~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://yaoihub.ru/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
-		"search_link": "https://yaoihub.ru/search/manga?query=$query$&page=$page$",
+		"search_link": "https://v3.moonhub.live/search/manga?query=$query$&page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"text-line-clamp",
 			"link":  { "token1": "href=\"", "token2": "\"",
-			"replace": { "prefix": "https://yaoihub.ru"} },
+			"replace": { "prefix": "https://v3.moonhub.live"} },
 			
 			
 			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
@@ -59,19 +62,19 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MTYwMjM2NzI6ZmQ3MzFhNjkwNTg4ZGVmNGVkZjgxNmU5MGQ4YTBlYTU3NzMwNjEyMTMzOGRmYzQ0Y2M2ZTBkMTU2Y2ZjNjZjYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1760865221%3AySMBzvTaYAdshIuGlGQKRrXB3VOAFRUvWiSeThJsoLk~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://yaoihub.ru/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
 		"iterator": {
 			
-			"base_url": "https://yaoihub.ru/explore/sort-is-rating?page=",
+			"base_url": "https://v3.moonhub.live/explore/sort-is-rating?page=",
 			
-			"append_nums": { "from": 1, "to": 164, "step": 1 }
+			"append_nums": { "from": 1, "to": 496, "step": 1 }
 		},
 		"add_manga": {
 			"next": "<a class=\"fw-medium\"",
@@ -88,13 +91,13 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MTYwMjM2NzI6ZmQ3MzFhNjkwNTg4ZGVmNGVkZjgxNmU5MGQ4YTBlYTU3NzMwNjEyMTMzOGRmYzQ0Y2M2ZTBkMTU2Y2ZjNjZjYQ%3D%3D",
-			"cookie2": "confirm_age=on",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1760865221%3AySMBzvTaYAdshIuGlGQKRrXB3VOAFRUvWiSeThJsoLk~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
 			
 			
-			"Referer": "https://yaoihub.ru/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		
@@ -165,7 +168,7 @@
 		
 		
 		"add_tags":   {
-         "start": "<collapse-multiple class=\"tags\">",
+         "start": "<collapse-multiple class=\"d-block tags\">",
 		 "end": "</collapse-multiple>", 
          "after": "href=\"/genre/", "token1": ">", "token2": "</a>",
                 "replace":{"match":">...<", "text":""}
@@ -183,12 +186,23 @@
             "after": "property=\"og:url\"",
             "token1": "content=\"/title/", 
 			"token2": "\"", 
-			"replace": { "prefix": "https://yaoihub.ru/chapters/"}
+			"replace": { "prefix": "https://v3.moonhub.live/chapters/"}
 				
 			
 			},
 		
 		"add_chapter": {
+			"headers": {
+			"Accept": "*/*",
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1760865221%3AySMBzvTaYAdshIuGlGQKRrXB3VOAFRUvWiSeThJsoLk~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
+			"cookie3": "preference_enabled_adult=1",
+			
+			
+			
+			"Referer": "https://v3.moonhub.live/"
+			
+		},
 			"start": ">Содержание<",
 			"end": "</chapter-list>",
 			
@@ -209,19 +223,18 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=TWFuZ2FIdWJcRW50aXR5XFVzZXI6Wm1GdWRDMXVaWFE9OjE3MTYwMjM2NzI6ZmQ3MzFhNjkwNTg4ZGVmNGVkZjgxNmU5MGQ4YTBlYTU3NzMwNjEyMTMzOGRmYzQ0Y2M2ZTBkMTU2Y2ZjNjZjYQ%3D%3D",
-			"cookie2": "confirm_age=on",
-			"cookie3": "toast_28=true",
-			 
+			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1760865221%3AySMBzvTaYAdshIuGlGQKRrXB3VOAFRUvWiSeThJsoLk~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie2": "confirm_age=1",
+			"cookie3": "toast_58=true",
+		     
 			
 			
-			
-			"Referer": "https://yaoihub.ru/"
+			"Referer": "https://v3.moonhub.live/"
 			
 		},
 		"add_numeration": true,
 		"add_images": {
-			"start": "<fast-view class=\"fast-view closed\">",
+			"start": "<div class=\"d-flex flex-column flex-fill\">",
 			"end": ">Комментарии<",
 			"token1": "data-src=\"",
 			"token2": "\"",
@@ -237,11 +250,11 @@
 			"assert" : {
 				"mangas" : [
 					{  
-                       "link": "https://yaoihub.ru/title/their_story",
+                       "link": "https://v3.moonhub.live/title/their_story",
                        "title": "Их_история"
                     },
                     {
-                    "link": "https://yaoihub.ru/title/baegman_won_ui_lomaense"
+                    "link": "https://v3.moonhub.live/title/baegman_won_ui_lomaense"
                     }
 				],
 				"mangas_count" : ">=20"
@@ -249,22 +262,22 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://yaoihub.ru/title/youre_here",
+			"link" : "https://v3.moonhub.live/title/youre_here",
 			"title" : "Ты здесь (Here U Are)",
 			"assert" : {
 				"author" : "@Д. Цзюнь",
-				"cover" : "https://static.yaoihub.ru/uploads/media/manga_cover/thumbnail/big/0018/70/1769097.jpeg",
+				"cover" : "https://static.v3.moonhub.live/uploads/media/manga_cover/thumbnail/big/0018/70/1769097.jpeg",
 				"summary" : "@^(Приём новичков)",
 				"status" : "complete",
 				"chapters_count" : ">=100",
 				"chapters" : [
 		{
            "folder": "Том 1_ Глава 1\\",
-           "link": "https://yaoihub.ru/read/59417",
+           "link": "https://v3.moonhub.live/read/59417",
            "title": "Том 1. Глава 1"
         },
         {
-            "link": "https://yaoihub.ru/read/59416",
+            "link": "https://v3.moonhub.live/read/59416",
             "title": "Том 1. Глава 2"
         }
 		
@@ -273,7 +286,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://yaoihub.ru/read/484352",
+			"link" : "https://v3.moonhub.live/read/59417",
 			"assert" : {
 				"pages" : [
 		{"image": "https://1hubst.guru/uploads/media/scan/0029/54/6e4590bc96ab2a0a146b24dc9e322fdaa45fc8dd.jpg"},

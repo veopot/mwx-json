@@ -1,0 +1,288 @@
+{
+   "id":65218,
+   "version":3,
+   
+   
+   "title":"Senkognito (18+)",
+   "host":"https://ne.senkognito.com",
+   "public_link":"https://ne.senkognito.com/browse/manga",
+   "folder":"senkognito",
+   "name":"senkognito",
+   "language":"ru",
+   "encoding":"utf-8",
+   "chapters_order":false,
+    "is_mature": true,
+   
+   "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/senkognito.png",
+	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/senkognito.json",
+	"self_link2": "https://fant.my1.com/mwparser/mwx/json/senkognito.json",
+	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/senkognito.zip",
+    "file_type": "sqlite",
+	
+   
+   "author":{
+      "name":"MWX and Hikkun",
+      "email":"fant-net@ya.com"
+   },
+   "manga_list_complete":{
+      "iterator":{
+         "base_url":"http://bypass.mwx.su/api/manga/senkuro/mangas?page=",
+         "append_nums":{
+            "from":1,
+            "to":330,
+            "step":1
+         }
+      },
+	  "link_corrector": [
+            {
+                "match": "https://ne.senkognito.com/manga/(.*?)/(.*)",
+                "text": "https://ne.senkognito.com/manga/$1"
+            }
+        ],
+      "add_manga":{
+         "next":"\"formats\"",
+		 
+         "title":{
+            "skip":"\"titles\":[",
+            "token1":"\"content\":\"",
+            "token2":"\""
+         },
+         "link":{
+            "token1":"\"slug\":\"",
+            "token2":"\"",
+			"replace": { "prefix": "https://ne.senkognito.com/manga/"}
+         },
+        "uniq":{
+            "token1":"\"slug\":\"",
+            "token2":"\""
+		}
+      },
+		"rating_auto_inc": {
+			"start": "20000",
+			"inc": -1
+		}
+   },
+   
+
+	"manga_complete": { 
+	   "headers": {
+			"User-Agent": "MangaWatcherX",
+			"Referer": "https://ne.senkognito.com/"
+		},
+      "title":{
+         "after":"property=\"og:title\"", 
+         "token1":"content=\"",
+         "token2":"\"" ,
+		 
+		 "replace": [
+				{"match": "Манга","text": ""},
+				{"match": "Манхва","text": ""},
+				{"match": "Читать","text": ""},
+				{"match": "/","text": "|"},
+				{"match":"<.*?>","text":""}
+
+				]},
+      
+      "uniq":{
+         "token1":"property=\"og:url\" content=\"https://ne.senkognito.com/manga/",
+         "token2":"\""
+      },
+	  
+	  
+      "cover":{
+		 "skip":"\"contentUrl\":",
+         "token1":"\"https://",
+         "token2":"\"",
+		"replace": {
+				"prefix": "https://"
+				}
+		},
+	  
+	  
+	  "status": { 
+		  	"complete": { 
+			"start": "> Статус перевода <",
+            "end": "</div>",
+			   "values": [ "Завершена", "Переведена","Завершён",  "Сингл"] },
+			
+            "ongoing": { 
+			"start": "> Статус перевода <",
+             "end": "</div>",
+               "values": [ "Выпускается", "Переводится", "Переводится"] 
+				
+			 },
+			"single": "<span>Сингл</span>"
+		},
+			 
+			 
+      "summary":{
+         "after":"name=\"description\"",
+         "token1":"content=\"",
+         "token2":"\">",
+         "replace":{
+            "match":"<.*?>",
+            "text":""
+         }
+      },
+      "add_tags":   { 	
+	   "start": "\\\"genres\\\":",
+             "end": "\\\"series\\\":",
+	        "token1": "RU\\\",\\\"content\\\":\\\"", "token2": "\\\"" },
+	  
+	  
+      "is_mature":{
+         "values":[
+            "content\\\":\\\"эротика\\\"",
+            "content\\\":\\\"юри\\\"",
+            "content\\\":\\\"яой\\\""
+			
+         ]
+      },
+	  
+	
+	  
+	 
+
+        "chapters_from_page": {
+            "after": "property=\"og:url\"",
+            "token1": "content=\"https://senkognito.com/manga/",
+            "token2": "\"",
+            "replace": { "prefix": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/" }           
+            
+        },
+	  
+	  
+		
+		"add_chapter":{
+        "start": "[",
+		"end": "]",
+        
+		 
+         "next": "\"num",
+		 
+		                 
+         "link":{
+			"before": "\"num",
+            "token1":"\"id\":\"",
+            "token2":"\"",
+			"replace":
+		        [
+		    { "prefix": "http://bypass.mwx.su/api/manga/senkuro/%%url%%/" },
+			{ "match": "http://bypass.mwx.su/api_v2/manga/senkuro/chapters/", "text": ""}
+		        ]      
+         },
+		 
+		 
+		"uniq":{
+            "after": "\"num",
+            "token1":"ber\":",
+            "token2":"}",
+			"replace": [
+			{ "match": "(.*)\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\"(.*)",		
+			"text": "$4/$2"},
+			{ "match": "null", "text": ""}
+			]
+        },
+		 
+        "title":{
+             "after": "\"num",
+            "token1":"ber\":",
+            "token2":"}",
+			"replace": [
+			{ "match": "(.*)\"(.*?)\",\"slug\":\"(.*?)\",\"volume\":\"(.*?)\"(.*)",		
+			"text": "Том: $4 Глава: $2"},
+			{ "match": "null", "text": ""}
+			]
+        }
+      }
+	  
+	  
+   },
+   
+   "chapter_complete":{
+    "add_numeration": true,
+        "headers": {
+			"Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6",
+			"Referer": "https://ne.senkognito.com/"
+		},
+     
+      "images":true,
+    "add_pages":
+
+	{
+		"start": "\"data\"",
+		"token1": "https://mirai.senkuro.net/",
+		"token2": "\"",
+		"end": "]",
+		"replace":
+		[
+		{ "prefix": "https://mirai.senkuro.net/" },   
+		{
+		"match": "https://mirai.senkuro.net/system/tachiyomi-op.jpeg",
+		"text": ""
+		},
+		{
+		"match": "http://bypass.mwx.su/api/manga/senkuro/(.*?)/.*",
+		"text": ""
+		}
+		]
+	},
+		"remove_first": true
+
+	},
+	
+	
+   "test":[
+      {
+         "proc":"manga_list_complete",
+         "assert":{
+            "mangas":[
+               {
+                  "title":"Поднятие уровня в одиночку",
+                  "link":"https://ne.senkognito.com/manga/ore-dake-level-up-na-ken",
+                  "uniq":"ore-dake-level-up-na-ken"
+               }
+            ],
+            "mangas_count":">=14"
+         }
+      },
+      {
+         "proc":"manga_complete",
+         "link":"https://ne.senkognito.com/manga/the-butterfly-inside",
+		         
+         "title":"Повышение любовного предела",
+         "assert":{
+          
+            "cover":"@https://mirai.senkuro.net/manga/102290908317245842/covers/a92d6ba8b5349a192411d61d0c2520555575d407_102291393363337618.jpeg",
+		    "summary":"@^(После смерти отца)",
+            "tags":"@fantasy",
+            "status":"unknown",
+            "chapters_count":">=29",
+            "chapters":[
+        {
+            "folder": "1/1\\",
+            "link": "http://bypass.mwx.su/api/manga/senkuro/the-butterfly-inside/TUFOR0FfQ0hBUFRFUjoxMDIyOTIxMzk4NDg3ODYzMjI",
+            "title": "Том: 1 Глава: 1"
+        },
+        {
+            "link": "http://bypass.mwx.su/api/manga/senkuro/the-butterfly-inside/TUFOR0FfQ0hBUFRFUjoxMDIyOTI0MDk2MDk2NDIzODY",
+            "title": "Том: 1 Глава: 2"
+        }
+            ]
+         }
+      },
+      {
+         "proc":"chapter_complete",
+         "link": "http://bypass.mwx.su/api/manga/senkuro/the-butterfly-inside/TUFOR0FfQ0hBUFRFUjoxMDIyOTIxMzk4NDg3ODYzMjI",
+         "assert":{
+            "pages":[
+        {"image": "https://mirai.senkuro.net/manga-chapters/102290908317245842/102290908317311378/387e84ac8b30d6157504937a837aeec81b44ea18_102291816954487186.jpeg"},
+        {"image": "https://mirai.senkuro.net/manga-chapters/102290908317245842/102290908317311378/f5b82c73904c7fa8e5e97bc32ff101cd15fb3df7_102291921375879570.jpeg"},
+        {"image": "https://mirai.senkuro.net/manga-chapters/102290908317245842/102290908317311378/fd1c94e431b019e627e6fecc6fa125da7c4ddaa9_102291989306827154.jpeg"}
+            ],
+            "pages_count":"6"
+         }
+      }
+   ]
+}

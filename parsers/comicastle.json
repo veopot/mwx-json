@@ -1,11 +1,12 @@
 {
 	"id": 40121,
-	"version": 6,
-	
+	"version": 8,
+	"old_sites": ["comicastle.org"],
+   
 	 
 	"title": "Comicastle",
-	"host": "https://comicastle.org/",
-	"public_link": "https://comicastle.org/",
+	"host": "https://www.comic.nizamkomputer.com/",
+	"public_link": "https://www.comic.nizamkomputer.com/library/postdate/desc",
 	"folder": "comicastle",
 	"name" : "comicastle",
 	"language": "en",
@@ -21,11 +22,11 @@
 	
 
 	"manga_search_complete": {		
-		"search_link": "https://comicastle.org/library/search/result",
+		"search_link": "https://www.comic.nizamkomputer.com/library/search",
 		"headers": {
 		        "accept": "*/*",
 				"content-type": "application/x-www-form-urlencoded",
-				"Referer": "https://comicastle.org/"
+				"Referer": "https://www.comic.nizamkomputer.com/"
 			},
 		"form_data": {
 			"search": "$query$",
@@ -34,25 +35,22 @@
 		"query_type": "POST",
 		
 		"add_manga": {
-			"next": "<div class=\"col-xl-2 col-lg-3 col-md-3 col-6 mb-2 shadow-sm rounded\">",
+			"next": "<div class=\"col-lg-2 col-md-3 col-6 mb-2\"> ",
 			
 			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			"cover": { "token1": "data-src=\"", "token2": "\""},
+			"cover": { "token1": "<img src=\"", "token2": "\""},
 			"title": { "after": "<p class=\"font-small-3", "token1": "\">", "token2": "</" },
-			"summary":{ "token1":"<p class='font-small-2 text-left'>", "token2": "</p>",
-                "replace": { "match":"<.*?>","text":""} },
-
 			"uniq":  { "after": "<p class=\"font-small-3", "token1": "\">", "token2": "</" }
 		} 
 	},
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://comicastle.org/library/popular/desc/index/",
-			"append_nums": { "from": 0, "to": 3100, "step": 42 }
+			"base_url": "https://www.comic.nizamkomputer.com/library/popular/desc/index/",
+			"append_nums": { "from": 0, "to": 330, "step": 30 }
 		},
 		"add_manga": {
-			"next": "<div class=\"col-xl-2 col-lg-3 col-md-3 col-6 mb-1 shadow-sm rounded\">",
+			"next": "<div class=\"col-lg-2 col-md-3 col-6 mb-2\">",
 			"link":  { "token1": "href=\"", "token2": "\"" },
 			"title": { "after": "<p class=\"",  "token1": "\">", "token2": "</" }
 			
@@ -67,16 +65,16 @@
 		"title":{ "token1":"<h1>", "token2": "</h1>" },
 		"uniq": { "token1":"<h1>", "token2": "</h1>" },
 		
-		"author": { "skip": ">Publisher:", 
+		"author": { "skip": ">Writer(s)", 
 		            "token1":"value=\"", 
 					"token2": "\"",
                         "replace": { "match":"<.*?>","text":""}
 						},
 		
 		"summary": {
-			"after": "<p id=\"comic-desc\"",
+			"skip": "<h5>Description",
 			"token1": ">",
-			"token2": "</p>",
+			"token2": "<hr>",
 				"replace": [
 				    { "match": "&quot;", "text": "'" },
 					{ "match": "<.*?>", "text": " " }
@@ -93,14 +91,21 @@
 		"empty": "<strong>Empty</strong>" },
 		
 		
-		"cover": { "token1": "data-src=\"", "token2": "\"" },
+		"cover": {  "before": "alt=\"cover image\">", "token1": "src=\"", "token2": "\"" },
 		
-		"add_tag":   { "after": "<button class=\"btn btn-info btn-sm text-bold\"", "token1": "\">", "token2": "</" },
+		"add_tag":   { "after": "<button class=\"btn btn-success btn-sm text-bold-600\"", "token1": "\">", "token2": "</" },
 		
 		"add_chapter": {
-			"next":  "<td><a href=\"https://comicastle.org",
+			
+			"start": "<table class=\"table zero-configuration\">",
+			"end": "</table>",
+			
+			"next":  "<td><a href=\"https://www.comic.nizamkomputer.com",
 			"link":  { "token1": "/read/", "token2": "\"",
-			"replace": {"prefix": "https://comicastle.org/read/"}   },
+			"replace": [
+			{"prefix": "https://www.comic.nizamkomputer.com/read/"} , 
+			{ "match" : "pbp",  "text" : "swiper" }
+			] },
 			
 			"title": { "skip" : "/read/", "token1": "\">", "token2": "</",
 				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
@@ -108,21 +113,22 @@
 		}   
 	},
 	
+
 	"chapter_complete": {
 		"add_numeration": true,
 		"headers": {
-		    "Referer": "https://comicastle.org/",
+		    "Referer": "https://www.comic.nizamkomputer.com/",
             "Accept": "*/*"
         },
 		"add_images": {
 			"start": "<div id=\"read-pbp\">",
-			"end": "</div>",
+			"end": "</section>",
 			 
 			 
 			"token1": "drive.google.com/uc?",
-			"token2": "\">",
+			"token2": "\"",
          "replace":{
-            "prefix":"http://drive.google.com/uc?"
+            "prefix":"https://drive.google.com/uc?"
          }
 			
 		}
@@ -135,7 +141,7 @@
 			"assert" : {
 				"mangas" : [
             { "title" : "Star Wars Adventures", 
-            "link" : "https://comicastle.org/home/detail/258/star-wars-adventures",
+            "link" : "https://www.comic.nizamkomputer.com/home/detail/258/star-wars-adventures",
 			"uniq" : "star-wars-adventures" }
 				],
 				"mangas_count" : ">=40"
@@ -143,11 +149,11 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://comicastle.org/home/detail/278/venom-vol-4",
+			"link" : "https://www.comic.nizamkomputer.com/home/detail/278/venom-vol-4",
 			"title" : "Venom Vol 4 (2018)",
 			"assert" : {
 				"author" : "@Marvel",
-				"cover" : "@https://comicastle.org/upload/cover/venom-vol-4.jpg",
+				"cover" : "@https://www.comic.nizamkomputer.com/upload/cover/venom-vol-4.jpg",
 				"summary" : "@^(In the wake of)",
 				
 				"status" : "complete",
@@ -155,11 +161,11 @@
 				"chapters" : [
 		{
             "folder": "1/",
-            "link": "https://comicastle.org/read/pbp/2488/278/venom-vol-4/1",
+            "link": "https://www.comic.nizamkomputer.com/read/pbp/2488/278/venom-vol-4/1",
             "title": "Issue : 001"
         },
         {
-            "link": "https://comicastle.org/read/pbp/2489/278/venom-vol-4/2",
+            "link": "https://www.comic.nizamkomputer.com/read/pbp/2489/278/venom-vol-4/2",
             "title": "Issue : 002"
         }
 				]
@@ -167,7 +173,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://comicastle.org/read/pbp/2488/278/venom-vol-4/1",
+			"link" : "https://www.comic.nizamkomputer.com/read/pbp/2488/278/venom-vol-4/1",
 			"assert" : {
 				"pages" : [
 		{"image": "https://drive.google.com/uc?id=1Vlc1nMQtZbA-FL0KoqCfCioDwJBhSzGm"},

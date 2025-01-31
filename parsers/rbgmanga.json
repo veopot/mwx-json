@@ -1,7 +1,7 @@
 {
     "id": 40155,
-    "version": 91,
-    "title": "ReManga",
+    "version": 99,
+    "title": "Re:Manga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
     "folder": "rbgmanga",
@@ -23,9 +23,9 @@
     "manga_search_complete": {
        "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+            
             "Referer": "https://remanga.org/",
-	 "User-Agent": "MangaWatcherX"
+	 "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
         "search_link": "https://api.remanga.org/api/search/?count=10&page=$page$&query=$query$",
         "query_type": "GET",
@@ -51,13 +51,13 @@
                 "token1": "mid\":\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://api.remanga.org"
+                    "prefix": "https://remanga.org"
                 }
             },
             "title": {
                 "before": "bookmark_type\"",
                 "token1": "main_name\":\"",
-                "token2": "\",\"dir",
+                "token2": "\",\"translate_status",
                 "replace": {
                     "match": "\",\"secondary_name\":\"",
                     "text": " | "
@@ -126,15 +126,15 @@
     "manga_list_complete": {
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+           
             "Referer": "https://remanga.org/",
-			"User-Agent": "MangaWatcherX"
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
         "iterator": {
             "base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
             "append_nums": {
                 "from": 1,
-                "to": 739
+                "to": 787
             }
         },
         "add_manga": {
@@ -188,7 +188,7 @@
             }
         ],
         "rating_auto_inc": {
-            "start": "20000",
+            "start": "40000",
             "inc": -1
         }
     },
@@ -196,9 +196,9 @@
 		
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+            
             "Referer": "https://remanga.org/",
-            "User-Agent": "MangaWatcherX" 
+            "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
 			},
         
         "title": {
@@ -233,10 +233,10 @@
         },
         "cover": {
             "token1": "high\":\"",
-            "token2": "\",",
+            "token2": "\"",
             "replace": [
                 {
-                    "prefix": "https://api.remanga.org"
+                    "prefix": "https://remanga.org/media/"
                 },
                 {
                     "match": "u002F",
@@ -317,7 +317,7 @@
                     "prefix": "https://api.remanga.org/api/titles/chapters/?branch_id="
                 },
                 {
-                    "sufix": "&count=100&ordering=-index&page=%%iterator_num%%"
+                    "sufix": "&count=100&ordering=-index&user_data=0&page=%%iterator_num%%"
                 }
             ],
             "iterator": {
@@ -330,14 +330,15 @@
         "add_chapter": {
 			"headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+           
             "Referer": "%%url%%",
-			"User-Agent": "mangawatcherx"
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
 			
             "start": "content\"",
             "end": "props",
             "next": "\"is_paid\":false",
+			
             "link": {
                 "before": "\"is_paid\":false",
                 "token1": "id\":",
@@ -368,12 +369,16 @@
             },
             "title": {
                 "before": "\"is_paid\":false",
-                "token1": ",\"to",
-                "token2": "\",\"name\"",
+                "token1": ",\"t",
+                "token2":  "\",\"is",                   
                 "replace": [
                     {
-                        "match": "me\":",
+                        "match": "ome\":",
                         "text": "Том "
+                    },
+					{
+                        "match": "\",\"name\":\"",
+                        "text": " "
                     },
                     {
                         "match": ",\"chapter\":\"",
@@ -387,9 +392,9 @@
         "add_numeration": true,
         "headers": {
 			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            "Accept": "*/*",
+            
             "Referer": "https://remanga.org/",
-			"User-Agent": "MangaWatcherX"
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
         "add_images": {
             "start": "content",
@@ -414,7 +419,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://api.remanga.org/api/titles/solo-leveling",
+            "link": "https://api.remanga.org/api/titles/unmanned-reincarnation/",
             "title": "Поднятие уровня в одиночку / Solo Leveling",
             "assert": {
                 "cover": "https://api.remanga.org/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",

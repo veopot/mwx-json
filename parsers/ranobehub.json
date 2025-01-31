@@ -1,0 +1,280 @@
+{
+   "id":40259,
+   "version":4,
+   "title":"RanobeHub",
+   "host":"https://ranobehub.org",
+   "public_link":"https://ranobehub.org",
+   "folder":"ranobehub",
+   "name":"ranobehub",
+   "language":"ru",
+   "encoding":"utf-8",
+   "chapters_order":true,
+   "icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/ranobehub.png",
+   
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/ranobehub.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/ranobehub.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/ranobehub.zip",
+    "file_type": "sqlite",
+   "author":{
+       "name":"MWX and Hikkun",
+      "email":"fant-net@ya.ru"
+   },
+   
+   "manga_search_complete": {
+       "headers": { "Referer": "https://ranobehub.org/" },
+	   
+        "search_link": "https://ranobehub.org/api/fulltext/global?query=$query$",
+        "query_type": "GET",
+        "add_manga": {
+        
+            
+        "next":"\"id\"",
+		
+		"start": "[",
+		"end": "\"key\":\"users",
+        
+		"title":{
+            "token1":"\"rus\":\"",
+            "token2":"\""
+         },
+         "link":{
+		 
+            "token1":"\"url\":\"https://ranobehub.org/ranobe/",
+            "token2":"\"",
+                "replace": {
+                    "prefix": "https://ranobehub.org/ranobe/"
+                }
+         },
+		 "uniq":{
+            "token1":"\"eng\":\"",
+            "token2":"\""
+            },
+            "cover": {
+                "token1": "\"image\":\"",
+                "token2": "\""
+            },
+            
+            "summary": {
+                "token1": "\"description\":\"",
+                "token2": "\",",
+                "replace": [
+                    
+					{"match": "<div class=\"FicTable_Genres\">", "text": "&nbsp;&nbsp;" },
+					{ "match":"<.*?>", "text":""}
+                ]
+            }
+        }
+    },
+   
+   
+   "manga_list_complete":{
+      "iterator":{
+         "base_url":"https://ranobehub.org/ranobe?page=",
+		 
+		 "append_nums": { "from": 1, "to": 99, "step": 1}
+         
+      },
+      "add_manga":{
+         "next":"id&quot;:",
+         "title":{
+            "token1":"&quot;rus&quot;:&quot;",
+            "token2":"&quot"
+         },
+         "link":{
+		 
+            "token1":"&quot;url&quot;:&quot;",
+            "token2":"&quot",
+			"replace" : { "match" : "\\\\", "text" : "" }
+         },
+		 "uniq":{
+            "token1":"url&quot;:&quot;https:\/\/ranobehub.org\/ranobe\/",
+            "token2":"\"",
+			"replace" : { "match" : "\\\\", "text" : "" }
+         }
+     
+      }
+   },
+   "manga_complete":{
+
+     "content_type": {
+			"default": "light_novels"
+		},
+
+      "title":{
+         "skip":"<head>",
+         "token1":"<title>",
+         "token2":"</title>",
+			"replace": { "match": "Ранобэ", "text": "" }
+			
+      },
+      "uniq":{
+          "after":"<link rel=\"canonical\"",
+         "token1":"href=\"https://ranobehub.org/ranobe/",
+         "token2":"\""
+      },
+	  
+      "cover":{
+         "after":"<meta property=\"og:image\"",
+         "token1":"content=\"",
+         "token2":"\"", 
+		 "replace": { "match":"https://ranobehub.orghttps://ranobehub.org/", "text":"https://ranobehub.org/"}
+        },
+
+      "author":{
+         "after":"href=\"https://ranobehub.org/author/",
+         "token1":"\">",
+         "token2":"</"
+      },
+      "summary":{
+         "after":"<div class=\"book-description\"",
+         "token1":">",
+         "token2":"</div>",
+         "replace":{
+            "match":"<.*?>",
+            "text":" "
+         }
+      },
+	  
+	  "status":      {
+		"complete":  { "start": "Статус перевода", "end" : "</a>", "value" : "Завершено" },
+		"ongoing":   { "start": "Статус перевода", "end" : "</a>", "value" : "В процессе" },
+		"single":   { "start": ">Статус", "end" : "</span>", "value" : "412421шено" } 
+		},
+		
+		
+      "add_genres":   { 	
+	   "start": "class=\"modern-ranobe-header\">",
+       "end": "class=\"book-meta-value book-authors\">",
+	        "token1": "&gt;\">", "token2": "</" },
+	  
+	  "add_tags":   { 	
+	   "start": ">События<",
+       "end": "id=\"app-similar-common-desktop\">",
+	     "after": "href=\"https://ranobehub.org/tag",    "token1": ">", "token2": "</a>" },
+			
+			
+      "is_mature":{
+         "values":[
+           "Для взрослых",
+           ">место для рекламы<",
+           ">место для рекламы<",
+           ">место для рекламы<"
+         ]
+      },
+	  
+
+
+		"chapters_from_page": {
+            "token1": "data-id=\"",
+            "token2": "\"",
+            "replace":[
+		    { "prefix": "https://ranobehub.org/api/ranobe/" },
+			{ "sufix": "/contents" }
+		        ] 
+		},
+	   	 
+
+
+      "add_chapter":{
+         "start":"chapters\"",
+		 
+         "next":"\"id\":",
+         "link":{
+            "token1":"\"url\":\"",
+            "token2":"\"",
+			"replace" : { "match" : "\\\\", "text" : "" }
+         },
+		 "uniq":{
+            "token1":"\"url\":\"",
+            "token2":"\"",
+			"replace": [
+			{ "match" : "(.*)/(.*)/(.*)", "text" : "$2/$3" },
+			{ "match" : "\\\\", "text" : "" }
+			]
+		    },
+         "title":{
+            "token1":"\"url\":\"",
+            "token2":"\"",
+			"replace" : [
+			{ "match" : "(.*)/(.*)/(.*)", "text" : "Том $2 Глава $3" },
+			{ "match" : "\\\\", "text" : "" }
+			]
+			
+		    }
+		 
+      }
+
+
+   },
+   
+   
+  
+	"chapter_complete": {
+		"headers": {
+			"cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+		},
+
+		"add_images": {
+			"start": "<head>",
+			"token1": "data-url=\"",
+			"token2": "\"",
+			"end": "</body>",
+		
+			"replace": [
+        { "prefix": "https://bypass.mwx.su/api/ranobe/download/?href=" },
+        {	"sufix": "&title=/ranobehub.fb2"}
+                ]
+		}
+	},
+
+
+
+   "test":[
+      {
+         "proc":"manga_list_complete",
+         "assert":{
+            "mangas":[
+               {
+                  "title":"Город Ведьм",
+                  "link":"https://ranobehub.org/ranobe/1286-manyeoui-dosi",
+                  "uniq":"1286-manyeoui-dosi"
+               }
+            ],
+            "mangas_count":">=10"
+         }
+      },
+      {
+         "proc":"manga_complete",
+         "link":"https://ranobehub.org/ranobe/80-i-shall-seal-the-heavens",
+         "title":"Я Запечатаю Небеса / I Shall Seal the Heavens / Wo Yu Feng Tian /",
+         "assert":{
+            "author":"Er Gen",
+            "cover":"@https://ranobehub.org/api/media/2359/big",
+		    "summary":"@^(Эта история берет начало)",
+            "status":"unknown",
+            "chapters_count":">=1000",
+            "chapters":[
+        {
+            "link": "https://ranobehub.org/ranobe/80/1/1616",
+            "title": "Другая история 2. Чу Юйянь"
+        },
+        {
+            "folder": "1615\\",
+            "link": "https://ranobehub.org/ranobe/80/1/1615",
+            "title": "Другая история 1. Hазванный отeц Kэ"
+        }
+            ]
+         }
+      },
+      {
+         "proc":"chapter_complete",
+         "link":"https://ranobehub.org/ranobe/80/1/1615",
+         "assert":{
+            "pages":[
+               {"image": "http://bypass.mwx.su/api/ranobehub/download/?href=https://ranobehub.org/ranobehub24/5908"}
+            ],
+            "pages_count":"1"
+         }
+      }
+   ]
+}

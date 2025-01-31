@@ -3,7 +3,7 @@
 	
 	"old_ids": [50030],
 	
-	"version": 23,
+	"version": 25,
 	"title": "AComics",
 	"host": "https://acomics.ru/",
 	"public_link": "https://acomics.ru/",
@@ -72,7 +72,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://acomics.ru/comics?categories=&ratings%5B%5D=1&ratings%5B%5D=2&ratings%5B%5D=3&ratings%5B%5D=4&ratings%5B%5D=5&ratings%5B%5D=6&type=0&updatable=0&issue_count=2&sort=last_update&skip=",
-			"append_nums": { "from": 0, "to": 4800, "step": 10 }
+			"append_nums": { "from": 0, "to": 5000, "step": 10 }
 		},
 		"add_manga": {
 			"next": "<td class=\"catdata1\">",
@@ -83,31 +83,63 @@
 	},
 
 	"manga_complete": {
+		"headers": {
+			"cookie": "ageRestrict=17",
+            "Accept": "*/*",
+            "Referer": "https://acomics.ru/",
+	        "User-Agent": "MangaWatcherX"
+			},
 		"title":       { "skip": "alternate", "token1": "title='", "token2": "'" },
 		"uniq":        { "skip": "alternate", "token1": "title='", "token2": "'" },
 		"author":      { "skip": "<b>Автор", "token1": ">", "token2": "</" },
 		"summary":     { "skip": "og:description", "token1": "content=\"", "token2": "\"" },
 		"status":      { "ongoing": "Авторский Комикс" },
-		"cover":       { "after": "id=\"mainImage\"", "token1": "src=\"", "token2": "\"", "replace": { "match": "http://", "text": "https://" } },
+		"cover":       { "token1": "<img src=\"/upload/!c/", "token2": "\"", "replace": { "prefix": "https://acomics.ru/upload/!c/" } },
 		"add_genre":   "Авторский Комикс",
 		
 		
 		
+	  
 		"add_chapter": {
-			"next":  "jumpTo",
-			"link":  { "token1": "('", "token2": "'", "replace": { "match": "http://", "text": "https://" } },
-			"chapters_count": { "token1": ",", "token2": ");", "replace": { "prefix": "Страница " }}
-		}
-	},
+			"headers": {
+			"cookie": "ageRestrict=17",
+            "Accept": "*/*",
+            "Referer": "https://acomics.ru/",
+	        "User-Agent": "MangaWatcherX"
+			},
+			
+			"next":  "class=\"serial-reader-menu\"",
+			"link":  { "before": "\">Содержание</a>", 
+			"token1": "<a href=\"", "token2": "/content\"", "replace": { "prefix": "https://acomics.ru" } },
+			
+			
+			"chapters_count": {
+				"before": ">с конца<", 
+                "token1": "/",
+                "token2": "\"",
+                    "replace": [
+				{ "prefix": "Страница " },
+				{ "match": "~", "text": "" }
+				]
+					
+		    }    
+	}
+},
 	
 	
 	"chapter_complete": {
+		"headers": {
+			"cookie": "ageRestrict=17",
+            "Accept": "*/*",
+            "Referer": "https://acomics.ru/",
+	        "User-Agent": "MangaWatcherX"
+			},
 		"add_images": {
-			"start": "id=\"mainImage\"",
-			"token1": "src=\"",
+			"start": "<h1 class=\"reader-issue-title\"",
+			"token1": "<img src=\"/upload/!c/",
 			"token2": "\"",
-			"end": "alt",
-			"replace": { "prefix": "https://acomics.ru" }
+			"end": "class=\"footer-main\">",
+			"replace": { "prefix": "https://acomics.ru/upload/!c/" }
 		}
 	},
 
