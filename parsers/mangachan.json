@@ -1,13 +1,13 @@
 {
 	"id": 30005,
-	"version": 46,
+	"version": 47,
 	
 	"old_ids": [28673],
-    "old_sites": ["mangachan.ru"],
+    "old_sites": ["mangachan.ru","manga-chan.me"],
 	
 	"title": "Манга-тян!",
-	"host": "https://manga-chan.me/",
-	"public_link": "https://manga-chan.me/",
+	"host": "https://im.manga-chan.me/",
+	"public_link": "https://im.manga-chan.me/",
 	"folder": "mangachan",
 	"name" : ["chan", "mchan"],
 	"language": "ru",
@@ -22,7 +22,7 @@
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangachan_logo.png",
-		"registration": "https://manga-chan.me/index.php?do=register",
+		"registration": "https://im.manga-chan.me/index.php?do=register",
 		"expires": 31449600000,
 
 		"values": {
@@ -33,7 +33,7 @@
 
 		"request": {
 			"method": "post",
-			"url": "https://manga-chan.me/index.php"
+			"url": "https://im.manga-chan.me/index.php"
 		},
 
 		"response_check": {
@@ -43,7 +43,7 @@
 	},
 
 	"manga_search_complete": {		
-		"search_link": "https://manga-chan.me/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"search_link": "https://im.manga-chan.me/?do=search&subaction=search&story=$query$&search_start=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
@@ -61,7 +61,7 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://manga-chan.me/mostfavorites?offset=",
+			"base_url": "https://im.manga-chan.me/mostfavorites?offset=",
 			"append_nums": { "from": 0, "to": 20460, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
@@ -156,7 +156,7 @@
 			"assert" : {
 				"mangas" : [
             { "title" : "The Breaker: New waves", 
-            "link" : "https://manga-chan.me/manga/5335-the-breaker-new-waves.html",
+            "link" : "https://im.manga-chan.me/manga/5335-the-breaker-new-waves.html",
 			"uniq" : "5335-the-breaker-new-waves.html" }
 				],
 				"mangas_count" : ">=50"
@@ -164,7 +164,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://manga-chan.me/manga/9125-gantz.html",
+			"link" : "https://im.manga-chan.me/manga/9125-gantz.html",
 			"title" : "Gantz",
 			"assert" : {
 				"author" : "@Oku Hiroya",
@@ -176,17 +176,17 @@
 				"chapters_count" : ">=383",
 				"chapters" : [
 					{ "title" : "Том 37 Глава 383 КОНЕЦ",
-						"link" : "https://manga-chan.me/online/148650-gantz_v37_ch383.html",
+						"link" : "https://im.manga-chan.me/online/148650-gantz_v37_ch383.html",
 						"folder" : "148650-gantz_v37_ch383.html/"
 					},
 					{ "title" : "Том 37 Глава 381",
- 					  "link" : "https://manga-chan.me/online/145147-gantz_v37_ch381.html" }
+ 					  "link" : "https://im.manga-chan.me/online/145147-gantz_v37_ch381.html" }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://manga-chan.me/online/148650-gantz_v37_ch383.html",
+			"link" : "https://im.manga-chan.me/online/148650-gantz_v37_ch383.html",
 			"assert" : {
 				"pages" : [
 					{ "image" : "@https://.*.manga-chan.me/manga/a/1372175196_adieu-gantz-383-rus/gantz-c383p01.jpg" },
