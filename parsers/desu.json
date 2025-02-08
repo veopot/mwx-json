@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 45,
+	"version": 46,
 	
 	"old_ids": [66348],
     "old_sites": ["desu.win", "x.desu.me","desu.me" ],
@@ -118,7 +118,7 @@
 				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
 			
-			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://desu.store" } },
+			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://static.desu.one" } },
 			
 			"add_genre": { "after": "href=\"manga/?genre", "token1": "\">", "token2": "</a>",
 			"replace": { "match": "<.*>", "text": "" } },
