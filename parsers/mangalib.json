@@ -1,6 +1,6 @@
 {
     "id": 2021,
-    "version": 25,
+    "version": 26,
     "title": "MangaLib",
     "host": "https://mangalib.me/",
     "public_link": "https://mangalib.me/",
@@ -382,6 +382,9 @@
                 {
                     "prefix": "https://img33.imgslib.link"
                 },
+ {
+                        "clear_escape": true
+                    },
                 {
                     "match": "\\\\",
                     "text": ""
