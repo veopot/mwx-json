@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 84,
+	"version": 85,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -284,6 +284,15 @@
 			"replace": {
 				"match": "(.*?)','(.*?)',\"(.*?)\".*",
 				"text": "$1$3"
+			}
+		},
+    "add_servers": {
+			"start": "[{\"path",
+			"token1": "\":\"",
+			"token2": "\"",
+			"end": "}]",
+			"replace": {
+				"prefix": "https:"
 			}
 		},
 		"prefix": "https:"
