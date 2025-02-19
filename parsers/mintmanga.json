@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 104, 
+	"version": 105, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one", "1.mintmanga.one" ],
@@ -32,7 +32,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -80,7 +80,7 @@
 	"manga_complete": [
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -148,7 +148,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -180,7 +180,7 @@
 	},
 	{ "condition": ">Сценарист:<",
 	"headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -248,7 +248,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -277,7 +277,7 @@
 	},
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -341,7 +341,7 @@
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -373,7 +373,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=ek1QWTZtVk9iUkklMkI0JTJCT0FvN0NkNURBTjYyOVFRYW8lMkJFdHEyUERPRE1uTSUzRDpjQk02VGtMeDVHSTh4cmUxUER4VmQ3UE1VZGpPMnFiMWo2dk5ISTRwdmVvJTNE",
+		"cookie": "remember_me=UHVNamMlMkJSZ2JxdXdoM2VhVGVGNFZ2S2kwUDlJOXB1cm5Ib2N1OUdyZXlZJTNEOlpYV3pZQTVPWXo5Q3JsY05KZGZXdFdDelZGQjd3eDY3ZWY2ODJSSGNFOTglM0Q",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://2.mintmanga.one/",
