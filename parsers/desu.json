@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 46,
+	"version": 47,
 	
 	"old_ids": [66348],
     "old_sites": ["desu.win", "x.desu.me","desu.me" ],
@@ -97,7 +97,16 @@
 		},
 		{"condition": "",
 		"headers": { "cookie": "xf_user=11072%2C0a7dd015ace06f09a98b213413117b286be3214b" }, 
-			"title":      { "after": "meta property=\"og:title\"", "token1":"content=\"", "token2": "\"" },
+			"title":      { "after": "meta name=\"twitter:title\"", "token1":"content=\"", "token2": "\"",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ] },
 			"uniq":       { "skip": "<span class=\"rus-name\"", "token1":"\">", "token2": "</" },
 			
 			
