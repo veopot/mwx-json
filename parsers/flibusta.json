@@ -1,6 +1,6 @@
 {
 	"id": 70201,
-	"version": 11,
+	"version": 12,
 	"time_invalidate": 0,
 	"title": "Flibusta (Книги)",
 	"host": "http://b.flibusta.is/",
@@ -372,8 +372,9 @@
 		    },
 		"rating": {
 		    "skip": "<p>Оценки",
-			"token1": ":",
-			"token2": "</"
+			"token1": "среднее",
+			"token2": "</",
+			"replace???": [{"match": ".", "text": ","}]
 		    },
 		
 		"content_type": {"default": "light_novels" },
@@ -424,14 +425,15 @@
 			"token1": "href=\"",
 			"token2": "\"",
 			"end": "</a>",
-			"replace": [{"sufix": "/epub" }, {"match": "/fb2", "text": "/epub"}, {"match": "/read", "text": "/epub"}, {"match": "/epub/epub", "text": "/epub"}],
+			"replace": [{"sufix": "/epub" }, {"match": "/fb2", "text": "/epub"}, {"match": "/read", "text": "/epub"}, {"match": "/epub/epub", "text": "/epub"}]
 		},
 		"prefix": "http://b.flibusta.is",
-		"sufix": "&title=/ranobe.epub",
+		"sufix": "&title=/ranobe.epub"
 
 	},	
 		
-	"test": [{
+	"test": [
+		{
 			"proc": "manga_list_complete",
 			"assert": {
 				"mangas": [{
