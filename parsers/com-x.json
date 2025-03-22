@@ -2,8 +2,8 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version":37,
-	"title": "Com-X.life",
+	"version":38,
+	"title": "Com-X.life (unstable)",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
 	"folder": "comxlife",
