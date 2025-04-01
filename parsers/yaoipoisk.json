@@ -1,6 +1,6 @@
 {
     "id": 5512,
-    "version": 14,
+    "version": 15,
     "old_sites": [
         "m3.yaoipoisk.ru",
         "m5.yaoipoisk.ru",
@@ -55,10 +55,10 @@
             },
             "cover": {
                 "before": "href=\"",
-                "token1": "data-src=\"https://static2.mangapoisk.net/posters",
+                "token1": "data-src=\"https://static2.mangapoisk.live/posters",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://static2.mangapoisk.net/posters"
+                    "prefix": "https://static2.mangapoisk.live/posters"
                 }
             }
         },
@@ -92,10 +92,10 @@
             },
             "cover": {
                 "skip": "href=\"",
-                "token1": "https://static2.mangapoisk.net/posters/",
+                "token1": "https://static2.mangapoisk.live/posters/",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://static2.mangapoisk.net/posters/"
+                    "prefix": "https://static2.mangapoisk.live/posters/"
                 }
             }
         }
@@ -133,10 +133,10 @@
             "token2": "\","
         },
         "cover": {
-            "token1": "src=\"https://static2.mangapoisk.net/posters/",
+            "token1": "src=\"https://static2.mangapoisk.live/posters/",
             "token2": "\"",
             "replace": {
-                "prefix": "https://static2.mangapoisk.net/posters/"
+                "prefix": "https://static2.mangapoisk.live/posters/"
             }
         },
         "rating": {
@@ -283,7 +283,7 @@
             "link": "https://m1.yaoi-poisk.ru/manga/slyshno-dazhe-bez-mikrofona",
             "title": "Слышно даже без микрофона",
             "assert": {
-                "cover": "@https://static2.mangapoisk.net/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
+                "cover": "@https://static2.mangapoisk.live/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
                 "summary": "@^(У мужчины-соседа)",
                 "tags": "@fantasy",
                 "status": "complete",
