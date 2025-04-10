@@ -1,13 +1,13 @@
 {
 	"id": 30402,
-	"version": 47,
+	"version": 48,
 	
 	"old_ids": [66348],
-    "old_sites": ["desu.win", "x.desu.me","desu.me" ],
+    "old_sites": ["desu.win", "x.desu.me","desu.me","desu.store" ],
 	
 	"title": "Desu (RU)",
-	"host": "https://desu.store/",
-	"public_link": "https://desu.store/manga/",
+	"host": "https://desu.work/",
+	"public_link": "https://desu.work/manga/",
 	"folder": "desu",
 	"name" : "desu",
 	"language": "ru",
@@ -22,7 +22,7 @@
 		
 	"manga_search_complete": {
 	    
-		"search_link": "https://desu.store/manga/api/?limit=10&page=$page$&search=$query$",
+		"search_link": "https://desu.work/manga/api/?limit=10&page=$page$&search=$query$",
 		"query_type": "GET",
 		"headers": { "cookie": "xf_user=11072%2C0a7dd015ace06f09a98b213413117b286be3214b" }, 
 		
@@ -47,13 +47,13 @@
 		
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://desu.store/manga/api/?limit=30&order=popular&page=",
+			"base_url": "https://desu.work/manga/api/?limit=30&order=popular&page=",
 			"append_nums": { "from": 1, "to": 200 }
 		},
 		"add_manga": {
 			"next": "\"id\"",
 			"link":  { "after": "\"url\"", "token1": ":\"", "token2": "\",",
-			"replace" : { "match" : "desu.store/manga/", "text" : "desu.store/manga/api/" }},
+			"replace" : { "match" : "desu.work/manga/", "text" : "desu.work/manga/api/" }},
 			"uniq": { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
 			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
 		},	 
@@ -134,7 +134,7 @@
 			
 			
 			"chapters_from_page": { "skip": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "\"",
-			"replace" : { "match" : "desu.store/manga/", "text" : "desu.store/manga/api/" }},
+			"replace" : { "match" : "desu.work/manga/", "text" : "desu.work/manga/api/" }},
 			
 			"add_chapter": {
 				"start": "\"list\":[",
@@ -164,18 +164,18 @@
 			"testpages": "3",
 			"assert" : {
 				"mangas" : [
-					{ "link" : "https://desu.store/manga/api/z-shokugeki-no-soma.142/", "uniq" : "Shokugeki no Soma" },
-					{ "link" : "https://desu.store/manga/api/z-onepunch-man.48/" }
+					{ "link" : "https://desu.work/manga/api/z-shokugeki-no-soma.142/", "uniq" : "Shokugeki no Soma" },
+					{ "link" : "https://desu.work/manga/api/z-onepunch-man.48/" }
 				],
 				"mangas_count" : ">25"
 			}
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://desu.store/manga/api/z-fairy-tail.10/",
+			"link" : "https://desu.work/manga/api/z-fairy-tail.10/",
 			"title" : "Фейри Тейл",
 			"assert" : {
-				"cover" : "https://desu.store/data/manga/covers/original/10.jpg",
+				"cover" : "https://desu.work/data/manga/covers/original/10.jpg",
 				"summary" : "@^(Фейри Тейл – знаменитая на весь мир)",
 				"genres" : "@comedy",
 				"status" : "complete",
@@ -183,21 +183,21 @@
 				"chapters_count" : ">=511",
 				"chapters" : [
 					{ "title" : "1 - 1 - Фейри Тейл",
-						"link" : "https://desu.store/manga/api/z-fairy-tail.10/chapter/37975",
+						"link" : "https://desu.work/manga/api/z-fairy-tail.10/chapter/37975",
 						"folder" : "1-1/"
 					}, 
-					{ "title" : "@(2 - Появление)", "link" : "https://desu.store/manga/api/z-fairy-tail.10/chapter/37976" }
+					{ "title" : "@(2 - Появление)", "link" : "https://desu.work/manga/api/z-fairy-tail.10/chapter/37976" }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://desu.store/manga/api/z-fairy-tail.10/chapter/37975",
+			"link" : "https://desu.work/manga/api/z-fairy-tail.10/chapter/37975",
 			"assert" : {
 				"pages" : [
-		{"image": "https://img4.desu.store/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg"},
-        {"image": "https://img4.desu.store/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p002.jpg"},
-        {"image": "https://img4.desu.store/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p003.jpg"}
+		{"image": "https://img4.desu.work/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg"},
+        {"image": "https://img4.desu.work/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p002.jpg"},
+        {"image": "https://img4.desu.work/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p003.jpg"}
 				],
 				"pages_count": "77"
 			}
