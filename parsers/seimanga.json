@@ -1,6 +1,6 @@
 {
 	"id": 3075,
-	"version": 3, 
+	"version": 4, 
     
 	"old_sites": ["seimanga.me"],
 	
@@ -31,7 +31,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -79,7 +79,7 @@
 	"manga_complete": [
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -106,12 +106,12 @@
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile\">",
+			"start": "<h4 class=\"hide-mobile-full\">",
 			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile\">", 
+			"start": "<h4 class=\"hide-mobile-full\">", 
 			"end": "class=\"elementList", 
 			"values": [ "продолжается", "переводится"   ] 
 			},
@@ -147,7 +147,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -179,7 +179,7 @@
 	},
 	{ "condition": ">Сценарист:<",
 	"headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -206,12 +206,12 @@
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile\">",
+			"start": "<h4 class=\"hide-mobile-full\">",
 			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile\">", 
+			"start": "<h4 class=\"hide-mobile-full\">", 
 			"end": "class=\"elementList", 
 			"values": [ "продолжается", "переводится"   ] 
 			},
@@ -247,7 +247,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -276,7 +276,7 @@
 	},
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -301,12 +301,12 @@
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile\">",
+			"start": "<h4 class=\"hide-mobile-full\">",
 			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile\">", 
+			"start": "<h4 class=\"hide-mobile-full\">", 
 			"end": "class=\"elementList", 
 			"values": [ "продолжается", "переводится"   ] 
 			},
@@ -340,7 +340,7 @@
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -372,7 +372,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=b25JJTJCVjloWTFZMm95eGtiRHRRJTJCUnI1T0xYcFJwazZZNnpnNHRMWDY0b1UlM0Q6dEtCZDJZSjQyYjc4TkFrOGVTbjlGJTJCUVVvenhCJTJGamV0c2lQa1VNM0VwS3clM0Q",
+		"cookie": "remember_me=WFhvY2ElMkZ6ZGF4eTNsQ1QyakhpVDh0ME5sVkJ3ViUyQlU0WE4wc2dzJTJGeEJGRSUzRDpkWVR6Y3R4NkNCTDd0eHV1Q0dYMmRiUG9hQ0NSMDJMNzFoVDFnc0t3VWtrJTNE",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://1.seimanga.me/",
