@@ -1,6 +1,6 @@
 {
     "id": 2021,
-    "version": 27,
+    "version": 28,
     "title": "MangaLib",
     "host": "https://mangalib.me/",
     "public_link": "https://mangalib.me/",
@@ -48,6 +48,10 @@
                     {
                         "match": "\",\"eng_name\":\"",
                         "text": " | "
+                    },
+					{
+                    "match": "\",\"model\":\"manga",
+                    "text": ""
                     },
                     {
                         "clear_escape": true
@@ -121,6 +125,10 @@
                         "match": "\",\"eng_name\":\"",
                         "text": " | "
                     },
+					{
+                    "match": "\",\"model\":\"manga",
+                    "text": ""
+                },
                     {
                         "clear_escape": true
                     }
@@ -169,9 +177,15 @@
                     "match": "\",\"eng_name\":\"",
                     "text": " | "
                 },
+				{
+                    "match": "\",\"model\":\"manga",
+                    "text": ""
+                },
                 {
                     "clear_escape": true
                 },
+				
+				
                 {
                     "match": "<.*>",
                     "text": ""
