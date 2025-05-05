@@ -1,6 +1,6 @@
 {
     "id": 8021,
-    "version": 7,
+    "version": 8,
     "title": "HentaiLib",
     "host": "https://hentailib.me/",
     "public_link": "https://hentailib.me/ru/catalog",
@@ -379,10 +379,12 @@
     },
     "chapter_complete": {
         "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-            "Accept": "*/*",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGMzZTA0MmQxYTg3NzgzNGE3YzA3NTFmYmJkNjdjMTBmYjkxM2VjZjY4ZTk0OTc0ODk5YmVmYTQzODRjODdjMTA2MTJmNzVmYjJiZjg3Y2YiLCJpYXQiOjE3NDYyNTgzNzcuNDM4ODcxLCJuYmYiOjE3NDYyNTgzNzcuNDM4ODczLCJleHAiOjE3NDg5MzY3NzcuNDM1NDA3LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.hAfqk8ED1vWjXZxgi998tdqzUIrCyk8eERTa0NL01AfYXW5pMcmRXp_WXv8FkSiY5RriYpb8gxRFa8Zi8jr9s7sB0Augj49MXveXWi_mQIf72vIcFCUlgY5dv5gqQv8GUjPq4sq2kcdrXfYqWGvsmIDGCbW8lSiVz-7WWnkkyGDhlzlf63bjSAZwX_jklet9Q_8XPVoNA1J1FC9y8WzWMVgKvWz9JyvPrDyNT_mXYXlc6VBL64cPlvANgKfkTbubaTOOweAcyJqeP-AXTySwbbMVLIJHK0WULKqaKIZzmeHsmqM8BLM2_7KnFKJ4ZkVkct0YYahhi4NNlWOnN4K60owY4kUPlqlHmvt_chseyV9kGFuutd0Hj7DuNEle3AB_S6qy9RljZb_N3RJxlKDhNvbu2Cdihoknng44HUxAUu9WXYFGQZeRtfq0R6KD0GroKwNqul3ttquBmUB2E1AAHhaLhgbYU383KZ0WrULwQxmq5N787jQFBD_E7g6_kIGQde5eoyH5zFMjucZB9M4rd-NLPxeH1NWU9f7ZiLyYc7rPHIzM6YekuV3EqnB_cn3yvU874tQpBybYzCJq27MbgkZvdA22fwhA6rcoSrqzHB3aG9Bx8FvnJBYtmY5-NnPhprzwYZTNIu4YYAdPUkCb_xM4v_KKimlA0xjTrLb13GE",
-            "Referer": "https://api2.mangalib.me/"
+        "sec-ch-ua-platform": "\"Windows\"",
+        "Referer": "https://hentailib.me/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
+        "sec-ch-ua-mobile": "?0",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGMzZTA0MmQxYTg3NzgzNGE3YzA3NTFmYmJkNjdjMTBmYjkxM2VjZjY4ZTk0OTc0ODk5YmVmYTQzODRjODdjMTA2MTJmNzVmYjJiZjg3Y2YiLCJpYXQiOjE3NDYyNTgzNzcuNDM4ODcxLCJuYmYiOjE3NDYyNTgzNzcuNDM4ODczLCJleHAiOjE3NDg5MzY3NzcuNDM1NDA3LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.hAfqk8ED1vWjXZxgi998tdqzUIrCyk8eERTa0NL01AfYXW5pMcmRXp_WXv8FkSiY5RriYpb8gxRFa8Zi8jr9s7sB0Augj49MXveXWi_mQIf72vIcFCUlgY5dv5gqQv8GUjPq4sq2kcdrXfYqWGvsmIDGCbW8lSiVz-7WWnkkyGDhlzlf63bjSAZwX_jklet9Q_8XPVoNA1J1FC9y8WzWMVgKvWz9JyvPrDyNT_mXYXlc6VBL64cPlvANgKfkTbubaTOOweAcyJqeP-AXTySwbbMVLIJHK0WULKqaKIZzmeHsmqM8BLM2_7KnFKJ4ZkVkct0YYahhi4NNlWOnN4K60owY4kUPlqlHmvt_chseyV9kGFuutd0Hj7DuNEle3AB_S6qy9RljZb_N3RJxlKDhNvbu2Cdihoknng44HUxAUu9WXYFGQZeRtfq0R6KD0GroKwNqul3ttquBmUB2E1AAHhaLhgbYU383KZ0WrULwQxmq5N787jQFBD_E7g6_kIGQde5eoyH5zFMjucZB9M4rd-NLPxeH1NWU9f7ZiLyYc7rPHIzM6YekuV3EqnB_cn3yvU874tQpBybYzCJq27MbgkZvdA22fwhA6rcoSrqzHB3aG9Bx8FvnJBYtmY5-NnPhprzwYZTNIu4YYAdPUkCb_xM4v_KKimlA0xjTrLb13GE"
         },
         "images": true,
         "add_pages": {
