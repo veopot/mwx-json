@@ -1,0 +1,210 @@
+{
+	"id": 74985,
+	"old_ids": [41011],
+	
+	"version": 2,
+	"title": "Hentai2Read",
+	"host": "https://hentai2read.com/",
+	"public_link": "https://hentai2read.com/hentai-list",
+	"folder": "hentai2read",
+	"name" : "hentai2read",
+	"language": "en",
+	"is_mature": true,
+	"is_paid": true,
+	"skip_catalog_test": false,
+	 "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentai2read.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/hentai2read.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/hentai2read.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/hentai2read.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "MWX Team",
+        "email": "fant-net@ya.ru"
+    },
+	
+"manga_search_complete": {	
+       "headers": {
+        "accept": "*/*",
+        "referer": "https://hentai2read.com/hentai-list/search/"
+        },
+		
+		"search_link": "https://hentai2read.com/hentai-list/search/$query$/all/name-az/",
+		"query_type": "GET",
+		
+		"add_manga": {
+			"next": "class=\"book-grid-item-container",
+			
+			"title": { "after": "<a href=\"", "token1": "\">", "token2": "</" },
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			"uniq": { "token1": "<a href=\"https://hentai2read.com/","token2": "\"" },
+			"cover": { "after": "<source type=\"image/webp", "token1": "srcset=\"", "token2": "\"" },
+			 "summary": {
+                "token1": "class=\"cat-container\">",
+                "token2": "</div>",
+                "replace": [
+				{ "prefix": "Теги: "},
+                {"match":"<.*?>","text":" "}
+                    
+                ]
+            }
+			
+		} 
+	},
+	
+	
+	
+	
+	"manga_list_complete": {
+		"headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "cache-control": "max-age=0",
+        "priority": "u=0, i",
+        "referer": "https://hentai2read.com/hentai-list/all/any/all/most-popular"
+    },
+	
+		"iterator": {
+			"base_url": "https://hentai2read.com/hentai-list/all/any/all/most-popular/",
+			"append_nums": { 
+			"from": 1,
+			"to": 1138,
+		    "sufix": "/" }
+		},
+		"add_manga": {
+			"next": "class=\"overlay-title\">",
+			"link":  { "token1": "<a href=\"", "token2": "\"" },
+			 "uniq": { "token1": "<a href=\"https://hentai2read.com/","token2": "\"" },
+			"title": { "after": "<a href=\"", "token1": "\">", "token2": "</" }
+		},
+		"rating_auto_inc": {
+			"start": "100000",
+			"inc": -1
+		}
+	},
+
+
+
+
+	"manga_complete": {
+		"title":       { "skip": "<i class=\"fa fa-book\">", "token1": "</i>", "token2": "</h3>",
+         "replace":{"match":"<.*?>","text":""} },
+		 
+		"uniq":        { "skip": "class=\"fa fa-book\"", "token1": "href=\"https://hentai2read.com/", "token2": "/\"" },
+		"author":      { "skip": "<b>Author</b>", "token1": "\">", "token2": "<" },
+		"summary":     { "skip": "<b>Storyline</b>", "token1": "\">", "token2": " </li>",
+         "replace":{"match":"<.*?>","text":""} },
+		 
+		"status":      { "complete": "status/Completed/", "ongoing": "status/Ongoing/" },
+		
+		"cover":       { "after": "img-responsive", "token1": "src=\"", "token2": "\"" },
+		"add_tags": {
+            "start": "<b>Category</b>",
+            "end": "<b>Character</b>",
+			"after": "hentai-list/category/",
+			"token1": "\">",
+            "token2": "</a>",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+		"is_mature":   "hentai",
+		"add_chapter": {
+			"start": "<ul class=\"nav-chapters\">",
+			"next":  "class=\"media\">",
+			"link":  { "after": "class=\"pull-left", "token1": "href=\"", "token2": "\"" },
+			"title": { "after": "class=\"pull-left", "token1" : "\">", "token2": "<div" }
+		}
+	},
+	
+	"chapter_complete": {
+		"headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "cache-control": "max-age=0",
+        "priority": "u=0, i",
+        "referer": "https://hentai2read.com/amayaka_shishou/",
+        "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "same-origin",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1"
+        
+    },
+		"add_images": {
+			"start": "var gData",
+			"token1": "[\"",
+			"token2": "\"]",
+			"split": "\",\"",
+			"end": "</script>",
+			"replace": [
+                    { "prefix": "https://static.hentai.direct/hentai"},
+					{ "match": "\\\\", "text": "" }
+					]
+		}
+	},                              
+
+	"test": [
+		{
+			"proc" : "manga_list_complete",
+			"testpages": "5",
+			"assert" : {
+				"mangas" : [
+					{ 
+					"title" : "Shioriko Kasumi Paradigm", 
+					"link" : "https://hentai2read.com/shioriko_kasumi_paradigm/",
+					"uniq" : "shioriko_kasumi_paradigm_" }
+				],
+				"mangas_count" : ">=90"
+			}
+		},
+		{
+			"proc" : "manga_complete",
+			"link" : "https://hentai2read.com/amayaka_shishou/",
+			"title" : "Amayaka Shishou [Doujinshi]",
+			"assert" : {
+				"author" : "@Komagata",
+				"cover" : "@https://img*.hentaicdn.com/hentai/cover/_S33284.jpg",
+				"summary" : "@^(Fate Grand Order dj.)",
+				"genres" : "@adult",
+				"status" : "ongoing",
+				"chapters_count" : ">=1",
+				"chapters" : [
+		{
+            "link": "https://hentai2read.com/amayaka_shishou/1/",
+            "title": "1 - Amayaka Shishou"
+        },
+        {
+            
+            "folder": "2\\",
+            "link": "https://hentai2read.com/amayaka_shishou/2/",
+            "title": "2 - Amayaka Shishou 2"
+        }
+				]
+			}
+		},
+
+		{
+			"proc" : "chapter_complete",
+			"link" : "https://hentai2read.com/amayaka_shishou/1/",
+			"assert" : {
+				"pages" : [
+		{"image": "https://static.hentai.direct/hentai/33284/1/ccdn0001.jpg"},
+        {"image": "https://static.hentai.direct/hentai/33284/1/ccdn0002.jpg"},
+        {"image": "https://static.hentai.direct/hentai/33284/1/ccdn0003.jpg"},
+        {"image": "https://static.hentai.direct/hentai/33284/1/ccdn0004.jpg"},
+        {"image": "https://static.hentai.direct/hentai/33284/1/ccdn0005.jpg"}
+				],
+				"pages_count": "26"
+			}
+		}
+	]
+}
