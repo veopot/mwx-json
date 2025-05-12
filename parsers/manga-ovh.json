@@ -1,8 +1,8 @@
 {
 	"id": 40129,
-	"version": 5,
+	"version": 6,
 	"title": "Manga Ovh",
-	"host": "https://api.manga.ovh",
+	"host": "https://manga.ovh/",
 	"public_link": "https://manga.ovh",
 	"folder": "manga-ovh",
 	"name": "manga-ovh",
@@ -86,11 +86,15 @@
 			},
 
 			"title": {
-				"token1": "\"ru\":\"",
+				"token1": "\"name\":{",
 				"token2": "}",
 				"replace": [
 				{
-					"match": "\"original\":\"(.*?)\",",
+					"match": "\"ru\":\"",
+					"text": ""
+				},
+				{
+					"match": "\"original\":\"(.*?)\"",
 					"text": ""
 				},
 				{
@@ -117,6 +121,9 @@
 						"match": "\"year\":",
 						"text": "Год выпуска "
 					},
+					{
+                        "clear_escape": true
+                    },
 					{
 						"match": "\"country\":\"",
 						"text": " Страна "
@@ -230,11 +237,15 @@
 			},
 
 			"title": {
-				"token1": "\"ru\":\"",
-				"token2": "\"}",
+				"token1": "\"name\":{",
+				"token2": "}",
 				"replace": [
 				{
-					"match": "\"original\":\"(.*?)\",",
+					"match": "\"ru\":\"",
+					"text": ""
+				},
+				{
+					"match": "\"original\":\"(.*?)\"",
 					"text": ""
 				},
 				{
@@ -259,6 +270,13 @@
 			}
 
 		},
+		 "link_corrector": [
+            {
+                "match": "https://manga.ovh/content/",
+                "text": "https://api.manga.ovh/book/"
+            }
+        ],
+		
 		"rating_auto_inc": {
 			"start": 20000,
 			"inc": -1
@@ -276,16 +294,16 @@
 },
 
 		"title": {
-			"before": "\"labels\":[",
+			"after": ",\"type\":",
 			"token1": "\"name\":{",
-			"token2": "\"}",
+			"token2": "\"},",
 			"replace": [
 			    {
 					"match": "\"ru\":\"",
 					"text": ""
 				},
 				{
-					"match": "\"original\":\"(.*?)\",",
+					"match": "\"original\":\"(.*?)\"",
 					"text": ""
 				},
 				{
@@ -309,14 +327,14 @@
 		},
 
 		"additional_title": {
-			"before": "\"labels\":[",
+			"skip": ",\"type\":",
 			"token1": "\"original\":\"",
 			"token2": "\","
 		},
 
 
 		"uniq": {
-			"before": "\"labels\":[",
+			"skip": ",\"type\":",
 			"token1": "\"en\":\"",
 			"token2": "\""
 		},
@@ -347,6 +365,9 @@
 					"match": "\n",
 					"text": " "
 				},
+				{
+                        "clear_escape": true
+                },
 				{
 					"match": "u003C",
 					"text": ""
@@ -397,9 +418,10 @@
 			"values": ["Сэйнэн", "Эротика", "Юри", "Яой"]
 		},
 
+
 		
 "chapters_from_page": {
-			"before": "type",
+			"before": "\"status\"",
 			"token1": "\"id\":\"",
 			"token2": "\"",
 			"replace": [{
@@ -423,7 +445,6 @@
 				]
 			}
 		},
-
 
 
 
@@ -504,7 +525,7 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://api.manga.ovh/book/isekai-ojisan",
+			"link": "https://api.manga.ovh/i-am-the-only-level-up",
 			"title": "Перерождение Дяди | IsekaI Ojisan",
 			"assert": {
 				"cover": "https://storage.manga.ovh/manga/isekai-ojisan/poster/1653212911854.jpeg",
