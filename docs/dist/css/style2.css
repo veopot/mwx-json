@@ -6,6 +6,11 @@
 	font-family:arial;
 	border:0px #ddd solid;
 }
+.faq1 {
+	color:#89D987;
+	font-family:arial;
+	
+}
 .faq2 {
 	
 	float:left;
@@ -14,7 +19,11 @@
 	font-family:arial;
 	border:0px #ddd solid;
 }
-
+.faq22 {
+	color:#C79BC8;
+	font-family:arial;
+	
+}
 .hr-shadow {
 	
 	margin: 20px 0;
