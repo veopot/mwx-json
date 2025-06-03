@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 49,
+	"version": 50,
 	
 	"old_ids": [66348],
     "old_sites": ["desu.win", "x.desu.me","desu.me","desu.store","desu.work" ],
@@ -80,6 +80,8 @@
 			"cover":   { "skip": "\"original\"", "token1": ":\"", "token2": "\"" },
 			"is_mature": "\"adult\":1,",
 			
+			"author":      { "skip": "\"authors\":", "token1": "\"people_name\":\"", "token2": "\"" },
+			
 			"add_genres": { 
 				"start": "\"genres\":[",
 				"end": "],",
@@ -128,7 +130,10 @@
 				] },
 			"read_dir":    { "right_to_left": "class=\"valuev\">Манга", "left_to_right": "class=\"valuev\">Манхва" },
 			
-			"cover":       { "skip": "<div class=\"c-poster", "token1": "src=\"", "token2": "\"","replace": {"prefix" : "https://static.desu.one" } },
+			"author":      { "skip": "class=\"key\">Автор", "token1": "<ul class=\"translators\" style=\"display:inline;\">", "token2": "</ul>",
+			"replace": { "match": "<.*?>", "text": "" } },
+			
+			"cover":       { "skip": "<div class=\"c-poster", "token1": "/data/manga/covers", "token2": "\"","replace": {"prefix" : "https://static.desu.one/data/manga/covers" } },
 			
 			"add_genre": { "after": "href=\"manga/?genre", "token1": "\">", "token2": "</a>",
 			"replace": { "match": "<.*>", "text": "" } },
