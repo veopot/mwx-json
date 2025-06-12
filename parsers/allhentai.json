@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 94,
+	"version": 95,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -65,10 +65,7 @@
 			"cover": {
 				"before": "<a href=\"",
 				"token1": "data-original='",
-				"token2": "'",
-				"replace": {
-					"prefix": "http://b964805y.beget.tech/index.php?q="
-				}
+				"token2": "'"
 			},
 			"title": {
 				"token1": "title=\"",
@@ -206,10 +203,7 @@
 		"cover": {
 			"skip": "class=\"picture-fotorama\"",
 			"token1": "data-full=\"",
-			"token2": "\"",
-			"replace": {
-				"prefix": "http://b964805y.beget.tech/index.php?q="
-			}
+			"token2": "\""
 		},
 		"is_mature": "hentai",
 		"add_genre": {
@@ -237,6 +231,18 @@
 			"хентай"
 		],
 		"add_chapter": {
+			"headers": {
+			"cookie": "remember_me=dUFPdkdRcXdIT1hMb3RJWWo3aUVITEd6JTJGWGNneUFIS01xUFRTdHYyOFgwJTNEOnFPZVdyMldoR0RFajRkMlFQd0FCaHVsejIlMkY5ZGY3elJncjRkUjE1dzhMWSUzRA",
+			"Accept": "*/*",
+			"skin": "time",
+			"resize_type": "real",
+			"comments-floating-mode": "compact",
+	        "gdpr-flag": "dismiss",
+				
+			
+			"Referer": "https://z.ahen.me/"
+		},
+		
 			"start": "<table class=\"table table-hover\">",
 			"end": "</table>",
 			"next": "item-title\"",
