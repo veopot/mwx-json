@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 92,
+	"version": 94,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -13,12 +13,12 @@
 		"2023.allhen.online",
 		"z.allhen.online",
 		"24.allhen.online",
-		"z.ahen.me"
-	
+		"20.allhen.online"
+	    
 	],
 	
-	"host": "https://20.allhen.online",
-	"public_link": "https://20.allhen.online",
+	"host": "https://z.ahen.me",
+	"public_link": "https://z.ahen.me",
 	"hash_tag": "allhentai",
 	"folder": "allhentai",
 	"name": "allhentai",
@@ -34,10 +34,10 @@
 	
 	
 	"manga_search_complete": {
-		"search_link": "https://20.allhen.online/search/advancedResults?q=$query$&offset=&years=1991%2C2025&sortType=RATING",
+		"search_link": "https://z.ahen.me/search/advancedResults?q=$query$&offset=&years=1991%2C2025&sortType=RATING",
 		"headers": {
 			"accept": "*/*",
-			"Referer": "https://20.allhen.online/search/advanced"
+			"Referer": "https://z.ahen.me/search/advanced"
 		},
 		"add_manga": {
 			"next": "class=\"desc\">",
@@ -82,7 +82,7 @@
 	},
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://20.allhen.online/list?sortType=RATING&offset=",
+			"base_url": "https://z.ahen.me/list?sortType=RATING&offset=",
 			"append_nums": {
 				"from": 0,
 				"to": 29150,
@@ -112,8 +112,8 @@
 		},
 		"link_corrector": [
             {
-                "match": "http://20.allhen.online",
-                "text": "https://20.allhen.online"
+                "match": "http://z.ahen.me",
+                "text": "https://z.ahen.me"
             }
         ],
 		"rating_auto_inc": {
@@ -123,7 +123,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=ZkRONVM1eWpVM2htRHhGN1dkSVNSa2JXMnloekVQVVl3VXRyVGtXVXlsdyUzRDpwUDJZTGxROWNVUUNaQU16VG9TU0tuUmQwRFNoNFJDWUtOdWJ2eXJBekR3JTNE",
+			"cookie": "remember_me=dUFPdkdRcXdIT1hMb3RJWWo3aUVITEd6JTJGWGNneUFIS01xUFRTdHYyOFgwJTNEOnFPZVdyMldoR0RFajRkMlFQd0FCaHVsejIlMkY5ZGY3elJncjRkUjE1dzhMWSUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -131,7 +131,7 @@
 	        "gdpr-flag": "dismiss",
 				
 			
-			"Referer": "https://20.allhen.online/"
+			"Referer": "https://z.ahen.me/"
 		},
 		"title": {
 			"after": "<meta itemprop=\"name\"",
@@ -269,10 +269,10 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=ZkRONVM1eWpVM2htRHhGN1dkSVNSa2JXMnloekVQVVl3VXRyVGtXVXlsdyUzRDpwUDJZTGxROWNVUUNaQU16VG9TU0tuUmQwRFNoNFJDWUtOdWJ2eXJBekR3JTNE",
+			"cookie": "remember_me=dUFPdkdRcXdIT1hMb3RJWWo3aUVITEd6JTJGWGNneUFIS01xUFRTdHYyOFgwJTNEOnFPZVdyMldoR0RFajRkMlFQd0FCaHVsejIlMkY5ZGY3elJncjRkUjE1dzhMWSUzRA",
 			
 			"Accept": "*/*",
-			"Referer": "https://20.allhen.online/"
+			"Referer": "https://z.ahen.me/"
 		},
 		"no_404": true,
 		"images": true,
@@ -301,7 +301,7 @@
 			"proc": "manga_list_complete",
 			"assert": {
 				"mangas": [{
-					"link": "https://20.allhen.online/delovoi_stil",
+					"link": "https://z.ahen.me/delovoi_stil",
 					"title": "Деловой стиль (Business Casual)",
 					"uniq": "delovoi_stil"
 				}],
@@ -311,7 +311,7 @@
 		{
 			"proc": "manga_complete",
 			         
-			"link": "https://20.allhen.online/a_peephole",
+			"link": "https://z.ahen.me/a_peephole",
 			"title": "Nozoki ana (A peephole)",
 			"assert": {
 				"cover": "https://static.allhentai.ru/uploads/pics/00/02/230.jpg",
@@ -322,14 +322,14 @@
 				"chapters_count": ">=115",
 				"chapters": [{
 					"title": "Дыра 1 - 1",
-					"link": "https://20.allhen.online/a_peephole/vol1/1?d=ODQ0Nzgw",
+					"link": "https://z.ahen.me/a_peephole/vol1/1?d=ODQ0Nzgw",
 					"folder": "Дыра 1 - 1/"
 				}]
 			}
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://20.allhen.online/tetrad_po_trusikam/vol1/95?d=ODQ0Nzgw",
+			"link": "https://z.ahen.me/tetrad_po_trusikam/vol1/95?d=ODQ0Nzgw",
 			"assert": {
 				"pages": [
 		{"image": "https://d.aaa200.rocks/auto/06/27/19/1.png_res.png?t=1679933932&u=0&h=fln3L8hZDKzb6ISLgI7P1A"},
@@ -339,7 +339,7 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://20.allhen.online/a_peephole/vol1/1?d=ODQ0Nzgw",
+			"link": "https://z.ahen.me/a_peephole/vol1/1?d=ODQ0Nzgw",
 			"assert": {
 				"pages": [
 		{"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},

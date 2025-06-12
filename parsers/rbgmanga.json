@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 99,
+    "version": 100,
     "title": "Re:Manga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -22,7 +22,7 @@
     
     "manga_search_complete": {
        "headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
             
             "Referer": "https://remanga.org/",
 	 "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
@@ -125,7 +125,7 @@
     },
     "manga_list_complete": {
         "headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
            
             "Referer": "https://remanga.org/",
 			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
@@ -195,7 +195,7 @@
     "manga_complete": {
 		
         "headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
             
             "Referer": "https://remanga.org/",
             "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
@@ -329,7 +329,7 @@
         },
         "add_chapter": {
 			"headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
            
             "Referer": "%%url%%",
 			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
@@ -391,10 +391,10 @@
     "chapter_complete": {
         "add_numeration": true,
         "headers": {
-			"cookie": "token=qFQdhQwOVTj7IQtaSsTswac7dtIGFr",
-            
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "accept": "*/*",
             "Referer": "https://remanga.org/",
-			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
 			},
         "add_images": {
             "start": "content",
@@ -438,7 +438,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://api.remanga.org/api/titles/chapters/462182",
+            "link": "https://api.remanga.org/api/titles/chapters/871816/",
             "assert": {
                 "pages": [
                     {
