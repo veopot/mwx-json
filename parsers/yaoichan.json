@@ -1,12 +1,22 @@
 {
 	"id":30412 ,
     "old_ids": [65583],
-    "old_sites": ["yaoichan.ru", "yaoi-chan.me", "v1.yaoi-chan.me", "v2.yaoi-chan.me", "v3.yaoi-chan.me", "v6.yaoi-chan.me","v7.yaoi-chan.me"],
+    "old_sites": [
+	"yaoichan.ru",
+	"yaoi-chan.me",
+	"v1.yaoi-chan.me",
+	"v2.yaoi-chan.me",
+	"v3.yaoi-chan.me",
+	"v6.yaoi-chan.me",
+	"v7.yaoi-chan.me",
+	"v8.yaoi-chan.me",
+	"v9.yaoi-chan.me"
+	],
    
-	"version": 30, 
+	"version": 31, 
 	"title": "Yaoi-chan!",
-	"host": "https://v8.yaoi-chan.me/",
-	"public_link": "https://v8.yaoi-chan.me/catalog",
+	"host": "https://v10.yaoi-chan.me/",
+	"public_link": "https://v10.yaoi-chan.me/catalog",
 	"encoding" : "utf-8",
 	"folder": "yaoichan",
 	"name" : ["ychan", "yaoichan"],
@@ -29,7 +39,7 @@
 
 	"authorization_complete": {
 		"logo":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoichan.png",
-		"registration": "https://v8.yaoi-chan.me/index.php?do=register",
+		"registration": "https://v10.yaoi-chan.me/index.php?do=register",
 		"expires": 31449600000,
 	
 		"values": {
@@ -40,7 +50,7 @@
 	
 		"request": {
 			"method": "post",
-			"url": "https://v8.yaoi-chan.me/index.php"
+			"url": "https://v10.yaoi-chan.me/index.php"
 		},
 	
 		"response_check": {
@@ -51,7 +61,7 @@
 
 
 	"manga_search_complete": {		
- "search_link":"https://v8.yaoi-chan.me/index.php?do=search&subaction=search&search_start=$page$&story=$query$&need_sort_date=false",
+ "search_link":"https://v10.yaoi-chan.me/index.php?do=search&subaction=search&search_start=$page$&story=$query$&need_sort_date=false",
 		"query_type": "GET",
 		"add_manga": {
 		   
@@ -76,7 +86,7 @@
 
 	"manga_list_complete": {
 		"iterator": {    
-			"base_url": "https://v8.yaoi-chan.me/mostfavorites?offset=",
+			"base_url": "https://v10.yaoi-chan.me/mostfavorites?offset=",
 			"append_nums": { "from": 0, "to": 16080, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
@@ -155,7 +165,7 @@
 				"mangas" : [
 					{ 
         "uniq": "8158-starfighter.html",
-        "link": "https://v8.yaoi-chan.me/manga/8158-starfighter.html",
+        "link": "https://v10.yaoi-chan.me/manga/8158-starfighter.html",
         "title": "Starfighter"
 		}
 				],
@@ -164,7 +174,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://v8.yaoi-chan.me/manga/35716-one-day.html",
+			"link" : "https://v10.yaoi-chan.me/manga/35716-one-day.html",
 			"title" : "One Day (Однажды)",
 			"assert" : {
 				"author" : "@﻿Oldxian",
@@ -177,11 +187,11 @@
 				"chapters" : [
 		{
         "folder": "674579-one-day_v1_ch312.html/",
-        "link": "https://v8.yaoi-chan.me/online/674579-one-day_v1_ch312.html",
+        "link": "https://v10.yaoi-chan.me/online/674579-one-day_v1_ch312.html",
         "title": "Том 1 - 312 Спецвыпуск ко Дню святого Валентина. С праздником."
         },
         {
-        "link": "https://v8.yaoi-chan.me/online/674578-one-day_v1_ch311.html",
+        "link": "https://v10.yaoi-chan.me/online/674578-one-day_v1_ch311.html",
         "title": "Том 1 - 311 История, произошедшая в городишке Суяб."
         }
 				]
@@ -190,13 +200,13 @@
 		
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://v8.yaoi-chan.me/online/674578-one-day_v1_ch311.html", 
+			"link" : "https://v10.yaoi-chan.me/online/674578-one-day_v1_ch311.html", 
 			"assert" : {
 				"pages" : [
 					
-        {"image": "https://img2.v8.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_02.png"},
-        {"image": "https://img.v8.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_03.png"},
-        {"image": "https://img2.v8.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_04.jpg"}
+        {"image": "https://img2.v10.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_02.png"},
+        {"image": "https://img.v10.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_03.png"},
+        {"image": "https://img2.v10.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_04.jpg"}
 				],
 				"pages_count": "4"
 			}
