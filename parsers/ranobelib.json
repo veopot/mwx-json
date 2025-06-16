@@ -1,6 +1,6 @@
 {
     "id": 2079,
-    "version": 1,
+    "version": 2,
     "title":"RanobeLib",
     "host":"https://ranobelib.me",
     "public_link":"https://ranobelib.me/ru/catalog",
@@ -87,7 +87,7 @@
     "manga_list_complete": {
         "headers": {
             "Accept": "*/*",
-			"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTM3ZTYyZDZhOTIxOGYxYjNjNWUxYjM3NjZjYzgyYTM3ZjM1NjlkZTM5ZDBhYmI4OTg3NzRlNDE1ZDA2YmE2YmU3NzA2NjA4N2QzODVmYjYiLCJpYXQiOjE3NDYyNTgxNDMuNzgwNzUyLCJuYmYiOjE3NDYyNTgxNDMuNzgwNzU0LCJleHAiOjE3NDg5MzY1NDMuNzc3NDQ3LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.MBxlYIWTiyRIYODRVvFaw9rYAQE5Qq6kjP2gpePeu6lewFKJ9vC3YmdD2pevcBm17O--5a6A2w9Fdozx6ns40JbMYw4fRATCME6jPRsV36NxqVD4BH8bOnWduDkG7akJTB4MAsva0prr1gAsQM9nGpavp_c9kiL7BBBMmIQPRMaUh04sh_8f80lQOd6Zdyjv1TVGv7BHoXxMatIlXiNaL3s3CDKzAOWsmcuUJsbiM8hX_gXnn46zHyeYWqezsPlE8pYiWo8jGJvWWTrlG2JRtl4oZM10FkN4GgQFHm4_hOhf1MOrH342ZDVyLefL8lJfQZ2l-La80Z2TcmmSzwdDCwzKiBNwEgWzSt9K5fKgWI3-KT-ke25_vcAbYIMzhXOubCPPKDUnsNOSKHJkMGY2UqHeY25yf5-KOhUp_xv0q5li06DJvPdA7M9_aGDAnsA3NASYFS_7Ac6hB13aUKcLFpBpNeVXh9UIe7vhKLJM1wtepVkR97FxYQnD2Yiyl-I9O1ymzwpehSkVAIpZHA_nbzGGVPe3DLYaBIp5a-C4mTCkfLJU2J2BUCaudA-RpUmc2omkctfHp0wK_fJqXdD6UFhskJUizdK1qHcggE_hWqnzAv2ngmucwsSDvxNgm7CYb_MoDfAAHC_OEFKKS6o9tZJdzx90YoOGPq-Ds-F9PEs",
+			"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDc2ZWM2MzJiN2ExN2YxZjQwMmIzNTUyY2NiM2E1ZDA0MWFhNjQ0OWI0OTZjYzNiYTJmYzExM2MyMzJkZmNjYTRhOTM4NjM1Y2VkYzg4NzEiLCJpYXQiOjE3NTAwNzgwMjkuNDcwMzEsIm5iZiI6MTc1MDA3ODAyOS40NzAzMTIsImV4cCI6MTc1MjY3MDAyOS40NjY5MjMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.rTAfng9I_0rcTvXNiJAuuOqyEhmeZwsEND_upQF-6cgBMHp7Ze5F-wqVB5xXL2jq3PZELCa6SMX0su0xexbKn9IasA2fkGnicMNJhKLT4M-ZeSJNX0bcaLy9QYAfvv3QvzMUd9OFUlXbt72YGrvhknt3TSH7SlH9vhN7b8oayxkXXP1LRV4O8QwiazkydNrrFq-csen1LKUo5tKv5HbYY5o_RKTDnv_garbuRzGEl4UEBttOQhoRpLCSGuCSSe3qM75HJWl6APT1o91U7qbRExSYeL9t7JAYWc5FdpzwmXQ5cfSMv789ZNDB5mt-TvOLoUCMYCoCDr-1oxtPUYIYKrtiLO41UL0UUODCKG3bp5m7gjl3-JmzW24pdFeRarFLNg9EhjSSIZRTRZ1ezL-zsmPq6R1HC43SsH7L9ZOGL9EvwL9DuwsB00_PnngU4eyZssdPP-Wi1F6j2eMHvTlBMB9jPlrel2YBfTfEja59KN_e-awiA-K8xhNjX3GwXxQF2Zc9L5JyXj6SqmPImZSMq7IpRMg3pQ7bnZmM01Vn20Y3BqAKL3hn4y3sQ_4Ff3LxdHKUUVgm09T035TwCRXJCQkZL73wMyiWZG5G6U9MysC-al04SJStLwao7onUGL6KuQuFMgzWfzQfaiiHvGsosVvp5btouIdbQfA6qR8fWck",
             "Referer": "https://ranobelib.me/ru/catalog"
         },
         "iterator": {
@@ -164,8 +164,9 @@
 		
         "headers": {
 	    "accept": "*/*",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTM3ZTYyZDZhOTIxOGYxYjNjNWUxYjM3NjZjYzgyYTM3ZjM1NjlkZTM5ZDBhYmI4OTg3NzRlNDE1ZDA2YmE2YmU3NzA2NjA4N2QzODVmYjYiLCJpYXQiOjE3NDYyNTgxNDMuNzgwNzUyLCJuYmYiOjE3NDYyNTgxNDMuNzgwNzU0LCJleHAiOjE3NDg5MzY1NDMuNzc3NDQ3LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.MBxlYIWTiyRIYODRVvFaw9rYAQE5Qq6kjP2gpePeu6lewFKJ9vC3YmdD2pevcBm17O--5a6A2w9Fdozx6ns40JbMYw4fRATCME6jPRsV36NxqVD4BH8bOnWduDkG7akJTB4MAsva0prr1gAsQM9nGpavp_c9kiL7BBBMmIQPRMaUh04sh_8f80lQOd6Zdyjv1TVGv7BHoXxMatIlXiNaL3s3CDKzAOWsmcuUJsbiM8hX_gXnn46zHyeYWqezsPlE8pYiWo8jGJvWWTrlG2JRtl4oZM10FkN4GgQFHm4_hOhf1MOrH342ZDVyLefL8lJfQZ2l-La80Z2TcmmSzwdDCwzKiBNwEgWzSt9K5fKgWI3-KT-ke25_vcAbYIMzhXOubCPPKDUnsNOSKHJkMGY2UqHeY25yf5-KOhUp_xv0q5li06DJvPdA7M9_aGDAnsA3NASYFS_7Ac6hB13aUKcLFpBpNeVXh9UIe7vhKLJM1wtepVkR97FxYQnD2Yiyl-I9O1ymzwpehSkVAIpZHA_nbzGGVPe3DLYaBIp5a-C4mTCkfLJU2J2BUCaudA-RpUmc2omkctfHp0wK_fJqXdD6UFhskJUizdK1qHcggE_hWqnzAv2ngmucwsSDvxNgm7CYb_MoDfAAHC_OEFKKS6o9tZJdzx90YoOGPq-Ds-F9PEs",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDc2ZWM2MzJiN2ExN2YxZjQwMmIzNTUyY2NiM2E1ZDA0MWFhNjQ0OWI0OTZjYzNiYTJmYzExM2MyMzJkZmNjYTRhOTM4NjM1Y2VkYzg4NzEiLCJpYXQiOjE3NTAwNzgwMjkuNDcwMzEsIm5iZiI6MTc1MDA3ODAyOS40NzAzMTIsImV4cCI6MTc1MjY3MDAyOS40NjY5MjMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.rTAfng9I_0rcTvXNiJAuuOqyEhmeZwsEND_upQF-6cgBMHp7Ze5F-wqVB5xXL2jq3PZELCa6SMX0su0xexbKn9IasA2fkGnicMNJhKLT4M-ZeSJNX0bcaLy9QYAfvv3QvzMUd9OFUlXbt72YGrvhknt3TSH7SlH9vhN7b8oayxkXXP1LRV4O8QwiazkydNrrFq-csen1LKUo5tKv5HbYY5o_RKTDnv_garbuRzGEl4UEBttOQhoRpLCSGuCSSe3qM75HJWl6APT1o91U7qbRExSYeL9t7JAYWc5FdpzwmXQ5cfSMv789ZNDB5mt-TvOLoUCMYCoCDr-1oxtPUYIYKrtiLO41UL0UUODCKG3bp5m7gjl3-JmzW24pdFeRarFLNg9EhjSSIZRTRZ1ezL-zsmPq6R1HC43SsH7L9ZOGL9EvwL9DuwsB00_PnngU4eyZssdPP-Wi1F6j2eMHvTlBMB9jPlrel2YBfTfEja59KN_e-awiA-K8xhNjX3GwXxQF2Zc9L5JyXj6SqmPImZSMq7IpRMg3pQ7bnZmM01Vn20Y3BqAKL3hn4y3sQ_4Ff3LxdHKUUVgm09T035TwCRXJCQkZL73wMyiWZG5G6U9MysC-al04SJStLwao7onUGL6KuQuFMgzWfzQfaiiHvGsosVvp5btouIdbQfA6qR8fWck",
         "Referer": "https://ranobelib.me/",
+		"Site-Id": "3",
         "Content-Type": "application/json"
         },
 		
@@ -205,11 +206,20 @@
             "skip": "\"authors",
             "token1": "\"name\":\"",
             "token2": "\",",
-            "replace": {
-                "match": "<.*>",
-                "text": " "
-            }
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+				{
+                    "clear_html": true
+                },
+				{"match": "<.*>","text": " "},
+                {"match": "\u2019", "text": "’" }
+            ]
         },
+		
+		"is_mature": "\"label\":\"18+\"",
+		
         "summary": {
             "skip": "\"data\"",
             "token1": "\"summary\":\"",
@@ -330,7 +340,7 @@
         "add_chapter": {
             "headers": {
                "accept": "*/*",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTM3ZTYyZDZhOTIxOGYxYjNjNWUxYjM3NjZjYzgyYTM3ZjM1NjlkZTM5ZDBhYmI4OTg3NzRlNDE1ZDA2YmE2YmU3NzA2NjA4N2QzODVmYjYiLCJpYXQiOjE3NDYyNTgxNDMuNzgwNzUyLCJuYmYiOjE3NDYyNTgxNDMuNzgwNzU0LCJleHAiOjE3NDg5MzY1NDMuNzc3NDQ3LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.MBxlYIWTiyRIYODRVvFaw9rYAQE5Qq6kjP2gpePeu6lewFKJ9vC3YmdD2pevcBm17O--5a6A2w9Fdozx6ns40JbMYw4fRATCME6jPRsV36NxqVD4BH8bOnWduDkG7akJTB4MAsva0prr1gAsQM9nGpavp_c9kiL7BBBMmIQPRMaUh04sh_8f80lQOd6Zdyjv1TVGv7BHoXxMatIlXiNaL3s3CDKzAOWsmcuUJsbiM8hX_gXnn46zHyeYWqezsPlE8pYiWo8jGJvWWTrlG2JRtl4oZM10FkN4GgQFHm4_hOhf1MOrH342ZDVyLefL8lJfQZ2l-La80Z2TcmmSzwdDCwzKiBNwEgWzSt9K5fKgWI3-KT-ke25_vcAbYIMzhXOubCPPKDUnsNOSKHJkMGY2UqHeY25yf5-KOhUp_xv0q5li06DJvPdA7M9_aGDAnsA3NASYFS_7Ac6hB13aUKcLFpBpNeVXh9UIe7vhKLJM1wtepVkR97FxYQnD2Yiyl-I9O1ymzwpehSkVAIpZHA_nbzGGVPe3DLYaBIp5a-C4mTCkfLJU2J2BUCaudA-RpUmc2omkctfHp0wK_fJqXdD6UFhskJUizdK1qHcggE_hWqnzAv2ngmucwsSDvxNgm7CYb_MoDfAAHC_OEFKKS6o9tZJdzx90YoOGPq-Ds-F9PEs",
+		"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDc2ZWM2MzJiN2ExN2YxZjQwMmIzNTUyY2NiM2E1ZDA0MWFhNjQ0OWI0OTZjYzNiYTJmYzExM2MyMzJkZmNjYTRhOTM4NjM1Y2VkYzg4NzEiLCJpYXQiOjE3NTAwNzgwMjkuNDcwMzEsIm5iZiI6MTc1MDA3ODAyOS40NzAzMTIsImV4cCI6MTc1MjY3MDAyOS40NjY5MjMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.rTAfng9I_0rcTvXNiJAuuOqyEhmeZwsEND_upQF-6cgBMHp7Ze5F-wqVB5xXL2jq3PZELCa6SMX0su0xexbKn9IasA2fkGnicMNJhKLT4M-ZeSJNX0bcaLy9QYAfvv3QvzMUd9OFUlXbt72YGrvhknt3TSH7SlH9vhN7b8oayxkXXP1LRV4O8QwiazkydNrrFq-csen1LKUo5tKv5HbYY5o_RKTDnv_garbuRzGEl4UEBttOQhoRpLCSGuCSSe3qM75HJWl6APT1o91U7qbRExSYeL9t7JAYWc5FdpzwmXQ5cfSMv789ZNDB5mt-TvOLoUCMYCoCDr-1oxtPUYIYKrtiLO41UL0UUODCKG3bp5m7gjl3-JmzW24pdFeRarFLNg9EhjSSIZRTRZ1ezL-zsmPq6R1HC43SsH7L9ZOGL9EvwL9DuwsB00_PnngU4eyZssdPP-Wi1F6j2eMHvTlBMB9jPlrel2YBfTfEja59KN_e-awiA-K8xhNjX3GwXxQF2Zc9L5JyXj6SqmPImZSMq7IpRMg3pQ7bnZmM01Vn20Y3BqAKL3hn4y3sQ_4Ff3LxdHKUUVgm09T035TwCRXJCQkZL73wMyiWZG5G6U9MysC-al04SJStLwao7onUGL6KuQuFMgzWfzQfaiiHvGsosVvp5btouIdbQfA6qR8fWck",
         "Referer": "https://ranobelib.me/",
         "Content-Type": "application/json"
             },
@@ -387,7 +397,7 @@
     "chapter_complete": {
         "headers": {
              "sec-ch-ua-platform": "\"Windows\"",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTM3ZTYyZDZhOTIxOGYxYjNjNWUxYjM3NjZjYzgyYTM3ZjM1NjlkZTM5ZDBhYmI4OTg3NzRlNDE1ZDA2YmE2YmU3NzA2NjA4N2QzODVmYjYiLCJpYXQiOjE3NDYyNTgxNDMuNzgwNzUyLCJuYmYiOjE3NDYyNTgxNDMuNzgwNzU0LCJleHAiOjE3NDg5MzY1NDMuNzc3NDQ3LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.MBxlYIWTiyRIYODRVvFaw9rYAQE5Qq6kjP2gpePeu6lewFKJ9vC3YmdD2pevcBm17O--5a6A2w9Fdozx6ns40JbMYw4fRATCME6jPRsV36NxqVD4BH8bOnWduDkG7akJTB4MAsva0prr1gAsQM9nGpavp_c9kiL7BBBMmIQPRMaUh04sh_8f80lQOd6Zdyjv1TVGv7BHoXxMatIlXiNaL3s3CDKzAOWsmcuUJsbiM8hX_gXnn46zHyeYWqezsPlE8pYiWo8jGJvWWTrlG2JRtl4oZM10FkN4GgQFHm4_hOhf1MOrH342ZDVyLefL8lJfQZ2l-La80Z2TcmmSzwdDCwzKiBNwEgWzSt9K5fKgWI3-KT-ke25_vcAbYIMzhXOubCPPKDUnsNOSKHJkMGY2UqHeY25yf5-KOhUp_xv0q5li06DJvPdA7M9_aGDAnsA3NASYFS_7Ac6hB13aUKcLFpBpNeVXh9UIe7vhKLJM1wtepVkR97FxYQnD2Yiyl-I9O1ymzwpehSkVAIpZHA_nbzGGVPe3DLYaBIp5a-C4mTCkfLJU2J2BUCaudA-RpUmc2omkctfHp0wK_fJqXdD6UFhskJUizdK1qHcggE_hWqnzAv2ngmucwsSDvxNgm7CYb_MoDfAAHC_OEFKKS6o9tZJdzx90YoOGPq-Ds-F9PEs",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDc2ZWM2MzJiN2ExN2YxZjQwMmIzNTUyY2NiM2E1ZDA0MWFhNjQ0OWI0OTZjYzNiYTJmYzExM2MyMzJkZmNjYTRhOTM4NjM1Y2VkYzg4NzEiLCJpYXQiOjE3NTAwNzgwMjkuNDcwMzEsIm5iZiI6MTc1MDA3ODAyOS40NzAzMTIsImV4cCI6MTc1MjY3MDAyOS40NjY5MjMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.rTAfng9I_0rcTvXNiJAuuOqyEhmeZwsEND_upQF-6cgBMHp7Ze5F-wqVB5xXL2jq3PZELCa6SMX0su0xexbKn9IasA2fkGnicMNJhKLT4M-ZeSJNX0bcaLy9QYAfvv3QvzMUd9OFUlXbt72YGrvhknt3TSH7SlH9vhN7b8oayxkXXP1LRV4O8QwiazkydNrrFq-csen1LKUo5tKv5HbYY5o_RKTDnv_garbuRzGEl4UEBttOQhoRpLCSGuCSSe3qM75HJWl6APT1o91U7qbRExSYeL9t7JAYWc5FdpzwmXQ5cfSMv789ZNDB5mt-TvOLoUCMYCoCDr-1oxtPUYIYKrtiLO41UL0UUODCKG3bp5m7gjl3-JmzW24pdFeRarFLNg9EhjSSIZRTRZ1ezL-zsmPq6R1HC43SsH7L9ZOGL9EvwL9DuwsB00_PnngU4eyZssdPP-Wi1F6j2eMHvTlBMB9jPlrel2YBfTfEja59KN_e-awiA-K8xhNjX3GwXxQF2Zc9L5JyXj6SqmPImZSMq7IpRMg3pQ7bnZmM01Vn20Y3BqAKL3hn4y3sQ_4Ff3LxdHKUUVgm09T035TwCRXJCQkZL73wMyiWZG5G6U9MysC-al04SJStLwao7onUGL6KuQuFMgzWfzQfaiiHvGsosVvp5btouIdbQfA6qR8fWck",
         "Referer": "https://ranobelib.me/",
         "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
         "sec-ch-ua-mobile": "?0",

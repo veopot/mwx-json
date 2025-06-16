@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 91,
+    "version": 92,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -119,12 +119,12 @@
 			"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile\">",
+			"start": "<div class=\"subject-meta\">",
 			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile\">", 
+			"start": "<div class=\"subject-meta\">", 
 			"end": "class=\"elementList", 
 			"values": [ "продолжается", "переводится"   ] 
 			},
@@ -233,12 +233,12 @@
 			"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile\">",
+			"start": "<div class=\"subject-meta\">",
 			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile\">", 
+			"start": "<div class=\"subject-meta\">", 
 			"end": "class=\"elementList", 
 			"values": [ "продолжается", "переводится"   ] 
 			},
@@ -339,12 +339,12 @@
 		  		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile\">",
+			"start": "<div class=\"subject-meta\">",
 			"end": "<p class=\"elementList", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile\">", 
+			"start": "<div class=\"subject-meta\">", 
 			"end": "class=\"elementList", 
 			"values": [ "продолжается", "переводится"   ] 
 			},
