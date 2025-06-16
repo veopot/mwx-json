@@ -1,6 +1,6 @@
 {
     "id": 2021,
-    "version": 31,
+    "version": 32,
     "title": "MangaLib",
     "host": "https://mangalib.me/",
     "public_link": "https://mangalib.me/",
@@ -87,7 +87,7 @@
     "manga_list_complete": {
         "headers": {
             "Accept": "*/*",
-			"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjAzNmY0YjI0YmEzMjBkMmYwYzE3ZTJmODIyNjdkNjhkNjliYzRlNzk0Nzk4ZmU1YmE1NWVkMDZhZjRmZTE3ZTYzZGUzNjU2NzA0N2YzYTEiLCJpYXQiOjE3NTAwODE3MjguMDMyMDc3LCJuYmYiOjE3NTAwODE3MjguMDMyMDc4LCJleHAiOjE3NTI2NzM3MjguMDI4NDgsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.aKeWTdmkH-k-_vZefYBYqb7QcDCpDZzy8QrRTYrefxHGOe_D7Rkt21OGmBzOToTPryVGoOldhmBXQ6oPIOyx0KWCXZ1ipSbaQ7JpMJlVoqpKx61DKybFTRKjOHU9vDVepofD-Ppxdq1XnCvj5Fb6uvowwtREf4t84t2LcTEPta_B_bABerVo7YtuMoMpIAbEMWvDO4xisGCPo9SawnGLOBKbsVG3IESHXg0JWkPfWlFEvZMfKy3vqnp-Fy5Q1ZZvQW5WNhbyYi2muOYJ8EtBM-nUSvm_nJh2Uw_OJyWrS3NUDxmXE7JzUKnPY4tJJH9VM1FXMRVcQBYAf7-SoFkJcQJfe_kJ9fgn4mELsB43al4VvUSK2zL0om1Mn7hsKd4w0s0MLSBCepK73q02lyjGDJnJGHNuPI3Vu2THFa9GvZnsO-DRTtashTvGagn2fRgTwH0-xT0a5N4ngCme-uoHQ8hKMO0ZIizfN93oQQXfPT90eyQc7q-Wcih9GzlNubs2Ld04DTVk9Cd_NfI2pKG634NuOBrH5ZMHVx-5blAKelz-AN9RklRs-HgF8v84Aez2R2w3nKbsrwtqBud-8mfA6cbqpKtQzgxpymJWWKYjz2kzR2f0gZG_vV5x0RjzxVxk3vyNpvdJhWfqN_CXIcY035Y32L7BNJg5RfGmPO1hink",
+			"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJkN2UyYzhlZjI5YTBmZjUzZmEzZjRlNDhiOWNiYTYyZDFiZGU1YjlkNWQwOGJmYWM2ZGZlZjAyYTdhZTI3ZGU2N2VhNTRlOTIwOThlMTMiLCJpYXQiOjE3NTAwODQwNDguMDk4MDExLCJuYmYiOjE3NTAwODQwNDguMDk4MDEyLCJleHAiOjE3NTI2NzYwNDguMDkzNjEyLCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.Z4uuIxG9BgrPRfT1zYpxQzL_NnD3QUpwcs3jqts-J6cFXTfPUoqK14asjRxArh-5Tg72CbOlpHCM78UURtCdbXn_UZeY_sUcq7Nfwfkk8LQAcI9_J3jw5A_Tg7veo2dEVwPde_cM-fceO76J5le-ExZcI83C-91GYpjB7uS3B0GNLqSGWQt4tssQ5WZjmhdvJPm8fEUZVbyBKlCAKmsngNQDXqzZU6wPiaVAzYwJNTGij42ib3cNFF1n8IGHpETe3KGjCjsTPxSo_UAX0wrlF-W8hk3edFvnMnLlCtk5J46Tpo7LL_kohrtrSJXZmQJ9qbXvOtIFiDi0BYOhpy7NqgTAqKm6OJ_pfbnQb5f5iukbjvS3qMuR4Gn66RgJ3VYqywf5DmlXfBkXjBs5ILBrh6OSoHIveRNWfERbD-IA73o28rgsJ7zjfWqOPSyBkp60PqevFbV6xk_4kc2Di_SU-DBLr-qS6oHHgSNrLFiYRG-LEsXAgJFXIShcOtdWiCTKDchAEktIH1YhJsZ8M_maF3Odf8E32wGm_29cATAoCUMXsDHXYA0G8EWyhLDUumD37VLuXiHrfCBhmgttdlvYRgRXZ3Lq2tWIhPLxIgZbZCtcZSVP34-yTneS038DAw5geaP13vb0dvbOK6uQepSRXx81T-E_BXcu2Ctr4ZzV9HA",
             "Referer": "https://mangalib.me/ru/catalog"
         },
         "iterator": {
@@ -160,10 +160,12 @@
         }
     },
     "manga_complete": {
-        "headers": {
+    "headers": {
 	    "accept": "*/*",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjAzNmY0YjI0YmEzMjBkMmYwYzE3ZTJmODIyNjdkNjhkNjliYzRlNzk0Nzk4ZmU1YmE1NWVkMDZhZjRmZTE3ZTYzZGUzNjU2NzA0N2YzYTEiLCJpYXQiOjE3NTAwODE3MjguMDMyMDc3LCJuYmYiOjE3NTAwODE3MjguMDMyMDc4LCJleHAiOjE3NTI2NzM3MjguMDI4NDgsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.aKeWTdmkH-k-_vZefYBYqb7QcDCpDZzy8QrRTYrefxHGOe_D7Rkt21OGmBzOToTPryVGoOldhmBXQ6oPIOyx0KWCXZ1ipSbaQ7JpMJlVoqpKx61DKybFTRKjOHU9vDVepofD-Ppxdq1XnCvj5Fb6uvowwtREf4t84t2LcTEPta_B_bABerVo7YtuMoMpIAbEMWvDO4xisGCPo9SawnGLOBKbsVG3IESHXg0JWkPfWlFEvZMfKy3vqnp-Fy5Q1ZZvQW5WNhbyYi2muOYJ8EtBM-nUSvm_nJh2Uw_OJyWrS3NUDxmXE7JzUKnPY4tJJH9VM1FXMRVcQBYAf7-SoFkJcQJfe_kJ9fgn4mELsB43al4VvUSK2zL0om1Mn7hsKd4w0s0MLSBCepK73q02lyjGDJnJGHNuPI3Vu2THFa9GvZnsO-DRTtashTvGagn2fRgTwH0-xT0a5N4ngCme-uoHQ8hKMO0ZIizfN93oQQXfPT90eyQc7q-Wcih9GzlNubs2Ld04DTVk9Cd_NfI2pKG634NuOBrH5ZMHVx-5blAKelz-AN9RklRs-HgF8v84Aez2R2w3nKbsrwtqBud-8mfA6cbqpKtQzgxpymJWWKYjz2kzR2f0gZG_vV5x0RjzxVxk3vyNpvdJhWfqN_CXIcY035Y32L7BNJg5RfGmPO1hink",
+		"cookie": "_ga=GA1.2.653564629.1746258410",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJkN2UyYzhlZjI5YTBmZjUzZmEzZjRlNDhiOWNiYTYyZDFiZGU1YjlkNWQwOGJmYWM2ZGZlZjAyYTdhZTI3ZGU2N2VhNTRlOTIwOThlMTMiLCJpYXQiOjE3NTAwODQwNDguMDk4MDExLCJuYmYiOjE3NTAwODQwNDguMDk4MDEyLCJleHAiOjE3NTI2NzYwNDguMDkzNjEyLCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.Z4uuIxG9BgrPRfT1zYpxQzL_NnD3QUpwcs3jqts-J6cFXTfPUoqK14asjRxArh-5Tg72CbOlpHCM78UURtCdbXn_UZeY_sUcq7Nfwfkk8LQAcI9_J3jw5A_Tg7veo2dEVwPde_cM-fceO76J5le-ExZcI83C-91GYpjB7uS3B0GNLqSGWQt4tssQ5WZjmhdvJPm8fEUZVbyBKlCAKmsngNQDXqzZU6wPiaVAzYwJNTGij42ib3cNFF1n8IGHpETe3KGjCjsTPxSo_UAX0wrlF-W8hk3edFvnMnLlCtk5J46Tpo7LL_kohrtrSJXZmQJ9qbXvOtIFiDi0BYOhpy7NqgTAqKm6OJ_pfbnQb5f5iukbjvS3qMuR4Gn66RgJ3VYqywf5DmlXfBkXjBs5ILBrh6OSoHIveRNWfERbD-IA73o28rgsJ7zjfWqOPSyBkp60PqevFbV6xk_4kc2Di_SU-DBLr-qS6oHHgSNrLFiYRG-LEsXAgJFXIShcOtdWiCTKDchAEktIH1YhJsZ8M_maF3Odf8E32wGm_29cATAoCUMXsDHXYA0G8EWyhLDUumD37VLuXiHrfCBhmgttdlvYRgRXZ3Lq2tWIhPLxIgZbZCtcZSVP34-yTneS038DAw5geaP13vb0dvbOK6uQepSRXx81T-E_BXcu2Ctr4ZzV9HA",
         "Referer": "https://mangalib.me/",
+		"Site-Id": "1",
         "Content-Type": "application/json"
         },
         "title": {
@@ -320,12 +322,13 @@
             ]
         },
         "add_chapter": {
-            "headers": {
-               "accept": "*/*",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjAzNmY0YjI0YmEzMjBkMmYwYzE3ZTJmODIyNjdkNjhkNjliYzRlNzk0Nzk4ZmU1YmE1NWVkMDZhZjRmZTE3ZTYzZGUzNjU2NzA0N2YzYTEiLCJpYXQiOjE3NTAwODE3MjguMDMyMDc3LCJuYmYiOjE3NTAwODE3MjguMDMyMDc4LCJleHAiOjE3NTI2NzM3MjguMDI4NDgsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.aKeWTdmkH-k-_vZefYBYqb7QcDCpDZzy8QrRTYrefxHGOe_D7Rkt21OGmBzOToTPryVGoOldhmBXQ6oPIOyx0KWCXZ1ipSbaQ7JpMJlVoqpKx61DKybFTRKjOHU9vDVepofD-Ppxdq1XnCvj5Fb6uvowwtREf4t84t2LcTEPta_B_bABerVo7YtuMoMpIAbEMWvDO4xisGCPo9SawnGLOBKbsVG3IESHXg0JWkPfWlFEvZMfKy3vqnp-Fy5Q1ZZvQW5WNhbyYi2muOYJ8EtBM-nUSvm_nJh2Uw_OJyWrS3NUDxmXE7JzUKnPY4tJJH9VM1FXMRVcQBYAf7-SoFkJcQJfe_kJ9fgn4mELsB43al4VvUSK2zL0om1Mn7hsKd4w0s0MLSBCepK73q02lyjGDJnJGHNuPI3Vu2THFa9GvZnsO-DRTtashTvGagn2fRgTwH0-xT0a5N4ngCme-uoHQ8hKMO0ZIizfN93oQQXfPT90eyQc7q-Wcih9GzlNubs2Ld04DTVk9Cd_NfI2pKG634NuOBrH5ZMHVx-5blAKelz-AN9RklRs-HgF8v84Aez2R2w3nKbsrwtqBud-8mfA6cbqpKtQzgxpymJWWKYjz2kzR2f0gZG_vV5x0RjzxVxk3vyNpvdJhWfqN_CXIcY035Y32L7BNJg5RfGmPO1hink",
+    "headers": {
+	    "accept": "*/*",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJkN2UyYzhlZjI5YTBmZjUzZmEzZjRlNDhiOWNiYTYyZDFiZGU1YjlkNWQwOGJmYWM2ZGZlZjAyYTdhZTI3ZGU2N2VhNTRlOTIwOThlMTMiLCJpYXQiOjE3NTAwODQwNDguMDk4MDExLCJuYmYiOjE3NTAwODQwNDguMDk4MDEyLCJleHAiOjE3NTI2NzYwNDguMDkzNjEyLCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.Z4uuIxG9BgrPRfT1zYpxQzL_NnD3QUpwcs3jqts-J6cFXTfPUoqK14asjRxArh-5Tg72CbOlpHCM78UURtCdbXn_UZeY_sUcq7Nfwfkk8LQAcI9_J3jw5A_Tg7veo2dEVwPde_cM-fceO76J5le-ExZcI83C-91GYpjB7uS3B0GNLqSGWQt4tssQ5WZjmhdvJPm8fEUZVbyBKlCAKmsngNQDXqzZU6wPiaVAzYwJNTGij42ib3cNFF1n8IGHpETe3KGjCjsTPxSo_UAX0wrlF-W8hk3edFvnMnLlCtk5J46Tpo7LL_kohrtrSJXZmQJ9qbXvOtIFiDi0BYOhpy7NqgTAqKm6OJ_pfbnQb5f5iukbjvS3qMuR4Gn66RgJ3VYqywf5DmlXfBkXjBs5ILBrh6OSoHIveRNWfERbD-IA73o28rgsJ7zjfWqOPSyBkp60PqevFbV6xk_4kc2Di_SU-DBLr-qS6oHHgSNrLFiYRG-LEsXAgJFXIShcOtdWiCTKDchAEktIH1YhJsZ8M_maF3Odf8E32wGm_29cATAoCUMXsDHXYA0G8EWyhLDUumD37VLuXiHrfCBhmgttdlvYRgRXZ3Lq2tWIhPLxIgZbZCtcZSVP34-yTneS038DAw5geaP13vb0dvbOK6uQepSRXx81T-E_BXcu2Ctr4ZzV9HA",
         "Referer": "https://mangalib.me/",
+		"Site-Id": "1",
         "Content-Type": "application/json"
-            },
+        },
             "next": "index",
             "start": "\"data\"",
             "link": {
@@ -379,13 +382,9 @@
     "chapter_complete": {
         "headers": {
              "sec-ch-ua-platform": "\"Windows\"",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjAzNmY0YjI0YmEzMjBkMmYwYzE3ZTJmODIyNjdkNjhkNjliYzRlNzk0Nzk4ZmU1YmE1NWVkMDZhZjRmZTE3ZTYzZGUzNjU2NzA0N2YzYTEiLCJpYXQiOjE3NTAwODE3MjguMDMyMDc3LCJuYmYiOjE3NTAwODE3MjguMDMyMDc4LCJleHAiOjE3NTI2NzM3MjguMDI4NDgsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.aKeWTdmkH-k-_vZefYBYqb7QcDCpDZzy8QrRTYrefxHGOe_D7Rkt21OGmBzOToTPryVGoOldhmBXQ6oPIOyx0KWCXZ1ipSbaQ7JpMJlVoqpKx61DKybFTRKjOHU9vDVepofD-Ppxdq1XnCvj5Fb6uvowwtREf4t84t2LcTEPta_B_bABerVo7YtuMoMpIAbEMWvDO4xisGCPo9SawnGLOBKbsVG3IESHXg0JWkPfWlFEvZMfKy3vqnp-Fy5Q1ZZvQW5WNhbyYi2muOYJ8EtBM-nUSvm_nJh2Uw_OJyWrS3NUDxmXE7JzUKnPY4tJJH9VM1FXMRVcQBYAf7-SoFkJcQJfe_kJ9fgn4mELsB43al4VvUSK2zL0om1Mn7hsKd4w0s0MLSBCepK73q02lyjGDJnJGHNuPI3Vu2THFa9GvZnsO-DRTtashTvGagn2fRgTwH0-xT0a5N4ngCme-uoHQ8hKMO0ZIizfN93oQQXfPT90eyQc7q-Wcih9GzlNubs2Ld04DTVk9Cd_NfI2pKG634NuOBrH5ZMHVx-5blAKelz-AN9RklRs-HgF8v84Aez2R2w3nKbsrwtqBud-8mfA6cbqpKtQzgxpymJWWKYjz2kzR2f0gZG_vV5x0RjzxVxk3vyNpvdJhWfqN_CXIcY035Y32L7BNJg5RfGmPO1hink",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDJkN2UyYzhlZjI5YTBmZjUzZmEzZjRlNDhiOWNiYTYyZDFiZGU1YjlkNWQwOGJmYWM2ZGZlZjAyYTdhZTI3ZGU2N2VhNTRlOTIwOThlMTMiLCJpYXQiOjE3NTAwODQwNDguMDk4MDExLCJuYmYiOjE3NTAwODQwNDguMDk4MDEyLCJleHAiOjE3NTI2NzYwNDguMDkzNjEyLCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.Z4uuIxG9BgrPRfT1zYpxQzL_NnD3QUpwcs3jqts-J6cFXTfPUoqK14asjRxArh-5Tg72CbOlpHCM78UURtCdbXn_UZeY_sUcq7Nfwfkk8LQAcI9_J3jw5A_Tg7veo2dEVwPde_cM-fceO76J5le-ExZcI83C-91GYpjB7uS3B0GNLqSGWQt4tssQ5WZjmhdvJPm8fEUZVbyBKlCAKmsngNQDXqzZU6wPiaVAzYwJNTGij42ib3cNFF1n8IGHpETe3KGjCjsTPxSo_UAX0wrlF-W8hk3edFvnMnLlCtk5J46Tpo7LL_kohrtrSJXZmQJ9qbXvOtIFiDi0BYOhpy7NqgTAqKm6OJ_pfbnQb5f5iukbjvS3qMuR4Gn66RgJ3VYqywf5DmlXfBkXjBs5ILBrh6OSoHIveRNWfERbD-IA73o28rgsJ7zjfWqOPSyBkp60PqevFbV6xk_4kc2Di_SU-DBLr-qS6oHHgSNrLFiYRG-LEsXAgJFXIShcOtdWiCTKDchAEktIH1YhJsZ8M_maF3Odf8E32wGm_29cATAoCUMXsDHXYA0G8EWyhLDUumD37VLuXiHrfCBhmgttdlvYRgRXZ3Lq2tWIhPLxIgZbZCtcZSVP34-yTneS038DAw5geaP13vb0dvbOK6uQepSRXx81T-E_BXcu2Ctr4ZzV9HA",
         "Referer": "https://mangalib.me/",
-        "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
-        "sec-ch-ua-mobile": "?0",
         "Site-Id": "1",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-        "Client-Time-Zone": "Asia/Irkutsk",
         "Content-Type": "application/json"
         },
         "images": true,
