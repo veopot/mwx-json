@@ -1,6 +1,6 @@
 {
    "id":65216,
-   "version":29,
+   "version":30,
    
    "old_sites": ["senkuro.com" ],
    
@@ -9,7 +9,7 @@
    
    "title":"Senkuro",
    "host":"http://bypass.mwx.su/",
-   "public_link":"https://senkuro.com/browse/manga",
+   "public_link":"https://senkuro.me/browse/manga",
    "folder":"senkuro",
    "name":"senkuro",
    "language":"ru",
@@ -39,7 +39,7 @@
       },
 	  "link_corrector": [
             {
-                "match": "senkuro.com/manga/(.*?)/(.*)",
+                "match": "senkuro.me/manga/(.*?)/(.*)",
                 "text": "bypass.mwx.su/api/manga/senkuro/title/$1"}
         ],
       "add_manga":{
@@ -225,7 +225,7 @@
         "headers": {
 			"Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6",
-			"Referer": "https://senkuro.com/"
+			"Referer": "https://senkuro.me/"
 		},
      
       "images":true,
@@ -260,7 +260,7 @@
             "mangas":[
                {
                   "title":"Поднятие уровня в одиночку",
-                  "link":"https://senkuro.com/manga/ore-dake-level-up-na-ken",
+                  "link":"https://senkuro.me/manga/ore-dake-level-up-na-ken",
                   "uniq":"ore-dake-level-up-na-ken"
                }
             ],
@@ -269,7 +269,7 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://bypass.mwx.su/api/manga/senkuro/title/magic-emperor",
+         "link":"https://bypass.mwx.su/api/manga/senkuro/title/ore-dake-level-up-na-ken",
 		         
          "title":"Поднятие уровня в одиночку / Solo Leveling",
          "assert":{
@@ -282,12 +282,12 @@
             "chapters_count":">=130",
             "chapters":[
         {
-            "link": "https://senkuro.com/manga/solo-leveling-abs3R5B/chapter/2-130",
+            "link": "https://senkuro.me/manga/solo-leveling-abs3R5B/chapter/2-130",
             "title": "Том 2 Глава 130"
         },
         {
             "folder": "2-131/",
-            "link": "https://senkuro.com/manga/solo-leveling-abs3R5B/chapter/2-131",
+            "link": "https://senkuro.me/manga/solo-leveling-abs3R5B/chapter/2-131",
             "title": "Том 2 Глава 131"
         }
             ]
