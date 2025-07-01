@@ -1,9 +1,9 @@
 {
 	"id": 65216,
-	"version": 31,
+	"version": 32,
 	"old_sites": ["senkuro.com"],
 	"title": "Senkuro",
-	"host": "http://bypass.mwx.su/",
+	"host": "https://bypass.mwx.su/",
 	"public_link": "https://senkuro.me/browse/manga",
 	"folder": "senkuro",
 	"name": "senkuro",
@@ -153,9 +153,9 @@
 			]
 		},
 		"chapters_from_page": {
-			"after": "\\\"slug",
-			"token1": "\\\":\\\"",
-			"token2": "\\\"",
+			"after": "\"slug",
+			"token1": "\":\"",
+			"token2": "\"",
 			"replace": {
 				"prefix": "https://bypass.mwx.su/api/manga/senkuro/chapters/"
 			}
