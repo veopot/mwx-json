@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 97,
+	"version": 98,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -121,7 +121,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=MnpORjFnV2ZHYlYlMkZ5JTJGNSUyRlBYMzZ4VnBGWElpTmdBQUc4VFFzVmtHcHlOUSUzRDpGclNJUTBWR3JTYXJ0VVczcVNTT3BLeHpmb0M2bHVDQiUyRnd2SVdIV0VFbkElM0Q",
+			"cookie": "remember_me=TVpZMmFOV1l6N0czSmpacWdzOFdxOEwzZGxBN3lrQTY2VjhpRDQ2RFg3RSUzRDpPRmlydzNRaElRd1ZmVU9BVngxQlk2Y25nYmJoUzFFNnpPb3ZCdXJuM1U0JTNE",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -233,7 +233,7 @@
 		],
 		"add_chapter": {
 			"headers": {
-			"cookie": "remember_me=MnpORjFnV2ZHYlYlMkZ5JTJGNSUyRlBYMzZ4VnBGWElpTmdBQUc4VFFzVmtHcHlOUSUzRDpGclNJUTBWR3JTYXJ0VVczcVNTT3BLeHpmb0M2bHVDQiUyRnd2SVdIV0VFbkElM0Q",
+			"cookie": "remember_me=TVpZMmFOV1l6N0czSmpacWdzOFdxOEwzZGxBN3lrQTY2VjhpRDQ2RFg3RSUzRDpPRmlydzNRaElRd1ZmVU9BVngxQlk2Y25nYmJoUzFFNnpPb3ZCdXJuM1U0JTNE",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -251,7 +251,7 @@
 				"token1": "<a href=\"",
 				"token2": "\"",
 				"replace": {
-					"sufix": "?d=ODQ0Nzgw"
+					"sufix": "?d=Mjc2ODk"
 				}
 			},
 			"title": {
@@ -276,7 +276,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=MnpORjFnV2ZHYlYlMkZ5JTJGNSUyRlBYMzZ4VnBGWElpTmdBQUc4VFFzVmtHcHlOUSUzRDpGclNJUTBWR3JTYXJ0VVczcVNTT3BLeHpmb0M2bHVDQiUyRnd2SVdIV0VFbkElM0Q",
+			"cookie": "remember_me=TVpZMmFOV1l6N0czSmpacWdzOFdxOEwzZGxBN3lrQTY2VjhpRDQ2RFg3RSUzRDpPRmlydzNRaElRd1ZmVU9BVngxQlk2Y25nYmJoUzFFNnpPb3ZCdXJuM1U0JTNE",
 			
 			"Accept": "*/*",
 			"Referer": "https://z.allhen.online/"
@@ -329,14 +329,14 @@
 				"chapters_count": ">=115",
 				"chapters": [{
 					"title": "Дыра 1 - 1",
-					"link": "https://z.allhen.online/a_peephole/vol1/1?d=ODQ0Nzgw",
+					"link": "https://z.allhen.online/a_peephole/vol1/1?d=Mjc2ODk",
 					"folder": "Дыра 1 - 1/"
 				}]
 			}
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://z.allhen.online/tetrad_po_trusikam/vol1/95?d=ODQ0Nzgw",
+			"link": "https://z.allhen.online/tetrad_po_trusikam/vol1/95?d=Mjc2ODk",
 			"assert": {
 				"pages": [
 		{"image": "https://d.aaa200.rocks/auto/06/27/19/1.png_res.png?t=1679933932&u=0&h=fln3L8hZDKzb6ISLgI7P1A"},
@@ -346,7 +346,7 @@
 		},
 		{
 			"proc": "chapter_complete",
-			"link": "https://z.allhen.online/a_peephole/vol1/1?d=ODQ0Nzgw",
+			"link": "https://z.allhen.online/a_peephole/vol1/1?d=Mjc2ODk",
 			"assert": {
 				"pages": [
 		{"image": "http://b.aaa200.rocks/auto/00/35/25/a-peephole-nozokiana_v1_ch1_000.png?t=1626802845&u=0&h=OxoEPIp7LOopmQep9z_yHA"},
