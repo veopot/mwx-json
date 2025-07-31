@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 92,
+    "version": 93,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -14,14 +14,15 @@
 		"zx.readmanga.io",
 		"zt.readmanga.io",
 		"zz.readmanga.io",
+		"t.readmanga.io",
 		"web.usagi.one"
 		],
 		
 		
 		
 	"title": "ReadManga (Usagi)",
-    "host": "https://t.readmanga.io/",
-    "public_link": "https://t.readmanga.io/list/",
+    "host": "https://a.zazaza.me/",
+    "public_link": "https://a.zazaza.me/list/",
     "folder": "readmanga",
     "name": "readmanga",
     "language": "ru",
@@ -37,7 +38,7 @@
 	
 
     "manga_search_complete": {      
-        "search_link": "https://t.readmanga.io/search/advanced?q=$query$&offset=$page$",
+        "search_link": "https://a.zazaza.me/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         
         "add_manga": {
@@ -65,7 +66,7 @@
         
     "manga_list_complete": {
         "iterator": {
-            "base_url": "https://t.readmanga.io/list?sortType=POPULARITY&offset=",
+            "base_url": "https://a.zazaza.me/list?sortType=POPULARITY&offset=",
             "append_nums": { "from": 0, "to": 26450, "step": 70,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
         },
@@ -81,7 +82,7 @@
 		"link_corrector": [
             {
                 "match": "https://zz.readmanga.io/",
-                "text": "https://t.readmanga.io/"
+                "text": "https://a.zazaza.me/"
             }
         ],
         "rating_auto_inc": {
@@ -94,8 +95,8 @@
 	    { 
             "condition": "<strong>Внимание!</strong>",
 	"headers": {
-	   "cookie": "remember_me=VEV4U25FWjBvQnUyUDZ0RE1KYU42UldQWDhKaCUyQiUyRmtQWko5VEpEcFpQTDAlM0Q6YTVzRmJ3ZFJlNzJrVUlDb2podnF0ZktPaENIRSUyRklLY1JWUUNvQ1VwUHNFJTNE",
-		"Referer": "https://t.readmanga.io/",
+	   "cookie": "remember_me=bUlWV3olMkJPWkRYOHVqWG9VaFRnU3B4aHpQZ3pXTGEzZEJieGRUdTFRbVk4JTNEOmFNbkhYZnRhSEkyMGp4NmFqQ1Q0Y0pCR2IlMkZ0WUZjSlJSWHpoaE0wbjhISSUzRA",
+		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
 	        "title": 		{ "skip": "<h1 class=\"names\">", 
@@ -176,8 +177,8 @@
 		
             "add_chapter": {
 				"headers": {
-	   "cookie": "remember_me=VEV4U25FWjBvQnUyUDZ0RE1KYU42UldQWDhKaCUyQiUyRmtQWko5VEpEcFpQTDAlM0Q6YTVzRmJ3ZFJlNzJrVUlDb2podnF0ZktPaENIRSUyRklLY1JWUUNvQ1VwUHNFJTNE",
-		"Referer": "https://t.readmanga.io/",
+	   "cookie": "remember_me=bUlWV3olMkJPWkRYOHVqWG9VaFRnU3B4aHpQZ3pXTGEzZEJieGRUdTFRbVk4JTNEOmFNbkhYZnRhSEkyMGp4NmFqQ1Q0Y0pCR2IlMkZ0WUZjSlJSWHpoaE0wbjhISSUzRA",
+		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
 				
@@ -186,8 +187,8 @@
                 "next": "<a href=\"",
                  "link": { "token1": "<a href=\"", "token2": "\"",
 				    "replace": [
-				        {"sufix": "?d=ODQ0Nzgw"},
-				        {"prefix": "https://t.readmanga.io"}]
+				        {"sufix": "?d=MzEzNzY3NA"},
+				        {"prefix": "https://a.zazaza.me"}]
 			        },
 				
 				"title": { "after": "<a href=\"", "token1": ">", "token2": "<",
@@ -205,8 +206,8 @@
             "condition": "\">Сценарист",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://t.readmanga.io/",
-		"cookie": "remember_me=VEV4U25FWjBvQnUyUDZ0RE1KYU42UldQWDhKaCUyQiUyRmtQWko5VEpEcFpQTDAlM0Q6YTVzRmJ3ZFJlNzJrVUlDb2podnF0ZktPaENIRSUyRklLY1JWUUNvQ1VwUHNFJTNE",
+		"Referer": "https://a.zazaza.me/",
+		"cookie": "remember_me=bUlWV3olMkJPWkRYOHVqWG9VaFRnU3B4aHpQZ3pXTGEzZEJieGRUdTFRbVk4JTNEOmFNbkhYZnRhSEkyMGp4NmFqQ1Q0Y0pCR2IlMkZ0WUZjSlJSWHpoaE0wbjhISSUzRA",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    
@@ -289,8 +290,8 @@
 				
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				    "replace": [
-				        {"sufix": "?d=ODQ0Nzgw"},
-				        {"prefix": "https://t.readmanga.io"}]
+				        {"sufix": "?d=MzEzNzY3NA"},
+				        {"prefix": "https://a.zazaza.me"}]
 			        
 			    },
 				
@@ -310,8 +311,8 @@
             "condition": "",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://t.readmanga.io/",
-		"cookie": "remember_me=VEV4U25FWjBvQnUyUDZ0RE1KYU42UldQWDhKaCUyQiUyRmtQWko5VEpEcFpQTDAlM0Q6YTVzRmJ3ZFJlNzJrVUlDb2podnF0ZktPaENIRSUyRklLY1JWUUNvQ1VwUHNFJTNE",
+		"Referer": "https://a.zazaza.me/",
+		"cookie": "remember_me=bUlWV3olMkJPWkRYOHVqWG9VaFRnU3B4aHpQZ3pXTGEzZEJieGRUdTFRbVk4JTNEOmFNbkhYZnRhSEkyMGp4NmFqQ1Q0Y0pCR2IlMkZ0WUZjSlJSWHpoaE0wbjhISSUzRA",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
@@ -394,8 +395,8 @@
 				
                 "link": { "token1": "<a href=\"", "token2": "\"",
 				    "replace": [
-				        {"sufix": "?d=ODQ0Nzgw"},
-				        {"prefix": "https://t.readmanga.io"}]
+				        {"sufix": "?d=MzEzNzY3NA"},
+				        {"prefix": "https://a.zazaza.me"}]
 			        
 			    },
 				
@@ -414,8 +415,8 @@
 	
    "chapter_complete": {
    "headers": {
-	   "cookie": "remember_me=VEV4U25FWjBvQnUyUDZ0RE1KYU42UldQWDhKaCUyQiUyRmtQWko5VEpEcFpQTDAlM0Q6YTVzRmJ3ZFJlNzJrVUlDb2podnF0ZktPaENIRSUyRklLY1JWUUNvQ1VwUHNFJTNE",
-		"Referer": "https://t.readmanga.io/",
+	   "cookie": "remember_me=bUlWV3olMkJPWkRYOHVqWG9VaFRnU3B4aHpQZ3pXTGEzZEJieGRUdTFRbVk4JTNEOmFNbkhYZnRhSEkyMGp4NmFqQ1Q0Y0pCR2IlMkZ0WUZjSlJSWHpoaE0wbjhISSUzRA",
+		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  
 	
@@ -443,18 +444,18 @@
                 "mangas": [
                     
                     { "title": "Маги: Лабиринт волшебства",
-					"link": "https://t.readmanga.io/magi__labirint_volshebstva" }
+					"link": "https://a.zazaza.me/magi__labirint_volshebstva" }
                 ],
                 "mangas_count": ">300"
             }
         },
         {
             "proc": "manga_complete",
-            "link": "https://t.readmanga.io/tower_of_god",
+            "link": "https://a.zazaza.me/tower_of_god",
             "title": "Tower of God",
             "assert": {
                 "author": "@Siu",
-                "cover": "https://static.t.readmanga.io/uploads/pics/00/99/917.jpg",
+                "cover": "https://static.a.zazaza.me/uploads/pics/00/99/917.jpg",
                 "summary": "@^(Башня)",
                 "genres": "@comedy",
                 "status": "ongoing",
@@ -463,11 +464,11 @@
                 "chapters": [
                   {
             "folder": "1/0\\",
-            "link": "https://t.readmanga.io/bashnia_boga__A35c96/vol1/0?d=ODQ0Nzgw",
+            "link": "https://a.zazaza.me/bashnia_boga__A35c96/vol1/0?d=MzEzNzY3NA",
             "title": "Том:1 Глава:0 Пролог"
         },
         {
-            "link": "https://t.readmanga.io/bashnia_boga__A35c96/vol1/1?d=ODQ0Nzgw",
+            "link": "https://a.zazaza.me/bashnia_boga__A35c96/vol1/1?d=MzEzNzY3NA",
             "title": "Том:1 Глава:1 1F Этаж Хеадона (01)"
         }
 				   ]
@@ -477,7 +478,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://t.readmanga.io/bashnia_boga__A35c96/vol1/0?d=ODQ0Nzgw",
+            "link": "https://a.zazaza.me/bashnia_boga__A35c96/vol1/0?d=MzEzNzY3NA",
             "assert": {
                 "pages": [
 {"image": "https://one-way.work/auto/03/01/59/rtower_of_god_ch00_1.jpg?"},

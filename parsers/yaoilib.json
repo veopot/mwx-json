@@ -1,6 +1,6 @@
 {
     "id": 1468,
-    "version": 25,
+    "version": 26,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me"
@@ -30,7 +30,7 @@
             "Accept": "image/webp,*/*;q=0.8",
             "Referer": "https://v1.yaoilib.net/"
         },
-        "search_link": "https://api.mangalib.me/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=2",
+        "search_link": "https://hapi.hentaicdn.org/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=2",
         "query_type": "GET",
         "add_manga": {
             "next": "\"name\":",
@@ -39,7 +39,7 @@
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api.mangalib.me/api/manga/"
+                        "prefix": "https://hapi.hentaicdn.org/api/manga/"
                     },
                     {
                         "sufix": "/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
@@ -94,7 +94,7 @@
             "Referer": "https://v1.yaoilib.net/ru/catalog"
         },
         "iterator": {
-            "base_url": "https://api.mangalib.me/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=2&page=",
+            "base_url": "https://hapi.hentaicdn.org/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=2&page=",
             "append_nums": {
                 "from": 1,
                 "to": 1162
@@ -110,7 +110,7 @@
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api2.mangalib.me/api/manga/"
+                        "prefix": "https://hapi.hentaicdn.org/api/manga/"
                     },
                     {
                         "sufix": "/?fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
@@ -149,7 +149,7 @@
         "link_corrector": [
             {
                 "match": "https://v1.yaoilib.net/ru/manga/(.*)",
-                "text": "https://api.mangalib.me/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
+                "text": "https://hapi.hentaicdn.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
             }
         ],
         "rating_auto_inc": {
@@ -305,7 +305,7 @@
             "token2": "\",",
             "replace": [
                 {
-                    "prefix": "https://api2.mangalib.me/api/manga/"
+                    "prefix": "https://hapi.hentaicdn.org/api/manga/"
                 },
                 {
                     "sufix": "/chapters"
@@ -402,7 +402,7 @@
                 "mangas": [
                     {
                         "title": "Логическая ошибка",
-                        "link": "https://api.mangalib.me/semantic-error",
+                        "link": "https://hapi.hentaicdn.org/semantic-error",
                         "uniq": "semantic-error"
                     }
                 ],
@@ -411,7 +411,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://api.mangalib.me/api/manga/1886--19-tian/?fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&",
+            "link": "https://hapi.hentaicdn.org/api/manga/223841--sad-little-fox/?fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&",
             "title": "19 Дней - Однажды | 19 Days - One Day",
             "assert": {
                 "author": "@Jeosuri",
@@ -423,20 +423,20 @@
                 "chapters_count": ">=80",
                 "chapters": [
         {
-            "link": "https://api2.mangalib.me/api/manga/1886--19-tian/chapter?number=417&volume=2",
-            "title": "Том 2 Глава 417 \"Обуздать.\""
+            "folder": "Том 1 Глава 5_1\\",
+            "link": "https://hapi.hentaicdn.org/api/manga/223841--sad-little-fox/chapter?number=5.1&volume=1",
+            "title": "Том 1 Глава 5.1 \"Мини-комиксы #1\""
         },
         {
-            "folder": "Том 2 Глава 416\\",
-            "link": "https://api2.mangalib.me/api/manga/1886--19-tian/chapter?number=416&volume=2",
-            "title": "Том 2 Глава 416 \"Преображение перед собеседованием.\""
+            "link": "https://hapi.hentaicdn.org/api/manga/223841--sad-little-fox/chapter?number=4.5&volume=1",
+            "title": "Том 1 Глава 4.5"
         }
                 ]
             }
         },
         {
             "proc": "chapter_complete",
-            "link": "https://api2.mangalib.me/api/manga/1886--19-tian/chapter?number=417&volume=2",
+            "link": "https://hapi.hentaicdn.org/api/manga/223841--sad-little-fox/chapter?number=5.1&volume=1",
             "assert": {
                 "pages": [
                     {
