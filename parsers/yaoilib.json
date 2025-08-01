@@ -1,6 +1,6 @@
 {
     "id": 1468,
-    "version": 26,
+    "version": 27,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me"
@@ -54,6 +54,10 @@
                         "match": "\",\"eng_name\":\"",
                         "text": " | "
                     },
+					{
+                    "match": "\",\"model\":\"manga",
+                    "text": ""
+                    },
                     {
                         "clear_escape": true
                     }
@@ -94,10 +98,12 @@
             "Referer": "https://v1.yaoilib.net/ru/catalog"
         },
         "iterator": {
-            "base_url": "https://hapi.hentaicdn.org/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=2&page=",
+            "base_url": "https://api2.mangalib.me/api/manga?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=2&page=",
             "append_nums": {
                 "from": 1,
-                "to": 1162
+                "to": 20,
+				"sufix": {"token1": "\"seed\":\"", "token2": "\""}
+				
             }
         },
         "add_manga": {
@@ -125,6 +131,10 @@
                     {
                         "match": "\",\"eng_name\":\"",
                         "text": " | "
+                    },
+					{
+                    "match": "\",\"model\":\"manga",
+                    "text": ""
                     },
                     {
                         "clear_escape": true
@@ -172,7 +182,11 @@
             "replace": [
                 {
                     "match": "\",\"eng_name\":\"",
-                    "text": " | "
+                    "text": "  "
+                },
+				{
+                    "match": "\",\"model\":\"manga",
+                    "text": ""
                 },
                 {
                     "clear_escape": true
