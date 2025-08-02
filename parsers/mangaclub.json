@@ -1,9 +1,9 @@
 {
 	"id": 29001,
-	"version": 38,
+	"version": 39,
 	"old_ids": [29000],
 
-	"title": "MangaClub",
+	"title": "MangaClub (DEAD)",
 	"host": "https://mangaclub.ru/",
 	"public_link": "https://mangaclub.ru/",
 	"folder": "mangaclub",
