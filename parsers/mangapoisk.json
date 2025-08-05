@@ -1,19 +1,21 @@
 {
    "id":40228,
-   "version":28,
+   "version":29,
    
    "old_sites": [
    "mangapoisk.ru",
    "mangapoisk.com",
    "mangapoisk.org",
    "mangapoisk.me", 
-   "mangapoisk.net"
+   "mangapoisk.net",
+   "mangapoisk.live" 
    ],
    
    
+   
    "title":"MangaPoisk",
-   "host":"https://mangapoisk.live",
-   "public_link":"https://mangapoisk.live/manga-list",
+   "host":"https://mangapoisk.io",
+   "public_link":"https://mangapoisk.io/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
    "language":"ru",
@@ -33,10 +35,10 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangapoisk.live/manga?page=",
+         "base_url":"https://mangapoisk.io/manga?page=",
          "append_nums":{
             "from":0,
-            "to":281,
+            "to":296,
             "step":1
          }
       },
@@ -51,7 +53,7 @@
          "link":{
             "token1":"href=\"",
             "token2":"\"",
-			"replace": { "prefix": "https://mangapoisk.live"}
+			"replace": { "prefix": "https://mangapoisk.io"}
          },
          "cover":{
 		    "before":"href=\"",
@@ -67,7 +69,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://mangapoisk.live/search?q=$query$&page=$page$",
+        "search_link":"https://mangapoisk.io/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -89,9 +91,9 @@
 				
          "cover":{
 			"skip":"href=\"",
-		    "token1":"https://static2.mangapoisk.live/posters/",
+		    "token1":"https://static2.mangapoisk.io/posters/",
             "token2":"\"",
-			"replace": { "prefix": "https://static2.mangapoisk.live/posters/"}
+			"replace": { "prefix": "https://static2.mangapoisk.io/posters/"}
          }
       }
 		},	
@@ -101,7 +103,7 @@
    "manga_complete": { 
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.live"
+			"Referer": "https://mangapoisk.io"
 		},
       "title":{
          "skip":"<header class=\"card-header p-0\"><h1", 
@@ -117,16 +119,16 @@
 				]},
       
       "uniq":{
-         "token1":"\"url\":\"https:\/\/mangapoisk.live\/manga\/",
+         "token1":"\"url\":\"https:\/\/mangapoisk.io\/manga\/",
          "token2":"\","
       },
 	  
 	  
       "cover":{
-         "token1":"src=\"https://static2.mangapoisk.live/posters/",
+         "token1":"src=\"https://static2.mangapoisk.io/posters/",
          "token2":"\"",
 		"replace": {
-				"prefix": "https://static2.mangapoisk.live/posters/"
+				"prefix": "https://static2.mangapoisk.io/posters/"
 				}
 		},
 	  
@@ -179,7 +181,7 @@
 		"token1": "&quot;url&quot;:&quot;/manga/",
 		"token2": "&quot", 
 		"replace": [
-		        { "prefix" : "https://mangapoisk.live/manga/" },
+		        { "prefix" : "https://mangapoisk.io/manga/" },
 		        { "sufix" : "/chaptersList" },
 				{ "match": "\\\\", "text": "" }
 				],
@@ -190,7 +192,7 @@
 				"token2": "\"",
 				
 				"replace": [
-				    {"prefix": "https://mangapoisk.live" },
+				    {"prefix": "https://mangapoisk.io" },
 					{ "match": "&amp;", "text": "&" }
 				]
 				
@@ -215,7 +217,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.live"}
+			"replace": {"prefix" : "https://mangapoisk.io"}
          },
 		 
 		"uniq":{
@@ -239,7 +241,7 @@
     "add_numeration": true,
         "headers": {
 			"Accept": "*/*",
-			"Referer": "https://mangapoisk.live/"
+			"Referer": "https://mangapoisk.io/"
 		},
      
       "images":true,
@@ -248,12 +250,12 @@
 	{
 		"start": "class=\"pt-4 mx-auto outline-0 cursor-auto w-full\"",
 		"before": "id=\"",
-		"token1": "src=\"https://static2.mangapoisk.live/pages/",
+		"token1": "src=\"https://static2.mangapoisk.io/pages/",
 		"token2": "\"",
 		"end": ">Комментарии",
 		"replace":
 		[{
-				"prefix": "https://static2.mangapoisk.live/pages/"
+				"prefix": "https://static2.mangapoisk.io/pages/"
 			}, {
 				"match": "data-small-src=\"(.*?)\"",
 				"text": ""
@@ -275,7 +277,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://mangapoisk.live/manga/vanpanchmen",
+                  "link":"https://mangapoisk.io/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -284,40 +286,40 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.live/manga/solo-leveling-abs3i3a",
+         "link":"https://mangapoisk.io/manga/the-solo-leveling-ragnarok",
 		         
-         "title":"Поднятие уровня в одиночку / Solo Leveling",
+         "title":"Поднятие уровня в одиночку: Рагнарёк | The Solo Leveling: Ragnarok",
          "assert":{
           
-            "cover":"@https://static2.mangapoisk.live/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
-		    "summary":"@^(Десять лет назад распахнулись)",
-            "tags":"@fantasy",
-            "status":"complete",
-            "genres_count":">=2",
-            "chapters_count":">=130",
+            "cover":"@https://static2.mangapoisk.io/posters/16679/uiThTu1wKIhyRhOzIKg2gwkQLzSzjJMOZrFfQZ5c_mini.jpg",
+		    "summary":"@^(История о жизни одинокого героя)",
+            "tags":"@фэнтези",
+            "status":"ongoing",
+            "tags_count":">=1",
+            "chapters_count":">=40",
             "chapters":[
-        {
-            "link": "https://mangapoisk.live/manga/solo-leveling-abs3i3a/chapter/2-130",
-            "title": "Том 2 Глава 130"
+       {
+            "folder": "1-1\\",
+            "link": "https://mangapoisk.io/manga/the-solo-leveling-ragnarok/chapter/1-1",
+            "title": "Том 1 Глава 1"
         },
         {
-            "folder": "2-131/",
-            "link": "https://mangapoisk.live/manga/solo-leveling-abs3i3a/chapter/2-131",
-            "title": "Том 2 Глава 131"
+             "link": "https://mangapoisk.io/manga/the-solo-leveling-ragnarok/chapter/1-2",
+            "title": "Том 1 Глава 2"
         }
             ]
          }
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangapoisk.live/manga/solo-leveling-abs3i3a/chapter/2-130",
+         "link": "https://mangapoisk.io/manga/the-solo-leveling-ragnarok/chapter/1-1",
          "assert":{
             "pages":[
-        {"image": "https://static2.mangapoisk.live/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.mangapoisk.live/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.mangapoisk.live/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.mangapoisk.io/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangapoisk.io/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangapoisk.io/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
-            "pages_count":"14"
+            "pages_count":"128"
          }
       }
    ]
