@@ -1,6 +1,6 @@
 {
     "id": 8021,
-    "version": 10,
+    "version": 11,
     "title": "HentaiLib",
     "host": "https://hentailib.me/",
     "public_link": "https://hentailib.me/ru/catalog",
@@ -28,7 +28,7 @@
             "accept": "*/*",
             "Referer": "https://hentailib.me/"
         },
-        "search_link": "https://api.cdnlibs.org/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=4",
+        "search_link": "https://hapi.hentaicdn.org/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=4",
         "query_type": "GET",
         "add_manga": {
             "next": "\"name\":",
@@ -37,7 +37,7 @@
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api.cdnlibs.org/api/manga/"
+                        "prefix": "https://hapi.hentaicdn.org/api/manga/"
                     },
                     {
                         "sufix": "/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
@@ -95,7 +95,7 @@
             "Referer": "https://hentailib.me/ru/catalog"
         },
         "iterator": {
-            "base_url": "https://api.cdnlibs.org/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=4&page=",
+            "base_url": "https://hapi.hentaicdn.org/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=4&page=",
             "append_nums": {
                 "from": 1,
                 "to": 1162
@@ -111,7 +111,7 @@
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api.cdnlibs.org/api/manga/"
+                        "prefix": "https://hapi.hentaicdn.org/api/manga/"
                     },
                     {
                         "sufix": "/?fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
@@ -154,7 +154,7 @@
         "link_corrector": [
             {
                 "match": "https://hentailib.me/ru/manga/(.*)",
-                "text": "https://api.cdnlibs.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
+                "text": "https://hapi.hentaicdn.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
             }
         ],
         "rating_auto_inc": {
@@ -166,7 +166,7 @@
         "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "accept": "*/*",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjI1NDg5YWQzMGNmMzdjOGNkYzE2N2NmZmQ3MzVkMjM4YjEzNjlmYWY3MzA2ZjJkMThhZjdlYWNmMTI0M2RhYWVlZGRkNGNhNDk4YzMzNmQiLCJpYXQiOjE3NTA3NTkyMDQuNzYwNDYxLCJuYmYiOjE3NTA3NTkyMDQuNzYwNDY0LCJleHAiOjE3NTMzNTEyMDQuNzU2ODIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.nJf3hS6Rxjrm6MWbjFE2D75HTMV20U6AZFI5WAmdL6NGqYtv4AajX8oaXQwTO_Haq-UK04xpQQ8fjzQC2UwNO5y8T1IGhqj25eCzmFckogN7CFuD9tnxE8y6N6TH7Vqp75RYspCar74kFJpg3mtUfDd5uA2bbGLtLozwg0PpQwnGtzDBdhDs5j6N5cbNSBorScQMNL0-07gkXv4RVT_dJJf2OHq1mwGnjESjnp1D8T0XYlinEd4WkvXO0ZzPOqfh37JvHIgffXZV1Vx90zVaHx0oSdYI3UK4vrq_iGbXOObEAR6N58V8RUV-sentM-_jAAFbGR4rrL6-7Y_Et5dU27OSnzcX699j3WDkjlSTAKykbqwyITrDSgs_6WgsQ9fdA5ECk6qlvKkVotgaU1pkEK4Xf9fnW6HyG0xIJT3hMwiA6Q-VhVV-OzjJxk26edb3U1VR-SUpWfPgJwM-47ekfZJ5o_IGyNSr0ipHv4PVffKnLgmtiCZPMR908eG2BUOBmM-khflV6JwQosMvR3XIcocZ_5v67I9vMau6ZUGmyHM4Rum-zqBnI0HEpWYfCYSdvf_DQP87yeWnKmlvgPLeOL7ifEqY6ij_xT1vvqAYFhXy9v4kNtz57ZOmSCvNdkTXan64Im46P7GGs4qvRwJCTKb5DwADSII2vl4lFbJu-xk",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTk5ZGE2YTg0NzUyZDEwM2NhNjBiYjA5ZmNmMDVmMzM0YmUyZGVjY2Q5YzJjYzIxMTM4NzM3N2ZhNzRmYzk0NGRhZGNlOTA0Zjg3ZmU2MmQiLCJpYXQiOjE3NTQ5ODk5NzcuMjc5NDYsIm5iZiI6MTc1NDk4OTk3Ny4yNzk0NjIsImV4cCI6MTc1NzY2ODM3Ny4yNzU0NDIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.PzVMgoYhLBwQzPEKbONzXhOEuQA_pO1KiHlw7JJYOt-zO1qbNyw-mCMHTY6TQFeQNSwtySZG2q67TQU2aZBbhBe9K1ID4RaJJlgifpQD1nBMpZGy10wE5eEyVevCuyJY7ONESulqZ3v5W2ios5r9WETZcLo2-ZeKnRvF1ySbGpXUVCG-4OmyQkZnOVPYO5FhF3YCJ8yO7m0r9OlDKaz9x_TVs-hfgmEIBXu3cufg-VwdikZTof8OIWTMgYIUl7nweNCtNMHDkmPdCemAh5ywCXn4aO4lCOipTIBRDerOD8Y0D5-MR-I6LbU6v9z7rYaYAnZwykiDX-gPh5l_au4F8EnXo8NG756NE4fGyHt_G92dHdLMV8wk0H7Dg8xOsSjXOUOksDutmXKwpDN6mJsCfNqftUoEo1hg8vYNAFWKGqWGwyKoxDJQZpC05lckNB9qNy_2Gaz9GmdiSGtHlJ8MjKTUYo_ZJfZ97f7-5ZkADvqj2gIsX6MCzBcKvkHs1VAWMqUQ0UovCA8TSHM7TEHPKKlFfg8Ay0JXPF6GXe-W_3OXvzWssD8qpmfgMKmLWFC3ZvLKEhoSPUlJWugTo_1j6KhcA7TFLXFbeDJkleQ0X5253uqDvdDrZhJXksjwqW2a1cynGtj3joFWd1EQNTtcHeYTtZn5MGJXHUQT-HkOr2E",
             "Referer": "https://hentailib.me/"
         },
         "title": {
@@ -313,7 +313,7 @@
             "token2": "\",",
             "replace": [
                 {
-                    "prefix": "https://api.cdnlibs.org/api/manga/"
+                    "prefix": "https://hapi.hentaicdn.org/api/manga/"
                 },
                 {
                     "sufix": "/chapters"
@@ -324,7 +324,7 @@
             "headers": {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
                 "Accept": "*/*",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjI1NDg5YWQzMGNmMzdjOGNkYzE2N2NmZmQ3MzVkMjM4YjEzNjlmYWY3MzA2ZjJkMThhZjdlYWNmMTI0M2RhYWVlZGRkNGNhNDk4YzMzNmQiLCJpYXQiOjE3NTA3NTkyMDQuNzYwNDYxLCJuYmYiOjE3NTA3NTkyMDQuNzYwNDY0LCJleHAiOjE3NTMzNTEyMDQuNzU2ODIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.nJf3hS6Rxjrm6MWbjFE2D75HTMV20U6AZFI5WAmdL6NGqYtv4AajX8oaXQwTO_Haq-UK04xpQQ8fjzQC2UwNO5y8T1IGhqj25eCzmFckogN7CFuD9tnxE8y6N6TH7Vqp75RYspCar74kFJpg3mtUfDd5uA2bbGLtLozwg0PpQwnGtzDBdhDs5j6N5cbNSBorScQMNL0-07gkXv4RVT_dJJf2OHq1mwGnjESjnp1D8T0XYlinEd4WkvXO0ZzPOqfh37JvHIgffXZV1Vx90zVaHx0oSdYI3UK4vrq_iGbXOObEAR6N58V8RUV-sentM-_jAAFbGR4rrL6-7Y_Et5dU27OSnzcX699j3WDkjlSTAKykbqwyITrDSgs_6WgsQ9fdA5ECk6qlvKkVotgaU1pkEK4Xf9fnW6HyG0xIJT3hMwiA6Q-VhVV-OzjJxk26edb3U1VR-SUpWfPgJwM-47ekfZJ5o_IGyNSr0ipHv4PVffKnLgmtiCZPMR908eG2BUOBmM-khflV6JwQosMvR3XIcocZ_5v67I9vMau6ZUGmyHM4Rum-zqBnI0HEpWYfCYSdvf_DQP87yeWnKmlvgPLeOL7ifEqY6ij_xT1vvqAYFhXy9v4kNtz57ZOmSCvNdkTXan64Im46P7GGs4qvRwJCTKb5DwADSII2vl4lFbJu-xk",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTk5ZGE2YTg0NzUyZDEwM2NhNjBiYjA5ZmNmMDVmMzM0YmUyZGVjY2Q5YzJjYzIxMTM4NzM3N2ZhNzRmYzk0NGRhZGNlOTA0Zjg3ZmU2MmQiLCJpYXQiOjE3NTQ5ODk5NzcuMjc5NDYsIm5iZiI6MTc1NDk4OTk3Ny4yNzk0NjIsImV4cCI6MTc1NzY2ODM3Ny4yNzU0NDIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.PzVMgoYhLBwQzPEKbONzXhOEuQA_pO1KiHlw7JJYOt-zO1qbNyw-mCMHTY6TQFeQNSwtySZG2q67TQU2aZBbhBe9K1ID4RaJJlgifpQD1nBMpZGy10wE5eEyVevCuyJY7ONESulqZ3v5W2ios5r9WETZcLo2-ZeKnRvF1ySbGpXUVCG-4OmyQkZnOVPYO5FhF3YCJ8yO7m0r9OlDKaz9x_TVs-hfgmEIBXu3cufg-VwdikZTof8OIWTMgYIUl7nweNCtNMHDkmPdCemAh5ywCXn4aO4lCOipTIBRDerOD8Y0D5-MR-I6LbU6v9z7rYaYAnZwykiDX-gPh5l_au4F8EnXo8NG756NE4fGyHt_G92dHdLMV8wk0H7Dg8xOsSjXOUOksDutmXKwpDN6mJsCfNqftUoEo1hg8vYNAFWKGqWGwyKoxDJQZpC05lckNB9qNy_2Gaz9GmdiSGtHlJ8MjKTUYo_ZJfZ97f7-5ZkADvqj2gIsX6MCzBcKvkHs1VAWMqUQ0UovCA8TSHM7TEHPKKlFfg8Ay0JXPF6GXe-W_3OXvzWssD8qpmfgMKmLWFC3ZvLKEhoSPUlJWugTo_1j6KhcA7TFLXFbeDJkleQ0X5253uqDvdDrZhJXksjwqW2a1cynGtj3joFWd1EQNTtcHeYTtZn5MGJXHUQT-HkOr2E",
                 "Referer": "https://mangalib.me/"
             },
             "next": "index",
@@ -384,7 +384,7 @@
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
         "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
         "sec-ch-ua-mobile": "?0",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjI1NDg5YWQzMGNmMzdjOGNkYzE2N2NmZmQ3MzVkMjM4YjEzNjlmYWY3MzA2ZjJkMThhZjdlYWNmMTI0M2RhYWVlZGRkNGNhNDk4YzMzNmQiLCJpYXQiOjE3NTA3NTkyMDQuNzYwNDYxLCJuYmYiOjE3NTA3NTkyMDQuNzYwNDY0LCJleHAiOjE3NTMzNTEyMDQuNzU2ODIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.nJf3hS6Rxjrm6MWbjFE2D75HTMV20U6AZFI5WAmdL6NGqYtv4AajX8oaXQwTO_Haq-UK04xpQQ8fjzQC2UwNO5y8T1IGhqj25eCzmFckogN7CFuD9tnxE8y6N6TH7Vqp75RYspCar74kFJpg3mtUfDd5uA2bbGLtLozwg0PpQwnGtzDBdhDs5j6N5cbNSBorScQMNL0-07gkXv4RVT_dJJf2OHq1mwGnjESjnp1D8T0XYlinEd4WkvXO0ZzPOqfh37JvHIgffXZV1Vx90zVaHx0oSdYI3UK4vrq_iGbXOObEAR6N58V8RUV-sentM-_jAAFbGR4rrL6-7Y_Et5dU27OSnzcX699j3WDkjlSTAKykbqwyITrDSgs_6WgsQ9fdA5ECk6qlvKkVotgaU1pkEK4Xf9fnW6HyG0xIJT3hMwiA6Q-VhVV-OzjJxk26edb3U1VR-SUpWfPgJwM-47ekfZJ5o_IGyNSr0ipHv4PVffKnLgmtiCZPMR908eG2BUOBmM-khflV6JwQosMvR3XIcocZ_5v67I9vMau6ZUGmyHM4Rum-zqBnI0HEpWYfCYSdvf_DQP87yeWnKmlvgPLeOL7ifEqY6ij_xT1vvqAYFhXy9v4kNtz57ZOmSCvNdkTXan64Im46P7GGs4qvRwJCTKb5DwADSII2vl4lFbJu-xk"
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTk5ZGE2YTg0NzUyZDEwM2NhNjBiYjA5ZmNmMDVmMzM0YmUyZGVjY2Q5YzJjYzIxMTM4NzM3N2ZhNzRmYzk0NGRhZGNlOTA0Zjg3ZmU2MmQiLCJpYXQiOjE3NTQ5ODk5NzcuMjc5NDYsIm5iZiI6MTc1NDk4OTk3Ny4yNzk0NjIsImV4cCI6MTc1NzY2ODM3Ny4yNzU0NDIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.PzVMgoYhLBwQzPEKbONzXhOEuQA_pO1KiHlw7JJYOt-zO1qbNyw-mCMHTY6TQFeQNSwtySZG2q67TQU2aZBbhBe9K1ID4RaJJlgifpQD1nBMpZGy10wE5eEyVevCuyJY7ONESulqZ3v5W2ios5r9WETZcLo2-ZeKnRvF1ySbGpXUVCG-4OmyQkZnOVPYO5FhF3YCJ8yO7m0r9OlDKaz9x_TVs-hfgmEIBXu3cufg-VwdikZTof8OIWTMgYIUl7nweNCtNMHDkmPdCemAh5ywCXn4aO4lCOipTIBRDerOD8Y0D5-MR-I6LbU6v9z7rYaYAnZwykiDX-gPh5l_au4F8EnXo8NG756NE4fGyHt_G92dHdLMV8wk0H7Dg8xOsSjXOUOksDutmXKwpDN6mJsCfNqftUoEo1hg8vYNAFWKGqWGwyKoxDJQZpC05lckNB9qNy_2Gaz9GmdiSGtHlJ8MjKTUYo_ZJfZ97f7-5ZkADvqj2gIsX6MCzBcKvkHs1VAWMqUQ0UovCA8TSHM7TEHPKKlFfg8Ay0JXPF6GXe-W_3OXvzWssD8qpmfgMKmLWFC3ZvLKEhoSPUlJWugTo_1j6KhcA7TFLXFbeDJkleQ0X5253uqDvdDrZhJXksjwqW2a1cynGtj3joFWd1EQNTtcHeYTtZn5MGJXHUQT-HkOr2E"
         },
         "images": true,
         "add_pages": {
@@ -410,7 +410,7 @@
                 "mangas": [
                     {
                         "title": "Логическая ошибка",
-                        "link": "https://api.cdnlibs.org/semantic-error",
+                        "link": "https://hapi.hentaicdn.org/semantic-error",
                         "uniq": "semantic-error"
                     }
                 ],
@@ -419,7 +419,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://api.cdnlibs.org/api/manga/77395--imaizumin-chi-wa-douyara-gal-no-tamariba-ni-natteru-rashii-s/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&",
+            "link": "https://hapi.hentaicdn.org/api/manga/77395--imaizumin-chi-wa-douyara-gal-no-tamariba-ni-natteru-rashii-s/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&",
             "title": "Логическая ошибка | Semantic Error",
             "assert": {
                 "author": "@Jeosuri",
@@ -431,20 +431,20 @@
                 "chapters_count": ">=80",
                 "chapters": [
                     {
-                        "link": "https://api.cdnlibs.org/api/manga/144736--madara/chapter?number=19&volume=3",
+                        "link": "https://hapi.hentaicdn.org/api/manga/144736--madara/chapter?number=19&volume=3",
                         "title": "Том 3 Глава 19"
                     },
                     {
                         "folder": "Том 2 Глава 18\\",
                         "uniq": "Том 2 Глава 18\\",
-                        "link": "https://api.cdnlibs.org/api/manga/144736--madara/chapter?number=18&volume=2"
+                        "link": "https://hapi.hentaicdn.org/api/manga/144736--madara/chapter?number=18&volume=2"
                     }
                 ]
             }
         },
         {
             "proc": "chapter_complete",
-            "link": "https://api.cdnlibs.org/api/manga/77395--imaizumin-chi-wa-douyara-gal-no-tamariba-ni-natteru-rashii-s/chapter?number=5.5&volume=1",
+            "link": "https://hapi.hentaicdn.org/api/manga/77395--imaizumin-chi-wa-douyara-gal-no-tamariba-ni-natteru-rashii-s/chapter?number=5.5&volume=1",
             "assert": {
                 "pages": [
                     {
