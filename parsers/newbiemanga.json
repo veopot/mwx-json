@@ -1,13 +1,13 @@
 {
 	"id": 30478,
-	"version": 29,
+	"version": 30,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
 
 
-	"title": "NewManga (DEAD)",
-	"host": "https://api.newmanga.org/",
+	"title": "NewManga (Revived)",
+	"host": "https://newmanga.org/",
 	"public_link": "https://newmanga.org/titles/",
 	"folder": "newbiemanga",
 	"name": "newbiemanga",
@@ -31,7 +31,7 @@
 	"authorization_complete": {
 		"logo": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/newbiemanga.png",
 		"registration": "https://newmanga.org/",
-		"expires": 60480000000,
+		"expires": 2678400,
 		"values": {
 			"credentials": {
 				"label": "Логин",
@@ -49,7 +49,7 @@
 		},
 		"request": {
 			"method": "json",
-			"url": "https://api.newmanga.org/v2/login"
+			"url": "https://newmanga.org/api/v2/login"
 		},
 		"response_check": {
 			"cookies": { "user_session": "@\\d+" },
@@ -66,13 +66,13 @@
 
 			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
-		"search_link": "https://api.newmanga.org/v2/projects/search?query=$query$&size=10&page=$page$",
+		"search_link": "https://newmanga.org/api/v2/teams/search?query=$query$&size=10&page=$page$",
 		"query_type": "GET",
 
 
 		"add_manga": {
 			"start": "\"items\":[",
-			"end": "],",
+			"end": "\"count\"",
 			"next": "\"title\":{",
 
 			"link": {
@@ -80,7 +80,7 @@
 				"token1": "id\":",
 				"token2": ",",
 				"replace": {
-					"prefix": "https://api.newmanga.org/v2/projects/"
+					"prefix": "https://newmanga.org/api/v2/projects/"
 				}
 			},
 
@@ -106,7 +106,7 @@
 				"token1": "\"large\":\"images/projects/",
 				"token2": "\",",
 				"replace": [{
-						"prefix": "https://storage.newmanga.org/images/projects/"
+						"prefix": "https://newmanga.org/storage/images/projects/"
 					},
 					{
 						"match": "u002F",
@@ -143,13 +143,13 @@
 		},
 
 		"iterator": {
-			"base_url": "https://api.newmanga.org/v2/projects/catalog?query=&sorting=rating&size=32&page=",
+			"base_url": "https://newmanga.org/api/v2/projects/popular?size=30&page=",
 
-			"append_nums": {"from": 1,"to": 100}
+			"append_nums": {"from": 1,"to": 12}
 		},
 		"add_manga": {
 			"start": "\"items\":[",
-			"end": "],",
+			"end": "\"count\"",
 			"next": "\"title\":{",
 
 			"link": {
@@ -157,7 +157,7 @@
 			    "token1": ":\"",
 			    "token2": "\"",
 				"replace": {
-					"prefix": "https://api.newmanga.org/v2/projects/"
+					"prefix": "https://newmanga.org/api/v2/projects/"
 				}
 			},
 
@@ -183,7 +183,7 @@
 		"link_corrector": [
             {
                 "match": "newmanga.org/p/",
-                "text": "api.newmanga.org/v2/projects/"
+                "text": "newmanga.org/api/v2/projects/"
 	    }
 		],
 		"rating_auto_inc": {
@@ -201,12 +201,6 @@
     "User-Agent": "mangawatcherx", 
 			"Referer": "https://newmanga.org/"
 		},
-
-
-		"link_corrector": [{
-			"match": "https://newmanga.org/p/",
-			"text": "https://api.newmanga.org/v2/projects/"
-		}],
 
 
 		"title": {
@@ -247,7 +241,7 @@
 			"token1": "\"large\":\"images",
 			"token2": "\",",
 			"replace": [{
-					"prefix": "https://storage.newmanga.org/images"
+					"prefix": "https://newmanga.org/storage/images"
 				},
 				{
 					"match": "u002F",
@@ -344,7 +338,7 @@
 				"token2": ",",
 				
 				"replace": [
-			{"prefix": "https://api.newmanga.org/v2/chapters/"}, 
+			{"prefix": "https://newmanga.org/api/v2/chapters/"}, 
 			{"sufix": "/pages"} 
 			        ]
 			},
@@ -415,12 +409,6 @@
 		},
 
 
-		"link_corrector": [{
-			"match": "https://newmanga.org/p/",
-			"text": "https://api.newmanga.org/v2/projects/"
-		}],
-
-
 		"title": {
 			"skip": "title\"",
 			"token1": "\"en\":\"",
@@ -460,7 +448,7 @@
 			"token1": "images",
 			"token2": "\",",
 			"replace": [{
-					"prefix": "https://storage.newmanga.org/images"
+					"prefix": "https://newmanga.org/storage/images"
 				},
 				{
 					"match": "u002F",
@@ -554,7 +542,7 @@
 			"token1": "\"id\":",
 			"token2": ",",
 			"replace": [{
-					"prefix": "https://api.newmanga.org/v3/branches/"
+					"prefix": "https://newmanga.org/api/v3/branches/"
 				},
 				{
 					"sufix": "/chapters/all"
@@ -573,7 +561,7 @@
 				"token2": ",",
 				
 				"replace": [
-			{"prefix": "https://api.newmanga.org/v3/chapters/"}, 
+			{"prefix": "https://newmanga.org/api/v3/chapters/"}, 
 			{"sufix": "/pages"} 
 			        ]
 			},
@@ -664,8 +652,8 @@
 			"token1": ":\"",
 			"token2": "\"",
 			"stop": "\"pages\":",
-			"replace": {"prefix": "https://storage.newmanga.org/origin_proxy/"}
-			        
+			"replace": {"prefix": "https://newmanga.org/storage/origin_proxy/"}
+			
 			
 		},
 			
@@ -679,7 +667,7 @@
 			"replace":[
             {"prefix": "%%path%%"},
             { "match": "/pages", "text": "/" },
-            { "match": "/v3/chapters/", "text": "/" }
+            { "match": "/api/v3/chapters/", "text": "/" }
 			]
 		}
 			
@@ -694,7 +682,7 @@
 			"assert": {
 				"mangas": [{
 					"title": "Beast with Flowers | Зверь с цветами",
-					"link": "https://api.newmanga.org/v2/projects/beast-with-flowers",
+					"link": "https://newmanga.org/api/v2/projects/beast-with-flowers",
 					"uniq": "beast-with-flowers"
 				}],
 				"mangas_count": ">=20"
@@ -702,10 +690,10 @@
 		},
 		{
 			"proc": "manga_complete",
-			"link": "https://api.newmanga.org/v2/projects/solo-leveling",
+			"link": "https://newmanga.org/api/v2/projects/solo-leveling",
 			"title": "Martial peak | Пик боевых искусств",
 			"assert": {
-				"cover": "https://storage.newmanga.org/images/projects/2/large_6c0c5458-449c-436b-bb52-2a3cb2e64745.jpeg",
+				"cover": "https://newmanga.org/storage/images/projects/2/large_6c0c5458-449c-436b-bb52-2a3cb2e64745.jpeg",
 
 				"tags": "@game",
 				"status": "ongoing",
@@ -713,7 +701,7 @@
 				"chapters_count": ">=130",
 				"chapters": [{
 					"folder": "Том 2, Глава 171/",
-					"link": "https://api.newmanga.org/v2/chapters/14653/pages",
+					"link": "https://newmanga.org/api/v3/chapters/14653/pages",
 					"title": "Том 2, Глава 171"
 				}]
 			}
@@ -722,16 +710,16 @@
 
 		{
 			"proc": "chapter_complete",
-			"link": "https://api.newmanga.org/v2/chapters/14653/pages",
+			"link": "https://newmanga.org/api/v3/chapters/14653/pages",
 			"assert": {
 				"pages": [{
 						"image": "https://storage.newmanga.org/origin_proxy/app_disk2_parsed/165870/1_F2AF38DE3491E6C09D58B9BCAFF5DEEC_0.jpg"
 					},
 					{
-						"image": "https://api.newmanga.org/v2/chapters/2627/pages/2"
+						"image": "https://newmanga.org/api/v2/chapters/2627/pages/2"
 					},
 					{
-						"image": "https://api.newmanga.org/v2/chapters/2627/pages/3"
+						"image": "https://newmanga.org/api/v2/chapters/2627/pages/3"
 					}
 				]
 			}
