@@ -1,6 +1,6 @@
 {
     "id": 8021,
-    "version": 11,
+    "version": 12,
     "title": "HentaiLib",
     "host": "https://hentailib.me/",
     "public_link": "https://hentailib.me/ru/catalog",
@@ -325,7 +325,7 @@
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
                 "Accept": "*/*",
             "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTk5ZGE2YTg0NzUyZDEwM2NhNjBiYjA5ZmNmMDVmMzM0YmUyZGVjY2Q5YzJjYzIxMTM4NzM3N2ZhNzRmYzk0NGRhZGNlOTA0Zjg3ZmU2MmQiLCJpYXQiOjE3NTQ5ODk5NzcuMjc5NDYsIm5iZiI6MTc1NDk4OTk3Ny4yNzk0NjIsImV4cCI6MTc1NzY2ODM3Ny4yNzU0NDIsInN1YiI6IjEwMzQ1NjQ0Iiwic2NvcGVzIjpbXX0.PzVMgoYhLBwQzPEKbONzXhOEuQA_pO1KiHlw7JJYOt-zO1qbNyw-mCMHTY6TQFeQNSwtySZG2q67TQU2aZBbhBe9K1ID4RaJJlgifpQD1nBMpZGy10wE5eEyVevCuyJY7ONESulqZ3v5W2ios5r9WETZcLo2-ZeKnRvF1ySbGpXUVCG-4OmyQkZnOVPYO5FhF3YCJ8yO7m0r9OlDKaz9x_TVs-hfgmEIBXu3cufg-VwdikZTof8OIWTMgYIUl7nweNCtNMHDkmPdCemAh5ywCXn4aO4lCOipTIBRDerOD8Y0D5-MR-I6LbU6v9z7rYaYAnZwykiDX-gPh5l_au4F8EnXo8NG756NE4fGyHt_G92dHdLMV8wk0H7Dg8xOsSjXOUOksDutmXKwpDN6mJsCfNqftUoEo1hg8vYNAFWKGqWGwyKoxDJQZpC05lckNB9qNy_2Gaz9GmdiSGtHlJ8MjKTUYo_ZJfZ97f7-5ZkADvqj2gIsX6MCzBcKvkHs1VAWMqUQ0UovCA8TSHM7TEHPKKlFfg8Ay0JXPF6GXe-W_3OXvzWssD8qpmfgMKmLWFC3ZvLKEhoSPUlJWugTo_1j6KhcA7TFLXFbeDJkleQ0X5253uqDvdDrZhJXksjwqW2a1cynGtj3joFWd1EQNTtcHeYTtZn5MGJXHUQT-HkOr2E",
-                "Referer": "https://mangalib.me/"
+                "Referer": "https://hentailib.me/"
             },
             "next": "index",
             "start": "\"data\"",
@@ -394,7 +394,7 @@
             "end": "]}}",
             "replace": [
                 {
-                    "prefix": "https://img3.imglib.info"
+                    "prefix": "https://img3h.hentaicdn.org"
                 },
                 {
                     "match": "\\\\",
