@@ -89,7 +89,6 @@ body {
 
 .navbar.scrolled {
   background-color: var(--navbar-scrolled);
-  padding: 10px 0;
 }
 
 .nav-container {
@@ -636,8 +635,8 @@ body {
 /* Donation Grid */
 .donation-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   margin: 20px 0;
 }
 
@@ -646,6 +645,7 @@ body {
   border-radius: 15px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
 .donation-category h3 {
@@ -685,6 +685,13 @@ body {
   margin: 5px 0;
   color: var(--text-primary);
   font-size: 0.95rem;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .donation-method strong {
@@ -696,6 +703,12 @@ body {
   color: var(--accent-color);
   text-decoration: none;
   transition: color 0.3s ease;
+  word-wrap: break-word;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .donation-method a:hover {
@@ -1041,48 +1054,6 @@ body {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
-@media screen and (max-width: 768px) {
-  .download-section h1 {
-      font-size: 2rem;
-  }
-  
-  .download-intro {
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-  }
-  
-  .version-list li {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      align-items: center;
-  }
-  
-  .version-text {
-      font-size: 1rem;
-      margin-bottom: 10px;
-  }
-  
-  .download-btn {
-      width: 100%;
-      max-width: 200px;
-  }
-  
-  .useful-links h2 {
-      font-size: 1.5rem;
-  }
-  
-  .useful-link {
-      padding: 12px 15px;
-      font-size: 0.95rem;
-  }
-  
-  .useful-link i {
-      font-size: 1rem;
-  }
-}
-
-/* ==================== RESPONSIVE DESIGN ==================== */
 /* Tablet and smaller screens */
 @media screen and (max-width: 1200px) {
   .download-btn-nav {
@@ -1221,6 +1192,45 @@ body {
 
 /* Mobile devices */
 @media screen and (max-width: 768px) {
+  .download-section h1 {
+    font-size: 2rem;
+  }
+
+  .download-intro {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+  }
+
+  .version-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      align-items: center;
+  }
+
+  .version-text {
+      font-size: 1rem;
+      margin-bottom: 10px;
+  }
+
+  .download-btn {
+      width: 100%;
+      max-width: 200px;
+  }
+
+  .useful-links h2 {
+      font-size: 1.5rem;
+  }
+
+  .useful-link {
+      padding: 12px 15px;
+      font-size: 0.95rem;
+  }
+
+  .useful-link i {
+      font-size: 1rem;
+  }
+
   .download-btn-nav {
     display: none;
   }
@@ -1278,10 +1288,7 @@ body {
   .faq-answer.show {
     padding: 15px;
   }
-}
 
-/* Small mobile devices */
-@media screen and (max-width: 768px) {
   .about-page h1 {
     font-size: 2rem;
   }
@@ -1304,6 +1311,7 @@ body {
 
   .donation-grid {
     grid-template-columns: 1fr;
+    justify-content: center;
   }
   
   .donation-category {
