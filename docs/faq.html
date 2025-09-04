@@ -35,7 +35,6 @@
         <meta name="yandex-verification" content="337955ca3d443581">
         <meta name="google-site-verification" content="-hgRTvMneKULSEEPZ2nLKwz857dlglYysmKAkCmFucM">
         
-        <script async src="https://mc.yandex.ru/metrika/tag.js"></script>
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -82,9 +81,9 @@
                 <a href="contacts.html">Контакты</a>
                 <a href="download.html" class="download-btn-nav">Скачать APK</a>
                 <div class="social_links">
-                    <a href="https://github.com/veopot/mwx-json"><i class="fab fa-github"></i></a>
-                    <a href="https://vk.com/mangawatcher"><i class="fab fa-vk"></i></a>
-                    <a href="https://t.me/chatmwx"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/veopot/mwx-json" aria-label="Репозиторй GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://vk.com/mangawatcher" aria-label="Группа ВК Manga Watcher X"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/chatmwx" aria-label="Чат Manga Watcher X"><i class="fab fa-telegram"></i></a>
                 </div>
             </nav>
             <div class="hamburger" id="hamburger">
@@ -578,18 +577,22 @@
     </footer>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-        ym(85223803, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/85223803" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<script defer src="https://mc.yandex.ru/metrika/tag.js" onload="initYaCounter()"></script>
+	<script>
+		function initYaCounter() {
+			if (typeof ym === 'function') {
+				ym(85223803, 'init', {
+					clickmap: true,
+					trackLinks: true,
+					accurateTrackBounce: true,
+					webvisor: false
+				});
+			}
+		}
+	</script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/85223803" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript>
     <!-- /Yandex.Metrika counter -->
     <script src="js/script.js"></script>
 </body>
