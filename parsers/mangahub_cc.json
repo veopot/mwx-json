@@ -1,14 +1,14 @@
 {
     "id": 46547,
-    "version": 14,
+    "version": 15,
 	"old_sites": [
 	"mangahub.space",
-	"mangahub.cc"
+	"mangahub.live"
 	],
 	
     "title": "MangaHub_CC",
-    "host": "https://mangahub.live",
-    "public_link": "https://mangahub.live/manga",
+    "host": "https://mangahub.cc",
+    "public_link": "https://mangahub.cc/manga",
     "folder": "mangahub_cc",
     "name": "mangahub_cc",
     "chapters_order": true,
@@ -29,10 +29,10 @@
        "headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.live/",
+            "Referer": "https://mangahub.cc/",
 	        "User-Agent": "MangaWatcherX"
 			},
-        "search_link": "https://mangahub.live/search?q=$query$",
+        "search_link": "https://mangahub.cc/search?q=$query$",
         "query_type": "GET",
         "add_manga": {
              "start": "<div id=\"Body_block\">",
@@ -41,13 +41,13 @@
             "link": {
                 "token1": "href=\"",
                 "token2": "\"",
-                "replace": { "prefix": "https://mangahub.live"}
+                "replace": { "prefix": "https://mangahub.cc"}
                 
             },
             "cover": {
                 "token1": "data-src=\"",
                 "token2": "\"",
-                "replace": { "prefix": "https://mangahub.live" }
+                "replace": { "prefix": "https://mangahub.cc" }
             },
 			
             "title": {
@@ -82,12 +82,12 @@
         "headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.live/",
+            "Referer": "https://mangahub.cc/",
 			"User-Agent": "MangaWatcherX"
 			},
 			"iterator": {
-			"base_url": "https://mangahub.live/manga?chapter_count=&sort_by=popularity&sort_asc_desc=sort_desc&bookmark_filter=all_titles&page=",
-			"append_nums": { "from": 1, "to": 114 }
+			"base_url": "https://mangahub.cc/manga?chapter_count=&sort_by=popularity&sort_asc_desc=sort_desc&bookmark_filter=all_titles&page=",
+			"append_nums": { "from": 1, "to": 125 }
 		},
 		"add_manga": {
             "start": "<div id=\"vertical_manga_list\"",
@@ -96,7 +96,7 @@
             "link": {
                 "token1": "href=\"",
                 "token2": "\"",
-                "replace":{"prefix": "https://mangahub.live"}
+                "replace":{"prefix": "https://mangahub.cc"}
                 },
             
             "title": {
@@ -121,25 +121,29 @@
 		"headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.live/",
+            "Referer": "https://mangahub.cc/",
 			"User-Agent": "MangaWatcherX"
 			},
 			
 		"title":       { "token1":"class=\"title_head_name\">", "token2": "<div class=\"title_body_info\">",
 				"replace": [
 				{ "match": "<h1 style=\"width: 0; height: 0; opacity: 0; display: none;\">(.*)</h1>", "text": "|" },
+				{ "clear_escape": true },
+                { "clear_html": true },
 				{ "match": "/", "text": "" },
 					{ "match": "<.*?>", "text": " " }
 				] },
 		
 		"uniq":        { "after": " property=\"og:url\"", 
-		"token1":"content=\"https://mangahub.live/manga/", "token2": "\"" },
+		"token1":"content=\"https://mangahub.cc/manga/", "token2": "\"" },
 		
 						
 		
 		"summary":     {  "token1": "class=\"title_head_description\">", "token2": "</div>",
 				"replace": [
 				    { "match": "&quot;", "text": "'" },
+					{ "clear_escape": true },
+                    { "clear_html": true },
 					{ "match": "<.*?>", "text": " " }
 				] },
 		
@@ -167,7 +171,7 @@
 			"next":  "class=\"tap_highlight_remove\"",
 			"link":  { "token1": "href=\"", "token2": "\"",
                 "replace": {
-                    "prefix": "https://mangahub.live"
+                    "prefix": "https://mangahub.cc"
                 }   },
 				
 			"uniq":{ "after" : "href=\"",    
@@ -197,7 +201,7 @@
 		"headers": {
 			"cookie": "remember_token=4288|be2b56d0e296691da78a95e73f4cb9fc499651b2ee159e13df93cf01019b84ee7ca74ec09f877bddba8a48b053c36d104c969dde9f8c28e37410cd7d04e4de83",
             "Accept": "*/*",
-            "Referer": "https://mangahub.live/",
+            "Referer": "https://mangahub.cc/",
 			"User-Agent": "MangaWatcherX"
 			},
 		
@@ -225,7 +229,7 @@
                 "mangas": [
                     {
                     "uniq": "Rebirth-into-novels-is-so-boring",
-                    "link": "https://mangahub.live/manga/Rebirth-into-novels-is-so-boring",
+                    "link": "https://mangahub.cc/manga/Rebirth-into-novels-is-so-boring",
 					"title": "Наскучившее перерождение"
                     }
                 ],
@@ -234,21 +238,21 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://mangahub.live/manga/Survive-as-a-barbarian-in-game",
+            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game",
             "title": "Выживая в игре за варвара",
             "assert": {
-                "cover": "https://mangahub.live/static/content/posters/Survive-as-a-barbarian-in-game.jpg",
+                "cover": "https://mangahub.cc/static/content/posters/Survive-as-a-barbarian-in-game.jpg",
                 "tags": "@фантастика",
                 "tag_count": ">=2",
                 "chapters_count": ">=10",
                 "chapters": [
         {
             "folder": "v1/c10\\",
-            "link": "https://mangahub.live/manga/Survive-as-a-barbarian-in-game/v1/c10",
+            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c10",
             "title": "Том 1 Глава 10"
         },
         {
-            "link": "https://mangahub.live/manga/Survive-as-a-barbarian-in-game/v1/c11",
+            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c11",
             "title": "Том 1 Глава 11"
         }
                 ]
@@ -256,16 +260,16 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://mangahub.live/manga/Survive-as-a-barbarian-in-game/v1/c10",
+            "link": "https://mangahub.cc/manga/Survive-as-a-barbarian-in-game/v1/c10",
             "assert": {
                 "pages": [
-        { "link": "https://mangahub.live/load_more_scans/1542-3"}
+        { "link": "https://mangahub.cc/load_more_scans/1542-3"}
                 ]
             }
         },
 		{
 			"proc" : "page_complete",
-			"link" : "https://mangahub.live/load_more_scans/1542-1",
+			"link" : "https://mangahub.cc/load_more_scans/1542-1",
 			"assert" : {
 				"image" : "http://zjcdn.mangahere.org/store/manga/12114/315.1/compressed/l20190903_164427_101.jpg"
 			}
