@@ -33,10 +33,26 @@
 	<link rel="canonical" href="https://mwx.su/">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script async="" src="https://mc.yandex.ru/metrika/tag.js"></script>
+    
+	<link rel="preconnect" href="https://mc.yandex.ru">
+	<link rel="dns-prefetch" href="https://mc.yandex.ru">
     
     <meta name="yandex-verification" content="337955ca3d443581">
     <meta name="google-site-verification" content="-hgRTvMneKULSEEPZ2nLKwz857dlglYysmKAkCmFucM">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(85223803, 'init', {clickmap:true, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/85223803" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     
     <script type="application/ld+json">
         {
@@ -82,18 +98,18 @@
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="index.html">Manga Watcher X</a>
+                <a href="index.html" aria-label="Страница главная">Manga Watcher X</a>
             </div>
             <nav class="nav-menu" id="navMenu">
-                <a href="index.html">Главная</a>
-                <a href="about.html">О нас</a>
-                <a href="faq.html">F.A.Q</a>
-                <a href="contacts.html">Контакты</a>
-                <a href="download.html" class="download-btn-nav">Скачать APK</a>
+                <a href="index.html" aria-label="Страница главная">Главная</a>
+                <a href="about.html" aria-label="Страница о нас">О нас</a>
+                <a href="faq.html" aria-label="Страница FAQ">F.A.Q</a>
+                <a href="contacts.html" aria-label="Страница контакты">Контакты</a>
+                <a href="download.html" class="download-btn-nav" aria-label="Скачать актуальную версию Manga Watcher X">Скачать APK</a>
                 <div class="social_links">
-                    <a href="https://github.com/veopot/mwx-json"><i class="fab fa-github"></i></a>
-                    <a href="https://vk.com/mangawatcher"><i class="fab fa-vk"></i></a>
-                    <a href="https://t.me/chatmwx"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/veopot/mwx-json" aria-label="Репозиторй GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://vk.com/mangawatcher" aria-label="Группа ВК Manga Watcher X"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/chatmwx" aria-label="Чат Manga Watcher X"><i class="fab fa-telegram"></i></a>
                 </div>
             </nav>
             <div class="hamburger" id="hamburger">
@@ -107,12 +123,12 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <img src="img/logo.png" alt="Логотип Manga Watcher X" loading="lazy">
+                <img src="img/logo.png" alt="Логотип Manga Watcher X" loading="lazy" width="215" height="95">
                 <h1>Manga Watcher X</h1>
                 <p>Приложение для чтения манги и комиксов, которое с 2010-го года радует любителей манги (японских комиксов), а с 2015-го - еще и любителей обычных комиксов! Его по праву можно назвать одним из первых приложений такого рода!</p>
                 <div class="hero-buttons">
-                    <a href="download.html" class="btn btn-primary">Скачать APK</a>
-                    <a href="https://github.com/veopot/mwx-json/tree/main/apk_mangawatcherx" class="btn btn-secondary">Все версии</a>
+                    <a href="download.html" class="btn btn-primary" aria-label="Скачать актуальную версию Manga Watcher X">Скачать APK</a>
+                    <a href="https://github.com/veopot/mwx-json/tree/main/apk_mangawatcherx" class="btn btn-secondary" aria-label="Репозиторий всех версий Manga Watcher X">Все версии</a>
                 </div>
             </div>
         </section>
@@ -127,15 +143,15 @@
                     
                     <div class="info-gallery">
                         <div class="gallery-item">
-                            <img src="img/classic_view.png" alt="Классический вид полок">
+                            <img src="img/classic_view.webp" alt="Классический вид полок" loading="lazy">
                             <p>Классический вид</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="img/lowercase_view.png" alt="Строчный вид полок">
+                            <img src="img/lowercase_view.webp" alt="Строчный вид полок" loading="lazy">
                             <p>Строчный вид</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="img/modern_view.png" alt="Современный вид полок">
+                            <img src="img/modern_view.webp" alt="Современный вид полок" loading="lazy">
                             <p>Современный вид</p>
                         </div>
                     </div>
@@ -154,15 +170,15 @@
                     
                     <div class="info-gallery">
                         <div class="gallery-item">
-                            <img src="img/r1.jpeg" alt="Каталог парсеров">
+                            <img src="img/r1.webp" alt="Каталог парсеров" loading="lazy">
                             <p>Каталог парсеров</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="img/r2.jpeg" alt="Онлайн каталоги">
+                            <img src="img/r2.webp" alt="Онлайн каталоги" loading="lazy">
                             <p>Онлайн каталоги</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="img/r3.jpeg" alt="Авторизация">
+                            <img src="img/r3.webp" alt="Авторизация" loading="lazy">
                             <p>Авторизация</p>
                         </div>
                     </div>
@@ -217,21 +233,6 @@
             <p class="copyright">&copy; 2010-2025 Manga Watcher X Team</p>
         </div>
     </footer>
-
-    <!-- Yandex.Metrika counter -->
-    <script>
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-        ym(85223803, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/85223803" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
     <script src="js/script.js"></script>
 </body>
 </html>
