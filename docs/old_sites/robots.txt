@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: https://mwx.su/sitemap.txt
-Host: mwx.su
