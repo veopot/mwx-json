@@ -1,6 +1,6 @@
 {
     "id": 2079,
-    "version": 3,
+    "version": 4,
     "title":"RanobeLib",
     "host":"https://ranobelib.me",
     "public_link":"https://ranobelib.me/ru/catalog",
@@ -346,6 +346,7 @@
                 {
                     "prefix": "https://api.cdnlibs.org/api/manga/"
                 },
+				{
                     "sufix": "/chapters"
                 }
             ]
