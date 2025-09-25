@@ -1,6 +1,6 @@
 {
     "id": 2079,
-    "version": 4,
+    "version": 5,
     "title":"RanobeLib",
     "host":"https://ranobelib.me",
     "public_link":"https://ranobelib.me/ru/catalog",
@@ -34,7 +34,7 @@
                 "replace": [
                     {
                         "prefix": "https://api.cdnlibs.org/api/manga/"
-                    },
+                    },             
                     {
                         "sufix": "/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
                     }
@@ -149,9 +149,9 @@
             }
         },
         "link_corrector": [
-            {
-                "match": "https://ranobelib.me/ru/manga/(.*)",
-                "text": "https://api.cdnlibs.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
+            {             
+                "match": "https://ranobelib.me/ru/book/(.*)",
+                "text":  "https://api.cdnlibs.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
             }
         ],
         "rating_auto_inc": {
