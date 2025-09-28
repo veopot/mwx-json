@@ -1,6 +1,6 @@
 {
     "id": 57843,
-    "version": 5,
+    "version": 7,
     "title": "MangaBuff",
     "host": "https://mangabuff.ru",
     "public_link": "https://mangabuff.org/manga",
@@ -20,10 +20,15 @@
         "email": "fant-net@ya.ru"
     },
     
+	
+
+	
     "manga_search_complete": {
        "headers": {
-	"Referer": "https://mangabuff.org/",
-	"User-Agent": "MangaWatcherX"
+			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
+			"Accept": "*/*",
+            "Referer": "https://mangabuff.org/",
+            "User-Agent": "MangaWatcherX" 
 			},
         "search_link": "https://mangabuff.ru/search?q=$query$",
         "query_type": "GET",
@@ -61,16 +66,17 @@
         }
     },
     "manga_list_complete": {
-        "headers": {
+         "headers": {
+			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://mangabuff.org/",
-			"User-Agent": "MangaWatcherX"
+            "User-Agent": "MangaWatcherX" 
 			},
         "iterator": {
             "base_url": "https://mangabuff.ru/manga?page=",
             "append_nums": {
                 "from": 1,
-                "to": 176
+                "to": 228
             }
         },
         "add_manga": {
@@ -101,6 +107,7 @@
     "manga_complete": {
 		
         "headers": {
+			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://mangabuff.org/",
             "User-Agent": "MangaWatcherX" 
@@ -191,8 +198,14 @@
             "token2": "</"
         },
         "is_mature": {
-            "values": ["Сэйнэн", "Эротика", "Юри", "Яой", "class=\"tags__item tags__item--warning\">" ]
+            "values": ["Сэйнэн", "Эротика", "Юри", "Яой",">18+</div>",    "class=\"tags__item tags__item--warning\">" ]
         },
+		
+		"need_auth": [
+			"залогиненным",
+			">18+</div>",
+			"хентай"
+		],
         
 		
 		"chapters_from_page": {
@@ -248,10 +261,11 @@
         }
     },
     "chapter_complete": {
-        "headers": {
+         "headers": {
+			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://mangabuff.org/",
-			"User-Agent": "MangaWatcherX"
+            "User-Agent": "MangaWatcherX" 
 			},
         "add_images": {
             "start": "class=\"reader__pages\">",
