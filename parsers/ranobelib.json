@@ -1,9 +1,9 @@
 {
     "id": 2079,
-    "version": 5,
-    "title":"RanobeLib",
-    "host":"https://ranobelib.me",
-    "public_link":"https://ranobelib.me/ru/catalog",
+    "version": 6,
+    "title": "RanobeLib",
+    "host": "https://ranobelib.me",
+    "public_link": "https://ranobelib.me/ru/catalog",
     "folder": "ranobelib",
     "name": "ranobelib",
     "language": "ru",
@@ -34,7 +34,7 @@
                 "replace": [
                     {
                         "prefix": "https://api.cdnlibs.org/api/manga/"
-                    },             
+                    },
                     {
                         "sufix": "/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
                     }
@@ -48,9 +48,9 @@
                         "match": "\",\"eng_name\":\"",
                         "text": " | "
                     },
-					{
-                    "match": "\",\"model\":\"manga",
-                    "text": ""
+                    {
+                        "match": "\",\"model\":\"manga",
+                        "text": ""
                     },
                     {
                         "clear_escape": true
@@ -87,7 +87,7 @@
     "manga_list_complete": {
         "headers": {
             "Accept": "*/*",
-			"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
             "Referer": "https://ranobelib.me/ru/catalog"
         },
         "iterator": {
@@ -99,9 +99,8 @@
         },
         "add_manga": {
             "start": "\"data\"",
-			"next": "\"site\"",
+            "next": "\"site\"",
             "end": "\"meta\":",
-            
             "link": {
                 "before": "\"type\"",
                 "token1": "\"slug_url\":\"",
@@ -124,10 +123,10 @@
                         "match": "\",\"eng_name\":\"",
                         "text": " | "
                     },
-					{
-                    "match": "\",\"model\":\"manga",
-                    "text": ""
-                },
+                    {
+                        "match": "\",\"model\":\"manga",
+                        "text": ""
+                    },
                     {
                         "clear_escape": true
                     }
@@ -149,9 +148,9 @@
             }
         },
         "link_corrector": [
-            {             
-                "match": "https://ranobelib.me/ru/book/(.*)",
-                "text":  "https://api.cdnlibs.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
+            {
+                "match": "https://ranobelib.me/ru/(.*)/(.*)",
+                "text": "https://api.cdnlibs.org/api/manga/$2/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary"
             }
         ],
         "rating_auto_inc": {
@@ -160,31 +159,22 @@
         }
     },
     "manga_complete": {
-		
-		
         "headers": {
-	    "accept": "*/*",
-		"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "access-control-request-headers": "authorization,client-time-zone,content-type,site-id",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
-		
-        
-		"access-control-request-method": "GET",
-        "origin": "https://ranobelib.me",
-        "priority": "u=1, i",
-        "referer": "https://ranobelib.me/",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "cross-site",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
-    
-		
-		
-        "Site-Id": "3",
-        "Content-Type": "application/json"
+            "accept": "*/*",
+            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+            "access-control-request-headers": "authorization,client-time-zone,content-type,site-id",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
+            "access-control-request-method": "GET",
+            "origin": "https://ranobelib.me",
+            "priority": "u=1, i",
+            "referer": "https://ranobelib.me/",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+            "Site-Id": "3",
+            "Content-Type": "application/json"
         },
-		
-		
         "title": {
             "skip": "\"data\"",
             "token1": "\"rus_name\":\"",
@@ -194,18 +184,16 @@
                     "match": "\",\"eng_name\":\"",
                     "text": " | "
                 },
-				{
+                {
                     "match": "\",\"model\":\"manga",
                     "text": ""
                 },
                 {
                     "clear_escape": true
                 },
-				{
+                {
                     "clear_html": true
                 },
-				
-				
                 {
                     "match": "<.*>",
                     "text": ""
@@ -224,16 +212,20 @@
                 {
                     "clear_escape": true
                 },
-				{
+                {
                     "clear_html": true
                 },
-				{"match": "<.*>","text": " "},
-                {"match": "\u2019", "text": "’" }
+                {
+                    "match": "<.*>",
+                    "text": " "
+                },
+                {
+                    "match": "’",
+                    "text": "’"
+                }
             ]
         },
-		
-		"is_mature": "\"label\":\"18+\"",
-		
+        "is_mature": "\"label\":\"18+\"",
         "summary": {
             "skip": "\"data\"",
             "token1": "\"summary\":\"",
@@ -242,11 +234,11 @@
                 {
                     "clear_escape": true
                 },
-				{
+                {
                     "clear_html": true
                 },
                 {
-                    "match": "\u2019",
+                    "match": "’",
                     "text": "’"
                 }
             ]
@@ -275,7 +267,7 @@
                 "values": [
                     "Завершен",
                     "завершен",
-                    "\u0417\u0430\u0432\u0435\u0440\u0448\u0451\u043d",
+                    "Завершён",
                     "\"id\":2,"
                 ]
             },
@@ -286,7 +278,7 @@
                     "Продолжается",
                     "продолжается",
                     "Онгоинг",
-                    "\u041e\u043d\u0433\u043e\u0438\u043d\u0433",
+                    "Онгоинг",
                     "\"id\":1,"
                 ]
             },
@@ -303,8 +295,8 @@
             }
         },
         "content_type": {
-			"default": "light_novels"
-		},
+            "default": "light_novels"
+        },
         "read_dir": {
             "right_to_left": "\"type\":{\"id\":1,",
             "left_to_right": "\"type\":{\"id\":5,"
@@ -346,17 +338,17 @@
                 {
                     "prefix": "https://api.cdnlibs.org/api/manga/"
                 },
-				{
+                {
                     "sufix": "/chapters"
                 }
             ]
         },
         "add_chapter": {
             "headers": {
-               "accept": "*/*",
-		"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
-        "Referer": "https://ranobelib.me/",
-        "Content-Type": "application/json"
+                "accept": "*/*",
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
+                "Referer": "https://ranobelib.me/",
+                "Content-Type": "application/json"
             },
             "next": "index",
             "start": "\"data\"",
@@ -410,30 +402,35 @@
     },
     "chapter_complete": {
         "headers": {
-             "sec-ch-ua-platform": "\"Windows\"",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
-        "Referer": "https://ranobelib.me/",
-        "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
-        "sec-ch-ua-mobile": "?0",
-        "Site-Id": "1",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-        "Client-Time-Zone": "Asia/Irkutsk",
-        "Content-Type": "application/json"
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFiNDc0YjQyMDZhZGI3Nzg0YzBhNzBlNWViZjQzZDMwODc5YWRmM2E4ZWI5MjkyMjdmMjNmMWIyNzM3ZjhkODk2NzAyYTU1NGM5ZWI3MTkiLCJpYXQiOjE3NTg3OTA4MjUuODYwMjIzLCJuYmYiOjE3NTg3OTA4MjUuODYwMjI1LCJleHAiOjE3NjEzODI4MjUuODU1NzA1LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.ARx8S4pZUykdi5NE4SUe7yMQyjf8u0JOoBeUjD7BJktO5qu-kQBeYeao9hhImCzj6Zzd-RNhOSGVeFpLqCdZ7yBXHUyCCffoJD5XJ-2TVmvtDYJ1zKqskVpLGIIQ4oKMmRgdyXce1OQx40SdAhbhgwQHAUBrwQYnCZ6RLr8Qh2eLV30nqiE_RoSmp57ksz6sdmjc_g-reCWvNzBF9NvcnIApNUP1gszllPOJwLjZtVQRwTGJgn_1zTwp3AozhUvsh4nfGkEbtAVot8k9r_0r5gmI38WyDo40ja4WgONaH_Ulp9krtVvTOwq4uN7eHXLZh_50APPVn3wTfl49v0aEeuRVS60o29ncvUIdnkRAY5cvqxSNLO6lr-ttMCLFyXMz4soFoqfki9G0VUj-257UrOBVuiPd9BgOxvvZ6rzPMROVMIEWav4yRbh0UozqOZQ6Phs7lmDKzG6VKDt4oL_S5CEXwckCElCw9R4tjgDwxZ7hIwFYQPUwRL-E44hfnQVxxVFuo8RDlqoUvr_Lw42LFaXI9Re5TNzmTaTHtolbJD6VVIjHySRb1gJi1KElbh5l9NHfE_MZ8vfSnVpKahx9j7nVm9ts2nCfoB2LxSwR6lpfvGHWWJi9h5XxzaaAl1-vW5m-yecEiJtcwon47dtVbLAKumz8p9Ylm5DFKF73u4Y",
+            "Referer": "https://ranobelib.me/",
+            "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+            "sec-ch-ua-mobile": "?0",
+            "Site-Id": "1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+            "Client-Time-Zone": "Asia/Irkutsk",
+            "Content-Type": "application/json"
         },
         "images": true,
         "add_images": {
-			"start": "\"data\"",
-			"token1": "\"number_",
-			"token2": "\":",
-			"end": "moderated",
-		
-			"replace": [
-                    { "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=%%url%%" },
-                    
-	{	"sufix": "&title=/ranobe.fb2"},
-                    { "match": "secondary", "text": ""  }
-                ]
-		}
+            "start": "\"data\"",
+            "token1": "\"number_",
+            "token2": "\":",
+            "end": "moderated",
+            "replace": [
+                {
+                    "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=%%url%%"
+                },
+                {
+                    "sufix": "&title=/ranobe.fb2"
+                },
+                {
+                    "match": "secondary",
+                    "text": ""
+                }
+            ]
+        }
     },
     "test": [
         {
@@ -452,7 +449,7 @@
         {
             "proc": "manga_complete",
             "link": "https://api.cdnlibs.org/api/manga/6685--quan-zhi-gao-shou-novel/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&",
-            "title": "Аватар Короля (Новелла) | The King\u2019s Avatar",
+            "title": "Аватар Короля (Новелла) | The King’s Avatar",
             "assert": {
                 "author": "@Jeosuri",
                 "cover": "@https://cover.imgslib.link/uploads/cover/semantic-error/cover/e8kgec0GMpec_250x350.jpg",
@@ -463,14 +460,14 @@
                 "chapters_count": ">=80",
                 "chapters": [
                     {
-            "folder": "Том 21 Глава 1729\\",
-            "link": "https://api.cdnlibs.org/api/manga/6685--quan-zhi-gao-shou-novel/chapter?number=1729&volume=21",
-            "title": "Том 21 Глава 1729 \"Послесловие автора.\""
-        },
-        {
-            "link": "https://api.cdnlibs.org/api/manga/6685--quan-zhi-gao-shou-novel/chapter?number=1728&volume=21",
-            "title": "Том 21 Глава 1728 \"В кoнцe концов, я пpо-игрок.\""
-        }
+                        "folder": "Том 21 Глава 1729\\",
+                        "link": "https://api.cdnlibs.org/api/manga/6685--quan-zhi-gao-shou-novel/chapter?number=1729&volume=21",
+                        "title": "Том 21 Глава 1729 \"Послесловие автора.\""
+                    },
+                    {
+                        "link": "https://api.cdnlibs.org/api/manga/6685--quan-zhi-gao-shou-novel/chapter?number=1728&volume=21",
+                        "title": "Том 21 Глава 1728 \"В кoнцe концов, я пpо-игрок.\""
+                    }
                 ]
             }
         },
