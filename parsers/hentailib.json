@@ -1,6 +1,6 @@
 {
     "id": 8021,
-    "version": 13,
+    "version": 15,
     "title": "HentaiLib",
     "host": "https://hentailib.me/",
     "public_link": "https://hentailib.me/ru/catalog",
@@ -23,11 +23,24 @@
 	
 	
     "manga_search_complete": {
-        "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-            "accept": "*/*",
-            "Referer": "https://hentailib.me/"
-        },
+       "headers": {
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
+        "client-time-zone": "Asia/Irkutsk",
+        "content-type": "application/json",
+        "origin": "https://hentailib.me",
+        "priority": "u=1, i",
+        "referer": "https://hentailib.me/",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "site-id": "4",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
         "search_link": "https://hapi.hentaicdn.org/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=4",
         "query_type": "GET",
         "add_manga": {
@@ -89,11 +102,24 @@
         }
     },
     "manga_list_complete": {
-        "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-            "accept": "*/*",
-            "Referer": "https://hentailib.me/ru/catalog"
-        },
+    "headers": {
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
+        "client-time-zone": "Asia/Irkutsk",
+        "content-type": "application/json",
+        "origin": "https://hentailib.me",
+        "priority": "u=1, i",
+        "referer": "https://hentailib.me/",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "site-id": "4",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
         "iterator": {
             "base_url": "https://hapi.hentaicdn.org/api/manga/?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=4&page=",
             "append_nums": {
@@ -163,12 +189,24 @@
         }
     },
     "manga_complete": {
-        "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "headers": {
         "accept": "*/*",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
-            "Referer": "https://hentailib.me/"
-        },
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
+        "client-time-zone": "Asia/Irkutsk",
+        "content-type": "application/json",
+        "origin": "https://hentailib.me",
+        "priority": "u=1, i",
+        "referer": "https://hentailib.me/",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "site-id": "4",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
         "title": {
             "skip": "\"data\"",
             "token1": "\"rus_name\":\"",
@@ -321,12 +359,24 @@
             ]
         },
         "add_chapter": {
-            "headers": {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-                "Accept": "*/*",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
-                "Referer": "https://hentailib.me/"
-            },
+        "headers": {
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
+        "client-time-zone": "Asia/Irkutsk",
+        "content-type": "application/json",
+        "origin": "https://hentailib.me",
+        "priority": "u=1, i",
+        "referer": "https://hentailib.me/",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "site-id": "4",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
             "next": "index",
             "start": "\"data\"",
             "link": {
@@ -379,13 +429,23 @@
     },
     "chapter_complete": {
         "headers": {
-        "sec-ch-ua-platform": "\"Windows\"",
-        "Referer": "https://hentailib.me/",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
-        "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo",
+        "client-time-zone": "Asia/Irkutsk",
+        "content-type": "application/json",
+        "origin": "https://hentailib.me",
+        "priority": "u=1, i",
+        "referer": "https://hentailib.me/",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
         "sec-ch-ua-mobile": "?0",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGRlNDcyOTE3ZWExNTM1YmE5YzAwNGQ0NWVhNTJjYmIwNDQ5YjUwMThjOWYwOTc3OGE5NGJlMjEwN2YzY2Q5MjcxZDEwMDdhZDllMTAzY2MiLCJpYXQiOjE3NTkyMjUwODYuMjQzNjksIm5iZiI6MTc1OTIyNTA4Ni4yNDM2OTEsImV4cCI6MTc2MTgxNzA4Ni4yNDAxMDgsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.nd0AT9lti9xMlZuWIE4Hc7xPicGmpfVCYoxumDvaeXjg0nwX3k6aaN8_aKY_rh-LTU9uSXHYO2NYDynmVTkbu5_pIE5UyuMNDeTT4o7Srg8035VA6kvYyT8hs4XyTHH2kdBHIhAX9rBgXhW_9t4vVOccebihZhBu4uBAXWCX-91hKKamlvlx9WVSglqFIqEHLu0K-G1PXFqPb5DxDT8NsllKUdJSF8c6FB_8xPWfxAEC_1S1XnsyOOefg6LGS2ihKSVt-Xz8p7Nlk3bF2xelilzrN-aG8iXVcun1uNxIFCEEefVc-4zyTpZa3jvju8Ijd8vS5oWJsAV5GhuZG_08Pp4e8fGjmXO8t9n99pg6vs3dtyWXnB2Q3bd1efde797Xs1IxXg6RieDI6GmiVkEZvKhsuZjP-5yfiGTg0PhJ0xVqJP6AXT87ka3jUplWU1MqiD2ShfE1kgeSD3ER0z-QAd2jhlud2U2A_cRZsSF6Q2LpytuJY_2wdlp9sKwS737M0HCKjDgma-bUAOqwMnkjyDfVuJxEq7Jm1B6JAqyUAa6z6DjIaAHCJbuceHx-aWf1LjQAgLVmjA42TManKUs1cgnoxk9yJGRQHha94GpEwNY1AZVtwi0T4R6aeXYkvojj__Ma29UZ2knv-Z0eXCGHLV3pk6ZqRr0IQdWbCRFYwxo"
-        },
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "site-id": "4",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
         "images": true,
         "add_pages": {
             "start": "\"pages\"",
@@ -394,7 +454,7 @@
             "end": "]}}",
             "replace": [
                 {
-                    "prefix": "https://img3h.hentaicdn.org"
+                    "prefix": "https://img2h.hentaicdn.org/"
                 },
                 {
                     "match": "\\\\",
