@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 100,
+    "version": 101,
     "title": "Re:Manga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -25,7 +25,7 @@
 			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
             
             "Referer": "https://remanga.org/",
-	 "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+	 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 			},
         "search_link": "https://api.remanga.org/api/search/?count=10&page=$page$&query=$query$",
         "query_type": "GET",
@@ -128,7 +128,7 @@
 			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
            
             "Referer": "https://remanga.org/",
-			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 			},
         "iterator": {
             "base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
@@ -198,7 +198,7 @@
 			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
             
             "Referer": "https://remanga.org/",
-            "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" 
 			},
         
         "title": {
@@ -329,10 +329,14 @@
         },
         "add_chapter": {
 			"headers": {
-			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
-           
-            "Referer": "%%url%%",
-			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+		"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+        "origin": "https://remanga.org",
+        "priority": "u=1, i",
+        "referer": "https://remanga.org/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 			},
 			
             "start": "content\"",
@@ -345,7 +349,7 @@
                 "token2": ",",
                 "replace": [
                     {
-                        "prefix": "https://api.remanga.org/api/titles/chapters/"
+                        "prefix": "https://api.remanga.org/api/v2/titles/chapters/"
                     },
                     {
                         "sufix": "/"
@@ -390,17 +394,38 @@
     },
     "chapter_complete": {
         "add_numeration": true,
+        	"no_404": true,
+		"images": true,
+	   "use_servers_only": true,
         "headers": {
-			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
-            "accept": "*/*",
-            "Referer": "https://remanga.org/",
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+		"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "authorization": "Bearer ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+		"content-type": "application/json",
+        "origin": "https://remanga.org",
+        "priority": "u=1, i",
+        "referer": "https://remanga.org/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 			},
-        "add_images": {
-            "start": "content",
-            "token1": "link\":\"",
+			
+			
+			"prefix": {
+			"after": "\"server\"",
+			"token1": "\"fallback_link\":\"",
+			"token2": "\"",
+			"stop": "\"pages\""
+		},
+		
+		
+        "add_pages": {
+            "start": "\"pages\"",
+            "token1": "/images/",
             "token2": "\"",
-            "end": "props"
+            "replace": {
+				"prefix": "images/"
+			},
+            "end": "\"publishers\""
         }
     },
     "test": [
@@ -438,7 +463,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://api.remanga.org/api/titles/chapters/871816/",
+            "link": "https://api.remanga.org/api/v2/titles/chapters/871816/",
             "assert": {
                 "pages": [
                     {
