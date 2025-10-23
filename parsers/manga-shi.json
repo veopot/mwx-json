@@ -1,6 +1,6 @@
 {
     "id": 52134,
-    "version": 1,
+    "version": 2,
     "title": "Manga-shi",
     "host": "https://manga-shi.org",
     "public_link": "https://manga-shi.org/manga",
@@ -16,7 +16,7 @@
     "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manga-shi.zip",
     "file_type": "sqlite",
     "author": {
-        "name": "Veopot",
+        "name": "MWX Team",
         "email": "fant-net@ya.ru"
     },
     
@@ -25,77 +25,84 @@
 	
     "manga_search_complete": {
        "headers": {
-			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
             "User-Agent": "MangaWatcherX" 
 			},
-        "search_link": "https://manga-shi/search?q=$query$",
+        "search_link": "https://manga-shi.org/?s=$query$&post_type=wp-manga",
         "query_type": "GET",
         "add_manga": {
-            "start": "<div class=\"main\">",
-            "end": "class=\"footer\">",
-            "next": "class=\"cards__item\"",
+            "start": "<div class=\"search-wrap\">",
+            "end": "class=\"site-footer\">",
+            "next": "class=\"manga__content_item\">",
             "link": {
-                "before": "class=\"cards__img\"",
+                "skip": "<a",
                 "token1": "href=\"",
                 "token2": "\""
             },
 
             "title": {
-                "token1": "class=\"cards__name\">",
-                "token2": "</div>"
+				 "skip": "href=\"",
+                "token1": "\">",
+                "token2": "</"
             },
             "uniq": {
-                "token1": "class=\"cards__name\">",
-                "token2": "</div>"
+				"skip": "href=\"",
+                "token1": "https://manga-shi.org/manga/",
+                "token2": "\""
             },
 			
             "cover": {
-                "token1": "background-image: url('/x180/",
-                "token2": "')\">",
-                "replace": {
-                    "prefix": "https://manga-shi"
-                }
+				
+				"before": "href=\"",
+                "token1":"src=\"",
+                "token2":"\""
             },
             
             "summary": {
-                "token1": "class=\"cards__info\">",
-                "token2": "</div>"
+                "token1": "<p class=\"ds-markdown-paragraph\">",
+                "token2": "<div class=\"manga-info\">",
+				"replace": [
+				    { "match": "&quot;", "text": "'" },
+					{ "clear_escape": true },
+                    { "clear_html": true },
+					{ "match": "<.*?>", "text": " " }
+				]
             }
         }
     },
     "manga_list_complete": {
          "headers": {
-			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
             "User-Agent": "MangaWatcherX" 
 			},
         "iterator": {
-            "base_url": "https://manga-shi/manga?page=",
+            "base_url": "https://manga-shi.org/manga/?m_orderby=rating&page=",
             "append_nums": {
                 "from": 1,
-                "to": 228
+                "to": 38
             }
         },
         "add_manga": {
-            "start": "<div class=\"cards\">",
-            "end": "<ul class=\"pagination\">",
-            "next": "class=\"cards__item\"",
+            "start": "<h1 class=\"item-title h4\">",
+            "end": "<footer class=\"site-footer\">",
+            "next": "class=\"manga__content_item\">",
             "link": {
-                "before": "class=\"cards__img\"",
+                "skip": "<a",
                 "token1": "href=\"",
                 "token2": "\""
             },
 
             "title": {
-                "token1": "class=\"cards__name\">",
-                "token2": "</div>"
+				 "skip": "href=\"",
+                "token1": "\">",
+                "token2": "</"
             },
             "uniq": {
-                "token1": "class=\"cards__name\">",
-                "token2": "</div>"
+				"skip": "href=\"",
+                "token1": "https://manga-shi.org/manga/",
+                "token2": "\""
             }
         },
 	    
@@ -107,7 +114,6 @@
     "manga_complete": {
 		
         "headers": {
-			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
             "User-Agent": "MangaWatcherX" 
@@ -263,7 +269,6 @@
     },
     "chapter_complete": {
          "headers": {
-			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
             "User-Agent": "MangaWatcherX" 
@@ -311,7 +316,7 @@
         {
             "link": "https://manga-shi.org/manga/evolution-from-the-big-tree/glava-2/",
             "title": "Глава 2"
-        },
+        }
                 ]
             }
         },
