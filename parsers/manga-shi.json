@@ -1,6 +1,6 @@
 {
     "id": 52134,
-    "version": 2,
+    "version": 3,
     "title": "Manga-shi",
     "host": "https://manga-shi.org",
     "public_link": "https://manga-shi.org/manga",
@@ -145,9 +145,9 @@
             "token2":"\""
         },
         "summary": {
-			"skip": "<meta property=\"og:description\"",
-            "token1":"content=\"",
-            "token2":"\"",
+			"skip": "class=\"description-summary\">",
+            "token1":"\">",
+            "token2":"</div>",
             "replace": [
                 {
                     "match": "u003Cp",
@@ -288,9 +288,9 @@
             "assert": {
                 "mangas": [
                     {
-                        "title": "Ветролом",
-                        "link": "https://manga-shi/manga/vetrolom-2013",
-                        "uniq": "Ветролом"
+                        "title": "Эксплуатация / Exploitation",
+                        "link": "https://manga-shi.org/manga/exploitation/",
+                        "uniq": "exploitation_"
                     }
                 ],
                 "mangas_count": ">=20"
@@ -299,14 +299,16 @@
         {
             "proc": "manga_complete",
             "link": "https://manga-shi.org/manga/evolution-from-the-big-tree/",
-            "title": "Как насытить дьявола / How to fill the devil",
+            "title": "Моё перерождение в древо: Начало эволюции | Evolution From the Big Tree",
 			
 			"assert": {
-                "cover": "https://manga-shi/img/manga/posters/kak-nasytit-dyavola.jpg",
+                "cover": "https://manga-shi.org/wp-content/uploads/2025/03/uwhipgbe1io2p3jt902uw.jpg",
                 "genres": "@action",
+				"author": "@Xia Yan",
                 "status": "ongoing",
-				"summary": "@^(Мой мир - это вечный цикл перерождений)",
-                "chapters_count": ">=65",
+				"summary": "@^(После смерти Юй Цзыюй переродился)",
+                "genres_count" : ">=5",
+				"chapters_count" : ">=400",
                 "chapters": [
         {
             "folder": "Глава 1\\",
