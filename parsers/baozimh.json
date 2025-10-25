@@ -1,6 +1,6 @@
 {
     "id": 41135,
-    "version": 5,
+    "version": 6,
     "title": "包子漫畫",
     "host": "https://www.baozimh.com",
     "public_link": "https://www.baozimh.com/classify",
@@ -80,7 +80,12 @@
 
 
     "manga_complete": {
-		
+		 "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+            "Referer": "https://www.baozimh.com/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+            },
         
         "title": {
 			"after": "<h1 class=\"comics-detail__title\"",
@@ -220,6 +225,12 @@
        
         
         "add_chapter": {
+			"headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+            "Referer": "https://www.baozimh.com/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+            },
             "start": "<div id=\"chapter-items\"",
             "end": "</button>",
             "next": "href=\"/user/page_direct",
