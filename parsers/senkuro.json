@@ -1,6 +1,6 @@
 {
 	"id": 65216,
-	"version": 33,
+	"version": 34,
 	"old_sites": ["senkuro.com"],
 	"title": "Senkuro",
 	"host": "https://bypass.mwx.su/",
@@ -81,7 +81,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"User-Agent": "MangaWatcherx"
+			"User-Agent": "MangaWatcherX"
 		},
 		"title": {
 			"token1": "\"title_name\":\"",
