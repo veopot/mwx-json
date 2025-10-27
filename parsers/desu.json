@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 50,
+	"version": 51,
 	
 	"old_ids": [66348],
     "old_sites": ["desu.win", "x.desu.me","desu.me","desu.store","desu.work" ],
@@ -133,7 +133,7 @@
 			"author":      { "skip": "class=\"key\">Автор", "token1": "<ul class=\"translators\" style=\"display:inline;\">", "token2": "</ul>",
 			"replace": { "match": "<.*?>", "text": "" } },
 			
-			"cover":       { "skip": "<div class=\"c-poster", "token1": "/data/manga/covers", "token2": "\"","replace": {"prefix" : "https://static.desu.one/data/manga/covers" } },
+			"cover":       { "skip": "<div class=\"c-poster", "token1": "/data/manga/covers", "token2": "\"","replace": {"prefix" : "https://static.desu.city/data/manga/covers" } },
 			
 			"add_genre": { "after": "href=\"manga/?genre", "token1": "\">", "token2": "</a>",
 			"replace": { "match": "<.*>", "text": "" } },
