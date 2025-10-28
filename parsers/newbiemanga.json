@@ -1,6 +1,6 @@
 {
 	"id": 30478,
-	"version": 30,
+	"version": 31,
 
 	"old_ids": [40172],
 	"old_sites": ["newbie-manga.ru","newbie-tl.ru"],
@@ -195,7 +195,7 @@
 
 
     "manga_complete":[ 
-	{"condition": "\"chapters_total\":0,", 
+	{"condition": "\"chapters_total\":stop-udalitb-eto,", 
 
     "headers": {
     "User-Agent": "mangawatcherx", 
