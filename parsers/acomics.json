@@ -3,7 +3,7 @@
 	
 	"old_ids": [50030],
 	
-	"version": 25,
+	"version": 26,
 	"title": "AComics",
 	"host": "https://acomics.ru/",
 	"public_link": "https://acomics.ru/",
@@ -72,13 +72,13 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://acomics.ru/comics?categories=&ratings%5B%5D=1&ratings%5B%5D=2&ratings%5B%5D=3&ratings%5B%5D=4&ratings%5B%5D=5&ratings%5B%5D=6&type=0&updatable=0&issue_count=2&sort=last_update&skip=",
-			"append_nums": { "from": 0, "to": 5000, "step": 10 }
+			"append_nums": { "from": 0, "to": 3042, "step": 10 }
 		},
 		"add_manga": {
-			"next": "<td class=\"catdata1\">",
+			"next": "class=\"serial-card\">",
 			"link":  { "token1": "<a href=\"", "token2": "\"" },
-			"title": { "skip": "<div class=\"title\">", "token1": "\">", "token2": "</" },
-			"uniq":  { "skip": "<div class=\"title\">", "token1": "\">", "token2": "</" }
+			"title": { "skip": "<h2 class=\"title\">", "token1": "\">", "token2": "</" },
+			"uniq":  { "skip": "<h2 class=\"title\">", "token1": "\">", "token2": "</" }
 		} 
 	},
 
@@ -92,7 +92,7 @@
 		"title":       { "skip": "alternate", "token1": "title='", "token2": "'" },
 		"uniq":        { "skip": "alternate", "token1": "title='", "token2": "'" },
 		"author":      { "skip": "<b>Автор", "token1": ">", "token2": "</" },
-		"summary":     { "skip": "og:description", "token1": "content=\"", "token2": "\"" },
+		"summary":     { "after": "property=\"og:description\"", "token1": "content=\"", "token2": "\"" },
 		"status":      { "ongoing": "Авторский Комикс" },
 		"cover":       { "token1": "<img src=\"/upload/!c/", "token2": "\"", "replace": { "prefix": "https://acomics.ru/upload/!c/" } },
 		"add_genre":   "Авторский Комикс",
@@ -149,7 +149,7 @@
 			"testpages": "3",
 			"assert" : {
 				"mangas" : [
-					{ "title" : "Алиса в Стране Грехов", "link" : "https://acomics.ru/~alice-in-a-sinland", "uniq" : "Алиса в Стране Грехов" }
+					{ "title" : "Источники", "link" : "https://acomics.ru/~wellspring", "uniq" : "Источники" }
 				],
 				"mangas_count" : ">=11"
 			}
@@ -165,15 +165,15 @@
 				"status" : "ongoing",
 				"chapters_count" : ">=70",
 				"chapters" : [
-					{ "title" : "2",
-						"link" : "https://acomics.ru/~alice-in-a-sinland/2",
-						"folder" : "2/"
-					},
-					{ 
-				    "title" : "3",
-					"link" : "https://acomics.ru/~alice-in-a-sinland/3"
-						
-					}
+					{
+            "folder": "~alice-in-a-sinland/137\\",
+            "link": "https://acomics.ru/~alice-in-a-sinland/137",
+            "title": "Страница 137"
+        },
+        {
+            "link": "https://acomics.ru/~alice-in-a-sinland/136",
+            "title": "Страница 136"
+        }
 				]
 			}
 		},

@@ -1,0 +1,199 @@
+.faq {
+	
+	float:left;
+	font-size:15;
+	color:#89D987;
+	font-family:arial;
+	border:0px #ddd solid;
+}
+.faq1 {
+	color:#89D987;
+	font-family:arial;
+	
+}
+.faq2 {
+	
+	float:left;
+	font-size:15;
+	color:#C79BC8;
+	font-family:arial;
+	border:0px #ddd solid;
+}
+.faq22 {
+	color:#C79BC8;
+	font-family:arial;
+	
+}
+.hr-shadow {
+	
+	margin: 20px 0;
+	padding: 0;
+	height: 10px;
+	border: none;
+	border-top: 1px solid #333;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+// ---------------- Display meny start--------------------
+.container {
+  margin: 100px auto;
+  width: 720px;
+  text-align: center;
+}
+
+.nav {
+ 
+  height: 48px;
+  display: inline-block;
+}
+.nav > li, .nav:active > .active {
+  float: left;
+  position: relative;
+  margin: 0 0 4px;
+  height: 44px;
+  color: #ccc;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid #232428;
+  border-bottom-color: #1f2326;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px #262a2e, 0 3px #1f2326, 0 4px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px #262a2e, 0 3px #1f2326, 0 4px 3px rgba(0, 0, 0, 0.2);
+}
+.nav > li:hover {
+  color: #b0d157;
+  text-shadow: 0 1px black, 0 0 20px rgba(255, 255, 255, 0.5);
+}
+.nav > li.active,
+.nav > .active:active,
+.nav > li:active {
+  z-index: 2;
+  margin: 4px 0 0;
+  height: 43px;
+  color: #aaa;
+  text-shadow: 0 1px black;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: #212425;
+  border-width: 1px 0;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), inset 0 -1px 1px rgba(0, 0, 0, 0.15), 1px 0 rgba(0, 0, 0, 0.05), -1px 0 rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), inset 0 -1px 1px rgba(0, 0, 0, 0.15), 1px 0 rgba(0, 0, 0, 0.05), -1px 0 rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.05);
+}
+.nav > li:active {
+  z-index: 3;
+}
+.nav > li:first-child {
+  border-left-width: 1px !important;
+  border-left-color: #212425;
+  border-radius: 5px 0 0 5px;
+}
+.nav > li:last-child {
+  border-right-width: 1px !important;
+  border-right-color: #212425;
+  border-radius: 0 5px 5px 0;
+}
+.nav > li + li, .nav:active > .active + li, .nav:active > li + .active {
+  border-left-width: 0;
+}
+.nav > .active + li,
+.nav > .active:active + li,
+.nav > li:active + li,
+.nav > li:active + .active {
+  border-left-width: 1px;
+}
+.nav > li > a {
+  display: block;
+  line-height: 44px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
+}
+.nav .nav-icon {
+  padding: 0 15px;
+}
+
+
+
+.icon-home {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+  background-image: url('dist/images/icons.png');
+  background-repeat: no-repeat;
+  
+  text-shadow: none;
+  color: transparent;
+  background-position: 0 0;
+}
+
+
+// ---------------- Display meny end--------------------
+
+
+.nav2 > li > a {
+  display: block;
+  line-height: 44px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+  outline: 0;
+}
+.nav2 > li, .nav:active > .active {
+  position: relative;
+  color: #ccc;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.9);
+ 
+ 
+}
+.nav2 > li:hover {
+  color: #b0d157;
+  
+}
+.nav3 {
+	
+	font-size:15;
+	color:#ccc;
+	font-family:arial;
+	border:0px #ddd solid;
+}
+
+
+
+.p3:hover {
+    border: 4px solid #FFF; /* Ширина, вид и цвет рамки */
+
+}
+
+
+.item {
+	position: relative;
+	width: 100%;
+	height: 520px;
+	margin-bottom: 25px;
+}
+.item .zoo-item {
+	border: 0px solid #EEEEEE;
+	margin: 0;
+}
+
+.item2 {
+	position: relative;
+	width: 100%;
+	height: 460px;
+	margin-bottom: 25px;
+}
+.item2 .zoo-item {
+	border: 0px solid #EEEEEE;
+	margin: 0;
+}
