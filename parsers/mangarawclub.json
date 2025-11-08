@@ -1,6 +1,6 @@
 {
     "id": 30469,
-    "version": 14,
+    "version": 15,
     "old_sites": [
         "www.manga-raw.club",
         "www.mcreader.net",
@@ -208,13 +208,17 @@
         "add_images": {
             "start": "id=\"chapter-reader\"",
             "before": "id=\"image",
-            "token1": "<img src=\"",
+            "token1": "<img src=\"https://",
             "token2": "\"",
-            "end": ">Comments<",
-            "replace": {
+            "end": "<div style=\"margin-top: 20px;padding: 10px;\">",
+			
+            "replace":[
+			{
                 "match": "https://novel-fast.club/mg1/sponsor/novel-comp-sponsor-v1.png",
                 "text": ""
-            }
+            },
+			{ "prefix": "https://"}
+			]
         }
     },
     "test": [
@@ -273,7 +277,7 @@
                         "image": "https://imgsrv4.com/mg2/cdn_mangaraw/miracle-hero/chapter-105/4.jpg"
                     }
                 ],
-                "pages_count": "14"
+                "pages_count": "12"
             }
         }
     ]
