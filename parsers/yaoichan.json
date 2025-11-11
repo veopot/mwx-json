@@ -12,13 +12,14 @@
 	"v8.yaoi-chan.me",
 	"v9.yaoi-chan.me",
     "v10.yaoi-chan.me",
-	"v11.yaoi-chan.me"
+	"v11.yaoi-chan.me",
+	"v12.yaoi-chan.me"
 	],
    
-	"version": 33, 
+	"version": 34, 
 	"title": "Yaoi-chan!",
-	"host": "https://v12.yaoi-chan.me/",
-	"public_link": "https://v12.yaoi-chan.me/catalog",
+	"host": "https://v15.yaoi-chan.me/",
+	"public_link": "https://v15.yaoi-chan.me/catalog",
 	"encoding" : "utf-8",
 	"folder": "yaoichan",
 	"name" : ["ychan", "yaoichan"],
@@ -41,7 +42,7 @@
 
 	"authorization_complete": {
 		"logo":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoichan.png",
-		"registration": "https://v12.yaoi-chan.me/index.php?do=register",
+		"registration": "https://v15.yaoi-chan.me/index.php?do=register",
 		"expires": 31449600000,
 	
 		"values": {
@@ -52,7 +53,7 @@
 	
 		"request": {
 			"method": "post",
-			"url": "https://v12.yaoi-chan.me/index.php"
+			"url": "https://v15.yaoi-chan.me/index.php"
 		},
 	
 		"response_check": {
@@ -63,7 +64,7 @@
 
 
 	"manga_search_complete": {		
- "search_link":"https://v12.yaoi-chan.me/index.php?do=search&subaction=search&search_start=$page$&story=$query$&need_sort_date=false",
+ "search_link":"https://v15.yaoi-chan.me/index.php?do=search&subaction=search&search_start=$page$&story=$query$&need_sort_date=false",
 		"query_type": "GET",
 		"add_manga": {
 		   
@@ -88,14 +89,14 @@
 
 	"manga_list_complete": {
 		"iterator": {    
-			"base_url": "https://v12.yaoi-chan.me/mostfavorites?offset=",
-			"append_nums": { "from": 0, "to": 16080, "step": 20,
+			"base_url": "https://v15.yaoi-chan.me/catalog?offset=",
+			"append_nums": { "from": 0, "to": 19040, "step": 20,
 			"last_page": {"before": ">>>", "token1": "<a href='?offset=", "token2": "'"} }
 		},
 		"add_manga": { 
 			"next": "<div class=\"content_row\"",
-			"link":  { "token1": "href=\"", "token2": "\"" }, 
-			"title": { "token1": "title=\"", "token2": "\"" }
+			"link":  { "token1": "href='", "token2": "'" }, 
+			"title": { "token1": "title='", "token2": "'" }
 		},
 		"rating_auto_inc": {
 			"start": "30000",
@@ -166,9 +167,9 @@
 			 "assert" : {
 				"mangas" : [
 					{ 
-        "uniq": "8158-starfighter.html",
-        "link": "https://v12.yaoi-chan.me/manga/8158-starfighter.html",
-        "title": "Starfighter"
+        "uniq": "7787-1_5-darling_html",
+        "link": "https://v15.yaoi-chan.me/manga/7787-1.5-darling.html",
+        "title": "Kobato Mebaru манга"
 		}
 				],
 				"mangas_count" : ">=100"
@@ -176,7 +177,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://v12.yaoi-chan.me/manga/35716-one-day.html",
+			"link" : "https://v15.yaoi-chan.me/manga/35716-one-day.html",
 			"title" : "One Day (Однажды)",
 			"assert" : {
 				"author" : "@﻿Oldxian",
@@ -189,11 +190,11 @@
 				"chapters" : [
 		{
         "folder": "674579-one-day_v1_ch312.html/",
-        "link": "https://v12.yaoi-chan.me/online/674579-one-day_v1_ch312.html",
+        "link": "https://v15.yaoi-chan.me/online/674579-one-day_v1_ch312.html",
         "title": "Том 1 - 312 Спецвыпуск ко Дню святого Валентина. С праздником."
         },
         {
-        "link": "https://v12.yaoi-chan.me/online/674578-one-day_v1_ch311.html",
+        "link": "https://v15.yaoi-chan.me/online/674578-one-day_v1_ch311.html",
         "title": "Том 1 - 311 История, произошедшая в городишке Суяб."
         }
 				]
@@ -202,13 +203,13 @@
 		
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://v12.yaoi-chan.me/online/674578-one-day_v1_ch311.html", 
+			"link" : "https://v15.yaoi-chan.me/online/674578-one-day_v1_ch311.html", 
 			"assert" : {
 				"pages" : [
 					
-        {"image": "https://img2.v12.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_02.png"},
-        {"image": "https://img.v12.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_03.png"},
-        {"image": "https://img2.v12.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_04.jpg"}
+        {"image": "https://img2.v15.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_02.png"},
+        {"image": "https://img.v15.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_03.png"},
+        {"image": "https://img2.v15.yaoi-chan.me/manga/-7new/o/1613367367_ox_mad_05_02_21/ox_mad_05_02_21_04.jpg"}
 				],
 				"pages_count": "4"
 			}

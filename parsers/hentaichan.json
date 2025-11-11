@@ -1,6 +1,6 @@
 { 
 	"id": 30432,
-	"version": 81,
+	"version": 82,
 	
 	"old_ids": [30333],
 	"old_sites": [
@@ -17,6 +17,7 @@
 	"xxxxx.hentaichan.live",
 	"xx.henchan.pro",
 	"y.hchan.live",
+	"x1.h-chan.me",
 	"xxxx.henchan.pro"
 	
 	],
@@ -29,8 +30,8 @@
 	
 	"title": "Хентай-тян",
 	         
-	"host": "https://x1.h-chan.me",
-	"public_link": "https://x1.h-chan.me/mostfavorites",
+	"host": "https://x8.h-chan.me",
+	"public_link": "https://x8.h-chan.me/mostfavorites",
 	"folder": "hentaichan",
 	"name": "hentaichan",
 	"language": "ru",
@@ -48,7 +49,7 @@
 
 	"authorization_complete": {
 		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/hentaichan.png",
-		"registration": "https://x1.h-chan.me/index.php?do=register",
+		"registration": "https://x8.h-chan.me/index.php?do=register",
 		"expires": 		31449600000,
 	
 		"values": {
@@ -59,7 +60,7 @@
 		},
 		"request": {
 			"method": 	"post",
-			"url": 		"https://x1.h-chan.me/index.php"
+			"url": 		"https://x8.h-chan.me/index.php"
     	},
     	"response_check": {
     	  	"cookies": { "dle_user_id": "@\\d+" },
@@ -69,7 +70,7 @@
     
 	
 	"manga_search_complete": {		
-		"search_link": "https://x1.h-chan.me/?do=search&subaction=search&story=$query$&search_start=$page$",
+		"search_link": "https://x8.h-chan.me/?do=search&subaction=search&story=$query$&search_start=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"content_row\"",
@@ -91,7 +92,7 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": 	"https://x1.h-chan.me/manga/new&n=favdesc?offset=",
+			"base_url": 	"https://x8.h-chan.me/manga/new&n=favdesc?offset=",
 			"append_nums": 	{ "from": 0, "to": 24900, "step": 20 }
 		},
 		"add_manga": {
@@ -117,7 +118,7 @@
 		  "headers": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		    "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		    "referer": "https://x1.h-chan.me/"
+		    "referer": "https://x8.h-chan.me/"
 	    },
 		
 		"title": {"skip": "class=\"title_top_a\"", "token1":"\">", "token2": "</"},
@@ -171,7 +172,7 @@
 		    "headers": {
 			  "accept": "text/html,application/xhtml+xml,application/xml;q=d0.9,image/webp,image/apng,*/*;q=d0.8,application/signed-exchange;v=db3;q=d0.9",
 		      "accept-language": "ru-RU,ru;q=d0.9,en-US;q=d0.8,en;q=d0.7",
-		      "referer": "https://x1.h-chan.me/"
+		      "referer": "https://x8.h-chan.me/"
 	      },
 		
 			
@@ -232,7 +233,7 @@
             "skip": "id=\"right\">",
             "token1": "href=\"/related", 
 			"token2": "?", 
-			"replace" : {"prefix": "https://x1.h-chan.me/related" },
+			"replace" : {"prefix": "https://x8.h-chan.me/related" },
 			
             "next": {
                 "before": ">Вперед</a>",
@@ -281,7 +282,7 @@
 			"assert" : {
 				"mangas" : [
 					{ "title" : "Pandemonium", 
-					   "link" : "https://x1.h-chan.me/manga/17531-pandemonium-chast-1.html",
+					   "link" : "https://x8.h-chan.me/manga/17531-pandemonium-chast-1.html",
 					   "uniq" : "Pandemonium" }
 				],
 				"mangas_count" : ">=3"
@@ -289,7 +290,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://x1.h-chan.me/manga/23093-moya-gruppovaya-akademiya.html",
+			"link" : "https://x8.h-chan.me/manga/23093-moya-gruppovaya-akademiya.html",
 			"title" : "МОЯ ГРУППОВАЯ АКАДЕМИЯ (MY GANGBANG ACADEMIA)",
 			"assert" : {
 				"author" : "St.Germain-Sal",
@@ -309,7 +310,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://x1.h-chan.me/manga/9179-kyoushi-to-seito-to-glava-1.html",
+			"link" : "https://x8.h-chan.me/manga/9179-kyoushi-to-seito-to-glava-1.html",
 			"title" : "Kyoushi to Seito to - глава 1",
 			"assert" : {
 				"author" : "@Fuuga",
@@ -330,7 +331,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://x1.h-chan.me/manga/23009-ayanami-rey-chast-4.html",
+			"link" : "https://x8.h-chan.me/manga/23009-ayanami-rey-chast-4.html",
 			"title" : "Аянами Рей",
 			"assert" : {
 				"author" : "Nakayohi Mogudan",
