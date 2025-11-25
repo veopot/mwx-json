@@ -1,9 +1,9 @@
 {   
     "id": 30422,
-	"version": 25,
+	"version": 26,
 	"old_ids": [50003],
     
-	"title": "Funmanga",
+	"title": "Funmanga (Dead)",
 	"host": "https://www.funmanga.com/",
 	"public_link": "https://www.funmanga.com/popular-manga/",
 	"name": "funmanga",

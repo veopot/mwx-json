@@ -2,12 +2,13 @@
     
     "id": 30466,
 	"old_ids": [41258],
-	"old_sites": ["komikstation.com"],
-	"version": 26,
+	"old_sites": ["komikstation.com", " komikstation.co"],
+	"version": 27,
 	
-	"title": "KomikStation",
-	"host": "https://komikstation.co/",
-	"public_link": "https://komikstation.co/manga",
+	
+	"title": "Komik Station",
+	"host": "https://komikstation.org/",
+	"public_link": "https://komikstation.org/manga",
 	"folder": "komikstation",
 	"name": "komikstation",
 	"language": "id",
@@ -19,16 +20,16 @@
     "file_type": "sqlite",
 	
 	 "manga_search_complete": {
-	    "headers": {"Referer": "https://komikstation.co/"},
-		"search_link": "https://komikstation.co/page/$page$/?s=$query$",
+	    "headers": {"Referer": "https://komikstation.org/"},
+		"search_link": "https://komikstation.org/page/$page$/?s=$query$",
 		"query_type": "GET",
 		
 		"add_manga":  {
 		    "next": "<div class=\"bsx\">",
 			"link":  { "token1": "href=\"", "token2": "\"" },
 			"title": { "token1": "title=\"", "token2": "\"" },
-			"uniq": { "token1": "href=\"https://komikstation.co/manga/", "token2": "\"" },
-			"cover":  { "skip": "<img", "token1": "src=", "token2": "/>"},
+			"uniq": { "token1": "href=\"https://komikstation.org/manga/", "token2": "\"" },
+			"cover":  { "skip": "<img", "token1": "src=\"", "token2": "\""},
             "summary":{ "token1":"<div class=\"tt\">", "token2": "</div>"}
 		}
 	},
@@ -36,59 +37,58 @@
 	
 	"manga_list_complete": {
 		"iterator": {
-            "base_url": "https://komikstation.co/manga/?page=",
-            "append_nums": { "from": 1, "to": 164, "step": 1, "sufix": "&title=&author=&yearx=&status=&order=popular&type=" }
+            "base_url": "https://komikstation.org/manga/?page=",
+            "append_nums": { "from": 1, "to": 284, "step": 1, "sufix": "&title=&author=&yearx=&status=&order=popular&type=" }
         },
 		"add_manga": { 
 			"next": "<div class=\"bsx\">",
 			"link":  { "token1": "href=\"", "token2": "\"" },
 			"title": { "token1": "title=\"", "token2": "\"" },
-			"uniq": { "token1": "href=\"https://komikstation.co/manga/", "token2": "\"" }
+			"uniq": { "token1": "href=\"https://komikstation.org/manga/", "token2": "\"" }
 		}
 	},
 	"manga_complete": {
 	
-		"title":  { "token1": "<h1 itemprop=\"headline\">", "token2": "</h1>",
+		"title":  { "token1": "<h1 class=\"entry-title\" itemprop=\"name\">", "token2": "</h1>",
 				    "replace": [
 				    {"match":"<.*?>","text":""},
                     { "match": "Bahasa Indonesia", "text": ""}
 				]
 		},
 		
-		"additional_title": { "token1": "<span class=\"alter\">", "token2": "</" },
+		"additional_title": { "after": "Judul Alternatif</b>",  "token1": "<span>", "token2": "</" },
 		
 		"uniq":        {"after": "rel=\"canonical\"",  "token1": "/manga/", "token2": "\"" },
 		
-		"author":      { "skip": ">Author", "token1": ">", "token2": "</" },
+		"author":      { "after": "Penulis</b>",  "token1": "<span>", "token2": "</" },
 		
 		"cover":       { "skip": "property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
 		
-		"status": { 
-		  	"complete": { "start": ">Status:",
-			              "end": "</span>",
-						  "value": "Completed" },
-						  
-            "ongoing": {  "start": ">Status:",
-			              "end": "</span>",
-			              "value": "Ongoing" }
-            },
+		"is_mature": {
+			"start": "class=\"item\">Тэги",
+			"end": ">Переводчики",
+			"values": ["Peringatan Konten</div>", "rel=\"tag\">Seinen</a>", "rel=\"tag\">Mature</a>"]
+		},
 		
-		"summary":      { "after": "<span class=\"desc\"", "token1": "\">", "token2": "</",
+		
+		"status":      { "complete": "<i>Completed</i>", "ongoing": "<i>Ongoing</i>" },
+		
+		"summary":      { "after": "itemprop=\"description", "token1": "\">", "token2": "</",
         "replace":{"match":"<.*?>","text":""}},
 		
 		"add_genres":   {
-        "start": "<b>Genres:</b>",
-		"end": "</span>",
+        "start": "Genre</b><span class=\"mgen\">",
+		"end": "<strong>Keywords",
 		"token1": "rel=\"tag\">",
 		"token2": "</" 
 		},
 		
 		"add_chapter": {
-			"start": "<h3><i class=\"fas fa-book-open\">",
-			"next":  "<span class=\"lchx\">", 
+			"start": "<div id=\"ts-chapter-history\"",
+			"next":  "<div class=\"eph-num\">", 
 			"link":  { "token1": "<a href=\"", "token2": "\"" }, 
 			"title": { "skip": "<a href=\"", "token1": ">", "token2": "</" },
-			"end":   "<i class=\"fas fa-comments\">"
+			"end":   "<script>var chapterSearchNotFound"
 		}
 	},
 	
@@ -96,7 +96,7 @@
 		"images": true,
 		"add_pages": { 
 			"start": "id=\"readerarea", 
-			"token1": "<img src=\"", 
+			"token1": "src=\"", 
 			"token2": "\"",
 			"end": "</article>"
 		}
@@ -108,10 +108,11 @@
 			"testpages": 2,
 			"assert" : {
 				"mangas" : [
-					{ 
-					"title" : "I Am Daxianzun", 
-					"link" : "https://komikstation.co/manga/i-am-daxianzun/",
-					"uniq" : "i-am-daxianzun/" }
+		{  
+		"uniq": "tales-of-demons-and-gods_",
+        "link": "https://komikstation.org/manga/tales-of-demons-and-gods/",
+        "title": "Tales of Demons and Gods"
+        }
 				],
 				"mangas_count" : ">20"
 			}
@@ -119,39 +120,40 @@
 		{
 			"proc" : "manga_complete",
 			"title" : "Peerless Soul", 
-			"link" : "https://komikstation.co/manga/peerless-soul/",
+			"link" : "https://komikstation.org/manga/peerless-soul/",
 			"assert" : {
-				"author" : "天苍子动漫",
-				"cover" : "https://i0.wp.com/www.komikstation.com/wp-content/uploads/2019/11/Peerless-Soul.jpg",
+				"author" : "Supreme Villain",
+				"cover" : "https://komikstation.org/wp-content/uploads/2019/11/Peerless-Soul.jpg",
 				"summary" : "@^(Di daratan Canglan)",
 				"genres" : "@action",
 				"status" : "ongoing",
-				"genres_count" : ">=3",
-				"chapters_count" : ">=290",
+				"genres_count" : ">=6",
+				"chapters_count" : ">=680",
 				"chapters" : [
 		{
-            "folder": "peerless-soul-chapter-293/",
-            "link": "https://komikstation.co/peerless-soul-chapter-293/",
-            "title": "Chapter 293"
+            "folder": "peerless-soul-chapter-0\\",
+            "link": "https://komikstation.org/peerless-soul-chapter-0/",
+            "title": "Chapter 0"
         },
         {
-            "link": "https://komikstation.co/peerless-soul-chapter-292/",
-            "title": "Chapter 292"
-        }
+            "link": "https://komikstation.org/peerless-soul-chapter-1/",
+            "title": "Chapter 1"
+        },
 				]
 			}
 		},
 
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://komikstation.co/peerless-soul-chapter-292/", 
+			"link" : "https://komikstation.org/peerless-soul-chapter-1/", 
 			"assert" : {
 				"pages" : [
- {"image": "https://klikcdn.com/data2/9f58da765b77f02244ebde8dcbb674c4/292/1_dbb872c715bd56bb5c4c3b52e3120a08.jpg"},
- {"image": "https://klikcdn.com/data2/9f58da765b77f02244ebde8dcbb674c4/292/2_c7289117e043abe21c8e684f0fad0e00.jpg"},
- {"image": "https://klikcdn.com/data2/9f58da765b77f02244ebde8dcbb674c4/292/3_6d61584b644a7283dbe00e84ec3c092b.jpg"}
+ {"image": "https://img.klikcdn.com/data-manga/9f58da765b77f02244ebde8dcbb674c4/1/1_521d75b099b17cc7447c961956fbe708.jpg"},
+        {"image": "https://img.klikcdn.com/data-manga/9f58da765b77f02244ebde8dcbb674c4/1/2_7bf61b930cdd037d0a3682068603f855.jpg"},
+        {"image": "https://img.klikcdn.com/data-manga/9f58da765b77f02244ebde8dcbb674c4/1/3_61b9afb817e5aac6f159471e50b44163.jpg"},
+        {"image": "https://img.klikcdn.com/data-manga/9f58da765b77f02244ebde8dcbb674c4/1/4_a8ec5e92cab2aafeb21af9cf171a1958.jpg"}
 				],
-				"pages_count": "44"
+				"pages_count": "36"
 			}
 		}
 	]
