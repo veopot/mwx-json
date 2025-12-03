@@ -1,6 +1,5 @@
 {
     "id": 30469,
-    "version": 15,
     "old_sites": [
         "www.manga-raw.club",
         "www.mcreader.net",
@@ -104,9 +103,9 @@
     },
     "manga_complete": {
         "headers": {
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            "referer": "https://www.mgeko.cc/"
+		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+		"referer": "https://www.mgeko.cc/"
         },
         "title": {
             "skip": "<figure class=\"cover\">",
@@ -165,6 +164,10 @@
             "token1": "\">",
             "token2": "</"
         },
+		
+		
+		
+		
         "add_chapter": {
             "headers": {
                 "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -172,7 +175,7 @@
                 "referer": "https://www.mgeko.cc/"
             },
             "start": "class=\"chapter-list\"",
-            "end": "</main>",
+            "end": "<footer translate",
             "next": "<li data-chapterno",
             "link": {
                 "token1": "href=\"",
@@ -180,8 +183,8 @@
             },
             "title": {
                 "skip": "href=\"",
-                "token1": "column;\">",
-                "token2": "<span",
+                "token1": "class=\"chapter-title\">",
+                "token2": "</",
                 "replace": [
                     {
                         "match": "-",
@@ -193,9 +196,9 @@
                 ]
             },
             "uniq": {
-                "skip": "href=\"",
-                "token1": "column;\">",
-                "token2": "<span"
+               "skip": "href=\"",
+               "token1": "class=\"chapter-title\">",
+                "token2": "</"
             }
         }
     },
