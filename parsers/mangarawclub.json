@@ -1,6 +1,6 @@
 {
     "id": 30469,
-    "version": 16,
+    "version": 17,
     "old_sites": [
         "www.manga-raw.club",
         "www.mcreader.net",
@@ -166,7 +166,11 @@
             "token2": "</"
         },
 		
-		
+		"chapters_from_page": {
+			"before": "All Chapters</",
+			"token1": "href=\"",
+            "token2": "\""
+        },
 		
 		
         "add_chapter": {
