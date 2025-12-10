@@ -1,6 +1,6 @@
 {
     "id": 30469,
-    "version": 17,
+    "version": 18,
     "old_sites": [
         "www.manga-raw.club",
         "www.mcreader.net",
@@ -54,8 +54,8 @@
                 }
             },
             "cover": {
-                "token1": "data-src=\"",
-                "token2": "\"",
+                "token1": "data-src='",
+                "token2": "'",
                 "replace": {
                     "prefix": "https://www.mgeko.cc"
                 }
@@ -64,37 +64,47 @@
     },
     "manga_list_complete": {
         "headers": {
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+            "accept": "*/*",
             "referer": "https://www.mgeko.cc/"
         },
         "iterator": {
-            "base_url": "https://www.mgeko.cc/browse-comics/?genre_included=&genre_excluded=&tags_include=&tags_exclude=&minchaps=0&filter=Ratings&results=",
+            "base_url": "https://www.mgeko.cc/browse-comics/data/?filter=Ratings&results=1&page=",
             "append_nums": {
                 "from": 0,
-                "to": 249,
-                "step": 1,
-                "sufix": "&filter=views"
+                "to": 268,
+                "step": 1
             }
         },
         "add_manga": {
-            "start": "<header id=\"Result\">",
-            "end": "</main>",
-            "next": "class=\"novel-item\">",
+            "start": "results_html",
+            "end": "pagination_html",
+            "next": "comic-card__title",
+			
             "link": {
-                "token1": "href=\"",
-                "token2": "\"",
-                "replace": {
-                    "prefix": "https://www.mgeko.cc"
-                }
-            },
+                "token1": "href=\\\"",
+                "token2": "\\\"",
+				"replace": [
+				    { "match": "\\\\", "text": "" },
+					{"prefix": "https://www.mgeko.cc"}
+				]
+			},
+			
             "title": {
-                "token1": "title=\"",
-                "token2": "\""
-            },
+                "skip": "href=\\\"",
+				"token1": "\\\">",
+				"token2": "</",
+				"replace": [
+				    { "clear_escape": true },
+					{ "clear_html": true },
+					{ "match": "\\\\", "text": "" }
+				]
+			},
             "uniq": {
-                "token1": "href=\"/manga/",
-                "token2": "/\""
+                "token1": "href=\\\"/manga/",
+                "token2": "\\\"",
+			        "replace" : { "match" : "\\\\",  "text" : "" }
+				
+				
             }
         },
         "rating_auto_inc": {
@@ -106,8 +116,10 @@
         "headers": {
 		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+		 "connection": "keep-alive",
 		"referer": "https://www.mgeko.cc/"
         },
+		
         "title": {
             "skip": "<figure class=\"cover\">",
             "token1": "alt=\"",
@@ -169,7 +181,8 @@
 		"chapters_from_page": {
 			"before": "All Chapters</",
 			"token1": "href=\"",
-            "token2": "\""
+            "token2": "\"",
+			"replace": { "prefix": "https://www.mgeko.cc" }
         },
 		
 		
@@ -211,6 +224,7 @@
         "headers": {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			 "connection": "keep-alive",
             "referer": "https://www.mgeko.cc/"
         },
         "add_images": {
