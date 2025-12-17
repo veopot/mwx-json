@@ -1,0 +1,286 @@
+{
+    "id": 47954,
+    "version": 1,
+    "title": "WaManga",
+    "host": "https://wamanga.ru",
+    "public_link": "https://wamanga.ru/manga",
+    "folder": "wamanga",
+    "name": "wamanga",
+    "chapters_order": true,
+    "language": "ru",
+    "encoding": "utf-8",
+
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/wamanga.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/wamanga.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/wamanga.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/wamanga.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "Veopot",
+        "email": "fant-net@ya.ru"
+    },
+    
+    
+	
+	
+    "manga_list_complete": {
+        "headers": {
+			"Referer": "https://wamanga.ru/",
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+        "iterator": {
+            "base_url": "https://wamanga.ru/api/v1/manga/search?isDescending=false&limit=30&startYear=1900&endYear=2030&offset=",
+            "append_nums": {
+               "from": 0, "to": 1000, "step": 30
+            }
+        },
+        "add_manga": {
+            "next": "\"_id\":",
+            "link": {
+                "token1": "\"alternativeName\":\"",
+                "token2": "author\"",
+            "replace": [
+                {
+                    "match": "(.*)\",\"altEnglishName\":(.*)\"altName\":(.*?)\"rating\":(.*?)\"imagePath\":\"(.*?)\"bannerPath\":\"(.*?)\"type\":\"(.*?)\",\"",
+                    "text": "$7/$1"
+                },
+                {
+                    "match": "Манга",
+                    "text": "manga"
+                },
+                {
+                    "match": "Манхва",
+                    "text": "manhwa"
+                },
+				{
+                    "match": "Маньхуа",
+                    "text": "manhua"
+                },
+                {
+                    "match": "\"",
+                    "text": "'"
+                },
+                { "prefix": "https://wamanga.ru/" }
+            ]
+
+				
+                
+            },
+            "title": {
+                "token1": "\"name\":\"",
+                "token2": "\""
+            },
+
+
+            
+            "uniq": {
+                "token1": "\"alternativeName\":\"",
+                "token2": "\""
+            }
+        },
+	    
+        "rating_auto_inc": {
+            "start": "60000",
+            "inc": -1
+        }
+    },
+    "manga_complete": {
+		
+        "headers": {
+			 "Referer": "https://wamanga.ru/",
+            "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
+			},
+        
+        "title": {
+			"after": "<h1",
+            "token1": "\">",
+            "token2": "</",
+            "replace": [
+                {
+                    "match": "\"",
+                    "text": "'"
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+        
+        "uniq": {
+			"after": "property=\"canonical\"",
+            "token1": "content=\"https://wamanga.ru",
+            "token2": "/\"",
+                "replace": {
+                    "match": "/",
+                    "text": "_"
+                }
+        },
+		
+		"author": { "skip": ">Автор оригинала</", "token1":"class=\"css-1xjlvl1 e1i5jusa12\">", "token2": "</" },
+		
+		"cover": {
+           "after": "property=\"og:image\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+        "summary": {
+            "token1": "<div class=\"css-pelv9g e1i5jusa2\">",
+            "token2": "</div>",
+            "replace": [
+			    { "clear_escape": true },
+				{ "clear_html": true },
+                {
+                    "match": "u003Cp",
+                    "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+        "need_auth": "авторизироваться",
+         "status": {
+            "complete": "\"status\\\":\\\"Окончено\\\"",
+            "ongoing": "\"status\\\":\\\"Онгоинг\\\""
+        },
+        
+        
+        "add_tags": {
+            "start": ">Жанры</",
+            "end": ">Комментарии</",
+            "token1": "class=\"css-fxj2ib e1i5jusa9\">",
+            "token2": "</"
+        },
+        "is_mature": {
+            "values": ["Сэйнэн", "Эротика", "Юри", "Яой"]
+        },
+        "chapters_from_page": {
+            "token1": "\\\"mangaId\\\":\\\"",
+            "token2": "\\\",",
+            "replace": [
+			    { "clear_escape": true },
+				{ "clear_html": true },
+				{ "match": "\\\\", "text": "" },
+                {
+                    "prefix": "https://wamanga.ru/api/v1/manga/"
+                },
+                {
+                    "sufix": "/chapter/info?extended=true"
+                }
+            ]
+        },
+        "add_chapter": {
+			"headers": {
+			 "Referer": "https://wamanga.ru/"
+			},
+			
+            "start": "\"chapters\"",
+            "end": "]}",
+            "next": "{\"_",
+			
+            "link": {
+                "token1": "id\":\"",
+                "token2": "\"",
+                "replace": [
+                    {
+                        "prefix": "https://wamanga.ru/api/v1/chapters/"
+                    },
+                    {
+                        "sufix": "/"
+                    }
+                ]
+            },
+            "uniq": {
+                "token1": "\"slug\":\"",
+                "token2": "\""
+            },
+            "title": {
+                "token1": "\"title\":\"",
+                "token2":  "\","
+            }
+        }
+    },
+    "chapter_complete": {
+        "add_numeration": true,
+        "headers": {
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "accept": "*/*",
+            "Referer": "https://wamanga.ru/",
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+			},
+        "add_images": {
+            "start": "\"numberChapter\"",
+            "token1": "\"path\":\"",
+            "token2": "\"",
+            "end": "]"
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Another Emperor Reborn, Возрождение иного императора",
+                        "link": "https://wamanga.ru/api/titles/another-emperor-reborn",
+                        "uniq": "Another Emperor Reborn"
+                    }
+                ],
+                "mangas_count": ">=20"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://wamanga.ru/manhwa/malchik-chokbop",
+            "title": "Мальчик Чокбоп",
+            "assert": {
+                "cover": "https://cdn.worldom.ru/static/75d45991-c664-4716-9266-7277b203248b.avif",
+                "genres": "@action",
+                "status": "ongoing",
+                "genres_count": ">=4",
+                "chapters_count": ">=130",
+                "chapters": [
+        {
+            "folder": "glava-69\\",
+            "link": "https://wamanga.ru/api/v1/chapters/6843d3874b186d1154b49a27/",
+            "title": "Глава 69"
+        },
+        {
+            "link": "https://wamanga.ru/api/v1/chapters/6843d3874b186d1154b49a19/",
+            "title": "Глава 67"
+        }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://wamanga.ru/api/v1/chapters/6843d3874b186d1154b49a19/",
+            "assert": {
+                "pages": [
+        {"image": "https://cdn.worldom.ru/static/chogbeobsonyeon/chapter-67/001.webp"},
+        {"image": "https://cdn.worldom.ru/static/chogbeobsonyeon/chapter-67/002.webp"},
+        {"image": "https://cdn.worldom.ru/static/chogbeobsonyeon/chapter-67/003.webp"},
+        {"image": "https://cdn.worldom.ru/static/chogbeobsonyeon/chapter-67/004.webp"}
+                ]
+            }
+        }
+    ]
+}
