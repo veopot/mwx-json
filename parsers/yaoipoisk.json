@@ -1,6 +1,6 @@
 {
     "id": 5512,
-    "version": 16,
+    "version": 17,
     "old_sites": [
         "m3.yaoipoisk.ru",
         "m5.yaoipoisk.ru",
@@ -11,12 +11,13 @@
 		"m5.yaoipoisk.net",
 		"m6.yaoipoisk.net",
 		"m1.yaoi-poisk.ru",
+		"m2.mangapoisk.io",
         "yaoipoisk.net"
     ],
 	
     "title": "YaoiPoisk",
-    "host": "https://m2.mangapoisk.io",
-    "public_link": "https://m2.mangapoisk.io/manga-list",
+    "host": "https://m.mangap.ru",
+    "public_link": "https://m.mangap.ru/manga-list",
     "folder": "yaoipoisk",
     "name": "yaoipoisk",
     "language": "ru",
@@ -34,10 +35,10 @@
     },
     "manga_list_complete": {
         "iterator": {
-            "base_url": "https://m2.mangapoisk.io/manga?page=",
+            "base_url": "https://m.mangap.ru/manga?page=",
             "append_nums": {
                 "from": 0,
-                "to": 151,
+                "to": 165,
                 "step": 1
             }
         },
@@ -52,7 +53,7 @@
                 "token1": "href=\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://m2.mangapoisk.io"
+                    "prefix": "https://m.mangap.ru"
                 }
             },
             "cover": {
@@ -70,7 +71,7 @@
         }
     },
     "manga_search_complete": {
-        "search_link": "https://m2.mangapoisk.io/search?q=$query$&page=$page$",
+        "search_link": "https://m.mangap.ru/search?q=$query$&page=$page$",
         "query_type": "GET",
         "add_manga": {
             "next": "<article class=\"flex-item",
@@ -105,7 +106,7 @@
     "manga_complete": {
         "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-            "Referer": "https://m2.mangapoisk.io"
+            "Referer": "https://m.mangap.ru"
         },
         "title": {
             "skip": "<header class=\"card-header p-0\"><h1",
@@ -131,14 +132,14 @@
             ]
         },
         "uniq": {
-            "token1": "\"url\":\"https:\/\/m2.mangapoisk.io\/manga\/",
+            "token1": "\"url\":\"https:\/\/m.mangap.ru\/manga\/",
             "token2": "\","
         },
         "cover": {
-            "token1": "src=\"https://static2.mangapoisk.live/posters/",
+            "token1": "src=\"https://static2.mangapoisk.io/posters/",
             "token2": "\"",
             "replace": {
-                "prefix": "https://static2.mangapoisk.live/posters/"
+                "prefix": "https://static2.mangapoisk.io/posters/"
             }
         },
         "rating": {
@@ -189,7 +190,7 @@
             "token1": "&quot;url&quot;:&quot;/manga/",
             "token2": "&quot",
             "replace": [
-                {  "prefix": "https://m2.mangapoisk.io/manga/" },
+                {  "prefix": "https://m.mangap.ru/manga/" },
                 {  "sufix": "/chaptersList" },
                 {  "match": "\\\\",  "text": "" }
                     ],
@@ -202,7 +203,7 @@
                 "token2": "\"",
                 "replace": [
                     {
-                        "prefix": "https://m2.mangapoisk.io"
+                        "prefix": "https://m.mangap.ru"
                     },
                     {
                         "match": "&amp;",
@@ -219,7 +220,7 @@
                 "token1": "href=\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://m2.mangapoisk.io"
+                    "prefix": "https://m.mangap.ru"
                 }
             },
             "uniq": {
@@ -242,7 +243,7 @@
         "add_numeration": true,
         "headers": {
             "Accept": "*/*",
-            "Referer": "https://m2.mangapoisk.io/"
+            "Referer": "https://m.mangap.ru/"
         },
         "images": true,
         "add_pages": {
@@ -273,7 +274,7 @@
                 "mangas": [
                     {
                         "title": "Ванпанчмен",
-                        "link": "https://m2.mangapoisk.io/manga/vanpanchmen",
+                        "link": "https://m.mangap.ru/manga/vanpanchmen",
                         "uniq": "vanpanchmen"
                     }
                 ],
@@ -282,7 +283,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://m2.mangapoisk.io/manga/slyshno-dazhe-bez-mikrofona-abs36Ac",
+            "link": "https://m.mangap.ru/manga/slyshno-dazhe-bez-mikrofona-abs36Ac",
             "title": "Слышно даже без микрофона",
             "assert": {
                 "cover": "@https://static2.mangapoisk.live/posters/102/rFwK7CbKgdXaTYVOgy44OJ5yEF9HaL559M3kTiE3_mini.jpg",
@@ -293,12 +294,12 @@
                 "chapters_count": ">=130",
                 "chapters": [
                     {
-                        "link": "https://m2.mangapoisk.io/manga/solo-leveling-abs3R5B/chapter/2-130",
+                        "link": "https://m.mangap.ru/manga/solo-leveling-abs3R5B/chapter/2-130",
                         "title": "Том 2 Глава 130"
                     },
                     {
                         "folder": "2-131/",
-                        "link": "https://m2.mangapoisk.io/manga/solo-leveling-abs3R5B/chapter/2-131",
+                        "link": "https://m.mangap.ru/manga/solo-leveling-abs3R5B/chapter/2-131",
                         "title": "Том 2 Глава 131"
                     }
                 ]
@@ -306,7 +307,7 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://m2.mangapoisk.io/manga/slyshno-dazhe-bez-mikrofona-abs36Ac/chapter/1-1",
+            "link": "https://m.mangap.ru/manga/slyshno-dazhe-bez-mikrofona-abs36Ac/chapter/1-1",
             "assert": {
                 "pages": [
                     {

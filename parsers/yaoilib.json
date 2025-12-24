@@ -1,6 +1,6 @@
 {
     "id": 1468,
-    "version": 29,
+    "version": 30,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me"
@@ -423,7 +423,7 @@
             "end": "]}}",
             "replace": [
                 {
-                    "prefix": "https://img33.imgslib.link"
+                    "prefix": "https://img3.hentaicdn.org/"
                 },
                 {
                     "match": "\\\\",
