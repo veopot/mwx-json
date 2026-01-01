@@ -1,6 +1,6 @@
-{
+ {
    "id":40228,
-   "version":29,
+   "version":30,
    
    "old_sites": [
    "mangapoisk.ru",
@@ -8,14 +8,14 @@
    "mangapoisk.org",
    "mangapoisk.me", 
    "mangapoisk.net",
-   "mangapoisk.live" 
+   "mangapoisk.live",
+   "mangapoisk.io"
    ],
    
    
-   
    "title":"MangaPoisk",
-   "host":"https://mangapoisk.io",
-   "public_link":"https://mangapoisk.io/manga-list",
+   "host":"https://mangap.ru",
+   "public_link":"https://mangap.ru/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
    "language":"ru",
@@ -35,10 +35,10 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangapoisk.io/manga?page=",
+         "base_url":"https://mangap.ru/manga?page=",
          "append_nums":{
             "from":0,
-            "to":296,
+            "to":324,
             "step":1
          }
       },
@@ -53,7 +53,7 @@
          "link":{
             "token1":"href=\"",
             "token2":"\"",
-			"replace": { "prefix": "https://mangapoisk.io"}
+			"replace": { "prefix": "https://mangap.ru"}
          },
          "cover":{
 		    "before":"href=\"",
@@ -69,7 +69,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://mangapoisk.io/search?q=$query$&page=$page$",
+        "search_link":"https://mangap.ru/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -91,9 +91,9 @@
 				
          "cover":{
 			"skip":"href=\"",
-		    "token1":"https://static2.mangapoisk.io/posters/",
+		    "token1":"https://static2.mangap.ru/posters/",
             "token2":"\"",
-			"replace": { "prefix": "https://static2.mangapoisk.io/posters/"}
+			"replace": { "prefix": "https://static2.mangap.ru/posters/"}
          }
       }
 		},	
@@ -103,7 +103,7 @@
    "manga_complete": { 
 	   "headers": {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangapoisk.io"
+			"Referer": "https://mangap.ru/"
 		},
       "title":{
          "skip":"<header class=\"card-header p-0\"><h1", 
@@ -119,7 +119,7 @@
 				]},
       
       "uniq":{
-         "token1":"\"url\":\"https:\/\/mangapoisk.io\/manga\/",
+         "token1":"\"url\":\"https:\/\/mangap.ru\/manga\/",
          "token2":"\","
       },
 	  
@@ -181,7 +181,7 @@
 		"token1": "&quot;url&quot;:&quot;/manga/",
 		"token2": "&quot", 
 		"replace": [
-		        { "prefix" : "https://mangapoisk.io/manga/" },
+		        { "prefix" : "https://mangap.ru/manga/" },
 		        { "sufix" : "/chaptersList" },
 				{ "match": "\\\\", "text": "" }
 				],
@@ -192,7 +192,7 @@
 				"token2": "\"",
 				
 				"replace": [
-				    {"prefix": "https://mangapoisk.io" },
+				    {"prefix": "https://mangap.ru" },
 					{ "match": "&amp;", "text": "&" }
 				]
 				
@@ -217,7 +217,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangapoisk.io"}
+			"replace": {"prefix" : "https://mangap.ru"}
          },
 		 
 		"uniq":{
@@ -240,8 +240,9 @@
    "chapter_complete":{
     "add_numeration": true,
         "headers": {
-			"Accept": "*/*",
-			"Referer": "https://mangapoisk.io/"
+			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"Referer": "https://mangap.ru/"
 		},
      
       "images":true,
@@ -277,7 +278,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://mangapoisk.io/manga/vanpanchmen",
+                  "link":"https://mangap.ru/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -286,12 +287,12 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangapoisk.io/manga/the-solo-leveling-ragnarok",
+         "link":"https://mangap.ru/manga/the-solo-leveling-ragnarok-abs3boq",
 		         
          "title":"Поднятие уровня в одиночку: Рагнарёк | The Solo Leveling: Ragnarok",
          "assert":{
           
-            "cover":"@https://static2.mangapoisk.io/posters/16679/uiThTu1wKIhyRhOzIKg2gwkQLzSzjJMOZrFfQZ5c_mini.jpg",
+            "cover":"@https://static2.mangap.ru/posters/16679/uiThTu1wKIhyRhOzIKg2gwkQLzSzjJMOZrFfQZ5c_mini.jpg",
 		    "summary":"@^(История о жизни одинокого героя)",
             "tags":"@фэнтези",
             "status":"ongoing",
@@ -300,11 +301,11 @@
             "chapters":[
        {
             "folder": "1-1\\",
-            "link": "https://mangapoisk.io/manga/the-solo-leveling-ragnarok/chapter/1-1",
+            "link": "https://mangap.ru/manga/the-solo-leveling-ragnarok/chapter/1-1",
             "title": "Том 1 Глава 1"
         },
         {
-             "link": "https://mangapoisk.io/manga/the-solo-leveling-ragnarok/chapter/1-2",
+             "link": "https://mangap.ru/manga/the-solo-leveling-ragnarok/chapter/1-2",
             "title": "Том 1 Глава 2"
         }
             ]
@@ -312,12 +313,12 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangapoisk.io/manga/the-solo-leveling-ragnarok/chapter/1-1",
+         "link": "https://mangap.ru/manga/the-solo-leveling-ragnarok/chapter/1-1",
          "assert":{
             "pages":[
-        {"image": "https://static2.mangapoisk.io/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.mangapoisk.io/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.mangapoisk.io/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.mangap.ru/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangap.ru/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangap.ru/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
             "pages_count":"128"
          }
