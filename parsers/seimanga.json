@@ -1,6 +1,6 @@
 {
 	"id": 3075,
-	"version": 5, 
+	"version": 6, 
     
 	"old_sites": ["seimanga.me"],
 	
@@ -31,7 +31,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -79,7 +79,7 @@
 	"manga_complete": [
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -147,7 +147,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -179,7 +179,7 @@
 	},
 	{ "condition": ">Сценарист:<",
 	"headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -247,7 +247,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -276,7 +276,7 @@
 	},
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -340,7 +340,7 @@
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -372,7 +372,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=c1paS0l6dTJxV1pMcTZLV2tjUUJ6QWNnZjBWazhvRGVxT1AzTHI5eVpNQSUzRDpDM2pyRiUyQkFRVE1JeU9kSjhpVGJiWXB4dmwyQktUek1SdHpmMzdVdiUyQjlVUSUzRA",
+		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://1.seimanga.me/",
