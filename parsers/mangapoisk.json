@@ -1,6 +1,6 @@
- {
-   "id":40228,
-   "version":30,
+{
+ "id":40228,
+   "version":31,
    
    "old_sites": [
    "mangapoisk.ru",
@@ -14,7 +14,7 @@
    
    
    "title":"MangaPoisk",
-   "host":"https://mangap.ru",
+   "host":"https://mangap.ru/",
    "public_link":"https://mangap.ru/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
@@ -24,7 +24,7 @@
    
    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/mangapoisk.png",
 	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/mangapoisk.json",
-	"self_link2": "https://fant.my1.com/mwparser/mwx/json/mangapoisk.json",
+	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/mangapoisk.json",
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/mangapoisk.zip",
     "file_type": "sqlite",
 	
