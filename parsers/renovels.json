@@ -1,6 +1,6 @@
 {
     "id": 20469,
-    "version": 2,
+    "version": 3,
     "title": "Renovels",
     "host": "https://renovels.org",
     "public_link": "https://renovels.org/novel",
@@ -149,10 +149,10 @@
 			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 			},
         "iterator": {
-            "base_url": "https://api.renovels.org/api/v2/search/catalog/?count=30&ordering=-score&page=",
+            "base_url": "https://api.renovels.org/api/v2/search/catalog/?count=30&count_chapters_gte=1&ordering=-score&page=",
             "append_nums": {
                 "from": 1,
-                "to": 385
+                "to": 90
             }
         },
         "add_manga": {
