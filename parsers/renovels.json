@@ -1,0 +1,487 @@
+{
+    "id": 20469,
+    "version": 2,
+    "title": "Renovels",
+    "host": "https://renovels.org",
+    "public_link": "https://renovels.org/novel",
+    "folder": "renovels",
+    "name": "renovels",
+    "language": "ru",
+    "is_paid": true,
+    "encoding": "utf-8",
+    "skip_catalog_test": false,
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/renovels.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/renovels.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/renovels.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/renovels.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "MWX Team",
+        "email": "fant-net@ya.ru"
+    },
+    
+	"manga_search_complete": {
+       "headers": {
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            
+            "Referer": "https://renovels.org/",
+	 "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+        "search_link": "https://api.renovels.org/api/search/?count=10&page=$page$&query=$query$",
+        "query_type": "GET",
+        "add_manga": {
+            "start": "content\"",
+            "end": "props\"",
+            "next": "bookmark_type\"",
+            "link": {
+                "before": "bookmark_type\"",
+                "token1": "dir\":\"",
+                "token2": "\",",
+                "replace": [
+                    {
+                        "prefix": "https://api.renovels.org/api/titles/"
+                    },
+                    {
+                        "sufix": "/"
+                    }
+                ]
+            },
+            "cover": {
+                "skip": "bookmark_type\"",
+                "token1": "mid\":\"",
+                "token2": "\"",
+                "replace": {
+                    "prefix": "https://renovels.org"
+                }
+            },
+            "title": {
+                "before": "bookmark_type\"",
+                "token1": "main_name\":\"",
+                "token2": "\",\"translate_status",
+                "replace": {
+                    "match": "\",\"secondary_name\":\"",
+                    "text": " | "
+                }
+            },
+            "summary": {
+                "token1": "\"issue_",
+                "token2": "\"cover\"",
+                "replace": [
+                    {
+                        "match": "year\":",
+                        "text": "Год выпуска "
+                    },
+					{
+                        "match": "\",",
+                        "text": ","
+                    },
+                    {
+                        "match": "\"avg_rating\":\"",
+                        "text": " Рейтинг "
+                    },
+                    {
+                        "match": "\"is_yaoi\":",
+                        "text": "яой:"
+                    },
+					{
+                        "match": "\"is_erotic\":",
+                        "text": "эротика:"
+                    },
+					{
+                        "match": "false",
+                        "text": "нет"
+                    },
+					{
+                        "match": "true",
+                        "text": "да"
+                    },
+					{
+                        "match": "\"admin_rating\":\"(.*?)\",",
+                        "text": ""
+                    },
+					{
+                        "match": "\"total_votes\":(.*?),",
+                        "text": ""
+                    },
+					{
+                        "match": "\"total_views\":(.*?),",
+                        "text": ""
+                    },
+					{
+                        "match": "\"is_licensed\":",
+                        "text": "лицензия: "
+                    },
+					{
+                        "match": "\"cover\":{\"low\":\"(.*),\"mid\":\"(.*),\"high\":\"(.*)\"},",
+                        "text": ""
+                    },
+					{
+                        "match": "\"status\":{(.*?)},",
+                        "text": ""
+                    },
+					
+					{
+                        "match": "\"type\":(.*?),",
+                        "text": ""
+                    },
+					
+					
+					
+					
+                    {
+                        "match": "\"count_chapters\":",
+                        "text": " Доступно Глав "
+                    }
+                ]
+            },
+            "uniq": {
+                "before": "bookmark_type\"",
+                "token1": "en_name\":\"",
+                "token2": "\""
+            }
+        }
+    },
+    "manga_list_complete": {
+        "headers": {
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+           
+            "Referer": "https://renovels.org/",
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+        "iterator": {
+            "base_url": "https://api.renovels.org/api/v2/search/catalog/?count=30&ordering=-score&page=",
+            "append_nums": {
+                "from": 1,
+                "to": 385
+            }
+        },
+        "add_manga": {
+            "start": "results",
+            "end": "]}",
+            "next": "bookmark_type\"",
+            "link": {
+                "before": "bookmark_type\"",
+                "token1": "dir\":\"",
+                "token2": "\",",
+                "replace": [
+                    {
+                        "prefix": "https://api.renovels.org/api/titles/"
+                    },
+                    {
+                        "sufix": "/"
+                    }
+                ]
+            },
+           
+
+            "title": {
+                "before": "bookmark_type\"",
+                "token1": "\"main_name\":\"",
+                "token2": "\",\"type",
+                "replace": {
+                    "match": "\",\"secondary_name\":\"",
+                    "text": " | "
+                }
+            },
+
+        "uniq": {
+                "before": "bookmark_type\"",
+                "token1": "dir\":\"",
+                "token2": "\","
+            }
+        },
+	    "link_corrector": [
+            {
+                "match": "https://renovels.org/novel/(.*)/main",
+                "text": "https://api.renovels.org/api/titles/$1"
+            }
+        ],
+        "rating_auto_inc": {
+            "start": "40000",
+            "inc": -1
+        }
+    },
+	
+	
+    "manga_complete": {
+		
+        "headers": {
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            
+            "Referer": "https://renovels.org/",
+            "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
+			},
+			
+		"content_type": {
+			"default": "light_novels"
+		},
+        
+        "title": {
+            "token1": "secondary_name\":",
+            "token2": "\"dir\":\"",
+            "replace": [
+                {
+                    "match": "\"(.*?)\",\"(.*?)\":\"(.*?)\",",
+                    "text": "$3 | $1"
+                },
+                {
+                    "match": "\"another_name\":\"(.*?)\",",
+                    "text": ""
+                },
+                {
+                    "match": "\"",
+                    "text": "'"
+                },
+                {
+                    "match": "\\\\",
+                    "text": ""
+                }
+            ]
+        },
+        "additional_title": {
+            "token1": "secondary_name\":\"",
+            "token2": "\","
+        },
+        "uniq": {
+            "token1": "\"dir\":\"",
+            "token2": "\","
+        },
+        "cover": {
+            "token1": "high\":\"",
+            "token2": "\"",
+            "replace": [
+                {
+                    "prefix": "https://renovels.org/media/"
+                },
+                {
+                    "match": "u002F",
+                    "text": "/"
+                }
+            ]
+        },
+        "summary": {
+            "token1": "description\":\"",
+            "token2": "\",",
+            "replace": [
+                {
+                    "match": "u003Cp",
+                    "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "u003C",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "u002Fp",
+                    "text": ""
+                },
+				{ "clear_escape": true  },
+				{ "clear_html": true  },
+				
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+        "need_auth": "авторизироваться",
+        "status": {
+            "complete": {
+                "start": "\"status\"",
+                "end": "\"props",
+                "values": ["Закончен", "Переведена", "Сингл"]
+            },
+            "ongoing": {
+                "start": "\"status\"",
+                "end": "\"props",
+                "value": "Продолжается"
+            }
+        },
+        "chapters": {
+            "start": "content",
+            "end": "similarManga",
+            "token1": "total_chapters\":",
+            "token2": ","
+        },
+        "add_genres": {
+            "start": "genres\":",
+            "end": "],",
+            "token1": "name\":\"",
+            "token2": "\""
+        },
+        "add_tags": {
+            "start": "categories\":",
+            "end": "],",
+            "token1": "name\":\"",
+            "token2": "\""
+        },
+        "is_mature": {
+            "values": ["Сэйнэн", "Эротика", "Юри", "Яой"]
+        },
+        "chapters_from_page": {
+            "after": "branches\"",
+            "token1": "id\":",
+            "token2": ",",
+            "replace": [
+                {
+                    "prefix": "https://api.renovels.org/api/titles/chapters/?branch_id="
+                },
+                {
+                    "sufix": "&count=100&ordering=-index&user_data=0&page=%%iterator_num%%"
+                }
+            ],
+            "iterator": {
+                "base_url": "",
+                "append_nums": {
+                    "from": 1
+                }
+            }
+        },
+        "add_chapter": {
+			"headers": {
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+           
+            "Referer": "%%url%%",
+			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+			},
+			
+            "start": "content\"",
+            "end": "props",
+            "next": "\"is_paid\":false",
+			
+            "link": {
+                "before": "\"is_paid\":false",
+                "token1": "id\":",
+                "token2": ",",
+                "replace": [
+                    {
+                        "prefix": "https://api.renovels.org/api/v2/titles/chapters/"
+                    },
+                    {
+                        "sufix": "/"
+                    }
+                ]
+            },
+            "uniq": {
+                "before": "\"is_paid\":false",
+                "token1": ",\"to",
+                "token2": "\",\"name\"",
+                "replace": [
+                    {
+                        "match": "me\":",
+                        "text": "Том_"
+                    },
+                    {
+                        "match": ",\"chapter\":\"",
+                        "text": "_Глава_"
+                    }
+                ]
+            },
+            "title": {
+                "before": "\"is_paid\":false",
+                "token1": ",\"t",
+                "token2":  "\",\"is",                   
+                "replace": [
+                    {
+                        "match": "ome\":",
+                        "text": "Том "
+                    },
+					{
+                        "match": "\",\"name\":\"",
+                        "text": " "
+                    },
+                    {
+                        "match": ",\"chapter\":\"",
+                        "text": " Глава "
+                    }
+                ]
+            }
+        }
+    },
+    "chapter_complete": {
+        "add_numeration": true,
+        "headers": {
+			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "accept": "*/*",
+            "Referer": "https://renovels.org/",
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+			},
+        "add_images": {
+            "start": "{",
+            "token1": "\"id\":",
+            "token2": ",",
+            "end": "\"content",
+            "replace": [
+                {
+                    "prefix": "https://bypass.mwx.su/api/ranobe/download/?href=https://api.renovels.org/api/v2/titles/chapters/"
+                },
+                {
+                    "sufix": "/?=/ranobe.fb2"
+                }
+            ]
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Another Emperor Reborn, Возрождение иного императора",
+                        "link": "https://api.renovels.org/api/titles/another-emperor-reborn",
+                        "uniq": "Another Emperor Reborn"
+                    }
+                ],
+                "mangas_count": ">=20"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://api.renovels.org/api/titles/surviving-the-game-as-a-barbarian/",
+            "title": "Выживание в игре за Варвара | Surviving The Game as a Barbarian (Novel)",
+            "assert": {
+                "cover": "https://renovels.org/media/titles/surviving-the-game-as-a-barbarian/cover_9b1f43f9.webp",
+                "genres": "@action",
+                "status": "ongoing",
+                "genres_count": ">=4",
+                "chapters_count": ">=130",
+                "chapters": [
+        {
+           "folder": "Том_1_Глава_1\\",
+           "link": "https://renovels.org/api/v2/titles/chapters/1415124/",
+           "title": "Том 1 Глава 1 Пролог"
+        },
+        {
+            "link": "https://renovels.org/api/v2/titles/chapters/1415125/",
+            "title": "Том 1 Глава 2 Обучение (Часть 1)"
+        }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://renovels.org/api/v2/titles/chapters/1415124/",
+            "assert": {
+                "pages": [
+                    {
+                        "image": "https://img.renovels.org/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/32094b422c3366fb581ef2cdade49229.jpeg"
+                    },
+                    {
+                        "image": "https://img.renovels.org/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/7bf3f403e4687c63dcee6712f5bcc979.jpeg"
+                    },
+                    {
+                        "image": "https://img.renovels.org/images/solo-leveling/60e5303df1e87c9552aa918fede18c06/229bf517a7e4c00eb10a634fabfba3a7.jpeg"
+                    }
+                ]
+            }
+        }
+    ]
+}
