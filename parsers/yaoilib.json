@@ -1,13 +1,15 @@
 {
     "id": 1468,
-    "version": 31,
+    "version": 32,
     "old_sites": [
         "v1.slashlib.me",
-		"v2.slashlib.me"
+		"v2.slashlib.me",
+		"v1.yaoilib.net"
+		
     ],
     "title": "YaoiLib",
-    "host": "https://v1.yaoilib.net/",
-    "public_link": "https://v1.yaoilib.net/ru/catalog",
+    "host": "https://v2.slashlib.me/",
+    "public_link": "https://v2.slashlib.me/ru/catalog",
     "folder": "yaoilib",
     "name": "yaoilib",
     "language": "ru",
@@ -28,7 +30,7 @@
         "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "image/webp,*/*;q=0.8",
-            "Referer": "https://v1.yaoilib.net/"
+            "Referer": "https://v2.slashlib.me/"
         },
         "search_link": "https://hapi.hentaicdn.org/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=2",
         "query_type": "GET",
@@ -95,7 +97,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "image/webp,*/*;q=0.8",
             "cookie": "XSRF-TOKEN=eyJpdiI6IlFYZTlsVEpnd0tRdkpxU2ZUS1NGZHc9PSIsInZhbHVlIjoiS3loQ3FsRWNHME8xOUFSOG9sTWRuWms5Wis2dE5ydGZFWnBURHhJdW0rbzZkRlVIT2E3cUR6Ryt3STVNbFg4WXMzSFgrbEdzYkVJRnFiU2JFdjdPRTU4bjlzRmJjRGsvemFaM3JZVkVLK0dZYnJWVHZtVU1MT3U1c3J3QXlTdFQiLCJtYWMiOiIzZTI4OGE4OWFhNGNiMmE5MThmYzVmYmZiMmFhYWYzMTA2ZjRlYzJhY2MzMTliNGVkMWNkOGZkNjk4ZTE5Njc1IiwidGFnIjoiIn0%3D",
-            "Referer": "https://v1.yaoilib.net/ru/catalog"
+            "Referer": "https://v2.slashlib.me/ru/catalog"
         },
         "iterator": {
             "base_url": "https://api2.mangalib.me/api/manga?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=2&page=",
@@ -158,7 +160,7 @@
         },
         "link_corrector": [
             {
-                "match": "https://v1.yaoilib.net/ru/manga/(.*)",
+                "match": "https://v2.slashlib.me/ru/manga/(.*)",
                 "text": "https://hapi.hentaicdn.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
             }
         ],
@@ -174,9 +176,9 @@
         "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQ0NGU4NDdkYmFkMjE1NGM2MzY5Y2IxYTJiZDdhODc4ZWY2NWQxMjFjNDMxYTRjZDdlNTFlN2RkNDBjZGZhZjlmZTg3ZWU0Nzc1ZTljZmIiLCJpYXQiOjE3Njk0MjYwNTUuMDY0NjYzLCJuYmYiOjE3Njk0MjYwNTUuMDY0NjY0LCJleHAiOjE3NzIxMDQ0NTUuMDU5OTMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.8O_wUn40U7PKgnXN80-4aE9ne9v4t_hxGjBI4u8acyw05T6SUru5Q_qAq-LFDzJ2nq-cTfj8tPSQG0hq7dqe0k2F_-E-RkYGJrwZJp3revrKCJyXnEzqCKci2kdWmRJFWjcsIlYDXD6S0NL7cAha0oNmFmeqt0ssQ4Tw5Ytt9bqFrRGwF7GkKt59dUITXukJavIZb5whA7DWjuvw9a4fktk_YpsuXf77I5D6FtpZKmXvuVKlrHMJOW2ytVWxZw5IhnXhcQ247VyKG8IYSzW6ZhJYbaMVyLN8OsKv0bSa0em6F0ot1Mmxn7FSzfZFQzuB8HM9QoZo4KUcRLykpqqek7j4ktk_thrFgr6vClYE6uHIRLZNtVzXvr2lifz7uszSsVMJ5n9przG7S_FJgMHOkAdXv_94-FPhKz5JPPPBmr2Ajmlq3GMs629m2tyML-Hr7MVqbSdmcKeR43u0enQknGQTN1RavJ1J5vAEP9w9MCf99Uvbo5PtpN2MOIlFmPM4GYpEZ98EeW7xMqYzHUQCNfU_XFwm7aQlOueaOb9Ui4dgipL77V4cWv1BxWT-wEKhMFYqWBhM4Ktmau3Cyeec59B2lMiclqwYjLQWn1u-KI3HCi-ZbO-lc-XVvpobKQPhRjwl-rxuIpvNIo6un3t7FcGCvvjwhy6xnv8e5CKzCGQ",
         "client-time-zone": "Asia/Irkutsk",
         "content-type": "application/json",
-        "origin": "https://v1.yaoilib.net",
+        "origin": "https://v2.slashlib.me/",
         "priority": "u=1, i",
-        "referer": "https://v1.yaoilib.net/",
+        "referer": "https://v2.slashlib.me/",
         "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
@@ -344,9 +346,9 @@
         "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQ0NGU4NDdkYmFkMjE1NGM2MzY5Y2IxYTJiZDdhODc4ZWY2NWQxMjFjNDMxYTRjZDdlNTFlN2RkNDBjZGZhZjlmZTg3ZWU0Nzc1ZTljZmIiLCJpYXQiOjE3Njk0MjYwNTUuMDY0NjYzLCJuYmYiOjE3Njk0MjYwNTUuMDY0NjY0LCJleHAiOjE3NzIxMDQ0NTUuMDU5OTMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.8O_wUn40U7PKgnXN80-4aE9ne9v4t_hxGjBI4u8acyw05T6SUru5Q_qAq-LFDzJ2nq-cTfj8tPSQG0hq7dqe0k2F_-E-RkYGJrwZJp3revrKCJyXnEzqCKci2kdWmRJFWjcsIlYDXD6S0NL7cAha0oNmFmeqt0ssQ4Tw5Ytt9bqFrRGwF7GkKt59dUITXukJavIZb5whA7DWjuvw9a4fktk_YpsuXf77I5D6FtpZKmXvuVKlrHMJOW2ytVWxZw5IhnXhcQ247VyKG8IYSzW6ZhJYbaMVyLN8OsKv0bSa0em6F0ot1Mmxn7FSzfZFQzuB8HM9QoZo4KUcRLykpqqek7j4ktk_thrFgr6vClYE6uHIRLZNtVzXvr2lifz7uszSsVMJ5n9przG7S_FJgMHOkAdXv_94-FPhKz5JPPPBmr2Ajmlq3GMs629m2tyML-Hr7MVqbSdmcKeR43u0enQknGQTN1RavJ1J5vAEP9w9MCf99Uvbo5PtpN2MOIlFmPM4GYpEZ98EeW7xMqYzHUQCNfU_XFwm7aQlOueaOb9Ui4dgipL77V4cWv1BxWT-wEKhMFYqWBhM4Ktmau3Cyeec59B2lMiclqwYjLQWn1u-KI3HCi-ZbO-lc-XVvpobKQPhRjwl-rxuIpvNIo6un3t7FcGCvvjwhy6xnv8e5CKzCGQ",
         "client-time-zone": "Asia/Irkutsk",
         "content-type": "application/json",
-        "origin": "https://v1.yaoilib.net",
+        "origin": "https://v2.slashlib.me",
         "priority": "u=1, i",
-        "referer": "https://v1.yaoilib.net/",
+        "referer": "https://v2.slashlib.me/",
         "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
@@ -412,7 +414,7 @@
             "Accept": "*/*",
             "cookie": "XSRF-TOKEN=eyJpdiI6IlFYZTlsVEpnd0tRdkpxU2ZUS1NGZHc9PSIsInZhbHVlIjoiS3loQ3FsRWNHME8xOUFSOG9sTWRuWms5Wis2dE5ydGZFWnBURHhJdW0rbzZkRlVIT2E3cUR6Ryt3STVNbFg4WXMzSFgrbEdzYkVJRnFiU2JFdjdPRTU4bjlzRmJjRGsvemFaM3JZVkVLK0dZYnJWVHZtVU1MT3U1c3J3QXlTdFQiLCJtYWMiOiIzZTI4OGE4OWFhNGNiMmE5MThmYzVmYmZiMmFhYWYzMTA2ZjRlYzJhY2MzMTliNGVkMWNkOGZkNjk4ZTE5Njc1IiwidGFnIjoiIn0%3D",
             "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQ0NGU4NDdkYmFkMjE1NGM2MzY5Y2IxYTJiZDdhODc4ZWY2NWQxMjFjNDMxYTRjZDdlNTFlN2RkNDBjZGZhZjlmZTg3ZWU0Nzc1ZTljZmIiLCJpYXQiOjE3Njk0MjYwNTUuMDY0NjYzLCJuYmYiOjE3Njk0MjYwNTUuMDY0NjY0LCJleHAiOjE3NzIxMDQ0NTUuMDU5OTMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.8O_wUn40U7PKgnXN80-4aE9ne9v4t_hxGjBI4u8acyw05T6SUru5Q_qAq-LFDzJ2nq-cTfj8tPSQG0hq7dqe0k2F_-E-RkYGJrwZJp3revrKCJyXnEzqCKci2kdWmRJFWjcsIlYDXD6S0NL7cAha0oNmFmeqt0ssQ4Tw5Ytt9bqFrRGwF7GkKt59dUITXukJavIZb5whA7DWjuvw9a4fktk_YpsuXf77I5D6FtpZKmXvuVKlrHMJOW2ytVWxZw5IhnXhcQ247VyKG8IYSzW6ZhJYbaMVyLN8OsKv0bSa0em6F0ot1Mmxn7FSzfZFQzuB8HM9QoZo4KUcRLykpqqek7j4ktk_thrFgr6vClYE6uHIRLZNtVzXvr2lifz7uszSsVMJ5n9przG7S_FJgMHOkAdXv_94-FPhKz5JPPPBmr2Ajmlq3GMs629m2tyML-Hr7MVqbSdmcKeR43u0enQknGQTN1RavJ1J5vAEP9w9MCf99Uvbo5PtpN2MOIlFmPM4GYpEZ98EeW7xMqYzHUQCNfU_XFwm7aQlOueaOb9Ui4dgipL77V4cWv1BxWT-wEKhMFYqWBhM4Ktmau3Cyeec59B2lMiclqwYjLQWn1u-KI3HCi-ZbO-lc-XVvpobKQPhRjwl-rxuIpvNIo6un3t7FcGCvvjwhy6xnv8e5CKzCGQ",
-            "Referer": "https://v1.yaoilib.net/"
+            "Referer": "https://v2.slashlib.me/"
 			
         },
         "images": true,
@@ -424,7 +426,7 @@
             "replace": [
                 {
                     "prefix": "https://img3.hentaicdn.org/"
-                },
+                },             
                 {
                     "match": "\\\\",
                     "text": ""
