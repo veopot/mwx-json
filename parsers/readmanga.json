@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 97,
+    "version": 98,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -95,7 +95,7 @@
 	    { 
             "condition": "<strong>Внимание!</strong>",
 	"headers": {
-	   "cookie": "remember_me=aVh6T0Y2aXliOFolMkJUWk5GVGRsY1M2QXpXVlQxTU5QS1lxNTZod0xhakowJTNEOnloZW4zdzhUbVAxVm4xb2UwWDBGdCUyRkV1ZG92MSUyRllWJTJGVHZybjQxVzFCT1klM0Q",
+	   "cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -177,7 +177,7 @@
 		
             "add_chapter": {
 				"headers": {
-	   "cookie": "remember_me=aVh6T0Y2aXliOFolMkJUWk5GVGRsY1M2QXpXVlQxTU5QS1lxNTZod0xhakowJTNEOnloZW4zdzhUbVAxVm4xb2UwWDBGdCUyRkV1ZG92MSUyRllWJTJGVHZybjQxVzFCT1klM0Q",
+	   "cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -207,7 +207,7 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://a.zazaza.me/",
-		"cookie": "remember_me=aVh6T0Y2aXliOFolMkJUWk5GVGRsY1M2QXpXVlQxTU5QS1lxNTZod0xhakowJTNEOnloZW4zdzhUbVAxVm4xb2UwWDBGdCUyRkV1ZG92MSUyRllWJTJGVHZybjQxVzFCT1klM0Q",
+		"cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    
@@ -312,7 +312,7 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://a.zazaza.me/",
-		"cookie": "remember_me=aVh6T0Y2aXliOFolMkJUWk5GVGRsY1M2QXpXVlQxTU5QS1lxNTZod0xhakowJTNEOnloZW4zdzhUbVAxVm4xb2UwWDBGdCUyRkV1ZG92MSUyRllWJTJGVHZybjQxVzFCT1klM0Q",
+		"cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
@@ -415,7 +415,7 @@
 	
    "chapter_complete": {
    "headers": {
-	   "cookie": "remember_me=aVh6T0Y2aXliOFolMkJUWk5GVGRsY1M2QXpXVlQxTU5QS1lxNTZod0xhakowJTNEOnloZW4zdzhUbVAxVm4xb2UwWDBGdCUyRkV1ZG92MSUyRllWJTJGVHZybjQxVzFCT1klM0Q",
+	   "cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  
