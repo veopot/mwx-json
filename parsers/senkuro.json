@@ -1,6 +1,6 @@
 {
 	"id": 65216,
-	"version": 35,
+	"version": 36,
 	"old_sites": ["senkuro.com"],
 	"title": "Senkuro",
 	"host": "https://bypass.mwx.su/",
@@ -85,7 +85,8 @@
 		},
 		"title": {
 			"token1": "\"title_name\":\"",
-			"token2": "\","
+			"token2": "\",",
+                "replace":{ "match": "\\\\\"", "text": "'" }
 		},
 		"additional_title": {
 			"token1": "\"alternativeNames\":\"",
