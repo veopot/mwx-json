@@ -1,6 +1,6 @@
 {
 	"id": 65216,
-	"version": 36,
+	"version": 37,
 	"old_sites": ["senkuro.com"],
 	"title": "Senkuro",
 	"host": "https://bypass.mwx.su/",
@@ -84,7 +84,7 @@
 			"User-Agent": "MangaWatcherX"
 		},
 		"title": {
-			"token1": "\"title_name\":\"",
+			"token1": "\"titles\":\"",
 			"token2": "\",",
                 "replace":{ "match": "\\\\\"", "text": "'" }
 		},
@@ -126,7 +126,7 @@
 		},
 		"add_tags": {
 			"token1": "\"genres\":\"",
-			"token2": "\",\"cover\"",
+			"token2": "\"}",
 			"split": ",",
 			"replace": [{
 					"match": "\"",
