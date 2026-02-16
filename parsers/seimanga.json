@@ -1,6 +1,6 @@
 {
 	"id": 3075,
-	"version": 6, 
+	"version": 7, 
     
 	"old_sites": ["seimanga.me"],
 	
@@ -31,7 +31,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -77,9 +77,11 @@
 	},
 
 	"manga_complete": [
+	
+	
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -99,21 +101,22 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "skip": ">Категория:", "token1": "class=\"person-link\">", "token2": "</" },
+		"author": { "skip": "<span>Автор</span>",
+		"token1": "entity-card-tile__title\">", "token2": "</div>" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile-full\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile-full\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -126,28 +129,30 @@
 			"need_auth": "Для доступа к странице",
 			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		
-		"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
+		"add_tags":   {
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
 		    },
 		
 		"content_type": { "default": "manga" },
 		
 		"is_mature": {
-			"start": ">Жанры:<",
-			"end": "</p>",
+			"start": "<div class=\"cr-tags\"",
+		    "end": "<div class=\"cr-tags__toggle\"",
 			"values": [">сэйнэн<", ">эротика<"]
 		    },
 		
 		
 		
+		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -177,9 +182,14 @@
 			"!postfix":	"?mtr=1"
 		}
 	},
-	{ "condition": ">Сценарист:<",
+	
+	
+	
+	
+	
+	{ "condition": "<span>Сценарист",
 	"headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -199,21 +209,22 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "skip": ">Сценарист", "token1": "class=\"person-link\">", "token2": "</" },
+		"author": { "after": "class=\"cr-main-person-item__names\">",
+		"token1": "text-truncate\">", "token2": "</div>" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile-full\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile-full\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -223,31 +234,34 @@
 		  	"unknown" : "нет ни одной главы" 
 			},
 			
-			"need_auth": "Для доступа к странице",
+			
+		"need_auth": "Для доступа к странице",
 			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		
-		"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
+		"add_tags":   {
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
 		    },
 		
 		"content_type": { "default": "manga" },
 		
 		"is_mature": {
-			"start": ">Жанры:<",
-			"end": "</p>",
+			"start": "<div class=\"cr-tags\"",
+		    "end": "<div class=\"cr-tags__toggle\"",
 			"values": [">сэйнэн<", ">эротика<"]
 		    },
 		
 		
 		
+		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -274,9 +288,14 @@
 			"replace": { "match": "\\?.*", "text": "" } }
 		}
 	},
+	
+	
+	
+	
+	
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -301,14 +320,14 @@
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile-full\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile-full\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -322,25 +341,26 @@
 		"need_auth": "Для доступа к странице",
 		
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
-		"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
+		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
+		"add_tags":   {
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
 		    },
 		"content_type": { "default": "manga" },
 		
 		"is_mature": {
-			"start": ">Жанры:<",
-			"end": "</p>",
+			"start": "<div class=\"cr-tags\"",
+		    "end": "<div class=\"cr-tags__toggle\"",
 			"values": [">сэйнэн<", ">эротика<"]
 		    },
 		
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		"Accept": "*/*",
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -365,6 +385,14 @@
 		}
 	}
 	],
+	
+	
+	
+	
+	
+	
+	
+	
 
 	"chapter_complete": {
 		
@@ -372,7 +400,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=RCUyRmJtOE0lMkJCemdmVGJsT0xLQWIlMkJLQU9nSWE2ZnhPYkFteHdMUTZRM2t1TSUzRDp2cTQ3MWtYdnBINVJJQkVRcSUyQkk0d09TVm5BQzRDVXJkbHdJd3ByaEJmYVUlM0Q",
+		"cookie": "remember_me=Z3R0bGo1VDZ1d1R1MnhMJTJGTlpjUyUyRmtvbHZvWkp0THElMkJmamhvU2xzelhwTSUzRDpuS2hFQmlwdnNoWTYlMkZYR200bmJSZWVienliVWQlMkJncjVrZ2NuRnVUMXRvWSUzRA",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://1.seimanga.me/",
@@ -467,6 +495,18 @@
         {"image": "https://h24.mints.rocks/auto/03/32/49/Gantz_ch361_04__OJS-team_.png?t=1613519222&u=0&h=Bq91I0FvZEqGtMzioo-SPQ"}
 				],
 				"pages_count": "22"
+			}
+		},
+		{
+			"proc": "chapter_complete",
+			"link": "https://1.seimanga.me/ne_izdevaisia__nagatoro_san__A3b0f6/vol1/0?d=MzEzNzY3NA&mtr=true",
+			"assert": {
+				"pages": [
+		{"image": "https://sei.one-way.work/auto/17/20/59/plsnaga_ch0_01.png?"},
+        {"image": "https://sei.one-way.work/auto/17/20/59/plsnaga_ch0_02.png?"},
+        {"image": "https://sei.one-way.work/auto/17/20/59/plsnaga_ch0_03.png_res.jpg?"}
+				],
+				"pages_count": "3"
 			}
 		},
 		{
