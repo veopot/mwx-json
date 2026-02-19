@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 98,
+    "version": 99,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -95,17 +95,16 @@
 	    { 
             "condition": "<strong>Внимание!</strong>",
 	"headers": {
-	   "cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
+	   "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
-	        "title": 		{ "skip": "<h1 class=\"names\">", 
-			"token1": "<span class='name'>", "token2": "</h1>",
+	        "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
 				"replace": [
-				    { "match": "\n", "text": ""},
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
-					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
-                    { "match": "<span class='original-name'(.*)", "text": " "}
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
 				] 
 			},
 		
@@ -113,21 +112,22 @@
 		
             "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
 		
-            "author": { "after": "href=\"/list/person/", "token1": "class=\"person-link\">", "token2": "</" },
+            "author": { "after": "href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
 			
              "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
 			
 			"status": { 
 			
 		  	"complete": { 
-			"start": "<div class=\"subject-meta\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<div class=\"subject-meta\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -140,23 +140,17 @@
 			
 			
 			
-            "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+            "cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 			  
 			"add_tags":   {
-                "start": ">Теги:<",
-		        "end": "</p>",
-				
-		            "after": "href=\"/list/tag/",
-					"token1": "\">",
-		            "token2": "</"
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
 		    }, 
 			
-			"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
+			
            
 			
             "content_type": { "default": "manga" },
@@ -165,9 +159,9 @@
 		
 			
 			
-			  "is_mature": {
-			"start": ">Жанры:<",
-			"end": "</p>",
+			"is_mature": {
+			"start": "<div class=\"cr-tags\"",
+		    "end": "<div class=\"cr-tags__toggle\"",
 			"values": [">сэйнэн<", ">эротика<"]
 		    },
 		
@@ -177,7 +171,7 @@
 		
             "add_chapter": {
 				"headers": {
-	   "cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
+	   "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -203,21 +197,20 @@
         },
         { 
 		
-            "condition": "\">Сценарист",
+            "condition": "<span>Сценарист",
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://a.zazaza.me/",
-		"cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
+		"cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    
-		"title": 		{ "skip": "<h1 class=\"names\">", 
-			"token1": "<span class='name'>", "token2": "</h1>",
+		"title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
 				"replace": [
-				    { "match": "\n", "text": ""},
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
-					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
-                    { "match": "<span class='original-name'(.*)", "text": " "}
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
 				] 
 			},
 		
@@ -227,21 +220,22 @@
 	
 	 
 			
-           "author": { "skip": ">Сценарист", "token1": "class=\"person-link\">", "token2": "</" },
+          "author": { "after": "href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
 		   
              "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
             
 			"status": { 
 			
 		  	"complete": { 
-			"start": "<div class=\"subject-meta\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<div class=\"subject-meta\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -254,30 +248,24 @@
 			
 			
 			
-            "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+            "cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
             
 			 
 			"add_tags":   {
-                "start": ">Теги:<",
-		        "end": "</p>",
-				
-		            "after": "href=\"/list/tag/",
-					"token1": "\">",
-		            "token2": "</"
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
 		    }, 
 			
-			"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
+			
             
 			"content_type": { "default": "manga" },
            
-		      "is_mature": {
-			"start": ">Жанры:<",
-			"end": "</p>",
+		    "is_mature": {
+			"start": "<div class=\"cr-tags\"",
+		    "end": "<div class=\"cr-tags__toggle\"",
 			"values": [">сэйнэн<", ">эротика<"]
 		    },
 		
@@ -312,17 +300,16 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://a.zazaza.me/",
-		"cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
+		"cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
-            "title": 		{ "skip": "<h1 class=\"names\">", 
-			"token1": "<span class='name'>", "token2": "</h1>",
+            "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
 				"replace": [
-				    { "match": "\n", "text": ""},
+				    { "match": "\" />", "text": ""},
+					{ "match": "\n", "text": ""},
 					{ "match": "      ", "text": " "},
-					{ "match": "<span class='eng-name'(.*?)>",  "text": "" },
-                    { "match": "<span class='original-name'(.*)", "text": " "}
+                    { "match": "<meta itemprop=\"alternativeHeadline\" content=\"", "text": "/ "}
 				] 
 			},
 		
@@ -331,23 +318,24 @@
 		
             "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
 		
-            "author": {  "skip": ">Автор:<", "token1": "class=\"person-link\">", "token2": "</" },
+           "author": { "after": "href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
 			
             "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
 			
              
 			
-		  		"status": { 
+		  	"status": { 
 			
 		  	"complete": { 
-			"start": "<div class=\"subject-meta\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<div class=\"subject-meta\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -359,31 +347,25 @@
 			
 			
 			
-             "cover": { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+             "cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 			 
 			"add_tags":   {
-                "start": ">Теги:<",
-		        "end": "</p>",
-				
-		            "after": "href=\"/list/tag/",
-					"token1": "\">",
-		            "token2": "</"
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
 		    }, 
 			 
 			 
-			"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
+			
            
 			
             "content_type": { "default": "manga" },
 			
-            "is_mature": {
-			"start": ">Жанры:<",
-			"end": "</p>",
+          "is_mature": {
+			"start": "<div class=\"cr-tags\"",
+		    "end": "<div class=\"cr-tags__toggle\"",
 			"values": [">сэйнэн<", ">эротика<"]
 		    },
 		
@@ -415,7 +397,7 @@
 	
    "chapter_complete": {
    "headers": {
-	   "cookie": "remember_me=NkJleGxtaUM5cEJnQ0JjcE9RRkI1a0lCN0hMcW9yTkJrMElPSVg0NktwTSUzRDpGZzZFdk9YN0V4WXdwV3A4aUlKeGZFJTJCa3pySHNzRGc2d2VKSHJBVnhZVk0lM0Q",
+	   "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  
