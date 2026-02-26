@@ -1,0 +1,355 @@
+{
+    "id": 40254,
+    "version": 2,
+    "title": "Ранобэс",
+    "host": "https://ranobes.com",
+    "public_link": "https://ranobes.com/ranobe/",
+    "folder": "ranobes",
+    "name": "ranobes",
+    "language": "ru",
+    "encoding": "utf-8",
+    "chapters_order": true,
+    
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/ranobes.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/ranobes.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/ranobes.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/ranobes.zip",
+    "file_type": "sqlite",
+    "author":{
+      "name":"MWX",
+      "email":"fant-net@ya.ru"
+   },
+   
+    "manga_search_complete": {		
+		"search_link": "https://ranobes.com/index.php?do=search",
+		"headers": {
+		        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+				"content-type": "application/x-www-form-urlencoded",
+				"Referer": "https://ranobes.com/"
+			},
+		"form_data": {
+			"do": "search",
+			"subaction": "search",
+			"search_start": "1",
+			"full_search": "0",
+			"result_from": "11",
+			"story": "$query$"
+		},
+		"query_type": "POST",
+        "add_manga": {
+        
+            
+        "next":"<div class=\"short-cont\">",
+        
+		 "title": {
+                "skip": "href=\"",
+                "token1": "\">",
+                "token2": "</a",
+                "replace": [{
+                        "match": "<span hidden>Новелла </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Новелла</span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ</span>",
+                        "text": ""
+                    }
+                ]
+            },
+            "link": {
+
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "skip": "href=\"",
+                "token1": "\">",
+                "token2": "</a",
+                "replace": [{
+                        "match": "<span hidden>Новелла </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Новелла</span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ</span>",
+                        "text": ""
+                    }
+                ]
+            },
+             "cover": {
+
+                "token1": "class=\"cover\" style=\"background-image: url(",
+                "token2": ");\">"
+            },
+            
+            "summary":  {
+                "token1": "<div class=\"cont showcont\">",
+                "token2": "<div class=\"story_tools\">",
+                "replace": [
+                    
+					{"match": "<div class=\"grey ellipses small\">", "text": "&nbsp;&nbsp;" },
+					{"match": "<a href=\"/cloud/status-trs/(.*?)/\" class=\"bold\">", "text": " Статус:" },
+					
+					
+					{ "match":"<.*?>", "text":""},
+					{ "match": ",", "text": ", " }
+                ]
+            }
+        }
+    },
+   
+   
+   
+   
+	
+    "manga_list_complete": {
+        "iterator": {
+            "base_url": "https://ranobes.com/ranobe/page/",
+
+            "append_nums": {
+                "from": 1,
+                "to": 100,
+                "step": 1,
+                "sufix": "/"
+            }
+
+        },
+        "add_manga": {
+            "next": "h2 class=\"title\">",
+            "title": {
+                "skip": "href=\"",
+                "token1": "\">",
+                "token2": "</a",
+                "replace": [{
+                        "match": "<span hidden>Новелла </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Новелла</span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ</span>",
+                        "text": ""
+                    }
+                ]
+            },
+            "link": {
+
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "skip": "href=\"",
+                "token1": "\">",
+                "token2": "</a",
+                "replace": [{
+                        "match": "<span hidden>Новелла </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Новелла</span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ</span>",
+                        "text": ""
+                    }
+                ]
+            },
+            "cover": {
+
+                "token1": "class=\"cover\" style=\"background-image: url(",
+                "token2": ");\">"
+            }
+        }
+    },
+    "manga_complete": {
+
+        "content_type": {
+            "default": "light_novels"
+        },
+
+        "title": {
+            "skip": "property=\"og:title\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+        "uniq": {
+            "skip": "property=\"og:title\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+
+        "cover": {
+            "after": "property=\"og:image\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+        "author": {
+            "after": "/cloud/authors/",
+            "token1": "\">",
+            "token2": "</"
+        },
+        "summary": {
+            "after": "<meta property=\"og:description\"",
+            "token1": "content=\"",
+            "token2": "\"",
+            "replace": {
+                "match": "<.*?>",
+                "text": " "
+            }
+        },
+		
+		"add_tag": {
+			"after":"https://ranobes.com/cloud/events/",
+			"token1": "\">",
+			"token2": "</a>"
+		},
+		
+        "add_genres": {
+            "start": "itemprop=\"genre\">",
+            "end": "</div>",
+            "token1": "\">",
+            "token2": "</"
+        },
+        "is_mature": {
+            "values": [
+                ">Для взрослых 18+<",
+                ">Для взрослых 16+<",
+                ">Сэйнэн<",
+                ">Яой<"
+            ]
+        },
+		"status":    { 
+		"complete": "https://ranobes.com/cloud/status-trs/%D0%97%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D0%BE/",
+		"ongoing": "https://ranobes.com/cloud/status-trs/%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%B5%D0%BD/" 
+		        },
+		
+		
+		
+
+        "chapters_from_page": {
+            "after": "read-begin",
+            "token1": "href=\"/chapters/",
+            "token2": "\"",
+            "replace": {
+                "prefix": "https://ranobes.com/chapters/"
+            }, 
+			"next": {
+                "after": "class=\"page_next\"",
+                "token1": "href=\"",
+                "token2": "\"",
+                "stop": "/span"
+            }
+            
+        },
+		
+		
+		"add_chapter": {
+            "start": "<div id='dle-content'>",
+            "end": "<div class=\"block navigation ignore-select\">",
+
+            "next": "class=\"cat_block cat_line",
+            "link": {
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "skip": "href=\"",
+                "token1": "title=\"",
+                "token2": "\""
+            },
+            "title": {
+                "skip": "href=\"",
+                "token1": "title=\"",
+                "token2": "\""
+            }
+        }
+
+    },
+
+    "chapter_complete": {
+        "headers": {
+            "cookie": "mature=c3a2ed4b199a1a15f5a5483504c7a75a7030dc4bi%3A1%3B"
+        },
+
+        "images": true,
+        "add_pages": {
+            "start": "<head>",
+            "token1": "<meta property=\"og:url\" content=\"",
+            "token2": "\"",
+            "end": "</head>",
+			"replace": [
+            { "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=" },
+            { "sufix": "&title=/ranobe.fb2"}
+                ]
+        }
+		
+		
+    },
+
+    "test": [{
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [{
+                        "title": "Ленивый Хранитель Подземелья",
+                        "link": "https://ranobes.com/ranobe/211314-lazy-dungeon-master.html",
+                        "uniq": "Ленивый Хранитель Подземелья"
+                    }
+                ],
+                "mangas_count": ">=30"
+            }
+        }, {
+            "proc": "manga_complete",
+            "link": "https://ranobes.com/ranobe/211314-lazy-dungeon-master.html",
+            "title": "Ленивый Хранитель Подземелья",
+            "assert": {
+                "author": "Onikage Supana",
+                "cover": "@https://ranobes.com/uploads/posts/2020-11/1606660495_lazy-dungeon-master.jpg",
+                "summary": "@^(«Лень-двигатель прогресса».)",
+                "genres": "@comedy",
+                "status": "unknown",
+                "genres_count": ">=6",
+                "chapters_count": ">=560",
+                "chapters": [
+				
+		{
+            "folder": "Глава 1_ Я не хочу работать!__\\",
+            "link": "https://ranobes.com/chapters/lazy-dungeon-master/211367-chapter-1.html",
+            "title": "Глава 1. Я не хочу работать!.."
+        },
+        {
+            "link": "https://ranobes.com/chapters/lazy-dungeon-master/211368-chapter-2.html",
+            "title": "Глава 2. Смерть на рабочем месте?!"
+        }
+		    ]
+            }
+        }, {
+            "proc": "chapter_complete",
+            "link": "https://ranobes.com/chapters/lazy-dungeon-master/211367-chapter-1.html",
+            "title": "Глава 1. Я не хочу работать!..",
+            "assert": {
+                "pages": [{
+                        "image": "https://ranobes.com/uploads/manga/bleach/chapters/Vol.1-Ch.1/001.png"
+                    }, {
+                        "image": "https://ranobes.com/uploads/manga/bleach/chapters/Vol.1-Ch.1/002.jpg"
+                    }, {
+                        "image": "https://ranobes.com/uploads/manga/bleach/chapters/Vol.1-Ch.1/003.jpg"
+                    }
+                ],
+                "pages_count": "55"
+            }
+        }
+    ]
+}
