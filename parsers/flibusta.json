@@ -1,6 +1,6 @@
 {
 	"id": 70201,
-	"version": 12,
+	"version": 13,
 	"time_invalidate": 0,
 	"title": "Flibusta (Книги)",
 	"host": "http://b.flibusta.is/",
@@ -15,11 +15,11 @@
 	"chapters_order": false,
 	"language": "ru",
 	"encoding": "utf-8",
-	"catalog_link": "https://rusiniu.bitbucket.io/parsers/flibusta.zip",
-	"file_type": "sqlite",
-	"self_link": "https://rusiniu.bitbucket.io/parsers/flibusta.json",
+	"catalog_link": "https://raw.githubusercontent.com/rusiniu/mwx-plugin/main/catalogs/flibusta.zip",
+	"self_link": "https://raw.githubusercontent.com/rusiniu/mwx-plugin/main/parsers/flibusta.json",
 	"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/flibusta.json",
-	"icon_link": "https://rusiniu.bitbucket.io/parsers/flibusta.png",
+	"icon_link": "https://raw.githubusercontent.com/rusiniu/mwx-plugin/main/img/flibusta.png",
+	"file_type": "sqlite",
 	
 	"manga_search_complete": {		
 		"search_link":"http://b.flibusta.is/booksearch?ask=$query$",
@@ -72,23 +72,12 @@
 
 "drama_antique", 
 "drama", 
-"dramaturgy", 
+
 "comedy", 
 "vaudeville", 
 "screenplays", 
 "tragedy", 
 
-"children", 
-"child_education", 
-"child_det", 
-"foreign_children", 
-"prose_game", 
-"child_classical", 
-"child_prose", 
-"child_tale_rus", 
-"child_tale", 
-"child_verse", 
-"child_sf", 
 "love_history", 
 "love_short", 
 "love_sf", 
@@ -104,7 +93,7 @@
 "poetry_rus_classical", 
 "lyrics", 
 "song_poetry", 
-"poetry", 
+ 
 "poetry_east", 
 "poem", 
 "poetry_for_modern", 
@@ -117,7 +106,6 @@
 "adv_maritime", 
 "adventure", 
 "adv_modern", 
-"child_adv", 
 "adv_animal", 
 "adv_geo", 
 "tale_chivalry", 
@@ -132,7 +120,7 @@
 "prose_counter", 
 "prose_magic", 
 "story", 
-"prose", 
+
 "prose_military", 
 "great_story", 
 "prose_rus_classic", 
@@ -142,19 +130,17 @@
 "prose_abs", 
 "prose_neformatny", 
 "epistolary_fiction", 
- 
-"comics", 
-"unfinished", 
-"other", 
+
 "network_literature", 
 "fanfiction", 
 
 "antique", 
 "antique_ant", 
-"antique_east", 
+
 "antique_russian", 
 "antique_european", 
 
+"asian_fantasy",
 "sf_history", 
 "sf_action", 
 "sf_heroic", 
@@ -180,17 +166,14 @@
 "sf_epic", 
 "sf_humor", 
 "epic", 
-"child_folklore", 
-"antique_myths", 
-"folk_songs", 
-"folk_tale", 
-"proverbs", 
+ 
 "folklore", 
-"limerick", 
-"humor_anecdote", 
-"humor_satire", 
-"humor", 
-"humor_prose" ]
+ 
+"boyar_anime",
+"dark_fantasy",
+"dystopian",
+"utopia"
+]
 		},
 
 		"add_manga": {
