@@ -1,0 +1,279 @@
+{
+    "id": 70202,
+    "version": 1,
+    "title": "LibreBook (Книги, Test)",
+    "host": "https://1.librebook.me/",
+    "old_sites": [],
+    "public_link": "https://1.librebook.me/list",
+    "folder": "librebook",
+    "name": "librebook",
+    "language": "ru",
+    "encoding": "utf-8",
+    "catalog_link": "https://raw.githubusercontent.com/rusiniu/mwx-plugin/main/catalogs/librebook.zip",
+	"self_link": "https://raw.githubusercontent.com/rusiniu/mwx-plugin/main/parsers/librebook.json",
+	"self_link2": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/librebook.json",
+	"icon_link": "https://raw.githubusercontent.com/rusiniu/mwx-plugin/main/img/librebook.png",
+    "file_type": "sqlite",
+    "author": {
+        "name": "Kro4"
+    },
+
+    "manga_search_complete": {
+        "search_link": "https://1.librebook.me/search/advanced?q=$query$&offset=$page$",
+        "query_type": "GET",
+        "add_manga": {
+            "start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": {
+                "after": "<h3>",
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "title": {
+                "after": "<h3>",
+                "token1": "title=\"",
+                "token2": "\""
+            },
+            "cover": {
+                "token1": "data-original='",
+                "token2": "'",
+                "replace": {
+                    "match": "_p.",
+                    "text": "."
+                }
+            },
+            "is_mature": {
+                "start": "tile-info",
+                "values": [
+                    ">юри<",
+                    ">яой<",
+                    ">эротика<"
+                ],
+                "end": "</div>"
+            },
+            "summary": {
+                "skip": "href=\"",
+                "token1": "class=\"manga-description\">",
+                "token2": "</noindex>",
+                "replace": {
+                    "match": "<.*?>",
+                    "text": ""
+                }
+            }
+        }
+    },
+
+    "manga_list_complete": {
+        "iterator": {
+            "base_url": "https://1.librebook.me/list?sortType=RATING&offset=",
+            "append_nums": {
+                "from": 0,
+                "to": 94250,
+                "step": 50,
+                "last_page": {
+                    "after": "step gap",
+                    "token1": "offset=",
+                    "token2": "\""
+                }
+            }
+        },
+        "add_manga": {
+            "start": "\"tiles",
+            "next": "class=\"img\"",
+            "link": {
+                "after": "<h3>",
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "title": {
+                "before": "tile-info",
+                "after": "href=\"",
+                "token1": "<h4 title=\"",
+                "token2": "\""
+            },
+            "additional_title": {
+                "after": "<h3>",
+                "token1": "title=\"",
+                "token2": "\""
+            },
+            "cover": {
+                "token1": "data-original='",
+                "token2": "'",
+                "replace": {
+                    "match": "_p.",
+                    "text": "."
+                }
+            }
+
+        },
+        "rating_auto_inc": {
+            "start": 40000,
+            "inc": -1
+        }
+    },
+
+    "manga_complete": [
+        {
+            "condition": "",
+            "headers": {
+                "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE;",
+                "Referer": "https://1.librebook.me/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
+            "title": {
+                "after": "<meta itemprop=\"name\"",
+                "token1": "content=\"",
+                "token2": "\"",
+                "replace": [
+                    {
+                        "match": "\" />",
+                        "text": ""
+                    },
+                    {
+                        "match": "\n",
+                        "text": ""
+                    },
+                    {
+                        "match": "      ",
+                        "text": " "
+                    },
+                    {
+                        "match": "<meta itemprop=\"alternativeHeadline\" content=\"",
+                        "text": "/ "
+                    }
+                ]
+            },
+            "additional_title": {
+                "skip": "alternativeHeadline",
+                "token1": "=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "skip": "alternativeHeadline",
+                "token1": "=\"",
+                "token2": "\""
+            },
+            "author": {
+                "after": "><a href=\"/list/person/",
+                "token1": "\">",
+                "token2": "</"
+            },
+            "summary": {
+                "after": "<meta itemprop=\"description\"",
+                "token1": "content=\"",
+                "token2": "\""
+            },
+            "cover": {
+                "before": "class=\"cr-hero-poster__img",
+                "token1": "src=\"",
+                "token2": "\""
+            },
+            "status": {
+                "complete": {
+                    "start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+                    "end": "</span>",
+                    "values": [
+                        "завершен",
+                        "завершён",
+                        "Переведена",
+                        "Сингл",
+                        "переведено",
+                        "Завершён"
+                    ]
+                },
+                "ongoing": {
+                    "start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+                    "end": "</span>",
+                    "values": [
+                        "продолжается",
+                        "Продолжается",
+                        "переводится"
+                    ]
+                },
+                "single": "Сингл,",
+                "licensed": "Главы удалены",
+                "unknown": "нет ни одной главы"
+            },
+            "content_type": {
+                "default": "light_novels"
+            },
+            "add_tags": {
+                "start": "<div class=\"cr-tags\"",
+                "end": "<div class=\"cr-tags__toggle\"",
+                "after": "href=\"/list/",
+                "token1": "<span>",
+                "token2": "</span>"
+            },
+
+            "add_chapter": {
+                "start": "<table class=\"table table-hover\">",
+                "end": "</table>",
+                "next": "item-title\"",
+                "link": {
+                    "token1": "href=\"",
+                    "token2": "\"",
+                    "replace": [
+				        {"sufix": "?d=MjM1Mzg5NQ&mtr=true"}
+                    ]
+                },
+                "uniq":{ 
+                    "after" : "href=\"",    
+                    "token1": "/vol", 
+                    "token2": "\"", 
+                    "replace" : { "match" : "\\?.*", "text" : "" } },
+                "title": { 
+                    "after": "<a href=\"", 
+                    "token1": ">", 
+                    "token2": "<"
+				}
+            }
+        }
+    ],
+
+
+    "chapter_complete": {
+        "headers": {
+                "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE;",
+                "Referer": "https://1.librebook.me/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
+
+        "images": true,
+        "add_pages": {
+            "start": "<head>",
+            "token1": "rel=\"canonical\" href=\"",
+            "token2": "\"",
+            "end": "</head>",
+			"replace": [
+                { "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=" },
+                { "sufix": "?mtr=true&title=/ranobe.fb2"}
+            ]
+        }
+		
+		
+    },
+
+    "test": [
+        {
+         "proc": "manga_complete",
+         "link": "https://1.librebook.me/povelitel_tain",
+         "title": "Повелитель Тайн",
+         "assert": {
+				"author": "Каракатица, Которая Любит Нырять",
+				"cover": "https://lb.one-way.work/uploads/pics/02/49/827.jpg",
+				"chapters_count": ">10"
+
+			}
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://1.librebook.me/povelitel_tain/vol1/1?d=MjM1Mzg5NQ",
+            "assert": {
+                "pages": [
+                    {"image": "http://bypass.mwx.su/api/ranobe/download/?href=https://1.librebook.me/povelitel_tain/vol1/1?mtr=true&title=/ranobe.fb2"}
+                ]
+            }
+        }
+
+    ]
+}
