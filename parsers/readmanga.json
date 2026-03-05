@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 99,
+    "version": 100,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -95,7 +95,7 @@
 	    { 
             "condition": "<strong>Внимание!</strong>",
 	"headers": {
-	   "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
+	   "cookie": "remember_me=cnZNNEpoa0JOOU1YUGJzZnFiQmFPcEhpTTJvemtFNHBBaEpvVEJ4ZlozYyUzRDpKTmc1NXE5T0Y0UWklMkJDSjNsUk9TZ1ZZS1FReUtoWloxUUVwMVZ3UlpjSmclM0Q",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -171,7 +171,7 @@
 		
             "add_chapter": {
 				"headers": {
-	   "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
+	   "cookie": "remember_me=cnZNNEpoa0JOOU1YUGJzZnFiQmFPcEhpTTJvemtFNHBBaEpvVEJ4ZlozYyUzRDpKTmc1NXE5T0Y0UWklMkJDSjNsUk9TZ1ZZS1FReUtoWloxUUVwMVZ3UlpjSmclM0Q",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		}, 
@@ -201,7 +201,7 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://a.zazaza.me/",
-		"cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
+		"cookie": "remember_me=cnZNNEpoa0JOOU1YUGJzZnFiQmFPcEhpTTJvemtFNHBBaEpvVEJ4ZlozYyUzRDpKTmc1NXE5T0Y0UWklMkJDSjNsUk9TZ1ZZS1FReUtoWloxUUVwMVZ3UlpjSmclM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	    
@@ -300,7 +300,7 @@
 			"headers": {
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://a.zazaza.me/",
-		"cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
+		"cookie": "remember_me=cnZNNEpoa0JOOU1YUGJzZnFiQmFPcEhpTTJvemtFNHBBaEpvVEJ4ZlozYyUzRDpKTmc1NXE5T0Y0UWklMkJDSjNsUk9TZ1ZZS1FReUtoWloxUUVwMVZ3UlpjSmclM0Q",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 	
@@ -347,7 +347,7 @@
 			
 			
 			
-             "cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
+             "cover":  { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 			 
 			"add_tags":   {
                 "start": "<div class=\"cr-tags\"",
@@ -397,7 +397,7 @@
 	
    "chapter_complete": {
    "headers": {
-	   "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE",
+	   "cookie": "remember_me=cnZNNEpoa0JOOU1YUGJzZnFiQmFPcEhpTTJvemtFNHBBaEpvVEJ4ZlozYyUzRDpKTmc1NXE5T0Y0UWklMkJDSjNsUk9TZ1ZZS1FReUtoWloxUUVwMVZ3UlpjSmclM0Q",
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  

@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 117, 
+	"version": 118, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one", "1.mintmanga.one" ],
@@ -32,7 +32,7 @@
 
     "manga_search_complete": { 
     "headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -85,7 +85,7 @@
 	"manga_complete": [
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -101,25 +101,27 @@
 				] 
 			},
 		
-	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+	     "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": {  "after": "<span class=\"elem_author \">", "token1": "class=\"person-link\">", "token2": "</a>" },
+		"author": { "after": "href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile-full\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile-full\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -132,14 +134,15 @@
 			"need_auth": "Для доступа к странице",
 			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+		"cover":  { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		
-		"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
+		"add_tags":   {
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
+		    }, 
 		
 		"content_type": { "default": "manga" },
 		
@@ -153,7 +156,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -185,7 +188,7 @@
 	},
 	{ "condition": ">Сценарист:<",
 	"headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -201,11 +204,13 @@
 				] 
 			},
 		
-	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+	     "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "skip": ">Сценарист", "token1": "class=\"person-link\">", "token2": "</" },
+		"author": { "after": "href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\"",
             "replace": [
@@ -218,14 +223,14 @@
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile-full\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile-full\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -238,14 +243,15 @@
 			"need_auth": "Для доступа к странице",
 			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
+		"cover":  { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		
-		"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
+		"add_tags":   {
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
+		    }, 
 		
 		"content_type": { "default": "manga" },
 		
@@ -259,7 +265,7 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -288,7 +294,7 @@
 	},
 	{ "condition": "",
 	"headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -303,7 +309,8 @@
 				] 
 			},
 		
-	    "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
+		
+	     "additional_title": { "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
@@ -315,18 +322,21 @@
 				{"match":"<.*?>","text":""}
             ]},
 		
-		"author": {  "after": "<span class=\"elem_author \">", "token1": "class=\"person-link\">", "token2": "</a>" },
+		 "author": { "after": "href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
+			
+		
 		"status": { 
 			
 		  	"complete": { 
-			"start": "<h4 class=\"hide-mobile-full\">",
-			"end": "<p class=\"elementList", 
-			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено"   ] },
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "<h4 class=\"hide-mobile-full\">", 
-			"end": "class=\"elementList", 
-			"values": [ "продолжается", "переводится"   ] 
+			"start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
 			
 			
@@ -336,17 +346,18 @@
 		  	"unknown" : "нет ни одной главы" 
 			},
 			
-			
 		"need_auth": "Для доступа к странице",
 		
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "skip": "<div class=\"picture-fotorama\"", "token1": "src=\"", "token2": "\"" },
-		"add_genres":   {
-                "start": ">Жанры:<",
-		        "end": "<table class=\"table table-hover\"",
-		            "token1": "/genre/",
-		            "token2": "\""
-		    },
+		
+		"cover":  { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
+		"add_tags":   {
+                "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle\"",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>"
+		    }, 
 		"content_type": { "default": "manga" },
 		
 		"is_mature": {
@@ -358,7 +369,7 @@
 		
 		"add_chapter":  { 
 		 "headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		"Accept": "*/*",
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
@@ -390,7 +401,7 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=SWp5SVdTek83OE55cGNBNlN0Vk9hV1BjMiUyQjBWQVFDWTBRek5rd05MYXhnJTNEOkRObm1DbWolMkI0S0ZJMUplczN4OER5dyUyRjBxOVFkOEdDODFZJTJGTEJudFcyMnclM0Q",
+		"cookie": "remember_me=UXhJQlpOJTJCbGN3SUgySEljeGJ3MExKV052Z1h0RjlXR0ZObWYxUnBqRW9RJTNEOnJ3eDR5JTJCR0FvRWJMJTJGM2NMZUZaRDRmV2F2WVlGTkNWNzhScEh0czlpSk9JJTNE",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 		"Referer": "https://2.mintmanga.one/",
