@@ -1,9 +1,12 @@
 {
     "id": 70202,
-    "version": 1,
+    "version": 2,
     "title": "LibreBook (Книги, Test)",
     "host": "https://1.librebook.me/",
-    "old_sites": [],
+   	"old_ids": ["53005","530051"],
+    "old_sites": [ "librebook.ru", "librebook.me" ],
+		
+		
     "public_link": "https://1.librebook.me/list",
     "folder": "librebook",
     "name": "librebook",
