@@ -1,6 +1,6 @@
 {
     "id": 70202,
-    "version": 2,
+    "version": 3,
     "title": "LibreBook (Книги, Test)",
     "host": "https://1.librebook.me/",
    	"old_ids": ["53005","530051"],
@@ -22,6 +22,12 @@
     },
 
     "manga_search_complete": {
+		"headers": {
+                "cookie": "remember_me=eE11MnclMkY2dmZCUllTbDJGdVEzajQzYXdjT1IzNHJjRXpOd3UwMkQ2VyUyQjQlM0Q6dHhWTkdNeFQxaFVWQ2N2aE5kQnBROVFNaVQlMkZKQml5UDNwSmV4JTJGZ1dpUVElM0Q",
+                "Referer": "https://1.librebook.me/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
+			
         "search_link": "https://1.librebook.me/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
         "add_manga": {
@@ -119,7 +125,7 @@
         {
             "condition": "",
             "headers": {
-                "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE;",
+                "cookie": "remember_me=eE11MnclMkY2dmZCUllTbDJGdVEzajQzYXdjT1IzNHJjRXpOd3UwMkQ2VyUyQjQlM0Q6dHhWTkdNeFQxaFVWQ2N2aE5kQnBROVFNaVQlMkZKQml5UDNwSmV4JTJGZ1dpUVElM0Q",
                 "Referer": "https://1.librebook.me/",
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
             },
@@ -216,7 +222,7 @@
                     "token1": "href=\"",
                     "token2": "\"",
                     "replace": [
-				        {"sufix": "?d=MjM1Mzg5NQ&mtr=true"}
+				        {"sufix": "?d=MzEzNzY3NA&mtr=true"}
                     ]
                 },
                 "uniq":{ 
@@ -232,30 +238,32 @@
             }
         }
     ],
-
-
-    "chapter_complete": {
+    
+	
+	"chapter_complete": {
+        "add_numeration": true,
         "headers": {
-                "cookie": "remember_me=QmZBbWZDQkclMkZycEgzcE5OUXdKRUg1bDd6Y1JkYXAlMkJoVlA4SUwwVCUyQjRTMCUzRDpnRzFVd1oxMzlod0tNdDVmZXNRRGY1eFZrWEJRSWFmUUdIcmR5RmhBUDA0JTNE;",
-                "Referer": "https://1.librebook.me/",
-                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
-            },
-
-        "images": true,
-        "add_pages": {
+			"cookie": "remember_me=eE11MnclMkY2dmZCUllTbDJGdVEzajQzYXdjT1IzNHJjRXpOd3UwMkQ2VyUyQjQlM0Q6dHhWTkdNeFQxaFVWQ2N2aE5kQnBROVFNaVQlMkZKQml5UDNwSmV4JTJGZ1dpUVElM0Q",
+            "accept": "*/*",
+            "Referer": "https://1.librebook.me"
+	    },
+        "add_images": {
             "start": "<head>",
             "token1": "rel=\"canonical\" href=\"",
             "token2": "\"",
             "end": "</head>",
-			"replace": [
-                { "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=" },
-                { "sufix": "?mtr=true&title=/ranobe.fb2"}
+            "replace": [
+                {
+                    "prefix": "https://bypass.mwx.su/api/ranobe/download/?href="
+                },
+                {
+                    "sufix": "?d=MzEzNzY3NA&mtr=true&title=/ranobe.fb2"
+                }
             ]
         }
-		
-		
     },
-
+	
+	
     "test": [
         {
          "proc": "manga_complete",
@@ -270,10 +278,10 @@
         },
         {
             "proc": "chapter_complete",
-            "link": "https://1.librebook.me/povelitel_tain/vol1/1?d=MjM1Mzg5NQ",
+            "link": "https://1.librebook.me/povelitel_tain/vol1/1?d=MzEzNzY3NA",
             "assert": {
                 "pages": [
-                    {"image": "http://bypass.mwx.su/api/ranobe/download/?href=https://1.librebook.me/povelitel_tain/vol1/1?mtr=true&title=/ranobe.fb2"}
+                    {"image": "https://bypass.mwx.su/api/ranobe/download/?href=https://1.librebook.me/povelitel_tain/vol1/1?d=MzEzNzY3NA&mtr=true&title=/ranobe.fb2"}
                 ]
             }
         }
