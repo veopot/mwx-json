@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 6,
+	"version": 7,
 	
 	"title": "Rawkuma",
 	"host": "https://rawkuma.com/",
@@ -166,6 +166,11 @@
 		}   
 	},
 	"chapter_complete": {
+		"headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "referer": "https://rawkuma.net/"
+    },
 	"add_images": {
 			"start": "<div class=\"mx-4 md:mx-0\">",
 			 "end": "</section>",
