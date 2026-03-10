@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 7,
+	"version": 8,
 	
 	"title": "Rawkuma",
 	"host": "https://rawkuma.com/",
@@ -172,11 +172,51 @@
         "referer": "https://rawkuma.net/"
     },
 	"add_images": {
-			"start": "<div class=\"mx-4 md:mx-0\">",
+			"start": "),auto;\">",
 			 "end": "</section>",
-			"token1": "src='",
-			"token2": "'",
-			"replace": { "match": "\\\\", "text": "" }
+			"token1": "https://",
+			"token2": ">",
+				"replace": [
+				
+				    {
+						"match": "alt=\"(.*)\"",
+						"text": ""
+					},
+				    {
+						"match": " ",
+						"text": ""
+					},
+					{
+						"match": "'",
+						"text": ""
+					},
+					{
+						"match": "\"",
+						"text": ""
+					},
+					{
+						"match": "jpg/",
+						"text": "jpg"
+					},
+					{
+						"match": ".avif/",
+						"text": ".avif"
+					},
+				    {
+						"match": ".webp/",
+						"text": ".webp"
+					},
+				    {
+						"match": ".png/",
+						"text": ".png"
+					},
+				    {
+						"match": ".jpeg/",
+						"text": ".jpeg"
+					},
+					{ "prefix": "https://" }
+				]
+			
 		}
 	},
 
