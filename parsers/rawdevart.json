@@ -1,6 +1,6 @@
 {
 	"id": 30459,
-	"version": 6,
+	"version": 7,
 	
 	"old_sites": ["rawdevart.com" ],
 	
@@ -144,9 +144,9 @@
 		
 		"add_pages": {
 			"start": "chapter_content",
-			"token1": "data-srcset=\\\"",
+			"token1": "data-src=\\\"",
 			"token2": "\\\"",
-			"end": "manga_url"
+			"end": "\"options\""
 		}
 	},
 

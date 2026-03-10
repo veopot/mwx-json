@@ -1,11 +1,13 @@
 {
 	"id": 40128,
-	"version": 5,
-	
+	"version": 6,
 	
 	"title": "Rawkuma",
 	"host": "https://rawkuma.com/",
 	"public_link": "https://rawkuma.com/",
+	"old_sites": ["rawkuma.com" ],
+	
+	
 	"folder": "rawkuma",
 	"name" : "rawkuma",
 	"language": "jp",
@@ -20,33 +22,86 @@
 
 	
 
-	"manga_search_complete": {		
-		"search_link": "https://rawkuma.com/?do=search&subaction=search&story=$query$&search_start=$page$",
-		"query_type": "GET",
-		"add_manga": {
-			"next": "<div class=\"bsx\">",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "token1": "title=\"", "token2": "\"" },
-			"uniq": { "token1": "href=\"https://rawkuma.com/manga/", "token2": "/\"" },
-			"cover": { "token1": "src=\"", "token2": "\"" }
-			}
-	},
+	 "manga_search_complete": {		
+		"search_link": "https://rawkuma.net/wp-admin/admin-ajax.php?nonce=2fd46782ae&action=search",
+		
+		"headers": {
+		"accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "content-type": "application/x-www-form-urlencoded",
+        "hx-current-url": "https://rawkuma.net/",
+        "hx-request": "true",
+        "hx-target": "searchModalContent",
+        "origin": "https://rawkuma.net",
+        "referer": "https://rawkuma.net/"
+        },
+		
+		"form_data": { "query": "$query$" },
+		"query_type": "POST",
+        "add_manga": {
+        
+            
+        "next":"<a",
+        
+		 "title": {
+                "token1": "<h3 class=\"text-lg font-semibold line-clamp-2\">",
+                "token2": "</h3>"
+            },
+            "link": {
+
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "token1": "href=\"https://rawkuma.net/manga/",
+                "token2": "\""
+            },
+             "cover": {
+
+                "token1": "src=\"",
+                "token2": "\""
+            },
+            
+            "summary":  {
+                "token1": "<p class=\"text-gray-500 line-clamp-2\">",
+                "token2": "</p>"
+            }
+        }
+    },
+   
+   
 
 	"manga_list_complete": {
+		
+		 
 		"iterator": {
-			"base_url": "https://rawkuma.com/manga/?page=",
+			"base_url": "https://rawkuma.net/manga-sitemap",
 			"append_nums": {
 				"from": 1,
-				"to": 200,
+				"to": 139,
 				"step": 1,
-				"sufix": "&type=&order=popular"
+				"sufix": ".xml"
 			}
 		},
+		
 		"add_manga": {
-			"next": "<div class=\"bsx\">",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"title": { "token1": "title=\"", "token2": "\"" },
-			"uniq": { "token1": "href=\"https://rawkuma.com/manga/", "token2": "/\"" }
+			"next": "<url>",
+			"link":  { "token1": "<loc>", "token2": "</" },
+			"title": { "token1": "<loc>https://rawkuma.net/manga/", "token2": "</",
+				"replace": [{
+						"match": "/",
+						"text": ""
+					},
+					{
+						"match": "\n",
+						"text": " "
+					},
+					{
+						"match": "-",
+						"text": " "
+					}
+				] },
+			"uniq": { "token1": "<loc>https://rawkuma.net/manga/", "token2": "</" }
 		},
 		"rating_auto_inc": {
 			"start": "20000",
@@ -55,63 +110,67 @@
 	},
 
 	"manga_complete": {
-		"title": { "after": "<h1 class=\"entry-title\"", "token1":"\">", "token2": "</h1>",
+		"title": { "token1":"itemprop=\"name\">", "token2": "</",
                             "replace": { "match":"Raw","text":""} },
 							
-		"uniq": { "after": "<h1 class=\"entry-title\"", "token1":"\">", "token2": "</h1>",
+		"uniq": { "after": "<meta property=\"og:url\"", "token1":"content=\"https://rawkuma.net/manga/", "token2": "\"",
                             "replace": { "match":"Raw","text":""} },
 		
-		"author":      { "skip": "<b>Author</b>", "token1":"<span>", "token2": "</span>",
+		"author":      { "skip": "<span class=\"font-semibold\">Serialization", "token1": "</span>", "token2": "</div>",
                             "replace": { "match":"<.*?>","text":""}
 						},
 		
-		"summary":     { "skip": "itemprop=\"description\">", "token1": ">", "token2": "</div>",
+		"summary":     { "after": "<div data-show=\"false\" itemprop=\"description\" class=\"p-4 bg-secondary/50 rounded-lg hidden data-[show=true]:block break-words-force", 
+		"token1": "\">", "token2": "</div>",
                             "replace": { "match":"<.*?>","text":" "} },
 		
-		"status":      { 
-		
-		"single": "Сингл-Запаска<", 
-		"complete": "<i>Completed</i>",
-		"ongoing": "<i>Ongoing</i>",
-		"licensed": ">Манга удалена по просьбе-Запаска",
-		"empty": "Нет глав-Запаска<" },
 		
 		"is_mature": {
-		"start": "<div class=\"wd-full\"><b>Genres</b>",
-		"end": "</span>",
-			"values": ["Adult", "Mature"]
+		"start": "</head>",
+		"end": "</html>",
+			"values": [
+			"href=\"https://rawkuma.net/genre/adult/", 
+			"href=\"https://rawkuma.net/genre/lolicon/",
+			"href=\"https://rawkuma.net/genre/mature/",
+			"href=\"https://rawkuma.net/genre/yaoi/",
+			"href=\"https://rawkuma.net/genre/yuri/",
+			"href=\"https://rawkuma.net/genre/seinen/"
+			]
 		},
 		
-		"read_dir":    { 
-		"right_to_left": "&type=Manga\">Manga",
-		"left_to_right": "&type=Manhwa\">Manhwa"
-		},
 		
-		"cover":       { "after": "<meta property=\"og:image\"", "token1": "content=\"", "token2": "\"" },
+		"cover":       { "skip": "<div class=\"relative contents\" itemprop=\"image\"", "token1": "src=\"", "token2": "\"" },
 		
-		"add_genres":  { 
-		 "start": "<div class=\"wd-full\"><b>Genres</b>",
-		 "end": "</span>", 
-         "after": "href=\"https://rawkuma.com/genres/", "token1": "rel=\"tag\">", "token2": "</"
-		},
 		
+		
+		
+		"add_genre":   { "after": "itemprop=\"genre\"",  "token1": "\">", "token2": "</",
+                            "replace": { "match":"<.*?>","text":" "} },
+		
+		"chapters_from_page": { "skip": "<div id=\"chapter-list\"", "token1": "manga_id=", "token2": "&",
+			"replace":  [
+			{"prefix": "https://rawkuma.net/wp-admin/admin-ajax.php?manga_id="},
+			{"sufix": "&page=1&action=chapter_list"}
+			]
+			},
+			
+			
+			
 		"add_chapter": {
-			"next":  "<div class=\"eph-num\">",
+			"next":  "<div data-chapter-number=",
 			"link":  { "token1": "href=\"", "token2": "\""   },
-			"uniq":  { "token1": "href=\"https://rawkuma.com/", "token2": "\""   },
-			"title": { "skip" : "href=\"", "token1": "class=\"chapternum\">", "token2": "</",
+			"uniq":  { "token1": "<a href=\"https://rawkuma.net/manga/", "token2": "\"","replace": {"prefix" : "https://rawkuma.net/manga/" }   },
+			"title": { "skip": "<a href=\"https://rawkuma.net/manga/",  "token1": "<span>", "token2": "</span>",
 				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
 			}
 		}   
 	},
 	"chapter_complete": {
 	"add_images": {
-			"start": "ts_reader.run",
-			 "end": "var chapter_id",
-			"token1": "\"images\":[\"",
-			"token2": "\"]",
-			"split" : "\",\"",
-		
+			"start": "<div class=\"mx-4 md:mx-0\">",
+			 "end": "</section>",
+			"token1": "src='",
+			"token2": "'",
 			"replace": { "match": "\\\\", "text": "" }
 		}
 	},
@@ -123,7 +182,7 @@
 			"assert" : {
 				"mangas" : [
             { "title" : "Jigoku no Gouka de Yaka re Tsuzuketa Shounen. Saikyou no Honou Tsukai to Natte Fukkatsu Suru", 
-            "link" : "https://rawkuma.com/manga/jigoku-no-gouka-de-yaka-re-tsuzuketa-shounen-saikyou-no-honou-tsukai-to-natte-fukkatsu-suru/",
+            "link" : "https://rawkuma.net/manga/jigoku-no-gouka-de-yaka-re-tsuzuketa-shounen-saikyou-no-honou-tsukai-to-natte-fukkatsu-suru/",
 			"uniq" : "jigoku-no-gouka-de-yaka-re-tsuzuketa-shounen-saikyou-no-honou-tsukai-to-natte-fukkatsu-suru" }
 				],
 				"mangas_count" : ">=50"
@@ -131,11 +190,11 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://rawkuma.com/manga/destiny-lovers/",
+			"link" : "https://rawkuma.net/manga/destiny-lovers/",
 			"title" : "Destiny Lovers",
 			"assert" : {
 				"author" : "@KAZUTAKA",
-				"cover" : "@https://rawkuma.com/wp-content/uploads/2020/06/Destiny-Lovers-703x1024.jpg",
+				"cover" : "@https://rawkuma.net/wp-content/uploads/2020/06/Destiny-Lovers-703x1024.jpg",
 				"summary" : "@^(『デスラバ』はWEB版マガポケでのみ配信しておりますので、)",
 				"genres" : "@comedy",
 				"status" : "ongoing",
@@ -143,26 +202,27 @@
 				"chapters_count" : ">=100",
 				"chapters" : [
 		{
-            "folder": "destiny-lovers-chapter-111/",
-            "link": "https://rawkuma.com/destiny-lovers-chapter-111/",
-            "title": "Chapter 111"
+            "folder": "https://rawkuma_net/manga/destiny-lovers/chapter-0_35350/",
+            "link": "https://rawkuma.net/manga/destiny-lovers/chapter-0.35350/",
+             "title": "Chapter 0"
         },
         {
-            "link": "https://rawkuma.com/destiny-lovers-chapter-110/",
-            "title": "Chapter 110"
+            "link": "https://rawkuma.net/manga/destiny-lovers/chapter-1.35373/",
+            "title": "Chapter 1"
         }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://rawkuma.com/destiny-lovers-chapter-111/",
+			"link" : "https://rawkuma.net/manga/destiny-lovers/chapter-0.35350/",
 			"assert" : {
 				"pages" : [
-		{"image": "https://kumacdn.club/image-new-2/d/destiny-lovers/chapter-111/1-63123bc8955c9.jpg"},
-        {"image": "https://kumacdn.club/image-new-2/d/destiny-lovers/chapter-111/2-63123bc933dbb.jpg"},
-        {"image": "https://kumacdn.club/image-new-2/d/destiny-lovers/chapter-111/3-63123bca054bf.jpg"}
-				],
+		{"image": "https://rcdn.kyut.dev/d/destiny-lovers/chapter-0/1.jpg"},
+        {"image": "https://rcdn.kyut.dev/d/destiny-lovers/chapter-0/2.jpg"},
+        {"image": "https://rcdn.kyut.dev/d/destiny-lovers/chapter-0/3.jpg"},
+        {"image": "https://rcdn.kyut.dev/d/destiny-lovers/chapter-0/4.jpg"}
+		    ],
 				"pages_count": "14"
 			}
 		}
