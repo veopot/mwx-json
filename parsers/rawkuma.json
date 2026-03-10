@@ -1,6 +1,6 @@
 {
 	"id": 40128,
-	"version": 8,
+	"version": 9,
 	
 	"title": "Rawkuma",
 	"host": "https://rawkuma.com/",
@@ -159,7 +159,9 @@
 		"add_chapter": {
 			"next":  "<div data-chapter-number=",
 			"link":  { "token1": "href=\"", "token2": "\""   },
-			"uniq":  { "token1": "<a href=\"https://rawkuma.net/manga/", "token2": "\"","replace": {"prefix" : "https://rawkuma.net/manga/" }   },
+			"uniq": { "skip": "<a href=\"https://rawkuma.net/manga/",  "token1": "<span>", "token2": "</span>",
+				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
+			},
 			"title": { "skip": "<a href=\"https://rawkuma.net/manga/",  "token1": "<span>", "token2": "</span>",
 				"replace" : { "match" : "&nbsp;&nbsp;","text":" " }
 			}
