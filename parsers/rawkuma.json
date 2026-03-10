@@ -1,10 +1,10 @@
 {
 	"id": 40128,
-	"version": 9,
+	"version": 10,
 	
 	"title": "Rawkuma",
-	"host": "https://rawkuma.com/",
-	"public_link": "https://rawkuma.com/",
+	"host": "https://rawkuma.net/",
+	"public_link": "https://rawkuma.net/",
 	"old_sites": ["rawkuma.com" ],
 	
 	
