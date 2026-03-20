@@ -2,7 +2,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version":39,
+	"version":40,
 	"title": "Com-X.life (unstable)",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -23,7 +23,7 @@
 
      "manga_search_complete": {
           "headers": {
-		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+		"accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
@@ -37,7 +37,7 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=4d1869ee5e6b43d7b61fb500689cb19d; viewed_ids=13279"
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=13279"
 		
 		},
         "search_link":"https://com-x.life/index.php?do=search&subaction=search&search_start=$page$&story=$query$",
@@ -80,8 +80,8 @@
     },
 
 	"manga_list_complete": {
-	        "headers": {
-		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+	    "headers": {
+		"accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
@@ -95,15 +95,15 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=4d1869ee5e6b43d7b61fb500689cb19d; viewed_ids=13279"
-		
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		
 		"iterator": {
 			"base_url": "https://com-x.life/comix-read/page/",
 			"append_nums": {
 				"from": 1,
-				"to": 902,
+				"to": 1617,
 				"step": 1,
 				"sufix": "/"
 			}
@@ -130,7 +130,7 @@
 	
 	"manga_complete": {
         "headers": {
-		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+		"accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
@@ -144,8 +144,8 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=4d1869ee5e6b43d7b61fb500689cb19d; viewed_ids="
-		
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		"title": {
 			"after": "property=\"og:title\"",
@@ -160,8 +160,8 @@
 			"token2": "\""
 		},
 		"cover": {
-			"skip": "context",
-			"token1": "image\":\"",
+			"after": "property=\"og:image\"",
+			"token1": "content=\"",
 			"token2": "\""
 		},
 		"author": {
@@ -204,8 +204,8 @@
 		
 		
 		"add_chapter": {
-		        "headers": {
-		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+		 "headers": {
+		"accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
@@ -219,8 +219,8 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=4d1869ee5e6b43d7b61fb500689cb19d; viewed_ids="
-		
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		    "start": "\"chapters\":[",
 			"end":  "<div v-if=\"page_count >",
@@ -242,8 +242,8 @@
 	},
 
 	"chapter_complete": {
-	        "headers": {
-		"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+	     "headers": {
+		"accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
@@ -257,9 +257,10 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=4d1869ee5e6b43d7b61fb500689cb19d; viewed_ids="
-		
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
+		
 		"add_numeration": true,
 		"add_images": {
 			"start": "\"images\":",
