@@ -22,7 +22,7 @@
 
 
      "manga_search_complete": {
-          "headers": {
+        "headers": {
 		"accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
@@ -37,9 +37,10 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=13279"
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
+		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
+		}, 
 		
-		},
         "search_link":"https://com-x.life/index.php?do=search&subaction=search&search_start=$page$&story=$query$",
 		"query_type": "GET",
 		
@@ -95,8 +96,8 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
-		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
+		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		
 		"iterator": {
@@ -144,7 +145,7 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
 		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		"title": {
@@ -219,7 +220,7 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
 		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		    "start": "\"chapters\":[",
@@ -257,7 +258,7 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd; viewed_ids=",
+        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
 		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		

@@ -1,6 +1,6 @@
 {
 	"id": 40117,
-	"version": 83,
+	"version": 84,
 	"title": "Rulate",
 	"host": "https://tl.rulate.ru",
 	"public_link": "https://tl.rulate.ru/search/?cat=2",
@@ -153,9 +153,9 @@
 		},
 
 		"title": {
-			"skip": "class=\"nav nav-tabs book-header\"",
-			"token1": "h1>",
-			"token2": "</"
+			"after": "<meta property=\"og:title\"",
+			"token1": "content=\"",
+			"token2": "\""
 		},
 		"uniq": {
 			"skip": "var Book = new CBook",
@@ -334,7 +334,7 @@
 
 		{
 			"proc": "manga_complete",
-			"link": "https://tl.rulate.ru/book/1689",
+			"link": "https://tl.rulate.ru/book/113822",
 			"title": "Pure Love x Insult Complex / Чистая любовь и Жажда Мести 18+",
 			"assert": {
 
