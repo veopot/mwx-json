@@ -1,6 +1,6 @@
 {
  "id":40228,
-   "version":31,
+   "version":32,
    
    "old_sites": [
    "mangapoisk.ru",
@@ -102,9 +102,13 @@
    
    "manga_complete": { 
 	   "headers": {
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.3987.163 Safari/537.36",
-			"Referer": "https://mangap.ru/"
-		},
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "https://mangap.ru/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
+            "sec-ch-ua-mobile": "?0"
+        },
+     
       "title":{
          "skip":"<header class=\"card-header p-0\"><h1", 
          "token1":"\">",
@@ -206,6 +210,14 @@
 	  
 		
 		"add_chapter":{
+			"headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "https://mangap.ru/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
+            "sec-ch-ua-mobile": "?0"
+        },
+     
         "start": "</head>",
 		 "end": "class=\"chapters-infinite-pagination\"",
         
@@ -240,10 +252,12 @@
    "chapter_complete":{
     "add_numeration": true,
         "headers": {
-			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"Referer": "https://mangap.ru/"
-		},
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "https://mangap.ru/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
+            "sec-ch-ua-mobile": "?0"
+        },
      
       "images":true,
 "add_pages":
