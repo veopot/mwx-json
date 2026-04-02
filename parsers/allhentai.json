@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 108,
+	"version": 109,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -79,7 +79,7 @@
 	},
 	"manga_list_complete": {
 		"headers": {
-			"cookie": "remember_me=ZUo4MmFiMVdnZHhZNWZJYVcwTWJJMlMyQURRb3ZZV0J6SHpMdWNDNFglMkJRJTNEOm5UZk50OWlPWU9xQ3VmNzNTRldlOU1TWlhLWWsxVEI5WXBoRSUyQlRDMGpwYyUzRA",
+			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -132,7 +132,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=ZUo4MmFiMVdnZHhZNWZJYVcwTWJJMlMyQURRb3ZZV0J6SHpMdWNDNFglMkJRJTNEOm5UZk50OWlPWU9xQ3VmNzNTRldlOU1TWlhLWWsxVEI5WXBoRSUyQlRDMGpwYyUzRA",
+			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -142,91 +142,73 @@
 			
 			"Referer": "https://20.allhen.online/"
 		},
-		"title": {
-			"after": "<meta itemprop=\"name\"",
-			"token1": "content=\"",
-			"token2": "<meta itemprop=\"url",
-			"replace": [{
-					"match": "\" />",
-					"text": ""
-				},
-				{
-					"match": "\"/>",
-					"text": ""
-				},
-				{
-					"match": "\n",
-					"text": ""
-				},
-				{
-					"match": "      ",
-					"text": " "
-				},
-				{
-					"match": "<meta itemprop=\"alternativeHeadline\" content=\"",
-					"text": "/ "
-				}
-			]
-		},
+		"title": 		{ "after": "<title", "token1": ">", "token2": "</title>",
+				"replace": [
+				    { "match": "порно мангу", "text": ""},
+					{ "match": "хентай комикс", "text": ""},
+					{ "match": "Хентай Манга", "text": ""},
+					{ "match": "Хентай комикс", "text": ""},
+					
+					{ "match": "\n", "text": ""},
+					{ "match": "      ", "text": " "},
+					
+					{ "match": "порно (.*?)   - AllHentai", "text": ""},
+					{ "match": "онлайн и получи полезные сведения о нём, а ещё прокомментировать и всё это можно сделать бесплатно на AllHentai.", "text": ""},
+					{ "match": "онлайн и узнай информацию о нем, и ещё прочитать отзывы и всё это совершено бесплатно на AllHentai.", "text": ""},
+					{ "match": "в онлайне и получи информацию о нём, а так же узнать мнения читателей и всё это у нас на AllHentai.", "text": ""},
+                    { "match": "online и узнай сведения о нем, а ещё написать обзор и всё это бесплатно на AllHentai.", "text": ""}
+				] 
+			},
 		"uniq": {
-			"skip": "itemprop=\"alternativeHeadline\"",
+			"after": "itemprop=\"alternativeHeadline\"",
 			"token1": "content=\"",
 			"token2": "\""
 		},
-		"author": {
-			"skip": "class=\"elem_author",
-			"token1": "\">",
-			"token2": "</a>"
-		},
-		"summary": {
-			"after": "manga-description",
-			"token1": ">",
-			"token2": "</div",
-			"replace": {
-				"match": "<.*?>",
-				"text": ""
-			}
-		},
+		"author": { "after": "href=\"/list/person/",  "token1": "\">", "token2": "</" },
+			
+		"summary":      { "after": "<div class=\"cr-description__content\"", "token1": ">", "token2": "</div>",
+            "replace": [
+                {"clear_escape": true },
+				{"match":"<.*?>","text":""}
+                    ]
+			},
 		"need_auth": [
 			"залогиненным",
 			"доступна только",
 			"хентай"
 		],
-		"status": {
-			"ongoing": {
-				"start": ">Информация о манге<",
-				"end": ">Описание<",
-				"values": [
-					"продолжается"
-				]
+		"status": { 
+			
+		  	"complete": { 
+			"start": "title\">Перевод</div>",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
+			             
+            "ongoing": { 
+			"start": "title\">Перевод</div>",
+			"end": "</span>", 
+			"values": [ "продолжается","Продолжается", "переводится"   ] 
 			},
-			"complete": {
-				"start": ">Информация о манге<",
-				"end": ">Описание<",
-				"values": [
-					"завершен",
-					"переведено",
-					"Переведена",
-					"Сингл"
-				]
+			
+			
+			
+            "single": "Сингл,",
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" 
 			},
-			"single": "<b>Сингл</b>"
-		},
 		"cover": {
-			"skip": "class=\"picture-fotorama\"",
-			"token1": "data-full=\"",
+			"skip": "<div class=\"cr-hero-poster",
+			"token1": "src=\"",
 			"token2": "\""
 		},
 		"is_mature": "hentai",
-		"add_genre": {
-			"after": "href=\"/list/genre/",
-			"token1": "\">",
-			"token2": "</"
-		},
-		"add_tag": {
-			"after": "href=\"/list/tag/",
-			"token1": "\">",
-			"token2": "</"
+		
+		"add_tags": {
+			 "start": "<div class=\"cr-tags\"",
+		        "end": "<div class=\"cr-tags__toggle",
+			"after": "href=\"/list/",
+			"token1": "<span>",
+			"token2": "</span>"
 		},
 		"need_auth_genres": [
 			"сэйнэн",
@@ -244,7 +226,7 @@
 		],
 		"add_chapter": {
 			"headers": {
-			"cookie": "remember_me=ZUo4MmFiMVdnZHhZNWZJYVcwTWJJMlMyQURRb3ZZV0J6SHpMdWNDNFglMkJRJTNEOm5UZk50OWlPWU9xQ3VmNzNTRldlOU1TWlhLWWsxVEI5WXBoRSUyQlRDMGpwYyUzRA",
+			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -287,7 +269,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=ZUo4MmFiMVdnZHhZNWZJYVcwTWJJMlMyQURRb3ZZV0J6SHpMdWNDNFglMkJRJTNEOm5UZk50OWlPWU9xQ3VmNzNTRldlOU1TWlhLWWsxVEI5WXBoRSUyQlRDMGpwYyUzRA",
+			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
 			
 			"Accept": "*/*",
 			"Referer": "https://20.allhen.online/"
