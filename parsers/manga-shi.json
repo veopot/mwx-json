@@ -1,6 +1,6 @@
 {
     "id": 52134,
-    "version": 3,
+    "version": 4,
     "title": "Manga-shi",
     "host": "https://manga-shi.org",
     "public_link": "https://manga-shi.org/manga",
@@ -27,81 +27,73 @@
        "headers": {
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
-            "User-Agent": "MangaWatcherX" 
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" 
 			},
-        "search_link": "https://manga-shi.org/?s=$query$&post_type=wp-manga",
+        "search_link": "https://manga-shi.org/catalog/?q=$query$&sort=added&status=&type=&year=&age_rating=&chapters_min=&chapters_max=",
         "query_type": "GET",
         "add_manga": {
-            "start": "<div class=\"search-wrap\">",
-            "end": "class=\"site-footer\">",
-            "next": "class=\"manga__content_item\">",
+            "start": ">Каталог манги</h1>",
+            "end": "<footer",
+            "next": "<div class=\"media-skeleton\">",
+			
             "link": {
-                "skip": "<a",
+                "before": "<div class=\"media-skeleton-icon\">",
                 "token1": "href=\"",
                 "token2": "\""
             },
 
             "title": {
-				 "skip": "href=\"",
-                "token1": "\">",
-                "token2": "</"
+				"after": "<div class=\"media-skeleton-icon\">",
+                "token1": "title=\"",
+                "token2": "\""
             },
             "uniq": {
-				"skip": "href=\"",
-                "token1": "https://manga-shi.org/manga/",
+				"before": "<div class=\"media-skeleton-icon\">",
+                "token1": "href=\"/manga/",
                 "token2": "\""
             },
 			
             "cover": {
 				
-				"before": "href=\"",
-                "token1":"src=\"",
+				"after": "<div class=\"media-skeleton-icon\">",
+                "token1":"<img src=\"",
                 "token2":"\""
-            },
-            
-            "summary": {
-                "token1": "<p class=\"ds-markdown-paragraph\">",
-                "token2": "<div class=\"manga-info\">",
-				"replace": [
-				    { "match": "&quot;", "text": "'" },
-					{ "clear_escape": true },
-                    { "clear_html": true },
-					{ "match": "<.*?>", "text": " " }
-				]
             }
+            
         }
     },
     "manga_list_complete": {
          "headers": {
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
-            "User-Agent": "MangaWatcherX" 
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" 
 			},
         "iterator": {
-            "base_url": "https://manga-shi.org/manga/?m_orderby=rating&page=",
+            "base_url": "https://manga-shi.org/catalog/?sort=rating&status=&type=&year=&age_rating=&chapters_min=&chapters_max=&q=&page=",
             "append_nums": {
                 "from": 1,
-                "to": 38
+                "to": 30
             }
         },
         "add_manga": {
-            "start": "<h1 class=\"item-title h4\">",
-            "end": "<footer class=\"site-footer\">",
-            "next": "class=\"manga__content_item\">",
+            "start": ">Каталог манги</h1>",
+            "end": "<footer",
+            "next": "<div class=\"media-skeleton\">",
+			
             "link": {
-                "skip": "<a",
+                "before": "<div class=\"media-skeleton-icon\">",
                 "token1": "href=\"",
                 "token2": "\""
             },
 
             "title": {
-				 "skip": "href=\"",
-                "token1": "\">",
-                "token2": "</"
+				"after": "<div class=\"media-skeleton-icon\">",
+                "token1": "title=\"",
+                "token2": "\""
             },
             "uniq": {
-				"skip": "href=\"",
-                "token1": "https://manga-shi.org/manga/",
+				"before": "<div class=\"media-skeleton-icon\">",
+                "token1": "href=\"/manga/",
                 "token2": "\""
             }
         },
@@ -115,20 +107,21 @@
 		
         "headers": {
 			"Accept": "*/*",
-            "Referer": "https://manga-shi.org/",
-            "User-Agent": "MangaWatcherX" 
+            "Referer": "https://manga-shi.org",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" 
 			},
         
 		
 		
 		"title":{
-         "skip":"<meta property=\"og:title\"", 
+         "skip":"<meta id=\"og-title\"", 
          "token1":"content=\"",
          "token2":"\"" ,
 		  "replace": [
 				{"match": "Манга","text": ""},
 				{"match": "Манхва","text": ""},
 				{"match": "/","text": "|"},
+				{ "clear_escape": true },
 				{"match":"<.*?>","text":""}
 
 				]},
@@ -136,19 +129,21 @@
 		
         
         "uniq": {
-            "token1": "<meta property=\"og:url\" content=\"https://manga-shi.org/manga/",
+            "token1": "<meta id=\"og-url\" property=\"og:url\" content=\"https://manga-shi.org/manga/",
             "token2": "\">"
         },
         "cover": {
-			"skip": "<meta property=\"og:image\"",
+			"skip": "<meta id=\"og-image\" property=\"og:image\"",
             "token1":"content=\"",
-            "token2":"\""
+            "token2":"\"",
+				    "replace": { "prefix": "https://manga-shi.org"} 
         },
         "summary": {
-			"skip": "class=\"description-summary\">",
+			"skip": "class=\"text-zinc-400 text-xs leading-relaxed",
             "token1":"\">",
             "token2":"</div>",
             "replace": [
+			    { "clear_escape": true },
                 {
                     "match": "u003Cp",
                     "text": ""
@@ -169,6 +164,7 @@
                     "match": "u002Fp",
                     "text": ""
                 },
+
                 {
                     "match": "&quot;",
                     "text": "'"
@@ -177,35 +173,32 @@
         },
        
 	   
-	   "author":      { "skip": "class=\"author-content\">", "token1": "\">", "token2": "</" },
+	   "author":      { "skip": ">Автор:", "token1": "</span>", "token2": "</div>",
+	                        "replace": {  "match": "<.*?>", "text": "" } 
+					},
         "status": {
             "complete": {
-                "start": "<div class=\"post-title\">",
-                "end": "MANGA DISCUSSION</h4>",
+                "start": "<main id=\"page-content\"",
+                "end": "<div class=\"flex-1 min-w-0\">",
                 "values": ["Закончен", "Переведена","Завершен","Сингл","Отменено","Завершено"]
             },
             "ongoing": {
-                "start": "<div class=\"post-title\">",
-                "end": "MANGA DISCUSSION</h4>",
+                "start": "<main id=\"page-content\"",
+                "end": "<div class=\"flex-1 min-w-0\">",
                 "value": "Онгоинг"
             }
         },
         
-        "add_genres": {
-            "start": "<div class=\"genres-content\">",
-            "end": "</div>",
-            "token1": "\">",
-            "token2": "</"
-        },
+       
 		"add_tags": {
-            "start": "class=\"tags-content\">",
+            "start": "class=\"flex flex-wrap gap-2 mb-10 sm:mb-12\">",
             "end": "</div>",
             "token1": "\">",
             "token2": "</"
         },
 		
         "is_mature": {
-            "values": ["Сэйнэн", "Эротика", "Юри", "Яой",">18+</div>",    "class=\"tags__item tags__item--warning\">" ]
+            "values": ["Сэйнэн", "Эротика", "Юри", "Яой",">18+</div>",">Контент 18+<" ]
         },
 		
 		"need_auth": [
@@ -214,12 +207,19 @@
 			"хентай"
 		],
         
-		
 		"chapters_from_page": {
-            "before": "id=\"btn-read-last\"",
-            "token1": "href=\"",
-            "token2": "\""
+            "after": "<meta id=\"og-url\"",
+            "token1": "content=\"",
+            "token2": "\"",
+            "replace": { "sufix": "chapters/?chapter_sort=latest&page=%%iterator_num%%"  },
+            "iterator": {
+                "base_url": "",
+                "append_nums": {
+                    "from": 1
+                }
+            }
         },
+		
 		
         "add_chapter": {
 			"headers": {
@@ -228,24 +228,23 @@
 			"User-Agent": "mangawatcherx"
 			},
 			
-            "start": "class=\"page-content-listing",
-            "end": "class=\"wp-manga-section\">",
-            "next": "class=\"chapter-name\">",
+            "next": "<a",
             
 			"link": {
                 "token1": "href=\"",
-                "token2": "\""
+                "token2": "\"",
+				    "replace": { "prefix": "https://manga-shi.org"} 
             },
             "uniq": {
-                "skip": "href=\"https://manga-shi.org",
-                "token1": "\">",
-                "token2": "</a>",
+                "skip": "href=\"",
+                "token1": "<span>",
+                "token2": "</span>",
                 "replace":{ "match": "/", "text": "_" }
             },
             "title": {
-                "skip": "href=\"https://manga-shi.org",
-                "token1": "\">",
-                "token2": "</a>",
+                "skip": "href=\"",
+                "token1": "<span>",
+                "token2": "</span>",
                 "replace": [
                     {
                         "match": "<.*?>",
@@ -271,15 +270,17 @@
          "headers": {
 			"Accept": "*/*",
             "Referer": "https://manga-shi.org/",
-            "User-Agent": "MangaWatcherX" 
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" 
 			},
         "add_images": {
-            "start": "class=\"reading-content\">",
-			"after": "id=\"image",
+            "start": "class=\"reader-page is-loaded\"",
+			"after": "<img",
 			
-            "token1": "src=\"",
+            "token1": "/media/",
             "token2": "\"",
-            "end": "<div id=\"thank-wrapper\""
+            "end": "class=\"reader-ad reader-ad-end my-6\">",
+            "replace": { "prefix": "https://manga-shi.org/media/" }
+			
         }
     },
     "test": [
@@ -298,11 +299,11 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://manga-shi.org/manga/evolution-from-the-big-tree/",
-            "title": "Моё перерождение в древо: Начало эволюции | Evolution From the Big Tree",
+            "link": "https://manga-shi.org/manga/in-the-dungeon-with-my-childhood-friend/",
+            "title": "С другом детства в подземелье | In The Dungeon With My Childhood Friend \u2014 Mangashi",
 			
 			"assert": {
-                "cover": "https://manga-shi.org/wp-content/uploads/2025/03/uwhipgbe1io2p3jt902uw.jpg",
+                "cover": "https://manga-shi.org/media/covers/photo_2026-04-06_19-35-44.jpg",
                 "genres": "@action",
 				"author": "@Xia Yan",
                 "status": "ongoing",
@@ -311,29 +312,25 @@
 				"chapters_count" : ">=400",
                 "chapters": [
         {
-            "folder": "Глава 1\\",
-            "link": "https://manga-shi.org/manga/evolution-from-the-big-tree/glava-1/",
-            "title": "Глава 1"
+            "link": "https://manga-shi.org/manga/in-the-dungeon-with-my-childhood-friend/glava-0/",
+            "title": "Глава 0: Пролог"
         },
         {
-            "link": "https://manga-shi.org/manga/evolution-from-the-big-tree/glava-2/",
-            "title": "Глава 2"
+            "link": "https://manga-shi.org/manga/in-the-dungeon-with-my-childhood-friend/glava-1/",
+            "title": "Глава 1"
         }
                 ]
             }
         },
         {
             "proc": "chapter_complete",
-            "link": "https://manga-shi.org/manga/evolution-from-the-big-tree/glava-1/",
+            "link": "https://manga-shi.org/manga/in-the-dungeon-with-my-childhood-friend/glava-1/",
             "assert": {
                 "pages": [
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/11.webp"},
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/12.webp"},
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/13.webp"},
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/14.webp"},
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/15.webp"},
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/16.webp"},
-        {"image": "http://manga-shi.org/wp-content/uploads/WP-manga/data/manga_67c4e50f96f98/145cb3371514c78ca2a12a401e01dcc8/17.webp"}
+        {"image": "https://manga-shi.org/media/chapters/manga_part01_ByRQf2A.webp"},
+        {"image": "https://manga-shi.org/media/chapters/manga_part02_DtKWtNM.webp"},
+        {"image": "https://manga-shi.org/media/chapters/manga_part03_kYaGwqg.webp"},
+        {"image": "https://manga-shi.org/media/chapters/manga_part04_vYwq2A0.webp"}
                 ]
             }
         }
