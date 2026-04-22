@@ -1,15 +1,15 @@
 {
     "id": 1468,
-    "version": 32,
+    "version": 33,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me",
-		"v1.yaoilib.net"
-		
+		"v1.yaoilib.net",
+		"v2.slashlib.me"
     ],
     "title": "YaoiLib",
-    "host": "https://v2.slashlib.me/",
-    "public_link": "https://v2.slashlib.me/ru/catalog",
+    "host": "https://v2.shlib.life/",
+    "public_link": "https://v2.shlib.life/ru/catalog",
     "folder": "yaoilib",
     "name": "yaoilib",
     "language": "ru",
@@ -30,7 +30,7 @@
         "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "image/webp,*/*;q=0.8",
-            "Referer": "https://v2.slashlib.me/"
+            "Referer": "https://v2.shlib.life/"
         },
         "search_link": "https://hapi.hentaicdn.org/api/manga?fields[]=rate_avg&fields[]=rate&fields[]=releaseDate&q=$query$&site_id[]=2",
         "query_type": "GET",
@@ -97,7 +97,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "image/webp,*/*;q=0.8",
             "cookie": "XSRF-TOKEN=eyJpdiI6IlFYZTlsVEpnd0tRdkpxU2ZUS1NGZHc9PSIsInZhbHVlIjoiS3loQ3FsRWNHME8xOUFSOG9sTWRuWms5Wis2dE5ydGZFWnBURHhJdW0rbzZkRlVIT2E3cUR6Ryt3STVNbFg4WXMzSFgrbEdzYkVJRnFiU2JFdjdPRTU4bjlzRmJjRGsvemFaM3JZVkVLK0dZYnJWVHZtVU1MT3U1c3J3QXlTdFQiLCJtYWMiOiIzZTI4OGE4OWFhNGNiMmE5MThmYzVmYmZiMmFhYWYzMTA2ZjRlYzJhY2MzMTliNGVkMWNkOGZkNjk4ZTE5Njc1IiwidGFnIjoiIn0%3D",
-            "Referer": "https://v2.slashlib.me/ru/catalog"
+            "Referer": "https://v2.shlib.life/ru/catalog"
         },
         "iterator": {
             "base_url": "https://api2.mangalib.me/api/manga?fields[]=rate&fields[]=rate_avg&fields[]=userBookmark&site_id[]=2&page=",
@@ -160,7 +160,7 @@
         },
         "link_corrector": [
             {
-                "match": "https://v2.slashlib.me/ru/manga/(.*)",
+                "match": "https://v2.shlib.life/ru/manga/(.*)",
                 "text": "https://hapi.hentaicdn.org/api/manga/$1/?&fields[]=genres&fields[]=tags&fields[]=authors&fields[]=summary&"
             }
         ],
@@ -173,12 +173,12 @@
     "headers": {
         "accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQ0NGU4NDdkYmFkMjE1NGM2MzY5Y2IxYTJiZDdhODc4ZWY2NWQxMjFjNDMxYTRjZDdlNTFlN2RkNDBjZGZhZjlmZTg3ZWU0Nzc1ZTljZmIiLCJpYXQiOjE3Njk0MjYwNTUuMDY0NjYzLCJuYmYiOjE3Njk0MjYwNTUuMDY0NjY0LCJleHAiOjE3NzIxMDQ0NTUuMDU5OTMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.8O_wUn40U7PKgnXN80-4aE9ne9v4t_hxGjBI4u8acyw05T6SUru5Q_qAq-LFDzJ2nq-cTfj8tPSQG0hq7dqe0k2F_-E-RkYGJrwZJp3revrKCJyXnEzqCKci2kdWmRJFWjcsIlYDXD6S0NL7cAha0oNmFmeqt0ssQ4Tw5Ytt9bqFrRGwF7GkKt59dUITXukJavIZb5whA7DWjuvw9a4fktk_YpsuXf77I5D6FtpZKmXvuVKlrHMJOW2ytVWxZw5IhnXhcQ247VyKG8IYSzW6ZhJYbaMVyLN8OsKv0bSa0em6F0ot1Mmxn7FSzfZFQzuB8HM9QoZo4KUcRLykpqqek7j4ktk_thrFgr6vClYE6uHIRLZNtVzXvr2lifz7uszSsVMJ5n9przG7S_FJgMHOkAdXv_94-FPhKz5JPPPBmr2Ajmlq3GMs629m2tyML-Hr7MVqbSdmcKeR43u0enQknGQTN1RavJ1J5vAEP9w9MCf99Uvbo5PtpN2MOIlFmPM4GYpEZ98EeW7xMqYzHUQCNfU_XFwm7aQlOueaOb9Ui4dgipL77V4cWv1BxWT-wEKhMFYqWBhM4Ktmau3Cyeec59B2lMiclqwYjLQWn1u-KI3HCi-ZbO-lc-XVvpobKQPhRjwl-rxuIpvNIo6un3t7FcGCvvjwhy6xnv8e5CKzCGQ",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWRmOTI0Y2Y4OGVlMGNjZTI5ZjczMGJlODJkYWE4NDA5MDRhOTZlNzA0OTdmYTljMmI1Y2YzYzIwYjE2NmUwMWRjNTM0OGNiM2UyOTIzNGIiLCJpYXQiOjE3NzY4NDcwOTUuNjA0NjI1LCJuYmYiOjE3NzY4NDcwOTUuNjA0NjI3LCJleHAiOjE3Nzk0MzkwOTUuNjAwNTM0LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.wyTjvQ84SizSMacQurSM0GbRBt-9j5UVndUHuMhxoMuKv4qI7ccun7m13OEQZIEYfFITtXN9qv_WFjcHS5vPg7GU7XSTyUbGSi01Kwc8r17EbuCsHJfyipgq7s_8VRAYIlvT-cpMM7x9YG9wxzQr4PtggbnmyfVZCaa2zw467hhEc5u4oGX5WZm0Xam6CXFN9c_0U3yanTPC-mbAUUwM6ReyWCjbPPIH9S4gBtJkjBS5U5if86gWwjDc-OUmmAEjwJ7VnA-v9iVU1UcuK7dqPsOSnSZ8xE6j6Kq_Hc1e7v-MEEtuRwxA_WcBCV6JnUOQ1owrppZVUqz5omdwWkIT_-qnmY-ATT6WOotLGmIohpBwAX0vxctZOEbFewCPO5wL2iqkneYWmiYPOLe0HPAyQPANb7rKJ4RSbjxROqJTPg_x9zIM59DhVulkEU1-oJ3UZn11QuBO_m9Rm4WESdGW2EoYdhflzgzSsAmyu-cIJJnrTEEbtvoaK9pt_L8FW1qkf3PuINWFBw0-zO-aEhJrZIv_12sQz01bGC-SNpYmFilAclNBWS9ZE6mAuZ7N9t8--MLpUdTCvPMJ4joccWecQlP0A0PaWhi5kigF7YzfgSnnxWFGWchqEtgvYSWqCOAswIR7nPQJOICJVlh7oj3EWbAO53XUvxYrqY3m7H_GAa4",
         "client-time-zone": "Asia/Irkutsk",
         "content-type": "application/json",
-        "origin": "https://v2.slashlib.me/",
+        "origin": "https://v2.shlib.life/",
         "priority": "u=1, i",
-        "referer": "https://v2.slashlib.me/",
+        "referer": "https://v2.shlib.life/",
         "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
@@ -343,12 +343,12 @@
           "headers": {
         "accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQ0NGU4NDdkYmFkMjE1NGM2MzY5Y2IxYTJiZDdhODc4ZWY2NWQxMjFjNDMxYTRjZDdlNTFlN2RkNDBjZGZhZjlmZTg3ZWU0Nzc1ZTljZmIiLCJpYXQiOjE3Njk0MjYwNTUuMDY0NjYzLCJuYmYiOjE3Njk0MjYwNTUuMDY0NjY0LCJleHAiOjE3NzIxMDQ0NTUuMDU5OTMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.8O_wUn40U7PKgnXN80-4aE9ne9v4t_hxGjBI4u8acyw05T6SUru5Q_qAq-LFDzJ2nq-cTfj8tPSQG0hq7dqe0k2F_-E-RkYGJrwZJp3revrKCJyXnEzqCKci2kdWmRJFWjcsIlYDXD6S0NL7cAha0oNmFmeqt0ssQ4Tw5Ytt9bqFrRGwF7GkKt59dUITXukJavIZb5whA7DWjuvw9a4fktk_YpsuXf77I5D6FtpZKmXvuVKlrHMJOW2ytVWxZw5IhnXhcQ247VyKG8IYSzW6ZhJYbaMVyLN8OsKv0bSa0em6F0ot1Mmxn7FSzfZFQzuB8HM9QoZo4KUcRLykpqqek7j4ktk_thrFgr6vClYE6uHIRLZNtVzXvr2lifz7uszSsVMJ5n9przG7S_FJgMHOkAdXv_94-FPhKz5JPPPBmr2Ajmlq3GMs629m2tyML-Hr7MVqbSdmcKeR43u0enQknGQTN1RavJ1J5vAEP9w9MCf99Uvbo5PtpN2MOIlFmPM4GYpEZ98EeW7xMqYzHUQCNfU_XFwm7aQlOueaOb9Ui4dgipL77V4cWv1BxWT-wEKhMFYqWBhM4Ktmau3Cyeec59B2lMiclqwYjLQWn1u-KI3HCi-ZbO-lc-XVvpobKQPhRjwl-rxuIpvNIo6un3t7FcGCvvjwhy6xnv8e5CKzCGQ",
+        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWRmOTI0Y2Y4OGVlMGNjZTI5ZjczMGJlODJkYWE4NDA5MDRhOTZlNzA0OTdmYTljMmI1Y2YzYzIwYjE2NmUwMWRjNTM0OGNiM2UyOTIzNGIiLCJpYXQiOjE3NzY4NDcwOTUuNjA0NjI1LCJuYmYiOjE3NzY4NDcwOTUuNjA0NjI3LCJleHAiOjE3Nzk0MzkwOTUuNjAwNTM0LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.wyTjvQ84SizSMacQurSM0GbRBt-9j5UVndUHuMhxoMuKv4qI7ccun7m13OEQZIEYfFITtXN9qv_WFjcHS5vPg7GU7XSTyUbGSi01Kwc8r17EbuCsHJfyipgq7s_8VRAYIlvT-cpMM7x9YG9wxzQr4PtggbnmyfVZCaa2zw467hhEc5u4oGX5WZm0Xam6CXFN9c_0U3yanTPC-mbAUUwM6ReyWCjbPPIH9S4gBtJkjBS5U5if86gWwjDc-OUmmAEjwJ7VnA-v9iVU1UcuK7dqPsOSnSZ8xE6j6Kq_Hc1e7v-MEEtuRwxA_WcBCV6JnUOQ1owrppZVUqz5omdwWkIT_-qnmY-ATT6WOotLGmIohpBwAX0vxctZOEbFewCPO5wL2iqkneYWmiYPOLe0HPAyQPANb7rKJ4RSbjxROqJTPg_x9zIM59DhVulkEU1-oJ3UZn11QuBO_m9Rm4WESdGW2EoYdhflzgzSsAmyu-cIJJnrTEEbtvoaK9pt_L8FW1qkf3PuINWFBw0-zO-aEhJrZIv_12sQz01bGC-SNpYmFilAclNBWS9ZE6mAuZ7N9t8--MLpUdTCvPMJ4joccWecQlP0A0PaWhi5kigF7YzfgSnnxWFGWchqEtgvYSWqCOAswIR7nPQJOICJVlh7oj3EWbAO53XUvxYrqY3m7H_GAa4",
         "client-time-zone": "Asia/Irkutsk",
         "content-type": "application/json",
-        "origin": "https://v2.slashlib.me",
+        "origin": "https://v2.shlib.life",
         "priority": "u=1, i",
-        "referer": "https://v2.slashlib.me/",
+        "referer": "https://v2.shlib.life/",
         "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
@@ -413,8 +413,8 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Accept": "*/*",
             "cookie": "XSRF-TOKEN=eyJpdiI6IlFYZTlsVEpnd0tRdkpxU2ZUS1NGZHc9PSIsInZhbHVlIjoiS3loQ3FsRWNHME8xOUFSOG9sTWRuWms5Wis2dE5ydGZFWnBURHhJdW0rbzZkRlVIT2E3cUR6Ryt3STVNbFg4WXMzSFgrbEdzYkVJRnFiU2JFdjdPRTU4bjlzRmJjRGsvemFaM3JZVkVLK0dZYnJWVHZtVU1MT3U1c3J3QXlTdFQiLCJtYWMiOiIzZTI4OGE4OWFhNGNiMmE5MThmYzVmYmZiMmFhYWYzMTA2ZjRlYzJhY2MzMTliNGVkMWNkOGZkNjk4ZTE5Njc1IiwidGFnIjoiIn0%3D",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQ0NGU4NDdkYmFkMjE1NGM2MzY5Y2IxYTJiZDdhODc4ZWY2NWQxMjFjNDMxYTRjZDdlNTFlN2RkNDBjZGZhZjlmZTg3ZWU0Nzc1ZTljZmIiLCJpYXQiOjE3Njk0MjYwNTUuMDY0NjYzLCJuYmYiOjE3Njk0MjYwNTUuMDY0NjY0LCJleHAiOjE3NzIxMDQ0NTUuMDU5OTMsInN1YiI6IjcyNSIsInNjb3BlcyI6W119.8O_wUn40U7PKgnXN80-4aE9ne9v4t_hxGjBI4u8acyw05T6SUru5Q_qAq-LFDzJ2nq-cTfj8tPSQG0hq7dqe0k2F_-E-RkYGJrwZJp3revrKCJyXnEzqCKci2kdWmRJFWjcsIlYDXD6S0NL7cAha0oNmFmeqt0ssQ4Tw5Ytt9bqFrRGwF7GkKt59dUITXukJavIZb5whA7DWjuvw9a4fktk_YpsuXf77I5D6FtpZKmXvuVKlrHMJOW2ytVWxZw5IhnXhcQ247VyKG8IYSzW6ZhJYbaMVyLN8OsKv0bSa0em6F0ot1Mmxn7FSzfZFQzuB8HM9QoZo4KUcRLykpqqek7j4ktk_thrFgr6vClYE6uHIRLZNtVzXvr2lifz7uszSsVMJ5n9przG7S_FJgMHOkAdXv_94-FPhKz5JPPPBmr2Ajmlq3GMs629m2tyML-Hr7MVqbSdmcKeR43u0enQknGQTN1RavJ1J5vAEP9w9MCf99Uvbo5PtpN2MOIlFmPM4GYpEZ98EeW7xMqYzHUQCNfU_XFwm7aQlOueaOb9Ui4dgipL77V4cWv1BxWT-wEKhMFYqWBhM4Ktmau3Cyeec59B2lMiclqwYjLQWn1u-KI3HCi-ZbO-lc-XVvpobKQPhRjwl-rxuIpvNIo6un3t7FcGCvvjwhy6xnv8e5CKzCGQ",
-            "Referer": "https://v2.slashlib.me/"
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWRmOTI0Y2Y4OGVlMGNjZTI5ZjczMGJlODJkYWE4NDA5MDRhOTZlNzA0OTdmYTljMmI1Y2YzYzIwYjE2NmUwMWRjNTM0OGNiM2UyOTIzNGIiLCJpYXQiOjE3NzY4NDcwOTUuNjA0NjI1LCJuYmYiOjE3NzY4NDcwOTUuNjA0NjI3LCJleHAiOjE3Nzk0MzkwOTUuNjAwNTM0LCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.wyTjvQ84SizSMacQurSM0GbRBt-9j5UVndUHuMhxoMuKv4qI7ccun7m13OEQZIEYfFITtXN9qv_WFjcHS5vPg7GU7XSTyUbGSi01Kwc8r17EbuCsHJfyipgq7s_8VRAYIlvT-cpMM7x9YG9wxzQr4PtggbnmyfVZCaa2zw467hhEc5u4oGX5WZm0Xam6CXFN9c_0U3yanTPC-mbAUUwM6ReyWCjbPPIH9S4gBtJkjBS5U5if86gWwjDc-OUmmAEjwJ7VnA-v9iVU1UcuK7dqPsOSnSZ8xE6j6Kq_Hc1e7v-MEEtuRwxA_WcBCV6JnUOQ1owrppZVUqz5omdwWkIT_-qnmY-ATT6WOotLGmIohpBwAX0vxctZOEbFewCPO5wL2iqkneYWmiYPOLe0HPAyQPANb7rKJ4RSbjxROqJTPg_x9zIM59DhVulkEU1-oJ3UZn11QuBO_m9Rm4WESdGW2EoYdhflzgzSsAmyu-cIJJnrTEEbtvoaK9pt_L8FW1qkf3PuINWFBw0-zO-aEhJrZIv_12sQz01bGC-SNpYmFilAclNBWS9ZE6mAuZ7N9t8--MLpUdTCvPMJ4joccWecQlP0A0PaWhi5kigF7YzfgSnnxWFGWchqEtgvYSWqCOAswIR7nPQJOICJVlh7oj3EWbAO53XUvxYrqY3m7H_GAa4",
+            "Referer": "https://v2.shlib.life/"
 			
         },
         "images": true,
