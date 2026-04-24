@@ -2,7 +2,7 @@
     "id": 30462,
 	"old_ids": [41003],
 	
-	"version":40,
+	"version":41,
 	"title": "Com-X.life (unstable)",
 	"host": "https://com-x.life/",
 	"public_link": "https://com-x.life/ComicList/",
@@ -10,7 +10,7 @@
 	"name": "comxlife",
 	"language": "ru",
 	
-"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
 
 	
 	"icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/com-x.png",
@@ -20,26 +20,51 @@
 	"file_type": "sqlite",
     
 
+"authorization_complete": {
+	"headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Referer": "https://com-x.life/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+		"Content-Type":"application/x-www-form-urlencoded",
+        "cookie": "__guard_trust=Mi41Ni4yNDEuMTA3fDE3NzcxMDc5NTZ8OTU5MDMyfDNkOTY2MTUwYzQwNjIzZTIwMDI0YTE5MzUxYjg2NTRk"
+		
+    },
+	
+		"logo": 		"https://raw.githubusercontent.com/veopot/mwx-json/main/img/com-x.png",
+		"registration": "https://com-x.life/index.php?do=regin",
+		"expires": 31536000,
 
+		"values": {
+			"login": "submit",
+			"login_name": { "label": "login_name", "hint": "Введите свой логин с сайта Манга-чан!", "kind": "text" },
+			"login_password": { "label": "login_password", "hint": "Введите свой пароль с сайта Манга-чан!", "kind": "password" }
+		},
+
+		"request": {
+			"method": "post",
+			"url": "https://com-x.life/index.php"
+		},
+
+		"response_check": {
+			"cookies": { "dle_password": "@\\d+" },
+			"headers": { "Set-Cookie": "@dle_password=\\d+" }
+		}
+	},
+	
+	
      "manga_search_complete": {
         "headers": {
-		"accept": "*/*",
-        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "cache-control": "max-age=0",
-        "priority": "u=0, i",
-        "referer": "https://comx.life/mm",
-        "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Referer": "https://com-x.life/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
-		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
-		}, 
+		"cookie": "__guard_trust=Mi41Ni4yNDEuMTA3fDE3NzcxMDc5NTZ8OTU5MDMyfDNkOTY2MTUwYzQwNjIzZTIwMDI0YTE5MzUxYjg2NTRk",
+		"cookie2": "PHPSESSID=dd3fa08be6cebb00f1d3ad2e8c9c73fa"
+    },
 		
         "search_link":"https://com-x.life/index.php?do=search&subaction=search&search_start=$page$&story=$query$",
 		"query_type": "GET",
@@ -81,24 +106,17 @@
     },
 
 	"manga_list_complete": {
-	    "headers": {
-		"accept": "*/*",
-        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "cache-control": "max-age=0",
-        "priority": "u=0, i",
-        "referer": "https://comx.life/mm",
-        "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
+	     "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Referer": "https://com-x.life/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
-		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
-		},
+		"cookie": "__guard_trust=Mi41Ni4yNDEuMTA3fDE3NzcxMDc5NTZ8OTU5MDMyfDNkOTY2MTUwYzQwNjIzZTIwMDI0YTE5MzUxYjg2NTRk",
+		"cookie2": "PHPSESSID=dd3fa08be6cebb00f1d3ad2e8c9c73fa"
+    },
 		
 		"iterator": {
 			"base_url": "https://com-x.life/comix-read/page/",
@@ -130,24 +148,23 @@
 	},
 	
 	"manga_complete": {
-        "headers": {
-		"accept": "*/*",
-        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "cache-control": "max-age=0",
-        "priority": "u=0, i",
-        "referer": "https://comx.life/mm",
-        "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
+         "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Connection": "keep-alive",
+        "Referer": "https://com-x.life/",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1",
+        "Upgrade-Insecure-Requests": "1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
-		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
-		},
+		"cookie": "PHPSESSID=dd3fa08be6cebb00f1d3ad2e8c9c73fa",
+		"cookie2": "__guard_trust=Mi41Ni4yNDEuMTA3fDE3NzcxMDc5NTZ8OTU5MDMyfDNkOTY2MTUwYzQwNjIzZTIwMDI0YTE5MzUxYjg2NTRk"
+    },
 		"title": {
 			"after": "property=\"og:title\"",
 			"token1": "content=\"",
@@ -206,23 +223,22 @@
 		
 		"add_chapter": {
 		 "headers": {
-		"accept": "*/*",
-        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "cache-control": "max-age=0",
-        "priority": "u=0, i",
-        "referer": "https://comx.life/mm",
-        "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Connection": "keep-alive",
+        "Referer": "https://com-x.life/",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1",
+        "Upgrade-Insecure-Requests": "1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
-		 "cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
-		},
+		"cookie": "PHPSESSID=dd3fa08be6cebb00f1d3ad2e8c9c73fa",
+		"cookie2": "__guard_trust=Mi41Ni4yNDEuMTA3fDE3NzcxMDc5NTZ8OTU5MDMyfDNkOTY2MTUwYzQwNjIzZTIwMDI0YTE5MzUxYjg2NTRk"
+    },
 		    "start": "\"chapters\":[",
 			"end":  "<div v-if=\"page_count >",
 			
@@ -258,7 +274,7 @@
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "cookie": "PHPSESSID=8f7b5deada44b264f0536743a86955bd",
+        "cookie": "PHPSESSID=dd3fa08be6cebb00f1d3ad2e8c9c73fa",
 		"cookie2": "__guard_token=MTg1LjIzLjkuMjE5fDE3NzQwMTA3NTN8MHw2MzA0MjN8NjcyOGZiMGM1NmRmM2VlOTIxYzA1ZjRkZDBjZmI0ZGE="
 		},
 		
