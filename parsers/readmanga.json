@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 101,
+    "version": 102,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -404,7 +404,7 @@
 		"Referer": "https://a.zazaza.me/",
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0" 
 		},                  
-	
+	    "add_numeration": true,
     	"no_404": true,
         "images": true,
         
