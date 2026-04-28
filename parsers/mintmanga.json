@@ -1,6 +1,6 @@
 {
 	"id": 30007,
-	"version": 119, 
+	"version": 120, 
     "old_ids": [65884],
     "old_sites": ["mintmanga.me","mintmanga.ru", "mintmanga.live",
 	"mintmanga.com", "23.mintmanga.live", "m.mintmanga.one", "23.mintmanga.one", "24.mintmanga.one", "1.mintmanga.one" ],
@@ -407,6 +407,7 @@
 		"Referer": "https://2.mintmanga.one/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
+		"add_numeration": true,
 		"no_404": true,
         "images": true,
         

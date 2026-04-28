@@ -1,6 +1,6 @@
 {
 	"id": 3075,
-	"version": 9, 
+	"version": 10, 
     
 	"old_sites": ["seimanga.me"],
 	
@@ -406,6 +406,7 @@
 		"Referer": "https://1.seimanga.me/",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
+		"add_numeration": true,
 		"no_404": true,
         "images": true,
         
