@@ -420,7 +420,7 @@
             "end": "moderated",
             "replace": [
                 {
-                    "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=%%url%%"
+                    "prefix": "https://bypass.mwx.su/api/ranobe/download/?href=%%url%%"
                 },
                 {
                     "sufix": "&title=/ranobe.fb2"
