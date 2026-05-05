@@ -1,6 +1,6 @@
 {   
     "id": 30431,
-	"version": 13,
+	"version": 14,
 	"old_ids": [15619],
    
 	"title": "UniComics",
@@ -20,6 +20,10 @@
 	
 
 	"manga_list_complete": {
+	"headers": {
+        "accept": "*/*",
+        "referer": "https://unicomics.ru/"
+    },		
 		"iterator": {
 			"base_url": "https://unicomics.ru/comics/series/page/",
 			"append_nums": { "from": 1, "to": 119 }
@@ -48,6 +52,11 @@
 	},
 
 	"manga_complete": {
+	"headers": {
+        "accept": "*/*",
+        "referer": "https://unicomics.ru/"
+    },
+	
 		"title":       { "token1": "<title>", "token2": "</title>",
 			"replace" : { "match" : "- Серии комиксов | UniComics", "text" : "" } },
 		
@@ -74,6 +83,10 @@
 			"token2": "\""
 		},
 		"add_chapter": {
+			"headers": {
+        "accept": "*/*",
+        "referer": "https://unicomics.ru/"
+    },
 			"start": "class=\"modal-list\">",
 			"next":  "<a href", 
 			"link":  { "token1": "=\"", "token2": "\"", "replace": { "prefix": "https://unicomics.ru/"} }, 
@@ -82,6 +95,11 @@
 		}
 	},
 	"chapter_complete": {
+	"headers": {
+        "accept": "*/*",
+        "referer": "https://unicomics.ru/"
+    },
+	
 		"add_pages": { 
 			"start": "new Paginator", 
 			"token1": "\"/", 
@@ -92,6 +110,10 @@
 		}
 	},
 	"page_complete": {
+	"headers": {
+        "accept": "*/*",
+        "referer": "https://unicomics.ru/"
+    },
 		"image": { "after": "id=\"image\"", "token1": "src=\"", "token2": "\"" }
 	},
 
