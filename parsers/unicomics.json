@@ -1,11 +1,11 @@
 {   
     "id": 30431,
-	"version": 12,
+	"version": 13,
 	"old_ids": [15619],
    
 	"title": "UniComics",
-	"host": "http://unicomics.ru/",
-	"public_link": "http://unicomics.ru/comics/online",
+	"host": "https://unicomics.ru/",
+	"public_link": "https://unicomics.ru/comics/online",
 	"folder": "unicomics",
 	"name" : "unicomics",
 	"language": "ru",
@@ -21,17 +21,25 @@
 
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "http://unicomics.ru/comics/online/page/",
-			"append_nums": { "from": 1, "to": 101 }
+			"base_url": "https://unicomics.ru/comics/series/page/",
+			"append_nums": { "from": 1, "to": 119 }
 		},
 		"add_manga": { 
-			"next": "class=\"left_comics\">",
+			"next": "class=\"comic-card\">",
 			"link":  { "token1": "href=\"", "token2": "\"" }, 
 			
 			"uniq":  { "token1": "href=\"/comics/series/", "token2": "\"" }, 
 			
-			"title": { "after": "class=\"list_title\"",
-			"token1": "\">", "token2": "</" }
+			"title": { "after": "href=\"",
+			"token1": "class=\"comic-title-link\">", "token2": "</a>",
+        "replace": [
+          { "match": "<div class=\"comic-title-ru\">", "text": "" },
+		  { "match": "<div class=\"comic-title-en\">", "text": " | " },
+          { "match": "</div>", "text": "" }
+        ] 
+		}
+		
+		
 		},
 		"rating_auto_inc": {
 			"start": "10000",
@@ -40,8 +48,8 @@
 	},
 
 	"manga_complete": {
-		"title":       { "skip": "class=\"info\">", 
-		"token1": "h1>", "token2": "</" },
+		"title":       { "token1": "<title>", "token2": "</title>",
+			"replace" : { "match" : "- Серии комиксов | UniComics", "text" : "" } },
 		
 		"uniq": { "skip": "<div class=\"info\">", "token1": "<h2>", "token2": "</" },
 		"summary": { "skip": "<b>Описание серии комиксов:", "token1": "</b>", "token2": "</div>",
@@ -57,24 +65,20 @@
 			"token1": "<img src=\"", 
 			"token2": "\""
 		},
-		"add_genres": { 
-		"start": ">Жанр:</td>",
-	    "end": "</td></tr>",
-		"token1": "\">", "token2": "</",
-			"replace" : { "match" : "<.*?>", "text" : "" } 
-			},
+		"add_tag":   { "after": "<a href=\"search/1030-1/",
+	  "token1": ">", "token2": "</" , "replace": { "match": "<.*?>", "text": "" }},
 		
 		"chapters_from_page": {
-			"before": "Читать онлайн",
+			"before": "class=\"btn-read-first\"",
 			"token1": "<a href=\"",
 			"token2": "\""
 		},
 		"add_chapter": {
-			"start": "scroll-pane-arrows",
+			"start": "class=\"modal-list\">",
 			"next":  "<a href", 
-			"link":  { "token1": "=\"", "token2": "\"", "replace": { "prefix": "http://unicomics.ru/"} }, 
+			"link":  { "token1": "=\"", "token2": "\"", "replace": { "prefix": "https://unicomics.ru/"} }, 
 			"title": { "token1": "title=\"", "token2": "\"" },
-			"end": "Закрыть"
+			"end": "</div>"
 		}
 	},
 	"chapter_complete": {
@@ -84,7 +88,7 @@
 			"token2": "\")", 
 			"end": "script>",
 			"scans_count": { "token1": "\"paginator1\", ", "token2": "," },
-			"replace" : { "prefix" : "http://unicomics.ru/" }
+			"replace" : { "prefix" : "https://unicomics.ru/" }
 		}
 	},
 	"page_complete": {
@@ -98,7 +102,7 @@
 				"mangas": [
 					{ 
 						"title": "Её Собственный Дар",
-						"link": "http://unicomics.ru/comics/series/a-gift-of-her-own",
+						"link": "https://unicomics.ru/comics/series/a-gift-of-her-own",
 						 "uniq": "a-gift-of-her-own"
 					}
 				],
@@ -107,39 +111,40 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "http://unicomics.ru/comics/series/100-bullets",
+			          
+			"link" : "https://unicomics.ru/comics/series/100-bullets",
 			"title" : "100 Пуль",
 			"assert" : {
 				"author" : "@Vertigo",
-				"cover" : "http://unicomics.ru/img/comics/p/100-bullets/100-bullets-001_big.jpg",
+				"cover" : "https://unicomics.ru/img/comics/p/100-bullets/100-bullets-001_big.jpg",
 			    "status" : "ongoing",
 				"genres": "@action",
 				"chapters_count" : ">=50",
 				"chapters" : [
 					{   
 					"title": "100 Bullets #1",
-					"link" : "http://unicomics.ru/comics/online/100-bullets-001",
+					"link" : "https://unicomics.ru/comics/online/100-bullets-001",
 					"folder": "00-bullets-001/"
 					},
-					{ "link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-3" }
+					{ "link": "https://unicomics.ru/comics/online/age-of-apocalypse-2015-3" }
 				]
 			}
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1",
+			"link" : "https://unicomics.ru/comics/online/100-bullets-100",
 			 "assert" : {
 				"pages" : [
-		{"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/1"},
-        {"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/2"},
-        {"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/3"},
-        {"link": "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/4"}
+		{"link": "https://unicomics.ru/comics/online/age-of-apocalypse-2015-1/1"},
+        {"link": "https://unicomics.ru/comics/online/age-of-apocalypse-2015-1/2"},
+        {"link": "https://unicomics.ru/comics/online/age-of-apocalypse-2015-1/3"},
+        {"link": "https://unicomics.ru/comics/online/age-of-apocalypse-2015-1/4"}
 				]
 			}
 		},
 		{
 			"proc" : "page_complete",
-			"link" : "http://unicomics.ru/comics/online/age-of-apocalypse-2015-1/4",
+			"link" : "https://unicomics.ru/comics/online/age-of-apocalypse-2015-1/4",
 			"assert" : {
 				"image" : "https://img1.unicomics.com/comics/age-of-apocalypse-2015/age-of-apocalypse-2015-1/04.jpg"
 			}

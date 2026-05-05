@@ -1,176 +1,342 @@
 {
-	"id": 40161,
-	"old_ids": [21859],
-    "old_sites": ["mangakakalot.com", "manganelo.com"],
-	
-	"version": 17,
-	"title": "Manganato",
-	"host": "https://manganato.com",
-	"public_link": "https://manganato.com",
-	"folder": "manganato",
-	"name" : "manganato",
-	"language": "en",
-	
-    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manganato.png",
-	"self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manganelo.json",
-	"self_link2": "https://fant.my1.ru/mwparser/mwx/json/manganelo.json",
-	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manganelo.zip",
-    "file_type": "sqlite",
-	
-	
-	"manga_search_complete": {		
- "search_link":"https://manganato.com/search/story/$query$?page=$page$",
-		"query_type": "GET",
-		"add_manga": {
-		     "start": "class=\"panel-search-story\">", 
-             "next": "class=\"search-story-item\">",
-			
-			"link": {
-			    "skip": "<a",
-				"token1": "href=\"",
-				"token2": "\""
-				     },
-			"title": {
-				"after": "href=\"",
-				"token1": "title=\"",
-				"token2": "\""
-			},
-			"cover":{
-		        "skip": "href=\"",
-                "token1":"src=\"",
-                "token2":"\""
-         },
-		 
-			"uniq": {
-				"after": "href=\"",
-				"token1": "title=\"",
-				"token2": "\""
-			}
-		 }
-		},	
-
-
-
-
-    "manga_list_complete": {
-
-		"iterator": {
-			"base_url": "https://manganato.com/genre-all/",
-			"append_nums": { "from": 1, "to": 1240, "sufix": "?type=topview"}
-		},
-
-		"add_manga": {
-			"next": "class=\"content-genres-item\">",
-			"link":  { "token1": "href=\"", "token2": "\"" },
-			"uniq":  { "token1": "title=\"", "token2": "\"" },
-			"title": { "token1": "title=\"", "token2": "\"" }
-		}
-	},
-	
-
-	"manga_complete": {
-		"title": { "skip": "class=\"story-info-right\">", "token1":"h1>", "token2": "</" },
-		"uniq":  { "skip": "class=\"story-info-right\">", "token1":"h1>", "token2": "</" },
-		"author":      { "skip": ">Author", "token1": "'>", "token2": "</" },
-		"summary":     { "skip": ">Description", "token1": ">", "token2": "</div",
-         "replace":{
-            "match":"<.*?>",
-            "text":""
-         } },
-		"status":      {
-		"complete": "class=\"table-value\">Completed<", 
-		"ongoing": "class=\"table-value\">Ongoing<"
-		},
-		 "is_mature": {
-			"start": ">Genres",
-			"end": "</tr>",
-			"values": ["+18", "18+", "Adult"]
-            },
-			
-		 "cover":{ 
-           "after":"property=\"og:image\"",
-             "token1":"content=\"",
-             "token2":"\""},
-		
-		"add_genres":   {
-        "start": ">Genres",
-		"end": "</tr>",
-		"token1": "'>",
-		"token2": "</" 
-		},
-		
-		"add_chapter": {
-		    "start": "class=\"panel-story-chapter-list\">",
-			"end": ">Facebook Comments<",
-		    "next":  "<a",
-			"link":  { "token1": "href=\"", "token2": "\""},
-			"uniq":{ "skip" : "href=\"", "token1": "\">", "token2": "</",
-			        "replace" : { "match" : "&nbsp;", "text" : "" }
-			},
-	        "title": { "skip" : "href=\"", "token1": "\">", "token2": "</",
-			        "replace" : { "match" : "&nbsp;", "text" : "" }
-			}
-		}
-	},
-	"chapter_complete": {
-	 "headers": {
-			"Accept": "*/*",
-			"Referer": "https://manganato.com/",
-			"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
-		},
-	    "add_images": {
-			"start": "class=\"container-chapter-reader\">",
-			"token1": "<img src=\"",
-			"token2": "\"",
-			"end": "<div style=\"float: left; max-width: 300px;"
-		}
-	},
-
-	"test": [
-		{
-			"proc" : "manga_list_complete",
-			
-			"assert" : {
-				"mangas" : [
-					{ "title" : "Dear My Hunny Bunny", 
-					 "link" : "https://manganato.com/manga-ly988833" }
-				],
-				"mangas_count" : ">=50"
-			}
-		},
-		{
-			"proc" : "manga_complete",
-			"link" : "https://manganato.com/manga-fe982639",
-			"title" : "Dokuzakura",
-			"assert" : {
-				"author" : "Mita",
-				"cover" : "https://avt.mkklcdnv6temp.com/9/b/19-1583499431.jpg",
-				"summary" : "@Beauty Queen",
-				"genres" : "@drama",
-				"status" : "ongoing",
-				"genres_count" : ">=5",
-				"chapters_count" : ">=25",
-				"chapters" : [
-					{
-            "folder": "Chapter 25/",
-            "link": "https://readmanganato.com/manga-fe982639/chapter-25",
-            "title": "Chapter 25"
-        
+  "id": 40161,
+  "old_ids": [21859],
+  "old_sites": [
+    "mangakakalot.com",
+    "manganelo.com",
+    "manganato.com"
+  ],
+  
+  "version": 18,
+  "title": "MangaNato",
+  "host": "https://manganato.gg",
+  "public_link": "https://manganato.gg",
+  "folder": "manganato",
+  "name": "manganato",
+  "language": "en",
+  "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/manganato.png",
+  "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/manganelo.json",
+  "self_link2": "https://fant.my1.ru/mwparser/mwx/json/manganelo.json",
+  "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manganelo.zip",
+  "file_type": "sqlite",
+  "manga_search_complete": {
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+      "cache-control": "max-age=0",
+      "content-type": "application/x-www-form-urlencoded",
+      "origin": "https://www.manganato.gg",
+      "priority": "u=0, i",
+      "referer": "https://www.manganato.gg",
+      "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "sec-ch-ua-arch": "\"x86\"",
+      "sec-ch-ua-bitness": "\"64\"",
+      "sec-ch-ua-full-version": "\"147.0.7727.138\"",
+      "sec-ch-ua-full-version-list": "\"Google Chrome\";v=\"147.0.7727.138\", \"Not.A/Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"147.0.7727.138\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-model": "\"\"",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-ch-ua-platform-version": "\"19.0.0\"",
+      "sec-fetch-dest": "document",
+      "sec-fetch-mode": "navigate",
+      "sec-fetch-site": "same-origin",
+      "sec-fetch-user": "?1",
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
+    },
+    "search_link": "https://manganato.gg/search/story/$query$?page=$page$",
+    "query_type": "GET",
+    "add_manga": {
+      "start": "<h3 class=\"title update-title\">",
+      "next": "<h3 class=\"story_name\">",
+      "link": {
+        "skip": "<a",
+        "token1": "href=\"",
+        "token2": "\""
+      },
+      "title": {
+        "after": "href=\"",
+        "token1": "\">",
+        "token2": "</"
+      },
+      "cover": {
+        "skip": "href=\"",
+        "token1": "src=\"",
+        "token2": "\""
+      },
+      "uniq": {
+        "after": "href=\"",
+        "token1": "\">",
+        "token2": "</"
+      }
+    }
+  },
+  "manga_list_complete": {
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+      "cache-control": "max-age=0",
+      "content-type": "application/x-www-form-urlencoded",
+      "origin": "https://www.manganato.gg",
+      "priority": "u=0, i",
+      "referer": "https://www.manganato.gg",
+      "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "sec-ch-ua-arch": "\"x86\"",
+      "sec-ch-ua-bitness": "\"64\"",
+      "sec-ch-ua-full-version": "\"147.0.7727.138\"",
+      "sec-ch-ua-full-version-list": "\"Google Chrome\";v=\"147.0.7727.138\", \"Not.A/Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"147.0.7727.138\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-model": "\"\"",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-ch-ua-platform-version": "\"19.0.0\"",
+      "sec-fetch-dest": "document",
+      "sec-fetch-mode": "navigate",
+      "sec-fetch-site": "same-origin",
+      "sec-fetch-user": "?1",
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
+    },
+    "iterator": {
+      "base_url": "https://www.manganato.gg/manga-list/hot-manga?page=",
+      "append_nums": {
+        "from": 1,
+        "to": 3328
+      }
+    },
+    "add_manga": {
+      "next": "<div class=\"list-comic-item-wrap\">",
+      "link": {
+        "token1": "href=\"",
+        "token2": "\""
+      },
+      "uniq": {
+        "token1": "title=\"",
+        "token2": "\""
+      },
+      "title": {
+        "token1": "title=\"",
+        "token2": "\""
+      }
+    }
+  },
+  "manga_complete": {
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+      "cache-control": "max-age=0",
+      "content-type": "application/x-www-form-urlencoded",
+      "origin": "https://www.manganato.gg",
+      "priority": "u=0, i",
+      "referer": "https://www.manganato.gg",
+      "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "sec-ch-ua-arch": "\"x86\"",
+      "sec-ch-ua-bitness": "\"64\"",
+      "sec-ch-ua-full-version": "\"147.0.7727.138\"",
+      "sec-ch-ua-full-version-list": "\"Google Chrome\";v=\"147.0.7727.138\", \"Not.A/Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"147.0.7727.138\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-model": "\"\"",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-ch-ua-platform-version": "\"19.0.0\"",
+      "sec-fetch-dest": "document",
+      "sec-fetch-mode": "navigate",
+      "sec-fetch-site": "same-origin",
+      "sec-fetch-user": "?1",
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
+    },
+    "title": {
+      "skip": "class=\"comic-info-wrap\">",
+      "token1": "h1>",
+      "token2": "</"
+    },
+    "uniq": {
+      "skip": "class=\"comic-info-wrap\">",
+      "token1": "h1>",
+      "token2": "</"
+    },
+    "author": {
+      "skip": "<p>Author(s):</p",
+      "token1": ">",
+      "token2": "</"
+    },
+    "summary": {
+      "after": "summary:",
+      "token1": ">",
+      "token2": "</div",
+      "replace": {
+        "match": "<.*?>",
+        "text": ""
+      }
+    },
+    "status": {
+      "complete": "<p>Completed</p>",
+      "ongoing": "<p>Ongoing</p>"
+    },
+    "is_mature": {
+      "start": "class=\"genre-list\">",
+      "end": "</div>",
+      "values": [
+        "+18",
+        "18+",
+        "Adult"
+      ]
+    },
+    "cover": {
+      "after": "property=\"og:image\"",
+      "token1": "content=\"",
+      "token2": "\""
+    },
+    "add_genres": {
+      "start": "class=\"genre-list\">",
+      "end": "</div>",
+      "token1": "\">",
+      "token2": "</"
+    },
+    "chapters_from_page": {
+      "token1": "data-comic-slug=\"",
+      "token2": "\"",
+      "replace": [
+        {
+          "prefix": "https://www.manganato.gg/api/manga/"
+        },
+        {
+          "sufix": "/chapters?limit=10000"
         }
-				]
-			}
-		},
-		{
-			"proc" : "chapter_complete",
-			"link" : "https://readmanganato.com/manga-fe982639/chapter-25",
-			"assert" : {
-				"pages" : [
- {"image": "https://s71.mkklcdnv6tempv2.com/mangakakalot/q1/ql920170/chapter_25/1.jpg"},
- {"image": "https://s71.mkklcdnv6tempv2.com/mangakakalot/q1/ql920170/chapter_25/2.jpg"},
- {"image": "https://s71.mkklcdnv6tempv2.com/mangakakalot/q1/ql920170/chapter_25/3.jpg"}
-				],
-				"pages_count": "33"
-			}
-		}
-	]
+      ]
+    },
+    "add_chapter": {
+      "start": "\"chapters\"",
+      "end": "\"offset\"",
+      "next": "\"chapter_na",
+      "link": {
+        "token1": "chapter_slug\":\"",
+        "token2": "\"",
+        "replace": [
+          {
+            "prefix": "%%host%%%%path%%"
+          },
+          {
+            "match": "/api/manga/",
+            "text": "/manga/"
+          },
+          {
+            "match": "/chapters",
+            "text": "/"
+          }
+        ]
+      },
+      "uniq": {
+        "token1": "me\":\"",
+        "token2": "\"",
+        "replace": {
+          "match": "&nbsp;",
+          "text": ""
+        }
+      },
+      "title": {
+        "token1": "me\":\"",
+        "token2": "\"",
+        "replace": {
+          "match": "&nbsp;",
+          "text": ""
+        }
+      }
+    }
+  },
+  "chapter_complete": {
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+      "cache-control": "max-age=0",
+      "content-type": "application/x-www-form-urlencoded",
+      "origin": "https://www.manganato.gg",
+      "priority": "u=0, i",
+      "referer": "https://www.manganato.gg",
+      "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+      "sec-ch-ua-arch": "\"x86\"",
+      "sec-ch-ua-bitness": "\"64\"",
+      "sec-ch-ua-full-version": "\"147.0.7727.138\"",
+      "sec-ch-ua-full-version-list": "\"Google Chrome\";v=\"147.0.7727.138\", \"Not.A/Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"147.0.7727.138\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-model": "\"\"",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-ch-ua-platform-version": "\"19.0.0\"",
+      "sec-fetch-dest": "document",
+      "sec-fetch-mode": "navigate",
+      "sec-fetch-site": "same-origin",
+      "sec-fetch-user": "?1",
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
+    },
+    "add_images": {
+      "start": "class=\"container-chapter-reader\">",
+      "token1": "<img  src='",
+      "token2": "'",
+      "end": "<div class=\"ads-contain-v2 show-title-sps chapter-layout list-bns w-fit\">"
+    }
+  },
+  "test": [
+    {
+      "proc": "manga_list_complete",
+      "assert": {
+        "mangas": [
+          {
+            "title": "Mousou Telepathy",
+            "link": "https://www.manganato.gg/manga/mousou-telepathy"
+          }
+        ],
+        "mangas_count": ">=50"
+      }
+    },
+    {
+      "proc": "manga_complete",
+      "link": "https://www.manganato.gg/manga/martial-peak",
+      "title": "Martial Peak",
+      "assert": {
+        "author": "Momo",
+        "cover": "https://img-r1.2xstorage.com/thumb/martial-peak.webp",
+        "summary": "@You are reading Martial Peak",
+        "genres": "@action",
+        "status": "ongoing",
+        "genres_count": ">=4",
+        "chapters_count": ">=500",
+        "chapters": [
+          {
+            "folder": "Chapter 1\\",
+            "link": "https://www.manganato.gg/manga/martial-peak/chapter-1",
+            "title": "Chapter 1"
+          },
+          {
+            "link": "https://www.manganato.gg/manga/martial-peak/chapter-2",
+            "title": "Chapter 2"
+          }
+        ]
+      }
+    },
+    {
+      "proc": "chapter_complete",
+      "link": "https://www.manganato.gg/manga/martial-peak/chapter-1",
+      "assert": {
+        "pages": [
+          {
+            "image": "https://img-r1.2xstorage.com/martial-peak/1/0.webp"
+          },
+          {
+            "image": "https://img-r1.2xstorage.com/martial-peak/1/1.webp"
+          },
+          {
+            "image": "https://img-r1.2xstorage.com/martial-peak/1/2.webp"
+          },
+          {
+            "image": "https://img-r1.2xstorage.com/martial-peak/1/3.webp"
+          }
+        ],
+        "pages_count": "19"
+      }
+    }
+  ]
 }
