@@ -7,7 +7,7 @@
     "manganato.com"
   ],
   
-  "version": 18,
+  "version": 19,
   "title": "MangaNato",
   "host": "https://manganato.gg",
   "public_link": "https://manganato.gg",
@@ -208,6 +208,10 @@
       ]
     },
     "add_chapter": {
+	"headers": {
+      "accept": "*/*",
+      "referer": "https://www.manganato.gg"
+    },
       "start": "\"chapters\"",
       "end": "\"offset\"",
       "next": "\"chapter_na",

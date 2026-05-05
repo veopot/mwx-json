@@ -1,6 +1,6 @@
 {   
     "id": 30431,
-	"version": 14,
+	"version": 15,
 	"old_ids": [15619],
    
 	"title": "UniComics",
@@ -70,7 +70,7 @@
 		
 		
 		"cover":       { 
-			"after": "image center", 
+			"after": "class=\"cover-series\">", 
 			"token1": "<img src=\"", 
 			"token2": "\""
 		},
