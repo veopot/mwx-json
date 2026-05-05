@@ -1,6 +1,6 @@
 {
     "id": 2079,
-    "version": 9,
+    "version": 10,
     "title": "RanobeLib",
     "host": "https://ranobelib.me",
     "public_link": "https://ranobelib.me/ru/catalog",
@@ -420,7 +420,7 @@
             "end": "moderated",
             "replace": [
                 {
-                    "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=%%url%%"
+                    "prefix": "https://bypass.mwx.su/api/ranobe/download/?href=%%url%%"
                 },
                 {
                     "sufix": "&title=/ranobe.fb2"
