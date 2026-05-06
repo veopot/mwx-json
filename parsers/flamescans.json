@@ -1,12 +1,11 @@
 {
     "id": 80001,
-    "version": 5,
+    "version": 6,
     "old_sites": [ "flamecomics.me" ],
 	
-	
     "title": "Flame Comics",
-    "host": "https://flamecomics.me/",
-    "public_link": "https://flamecomics.me/series/",
+    "host": "https://flamecomics.xyz/",
+    "public_link": "https://flamecomics.xyz/series/",
     "name": "flamescans",
     "folder": "flamescans",
     "language": "en",
@@ -18,133 +17,153 @@
 
     "manga_list_complete": {
         "headers": {
-            "Referer": "https://flamecomics.me/"
+            "Referer": "https://flamecomics.xyz/"
         },
-        "iterator": "https://flamecomics.me/series/list-mode",
+        "iterator": "https://flamecomics.xyz/api/series",
         "add_manga": {
-            "start": "class=\"soralist\">",
-            "end": "id=\"sidebar\">",
-            "next": "<li><a",
+            "start": "[",
+            "end": "}]",
+            "next": "{\"i",
 
             "link": {
-                "token1": "href=\"",
-                "token2": "\""
+                "token1": "d\":",
+                "token2": ",",
+				"replace": {
+					"prefix": "https://flamecomics.xyz/series/"
+				}
+				
             },
             "uniq": {
-                "after": "href=\"",
-                "token1": "flamecomics.me/series/",
-                "token2": "\"",
-                "replace": {
-                    "match": "[^A-Za-z0-9]",
-                    "text": " "
-                }
+                "token1": "d\":",
+                "token2": ",",
             },
             "title": {
-                "after": "href=\"",
-                "token1": "\">",
-                "token2": "</",
-                "replace": {
-                    "match": "\"",
-                    "text": ""
-                }
+                "token1": "\"label\":\"",
+                "token2": "\""
             }
         }
     },
 
     "manga_complete": {
         "title": {
-            "skip": "class=\"first-half\">",
-            "token1": "itemprop=\"name\">",
-            "token2": "</",
-            "replace": {
-                "match": "[^A-Za-z0-9]",
-                "text": " "
-            }
-        },
-
-        "uniq": {
-            "skip": "class=\"first-half\">",
-            "token1": "itemprop=\"name\">",
-            "token2": "</",
-            "replace": {
-                "match": "[^A-Za-z0-9]",
-                "text": " "
-            }
-        },
-
-        "summary": {
-            "after": "class=\"summary",
-            "token1": "<p>",
-            "token2": "</p>"
-        },
-
-        "author": {
-            "skip": "<h1> Author</h1>",
-            "token1": "i>",
-            "token2": "</"
-        },
-
-        "status": {
-            "complete": "<h1> Status </h1> <i>Completed</i>",
-            "ongoing": "<h1> Status </h1> <i>Ongoing</i>"
-        },
-
-        "rating": {
-            "skip": "class=\"info-half\"",
-            "token1": "class=\"numscore\">",
-            "token2": "</div>"
-        },
-
-        "cover": {
-            "skip": "class=\"thumb\"",
-            "token1": "src=\"",
+            "after": "<meta property=\"og:title\"",
+            "token1": "content=\"",
             "token2": "\""
         },
 
-        "add_genres": {
-            "start": "class=\"genres-container\"",
-            "end": "class=\"summary\">",
-            "token1": "rel=\"tag\">",
-            "token2": "</a>"
+        "uniq": {
+            "after": "<meta property=\"og:title\"",
+            "token1": "content=\"",
+            "token2": "\""
+        },
+
+        "summary": {
+            "token1": "\"description\":\"",
+            "token2": "\"",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "clear_html": true
+                }
+            ]
+        },
+
+        "author": {
+            "after": ">Author</",
+            "token1": "p>",
+            "token2": "</div>",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "clear_html": true
+                }
+            ]
+        },
+
+        "status": {
+			
+			"unknown": "\"status\":\"Dropped\"",
+            "complete": "\"status\":\"Completed\"",
+            "ongoing": "\"status\":\"Ongoing\""
+        },
+
+        
+
+        "cover": {
+            "after": "<meta name=\"twitter:image\"",
+            "token1": "content=\"",
+            "token2": "\"",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "clear_html": true
+                }
+            ]
+        },
+
+        "add_tag": {
+            "after": "href=\"/genre/", 
+            "token1": "label\">",
+            "token2": "</span>"
         },
 
         "add_chapter": {
-            "start": "class=\"eplister\"",
-            "end": "</ul>",
-            "next": "<li",
+            "start": "\"chapters\":",
+            "end": "</body>",
+			
+            "next": "\"chapter_id\"",
+			
+			
             "link": {
-                "token1": "<a href=\"",
-                "token2": "\""
+                "token1": "\"token\":\"",
+                "token2": "\"",
+				"replace": {
+					"prefix": "%%url%%/"
+				}
+				
+			}, 
+            "uniq": {
+                "token1": "\"chapter\":\"",
+                "token2": "\"",
+                "replace": [{
+                        "match": ".0",
+                        "text": ""
+                    }, 
+					{ "prefix": "Chapter "
+                    }
+                ]
             },
             "title": {
-                "token1": "chapternum\">",
-                "token2": "</span>",
+                "token1": "\"chapter\":\"",
+                "token2": "\"",
                 "replace": [{
-                        "match": "<.*?>",
+                        "match": ".0",
                         "text": ""
-                    }, {
-                        "match": "\"",
-                        "text": ""
+                    }, 
+					{ "prefix": "Chapter "
                     }
                 ]
             }
         }
     },
 
+
     "chapter_complete": {
         "images": true,
         "add_pages": {
-            "start": "id=\"readerarea\"",
+            "start": "data-line-clamp=\"true\">",
 			
-			
-            "token1": "decoding=\"async\" src=\"",
+			"token1": "src=\"https://cdn.flamecomics.xyz/uploads/images/series/",
             "token2": "\"",
-            "end": "<div class=\"chnav cbot\">",
-            "replace": {
-                "match": "\\\\",
-                "text": ""
-            }
-			
+            "end": "<img alt=\"commission\"",
+            "replace":{ "prefix": "https://cdn.flamecomics.xyz/uploads/images/series/"}
+              
 		}
     },
 
@@ -153,7 +172,7 @@
             "assert": {
                 "mangas": [{
                         "title": "48 Hours a Day",
-                        "link": "https://flamecomics.me/series/forty-eight-hours-a-day/"
+                        "link": "https://flamecomics.xyz/series/forty-eight-hours-a-day/"
 
                     }
                 ],
@@ -162,39 +181,37 @@
         }, {
             "proc": "manga_complete",
             "title": "48 Hours a Day",
-            "link": "https://flamecomics.me/series/forty-eight-hours-a-day/",
+            "link": "https://flamecomics.xyz/series/99",
             "assert": {
                 "author": "@Little Bleary Zhao",
-                "cover": "https://flamecomics.me/wp-content/uploads/2022/06/unknown-1.png",
+                "cover": "https://flamecomics.xyz/wp-content/uploads/2022/06/unknown-1.png",
                 "summary": "@^(The God of Time)",
-                "genres": "@action",
-                "status": "ongoing",
-                "genres_count": ">2",
-                "chapters_count": ">24",
+                "tags": "@action",
+                "status": "unknown",
+                "tags_count": ">2",
+                "chapters_count": ">40",
                 "chapters": [
-				    {
-           
-            "link": "https://flamecomics.me/forty-eight-hours-a-day-chapter-1/",
+		{
+            "link": "https://flamecomics.xyz/series/99/596241414bde1e53",
             "title": "Chapter 1"
         },
         {
-            "folder": "forty-eight-hours-a-day-chapter-2\\",
-            "link": "https://flamecomics.me/forty-eight-hours-a-day-chapter-2/",
+            "link": "https://flamecomics.xyz/series/99/06065dc6f9d3320e",
             "title": "Chapter 2"
         }
                 ]
             }
         }, {
             "proc": "chapter_complete",
-            "link": "https://flamecomics.me/forty-eight-hours-a-day-chapter-1/",
+            "link": "https://flamecomics.xyz/series/99/596241414bde1e53",
             "assert": {
                 "pages": [
-		{"image": "https://flamecomics.me/wp-content/uploads/2022/06/FEHD1-1.jpg"},
-        {"image": "https://flamecomics.me/wp-content/uploads/2022/05/readonflamescans.png"},
-        {"image": "https://flamecomics.me/wp-content/uploads/2022/06/FEHD1-2.jpg"},
-        {"image": "https://flamecomics.me/wp-content/uploads/2022/06/FEHD1-3.jpg"}
+		 {"image": "https://cdn.flamecomics.xyz/uploads/images/series/99/596241414bde1e53/FEHD1-1.jpg?1732310173"},
+        {"image": "https://cdn.flamecomics.xyz/uploads/images/series/99/596241414bde1e53/FEHD1-2.jpg?1732310173"},
+        {"image": "https://cdn.flamecomics.xyz/uploads/images/series/99/596241414bde1e53/FEHD1-3.jpg?1732310173"},
+        {"image": "https://cdn.flamecomics.xyz/uploads/images/series/99/596241414bde1e53/FEHD1-4.jpg?1732310173"},
                 ],
-                "pages_count": "24"
+                "pages_count": "22"
             }
         }
     ]
