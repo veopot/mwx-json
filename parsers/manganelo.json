@@ -1,13 +1,14 @@
 {
   "id": 40161,
-  "old_ids": [21859],
+  "old_ids": [
+    21859
+  ],
   "old_sites": [
     "mangakakalot.com",
     "manganelo.com",
     "manganato.com"
   ],
-  
-  "version": 20,
+  "version": 21,
   "title": "MangaNato",
   "host": "https://manganato.gg",
   "public_link": "https://manganato.gg",
@@ -19,15 +20,16 @@
   "self_link2": "https://fant.my1.ru/mwparser/mwx/json/manganelo.json",
   "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/manganelo.zip",
   "file_type": "sqlite",
+  
   "manga_search_complete": {
     "headers": {
       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
       "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
       "cache-control": "max-age=0",
       "content-type": "application/x-www-form-urlencoded",
-      "origin": "https://www.manganato.gg/",
+      "origin": "https://www.manganato.gg/manga/",
       "priority": "u=0, i",
-      "referer": "https://www.manganato.gg/",
+      "referer": "https://www.manganato.gg/manga/",
       "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
       "sec-ch-ua-arch": "\"x86\"",
       "sec-ch-ua-bitness": "\"64\"",
@@ -78,9 +80,9 @@
       "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
       "cache-control": "max-age=0",
       "content-type": "application/x-www-form-urlencoded",
-      "origin": "https://www.manganato.gg/",
+      "origin": "https://www.manganato.gg/manga/",
       "priority": "u=0, i",
-      "referer": "https://www.manganato.gg/",
+      "referer": "https://www.manganato.gg/manga/",
       "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
       "sec-ch-ua-arch": "\"x86\"",
       "sec-ch-ua-bitness": "\"64\"",
@@ -99,7 +101,7 @@
       "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
     },
     "iterator": {
-      "base_url": "https://www.manganato.gg/manga-list/hot-manga?page=",
+      "base_url": "https://www.manganato.gg/manga/manga-list/hot-manga?page=",
       "append_nums": {
         "from": 1,
         "to": 3328
@@ -122,31 +124,14 @@
     }
   },
   "manga_complete": {
-    "headers": {
-      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-      "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-      "cache-control": "max-age=0",
-      "content-type": "application/x-www-form-urlencoded",
-      "origin": "https://www.manganato.gg/",
-      "priority": "u=0, i",
-      "referer": "https://www.manganato.gg/",
-      "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
-      "sec-ch-ua-arch": "\"x86\"",
-      "sec-ch-ua-bitness": "\"64\"",
-      "sec-ch-ua-full-version": "\"147.0.7727.138\"",
-      "sec-ch-ua-full-version-list": "\"Google Chrome\";v=\"147.0.7727.138\", \"Not.A/Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"147.0.7727.138\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-model": "\"\"",
-      "sec-ch-ua-platform": "\"Windows\"",
-      "sec-ch-ua-platform-version": "\"19.0.0\"",
-      "sec-fetch-dest": "document",
-      "sec-fetch-mode": "navigate",
-      "sec-fetch-site": "same-origin",
-      "sec-fetch-user": "?1",
-      "upgrade-insecure-requests": "1",
-      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
-      "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
+	  "headers": {
+		"referer":"https://www.manganato.gg/",
+        "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "priority": "i"
+           
     },
+
     "title": {
       "skip": "class=\"comic-info-wrap\">",
       "token1": "h1>",
@@ -208,9 +193,12 @@
       ]
     },
     "add_chapter": {
-	"headers": {
-      "accept": "*/*",
-      "referer": "https://www.manganato.gg/"
+		"headers": {
+		"referer":"https://www.manganato.gg/",
+        "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "priority": "i"
+           
     },
       "start": "\"chapters\"",
       "end": "\"offset\"",
@@ -252,30 +240,23 @@
   },
   "chapter_complete": {
     "headers": {
-      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-      "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-      "cache-control": "max-age=0",
-      "content-type": "application/x-www-form-urlencoded",
-      "origin": "https://www.manganato.gg/",
-      "priority": "u=0, i",
-      "referer": "https://www.manganato.gg/",
-      "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
-      "sec-ch-ua-arch": "\"x86\"",
-      "sec-ch-ua-bitness": "\"64\"",
-      "sec-ch-ua-full-version": "\"147.0.7727.138\"",
-      "sec-ch-ua-full-version-list": "\"Google Chrome\";v=\"147.0.7727.138\", \"Not.A/Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"147.0.7727.138\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-model": "\"\"",
-      "sec-ch-ua-platform": "\"Windows\"",
-      "sec-ch-ua-platform-version": "\"19.0.0\"",
-      "sec-fetch-dest": "document",
-      "sec-fetch-mode": "navigate",
-      "sec-fetch-site": "same-origin",
-      "sec-fetch-user": "?1",
-      "upgrade-insecure-requests": "1",
-      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
-      "cookie": "_ga=GA1.1.1546314246.1777977317; cf_clearance=PQaCsRc0niLYjTYYPiMU.8r.tyb6YBkti5In.UPnvnw-1777977418-1.2.1.1-JDOCRLfUiaVLtM2vS9tZdclzG2Ky7C3KRWnRRb2BWcuGwwQ2NPs8AY_OFfVbzNM_M3xYvGnktvf0lZeLwm5M3hzQfuLLuypFrk3RZ33OoS2iqZZd9w.G1H2zbEK1HXSpvQFaBLDquAlf6KDrPB7eVv997_5i7SSx3GLttUoY6o8ALFsLTJ8iuSUWHa0noJrLUekhTkPQdGJPMHpgCoEtY.GNl9NX74_kMz_W8nKn1MPcNmqe4CR5LRCZEYmvcGMEwnDfQyKH2JKSZSJEoRimNV0ulrdv.Je_5dOHnhbNxs2Rn.qyk4GaBZUiUhTSa9ihyD8__shHRMR4xeoDhJlCMw; _ga_7NL465ZKH8=GS2.1.s1777977316$o1$g1$t1777977422$j60$l0$h0"
+        "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "priority": "i",
+        "referer": "https://www.manganato.gg/",
+        "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "image",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-storage-access": "active",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
     },
+	 "add_numeration": true,
+    	"no_404": true,
+        "images": true,
+		
     "add_images": {
       "start": "class=\"container-chapter-reader\">",
       "token1": "<img  src='",
