@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 109,
+	"version": 110,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -79,7 +79,7 @@
 	},
 	"manga_list_complete": {
 		"headers": {
-			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
+			"cookie": "remember_me=T09YaURxODIxSGc2N3p4VERMVk1RWE8lMkZaY3Nvaldhc2QxMExDQmhYOXA4JTNEOklSbWtsMEhIbnZIUk55SkI0TVBQZiUyQjQ2Tng3TXRsamx0ZGpiN0RwOSUyRnhBJTNE",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -132,7 +132,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
+			"cookie": "remember_me=T09YaURxODIxSGc2N3p4VERMVk1RWE8lMkZaY3Nvaldhc2QxMExDQmhYOXA4JTNEOklSbWtsMEhIbnZIUk55SkI0TVBQZiUyQjQ2Tng3TXRsamx0ZGpiN0RwOSUyRnhBJTNE",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -180,22 +180,22 @@
 		"status": { 
 			
 		  	"complete": { 
-			"start": "title\">Перевод</div>",
+			"start": "Перевод</div>",
 			"end": "</span>", 
 			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
 			             
             "ongoing": { 
-			"start": "title\">Перевод</div>",
+			"start": "Перевод</div>",
 			"end": "</span>", 
-			"values": [ "продолжается","Продолжается", "переводится"   ] 
-			},
+			"values": [ "продолжается",">Продолжается<", "переводится"   ] 
+			},                          
 			
 			
 			
             "single": "Сингл,",
 		  	"licensed" : "Главы удалены",
 		  	"unknown" : "нет ни одной главы" 
-			},
+		},
 		"cover": {
 			"skip": "<div class=\"cr-hero-poster",
 			"token1": "src=\"",
@@ -226,7 +226,7 @@
 		],
 		"add_chapter": {
 			"headers": {
-			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
+			"cookie": "remember_me=T09YaURxODIxSGc2N3p4VERMVk1RWE8lMkZaY3Nvaldhc2QxMExDQmhYOXA4JTNEOklSbWtsMEhIbnZIUk55SkI0TVBQZiUyQjQ2Tng3TXRsamx0ZGpiN0RwOSUyRnhBJTNE",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -269,7 +269,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=TVRoQzN1TWpub2wlMkZhTVFxSVozZE1JTEJ1Z2lBJTJCRyUyRnNOYmdHTzFmMUx6QSUzRDolMkJKOGE2UlYxTlJHdkFrcXJOZkNvSU50ZzRqNjJ3bXAlMkZkTWF6bTVpSXQxQSUzRA",
+			"cookie": "remember_me=T09YaURxODIxSGc2N3p4VERMVk1RWE8lMkZaY3Nvaldhc2QxMExDQmhYOXA4JTNEOklSbWtsMEhIbnZIUk55SkI0TVBQZiUyQjQ2Tng3TXRsamx0ZGpiN0RwOSUyRnhBJTNE",
 			
 			"Accept": "*/*",
 			"Referer": "https://20.allhen.online/"

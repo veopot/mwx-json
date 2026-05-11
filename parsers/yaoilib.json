@@ -1,6 +1,6 @@
 {
     "id": 1468,
-    "version": 33,
+    "version": 34,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me",
@@ -16,6 +16,7 @@
     "encoding": "utf-8",
     "is_paid": true,
     "is_mature": true,
+	"chapters_order": false,
     "skip_catalog_test": false,
     "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/yaoilib.png",
     "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/yaoilib.json",
@@ -417,6 +418,7 @@
             "Referer": "https://v2.shlib.life/"
 			
         },
+		"add_numeration": true,
         "images": true,
         "add_pages": {
             "start": "\"pages\"",
@@ -427,6 +429,7 @@
                 {
                     "prefix": "https://img3.hentaicdn.org/"
                 },             
+                { "clear_escape": true },            
                 {
                     "match": "\\\\",
                     "text": ""
