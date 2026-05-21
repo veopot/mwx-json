@@ -1,6 +1,6 @@
 {
     "id": 47954,
-    "version": 1,
+    "version": 2,
     "title": "WaManga",
     "host": "https://wamanga.ru",
     "public_link": "https://wamanga.ru/manga",
@@ -24,72 +24,71 @@
 	
 	
     "manga_list_complete": {
-        "headers": {
-			"Referer": "https://wamanga.ru/",
-			"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-			},
-        "iterator": {
-            "base_url": "https://wamanga.ru/api/v1/manga/search?isDescending=false&limit=30&startYear=1900&endYear=2030&offset=",
-            "append_nums": {
-               "from": 0, "to": 1000, "step": 30
-            }
-        },
+        "headers": { "Referer": "https://wamanga.ru/"}, 
+		
+		
+		"iterator": "https://wamanga.ru/sitemap.xml",
+		
         "add_manga": {
-            "next": "\"_id\":",
+			"start": "<urlset",
+			"end":   "</urlset>",
+            "next": "<url>",
             "link": {
-                "token1": "\"alternativeName\":\"",
-                "token2": "author\"",
-            "replace": [
-                {
-                    "match": "(.*)\",\"altEnglishName\":(.*)\"altName\":(.*?)\"rating\":(.*?)\"imagePath\":\"(.*?)\"bannerPath\":\"(.*?)\"type\":\"(.*?)\",\"",
-                    "text": "$7/$1"
-                },
-                {
-                    "match": "Манга",
-                    "text": "manga"
-                },
-                {
-                    "match": "Манхва",
-                    "text": "manhwa"
-                },
-				{
-                    "match": "Маньхуа",
-                    "text": "manhua"
-                },
-                {
-                    "match": "\"",
-                    "text": "'"
-                },
-                { "prefix": "https://wamanga.ru/" }
-            ]
-
-				
-                
-            },
+                "token1": "<loc>https://wamanga.ru/",
+                "token2": "</loc>",
+				    "replace": { "prefix": "https://wamanga.ru/"} 
+			},
             "title": {
-                "token1": "\"name\":\"",
-                "token2": "\""
+                "token1": "<loc>https://wamanga.ru/",
+                "token2": "</loc>",
+                "replace": [
+                    {
+                        "match": "manhwa/",
+                        "text": ""
+                    },
+					{
+                        "match": "manga/",
+                        "text": ""
+                    },
+					{
+                        "match": "manhua/",
+                        "text": ""
+                    }
+                ]
             },
-
-
-            
-            "uniq": {
-                "token1": "\"alternativeName\":\"",
-                "token2": "\""
+             "uniq": {
+                "token1": "<loc>https://wamanga.ru/",
+                "token2": "</loc>",
+                "replace": [
+                    {
+                        "match": "manhwa/",
+                        "text": ""
+                    },
+					{
+                        "match": "manga/",
+                        "text": ""
+                    },
+					{
+                        "match": "manhua/",
+                        "text": ""
+                    }
+                ]
             }
         },
 	    
         "rating_auto_inc": {
-            "start": "60000",
+            "start": "2000",
             "inc": -1
         }
     },
     "manga_complete": {
 		
         "headers": {
-			 "Referer": "https://wamanga.ru/",
-            "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" 
-			},
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+		"cookie": "access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwOGE2OWY4LTEwNzQtNDM5ZC1iMmI1LWQzNjc1NWRhOWZhNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5MzYwOTEyLCJleHAiOjE3Nzk2MjAxMTJ9.oZ_MrDuEc4XMb29eWj0_CuLcius99dqvlqhWBGL9w7c"
+        },
         
         "title": {
 			"after": "<h1",
@@ -117,7 +116,7 @@
                 }
         },
 		
-		"author": { "skip": ">Автор оригинала</", "token1":"class=\"css-1xjlvl1 e1i5jusa12\">", "token2": "</" },
+		"author": { "skip": ">Автор оригинала</", "token1":"class=\"svelte-148miim\">", "token2": "</" },
 		
 		"cover": {
            "after": "property=\"og:image\"",
@@ -125,8 +124,8 @@
             "token2": "\""
         },
         "summary": {
-            "token1": "<div class=\"css-pelv9g e1i5jusa2\">",
-            "token2": "</div>",
+            "token1": "<p class=\"title-info-description svelte-148miim\">",
+            "token2": "</p>",
             "replace": [
 			    { "clear_escape": true },
 				{ "clear_html": true },
@@ -157,80 +156,78 @@
             ]
         },
         "need_auth": "авторизироваться",
-         "status": {
-            "complete": "\"status\\\":\\\"Окончено\\\"",
-            "ongoing": "\"status\\\":\\\"Онгоинг\\\""
+		
+		 "status": {
+            "complete": {
+                "start": ">Статус перевода</",
+               "end": "</span></span>",
+                "values": ["Закончен", "Переведена","Завершен","Сингл","Отменено","Окончено","Завершено"]
+            },
+            "ongoing": {
+                 "start": ">Статус перевода</",
+                "end": "</span></span>",
+                "value": "Онгоинг"
+            }
         },
         
         
+        
         "add_tags": {
-            "start": ">Жанры</",
-            "end": ">Комментарии</",
-            "token1": "class=\"css-fxj2ib e1i5jusa9\">",
-            "token2": "</"
+            "start": ">Жанры<",
+            "end": "</div></div>",
+            "token1": "\"><!---->",
+            "token2": "<!----></"
         },
         "is_mature": {
             "values": ["Сэйнэн", "Эротика", "Юри", "Яой"]
         },
-        "chapters_from_page": {
-            "token1": "\\\"mangaId\\\":\\\"",
-            "token2": "\\\",",
-            "replace": [
-			    { "clear_escape": true },
-				{ "clear_html": true },
-				{ "match": "\\\\", "text": "" },
-                {
-                    "prefix": "https://wamanga.ru/api/v1/manga/"
-                },
-                {
-                    "sufix": "/chapter/info?extended=true"
-                }
-            ]
-        },
+        
         "add_chapter": {
 			"headers": {
+			 "cookie": "access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwOGE2OWY4LTEwNzQtNDM5ZC1iMmI1LWQzNjc1NWRhOWZhNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5MzYwOTEyLCJleHAiOjE3Nzk2MjAxMTJ9.oZ_MrDuEc4XMb29eWj0_CuLcius99dqvlqhWBGL9w7c",	
 			 "Referer": "https://wamanga.ru/"
 			},
 			
-            "start": "\"chapters\"",
-            "end": "]}",
-            "next": "{\"_",
+            "start": "class=\"title-info-description",
+            "end": "</swiper-container>",
+            "next": "class=\"chapters-minimal-preview-slide",
 			
             "link": {
-                "token1": "id\":\"",
+				"after": "<a ",
+                "token1": "href=\"../",
                 "token2": "\"",
-                "replace": [
-                    {
-                        "prefix": "https://wamanga.ru/api/v1/chapters/"
-                    },
-                    {
-                        "sufix": "/"
-                    }
-                ]
+                "replace": {"prefix": "https://wamanga.ru/"  }
             },
             "uniq": {
-                "token1": "\"slug\":\"",
-                "token2": "\""
+				"after": "<a href=\"",
+				"token1": "\">",
+				"token2":  "</div>",
+                "replace": {"match":"<.*?>","text":""}
             },
             "title": {
-                "token1": "\"title\":\"",
-                "token2":  "\","
-            }
+                "after": "<a href=\"",
+				"token1": "\">",
+				"token2":  "</div>",
+                "replace": {"match":"<.*?>","text":""}
+			}
         }
     },
     "chapter_complete": {
         "add_numeration": true,
+		
         "headers": {
-			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+			"cookie": "access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwOGE2OWY4LTEwNzQtNDM5ZC1iMmI1LWQzNjc1NWRhOWZhNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5MzYwOTEyLCJleHAiOjE3Nzk2MjAxMTJ9.oZ_MrDuEc4XMb29eWj0_CuLcius99dqvlqhWBGL9w7c",
             "accept": "*/*",
             "Referer": "https://wamanga.ru/",
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
 			},
-        "add_images": {
-            "start": "\"numberChapter\"",
-            "token1": "\"path\":\"",
+	
+		"add_images": {
+            "start": "class=\"pages-containe",
+            "token1": "src=\"https://wamanga.ru/app/uploads/",
             "token2": "\"",
-            "end": "]"
+            "replace": { "prefix": "https://wamanga.ru/app/uploads/" },
+            "end": "<div class=\"chapter-footer-center"
         }
     },
     "test": [
@@ -259,20 +256,20 @@
                 "chapters_count": ">=130",
                 "chapters": [
         {
-            "folder": "glava-69\\",
-            "link": "https://wamanga.ru/api/v1/chapters/6843d3874b186d1154b49a27/",
-            "title": "Глава 69"
+            "folder": "1\\",
+            "link": "https://wamanga.ru/manhwa/genialneyshiy-mechnik-akademii/glava-1",
+            "title": "1"
         },
         {
-            "link": "https://wamanga.ru/api/v1/chapters/6843d3874b186d1154b49a19/",
-            "title": "Глава 67"
+            "link": "https://wamanga.ru/manhwa/genialneyshiy-mechnik-akademii/glava-2",
+            "title": "2"
         }
                 ]
             }
         },
         {
             "proc": "chapter_complete",
-            "link": "https://wamanga.ru/api/v1/chapters/6843d3874b186d1154b49a19/",
+            "link": "https://wamanga.ru/manhwa/genialneyshiy-mechnik-akademii/glava-1",
             "assert": {
                 "pages": [
         {"image": "https://cdn.worldom.ru/static/chogbeobsonyeon/chapter-67/001.webp"},
