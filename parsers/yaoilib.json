@@ -1,6 +1,6 @@
 {
     "id": 1468,
-    "version": 35,
+    "version": 36,
     "old_sites": [
         "v1.slashlib.me",
 		"v2.slashlib.me",
@@ -171,25 +171,16 @@
         }
     },
     "manga_complete": {
-    "headers": {
-        "accept": "*/*",
-        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWM2ZGU5Zjc3ODI0NDhjODNlYjc5YjI5OTM2MDFiZmQwODEzYzliNWQzMmUwN2JiMDg3MzkzMzQwNTM1MGVhZTFmNDUyMzNkYjYyMGM2NDgiLCJpYXQiOjE3Nzk4NzE1MTAuNDEwMzYzLCJuYmYiOjE3Nzk4NzE1MTAuNDEwMzY1LCJleHAiOjE3ODI1NDk5MTAuNDA1MSwic3ViIjoiNzI1Iiwic2NvcGVzIjpbXX0.EaoQiCsUUViQP1f5jpEEIdJ8jiQtCMzNCOpSMZscocEscKUPsL2GA2P78FcjujX7Sw7hJM7jlkq2ouOvGsT6J3XyJJYI9KFPQUCCFT_meHstofB3pOcpqfEqZDtRHE9pURiABJGW1TGBFYHaAX2ulqXHi14htA1YBaAlSkY8jCTvdlxz6_-V_6kwgOBaI4Ucm83wa7iyjMz8JEBpb_qEakZSgoO6yQ8IaQEaQRnwQb9ej7DljtFc406pqw3iaFojNDMzimfZka8qZDUSTpWwfVir3H1_N6BFmOJFhesYA3DCQVBj6n7LpZ-LeqbRZeE0mOH9KXPadS8DaDsWVLLC9MOa4wP-Ot0eFgqh_r9_VwvIwClRQ_Jq5a6QkzxBBw81bDtfTOv6vqHKHGnmKfAZ1oeCAs1XbAtzkH7dvocwgpRM2-Vixmk6edJK8FD25ucnA9drwsTfEzxyOzFCXhR_-hLiL-hBlkTlV7OwlZBvHwmpHBmG01nt49xCl0Q6N3frXciWn33hw8XN7scWvAr6LlTOBzrIcqVue2H9rMOkSTjgrqeT1gLDf8-FK6_UkFgc3opSoyI8fhlqHY-IsLRXSY8jiVc9PjGdKqYLtgK1VdORypbKOc1GDDYPfq1Ea_kstLZEvBywJY2aEvaiCFEZ6P_bMk_SSynZeCwsX08VTN4",
-        "client-time-zone": "Asia/Irkutsk",
-        "content-type": "application/json",
-        "origin": "https://v2.shlib.life/",
-        "priority": "u=1, i",
-        "referer": "https://v2.shlib.life/",
-        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "cross-site",
-        "site-id": "2",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
-    },
-        "title": {
+		
+	"headers": {
+	    "accept": "*/*",
+		"authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWM2ZGU5Zjc3ODI0NDhjODNlYjc5YjI5OTM2MDFiZmQwODEzYzliNWQzMmUwN2JiMDg3MzkzMzQwNTM1MGVhZTFmNDUyMzNkYjYyMGM2NDgiLCJpYXQiOjE3Nzk4NzE1MTAuNDEwMzYzLCJuYmYiOjE3Nzk4NzE1MTAuNDEwMzY1LCJleHAiOjE3ODI1NDk5MTAuNDA1MSwic3ViIjoiNzI1Iiwic2NvcGVzIjpbXX0.EaoQiCsUUViQP1f5jpEEIdJ8jiQtCMzNCOpSMZscocEscKUPsL2GA2P78FcjujX7Sw7hJM7jlkq2ouOvGsT6J3XyJJYI9KFPQUCCFT_meHstofB3pOcpqfEqZDtRHE9pURiABJGW1TGBFYHaAX2ulqXHi14htA1YBaAlSkY8jCTvdlxz6_-V_6kwgOBaI4Ucm83wa7iyjMz8JEBpb_qEakZSgoO6yQ8IaQEaQRnwQb9ej7DljtFc406pqw3iaFojNDMzimfZka8qZDUSTpWwfVir3H1_N6BFmOJFhesYA3DCQVBj6n7LpZ-LeqbRZeE0mOH9KXPadS8DaDsWVLLC9MOa4wP-Ot0eFgqh_r9_VwvIwClRQ_Jq5a6QkzxBBw81bDtfTOv6vqHKHGnmKfAZ1oeCAs1XbAtzkH7dvocwgpRM2-Vixmk6edJK8FD25ucnA9drwsTfEzxyOzFCXhR_-hLiL-hBlkTlV7OwlZBvHwmpHBmG01nt49xCl0Q6N3frXciWn33hw8XN7scWvAr6LlTOBzrIcqVue2H9rMOkSTjgrqeT1gLDf8-FK6_UkFgc3opSoyI8fhlqHY-IsLRXSY8jiVc9PjGdKqYLtgK1VdORypbKOc1GDDYPfq1Ea_kstLZEvBywJY2aEvaiCFEZ6P_bMk_SSynZeCwsX08VTN4",
+        "Referer": "https://v2.shlib.life/",
+		"Site-Id": "2",
+        "Content-Type": "application/json"
+        },	
+		
+		"title": {
             "skip": "\"data\"",
             "token1": "\"rus_name\":\"",
             "token2": "\",\"slug\":",
@@ -374,24 +365,13 @@
             ]
         },
         "add_chapter": {
-          "headers": {
-        "accept": "*/*",
-        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWM2ZGU5Zjc3ODI0NDhjODNlYjc5YjI5OTM2MDFiZmQwODEzYzliNWQzMmUwN2JiMDg3MzkzMzQwNTM1MGVhZTFmNDUyMzNkYjYyMGM2NDgiLCJpYXQiOjE3Nzk4NzE1MTAuNDEwMzYzLCJuYmYiOjE3Nzk4NzE1MTAuNDEwMzY1LCJleHAiOjE3ODI1NDk5MTAuNDA1MSwic3ViIjoiNzI1Iiwic2NvcGVzIjpbXX0.EaoQiCsUUViQP1f5jpEEIdJ8jiQtCMzNCOpSMZscocEscKUPsL2GA2P78FcjujX7Sw7hJM7jlkq2ouOvGsT6J3XyJJYI9KFPQUCCFT_meHstofB3pOcpqfEqZDtRHE9pURiABJGW1TGBFYHaAX2ulqXHi14htA1YBaAlSkY8jCTvdlxz6_-V_6kwgOBaI4Ucm83wa7iyjMz8JEBpb_qEakZSgoO6yQ8IaQEaQRnwQb9ej7DljtFc406pqw3iaFojNDMzimfZka8qZDUSTpWwfVir3H1_N6BFmOJFhesYA3DCQVBj6n7LpZ-LeqbRZeE0mOH9KXPadS8DaDsWVLLC9MOa4wP-Ot0eFgqh_r9_VwvIwClRQ_Jq5a6QkzxBBw81bDtfTOv6vqHKHGnmKfAZ1oeCAs1XbAtzkH7dvocwgpRM2-Vixmk6edJK8FD25ucnA9drwsTfEzxyOzFCXhR_-hLiL-hBlkTlV7OwlZBvHwmpHBmG01nt49xCl0Q6N3frXciWn33hw8XN7scWvAr6LlTOBzrIcqVue2H9rMOkSTjgrqeT1gLDf8-FK6_UkFgc3opSoyI8fhlqHY-IsLRXSY8jiVc9PjGdKqYLtgK1VdORypbKOc1GDDYPfq1Ea_kstLZEvBywJY2aEvaiCFEZ6P_bMk_SSynZeCwsX08VTN4",
-        "client-time-zone": "Asia/Irkutsk",
-        "content-type": "application/json",
-        "origin": "https://v2.shlib.life",
-        "priority": "u=1, i",
-        "referer": "https://v2.shlib.life/",
-        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "cross-site",
-        "site-id": "2",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
-    },
+    "headers": {
+	    "accept": "*/*",
+		"authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWM2ZGU5Zjc3ODI0NDhjODNlYjc5YjI5OTM2MDFiZmQwODEzYzliNWQzMmUwN2JiMDg3MzkzMzQwNTM1MGVhZTFmNDUyMzNkYjYyMGM2NDgiLCJpYXQiOjE3Nzk4NzE1MTAuNDEwMzYzLCJuYmYiOjE3Nzk4NzE1MTAuNDEwMzY1LCJleHAiOjE3ODI1NDk5MTAuNDA1MSwic3ViIjoiNzI1Iiwic2NvcGVzIjpbXX0.EaoQiCsUUViQP1f5jpEEIdJ8jiQtCMzNCOpSMZscocEscKUPsL2GA2P78FcjujX7Sw7hJM7jlkq2ouOvGsT6J3XyJJYI9KFPQUCCFT_meHstofB3pOcpqfEqZDtRHE9pURiABJGW1TGBFYHaAX2ulqXHi14htA1YBaAlSkY8jCTvdlxz6_-V_6kwgOBaI4Ucm83wa7iyjMz8JEBpb_qEakZSgoO6yQ8IaQEaQRnwQb9ej7DljtFc406pqw3iaFojNDMzimfZka8qZDUSTpWwfVir3H1_N6BFmOJFhesYA3DCQVBj6n7LpZ-LeqbRZeE0mOH9KXPadS8DaDsWVLLC9MOa4wP-Ot0eFgqh_r9_VwvIwClRQ_Jq5a6QkzxBBw81bDtfTOv6vqHKHGnmKfAZ1oeCAs1XbAtzkH7dvocwgpRM2-Vixmk6edJK8FD25ucnA9drwsTfEzxyOzFCXhR_-hLiL-hBlkTlV7OwlZBvHwmpHBmG01nt49xCl0Q6N3frXciWn33hw8XN7scWvAr6LlTOBzrIcqVue2H9rMOkSTjgrqeT1gLDf8-FK6_UkFgc3opSoyI8fhlqHY-IsLRXSY8jiVc9PjGdKqYLtgK1VdORypbKOc1GDDYPfq1Ea_kstLZEvBywJY2aEvaiCFEZ6P_bMk_SSynZeCwsX08VTN4",
+        "Referer": "https://v2.shlib.life/",
+		"Site-Id": "2",
+        "Content-Type": "application/json"
+        },
             "next": "index",
             "start": "\"data\"",
             "link": {
