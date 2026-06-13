@@ -1,6 +1,6 @@
 {
     "id": 52134,
-    "version": 5,
+    "version": 6,
     "title": "Manga-shi",
     "host": "https://manga-shi.org",
     "public_link": "https://manga-shi.org/manga",
@@ -121,6 +121,7 @@
          "token1":"content=\"",
          "token2":"\"" ,
 		  "replace": [
+		        {"match": "— Mangashi","text": ""},
 				{"match": "Манга","text": ""},
 				{"match": "Манхва","text": ""},
 				{"match": "/","text": "|"},
@@ -241,13 +242,16 @@
             },
             "uniq": {
                 "skip": "href=\"",
-                "token1": "<span>",
+                "token1": "\">",
                 "token2": "</span>",
-                "replace":{ "match": "/", "text": "_" }
+                "replace": [
+				{"match": "<.*?>","text": ""},
+				{ "match": "/", "text": "_" }
+				 ]
             },
             "title": {
                 "skip": "href=\"",
-                "token1": "<span>",
+                "token1": "\">",
                 "token2": "</span>",
                 "replace": [
                     {
@@ -277,6 +281,8 @@
             "Referer": "https://manga-shi.org/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" 
 			},
+		"add_numeration": true,
+		
         "add_images": {
             "start": "class=\"reader-page is-loaded\"",
 			"after": "<img",
