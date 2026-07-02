@@ -1,6 +1,6 @@
 {
     "id": 2021,
-    "version": 37,
+    "version": 38,
     "title": "MangaLib",
     "host": "https://mangalib.me/",
     "public_link": "https://mangalib.me/",
@@ -207,17 +207,23 @@
         },
         "summary": {
             "skip": "\"data\"",
-            "token1": "\"summary\":\"",
-            "token2": "\",",
+            "token1": "\"summary\":{",
+            "token2": "},",
             "replace": [
-                {
-                    "clear_escape": true
-                },
-                {
-                    "match": "'%', '\\'",
-                    "text": "'unicode-escape'"
-                }
-            ]
+			    { "match": "\"content\"",  "text": "" },
+				{ "match": "\"type\"", "text": ""  },
+				{  "match": "\"paragraph\"", "text": "" },
+				{  "match": "\"text\"",   "text": ""  },
+				{  "match": "\"doc\"", "text": "" },
+				{  "match": "\"",  "text": "" },
+				{  "match": "[",  "text": ""  },
+				{  "match": "{",  "text": "" },
+				{   "match": ":",   "text": ""  },
+				{   "match": "u041d",   "text": "Н"  },
+				
+				{ "clear_escape": true  },
+				{ "match": "[^a-zA-Z0-9а-яА-ЯёЁ\\s]", "text": "" }
+			]
         },
         "cover": {
             "skip": "\"cover\"",
@@ -381,7 +387,7 @@
     },
     "chapter_complete": {
         "headers": {
-             "sec-ch-ua-platform": "\"Windows\"",
+        "sec-ch-ua-platform": "\"Windows\"",
         "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODk1MjYzYmNhMGVjY2MxNTZhZDY0NjBlMTM5OWMzZTAwOWZiZWYwYTc0MWM0NDFkMzExZTQ2MTQzYjk1OWM3OGE3OWU4MWExODQxNmE5ZTYiLCJpYXQiOjE3ODI4OTk1MTYuOTcwODI5LCJuYmYiOjE3ODI4OTk1MTYuOTcwODMxLCJleHAiOjE3ODU1Nzc5MTYuOTY3NjExLCJzdWIiOiI3MjUiLCJzY29wZXMiOltdfQ.3V46OSlFCmbe1JrYXuLr8Ip3rhUZ2oQ5ba4qr6W51OC5QRxe6cOZJgBV4mqGeTonRun1-gmeI9XBnndQfhVHPm59w-H-d8l2kHBA_4xTtXuLMHmJ1EshG_J-KKU5fkzZSUL8kJ7kTwOoynauWWSW-hK3FN1Z1o9thesFZASrjVeHsd6vOlTzQUlGx47kcjJ5VCZqdxRW5MmHuVqpRw0xBKQ6HLkjKEmFAmajc2j83p_Hyk9qdQCIJ0QvcdQCTXceigMHJlFJHMO6oO_g1vul97t17GmDuHaTf5JdpMvUzfE73IF0U8JsOReLqnJ1eY0i_5i1JH_zHUdxbRc-AnyLz6s8eAVB6MWTVotc9W8y7x-NDzdmuhtuKoE3K2XRhEcgD6ZVtI-ytDF9wXjXoHhAP0qVCH5BOQtGZgtXtbMIbyspm-4VXqwKnIdVIUhiLFj9Ie_Ylfg6AqYaNrXZwb-NQwAbss-87kRmNfaNyNSbQhwd9PGo6AUqSVfSaJRamADeyEQdfJQHJ0A-XxCxWzg1nWM2v9mUd_UPlaLo9zhH4f9vHMM2KWLiVfsr2BQUhJD-6uT7lUhhMe1yPcCM_EafsU4sg9i2lfQho5bxWB3liBQNObUyuGh9wVg54NZPCHD7TpZAXX-SBlC_7nqJmZyYhSHNe-S8p91_s5qFb7ZNE6w",
         "Referer": "https://mangalib.me/",
         "Site-Id": "1",
@@ -394,16 +400,9 @@
             "token2": "\"",
             "end": "]}}",
             "replace": [
-                {
-                    "prefix": "https://img3.mixlib.me"
-                },
- {
-                        "clear_escape": true
-                    },
-                {
-                    "match": "\\\\",
-                    "text": ""
-                }
+                { "prefix": "https://img3.cdnlibs.org" },
+                {  "clear_escape": true  },
+                { "match": "\\\\", "text": "" }
             ]
         }
     },
