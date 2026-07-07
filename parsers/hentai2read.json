@@ -2,7 +2,7 @@
 	"id": 74985,
 	"old_ids": [41011],
 	
-	"version": 2,
+	"version": 3,
 	"title": "Hentai2Read",
 	"host": "https://hentai2read.com/",
 	"public_link": "https://hentai2read.com/hentai-list",
@@ -25,7 +25,7 @@
 "manga_search_complete": {	
        "headers": {
         "accept": "*/*",
-        "referer": "https://hentai2read.com/hentai-list/search/"
+        "Referer": "https://hentai2read.com/hentai-list/search/"
         },
 		
 		"search_link": "https://hentai2read.com/hentai-list/search/$query$/all/name-az/",
@@ -60,14 +60,14 @@
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
-        "referer": "https://hentai2read.com/hentai-list/all/any/all/most-popular"
+        "Referer": "https://hentai2read.com/hentai-list/all/any/all/most-popular"
     },
 	
 		"iterator": {
 			"base_url": "https://hentai2read.com/hentai-list/all/any/all/most-popular/",
 			"append_nums": { 
 			"from": 1,
-			"to": 1138,
+			"to": 1239,
 		    "sufix": "/" }
 		},
 		"add_manga": {
@@ -128,7 +128,7 @@
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "cache-control": "max-age=0",
         "priority": "u=0, i",
-        "referer": "https://hentai2read.com/amayaka_shishou/",
+        "Referer": "https://hentai2read.com/amayaka_shishou/",
         "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "\"Windows\"",
