@@ -276,20 +276,21 @@
     },
     "chapter_complete": {
         "headers": {
-			"Cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
-			"Cookie2": "confirm=true",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+			"cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
+            "accept": "*/*",
             "Referer": "https://sexkomix2.com/"
 		},
 		
 		"add_numeration": true,
 		"images": true,
         "add_pages": {
-            "start": "\"comix_pages_ul\">",
-			
+            "start": "\"caution_box\">",
+			"end": "\"comment_block\">",
+			 
 			"token1": "<a rel=\"group\" class=\"fancybox\" href=\"",
-            "token2": "\"",
-            "end": "id=\"more_comics_directory_1\""
+            "token2": "\""
+			
+           
         }
     },
     "test": [
