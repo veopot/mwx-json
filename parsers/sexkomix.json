@@ -1,6 +1,6 @@
 {
     "id": 40632,
-    "version": 2,
+    "version": 4,
     "title": "SexKomix",
     "host": "https://sexkomix2.com",
     "public_link": "https://sexkomix2.com",
@@ -283,15 +283,23 @@
 		
 		"add_numeration": true,
 		"images": true,
-        "add_pages": {
+        "add_pages":[ 
+		{
+            "start": "\"caution_box\">",
+			"end": "</li>",
+			 
+			"token1": "<img data-src=\"",
+            "token2": "\""
+		},
+		{
             "start": "\"caution_box\">",
 			"end": "\"comment_block\">",
 			 
 			"token1": "<a rel=\"group\" class=\"fancybox\" href=\"",
             "token2": "\""
-			
-           
-        }
+		}
+		
+		]
     },
     "test": [
         {
