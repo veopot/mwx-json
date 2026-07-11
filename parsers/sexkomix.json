@@ -1,0 +1,338 @@
+{
+    "id": 40632,
+    "version": 2,
+    "title": "SexKomix",
+    "host": "https://sexkomix2.com",
+    "public_link": "https://sexkomix2.com",
+    "folder": "sexkomix",
+    "name": "sexkomix",
+	
+    "chapters_order": true,
+    "language": "ru",
+    "encoding": "utf-8",
+    "is_mature": true,
+    "is_paid": true,
+    "skip_catalog_test": false,
+	
+    "icon_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/img/sexkomix.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/sexkomix.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/sexkomix.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/sexkomix.zip",
+    "file_type": "sqlite",
+    "author": {
+        "name": "Veopot",
+        "email": "fant-net@ya.ru"
+    },
+    
+    "manga_search_complete": {
+        "headers": {
+			"cookie": "confirm=true",
+            "accept": "*/*",
+            "Referer": "https://sexkomix2.com/"
+		},
+        "search_link": "https://sexkomix2.com/search/?q=$query$",
+        "query_type": "GET",
+        "add_manga": {
+           "start": "\"sorting_block_box\"",
+            "end": "\"site_pages\"",
+            "next": "class = \"comix\">",
+			
+            "link": {
+                "after": "<a href",
+                "token1": "= \"//",
+                "token2": "\"",
+                "replace": {  "prefix": "https://" }
+            },
+			
+			
+            "cover": {
+                "after": "<a href",
+                "token1": "data-src=\"",
+                "token2": "\""
+            },
+
+            "title": {
+                 "after": "<a href",
+                "token1": "<h2><p>",
+                "token2": "</p></h2>",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "Порно комикс ",
+                    "text": ""
+                }
+            ]
+            },
+
+
+            
+            "uniq": {
+                "after": "<a href",
+                "token1": "//sexkomix2.com/",
+                "token2": "\"",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "/",
+                    "text": "_"
+                }
+            ]
+            },
+        
+		
+		"summary": {
+				"after": "<a href",
+                "token1": "\"tags_ul\">",
+                "token2": " </ul>",
+                "replace": [
+                    { "match": "</a>",   "text": ","   },
+					{ "match": "<.*>", "text": " "
+                    },
+					{
+                        "match": "\"count_chapters\":",
+                        "text": " Доступно Глав "
+                    }
+                ]
+        }
+            
+        
+      }
+	},
+    "manga_list_complete": {
+        "headers": {
+			"cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
+            "accept": "*/*",
+            "Referer": "https://sexkomix2.com/"
+		},
+        "iterator": {
+            "base_url": "https://sexkomix2.com/home/?lang=ru&only=&sort=prosmotr&page=",
+            "append_nums": {
+                "from": 1,
+                "to": 1982
+            }
+        },
+        "add_manga": {
+            "start": "\"sorting_block_box\"",
+            "end": "\"site_pages\"",
+            "next": "class = \"comix\">",
+			
+            "link": {
+                "after": "<a href",
+                "token1": "= \"//",
+                "token2": "\"",
+                "replace": {  "prefix": "https://" }
+            },
+			
+			
+            "cover": {
+                "after": "<a href",
+                "token1": "data-src=\"",
+                "token2": "\""
+            },
+
+            "title": {
+                 "after": "<a href",
+                "token1": "<h2><p>",
+                "token2": "</p></h2>",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "Порно комикс ",
+                    "text": ""
+                }
+            ]
+            },
+
+
+            
+            "uniq": {
+                "after": "<a href",
+                "token1": "//sexkomix2.com/",
+                "token2": "\"",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "/",
+                    "text": "_"
+                }
+            ]
+            }
+        },
+	    
+        "rating_auto_inc": {
+            "start": "40000",
+            "inc": -1
+        }
+    },
+	
+    "manga_complete": {
+		
+        "headers": {
+			"cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
+            "accept": "*/*",
+            "Referer": "https://sexkomix2.com/"
+		},
+        
+        "title": {
+            "token1": "property=\"og:title\" content=\"",
+            "token2": "\"",
+            "replace": [
+                {
+                    "clear_escape": true
+                },
+                {
+                    "match": "Порно комикс ",
+                    "text": ""
+                }
+            ]
+        },
+        
+        "uniq": {
+            "token1": "property=\"og:url\" content=\"https://sexkomix2.com/comicsx/",
+            "token2": "\""
+        },
+        "cover": {
+			"after": "\"comix_cover_img\"", 
+            "token1": "data-src = \"",
+            "token2": "\""
+        },
+		
+        "summary": {
+			"after": "name=\"Description\"", 
+			
+            "token1": "content=\"",
+            "token2": "\"",
+            "replace": [
+                {
+                    "match": "u003Cp",
+                    "text": ""
+                },
+                {
+                    "match": "u003E",
+                    "text": ""
+                },
+                {
+                    "match": "sexkomix2.com",
+                    "text": ""
+                },
+				{
+                    "match": "Порно комикс ",
+                    "text": ""
+                },
+                {
+                    "match": "<.*?>",
+                    "text": ""
+                },
+                {
+                    "match": "Порно комиксы на русском языке только для взрослых",
+                    "text": ""
+                },
+                {
+                    "match": "&quot;",
+                    "text": "'"
+                }
+            ]
+        },
+        "need_auth": "\"Получить доступ\"",
+		
+		
+        "status": {
+            "single": [ "Лайкнуть" ],
+            "ongoing": "перевод продолжается<"
+        },
+       
+        
+		
+        "add_tags": {
+            "start": "Категории:",
+            "end": "Кол-во страниц",
+			
+			"after": "/?lang=ru&",
+			
+            "token1": "\">",
+            "token2": "</"
+        },
+		
+        
+        "add_chapter": {
+            "next": "<head>",
+            "link": {
+				"token1": "property=\"og:url\" content=\"",
+                "token2": "\">"
+            },
+            "title": "Read Single (Читать Сингл)",
+            "uniq": "Read_Single"
+        }
+		
+		
+    },
+    "chapter_complete": {
+        "headers": {
+			"Cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
+			"Cookie2": "confirm=true",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "Referer": "https://sexkomix2.com/"
+		},
+		
+		"add_numeration": true,
+		"images": true,
+        "add_pages": {
+            "start": "\"comix_pages_ul\">",
+			
+			"token1": "<a rel=\"group\" class=\"fancybox\" href=\"",
+            "token2": "\"",
+            "end": "id=\"more_comics_directory_1\""
+        }
+    },
+    "test": [
+        {
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+                    {
+                        "title": "Another Emperor Reborn, Возрождение иного императора",
+                        "link": "https://sexkomix2.com/api/titles/another-emperor-reborn",
+                        "uniq": "Another Emperor Reborn"
+                    }
+                ],
+                "mangas_count": ">=20"
+            }
+        },
+        {
+            "proc": "manga_complete",
+            "link": "https://sexkomix2.com/comicsx/15777-porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout/",
+            "title": "Brawl Stars. Одиссей Примо С Джесси. DontWorryAbout",
+            "assert": {
+                "cover": "https://sexkomix2.com/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
+                "genres": "@action",
+                "status": "single",
+                 "chapters_count": ">=1",
+                "chapters": [
+                    {
+                        "link": "https://sexkomix2.com/comicsx/15777-porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout/",
+                        "title": "Read Single (Читать)"
+                    }
+                ]
+            }
+        },
+        {
+            "proc": "chapter_complete",
+            "link": "https://sexkomix2.com/comicsx/15777-porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout/",
+            "assert": {
+                "pages": [
+        {"image": "https://imgru.sexkomix3.com/uploads_images/porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout-seks-komiks-seksualnaya-bryunetka-vstretila-2023-04-03/porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout-seks-komiks-seksualnaya-bryunetka-vstretila-2023-04-03-1577747.jpg"},
+        {"image": "https://imgru.sexkomix3.com/uploads_images/porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout-seks-komiks-seksualnaya-bryunetka-vstretila-2023-04-03/porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout-seks-komiks-seksualnaya-bryunetka-vstretila-2023-04-03-11140640.jpg"},
+        {"image": "https://imgru.sexkomix3.com/uploads_images/porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout-seks-komiks-seksualnaya-bryunetka-vstretila-2023-04-03/porno-komiks-brawl-stars--odissey-primo-s-dzhessi--dontworryabout-seks-komiks-seksualnaya-bryunetka-vstretila-2023-04-03-11140640.jpg"}
+                ]
+            }
+        }
+    ]
+}
