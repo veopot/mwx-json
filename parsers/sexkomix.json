@@ -176,8 +176,9 @@
     "manga_complete": {
 		
         "headers": {
-			"cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
-            "accept": "*/*",
+			"Cookie": "UGVyc2lzdFN0b3JhZ2U=%7B%7D",
+            "Accept": "*/*",
+			"User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
             "Referer": "https://sexkomix2.com/"
 		},
         
