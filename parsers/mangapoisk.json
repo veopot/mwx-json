@@ -1,6 +1,6 @@
 {
  "id":40228,
-   "version":32,
+   "version":33,
    
    "old_sites": [
    "mangapoisk.ru",
@@ -9,13 +9,15 @@
    "mangapoisk.me", 
    "mangapoisk.net",
    "mangapoisk.live",
-   "mangapoisk.io"
+   "mangapoisk.io",
+   "mangap.ru"
    ],
    
    
+   
    "title":"MangaPoisk",
-   "host":"https://mangap.ru/",
-   "public_link":"https://mangap.ru/manga-list",
+   "host":"https://mangapsk.ru/",
+   "public_link":"https://mangapsk.ru/manga-list",
    "folder":"mangapoisk",
    "name":"mangapoisk",
    "language":"ru",
@@ -35,7 +37,7 @@
    },
    "manga_list_complete":{
       "iterator":{
-         "base_url":"https://mangap.ru/manga?page=",
+         "base_url":"https://mangapsk.ru/manga?page=",
          "append_nums":{
             "from":0,
             "to":324,
@@ -53,7 +55,7 @@
          "link":{
             "token1":"href=\"",
             "token2":"\"",
-			"replace": { "prefix": "https://mangap.ru"}
+			"replace": { "prefix": "https://mangapsk.ru"}
          },
          "cover":{
 		    "before":"href=\"",
@@ -69,7 +71,7 @@
    
    
    "manga_search_complete": {		
-        "search_link":"https://mangap.ru/search?q=$query$&page=$page$",
+        "search_link":"https://mangapsk.ru/search?q=$query$&page=$page$",
 		"query_type": "GET",
 		
 		 "add_manga":{
@@ -91,9 +93,9 @@
 				
          "cover":{
 			"skip":"href=\"",
-		    "token1":"https://static2.mangap.ru/posters/",
+		    "token1":"https://static2.mangapsk.ru/posters/",
             "token2":"\"",
-			"replace": { "prefix": "https://static2.mangap.ru/posters/"}
+			"replace": { "prefix": "https://static2.mangapsk.ru/posters/"}
          }
       }
 		},	
@@ -103,7 +105,7 @@
    "manga_complete": { 
 	   "headers": {
             "sec-ch-ua-platform": "\"Windows\"",
-            "Referer": "https://mangap.ru/",
+            "Referer": "https://mangapsk.ru/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
             "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
             "sec-ch-ua-mobile": "?0"
@@ -123,17 +125,17 @@
 				]},
       
       "uniq":{
-         "token1":"\"url\":\"https:\/\/mangap.ru\/manga\/",
+         "token1":"\"url\":\"https:\/\/mangapsk.ru\/manga\/",
          "token2":"\","
       },
 	  
 	  
       "cover":{
-         "token1":"src=\"https://static2.mangapoisk.io/posters/",
+         "token1":"src=\"https://static2.mangapsk.ru/posters/",
          "token2":"\"",
 		"replace": {
-				"prefix": "https://static2.mangapoisk.io/posters/"
-				}
+				"prefix": "https://static2.mangapsk.ru/posters/"
+				}          
 		},
 	  
 	  "rating":{
@@ -185,7 +187,7 @@
 		"token1": "&quot;url&quot;:&quot;/manga/",
 		"token2": "&quot", 
 		"replace": [
-		        { "prefix" : "https://mangap.ru/manga/" },
+		        { "prefix" : "https://mangapsk.ru/manga/" },
 		        { "sufix" : "/chaptersList" },
 				{ "match": "\\\\", "text": "" }
 				],
@@ -196,7 +198,7 @@
 				"token2": "\"",
 				
 				"replace": [
-				    {"prefix": "https://mangap.ru" },
+				    {"prefix": "https://mangapsk.ru" },
 					{ "match": "&amp;", "text": "&" }
 				]
 				
@@ -212,7 +214,7 @@
 		"add_chapter":{
 			"headers": {
             "sec-ch-ua-platform": "\"Windows\"",
-            "Referer": "https://mangap.ru/",
+            "Referer": "https://mangapsk.ru/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
             "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
             "sec-ch-ua-mobile": "?0"
@@ -229,7 +231,7 @@
 			
             "token1":"href=\"",
             "token2":"\"",
-			"replace": {"prefix" : "https://mangap.ru"}
+			"replace": {"prefix" : "https://mangapsk.ru"}
          },
 		 
 		"uniq":{
@@ -253,7 +255,7 @@
     "add_numeration": true,
         "headers": {
             "sec-ch-ua-platform": "\"Windows\"",
-            "Referer": "https://mangap.ru/",
+            "Referer": "https://mangapsk.ru/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
             "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
             "sec-ch-ua-mobile": "?0"
@@ -265,13 +267,13 @@
 	{
 		"start": "class=\"pt-4 mx-auto outline-0 cursor-auto w-full\"",
 		"before": "id=\"",
-		"token1": "src=\"https://static2.mangapoisk.io/pages/",
+		"token1": "src=\"https://static2.mangapsk.ru/pages/",
 		"token2": "\"",
 		"end": ">Комментарии",
 		"replace":
 		[{
-				"prefix": "https://static2.mangapoisk.io/pages/"
-			}, {
+				"prefix": "https://static2.mangapsk.ru/pages/"
+			}, {           
 				"match": "data-small-src=\"(.*?)\"",
 				"text": ""
 			},
@@ -292,7 +294,7 @@
             "mangas":[
                {
                   "title":"Ванпанчмен",
-                  "link":"https://mangap.ru/manga/vanpanchmen",
+                  "link":"https://mangapsk.ru/manga/vanpanchmen",
                   "uniq":"vanpanchmen"
                }
             ],
@@ -301,12 +303,12 @@
       },
       {
          "proc":"manga_complete",
-         "link":"https://mangap.ru/manga/the-solo-leveling-ragnarok-abs3boq",
+         "link":"https://mangapsk.ru/manga/the-solo-leveling-ragnarok-abs3boq",
 		         
          "title":"Поднятие уровня в одиночку: Рагнарёк | The Solo Leveling: Ragnarok",
          "assert":{
           
-            "cover":"@https://static2.mangap.ru/posters/16679/uiThTu1wKIhyRhOzIKg2gwkQLzSzjJMOZrFfQZ5c_mini.jpg",
+            "cover":"@https://static2.mangapsk.ru/posters/16679/uiThTu1wKIhyRhOzIKg2gwkQLzSzjJMOZrFfQZ5c_mini.jpg",
 		    "summary":"@^(История о жизни одинокого героя)",
             "tags":"@фэнтези",
             "status":"ongoing",
@@ -315,11 +317,11 @@
             "chapters":[
        {
             "folder": "1-1\\",
-            "link": "https://mangap.ru/manga/the-solo-leveling-ragnarok/chapter/1-1",
+            "link": "https://mangapsk.ru/manga/the-solo-leveling-ragnarok/chapter/1-1",
             "title": "Том 1 Глава 1"
         },
         {
-             "link": "https://mangap.ru/manga/the-solo-leveling-ragnarok/chapter/1-2",
+             "link": "https://mangapsk.ru/manga/the-solo-leveling-ragnarok/chapter/1-2",
             "title": "Том 1 Глава 2"
         }
             ]
@@ -327,12 +329,12 @@
       },
       {
          "proc":"chapter_complete",
-         "link": "https://mangap.ru/manga/the-solo-leveling-ragnarok/chapter/1-1",
+         "link": "https://mangapsk.ru/manga/the-solo-leveling-ragnarok-abs3boq/chapter/1-1",
          "assert":{
             "pages":[
-        {"image": "https://static2.mangap.ru/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
-        {"image": "https://static2.mangap.ru/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
-        {"image": "https://static2.mangap.ru/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
+        {"image": "https://static2.mangapsk.ru/pages/102/21889/kqeLYHbs080UHwIiR4Gg50orQD1oni4eEGH0Ld5P.jpg"},
+        {"image": "https://static2.mangapsk.ru/pages/102/21889/fDMDvYppQJoCUXOn6ALRbN3qYHA7ZJxDd9hwG9uS.jpg"},
+        {"image": "https://static2.mangapsk.ru/pages/102/21889/iWr6MGRPMgyGyDgw88j3pplHwrfwzL3W4xrxU7hQ.jpg"}
             ],
             "pages_count":"128"
          }
