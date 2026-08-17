@@ -1,6 +1,6 @@
 {
 	"id": 30402,
-	"version": 52,
+	"version": 53,
 	
 	"old_ids": [66348],
     "old_sites": [
@@ -54,57 +54,30 @@
 		
 	"manga_list_complete": {
 		"iterator": {
-			"base_url": "https://desu.uno/manga/api/?limit=30&order=popular&page=",
-			"append_nums": { "from": 1, "to": 200 }
+			"base_url": "https://desu.uno/manga/?order_by=popular&page=",
+			"append_nums": { "from": 1, "to": 240 }
 		},
+		
+		
 		"add_manga": {
-			"next": "\"id\"",
-			"link":  { "after": "\"url\"", "token1": ":\"", "token2": "\",",
-			"replace" : { "match" : "desu.uno/manga/", "text" : "desu.uno/manga/api/" }},
-			"uniq": { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
-			"title": { "after": "\"russian\"", "token1": ":\"", "token2": "\"," }
+			"next": "<div style=\"margin-left: 115px;\">",
+			
+			"link":  { "after": "<h3><a", "token1": "href=\"", "token2": "\"",
+			"replace": { "prefix": "https://desu.uno/" }
+			},
+			
+			
+			"uniq": { "after": "<h3><a", "token1": "href=\"manga/", "token2": "\"",},
+			"title": { "after": "<h3><a", "token1": "title=\"", "token2": "\"",},
 		},	 
 		"rating_auto_inc": {
-			"start": "20000",
+			"start": "30000",
 			"inc": -1
 		}
 	},
 
-	"manga_complete": [
-		{"condition": "response",
-		"headers": { "cookie": "xf_user=11072%2C0a7dd015ace06f09a98b213413117b286be3214b" }, 
-		
-		
-			"title":   { "after": "\"name\"", "token1": ":\"", "token2": "\",\"im", "replace": { "match": "\",\"russian\":\"", "text": " / " } },
-			"uniq":    { "after": "\"name\"", "token1": ":\"", "token2": "\"," },
-			"status":  { "complete": [ "\"status\":\"singl\"", "\"status\":\"released\"" ],
-				    "licensed": "\"status\":\"copyright\"",
-				    "ongoing": "\"status\":\"ongoing\"",
-				    "empty": "\"status\":\"anons\"" },
-			"summary": { "skip": "\"description\"", "token1": ":\"", "token2": "\"," },
-			"read_dir":{ "right_to_left": "\"right-to-left\"","left_to_right": "\"left-to-right\"" },
-			"cover":   { "skip": "\"original\"", "token1": ":\"", "token2": "\"" },
-			"is_mature": "\"adult\":1,",
-			
-			"author":      { "skip": "\"authors\":", "token1": "\"people_name\":\"", "token2": "\"" },
-			
-			"add_genres": { 
-				"start": "\"genres\":[",
-				"end": "],",
-				"token1": "\"russian\":\"",
-				"token2": "\"" },
-				
-			"add_chapter": {
-				"start": "\"list\":[",
-				"next":  "\"id\"",
-				"end": "]}",
-				"link":  { "token1": "\"id\":", "token2": ",", "replace": {"prefix" : "%%url%%chapter/" } },
-				"title": { "token1": "\"vol\":", "token2": "\"date\"", "replace": [{ "match" : ",\"ch\":", "text": " - " }, { "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" } ] },
-				"uniq":  { "token1": "\"vol\":", "token2": ",\"title",
-				"replace": { "match" : ",\"ch\":", "text": "-" }}
-		     }
-		},
-		{"condition": "",
+	"manga_complete": 
+		{
 		"headers": { "cookie": "xf_user=11072%2C0a7dd015ace06f09a98b213413117b286be3214b" }, 
 			"title":      { "after": "meta name=\"twitter:title\"", "token1":"content=\"", "token2": "\"",
             "replace": [
@@ -125,6 +98,10 @@
 				"ongoing":[ "выходит", ">продолжается<"]  
 			
 			},
+			
+			 "is_mature": { "values": ["Сэйнэн", "Эротика", "Юри", "Яой","Эта манга предназначена для взрослой аудитории",">Контент 18+<" ]  },
+		
+		
 			"summary":     { "skip": "<div class=\"prgrph\"", "token1": ">", "token2": "<div class=\"shade\">",
 
 				"replace": [
@@ -144,27 +121,46 @@
 			"add_genre": { "after": "href=\"manga/?genre", "token1": "\">", "token2": "</a>",
 			"replace": { "match": "<.*>", "text": "" } },
 			
+			"chapters_from_page": { "skip": "pageUrl:", "token1": "'manga_", "token2": "')",
+			"replace": [
+
+				    { "prefix": "https://desu.uno/api/manga/"  },
+                    { "sufix": "/chapters"  }
+
+				]
+
+            },
 			
-			"chapters_from_page": { "skip": "<meta property=\"og:url\"", "token1": "content=\"", "token2": "\"",
-			"replace" : { "match" : "desu.uno/manga/", "text" : "desu.uno/manga/api/" }},
 			
 			"add_chapter": {
-				"start": "\"list\":[",
+				"start": "\"chapters\"",
 				"next":  "\"id\"",
 				"end": "]}",
-				"link":  { "token1": "\"id\":", "token2": ",","replace": {"prefix" : "%%url%%chapter/" } },
-				"title": { "token1": "\"vol\":", "token2": "\"date\"", "replace": [{ "match" : ",\"ch\":", "text": " - " }, { "match" : "\"title\"", "text": "" }, { "match" : ",:null,", "text": "" }, { "match" : ",:\"", "text": " - " }, { "match" : "\",", "text": "" } ] },
-				"uniq":  { "token1": "\"vol\":", "token2": ",\"title",
-				"replace": { "match" : ",\"ch\":", "text": "-" } }
+				"link":  { "token1": "\"id\":", "token2": ",","replace": {"prefix" : "%%url%%/" } },
+				
+				
+				"title":  { "token1": "\"vol", "token2": "\"publish",
+				"replace": [
+				{ "match" : "ume\":\"", "text": "Том " },
+				{ "match" : "\",\"number\":\"", "text": " Глава " }, 
+				{ "match" : "\",\"title\":null,", "text": " " },
+				{ "match" : "\",\"title\":\"", "text": " " }, 
+				{ "match" : "\",", "text": " " } 
+				
+				]
+				},
+				
+				"uniq":  { "token1": "\"volume\":\"", "token2": "\",\"title",
+				"replace": { "match" : "\",\"number\":\"", "text": "-" } }
 			}
-		}
-	],
+		},
+	
 	"chapter_complete": {
 		"headers": { "cookie": "xf_user=11072%2C0a7dd015ace06f09a98b213413117b286be3214b" }, 
 		"images": true,
 		"add_pages": {
 			"start": "\"pages\"",
-			"token1": "\"img\":\"",
+			"token1": "\"url\":\"",
 			"token2": "\"",
 			"end": "}]"
 		}
@@ -184,7 +180,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://desu.uno/manga/api/z-fairy-tail.10/",
+			"link" : "https://desu.uno/manga/fairy-tail-100-years-quest.1672/",
 			"title" : "Фейри Тейл",
 			"assert" : {
 				"cover" : "https://desu.uno/data/manga/covers/original/10.jpg",
@@ -204,14 +200,19 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://desu.uno/manga/api/z-fairy-tail.10/chapter/37975",
+			"link" : "https://desu.uno/api/manga/1672/chapters/125758",
+			          
 			"assert" : {
 				"pages" : [
-		{"image": "https://img4.desu.uno/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p001.jpg"},
-        {"image": "https://img4.desu.uno/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p002.jpg"},
-        {"image": "https://img4.desu.uno/manga/rus/fairy_tail/vol01_ch001/fairy_tail_vol1_ch001_p003.jpg"}
+		{"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p001.jpg?1533548811"},
+        {"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p002.jpg?1533548811"},
+        {"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p003.png?1533548811"},
+        {"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p004.png?1533548811"},
+        {"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p005.jpg?1533548811"},
+        {"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p006.png?1533548811"},
+        {"image": "https://img1.desu.uno/manga/rus/fairy_tail_100_years_quest/vol01_ch001/fairy_tail_100_years_quest_vol01_ch001_p007.png?1533548811"}
 				],
-				"pages_count": "77"
+				"pages_count": "22"
 			}
 		}
 	]
