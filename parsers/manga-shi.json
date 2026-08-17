@@ -1,6 +1,6 @@
 {
     "id": 52134,
-    "version": 7,
+    "version": 8,
     "title": "Manga-shi",
     "host": "https://manga-shi.org",
     "public_link": "https://manga-shi.org/manga",
@@ -233,7 +233,7 @@
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
 			},
 			 "start": "<div id=\"chapters-list\"",
-            "end": "<div class=\"mt-10\">",
+            "end": "<nav class=\"flex items-center justify-between gap-4 mt-10\">",
 			
 			
             "next": "<a",
