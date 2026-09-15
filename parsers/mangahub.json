@@ -1,12 +1,21 @@
 {
 	"id": 30414,
 	"old_ids": [19001,40134],
-	"old_sites": ["mangahub.ru","mangahub.com","mangahub.me","v3.moonhub.live","v2.mangahub.one","v3.mangahub.one","v4.mangahub.one"],
-	"version": 66,
+	"old_sites": [
+	"mangahub.com",
+	"mangahub.me",
+	"v3.moonhub.live",
+	"v2.mangahub.one",
+	"v3.mangahub.one",
+	"v4.mangahub.one",
+	"v5.mangahub.one"
+	
+	],
+	"version": 67,
 	
 	"title": "MangaHub",
-	"host": "https://v5.mangahub.one/",
-	"public_link": "https://v5.mangahub.one/explore",
+	"host": "https://mangahub.ru/",
+	"public_link": "https://mangahub.ru/explore",
 	"hash_tag": "mangahub",
 	"folder": "mangahub",
 	"name" : "mangahub",
@@ -25,19 +34,19 @@
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1802871685%3A3qKvu1jum2VdhaJ6EFa5X7EIyNpzA3M4BRq31v5cvoY~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1820918592%3AcjbWussqjdSUoc4luw5lrtSCLmM4IbcxWpdKIyDgpNg~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://v5.mangahub.one/"
+			"Referer": "https://mangahub.ru/"
 		},
 		
-		"search_link": "https://v5.mangahub.one/search/title?query=$query$&page=$page$",
+		"search_link": "https://mangahub.ru/search/title?query=$query$&page=$page$",
 		"query_type": "GET",
 		"add_manga": {
 			"next": "<div class=\"text-line-clamp",
 			"link":  { "token1": "href=\"", "token2": "\"",
-			"replace": { "prefix": "https://v5.mangahub.one"} },
+			"replace": { "prefix": "https://mangahub.ru"} },
 			
 			"title": { "skip": "href=\"", "token1": "\">", "token2": "</" },
             "uniq":  { "skip": "href=\"", "token1": "\">", "token2": "</" },
@@ -52,16 +61,16 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1802871685%3A3qKvu1jum2VdhaJ6EFa5X7EIyNpzA3M4BRq31v5cvoY~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1820918592%3AcjbWussqjdSUoc4luw5lrtSCLmM4IbcxWpdKIyDgpNg~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://v5.mangahub.one/"
+			"Referer": "https://mangahub.ru/"
 		},
 		
 		"iterator": {
-			"base_url": "https://v5.mangahub.one/explore/sort-is-rating?page=",
-			"append_nums": { "from": 1, "to": 384, "step": 1 }
+			"base_url": "https://mangahub.ru/explore/sort-is-rating?page=",
+			"append_nums": { "from": 1, "to": 639, "step": 1 }
 		},
 		"add_manga": {
 			"next": "<a class=\"fw-medium\"",
@@ -78,12 +87,12 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1802871685%3A3qKvu1jum2VdhaJ6EFa5X7EIyNpzA3M4BRq31v5cvoY~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1820918592%3AcjbWussqjdSUoc4luw5lrtSCLmM4IbcxWpdKIyDgpNg~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			"cookie4": "toast_110=true",
 			
-			"Referer": "https://v5.mangahub.one/"
+			"Referer": "https://mangahub.ru/"
 		},
 		
 		"title": { "skip": "<head>", 
@@ -158,7 +167,7 @@
             "token1": "content=\"/title/", 
 			"token2": "\"", 
 			"replace": [
-                    { "prefix": "https://v5.mangahub.one/title/"},
+                    { "prefix": "https://mangahub.ru/title/"},
                     { "sufix": "/chapters" }
                 ]
 		},
@@ -166,11 +175,11 @@
 		"add_chapter": {
 			"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1802871685%3A3qKvu1jum2VdhaJ6EFa5X7EIyNpzA3M4BRq31v5cvoY~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1820918592%3AcjbWussqjdSUoc4luw5lrtSCLmM4IbcxWpdKIyDgpNg~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "preference_enabled_adult=1",
 			
-			"Referer": "https://v5.mangahub.one/"
+			"Referer": "https://mangahub.ru/"
 		},
 		
 			"start": ">Содержание<",
@@ -193,11 +202,11 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1802871685%3A3qKvu1jum2VdhaJ6EFa5X7EIyNpzA3M4BRq31v5cvoY~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1820918592%3AcjbWussqjdSUoc4luw5lrtSCLmM4IbcxWpdKIyDgpNg~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
 			"cookie2": "confirm_age=1",
 			"cookie3": "toast_109=true",
 			 
-			"Referer": "https://v5.mangahub.one/"
+			"Referer": "https://mangahub.ru/"
 		},
 		"add_numeration": true,
 		"add_images": {
@@ -215,11 +224,11 @@
 			"assert" : {
 				"mangas" : [
 					{
-                       "link": "https://v5.mangahub.one/cover_up",
+                       "link": "https://mangahub.ru/cover_up",
                        "title": "Перекрыть"
                     },
                     {
-                    "link": "https://v5.mangahub.one/incorrigible"
+                    "link": "https://mangahub.ru/incorrigible"
                     }
 				],
 				"mangas_count" : ">=40"
@@ -227,7 +236,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://v5.mangahub.one/title/born_mercenary",
+			"link" : "https://mangahub.ru/title/born_mercenary",
 			"title" : "Берсерк (Berserk)",
 			"assert" : {
 				"author" : "@Кэнтаро Миура",
@@ -239,11 +248,11 @@
 				"chapters" : [
 		{
             "folder": "Том 1_ Глава 1\\",
-            "link": "https://v5.mangahub.one/read/421100",
+            "link": "https://mangahub.ru/read/421100",
              "title": "Том 1. Глава 1"
         },
         {
-            "link": "https://v5.mangahub.one/read/421101",
+            "link": "https://mangahub.ru/read/421101",
             "title": "Том 1. Глава 2"
         }
 				]
@@ -251,7 +260,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://v5.mangahub.one/read/859265",
+			"link" : "https://mangahub.ru/read/859265",
 			"assert" : {
 				"pages" : [
 		{"image": "https://m1.statichub.org/uploads/media/scan/0044/21/d74a0f6228ec5672faf5666af375afd2908691bf.webp"},
@@ -263,7 +272,7 @@
 		},
 		{
 			"proc" : "chapter_complete",
-			"link" : "https://v5.mangahub.one/read/385860",
+			"link" : "https://mangahub.ru/read/385860",
 			"assert" : {
 				"pages" : [
 		{"image": "https://m1.statichub.org/uploads/media/scan/0025/93/4969f343b1855dc1383518a0a4feb1cd47d1315a.jpeg"},
