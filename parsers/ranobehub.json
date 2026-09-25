@@ -1,6 +1,6 @@
 {
    "id":40259,
-   "version":5,
+   "version":6,
    "title":"RanobeHub",
    "host":"https://ranobehub.org",
    "public_link":"https://ranobehub.org",
@@ -227,8 +227,8 @@
             "token1":"\"vol",
             "token2":",\"title\"",
 			"replace" : [
-			{ "match" : "ume\":", "text" : "Том " },
-			{ "match" : ",\"number\":", "text" : " Глава " },
+			{ "match" : "ume\":", "text" : "Tom_" },
+			{ "match" : ",\"number\":", "text" : "_number_id_" },
 			{ "match" : "\\\\", "text" : "" }
 			]
 			
@@ -239,8 +239,8 @@
             "token2":"\",\"hasImages\"",
 			"replace" : [
 			{ "match" : "ume\":", "text" : "Том " },
-			{ "match" : ",\"number\":", "text" : " Глава " },
-			{ "match" : ",\"title\":\"", "text" : " " },
+			{ "match" : ",\"number\":(.*),", "text" : "." },
+			{ "match" : "\"title\":\"", "text" : " " },
 			{ "match" : "\\\\", "text" : "" }
 			]
 			
