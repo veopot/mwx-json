@@ -1,0 +1,277 @@
+{
+    "id": 45444,
+    "version": 1,
+    "title": "WuxiaBox",
+    "host": "https://www.wuxiabox.com",
+    "public_link": "https://www.wuxiabox.com/ranobe/",
+    "folder": "wuxiabox",
+    "name": "wuxiabox",
+    "language": "ru",
+    "encoding": "utf-8",
+    "chapters_order": true,
+    
+	"icon_link":"https://raw.githubusercontent.com/veopot/mwx-json/main/img/wuxiabox.png",
+    "self_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/parsers/wuxiabox.json",
+    "self_link2": "https://fant.my1.ru/mwparser/mwx/json/wuxiabox.json",
+    "catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/wuxiabox.zip",
+    "file_type": "sqlite",
+    "author":{
+      "name":"MWX",
+      "email":"fant-net@ya.ru"
+   },
+   
+    
+   
+   
+   
+   
+	
+    "manga_list_complete": {
+		"headers": { "Referer": "https://www.wuxiabox.com/"  },
+        "iterator": {
+            "base_url": "https://www.wuxiabox.com/list/all/all-onclick-",
+
+            "append_nums": {
+                "from": 1,
+                "to": 3500,
+                "step": 1,
+                "sufix": ".html"
+            }
+
+        },
+        "add_manga": {
+            "next": "class=\"novel-item\">",
+            "title": {
+                "after": "href=\"",
+                "token1": "title=\"",
+                "token2": "\"",
+                "replace": [{
+                        "match": "<span hidden>Новелла </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Новелла</span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ</span>",
+                        "text": ""
+                    }
+                ]
+            },
+            "link": {
+
+                "token1": "href=\"",
+                "token2": "\"", 
+				"replace": { "prefix": "https://www.wuxiabox.com" }
+            },
+            "uniq": {
+                "after": "href=\"",
+                "token1": "/novel",
+                "token2": ".html",
+                "replace": [
+				    {
+                        "match": "<span hidden>Новелла </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Новелла</span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ </span>",
+                        "text": ""
+                    }, {
+                        "match": "<span hidden>Ранобэ</span>",
+                        "text": ""
+                    }
+                ]
+            }
+        }
+    },
+    "manga_complete": {
+        "headers": { "Referer": "https://www.wuxiabox.com/"  },
+        "content_type": {
+            "default": "light_novels"
+        },
+
+        "title": {
+            "after": "<h1 itemprop=\"name\"",
+            "token1": "\">",
+            "token2": "</h1>"
+        },
+        "uniq": {
+            "before": "data-tab=\"info\"",
+            "token1": "href=\"/novel/",
+            "token2": "\""
+        },
+
+        "cover": {
+            "skip": "class=\"cover\">",
+            "token1": "data-src=\"",
+            "token2": "\"", 
+				"replace": { "prefix": "https://www.wuxiabox.com" }
+        },
+        "author": {
+            "token1": "itemprop=\"author\">",
+            "token2": "</"
+        },
+        "summary": {
+            "after": "<div class=\"summary",
+            "token1": "\">",
+            "token2": "</div>",
+                "replace": [
+                { "clear_escape": true },
+                { "clear_html": true},
+				{ "match": "<h4>Summary</h4>", "text": ""},
+                { "match": "<.*?>", "text": " "}
+                ]
+		},
+		
+		
+        "add_tag": {
+            "start": "<div class=\"categories\">",
+            "end": "</div>",
+			"after": "href='/tags/", 
+            "token1": "'>",
+            "token2": "</"
+        },
+		
+		 "add_genre": {
+            "start": "<div class=\"categories\">",
+            "end": "</div>",
+			"after": "<a href='/list/", 
+            "token1": "\">",
+            "token2": "</"
+        },
+		
+		
+        "is_mature": {
+            "values": [
+                ">Hentai<",
+                ">Mature<",
+                ">Yaoi<",
+				">Seinen<",
+				">Yuri<"
+            ]
+        },
+		
+		"status":    { 
+		"complete": ">Completed</strong>",
+		"ongoing": ">Ongoing</strong>" 
+		        },
+		
+		
+		
+
+        "chapters_from_page": {
+            "before": "data-tab=\"chapters\"",
+            "token1": "href=\"/novel/",
+            "token2": ".html",
+            "replace": [ 
+			{"prefix": "https://www.wuxiabox.com/e/extend/fy1.php?wjm="},
+			{"sufix": "&page=%%iterator_num%%"}
+		],
+			
+		"iterator": {
+                "base_url": "",
+                "append_nums": {
+                    "from": 0
+                }
+            }
+			
+		},
+		
+		
+		"add_chapter": {
+            "start": "<ul class=\"chapter-list\">",
+            "end": "</ul>",
+
+            "next": "<li data-chapterno",
+            "link": {
+                "token1": "href=\"",
+                "token2": "\""
+            },
+            "uniq": {
+                "token1": "href=\"/novel/",
+                "token2": ".html"
+            },
+            "title": {
+                "token1": "class=\"chapter-title\">",
+                "token2": "</"
+            }
+        }
+
+    },
+
+    "chapter_complete": {
+        "headers": {
+			"Referer": "https://www.wuxiabox.com/"
+            },
+
+        "images": true,
+        "add_pages": {
+            "start": "<head>",
+            "token1": "<link rel=\"icon\" href=\"",
+            "token2": "\"",
+            "end": "</head>",
+			"replace": [
+			{ "match": "/favicon.ico",  "text": ""},
+			{ "prefix": "http://bypass.mwx.su/api/ranobe/download/?href=%%url%%" },
+            { "sufix": "&title=/ranobe.fb2"}
+                ]
+        }
+		
+		
+    },
+
+    "test": [{
+            "proc": "manga_list_complete",
+            "assert": {
+                "mangas": [
+				    {
+                       "uniq": "_chaotic-sword-god",
+                       "link": "https://www.wuxiabox.com/novel/chaotic-sword-god.html",
+                       "title": "Chaotic Sword God"
+                    }
+                ],
+                "mangas_count": ">=30"
+            }
+        }, 
+		{
+            "proc": "manga_complete",
+            "link": "https://www.wuxiabox.com/novel/chaotic-sword-god.html",
+            "title": "Chaotic Sword God",
+            "assert": {
+                "author": "Xin Xing Xiao Yao",
+                "cover": "@https://www.wuxiabox.com/d/file/coverb/Chaotic-Sword-God-Cover.jpg",
+                "genres": "@comedy",
+                "status": "ongoing",
+                "genres_count": ">=3",
+                "chapters_count": ">=1000",
+                "chapters": [
+				
+		{ 
+		"link": "https://www.wuxiabox.com/novel/chaotic-sword-god_1.html",
+        "title": "Chapter 1: Jian Chen"
+        },
+        {
+            "folder": "chaotic-sword-god_2\\",
+            "link": "https://www.wuxiabox.com/novel/chaotic-sword-god_2.html",
+            "title": "Chapter 2: Changyang Xiangtian"
+        }
+		                    ]
+            }
+			
+			
+        }, 
+		{
+            "proc": "chapter_complete",
+            "link": "https://www.wuxiabox.com/novel/chaotic-sword-god_1.html",
+            "title": "Chapter 1: Jian Chen",
+            "assert": {
+                  "pages": [{"image": "http://bypass.mwx.su/api/ranobe/download/?href=https://www.wuxiabox.com/novel/chaotic-sword-god_1.html&title=/ranobe.fb2"}],
+                "pages_count": "1"
+            }
+        }
+    ]
+}
