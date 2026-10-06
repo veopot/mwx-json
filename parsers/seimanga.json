@@ -1,6 +1,6 @@
 {
 	"id": 3075,
-	"version": 13, 
+	"version": 14, 
     
 	"old_sites": ["seimanga.me"],
 	
@@ -101,8 +101,8 @@
 		
         "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },
 		
-		"author": { "skip": "<span>Автор</span>",
-		"token1": "entity-card-tile__title\">", "token2": "</div>" },
+		"author": { "skip": "<span class=\"cr-main-person-item__name text-truncate\"><a href=\"/list/person/",
+		"token1": "\">", "token2": "</" },
 		
 		"summary":      { "after": "<meta name=\"description\"", "token1": ": ", "token2": "\""},
 		
@@ -132,12 +132,14 @@
 		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		
 		"add_tags":   {
-                "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle\"",
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
 				    "after": "href=\"/list/",  
 		            "token1": "<span>",
-		            "token2": "</span>"
-		    },
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
 		
 		"content_type": { "default": "manga" },
 		
@@ -241,12 +243,14 @@
 		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		
 		"add_tags":   {
-                "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle\"",
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
 				    "after": "href=\"/list/",  
 		            "token1": "<span>",
-		            "token2": "</span>"
-		    },
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
 		
 		"content_type": { "default": "manga" },
 		
@@ -343,12 +347,14 @@
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
 		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 		"add_tags":   {
-                "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle\"",
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
 				    "after": "href=\"/list/",  
 		            "token1": "<span>",
-		            "token2": "</span>"
-		    },
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
 		"content_type": { "default": "manga" },
 		
 		"is_mature": {

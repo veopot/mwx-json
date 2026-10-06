@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 114,
+	"version": 115,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -203,13 +203,16 @@
 		},
 		"is_mature": "hentai",
 		
-		"add_tags": {
-			 "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle",
-			"after": "href=\"/list/",
-			"token1": "<span>",
-			"token2": "</span>"
-		},
+		"add_tags":   {
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
+			
 		"need_auth_genres": [
 			"сэйнэн",
 			"сёдзё для взрослых",

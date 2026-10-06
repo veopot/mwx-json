@@ -1,6 +1,6 @@
 {
     "id": 30006,
-    "version": 107,
+    "version": 108,
 	
 	"old_ids": [40172],
         "old_sites": [
@@ -112,7 +112,7 @@
 		
             "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
 		
-            "author": { "after": "href=\"/list/person/",
+            "author": { "skip": "<span class=\"cr-main-person-item__name text-truncate\"><a href=\"/list/person/",
 		    "token1": "\">", "token2": "</" },
 			
              "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
@@ -144,12 +144,15 @@
             "cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 			  
 			"add_tags":   {
-                "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle\"",
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
 				    "after": "href=\"/list/",  
 		            "token1": "<span>",
-		            "token2": "</span>"
-		    }, 
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
+		 
 			
 			
            
@@ -221,7 +224,7 @@
 	
 	 
 			
-          "author": { "after": "href=\"/list/person/",
+           "author": { "skip": "<span class=\"cr-main-person-item__name text-truncate\"><a href=\"/list/person/",
 		    "token1": "\">", "token2": "</" },
 		   
              "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
@@ -254,12 +257,15 @@
             
 			 
 			"add_tags":   {
-                "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle\"",
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
 				    "after": "href=\"/list/",  
 		            "token1": "<span>",
-		            "token2": "</span>"
-		    }, 
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
+		 
 			
 			
             
@@ -320,7 +326,7 @@
 		
             "uniq": 		{ "skip": "alternativeHeadline", "token1": "=\"", "token2": "\"" },  
 		
-           "author": { "after": "href=\"/list/person/",
+           "author": { "skip": "<span class=\"cr-main-person-item__name text-truncate\"><a href=\"/list/person/",
 		    "token1": "\">", "token2": "</" },
 			
             "summary": { "after": "<meta itemprop=\"description\"", "token1": "content=\"", "token2": "\"" },
@@ -353,12 +359,15 @@
              "cover":  { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
 			 
 			"add_tags":   {
-                "start": "<div class=\"cr-tags\"",
-		        "end": "<div class=\"cr-tags__toggle\"",
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
 				    "after": "href=\"/list/",  
 		            "token1": "<span>",
-		            "token2": "</span>"
-		    }, 
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
+		 
 			 
 			 
 			
