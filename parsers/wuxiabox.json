@@ -1,6 +1,6 @@
 {
     "id": 45444,
-    "version": 1,
+    "version": 2,
     "title": "WuxiaBox",
     "host": "https://www.wuxiabox.com",
     "public_link": "https://www.wuxiabox.com/ranobe/",
@@ -89,7 +89,15 @@
         }
     },
     "manga_complete": {
-        "headers": { "Referer": "https://www.wuxiabox.com/"  },
+        "headers": { 
+		"Referer": "https://www.wuxiabox.com/", 
+		"Accept": "*/*", 
+		"cookie": "cf_clearance=bjfND7NfeY.OPm_zvxIVMTsPyOAP1sht9N01CV3i5_g-1791419436-1.2.1.1-04HtPVygw5lVi1szCDmdXVtJvRHWaTrkgCYWuL7tB.fzr5C76gg4hN46i3aQRRSAHepa3BEG6fPE6iIR9Q8h8FeE44Bef0AYl.dWTYRUi5NGkFCHR7f8R4r5i_dvnj_IrygcGxZRXDZd18e_d.d5ZEA03TQJMrGhsTLjs7E_.auHnarhL64ajzIEHB3HaDmgq8Hi._9WyNTUZQK0xSAGlnf7aj1NR5htV_HR9Utqgy2Ie4Bco6JYa93EY1ztcChbto3IxKbw.x89mvgUbuk75XaOXEy2etcTbPmul5xVVhqtElB1tgbcC.UuCr_WU_nEuYAFPQuc8GHY3z97jnCSYReQu6Bx.eFTN_0bW3n6O9yKj6WSVjRv6LlRizAanDufJzy6uMo_S7pPb4sNDBwOVbnkM0ngD8NEO.oPyFnDocvtO3x6ycfyq1uINpj0IHU.i8I17fcDTvZ2eJ_nKKvrNUohSLafmZSOl3AZY8z7587FWtaYKtf5_zaN7uFBompGaEFmRAb_EAubqHrs9h20Pw",
+		"cookie2": "cf_clearance=Tn6n0bXW6.Czkvp_AcfQr6sJuyK_Qiehl1kx7VFrrmI-1791419465-1.2.1.1-jRCn7mE203KufiONq4UTtG3Ow1eZRgns_Cl7yGeaQWGc7nCTDFentagnbr6ZyWSHrPwpTS47gIpkpeR8SRBGz1DPMexsh225MePPu7WNh_kyL2AePQDfO_lTPMnw.3s0kACKSxxRX5uziHNaCW.GmGry_IYVvEffFvYSqAcXLJSPjdv1mxavPAB7BRYO9B6AU.QOVI.L2aObM3d_yYIeLTWr4y3WYIk5u7afTf2.QDY6Istnm8HQOxRr_..2IPmI34KpngMh_h0Ddg6wKbH3hPl5uMpPuqTjYCxd5rTXNMicuBa18mjMho.dnM0.1tOacSOCCxxGAaYgZ7djFKstNa4MhL47msb.d5xmavdoOV7wi_Jj1pWhdUCfdOGdsCL2t8FoznX7wU_W9ElkM.4MT1fDb3OBC6ThFcvpPOOYoDEf4OlxdnrE6bd_akmo79DiUkgrmyzwWSfyHkSdgGqob.BIRatnGnIXhclMKK0Gn_4RMSlxbuuqmm_Fv3VOi.wgFf2R7G_lTlwOjY48zC9.JQ",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" 
+		
+		
+		},
         "content_type": {
             "default": "light_novels"
         },
