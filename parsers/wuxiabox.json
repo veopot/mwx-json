@@ -1,12 +1,12 @@
 {
     "id": 45444,
-    "version": 2,
+    "version": 3,
     "title": "WuxiaBox",
     "host": "https://www.wuxiabox.com",
     "public_link": "https://www.wuxiabox.com/ranobe/",
     "folder": "wuxiabox",
     "name": "wuxiabox",
-    "language": "ru",
+    "language": "en",
     "encoding": "utf-8",
     "chapters_order": true,
     
@@ -136,7 +136,7 @@
 		},
 		
 		
-        "add_tag": {
+        "add_tags": {
             "start": "<div class=\"categories\">",
             "end": "</div>",
 			"after": "href='/tags/", 
@@ -144,7 +144,7 @@
             "token2": "</"
         },
 		
-		 "add_genre": {
+		 "add_genres": {
             "start": "<div class=\"categories\">",
             "end": "</div>",
 			"after": "<a href='/list/", 
