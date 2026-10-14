@@ -1,6 +1,6 @@
 {
     "id": 70202,
-    "version": 5,
+    "version": 6,
     "title": "LibreBook (Книги, Test)",
     "host": "https://1.librebook.me/",
    	"old_ids": ["53005","530051"],
@@ -124,6 +124,7 @@
     "manga_complete": {
 		 "headers": {
                 "cookie": "remember_me=MmtXbUpVeGNSdUZ5YUEwdmdWR1kxbm1aRkpwSyUyRkplTE9uSDJkbWI5NWc0JTNEOkJ1UXFvRG41blUxelNhZThOQyUyQkE4bHZVYUxJUFYwUG9LQmJjaSUyQiUyQnk4UlElM0Q",
+				"Accept": "*/*",
                 "Referer": "https://1.librebook.me/",
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
             },
@@ -208,6 +209,13 @@
 		
 
             "add_chapter": {
+				"headers": {
+                "Cookie": "remember_me=MmtXbUpVeGNSdUZ5YUEwdmdWR1kxbm1aRkpwSyUyRkplTE9uSDJkbWI5NWc0JTNEOkJ1UXFvRG41blUxelNhZThOQyUyQkE4bHZVYUxJUFYwUG9LQmJjaSUyQiUyQnk4UlElM0Q",
+				"Accept": "*/*",
+                "Referer": "https://1.librebook.me/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
+			
                 "start": "<table class=\"table table-hover\">",
                 "end": "</table>",
                 "next": "item-title\"",
