@@ -1,6 +1,6 @@
 {
     "id": 70202,
-    "version": 4,
+    "version": 5,
     "title": "LibreBook (Книги, Test)",
     "host": "https://1.librebook.me/",
    	"old_ids": ["53005","530051"],
@@ -23,7 +23,7 @@
 
     "manga_search_complete": {
 		"headers": {
-                "cookie": "remember_me=SzNZVEslMkZ6U3ZJaXR0ZWQ3VlNWQ0hmQzNGJTJGb1p1VTdZMWYlMkJIZDdLMHU0SSUzRDpQYnlDbGFnV2h5b0RSdDFpRUJ6M214VDd1ZmRaSU9weThFNXIzMG9XVFlVJTNE",
+                "cookie": "remember_me=MmtXbUpVeGNSdUZ5YUEwdmdWR1kxbm1aRkpwSyUyRkplTE9uSDJkbWI5NWc0JTNEOkJ1UXFvRG41blUxelNhZThOQyUyQkE4bHZVYUxJUFYwUG9LQmJjaSUyQiUyQnk4UlElM0Q",
                 "Referer": "https://1.librebook.me/",
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
             },
@@ -121,11 +121,9 @@
         }
     },
 
-    "manga_complete": [
-        {
-            "condition": "",
-            "headers": {
-                "cookie": "remember_me=SzNZVEslMkZ6U3ZJaXR0ZWQ3VlNWQ0hmQzNGJTJGb1p1VTdZMWYlMkJIZDdLMHU0SSUzRDpQYnlDbGFnV2h5b0RSdDFpRUJ6M214VDd1ZmRaSU9weThFNXIzMG9XVFlVJTNE",
+    "manga_complete": {
+		 "headers": {
+                "cookie": "remember_me=MmtXbUpVeGNSdUZ5YUEwdmdWR1kxbm1aRkpwSyUyRkplTE9uSDJkbWI5NWc0JTNEOkJ1UXFvRG41blUxelNhZThOQyUyQkE4bHZVYUxJUFYwUG9LQmJjaSUyQiUyQnk4UlElM0Q",
                 "Referer": "https://1.librebook.me/",
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
             },
@@ -162,11 +160,10 @@
                 "token1": "=\"",
                 "token2": "\""
             },
-            "author": {
-                "after": "><a href=\"/list/person/",
-                "token1": "\">",
-                "token2": "</"
-            },
+            
+		  "author": { "skip": "<span class=\"cr-main-person-item__name text-truncate\"><a href=\"/list/person/",
+		    "token1": "\">", "token2": "</" },
+			
             "summary": {
                 "after": "<meta itemprop=\"description\"",
                 "token1": "content=\"",
@@ -177,42 +174,38 @@
                 "token1": "src=\"",
                 "token2": "\""
             },
-            "status": {
-                "complete": {
-                    "start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
-                    "end": "</span>",
-                    "values": [
-                        "завершен",
-                        "завершён",
-                        "Переведена",
-                        "Сингл",
-                        "переведено",
-                        "Завершён"
-                    ]
-                },
-                "ongoing": {
-                    "start": "<span class=\"cr-info-details__status\" data-translation-status=\"",
-                    "end": "</span>",
-                    "values": [
-                        "продолжается",
-                        "Продолжается",
-                        "переводится"
-                    ]
-                },
-                "single": "Сингл,",
-                "licensed": "Главы удалены",
-                "unknown": "нет ни одной главы"
-            },
+            "status": { 
+			
+		  	"complete": { 
+			"start": "Перевод</div>",
+			"end": "</span>", 
+			"values": [ "завершен", "завершён", "Переведена", "Сингл", "переведено","Завершён" ] },
+			             
+            "ongoing": { 
+			"start": "Перевод</div>",
+			"end": "</span>", 
+			"values": [ "продолжается",">Продолжается<", "переводится"   ] 
+			},                          
+			
+			
+			
+            "single": "Сингл,",
+		  	"licensed" : "Главы удалены",
+		  	"unknown" : "нет ни одной главы" 
+		},
             "content_type": {
                 "default": "light_novels"
             },
-            "add_tags": {
-                "start": "<div class=\"cr-tags\"",
-                "end": "<div class=\"cr-tags__toggle\"",
-                "after": "href=\"/list/",
-                "token1": "<span>",
-                "token2": "</span>"
-            },
+            "add_tags":   {
+                "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
+		        "end": "Creation.initExpandableTags('.cr-hero",
+				    "after": "href=\"/list/",  
+		            "token1": "<span>",
+		            "token2": "</span>",
+				"replace": {"match": "Показать все","text": ""}
+					
+			}, 
+		
 
             "add_chapter": {
                 "start": "<table class=\"table table-hover\">",
@@ -236,14 +229,13 @@
                     "token2": "<"
 				}
             }
-        }
-    ],
+        },
     
 	
 	"chapter_complete": {
         "add_numeration": true,
         "headers": {
-			"cookie": "remember_me=SzNZVEslMkZ6U3ZJaXR0ZWQ3VlNWQ0hmQzNGJTJGb1p1VTdZMWYlMkJIZDdLMHU0SSUzRDpQYnlDbGFnV2h5b0RSdDFpRUJ6M214VDd1ZmRaSU9weThFNXIzMG9XVFlVJTNE",
+			"cookie": "remember_me=MmtXbUpVeGNSdUZ5YUEwdmdWR1kxbm1aRkpwSyUyRkplTE9uSDJkbWI5NWc0JTNEOkJ1UXFvRG41blUxelNhZThOQyUyQkE4bHZVYUxJUFYwUG9LQmJjaSUyQiUyQnk4UlElM0Q",
             "accept": "*/*",
             "Referer": "https://1.librebook.me"
 	    },
