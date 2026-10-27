@@ -1,6 +1,6 @@
 {
     "id": 47954,
-    "version": 2,
+    "version": 3,
     "title": "WaManga",
     "host": "https://wamanga.ru",
     "public_link": "https://wamanga.ru/manga",
@@ -224,7 +224,7 @@
 	
 		"add_images": {
             "start": "class=\"pages-containe",
-            "token1": "src=\"https://wamanga.ru/app/uploads/",
+            "token1": "=\"https://wamanga.ru/app/uploads/",
             "token2": "\"",
             "replace": { "prefix": "https://wamanga.ru/app/uploads/" },
             "end": "<div class=\"chapter-footer-center"
