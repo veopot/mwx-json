@@ -1,6 +1,6 @@
 {
 	"id": 2064,
-	"version": 16,
+	"version": 18,
 	
 	"old_sites": [
 	"yaoihub.ru",
@@ -39,9 +39,9 @@
 	"manga_search_complete": {	
     "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1798020296%3ARQzW88i6VLW7ILmAY2R_ZaAgerC2ilp_t_mmdd5Lq1Q~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
-			"cookie2": "confirm_age=1",
-			"cookie3": "preference_enabled_adult=1",
+			"Cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1824627142%3APK7LCXZoW1ivmrrdt2HCUReNKyH6j1agle_inRfV9w4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"Cookie2": "confirm_age=1",
+			"Cookie3": "toast_110=true",
 			"Referer": "https://v3.moonhub.me/"
 			
 		},
@@ -70,9 +70,9 @@
 	"manga_list_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1798020296%3ARQzW88i6VLW7ILmAY2R_ZaAgerC2ilp_t_mmdd5Lq1Q~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
-			"cookie2": "confirm_age=1",
-			"cookie3": "preference_enabled_adult=1",
+			"Cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1824627142%3APK7LCXZoW1ivmrrdt2HCUReNKyH6j1agle_inRfV9w4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"Cookie2": "confirm_age=1",
+			"Cookie3": "toast_110=true",
 			
 			"Referer": "https://v3.moonhub.me/"
 			
@@ -81,8 +81,8 @@
 		"iterator": {
 			
 			"base_url": "https://v3.moonhub.me/explore/sort-is-rating?page=",
-			
-			"append_nums": { "from": 1, "to": 598, "step": 1 }
+			           
+			"append_nums": { "from": 1, "to": 646, "step": 1 }
 		},
 		"add_manga": {
 			"next": "<a class=\"fw-medium\"",
@@ -99,9 +99,9 @@
 	"manga_complete": {
 		"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1798020296%3ARQzW88i6VLW7ILmAY2R_ZaAgerC2ilp_t_mmdd5Lq1Q~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
-			"cookie2": "confirm_age=1",
-			"cookie3": "preference_enabled_adult=1",
+			"Cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1824627142%3APK7LCXZoW1ivmrrdt2HCUReNKyH6j1agle_inRfV9w4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"Cookie2": "confirm_age=1",
+			"Cookie3": "toast_110=true",
 			
 			
 			
@@ -203,9 +203,9 @@
 		"add_chapter": {
 			"headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1798020296%3ARQzW88i6VLW7ILmAY2R_ZaAgerC2ilp_t_mmdd5Lq1Q~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
-			"cookie2": "confirm_age=1",
-			"cookie3": "preference_enabled_adult=1",
+			"Cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1824627142%3APK7LCXZoW1ivmrrdt2HCUReNKyH6j1agle_inRfV9w4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"Cookie2": "confirm_age=1",
+			"Cookie3": "toast_110=true",
 			
 			
 			
@@ -213,9 +213,9 @@
 			
 		},
 			"start": ">Содержание<",
-			"end": "</chapter-list>",
+			"end": "</sort-list>",
 			
-			"next":  " <div class=\"d-flex align-items-center min-w-0 flex-grow-1\">",
+			"next":  "<div class=\"d-flex align-items-center min-w-0 flex-grow-1\">",
 		
 			"link":  { "token1": "href=\"", "token2": "\"" },
 			
@@ -232,9 +232,9 @@
 		
 	    "headers": {
 			"Accept": "*/*",
-			"cookie": "REMEMBERME=MangaHub.Entity.User%3AZmFudC1uZXQ~%3A1798020296%3ARQzW88i6VLW7ILmAY2R_ZaAgerC2ilp_t_mmdd5Lq1Q~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
-			"cookie2": "confirm_age=1",
-			"cookie3": "toast_58=true",
+			"Cookie": "REMEMBERME=%3AZmFudC1uZXQ~%3A1824627142%3APK7LCXZoW1ivmrrdt2HCUReNKyH6j1agle_inRfV9w4~7XEf8OvFyqPbQLwwiTkwO1Zb611dcNnb312xoCa0fio~",
+			"Cookie2": "confirm_age=1",
+			"Cookie3": "toast_58=true",
 		     
 			
 			
@@ -258,10 +258,7 @@
 			
 			"assert" : {
 				"mangas" : [
-					{  
-                       "link": "https://v3.moonhub.me/title/their_story",
-                       "title": "Их_история"
-                    },
+					{  "link": "https://v3.moonhub.me/title/blue_sky_complex" },
                     {
                     "link": "https://v3.moonhub.me/title/baegman_won_ui_lomaense"
                     }
@@ -271,7 +268,7 @@
 		},
 		{
 			"proc" : "manga_complete",
-			"link" : "https://v3.moonhub.me/title/youre_here",
+			"link" : "https://v3.moonhub.me/title/walk_on_water",
 			"title" : "Ты здесь (Here U Are)",
 			"assert" : {
 				"author" : "@Д. Цзюнь",
