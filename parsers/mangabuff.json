@@ -1,6 +1,6 @@
 {
     "id": 57843,
-    "version": 8,
+    "version": 9,
     "title": "Manga Buff",
     "host": "https://mangabuff.ru",
     "public_link": "https://mangabuff.ru/manga",
@@ -209,57 +209,66 @@
         
 		
 		"chapters_from_page": {
-            "before": "\">Читать</a>",
-            "token1": "href=\"",
-            "token2": "\""
+            "after": "property=\"og:url\"",
+            "token1": "content=\"",
+            "token2": "\"",
+            "replace": { "sufix": "/reader-chapters"}
         },
-		
-        "add_chapter": {
-			"headers": {
-			"Accept": "*/*",
-            "Referer": "%%url%%",
-			"User-Agent": "mangawatcherx"
-			},
-			
-            "start": "class=\"reader-chapters\">",
-            "end": ">Настройки</div>",
-            "next": "<a href=",
-            "link": {
-                "token1": "\"https://mangabuff.ru/",
-                "token2": "\"",
-                "replace": { "prefix": "https://mangabuff.ru/"}
-                
-            },
-            "uniq": {
-                "token1": "\"https://mangabuff.ru/manga/",
-                "token2": "\"",
-                "replace":{ "match": "/", "text": "_" }
-            },
-            "title": {
-                "skip": "\"https://mangabuff.ru/",
-                "token1": "\">",
-                "token2": "</a>",
-                "replace": [
-                    {
-                        "match": "<.*?>",
-                        "text": ""
-                    },
-					{
-                        "match": "&#039;",
-                        "text": "'"
-                    },
-					{
-                        "match": "&quot;",
-                        "text": "\""
-                    },
-                    {
-                        "match": "\u2014",
-                        "text": "-"
-                    }
-                ]
-            }
-        }
+    "add_chapter": {
+    "headers": {
+        "Accept": "*/*",
+        "Referer": "%%url%%"
     },
+    "start": "{\"content",
+    "end": "\"}",
+    "next": "<a href=",
+	
+	
+    "link": {
+		
+		"after": "\"https",
+        "token1": "https:\\/\\/mangabuff.ru\\/",
+        "token2": "\\\"",
+        "replace": [
+            { "match": "\\\\", "text": "" },
+            { "prefix": "https://mangabuff.ru/" }
+        ]
+    },
+    "uniq": {
+		"after": "\"https",
+        "token1": "mangabuff.ru\\/",
+        "token2": "\\\"",
+        "replace":[ 
+		{ "match": "\\/", "text": "_" },
+		 { "match": "\\\\", "text": "" }
+		]
+    },
+    "title": {
+		"after": "\"https",
+        "token1": "\\\">",
+        "token2": "<\\/a>",
+        "replace": [
+		     { "clear_escape": true },
+            { "match": "\\\\n", "text": " " },
+            { "match": "<.*?>", "text": "" },
+            { "match": "\\\\", "text": "" },
+            { "match": "   ", "text": " " },
+            { "match": "  ", "text": " " },
+            { "match": "&quot;", "text": "\"" },
+            { "match": "\u2014", "text": "-" }
+        ]
+    }
+}
+
+
+
+
+
+
+
+   
+
+   },
     "chapter_complete": {
          "headers": {
 			"cookie": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6ImhJRU82TG13MnFqTlpxNmkwSU94ZVE9PSIsInZhbHVlIjoicEMrbG1UUm1PQnppalIxQ2FEL3MvODVIRm56STJFYmVzVTU2QXp3aUQrZzRRbHg1YVRtSzdSWTAzNVFzTSszZkdQVis4R1pFTmpCVjhvUFlHMGN2SWF4N0tvVTBuRGVUelJTTjJlK094V3UrMTdBelVsZGU2WHJORG5iSGpTcm1tOFJXK1Q0WmhBUjM0ak8wMlBUNnAxU1NoMU51ZFE4V2NwcnV3RG5PV1ZuWFpocEV4S1pQdmVuTnk1TUw5bTJUT1psZ0pkL0htQndOcmpkcTk0VHpIbUE0aEowWHlySGM0N0h6ZCtyWllqRT0iLCJtYWMiOiI1OWY2NjFhMmU2ZDRlYzU5NjhiYzMzMmY0MTZhOTMyNzc4NTExMzNkNzc0OWZkNDJlZmUxMzEwZWJkYTMxZjE4IiwidGFnIjoiIn0%3D",
@@ -280,9 +289,9 @@
             "assert": {
                 "mangas": [
                     {
-                        "title": "Ветролом",
-                        "link": "https://mangabuff.ru/manga/vetrolom-2013",
-                        "uniq": "Ветролом"
+                        "uniq": "Выбери_меня!",
+                        "link": "https://mangabuff.ru/manga/vyberi-menya",
+                        "title": "Выбери меня!"
                     }
                 ],
                 "mangas_count": ">=20"
@@ -294,20 +303,18 @@
             "title": "Как насытить дьявола / How to fill the devil",
 			
 			"assert": {
-                "cover": "https://mangabuff.ru/img/manga/posters/kak-nasytit-dyavola.jpg",
-                "genres": "@action",
-                "status": "ongoing",
+                "cover": "@^https://mangabuff.ru/img/manga/posters/kak-nasytit-dyavola\\.(jpg|png)$",
+                "status": "complete",
 				"summary": "@^(Мой мир - это вечный цикл перерождений)",
-                "chapters_count": ">=65",
+                "chapters_count": ">=80",
                 "chapters": [
         {
-            "folder": "1\\",
             "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/1",
-            "title": "Том 1 Глава 1"
+            "title": "Том 1 . Глава 1"
         },
         {
-            "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/2",
-            "title": "Том 1 Глава 2"
+             "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/2",
+            "title": "Том 1 . Глава 2"
         }
                 ]
             }
@@ -317,10 +324,9 @@
             "link": "https://mangabuff.ru/manga/kak-nasytit-dyavola/1/1",
             "assert": {
                 "pages": [
-        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/1.jpeg"},
-        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/2.jpeg"},
-        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/3.jpeg"},
-        {"image": "https://c2.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/4.jpeg"}
+        {"image": "https://c3.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/1.jpeg"},
+        {"image": "https://c3.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/2.jpeg"},
+        {"image": "https://c3.mangabuff.ru/chapters/agmaleul-baebullineun-beob/1/1/3.jpeg"}
                 ]
             }
         }
