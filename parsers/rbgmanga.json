@@ -1,6 +1,6 @@
 {
     "id": 40155,
-    "version": 101,
+    "version": 103,
     "title": "Re:Manga",
     "host": "https://api.remanga.org",
     "public_link": "https://remanga.org/manga",
@@ -23,23 +23,24 @@
     "manga_search_complete": {
        "headers": {
 			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "cookie2": "auth:server-token=LMepZlZIqW2BN88Xmcks8mtGpAPEub",
             
             "Referer": "https://remanga.org/",
 	 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 			},
-        "search_link": "https://api.remanga.org/api/search/?count=10&page=$page$&query=$query$",
+        "search_link": "https://api.remanga.org/api/v2/search/?count=10&page=$page$&query=$query$",
         "query_type": "GET",
         "add_manga": {
-            "start": "content\"",
-            "end": "props\"",
-            "next": "bookmark_type\"",
+            "start": "results\"",
+            "end": "]}",
+            "next": "\"is_licensed\"",
             "link": {
-                "before": "bookmark_type\"",
+                "before": "\"is_licensed\"",
                 "token1": "dir\":\"",
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api.remanga.org/api/titles/"
+                        "prefix": "https://api.remanga.org/api/v2/titles/"
                     },
                     {
                         "sufix": "/"
@@ -47,17 +48,17 @@
                 ]
             },
             "cover": {
-                "skip": "bookmark_type\"",
+                "skip": "\"is_licensed\"",
                 "token1": "mid\":\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://remanga.org"
+                    "prefix": "https://api.remanga.org/"
                 }
             },
             "title": {
-                "before": "bookmark_type\"",
-                "token1": "main_name\":\"",
-                "token2": "\",\"translate_status",
+                "before": "\"is_licensed\"",
+                "token1": "\"main_name\":\"",
+                "token2": "\",\"type",
                 "replace": {
                     "match": "\",\"secondary_name\":\"",
                     "text": " | "
@@ -67,15 +68,47 @@
                 "token1": "\"issue_",
                 "token2": "\"bookmark_type\"",
                 "replace": [
+				    {
+                        "match": "\"another_name\":\"(.*?)\",",
+                        "text": ""
+                    },
                     {
                         "match": "year\":",
                         "text": "Год выпуска "
                     },
 					{
+                        "match": "\"admin_rating\":\"(.*?)\",",
+                        "text": ""
+                    },
+					{
+                        "match": "\"total_votes\":(.*?),",
+                        "text": ""
+                    },
+					{
+                        "match": "\"total_views\":(.*?),",
+                        "text": ""
+                    },
+					{
+                        "match": "\"count_bookmarks\":(.*?),",
+                        "text": ""
+                    },
+					{
+                        "match": "\"count_moments\":(.*?),",
+                        "text": ""
+                    },
+					{
+                        "match": "\"cover\":(.*?)},",
+                        "text": ""
+                    },
+					{
                         "match": "\",",
                         "text": ","
                     },
-                    {
+					{
+                        "match": "\"is_licensed\"",
+                        "text": "Лицензия"
+                    },
+					{
                         "match": "\"avg_rating\":\"",
                         "text": " Рейтинг "
                     },
@@ -89,36 +122,25 @@
                     },
 					{
                         "match": "false",
-                        "text": "нет"
+                        "text": " нет"
                     },
 					{
                         "match": "true",
-                        "text": "да"
+                        "text": " да"
                     },
-					{
-                        "match": "\"admin_rating\":\"(.*?)\",",
-                        "text": ""
-                    },
-					
-					
-					
 					{
                         "match": "\"type\":(.*?),",
                         "text": ""
                     },
-					
-					
-					
-					
-                    {
+					{
                         "match": "\"count_chapters\":",
                         "text": " Доступно Глав "
                     }
                 ]
             },
             "uniq": {
-                "before": "bookmark_type\"",
-                "token1": "en_name\":\"",
+                "before": "\"is_licensed\"",
+                "token1": "dir\":\"",
                 "token2": "\""
             }
         }
@@ -126,28 +148,30 @@
     "manga_list_complete": {
         "headers": {
 			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "cookie2": "auth:server-token=LMepZlZIqW2BN88Xmcks8mtGpAPEub",
            
             "Referer": "https://remanga.org/",
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 			},
         "iterator": {
-            "base_url": "https://api.remanga.org/api/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
+            "base_url": "https://api.remanga.org/api/v2/search/catalog/?ordering=-rating&salt=&types=0&types=1&types=2&types=3&types=4&types=5&count=30&page=",
             "append_nums": {
                 "from": 1,
-                "to": 787
+                "to": 1612
             }
         },
         "add_manga": {
-            "start": "content",
-            "end": "props\"",
-            "next": "bookmark_type\"",
+             "start": "results\"",
+            "end": "]}",
+            "next": "\"bookmark_type\"",
+			
             "link": {
-                "before": "bookmark_type\"",
+                "before": "\"bookmark_type\"",
                 "token1": "dir\":\"",
                 "token2": "\",",
                 "replace": [
                     {
-                        "prefix": "https://api.remanga.org/api/titles/"
+                        "prefix": "https://api.remanga.org/api/v2/titles/"
                     },
                     {
                         "sufix": "/"
@@ -155,36 +179,32 @@
                 ]
             },
             "cover": {
-                "before": "bookmark_type\"",
-                "token1": "cover_mid\":\"",
+                "skip": "\"bookmark_type\"",
+                "token1": "mid\":\"",
                 "token2": "\"",
                 "replace": {
-                    "prefix": "https://api.remanga.org/media/"
+                    "prefix": "https://api.remanga.org/"
                 }
             },
-
             "title": {
-                "before": "bookmark_type\"",
-                "token1": "secondary_name\":\"",
-                "token2": "\",\"dir",
+                "before": "\"bookmark_type\"",
+                "token1": "\"main_name\":\"",
+                "token2": "\",\"type",
                 "replace": {
-                    "match": "\",\"main_name\":\"",
+                    "match": "\",\"secondary_name\":\"",
                     "text": " | "
                 }
             },
-
-
-            
             "uniq": {
-                "before": "bookmark_type\"",
-                "token1": "en_name\":\"",
+                "before": "\"bookmark_type\"",
+                "token1": "dir\":\"",
                 "token2": "\""
             }
         },
 	    "link_corrector": [
             {
                 "match": "remanga.org/manga/",
-                "text": "api.remanga.org/api/titles/"
+                "text": "api.remanga.org/api/v2/titles/"
             }
         ],
         "rating_auto_inc": {
@@ -196,22 +216,19 @@
 		
         "headers": {
 			"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "cookie2": "auth:server-token=LMepZlZIqW2BN88Xmcks8mtGpAPEub",
             
             "Referer": "https://remanga.org/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" 
 			},
         
         "title": {
-            "token1": "secondary_name\":",
-            "token2": "\"dir\":\"",
+            "token1": "secondary_name\":\"",
+            "token2": "\",\"another_name",
             "replace": [
                 {
-                    "match": "\"(.*?)\",\"(.*?)\":\"(.*?)\",",
-                    "text": "$3 | $1"
-                },
-                {
-                    "match": "\"another_name\":\"(.*?)\",",
-                    "text": ""
+                    "match": "\",\"main_name\":\"",
+                    "text": " | "
                 },
                 {
                     "match": "\"",
@@ -224,14 +241,14 @@
             ]
         },
         "additional_title": {
-            "token1": "secondary_name\":\"",
+            "token1": "another_name\":\"",
             "token2": "\","
         },
         "uniq": {
             "token1": "\"dir\":\"",
             "token2": "\","
         },
-        "cover": {
+		"cover": {
             "token1": "high\":\"",
             "token2": "\"",
             "replace": [
@@ -277,21 +294,15 @@
         "need_auth": "авторизироваться",
         "status": {
             "complete": {
-                "start": "\"status\"",
-                "end": "\"props",
+                "start": "translate_status\"",
+                "end": "\"dir",
                 "values": ["Закончен", "Переведена", "Сингл"]
             },
             "ongoing": {
-                "start": "\"status\"",
-                "end": "\"props",
+                 "start": "translate_status\"",
+                "end": "\"dir",
                 "value": "Продолжается"
             }
-        },
-        "chapters": {
-            "start": "content",
-            "end": "similarManga",
-            "token1": "total_chapters\":",
-            "token2": ","
         },
         "add_genres": {
             "start": "genres\":",
@@ -310,15 +321,15 @@
         },
         "chapters_from_page": {
             "after": "branches\"",
-            "token1": "id\":",
+            "token1": "\"id\":",
             "token2": ",",
             "replace": [
                 {
                     "prefix": "https://api.remanga.org/api/titles/chapters/?branch_id="
                 },
                 {
-                    "sufix": "&count=100&ordering=-index&user_data=0&page=%%iterator_num%%"
-                }
+                    "sufix": "&chapter=&count=100&ordering=-index&user_data=0&page=%%iterator_num%%"
+                }           
             ],
             "iterator": {
                 "base_url": "",
@@ -327,9 +338,11 @@
                 }
             }
         },
+		
         "add_chapter": {
 			"headers": {
 		"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+        "cookie2": "auth:server-token=LMepZlZIqW2BN88Xmcks8mtGpAPEub",
         "accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "authorization": "Bearer ET754qAHP4d4KMVjRrIl2jmem0cXQY",
@@ -399,6 +412,7 @@
 	   "use_servers_only": true,
         "headers": {
 		"cookie": "token=ET754qAHP4d4KMVjRrIl2jmem0cXQY",
+            "cookie2": "auth:server-token=LMepZlZIqW2BN88Xmcks8mtGpAPEub",
         "accept": "*/*",
         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
         "authorization": "Bearer ET754qAHP4d4KMVjRrIl2jmem0cXQY",
@@ -435,7 +449,7 @@
                 "mangas": [
                     {
                         "title": "Another Emperor Reborn, Возрождение иного императора",
-                        "link": "https://api.remanga.org/api/titles/another-emperor-reborn",
+                        "link": "https://api.remanga.org/api/v2/titles/another-emperor-reborn",
                         "uniq": "Another Emperor Reborn"
                     }
                 ],
@@ -444,7 +458,7 @@
         },
         {
             "proc": "manga_complete",
-            "link": "https://api.remanga.org/api/titles/unmanned-reincarnation/",
+            "link": "https://api.remanga.org/api/v2/titles/unmanned-reincarnation/",
             "title": "Поднятие уровня в одиночку / Solo Leveling",
             "assert": {
                 "cover": "https://api.remanga.org/media/titles/solo-leveling/60da630a4154ad4ab38883d37d38a7b7.jpg",
@@ -455,7 +469,7 @@
                 "chapters": [
                     {
                         "folder": "Том_2_Глава_136/",
-                        "link": "https://api.remanga.org/api/titles/chapters/462182",
+                        "link": "https://api.remanga.org/api/v2/titles/chapters/462182",
                         "title": "Том 2 Глава 136"
                     }
                 ]
