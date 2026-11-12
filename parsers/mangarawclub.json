@@ -1,6 +1,6 @@
 {
     "id": 30469,
-    "version": 18,
+    "version": 19,
     "old_sites": [
         "www.manga-raw.club",
         "www.mcreader.net",
@@ -230,9 +230,9 @@
         "add_images": {
             "start": "id=\"chapter-reader\"",
             "before": "id=\"image",
-            "token1": "<img src=\"https://",
+            "token1": "src=\"https://",
             "token2": "\"",
-            "end": "<div style=\"margin-top: 20px;padding: 10px;\">",
+            "end": "alt=\"Mgeko credits\"",
 			
             "replace":[
 			{
