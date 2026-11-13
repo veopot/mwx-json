@@ -1,6 +1,6 @@
 {
 	"id": 30401,
-	"version": 115,
+	"version": 116,
 	"title": "All Hentai",
 	"old_ids": [
 		1616
@@ -79,7 +79,7 @@
 	},
 	"manga_list_complete": {
 		"headers": {
-			"cookie": "remember_me=SWg2aGtiUkYwOG5RMGZjREclMkZjZkF6bHdlOSUyRkZsNm1uanRmcnFsTlk2YjQlM0Q6RHQzSnVNRkw2V2h3TVRsJTJCV3pRNldCT0E4Y1FmeGZsJTJCdERpTm5QYWJNck0lM0Q",
+			"cookie": "remember_me=WG9ibGZnZlQ3aXhrRnAxYnFMZ2dJYXZSdTNXcnQ5ODlOaVJwdXB4VHFTMCUzRDolMkYwViUyRjFIbUdTJTJGdXZvbEszREkyMDQ1MktnbGF3dTJXd3ZWV1BYJTJCRExkNWMlM0Q",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -94,7 +94,7 @@
 			"base_url": "https://20.allhen.online/list?sortType=RATING&offset=",
 			"append_nums": {
 				"from": 0,
-				"to": 28650,
+				"to": 30450,
 				"step": 50
 			}
 		},
@@ -132,7 +132,7 @@
 	},
 	"manga_complete": {
 		"headers": {
-			"cookie": "remember_me=SWg2aGtiUkYwOG5RMGZjREclMkZjZkF6bHdlOSUyRkZsNm1uanRmcnFsTlk2YjQlM0Q6RHQzSnVNRkw2V2h3TVRsJTJCV3pRNldCT0E4Y1FmeGZsJTJCdERpTm5QYWJNck0lM0Q",
+			"cookie": "remember_me=WG9ibGZnZlQ3aXhrRnAxYnFMZ2dJYXZSdTNXcnQ5ODlOaVJwdXB4VHFTMCUzRDolMkYwViUyRjFIbUdTJTJGdXZvbEszREkyMDQ1MktnbGF3dTJXd3ZWV1BYJTJCRExkNWMlM0Q",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -229,7 +229,7 @@
 		],
 		"add_chapter": {
 			"headers": {
-			"cookie": "remember_me=SWg2aGtiUkYwOG5RMGZjREclMkZjZkF6bHdlOSUyRkZsNm1uanRmcnFsTlk2YjQlM0Q6RHQzSnVNRkw2V2h3TVRsJTJCV3pRNldCT0E4Y1FmeGZsJTJCdERpTm5QYWJNck0lM0Q",
+			"cookie": "remember_me=WG9ibGZnZlQ3aXhrRnAxYnFMZ2dJYXZSdTNXcnQ5ODlOaVJwdXB4VHFTMCUzRDolMkYwViUyRjFIbUdTJTJGdXZvbEszREkyMDQ1MktnbGF3dTJXd3ZWV1BYJTJCRExkNWMlM0Q",
 			"Accept": "*/*",
 			"skin": "time",
 			"resize_type": "real",
@@ -272,7 +272,7 @@
 	},
 	"chapter_complete": {
 		"headers": {
-			"cookie": "remember_me=SWg2aGtiUkYwOG5RMGZjREclMkZjZkF6bHdlOSUyRkZsNm1uanRmcnFsTlk2YjQlM0Q6RHQzSnVNRkw2V2h3TVRsJTJCV3pRNldCT0E4Y1FmeGZsJTJCdERpTm5QYWJNck0lM0Q",
+			"cookie": "remember_me=WG9ibGZnZlQ3aXhrRnAxYnFMZ2dJYXZSdTNXcnQ5ODlOaVJwdXB4VHFTMCUzRDolMkYwViUyRjFIbUdTJTJGdXZvbEszREkyMDQ1MktnbGF3dTJXd3ZWV1BYJTJCRExkNWMlM0Q",
 			
 			"Accept": "*/*",
 			"Referer": "https://20.allhen.online/"

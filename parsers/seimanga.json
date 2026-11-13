@@ -1,12 +1,12 @@
 {
 	"id": 3075,
-	"version": 15, 
+	"version": 17, 
     
 	"old_sites": ["seimanga.me"],
 	
 	"title": "SeiManga",
-	"host": "https://1.seimanga.me",
-	"public_link": "https://1.seimanga.me",
+	"host": "https://1.seimanga.me/",
+	"public_link": "https://1.seimanga.me/",
 	"hash_tag": "seimanga",
 	"folder": "seimanga",
 	"name":"seimanga",
@@ -21,20 +21,20 @@
 	"catalog_link": "https://raw.githubusercontent.com/veopot/mwx-json/main/catalogs/seimanga.zip",
     "file_type": "sqlite",
 
-	"custom_settings": {
-    	"updates_check_delay": 5000
-    },
-
+	
     
 	
 
 
     "manga_search_complete": { 
     "headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},	
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },	
+		
+		
 		
         "search_link": "https://1.seimanga.me/search/advanced?q=$query$&offset=$page$",
         "query_type": "GET",
@@ -56,7 +56,7 @@
 	"manga_list_complete": {
 		"iterator": {
 			"base_url": "https://1.seimanga.me/list?sortType=RATING&offset=",
-			"append_nums": { "from": 0, "to": 4600, "step": 50,
+			"append_nums": { "from": 0, "to": 6200, "step": 50,
 			"last_page": {"after": "step gap", "token1": "offset=", "token2": "&amp"} }
 		},
 		"add_manga": { 
@@ -80,10 +80,11 @@
 	
 	{ "condition": "class=\"alert alert-warning mtr-message\">",
 	"headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
 		
 		
 	   "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
@@ -127,7 +128,11 @@
 			"need_auth": "Для доступа к странице",
 			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
+		"cover": {
+                "before": "class=\"cr-hero-poster__img",
+                "token1": "src=\"",
+                "token2": "\""
+            },
 		
 		"add_tags":   {
                 "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
@@ -152,10 +157,11 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
@@ -188,10 +194,11 @@
 	
 	{ "condition": "<span>Сценарист",
 	"headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
 		
 		
 	   "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
@@ -236,7 +243,11 @@
 		"need_auth": "Для доступа к странице",
 			
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
+		"cover": {
+                "before": "class=\"cr-hero-poster__img",
+                "token1": "src=\"",
+                "token2": "\""
+            },
 		
 		"add_tags":   {
                 "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
@@ -261,10 +272,11 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
@@ -294,10 +306,11 @@
 	
 	{ "condition": "",
 	"headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
 		
 	    "title": 		{ "after": "<meta itemprop=\"name\"", "token1": "content=\"", "token2": "\"",
 				"replace": [
@@ -339,7 +352,11 @@
 		"need_auth": "Для доступа к странице",
 		
 		"read_dir":     { "right_to_left": "tag/noyaoi", "left_to_right": "tag/manhwa" },
-		"cover":        { "before": "class=\"cr-hero-poster__img", "token1": "src=\"", "token2": "\"" },
+		"cover": {
+                "before": "class=\"cr-hero-poster__img",
+                "token1": "src=\"",
+                "token2": "\""
+            },
 		"add_tags":   {
                 "start": "App.UI.Components.ExpandableElements.init(' .cr-description', { strategy: 'text-lines-limit' })",
 		        "end": "Creation.initExpandableTags('.cr-hero",
@@ -360,10 +377,11 @@
 		
 		"add_chapter":  { 
 		"headers": {
-		"Referer": "https://1.seimanga.me/",
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
-		"Accept": "*/*"
-		},
+                "cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
+				"Accept": "*/*",
+                "Referer": "https://1.seimanga.me",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+            },
 			"start": 	"<table class=\"table table-hover\"",
 			"end": 		"</table>",
 			"next":  	"<i class=\"chapter-status",
@@ -399,10 +417,10 @@
 		
 		
 	"headers": {
-		"cookie": "remember_me=OGJqMVRhemR4JTJGZ0Q4RVhuNUxwOEd4MEtTNHFZVEJhNGVtSW1lVTFLZDU0JTNEOjNIWkNQZmglMkJmcmhRclVROGpERU1DbmJIYmdhWUI1N21wejNFMW5pZ1k5ZyUzRA",
+		"cookie": "remember_me=bmRRU0x2M2l0QlNXcDJwOEJvU2JUcEhZUTFSNFglMkZsSUQ4dmRlRSUyQk12SWslM0Q6JTJGTGVqV3dURGtIaXJwRHJxR3klMkJzMWRCcGhiZXRxU0Jua3ZhJTJCSllmc3ZMdyUzRA",
 		
 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-		"Referer": "https://1.seimanga.me/",
+		"Referer": "https://1.seimanga.me",
 		"Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
 		},
 		"add_numeration": true,
