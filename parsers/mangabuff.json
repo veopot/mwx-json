@@ -1,6 +1,6 @@
 {
     "id": 57843,
-    "version": 9,
+    "version": 10,
     "title": "Manga Buff",
     "host": "https://mangabuff.ru",
     "public_link": "https://mangabuff.ru/manga",
@@ -277,7 +277,7 @@
             "User-Agent": "MangaWatcherX" 
 			},
         "add_images": {
-            "start": "class=\"reader__pages\">",
+            "start": "class=\"reader__pages\"",
             "token1": "src=\"",
             "token2": "\"",
             "end": "<div class=\"reader__footer\">"
